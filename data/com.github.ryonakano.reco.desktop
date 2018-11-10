@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Reco
+GenericName=Audio Recording App
+Comment=Record discussions in case you take your minutes
+Categories=Audio;Utility;Recorder;
+Exec=com.github.ryonakano.reco %U
+Icon=com.github.ryonakano.reco
+Terminal=false
+Type=Application
