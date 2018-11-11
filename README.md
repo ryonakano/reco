@@ -4,7 +4,7 @@ Reco is an audio recording app designed for elementary OS.
 
 ![Screenshot](data/Screenshot.png)
 
-One day when I joined a discussion in my department I had to take a minutes with my elementary laptop. The discussion was high-paced so that I couldn't hear and write down everything into the minutes. After I came back home I searched whether there was a sound recorder that is designed for elementary OS but I couldn't find, althought there are some non-elementary apps like gnome-sound-recorder. I decided to create one that is designed for and fits in elementary OS.
+One day when I joined a discussion in my department I had to take a minutes with my elementary laptop. The discussion was so high-paced that I couldn't hear and write down everything into the minutes. After coming back home I searched whether there was a sound recorder designed for elementary OS but I couldn't find, althought there were some non-elementary apps like GNOME Sound Recorder. I decided to create one designed for and fits in elementary OS.
 
 Actually, however, I don't have much experience of programming, although I know a little bit about Java. So this app will be published after I learned programming more…
 
