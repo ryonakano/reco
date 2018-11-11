@@ -16,6 +16,7 @@
 */
 
 public class MainWindow : Gtk.ApplicationWindow {
+    private Gtk.HeaderBar headerbar;
     private Gtk.Stack stack;
 
     public MainWindow (Application app) {
@@ -31,12 +32,11 @@ public class MainWindow : Gtk.ApplicationWindow {
     construct {
         window_position = Gtk.WindowPosition.CENTER;
 
-        var headerbar = new Gtk.HeaderBar ();
+        headerbar = new Gtk.HeaderBar ();
         headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
         headerbar.get_style_context ().add_class ("default-decoration");
         headerbar.title = "";
         headerbar.has_subtitle = false;
-        headerbar.show_close_button = true;
 
         stack = new Gtk.Stack ();
         var welcome_view = new WelcomeView (this);
@@ -53,9 +53,11 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     public void show_welcome () {
         stack.visible_child_name = "welcome";
+        headerbar.show_close_button = true;
     }
 
     public void show_record () {
         stack.visible_child_name = "record";
+        headerbar.show_close_button = false;
     }
 }
