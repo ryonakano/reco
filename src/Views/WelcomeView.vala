@@ -31,6 +31,11 @@ public class WelcomeView : Gtk.Box {
     }
 
     construct {
+        // Import CSS
+        var cssprovider = new Gtk.CssProvider ();
+        cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), cssprovider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
         // Create settings widgets
         var format_label = new Gtk.Label ("Format:");
         format_label.xalign = 1;
@@ -53,26 +58,21 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (delay_spin, 1, 2, 1, 1);
 
         // Create buttons
-        var close_button = new Gtk.Button.with_label ("Close");
-
-        record_button = new Gtk.Button.with_label ("Start Recording");
-        record_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-
-        var recording_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
-        recording_box.margin_top = 24;
-        recording_box.spacing = 6;
-        recording_box.halign = Gtk.Align.END;
-        recording_box.add (close_button);
-        recording_box.add (record_button);
+        record_button = new Gtk.Button ();
+        record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
+        record_button.tooltip_text = "Start recording";
+        record_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        record_button.get_style_context ().add_class ("record-button");
+        record_button.halign = Gtk.Align.CENTER;
+        record_button.margin_top = 24;
+        record_button.width_request = 48;
+        record_button.height_request = 48;
 
         pack_start (settings_grid, false, false);
-        pack_end (recording_box, false, false);
+        pack_end (record_button, false, false);
 
         record_button.clicked.connect (() => {
             window.show_record ();
-        });
-        close_button.clicked.connect (() => {
-            window.destroy ();
         });
     }
 }

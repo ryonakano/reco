@@ -36,6 +36,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         headerbar.get_style_context ().add_class ("default-decoration");
         headerbar.title = "";
         headerbar.has_subtitle = false;
+        headerbar.show_close_button = true;
 
         stack = new Gtk.Stack ();
         var welcome_view = new WelcomeView (this);

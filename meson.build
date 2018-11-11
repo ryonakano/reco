@@ -1,7 +1,17 @@
 project('com.github.ryonakano.reco', 'vala', 'c')
 
+gnome = import('gnome')
+
+asresources = gnome.compile_resources(
+    'as-resources',
+    'data/' + meson.project_name() + '.gresource.xml',
+    source_dir: 'data',
+    c_name: 'as'
+)
+
 executable(
     meson.project_name(),
+    asresources,
     'src/Views/WelcomeView.vala',
     'src/Views/RecordView.vala',
     'src/Application.vala',
