@@ -5,11 +5,20 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
   <name>Reco</name>
-  <summary>Record discussions in case you take your minutes</summary>
+  <summary>Record talk to remember its content later</summary>
   <description>
     <p>
-      Reco is an audio recording app designed for elementary OS.
+      An audio recording app that lets you recall things talked later.
     </p>
+    <p>Useful when:</p>
+    <ul>
+      <li>you join a discussion and take your minutes later</li>
+      <li>you want to record talk with your friends or lover</li>
+    </ul>
+    <p>Features include:</p>
+    <ul>
+      <li>Timed recording</li>
+    </ul>
   </description>
   <screenshots>
     <screenshot type="default">
