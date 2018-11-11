@@ -64,7 +64,7 @@ public class WelcomeView : Gtk.Box {
         record_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
         record_button.get_style_context ().add_class ("record-button");
         record_button.halign = Gtk.Align.CENTER;
-        record_button.margin_top = 24;
+        record_button.margin_top = 12;
         record_button.width_request = 48;
         record_button.height_request = 48;
 
