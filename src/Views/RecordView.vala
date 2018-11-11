@@ -38,17 +38,18 @@ public class RecordView : Gtk.Box {
         label_grid.halign = Gtk.Align.CENTER;
         label_grid.attach (recording_label, 0, 1, 1, 1);
 
-        stop_button = new Gtk.Button.with_label ("Finish");
-        stop_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-
-        var recording_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
-        recording_box.margin_top = 24;
-        recording_box.spacing = 6;
-        recording_box.halign = Gtk.Align.END;
-        recording_box.add (stop_button);
+        stop_button = new Gtk.Button ();
+        stop_button.image = new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", Gtk.IconSize.DND);
+        stop_button.tooltip_text = "Stop recording";
+        stop_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        stop_button.get_style_context ().add_class ("record-button");
+        stop_button.halign = Gtk.Align.CENTER;
+        stop_button.margin_top = 12;
+        stop_button.width_request = 48;
+        stop_button.height_request = 48;
 
         pack_start (label_grid, false, false);
-        pack_end (recording_box, false, false);
+        pack_end (stop_button, false, false);
 
         stop_button.clicked.connect (() => {
             window.show_welcome ();
