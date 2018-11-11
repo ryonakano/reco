@@ -17,6 +17,7 @@
 
 public class Application : Gtk.Application {
     private MainWindow window;
+    public static GLib.Settings settings;
 
     public Application () {
         Object (
@@ -25,11 +26,20 @@ public class Application : Gtk.Application {
         );
     }
 
+    static construct {
+        settings = new Settings ("com.github.ryonakano.reco");
+    }
+
     protected override void activate () {
-        if (window != null) {
+        var window_x = settings.get_int ("window-x");
+        var window_y = settings.get_int ("window-y");
+
+        if (window != null) { // The app is already launched
             window.present ();
             return;
-        } else {
+        } else if (window_x != -1 || window_y != -1) { // Not a first time launch
+            window = new MainWindow.with_state (this, window_x, window_y);
+        } else { // First time launch
             window = new MainWindow (this);
         }
 

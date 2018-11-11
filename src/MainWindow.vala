@@ -29,11 +29,23 @@ public class MainWindow : Gtk.ApplicationWindow {
             width_request: 400,
             height_request: 300
         );
+        window_position = Gtk.WindowPosition.CENTER;
+        init ();
     }
 
-    construct {
-        window_position = Gtk.WindowPosition.CENTER;
+    public MainWindow.with_state (Application app, int x, int y) {
+        Object (
+            border_width: 6,
+            application: app,
+            resizable: false,
+            width_request: 400,
+            height_request: 300
+        );
+        move (x, y);
+        init ();
+    }
 
+    public void init () {
         headerbar = new Gtk.HeaderBar ();
         headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
         headerbar.get_style_context ().add_class ("default-decoration");
@@ -68,5 +80,15 @@ public class MainWindow : Gtk.ApplicationWindow {
     public void show_record () {
         stack.visible_child_name = "record";
         headerbar.show_close_button = false;
+    }
+
+    // Save window position when changed
+    public override bool configure_event (Gdk.EventConfigure event) {
+        int x, y;
+        get_position (out x, out y);
+        Application.settings.set_int ("window-x", x);
+        Application.settings.set_int ("window-y", y);
+
+        return base.configure_event (event);
     }
 }
