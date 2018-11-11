@@ -18,7 +18,7 @@
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
     private Gtk.ComboBoxText format_combobox;
-    private Gtk.SpinButton delay_spin;
+    public Gtk.SpinButton delay_spin { get; private set; }
     private Gtk.Button record_button;
 
     public WelcomeView (MainWindow window) {
@@ -72,7 +72,11 @@ public class WelcomeView : Gtk.Box {
         pack_end (record_button, false, false);
 
         record_button.clicked.connect (() => {
-            window.show_record ();
+            if (delay_spin.value != 0) {
+                window.show_countdown ();
+            } else {
+                window.show_record ();
+            }
         });
     }
 }
