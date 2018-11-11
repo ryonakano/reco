@@ -34,7 +34,9 @@ public class WelcomeView : Gtk.Box {
         // Import CSS
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), cssprovider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
+                                                    cssprovider,
+                                                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         // Create settings widgets
         var format_label = new Gtk.Label ("Format:");

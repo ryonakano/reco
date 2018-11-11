@@ -40,7 +40,6 @@ public class CountDownView : Gtk.Box {
         label_grid.attach (recording_label, 0, 1, 1, 1);
 
         pack_start (label_grid, false, false);
-
     }
 
     public void start_count () {
@@ -52,7 +51,7 @@ public class CountDownView : Gtk.Box {
         // Decrease remaining_time per seconds
         Timeout.add (1000, () => {
             remaining_time--;
-            
+
             // Show the decreased remaining_time
             recording_label.label = remaining_time.to_string ();
 
