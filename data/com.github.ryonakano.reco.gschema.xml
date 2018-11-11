@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema path="/com/github/ryonakano/reco/" id="com.github.ryonakano.reco">
+    <key name="window-x" type="i">
+      <default>-1</default>
+      <summary>Window x position</summary>
+      <description>X position of last closed window</description>
+    </key>
+    <key name="window-y" type="i">
+      <default>-1</default>
+      <summary>Window y position</summary>
+      <description>Y position of last closed window</description>
+    </key>
+  </schema>
+</schemalist>
