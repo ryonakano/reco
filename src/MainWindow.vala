@@ -46,6 +46,13 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     public void init () {
+        // Import CSS
+        var cssprovider = new Gtk.CssProvider ();
+        cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
+                                                    cssprovider,
+                                                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
         headerbar = new Gtk.HeaderBar ();
         headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
         headerbar.get_style_context ().add_class ("default-decoration");
