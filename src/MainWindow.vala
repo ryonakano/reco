@@ -29,23 +29,9 @@ public class MainWindow : Gtk.ApplicationWindow {
             width_request: 400,
             height_request: 300
         );
-        window_position = Gtk.WindowPosition.CENTER;
-        init ();
     }
 
-    public MainWindow.with_state (Application app, int x, int y) {
-        Object (
-            border_width: 6,
-            application: app,
-            resizable: false,
-            width_request: 400,
-            height_request: 300
-        );
-        move (x, y);
-        init ();
-    }
-
-    public void init () {
+    construct {
         // Import CSS
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
@@ -71,7 +57,6 @@ public class MainWindow : Gtk.ApplicationWindow {
         get_style_context ().add_class ("rounded");
         show_welcome ();
         add (stack);
-        show_all ();
     }
 
     public void show_welcome () {

@@ -37,10 +37,16 @@ public class Application : Gtk.Application {
         if (window != null) { // The app is already launched
             window.present ();
             return;
-        } else if (window_x != -1 || window_y != -1) { // Not a first time launch
-            window = new MainWindow.with_state (this, window_x, window_y);
-        } else { // First time launch
+        } else {
             window = new MainWindow (this);
+
+            if (window_x != -1 || window_y != -1) { // Not a first time launch
+                window.move (window_x, window_y);
+            } else { // First time launch
+                window.window_position = Gtk.WindowPosition.CENTER;
+            }
+
+            window.show_all ();
         }
 
         var quit_action = new SimpleAction ("quit", null);
