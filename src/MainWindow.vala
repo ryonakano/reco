@@ -55,8 +55,8 @@ public class MainWindow : Gtk.ApplicationWindow {
 
         set_titlebar (headerbar);
         get_style_context ().add_class ("rounded");
-        show_welcome ();
         add (stack);
+        show_welcome ();
     }
 
     public void show_welcome () {
