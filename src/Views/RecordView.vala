@@ -17,7 +17,13 @@
 
 public class RecordView : Gtk.Box {
     public MainWindow window { get; construct; }
+    private Gtk.Label time_label;
     private Gtk.Button stop_button;
+    private bool is_recording;
+    private int past_seconds_1 = 0; // Used for the 1's place of seconds
+    private int past_seconds_10 = 0; // Used for the 10's place of seconds
+    private int past_minutes_1 = 0; // Used for the 1's place of minutes
+    private int past_minutes_10 = 0; // Used for the 10's place of minutes
 
     public RecordView (MainWindow window) {
         Object (
@@ -29,14 +35,14 @@ public class RecordView : Gtk.Box {
     }
 
     construct {
-        var recording_label = new Gtk.Label ("Recording…");
-        recording_label.get_style_context ().add_class ("h2");
+        time_label = new Gtk.Label (null);
+        time_label.get_style_context ().add_class ("h2");
 
         var label_grid = new Gtk.Grid ();
         label_grid.column_spacing = 6;
         label_grid.row_spacing = 6;
         label_grid.halign = Gtk.Align.CENTER;
-        label_grid.attach (recording_label, 0, 1, 1, 1);
+        label_grid.attach (time_label, 0, 1, 1, 1);
 
         stop_button = new Gtk.Button ();
         stop_button.image = new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", Gtk.IconSize.DND);
@@ -52,6 +58,38 @@ public class RecordView : Gtk.Box {
 
         stop_button.clicked.connect (() => {
             window.show_welcome ();
+            is_recording = false;
         });
+    }
+
+    public void start_count () {
+        // Show initial time (00:00)
+        show_timer_label ();
+        is_recording = true;
+
+        Timeout.add (1000, () => {
+            if (past_seconds_10 < 5 && past_seconds_1 == 9) { // The count turns from XX:X9 to XX:X0
+                past_seconds_10++;
+                past_seconds_1 = 0;
+                show_timer_label ();
+            } else if (past_minutes_1 < 9 && past_seconds_10 == 5 && past_seconds_1 == 9) { // The count turns from X0:59 to X1:00
+                past_minutes_1++;
+                past_seconds_1 = past_seconds_10 = 0;
+                show_timer_label ();
+            } else if (past_minutes_1 == 9 && past_seconds_10 == 5 && past_seconds_1 == 9) { // The count turns from 09:59 to 10:00
+                past_minutes_10++;
+                past_minutes_1 = past_seconds_10 = past_seconds_1 = 0;
+                show_timer_label ();
+            } else { // The count increases 1 second
+                past_seconds_1++;
+                show_timer_label ();
+            }
+
+            return is_recording? true : false;
+        });
+    }
+
+    private void show_timer_label () {
+        time_label.label = "%i%i:%i%i".printf (past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
     }
 }

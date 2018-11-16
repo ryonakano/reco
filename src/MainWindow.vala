@@ -20,6 +20,7 @@ public class MainWindow : Gtk.ApplicationWindow {
     private Gtk.Stack stack;
     public WelcomeView welcome_view { get; private set; }
     public CountDownView countdown_view { get; private set; }
+    public RecordView record_view { get; private set; }
 
     public MainWindow (Application app) {
         Object (
@@ -48,7 +49,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         stack = new Gtk.Stack ();
         welcome_view = new WelcomeView (this);
         countdown_view = new CountDownView (this);
-        var record_view = new RecordView (this);
+        record_view = new RecordView (this);
         stack.add_named (welcome_view, "welcome");
         stack.add_named (countdown_view, "count");
         stack.add_named (record_view, "record");
@@ -71,6 +72,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     public void show_record () {
         stack.visible_child_name = "record";
+        record_view.start_count ();
         headerbar.show_close_button = false;
     }
 
