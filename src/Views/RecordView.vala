@@ -41,7 +41,6 @@ public class RecordView : Gtk.Box {
         stop_button = new Gtk.Button ();
         stop_button.image = new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", Gtk.IconSize.DND);
         stop_button.tooltip_text = "Stop recording";
-        stop_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
         stop_button.get_style_context ().add_class ("record-button");
         stop_button.halign = Gtk.Align.CENTER;
         stop_button.margin_top = 12;

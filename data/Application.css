@@ -1,4 +1,6 @@
 .record-button {
+    background: linear-gradient(#ed5353, #c6262e);
     border-radius: 50%;
     border: none;
+    color: #fafafa;
 }

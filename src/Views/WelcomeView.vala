@@ -56,7 +56,6 @@ public class WelcomeView : Gtk.Box {
         record_button = new Gtk.Button ();
         record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
         record_button.tooltip_text = "Start recording";
-        record_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
         record_button.get_style_context ().add_class ("record-button");
         record_button.halign = Gtk.Align.CENTER;
         record_button.margin_top = 12;
