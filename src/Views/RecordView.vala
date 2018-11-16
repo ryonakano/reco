@@ -20,10 +20,10 @@ public class RecordView : Gtk.Box {
     private Gtk.Label time_label;
     private Gtk.Button stop_button;
     private bool is_recording;
-    private int past_seconds_1 = 0; // Used for the 1's place of seconds
-    private int past_seconds_10 = 0; // Used for the 10's place of seconds
-    private int past_minutes_1 = 0; // Used for the 1's place of minutes
-    private int past_minutes_10 = 0; // Used for the 10's place of minutes
+    private int past_seconds_1; // Used for the 1's place of seconds
+    private int past_seconds_10; // Used for the 10's place of seconds
+    private int past_minutes_1; // Used for the 1's place of minutes
+    private int past_minutes_10; // Used for the 10's place of minutes
 
     public RecordView (MainWindow window) {
         Object (
@@ -63,6 +63,8 @@ public class RecordView : Gtk.Box {
     }
 
     public void start_count () {
+        past_minutes_10 = past_minutes_1 = past_seconds_10 = past_seconds_1 = 0;
+
         // Show initial time (00:00)
         show_timer_label ();
         is_recording = true;
