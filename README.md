@@ -6,13 +6,24 @@ Reco is an audio recording app designed for elementary OS.
 
 One day when I joined a discussion in my department I had to take a minutes with my elementary laptop. The discussion was so high-paced that I couldn't hear and write down everything into the minutes. After coming back home I searched whether there was a sound recorder designed for elementary OS but I couldn't find, althought there were some non-elementary apps like GNOME Sound Recorder. I decided to create one designed for and fits in elementary OS.
 
-Actually, however, I don't have much experience of programming, although I know a little bit about Java. So this app will be published after I learned programming more…
+Useful when:
+
+* you join a discussion and take your minutes later
+* you want to record talk with your friends or lover
+* you want to stream live on the Internet
+
+Features Include:
+
+* Timed recording
+* Available format: wav (more formats will be supported in future versions)
 
 ## Installation
 
 ### For Users
 
-This app is not ready for daily use yet.
+On elementary OS? Hit the button to get Reco:
+
+[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.ryonakano.reco)
 
 ### For Developers
 
@@ -20,6 +31,7 @@ You'll need the following dependencies:
 
 * libgtk-3.0-dev
 * libgranite-dev
+* libgstreamer1.0-dev
 * meson
 * valac
 
