@@ -37,6 +37,7 @@ public class WelcomeView : Gtk.Box {
         format_combobox = new Gtk.ComboBoxText ();
         format_combobox.append ("Ogg", "Ogg");
         format_combobox.append ("MP3", "MP3");
+        format_combobox.append ("Wav", "Wav");
         format_combobox.active_id = "Ogg";
 
         var delay_label = new Gtk.Label ("Delay in seconds:");
