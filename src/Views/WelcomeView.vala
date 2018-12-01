@@ -34,11 +34,10 @@ public class WelcomeView : Gtk.Box {
         // Create settings widgets
         var format_label = new Gtk.Label ("Format:");
         format_label.xalign = 1;
+        // TODO: Make it possible to record with various formats
         format_combobox = new Gtk.ComboBoxText ();
-        format_combobox.append ("ogg", "Ogg");
-        format_combobox.append ("mp3", "MP3");
         format_combobox.append ("wav", "Wav");
-        format_combobox.active_id = "ogg";
+        format_combobox.active_id = "wav";
 
         var delay_label = new Gtk.Label ("Delay in seconds:");
         delay_label.xalign = 1;
