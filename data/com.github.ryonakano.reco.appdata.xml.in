@@ -14,10 +14,12 @@
     <ul>
       <li>you join a discussion and take your minutes later</li>
       <li>you want to record talk with your friends or lover</li>
+      <li>you want to stream live on the Internet</li>
     </ul>
     <p>Features include:</p>
     <ul>
       <li>Timed recording</li>
+      <li>Available format: wav (more formats will be supported in future versions)</li>
     </ul>
   </description>
   <screenshots>
