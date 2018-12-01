@@ -32,14 +32,14 @@ public class WelcomeView : Gtk.Box {
 
     construct {
         // Create settings widgets
-        var format_label = new Gtk.Label ("Format:");
+        var format_label = new Gtk.Label (_("Format:"));
         format_label.xalign = 1;
         // TODO: Make it possible to record with various formats
         format_combobox = new Gtk.ComboBoxText ();
         format_combobox.append ("wav", "Wav");
         format_combobox.active_id = "wav";
 
-        var delay_label = new Gtk.Label ("Delay in seconds:");
+        var delay_label = new Gtk.Label (_("Delay in seconds:"));
         delay_label.xalign = 1;
         delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
 
@@ -55,7 +55,7 @@ public class WelcomeView : Gtk.Box {
         // Create buttons
         record_button = new Gtk.Button ();
         record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
-        record_button.tooltip_text = "Start recording";
+        record_button.tooltip_text = _("Start recording");
         record_button.get_style_context ().add_class ("record-button");
         record_button.halign = Gtk.Align.CENTER;
         record_button.margin_top = 12;
