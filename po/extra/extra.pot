@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-01 16:57+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:7
+#: data/com.github.ryonakano.reco.desktop.in:3
+msgid "Reco"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:8
+#: data/com.github.ryonakano.reco.desktop.in:5
+msgid "Record talk to remember its content later"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:10
+msgid "An audio recording app that lets you recall things talked later."
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:13
+msgid "Useful when:"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:15
+msgid "you join a discussion and take your minutes later"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:16
+msgid "you want to record talk with your friends or lover"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:18
+msgid "Features include:"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:20
+msgid "Timed recording"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:59
+msgid "Ryo Nakano"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.desktop.in:4
+msgid "Audio Recording App"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.desktop.in:8
+msgid "com.github.ryonakano.reco"
+msgstr ""

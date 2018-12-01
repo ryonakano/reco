@@ -48,7 +48,7 @@ public class RecordView : Gtk.Box {
 
         stop_button = new Gtk.Button ();
         stop_button.image = new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", Gtk.IconSize.DND);
-        stop_button.tooltip_text = "Stop recording";
+        stop_button.tooltip_text = _("Stop recording");
         stop_button.get_style_context ().add_class ("record-button");
         stop_button.halign = Gtk.Align.CENTER;
         stop_button.margin_top = 12;
@@ -75,7 +75,7 @@ public class RecordView : Gtk.Box {
             msg.parse_error (out err, out debug);
 
             is_recording = false;
-            var error_dialog = new Granite.MessageDialog.with_image_from_icon_name ("Unable to Create an Audio File", "A gstreamer error happened while recording:" + "\n%s\n\n".printf (err.message) + "Error: %s".printf (debug) + "\n", "dialog-error", Gtk.ButtonsType.CLOSE);
+            var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable to Create an Audio File"), _("A gstreamer error happened while recording:") + "\n%s\n\n".printf (err.message) + _("Error: %s").printf (debug) + "\n", "dialog-error", Gtk.ButtonsType.CLOSE);
             error_dialog.transient_for = window;
             error_dialog.run ();
             error_dialog.destroy ();
