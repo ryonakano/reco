@@ -1,5 +1,6 @@
-com.github.ryonakano.reco (0.1) UNRELEASED; urgency=low
+com.github.ryonakano.reco (0.1.0) bionic; urgency=low
 
-  * Init
+  [ Ryo Nakano ]
+  * Initial release.
 
- -- Ryo Nakano <ryonakaknock3@gmail.com>  Sat, 10 Nov 2018 23:47:33 +0900
+ -- Ryo <ryonakaknock3@gmail.com>  Sat, 01 Dec 2018 20:54:18 +0900
