@@ -5,6 +5,7 @@ Maintainer: Ryo Nakano <ryonakaknock3@gmail.com>
 Build-Depends: debhelper (>= 10.5.1),
                libgranite-dev,
                libgtk-3-dev,
+               libgstreamer1.0-dev,
                meson,
                valac
 Standards-Version: 4.1.1
