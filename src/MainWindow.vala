@@ -72,7 +72,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     public void show_record () {
         stack.visible_child_name = "record";
-        record_view.start_count ();
+        record_view.start_recording ();
         headerbar.show_close_button = false;
     }
 
