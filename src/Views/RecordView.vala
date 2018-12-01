@@ -20,6 +20,8 @@ public class RecordView : Gtk.Box {
     private Gtk.Label time_label;
     private Gtk.Button stop_button;
     private bool is_recording;
+    private Gst.Bin audiobin;
+    private Gst.Pipeline pipeline;
     private int past_seconds_1; // Used for the 1's place of seconds
     private int past_seconds_10; // Used for the 10's place of seconds
     private int past_minutes_1; // Used for the 1's place of minutes
@@ -57,12 +59,102 @@ public class RecordView : Gtk.Box {
         pack_end (stop_button, false, false);
 
         stop_button.clicked.connect (() => {
+            stop_recording ();
             window.show_welcome ();
             is_recording = false;
         });
     }
 
-    public void start_count () {
+    private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
+        switch (msg.type) {
+        case Gst.MessageType.ERROR:
+            GLib.Error err;
+
+            string debug;
+
+            msg.parse_error (out err, out debug);
+
+            is_recording = false;
+            var error_dialog = new Granite.MessageDialog.with_image_from_icon_name ("Unable to Create an Audio File", "A gstreamer error happened while recording:" + "\n%s\n\n".printf (err.message) + "Error: %s".printf (debug) + "\n", "dialog-error", Gtk.ButtonsType.CLOSE);
+            error_dialog.transient_for = window;
+            error_dialog.run ();
+            error_dialog.destroy ();
+            stop_recording ();
+            window.show_welcome ();
+
+            pipeline.set_state (Gst.State.NULL);
+            break;
+        case Gst.MessageType.EOS:
+            pipeline.set_state (Gst.State.NULL);
+
+            is_recording = false;
+
+            pipeline.dispose ();
+            pipeline = null;
+            break;
+        default:
+            break;
+        }
+
+        return true;
+    }
+
+    public void start_recording () {
+        start_count ();
+
+        pipeline = new Gst.Pipeline ("pipeline");
+        audiobin = new Gst.Bin ("audio");
+        var sink = Gst.ElementFactory.make ("filesink", "sink");
+
+        if (pipeline == null) {
+            stderr.printf ("Error: Gstreamer sink was not created correctly!\n");
+        } else if (audiobin == null) {
+            stderr.printf ("Error: Gstreamer pipeline was not created correctly!\n");
+        } else if (sink == null) {
+            stderr.printf ("Error: Gstreamer audiobin was not created correctly!\n");
+        }
+
+        string default_input = "";
+        try {
+            string sound_inputs = "";
+            Process.spawn_command_line_sync ("pacmd list-sources", out sound_inputs);
+            GLib.Regex re = new GLib.Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
+            MatchInfo mi;
+            if (re.match (sound_inputs, 0, out mi)) {
+                default_input = mi.fetch (0);
+                stdout.printf ("Input device found: %s\n".printf (default_input));
+            }
+        } catch (Error e) {
+            warning (e.message);
+        }
+
+        try {
+            audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! wavenc", true);
+        } catch (Error e) {
+            stderr.printf ("Error: %s\n", e.message);
+        }
+
+        assert (sink != null);
+        string destination = GLib.Environment.get_home_dir () + "/%s".printf ("Recordings");
+        if (destination != null) {
+            DirUtils.create_with_parents (destination, 0775);
+        }
+        string filename = destination + "/reco_" + new GLib.DateTime.now_local ().to_unix ().to_string () + ".wav";
+        sink.set ("location", filename);
+        stdout.printf ("Audio is stored as %s\n".printf (filename));
+
+        pipeline.add_many (audiobin, sink);
+        audiobin.link (sink);
+
+        pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
+        pipeline.set_state (Gst.State.PLAYING);
+    }
+
+    private void stop_recording () {
+        pipeline.send_event (new Gst.Event.eos ());
+    }
+
+    private void start_count () {
         past_minutes_10 = past_minutes_1 = past_seconds_10 = past_seconds_1 = 0;
 
         // Show initial time (00:00)

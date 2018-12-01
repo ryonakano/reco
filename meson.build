@@ -19,7 +19,8 @@ executable(
     'src/MainWindow.vala',
     dependencies: [
         dependency('granite'),
-        dependency('gtk+-3.0')
+        dependency('gtk+-3.0'),
+        dependency('gstreamer-1.0')
     ],
     install: true
 )
