@@ -130,18 +130,22 @@ public class RecordView : Gtk.Box {
             warning (e.message);
         }
 
-        try {
-            audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! wavenc", true);
-        } catch (Error e) {
-            stderr.printf ("Error: %s\n", e.message);
-        }
-
         assert (sink != null);
         string destination = GLib.Environment.get_home_dir () + "/%s".printf ("Recordings");
         if (destination != null) {
             DirUtils.create_with_parents (destination, 0775);
         }
-        string filename = destination + "/reco_" + new GLib.DateTime.now_local ().to_unix ().to_string () + ".wav";
+        string filename = destination + "/reco_" + new GLib.DateTime.now_local ().to_unix ().to_string ();
+
+        try {
+            if (window.welcome_view.format_combobox.active_id == "wav") {
+                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! wavenc", true);
+                filename += ".wav";
+            }
+        } catch (Error e) {
+            stderr.printf ("Error: %s\n", e.message);
+        }
+
         sink.set ("location", filename);
         stdout.printf ("Audio is stored as %s\n".printf (filename));
 

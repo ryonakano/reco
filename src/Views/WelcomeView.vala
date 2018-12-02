@@ -17,7 +17,7 @@
 
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
-    private Gtk.ComboBoxText format_combobox;
+    public Gtk.ComboBoxText format_combobox { get; set; }
     public Gtk.SpinButton delay_spin { get; private set; }
     private Gtk.Button record_button;
 
