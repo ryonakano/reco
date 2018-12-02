@@ -36,6 +36,7 @@ public class WelcomeView : Gtk.Box {
         format_label.xalign = 1;
         // TODO: Make it possible to record with various formats
         format_combobox = new Gtk.ComboBoxText ();
+        format_combobox.append ("aac", _("AAC"));
         format_combobox.append ("flac", _("FLAC"));
         format_combobox.append ("mp3", _("MP3"));
         format_combobox.append ("ogg", _("Ogg Vorbis"));

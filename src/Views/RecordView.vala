@@ -138,7 +138,10 @@ public class RecordView : Gtk.Box {
         string filename = destination + "/reco_" + new GLib.DateTime.now_local ().to_unix ().to_string ();
 
         try {
-            if (window.welcome_view.format_combobox.active_id == "flac") {
+            if (window.welcome_view.format_combobox.active_id == "aac") {
+                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! avenc_aac ! mp4mux", true);
+                filename += ".m4a";
+            } else if (window.welcome_view.format_combobox.active_id == "flac") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! flacenc", true);
                 filename += ".flac";
             } else if (window.welcome_view.format_combobox.active_id == "mp3") {
