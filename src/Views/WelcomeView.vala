@@ -38,6 +38,7 @@ public class WelcomeView : Gtk.Box {
         format_combobox = new Gtk.ComboBoxText ();
         format_combobox.append ("mp3", _("MP3"));
         format_combobox.append ("ogg", _("Ogg Vorbis"));
+        format_combobox.append ("opus", _("Opus"));
         format_combobox.append ("wav", _("Wav"));
         format_combobox.active_id = "wav";
 

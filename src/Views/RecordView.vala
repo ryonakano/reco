@@ -144,6 +144,9 @@ public class RecordView : Gtk.Box {
             } else if (window.welcome_view.format_combobox.active_id == "ogg") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! vorbisenc ! oggmux", true);
                 filename += ".ogg";
+            } else if (window.welcome_view.format_combobox.active_id == "opus") {
+                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! opusenc ! oggmux", true);
+                filename += ".opus";
             } else if (window.welcome_view.format_combobox.active_id == "wav") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! wavenc", true);
                 filename += ".wav";
