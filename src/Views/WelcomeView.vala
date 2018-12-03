@@ -17,7 +17,7 @@
 
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
-    private Gtk.ComboBoxText format_combobox;
+    public Gtk.ComboBoxText format_combobox { get; set; }
     public Gtk.SpinButton delay_spin { get; private set; }
     private Gtk.Button record_button;
 
@@ -36,7 +36,12 @@ public class WelcomeView : Gtk.Box {
         format_label.xalign = 1;
         // TODO: Make it possible to record with various formats
         format_combobox = new Gtk.ComboBoxText ();
-        format_combobox.append ("wav", "Wav");
+        format_combobox.append ("aac", _("AAC"));
+        format_combobox.append ("flac", _("FLAC"));
+        format_combobox.append ("mp3", _("MP3"));
+        format_combobox.append ("ogg", _("Ogg Vorbis"));
+        format_combobox.append ("opus", _("Opus"));
+        format_combobox.append ("wav", _("Wav"));
         format_combobox.active_id = "wav";
 
         var delay_label = new Gtk.Label (_("Delay in seconds:"));

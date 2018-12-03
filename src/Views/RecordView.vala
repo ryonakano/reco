@@ -130,18 +130,37 @@ public class RecordView : Gtk.Box {
             warning (e.message);
         }
 
-        try {
-            audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! wavenc", true);
-        } catch (Error e) {
-            stderr.printf ("Error: %s\n", e.message);
-        }
-
         assert (sink != null);
         string destination = GLib.Environment.get_home_dir () + "/%s".printf ("Recordings");
         if (destination != null) {
             DirUtils.create_with_parents (destination, 0775);
         }
-        string filename = destination + "/reco_" + new GLib.DateTime.now_local ().to_unix ().to_string () + ".wav";
+        string filename = destination + "/reco_" + new GLib.DateTime.now_local ().to_unix ().to_string ();
+
+        try {
+            if (window.welcome_view.format_combobox.active_id == "aac") {
+                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! avenc_aac ! mp4mux", true);
+                filename += ".m4a";
+            } else if (window.welcome_view.format_combobox.active_id == "flac") {
+                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! flacenc", true);
+                filename += ".flac";
+            } else if (window.welcome_view.format_combobox.active_id == "mp3") {
+                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! lamemp3enc", true);
+                filename += ".mp3";
+            } else if (window.welcome_view.format_combobox.active_id == "ogg") {
+                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! vorbisenc ! oggmux", true);
+                filename += ".ogg";
+            } else if (window.welcome_view.format_combobox.active_id == "opus") {
+                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! opusenc ! oggmux", true);
+                filename += ".opus";
+            } else if (window.welcome_view.format_combobox.active_id == "wav") {
+                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! wavenc", true);
+                filename += ".wav";
+            }
+        } catch (Error e) {
+            stderr.printf ("Error: %s\n", e.message);
+        }
+
         sink.set ("location", filename);
         stdout.printf ("Audio is stored as %s\n".printf (filename));
 
