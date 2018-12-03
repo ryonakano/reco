@@ -29,7 +29,7 @@
      id="namedview88"
      showgrid="true"
      inkscape:zoom="16"
-     inkscape:cx="18.751666"
+     inkscape:cx="6.345416"
      inkscape:cy="23.090405"
      inkscape:window-x="0"
      inkscape:window-y="30"
@@ -397,7 +397,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -421,7 +421,7 @@
      id="path2555"
      d="m 44.500001,24.000002 c 0,-11.311193 -9.188806,-20.5000028 -20.499999,-20.5000028 -11.311196,0 -20.5000057,9.1888098 -20.5000027,20.5000028 0,11.311189 9.1888067,20.500007 20.5000027,20.499997 11.311193,0 20.499999,-9.188808 20.499999,-20.499997 z" />
   <path
-     style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:0.5;fill:none;stroke:#0e141f;stroke-width:1;marker:none;enable-background:accumulate;stroke-opacity:1;clip-rule:nonzero;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill-opacity:1;fill-rule:nonzero;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;filter-blend-mode:normal;filter-gaussianBlur-deviation:0;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto"
+     style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:0.5;fill:none;stroke:#7a0000;stroke-width:1;marker:none;enable-background:accumulate;stroke-opacity:1;clip-rule:nonzero;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill-opacity:1;fill-rule:nonzero;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;filter-blend-mode:normal;filter-gaussianBlur-deviation:0;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto"
      id="path3871"
      d="m 24,3.5 c -11.311193,0 -20.5,9.188806 -20.5,20.499999 0,11.311193 9.188807,20.500004 20.5,20.5 11.311191,0 20.500007,-9.188807 20.5,-20.5 C 44.5,12.688806 35.311191,3.5 24,3.5 Z" />
   <path
