@@ -131,7 +131,7 @@ public class RecordView : Gtk.Box {
         }
 
         assert (sink != null);
-        string destination = GLib.Environment.get_home_dir () + "/%s".printf ("Recordings");
+        string destination = GLib.Environment.get_home_dir () + "/%s".printf (_("Recordings"));
         if (destination != null) {
             DirUtils.create_with_parents (destination, 0775);
         }
