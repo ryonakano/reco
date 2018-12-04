@@ -19,9 +19,11 @@
 
 public class RecordView : Gtk.Box {
     public MainWindow window { get; construct; }
+    public Application app { get; construct; }
     private Gtk.Label time_label;
     private Gtk.Button stop_button;
     private bool is_recording;
+    private string filename;
     private Gst.Bin audiobin;
     private Gst.Pipeline pipeline;
     private int past_seconds_1; // Used for the 1's place of seconds
@@ -29,11 +31,12 @@ public class RecordView : Gtk.Box {
     private int past_minutes_1; // Used for the 1's place of minutes
     private int past_minutes_10; // Used for the 10's place of minutes
 
-    public RecordView (MainWindow window) {
+    public RecordView (MainWindow window, Application app) {
         Object (
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 12,
             window: window,
+            app: app,
             margin: 6
         );
     }
@@ -91,6 +94,10 @@ public class RecordView : Gtk.Box {
 
             is_recording = false;
 
+            var notification = new Notification (_("Audio Recorded Successfully"));
+            notification.set_body (_("Audio was saved at %s").printf (filename));
+            app.send_notification ("app", notification);
+
             pipeline.dispose ();
             pipeline = null;
             break;
@@ -135,7 +142,7 @@ public class RecordView : Gtk.Box {
         if (destination != null) {
             DirUtils.create_with_parents (destination, 0775);
         }
-        string filename = destination + "/reco_" + new GLib.DateTime.now_local ().to_unix ().to_string ();
+        filename = destination + "/reco_" + new GLib.DateTime.now_local ().to_unix ().to_string ();
 
         try {
             if (window.welcome_view.format_combobox.active_id == "aac") {

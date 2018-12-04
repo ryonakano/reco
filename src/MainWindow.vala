@@ -16,6 +16,7 @@
 */
 
 public class MainWindow : Gtk.ApplicationWindow {
+    public Application app { get; construct; }
     private Gtk.HeaderBar headerbar;
     private Gtk.Stack stack;
     public WelcomeView welcome_view { get; private set; }
@@ -26,6 +27,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         Object (
             border_width: 6,
             application: app,
+            app: app,
             resizable: false,
             width_request: 400,
             height_request: 300
@@ -49,7 +51,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         stack = new Gtk.Stack ();
         welcome_view = new WelcomeView (this);
         countdown_view = new CountDownView (this);
-        record_view = new RecordView (this);
+        record_view = new RecordView (this, app);
         stack.add_named (welcome_view, "welcome");
         stack.add_named (countdown_view, "count");
         stack.add_named (record_view, "record");
