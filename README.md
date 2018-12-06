@@ -15,7 +15,7 @@ Useful when:
 Features Include:
 
 * Timed recording
-* Available format: AAC, FLAC, Ogg Vorbis, Opus, MP3 and Wav
+* Available format: AAC, FLAC, MP3, Ogg Vorbis, Opus and WAV
 
 ## Installation
 
