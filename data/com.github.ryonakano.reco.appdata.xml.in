@@ -5,21 +5,21 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
   <name>Reco</name>
-  <summary>Record talk to remember its content later</summary>
+  <summary>Record talks to remember the contents later</summary>
   <description>
     <p>
-      An audio recording app that lets you recall things talked later.
+      An audio recording app that helps you recall things talked later.
     </p>
     <p>Useful when:</p>
     <ul>
       <li>you join a discussion and take your minutes later</li>
       <li>you want to record talk with your friends or lover</li>
-      <li>you want to stream live on the Internet</li>
+      <li>you want to stream videos on the Internet</li>
     </ul>
     <p>Features include:</p>
     <ul>
       <li>Timed recording</li>
-      <li>Available format: wav (more formats will be supported in future versions)</li>
+      <li>Available format: AAC, FLAC, Ogg Vorbis, Opus, MP3 and Wav</li>
     </ul>
   </description>
   <screenshots>

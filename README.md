@@ -10,12 +10,12 @@ Useful when:
 
 * you join a discussion and take your minutes later
 * you want to record talk with your friends or lover
-* you want to stream live on the Internet
+* you want to stream videos on the Internet
 
 Features Include:
 
 * Timed recording
-* Available format: wav (more formats will be supported in future versions)
+* Available format: AAC, FLAC, Ogg Vorbis, Opus, MP3 and Wav
 
 ## Installation
 
