@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-01 16:57+0900\n"
+"POT-Creation-Date: 2018-12-08 20:01+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,27 +21,64 @@ msgstr ""
 msgid "Format:"
 msgstr ""
 
+#: src/Views/WelcomeView.vala:39
+msgid "AAC"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:40
+msgid "FLAC"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:41
+msgid "MP3"
+msgstr ""
+
 #: src/Views/WelcomeView.vala:42
+msgid "Ogg Vorbis"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:43
+msgid "Opus"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:44
+msgid "Wav"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:47
 msgid "Delay in seconds:"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:58
+#: src/Views/WelcomeView.vala:63
 msgid "Start recording"
 msgstr ""
 
-#: src/Views/RecordView.vala:51
+#: src/Views/RecordView.vala:57
 msgid "Stop recording"
 msgstr ""
 
-#: src/Views/RecordView.vala:78
+#: src/Views/RecordView.vala:84
 msgid "Unable to Create an Audio File"
 msgstr ""
 
-#: src/Views/RecordView.vala:78
-msgid "A gstreamer error happened while recording:"
+#: src/Views/RecordView.vala:84
+msgid "A GStreamer error happened while recording:"
 msgstr ""
 
-#: src/Views/RecordView.vala:78
+#: src/Views/RecordView.vala:84
 #, c-format
 msgid "Error: %s"
+msgstr ""
+
+#: src/Views/RecordView.vala:98
+msgid "Audio Recorded Successfully"
+msgstr ""
+
+#: src/Views/RecordView.vala:99
+#, c-format
+msgid "Audio was saved as %s"
+msgstr ""
+
+#: src/Views/RecordView.vala:143
+msgid "Recordings"
 msgstr ""
