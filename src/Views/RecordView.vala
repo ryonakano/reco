@@ -23,6 +23,7 @@ public class RecordView : Gtk.Box {
     private Gtk.Label time_label;
     private Gtk.Button stop_button;
     private bool is_recording;
+    private string destination;
     private string filename;
     private Gst.Bin audiobin;
     private Gst.Pipeline pipeline;
@@ -95,8 +96,9 @@ public class RecordView : Gtk.Box {
             is_recording = false;
 
             var notification = new Notification (_("Audio Recorded Successfully"));
-            notification.set_body (_("Audio was saved at %s").printf (filename));
-            app.send_notification ("app", notification);
+            notification.set_body (_("Audio was saved as %s").printf (filename));
+            notification.set_default_action_and_target_value ("app.show-file", new Variant.string (destination));
+            app.send_notification ("com.github.ryonakano.reco", notification);
 
             pipeline.dispose ();
             pipeline = null;
@@ -138,7 +140,7 @@ public class RecordView : Gtk.Box {
         }
 
         assert (sink != null);
-        string destination = GLib.Environment.get_home_dir () + "/%s".printf (_("Recordings"));
+        destination = GLib.Environment.get_home_dir () + "/%s".printf (_("Recordings"));
         if (destination != null) {
             DirUtils.create_with_parents (destination, 0775);
         }
