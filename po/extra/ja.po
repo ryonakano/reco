@@ -1,0 +1,73 @@
+# Japanese translations for extra package.
+# Copyright (C) 2018 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-08 20:03+0900\n"
+"PO-Revision-Date: 2018-12-08 20:08+0900\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"Language-Team: none\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.2\n"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:7
+#: data/com.github.ryonakano.reco.desktop.in:3
+msgid "Reco"
+msgstr "Reco"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:8
+#: data/com.github.ryonakano.reco.desktop.in:5
+msgid "Record talks to remember the contents later"
+msgstr "後で内容を思い出せるように会話を録音します"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:10
+msgid "An audio recording app that helps you recall things talked later."
+msgstr "会話内容を後で思い出すのに役に立つ、オーディオ録音アプリです。"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:13
+msgid "Useful when:"
+msgstr "こんな場合に便利:"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:15
+msgid "you join a discussion and take your minutes later"
+msgstr "議論に参加して後で議事録を取る場合"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:16
+msgid "you want to record talk with your friends or lover"
+msgstr "友達や恋人との会話を録音したい場合"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:17
+msgid "you want to stream videos on the Internet"
+msgstr "インターネットで動画配信をしたい場合"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:19
+msgid "Features include:"
+msgstr "含まれる機能:"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:21
+msgid "Timed recording"
+msgstr "遅延しての録音"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:22
+msgid "Available format: AAC, FLAC, MP3, Ogg Vorbis, Opus and WAV"
+msgstr "録音可能な形式: AAC・FLAC・MP3・Ogg Vorbis・Opus・WAV"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:61
+msgid "Ryo Nakano"
+msgstr "Ryo Nakano"
+
+#: data/com.github.ryonakano.reco.desktop.in:4
+msgid "Audio Recording App"
+msgstr "オーディオ録音アプリ"
+
+#: data/com.github.ryonakano.reco.desktop.in:8
+msgid "com.github.ryonakano.reco"
+msgstr "com.github.ryonakano.reco"
