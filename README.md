@@ -25,6 +25,12 @@ On elementary OS? Hit the button to get Reco:
 
 [![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.ryonakano.reco)
 
+#### Arch Linux
+
+Arch Linux users can find Reco under the name [reco-git](https://aur.archlinux.org/packages/reco-git/) in the AUR (thanks to [btd1337](https://github.com/btd1337)):
+
+    aurman -S reco-git
+
 ### For Developers
 
 You'll need the following dependencies:
