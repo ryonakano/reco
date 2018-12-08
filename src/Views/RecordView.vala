@@ -81,7 +81,7 @@ public class RecordView : Gtk.Box {
             msg.parse_error (out err, out debug);
 
             is_recording = false;
-            var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable to Create an Audio File"), _("A gstreamer error happened while recording:") + "\n%s\n\n".printf (err.message) + _("Error: %s").printf (debug) + "\n", "dialog-error", Gtk.ButtonsType.CLOSE);
+            var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable to Create an Audio File"), _("A GStreamer error happened while recording:") + "\n%s\n\n".printf (err.message) + _("Error: %s").printf (debug) + "\n", "dialog-error", Gtk.ButtonsType.CLOSE);
             error_dialog.transient_for = window;
             error_dialog.run ();
             error_dialog.destroy ();
