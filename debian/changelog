@@ -1,3 +1,11 @@
+com.github.ryonakano.reco (1.0.0) bionic; urgency=medium
+
+  * Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats
+  * Show a notification after recored successfully
+  * Add Japanese translation
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Sun, 09 Dec 2018 14:26:31 +0900
+
 com.github.ryonakano.reco (0.1.0) bionic; urgency=low
 
   [ Ryo Nakano ]
