@@ -35,7 +35,6 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     construct {
-        // Import CSS
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
