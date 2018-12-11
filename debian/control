@@ -13,4 +13,4 @@ Standards-Version: 4.1.1
 Package: com.github.ryonakano.reco
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Record discussions in case you take your minutes
+Description: Record talks to remember the contents later
