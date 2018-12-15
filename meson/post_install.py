@@ -7,7 +7,7 @@ schemadir = path.join(environ['MESON_INSTALL_PREFIX'], 'share', 'glib-2.0', 'sch
 iconcachedir = path.join(environ['MESON_INSTALL_PREFIX'], 'share', 'icons', 'hicolor')
 
 if not environ.get('DESTDIR'):
-    print('Completing gsettings schemas…')
+    print('Compiling gsettings schemas…')
     call(['glib-compile-schemas', schemadir])
 
     print('Rebuilding desktop icon cache…')
