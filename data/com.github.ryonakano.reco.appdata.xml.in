@@ -58,6 +58,18 @@
     <content_attribute id="money-gambling">none</content_attribute>
   </content_rating>
 
+  <releases>
+    <release version="1.0.0" date="2018-12-09">
+      <description>
+        <ul>
+          <li>Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats</li>
+          <li>Show a notification after recorded successfully</li>
+          <li>Add Japanese translation</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+
   <developer_name>Ryo Nakano</developer_name>
   <url type="homepage">https://github.com/ryonakano/reco</url>
   <url type="bugtracker">https://github.com/ryonakano/reco/issues</url>
