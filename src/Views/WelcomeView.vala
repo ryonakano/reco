@@ -19,6 +19,7 @@ public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
     public Gtk.ComboBoxText format_combobox { get; set; }
     public Gtk.SpinButton delay_spin { get; private set; }
+    public Gtk.SpinButton length_spin { get; private set; }
     private Gtk.Button record_button;
 
     public WelcomeView (MainWindow window) {
@@ -47,6 +48,10 @@ public class WelcomeView : Gtk.Box {
         delay_label.xalign = 1;
         delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
 
+        var length_label = new Gtk.Label (_("Length in seconds:"));
+        length_label.xalign = 1;
+        length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
+
         var settings_grid = new Gtk.Grid ();
         settings_grid.column_spacing = 6;
         settings_grid.row_spacing = 6;
@@ -55,6 +60,8 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (format_combobox, 1, 1, 1, 1);
         settings_grid.attach (delay_label, 0, 2, 1, 1);
         settings_grid.attach (delay_spin, 1, 2, 1, 1);
+        settings_grid.attach (length_label, 0, 3, 1, 1);
+        settings_grid.attach (length_spin, 1, 3, 1, 1);
 
         record_button = new Gtk.Button ();
         record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);

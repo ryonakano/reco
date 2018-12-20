@@ -178,6 +178,16 @@ public class RecordView : Gtk.Box {
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
         pipeline.set_state (Gst.State.PLAYING);
+
+        int record_length = window.welcome_view.length_spin.get_value_as_int ();
+        if (record_length != 0) {
+            Timeout.add ((record_length * 1000 + 1000), () => {
+                stop_recording ();
+                window.show_welcome ();
+                is_recording = false;
+                return false;
+            });
+        }
     }
 
     private void stop_recording () {
