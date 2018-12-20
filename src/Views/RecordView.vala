@@ -21,6 +21,7 @@ public class RecordView : Gtk.Box {
     public MainWindow window { get; construct; }
     public Application app { get; construct; }
     private Gtk.Label time_label;
+    private Gtk.Label remaining_time_label;
     private Gtk.Button stop_button;
     private bool is_recording;
     private string destination;
@@ -46,11 +47,15 @@ public class RecordView : Gtk.Box {
         time_label = new Gtk.Label (null);
         time_label.get_style_context ().add_class ("h2");
 
+        remaining_time_label = new Gtk.Label (null);
+        remaining_time_label.get_style_context ().add_class ("h3");
+
         var label_grid = new Gtk.Grid ();
         label_grid.column_spacing = 6;
         label_grid.row_spacing = 6;
         label_grid.halign = Gtk.Align.CENTER;
         label_grid.attach (time_label, 0, 1, 1, 1);
+        label_grid.attach (remaining_time_label, 0, 2, 1, 1);
 
         stop_button = new Gtk.Button ();
         stop_button.image = new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", Gtk.IconSize.DND);
@@ -181,12 +186,7 @@ public class RecordView : Gtk.Box {
 
         int record_length = window.welcome_view.length_spin.get_value_as_int ();
         if (record_length != 0) {
-            Timeout.add ((record_length * 1000 + 1000), () => {
-                stop_recording ();
-                window.show_welcome ();
-                is_recording = false;
-                return false;
-            });
+            start_countdown (record_length);
         }
     }
 
@@ -225,5 +225,24 @@ public class RecordView : Gtk.Box {
 
     private void show_timer_label () {
         time_label.label = "%i%i:%i%i".printf (past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
+    }
+
+    private void start_countdown (int remaining_time) {
+        remaining_time_label.label = remaining_time.to_string ();
+
+        Timeout.add (1000, () => {
+            remaining_time--;
+
+            remaining_time_label.label = remaining_time.to_string ();
+
+            if (remaining_time == 0) {
+                stop_recording ();
+                window.show_welcome ();
+                is_recording = false;
+                return false;
+            }
+
+            return true;
+        });
     }
 }
