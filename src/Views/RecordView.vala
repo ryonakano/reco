@@ -23,8 +23,6 @@ public class RecordView : Gtk.Box {
     private Gtk.Label time_label;
     private Gtk.Button stop_button;
     private bool is_recording;
-    private string tmp_destination;
-    private string tmp_filename;
     private string suffix;
     private string tmp_full_path;
     private Gst.Bin audiobin;
@@ -165,8 +163,8 @@ public class RecordView : Gtk.Box {
         }
 
         assert (sink != null);
-        tmp_destination = GLib.Environment.get_tmp_dir ();
-        tmp_filename = _("reco_") + new GLib.DateTime.now_local ().to_unix ().to_string ();
+        string tmp_destination = GLib.Environment.get_tmp_dir ();
+        string tmp_filename = _("reco_") + new GLib.DateTime.now_local ().to_unix ().to_string ();
 
         try {
             if (window.welcome_view.format_combobox.active_id == "aac") {
