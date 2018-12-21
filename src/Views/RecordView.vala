@@ -25,6 +25,7 @@ public class RecordView : Gtk.Box {
     private bool is_recording;
     private string destination;
     private string filename;
+    private string full_path;
     private Gst.Bin audiobin;
     private Gst.Pipeline pipeline;
     private int past_seconds_1; // Used for the 1's place of seconds
@@ -96,7 +97,7 @@ public class RecordView : Gtk.Box {
             is_recording = false;
 
             var notification = new Notification (_("Audio Recorded Successfully"));
-            notification.set_body (_("Audio was saved as %s").printf (filename));
+            notification.set_body (_("Audio was saved as %s").printf (full_path));
             notification.set_default_action_and_target_value ("app.show-file", new Variant.string (destination));
             app.send_notification ("com.github.ryonakano.reco", notification);
 
@@ -144,7 +145,7 @@ public class RecordView : Gtk.Box {
         if (destination != null) {
             DirUtils.create_with_parents (destination, 0775);
         }
-        filename = destination + "/reco_" + new GLib.DateTime.now_local ().to_unix ().to_string ();
+        filename = _("Recording from ") + new GLib.DateTime.now_local ().to_unix ().to_string ();
 
         try {
             if (window.welcome_view.format_combobox.active_id == "aac") {
@@ -170,8 +171,9 @@ public class RecordView : Gtk.Box {
             stderr.printf ("Error: %s\n", e.message);
         }
 
-        sink.set ("location", filename);
-        stdout.printf ("Audio is stored as %s\n".printf (filename));
+        full_path = destination + "/%s".printf (filename);
+        sink.set ("location", full_path);
+        stdout.printf ("Audio is stored as %s\n".printf (full_path));
 
         pipeline.add_many (audiobin, sink);
         audiobin.link (sink);
