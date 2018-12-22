@@ -24,6 +24,8 @@ public class RecordView : Gtk.Box {
     private Gtk.Label remaining_time_label;
     private Gtk.Button stop_button;
     private bool is_recording;
+    private uint count;
+    private uint countdown;
     private string destination;
     private string filename;
     private string full_path;
@@ -193,6 +195,12 @@ public class RecordView : Gtk.Box {
     }
 
     private void stop_recording () {
+        if (count != 0) {
+            Source.remove (count);
+        }
+        if (countdown != 0) {
+            Source.remove (countdown);
+        }
         pipeline.send_event (new Gst.Event.eos ());
     }
 
@@ -203,7 +211,7 @@ public class RecordView : Gtk.Box {
         show_timer_label ();
         is_recording = true;
 
-        Timeout.add (1000, () => {
+        count = Timeout.add (1000, () => {
             if (past_seconds_10 < 5 && past_seconds_1 == 9) { // The count turns from XX:X9 to XX:X0
                 past_seconds_10++;
                 past_seconds_1 = 0;
@@ -232,7 +240,7 @@ public class RecordView : Gtk.Box {
     private void start_countdown (int remaining_time) {
         remaining_time_label.label = remaining_time.to_string ();
 
-        Timeout.add (1000, () => {
+        countdown = Timeout.add (1000, () => {
             remaining_time--;
 
             remaining_time_label.label = remaining_time.to_string ();
