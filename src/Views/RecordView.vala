@@ -21,16 +21,15 @@ public class RecordView : Gtk.Box {
     public MainWindow window { get; construct; }
     public Application app { get; construct; }
     private Gtk.Label time_label;
+    private Gtk.Label remaining_time_label;
     private Gtk.Button stop_button;
     private bool is_recording;
     private string suffix;
     private string tmp_full_path;
+    private uint count;
+    private uint countdown;
     private Gst.Bin audiobin;
     private Gst.Pipeline pipeline;
-    private int past_seconds_1; // Used for the 1's place of seconds
-    private int past_seconds_10; // Used for the 10's place of seconds
-    private int past_minutes_1; // Used for the 1's place of minutes
-    private int past_minutes_10; // Used for the 10's place of minutes
 
     public RecordView (MainWindow window, Application app) {
         Object (
@@ -46,11 +45,15 @@ public class RecordView : Gtk.Box {
         time_label = new Gtk.Label (null);
         time_label.get_style_context ().add_class ("h2");
 
+        remaining_time_label = new Gtk.Label (null);
+        remaining_time_label.get_style_context ().add_class ("h3");
+
         var label_grid = new Gtk.Grid ();
         label_grid.column_spacing = 6;
         label_grid.row_spacing = 6;
         label_grid.halign = Gtk.Align.CENTER;
         label_grid.attach (time_label, 0, 1, 1, 1);
+        label_grid.attach (remaining_time_label, 0, 2, 1, 1);
 
         stop_button = new Gtk.Button ();
         stop_button.image = new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", Gtk.IconSize.DND);
@@ -199,42 +202,109 @@ public class RecordView : Gtk.Box {
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
         pipeline.set_state (Gst.State.PLAYING);
+
+        int record_length = window.welcome_view.length_spin.get_value_as_int ();
+        if (record_length != 0) {
+            start_countdown (record_length);
+        }
     }
 
     private void stop_recording () {
+        if (count != 0) {
+            Source.remove (count);
+        }
+        if (countdown != 0) {
+            Source.remove (countdown);
+        }
         pipeline.send_event (new Gst.Event.eos ());
     }
 
     private void start_count () {
-        past_minutes_10 = past_minutes_1 = past_seconds_10 = past_seconds_1 = 0;
+        int past_minutes_10 = 0;
+        int past_minutes_1 = 0;
+        int past_seconds_10 = 0;
+        int past_seconds_1 = 0;
 
         // Show initial time (00:00)
-        show_timer_label ();
+        show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
         is_recording = true;
 
-        Timeout.add (1000, () => {
-            if (past_seconds_10 < 5 && past_seconds_1 == 9) { // The count turns from XX:X9 to XX:X0
+        count = Timeout.add (1000, () => {
+            if (past_seconds_10 < 5 && past_seconds_1 == 9) { // The count turns from wx:y9 to wx:(y+1)0
                 past_seconds_10++;
                 past_seconds_1 = 0;
-                show_timer_label ();
-            } else if (past_minutes_1 < 9 && past_seconds_10 == 5 && past_seconds_1 == 9) { // The count turns from X0:59 to X1:00
+            } else if (past_minutes_1 < 9 && past_seconds_10 == 5 && past_seconds_1 == 9) { // The count turns from wx:59 to w(x+1):00
                 past_minutes_1++;
                 past_seconds_1 = past_seconds_10 = 0;
-                show_timer_label ();
-            } else if (past_minutes_1 == 9 && past_seconds_10 == 5 && past_seconds_1 == 9) { // The count turns from 09:59 to 10:00
+            } else if (past_minutes_1 == 9 && past_seconds_10 == 5 && past_seconds_1 == 9) { // The count turns from w9:59 to (w+1)0:00
                 past_minutes_10++;
                 past_minutes_1 = past_seconds_10 = past_seconds_1 = 0;
-                show_timer_label ();
-            } else { // The count increases 1 second
+            } else { // The count turns from wx:yx to wx:y(z+1)
                 past_seconds_1++;
-                show_timer_label ();
             }
+
+            show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
 
             return is_recording? true : false;
         });
     }
 
-    private void show_timer_label () {
-        time_label.label = "%i%i:%i%i".printf (past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
+    private void start_countdown (int remaining_time) {
+        int remain_minutes_10;
+        int remain_minutes_1;
+        int remain_seconds_10;
+        int remain_seconds_1;
+
+        int remain_minutes = remaining_time / 60;
+        if (remain_minutes < 10) {
+            remain_minutes_10 = 0;
+            remain_minutes_1 = remain_minutes;
+        } else {
+            remain_minutes_10 = remain_minutes / 10;
+            remain_minutes_1 = remain_minutes % 10;
+        }
+        int remain_seconds = remaining_time % 60;
+        if (remain_seconds < 10) {
+            remain_seconds_10 = 0;
+            remain_seconds_1 = remain_seconds;
+        } else {
+            remain_seconds_10 = remain_seconds / 10;
+            remain_seconds_1 = remain_seconds % 10;
+        }
+
+        // Show initial time
+        show_timer_label (remaining_time_label, remain_minutes_10, remain_minutes_1, remain_seconds_10, remain_seconds_1);
+
+        countdown = Timeout.add (1000, () => {
+            if (remain_minutes_1 == 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) { // The count turns from w0:00 to (w-1)9:59
+                remain_minutes_10--;
+                remain_minutes_1 = remain_seconds_1 = 9;
+                remain_seconds_10 = 5;
+            } else if (remain_minutes_1 > 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) { // The count turns from wx:00 to w(x-1):59
+                remain_minutes_1--;
+                remain_seconds_10 = 5;
+                remain_seconds_1 = 9;
+            } else if (remain_seconds_10 > 0 && remain_seconds_1 == 0) { // The count turns from wx:y0 to wx:(y-1)9
+                remain_seconds_10--;
+                remain_seconds_1 = 9;
+            } else { // The count turns from wx:yz to wx:y(z-1)
+                remain_seconds_1--;
+            }
+
+            show_timer_label (remaining_time_label, remain_minutes_10, remain_minutes_1, remain_seconds_10, remain_seconds_1);
+
+            if (remain_minutes_10 == 0 && remain_minutes_1 == 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) {
+                stop_recording ();
+                window.show_welcome ();
+                is_recording = false;
+                return false;
+            }
+
+            return true;
+        });
+    }
+
+    private void show_timer_label (Gtk.Label label, int minutes_10, int minutes_1, int seconds_10, int seconds_1) {
+        label.label = "%i%i:%i%i".printf (minutes_10, minutes_1, seconds_10, seconds_1);
     }
 }
