@@ -164,7 +164,7 @@ public class RecordView : Gtk.Box {
 
         assert (sink != null);
         string tmp_destination = GLib.Environment.get_tmp_dir ();
-        string tmp_filename = _("reco_") + new GLib.DateTime.now_local ().to_unix ().to_string ();
+        string tmp_filename = "reco_" + new GLib.DateTime.now_local ().to_unix ().to_string ();
 
         try {
             if (window.welcome_view.format_combobox.active_id == "aac") {
