@@ -31,10 +31,6 @@ public class RecordView : Gtk.Box {
     private string full_path;
     private Gst.Bin audiobin;
     private Gst.Pipeline pipeline;
-    private int past_seconds_1; // Used for the 1's place of seconds
-    private int past_seconds_10; // Used for the 10's place of seconds
-    private int past_minutes_1; // Used for the 1's place of minutes
-    private int past_minutes_10; // Used for the 10's place of minutes
 
     public RecordView (MainWindow window, Application app) {
         Object (
@@ -205,7 +201,10 @@ public class RecordView : Gtk.Box {
     }
 
     private void start_count () {
-        past_minutes_10 = past_minutes_1 = past_seconds_10 = past_seconds_1 = 0;
+        int past_minutes_10 = 0;
+        int past_minutes_1 = 0;
+        int past_seconds_10 = 0;
+        int past_seconds_1 = 0;
 
         // Show initial time (00:00)
         show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
@@ -231,10 +230,6 @@ public class RecordView : Gtk.Box {
 
             return is_recording? true : false;
         });
-    }
-
-    private void show_timer_label (Gtk.Label label, int minutes_10, int minutes_1, int seconds_10, int seconds_1) {
-        label.label = "%i%i:%i%i".printf (minutes_10, minutes_1, seconds_10, seconds_1);
     }
 
     private void start_countdown (int remaining_time) {
@@ -292,5 +287,9 @@ public class RecordView : Gtk.Box {
 
             return is_recording? true : false;
         });
+    }
+
+    private void show_timer_label (Gtk.Label label, int minutes_10, int minutes_1, int seconds_10, int seconds_1) {
+        label.label = "%i%i:%i%i".printf (minutes_10, minutes_1, seconds_10, seconds_1);
     }
 }
