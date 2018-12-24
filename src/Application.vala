@@ -57,18 +57,6 @@ public class Application : Gtk.Application {
                 window.destroy ();
             }
         });
-
-        var show_file_action = new SimpleAction ("show-file", VariantType.STRING);
-        add_action (show_file_action);
-        show_file_action.activate.connect ((destination) => {
-            var uri = destination.get_string ();
-
-            try {
-                Process.spawn_command_line_sync ("xdg-open " + uri);
-            } catch (Error e) {
-                stderr.printf ("Error: %s".printf (e.message));
-            }
-        });
     }
 
     public static int main (string[] args) {

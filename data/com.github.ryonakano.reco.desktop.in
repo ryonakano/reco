@@ -7,4 +7,3 @@ Exec=com.github.ryonakano.reco %U
 Icon=com.github.ryonakano.reco
 Terminal=false
 Type=Application
-X-GNOME-UsesNotifications=true
