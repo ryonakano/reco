@@ -62,7 +62,7 @@
     <release version="1.0.1" date="2018-12-26">
       <description>
         <ul>
-          <li>Allow to set recording rength</li>
+          <li>Allow to set recording length</li>
           <li>Fix the countdown is weird when recording more than twice</li>
           <li>Localization improvement</li>
           <li>Update Japanese translation</li>
