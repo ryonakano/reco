@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-26 10:55+0900\n"
-"PO-Revision-Date: 2018-12-08 20:06+0900\n"
+"PO-Revision-Date: 2018-12-26 10:58+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -51,17 +51,16 @@ msgid "Delay in seconds:"
 msgstr "遅延する秒数:"
 
 #: src/Views/WelcomeView.vala:51
-#, fuzzy
 msgid "Length in seconds:"
-msgstr "遅延する秒数:"
+msgstr "録音する秒数:"
 
 #: src/Views/WelcomeView.vala:68
 msgid "Start recording"
-msgstr "録画を開始します"
+msgstr "録音を開始します"
 
 #: src/Views/RecordView.vala:61
 msgid "Stop recording"
-msgstr "録画を終了します"
+msgstr "録音を終了します"
 
 #: src/Views/RecordView.vala:88
 msgid "Unable to Create an Audio File"
@@ -91,6 +90,6 @@ msgstr "録音したもの"
 
 #. / TRANSLATORS: %s represents a timestamp here
 #: src/Views/RecordView.vala:152
-#, fuzzy, c-format
+#, c-format
 msgid "Recording from %s"
-msgstr "録音したもの"
+msgstr "録音 %s"
