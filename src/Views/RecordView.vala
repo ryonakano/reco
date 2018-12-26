@@ -148,7 +148,8 @@ public class RecordView : Gtk.Box {
         if (destination != null) {
             DirUtils.create_with_parents (destination, 0775);
         }
-        filename = _("Recording from ") + new GLib.DateTime.now_local ().to_unix ().to_string ();
+        /// TRANSLATORS: %s represents a timestamp here
+        filename = _("Recording from %s").printf (new GLib.DateTime.now_local ().to_unix ().to_string ());
 
         try {
             if (window.welcome_view.format_combobox.active_id == "aac") {
