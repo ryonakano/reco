@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-08 20:03+0900\n"
-"PO-Revision-Date: 2018-12-08 20:06+0900\n"
+"POT-Creation-Date: 2018-12-26 10:55+0900\n"
+"PO-Revision-Date: 2018-12-26 10:58+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -50,36 +50,46 @@ msgstr "Wav"
 msgid "Delay in seconds:"
 msgstr "遅延する秒数:"
 
-#: src/Views/WelcomeView.vala:63
+#: src/Views/WelcomeView.vala:51
+msgid "Length in seconds:"
+msgstr "録音する秒数:"
+
+#: src/Views/WelcomeView.vala:68
 msgid "Start recording"
-msgstr "録画を開始します"
+msgstr "録音を開始します"
 
-#: src/Views/RecordView.vala:57
+#: src/Views/RecordView.vala:61
 msgid "Stop recording"
-msgstr "録画を終了します"
+msgstr "録音を終了します"
 
-#: src/Views/RecordView.vala:84
+#: src/Views/RecordView.vala:88
 msgid "Unable to Create an Audio File"
 msgstr "オーディオファイルを作成できません"
 
-#: src/Views/RecordView.vala:84
+#: src/Views/RecordView.vala:88
 msgid "A GStreamer error happened while recording:"
 msgstr "録音中に Gstreamer エラーが発生しました:"
 
-#: src/Views/RecordView.vala:84
+#: src/Views/RecordView.vala:88
 #, c-format
 msgid "Error: %s"
 msgstr "エラー: %s"
 
-#: src/Views/RecordView.vala:98
+#: src/Views/RecordView.vala:102
 msgid "Audio Recorded Successfully"
 msgstr "オーディオの録音に成功しました"
 
-#: src/Views/RecordView.vala:99
+#: src/Views/RecordView.vala:103
 #, c-format
 msgid "Audio was saved as %s"
 msgstr "オーディオは %s として保存されました"
 
-#: src/Views/RecordView.vala:143
+#: src/Views/RecordView.vala:147
 msgid "Recordings"
 msgstr "録音したもの"
+
+#. / TRANSLATORS: %s represents a timestamp here
+#: src/Views/RecordView.vala:152
+#, c-format
+msgid "Recording from %s"
+msgstr "録音 %s"
