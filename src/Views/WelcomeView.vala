@@ -20,6 +20,8 @@ public class WelcomeView : Gtk.Box {
     public Gtk.ComboBoxText format_combobox { get; set; }
     public Gtk.SpinButton delay_spin { get; private set; }
     public Gtk.SpinButton length_spin { get; private set; }
+    public Gtk.Switch auto_save { get; private set; }
+    public Gtk.FileChooserButton destination_chooser { get; private set; }
     private Gtk.Button record_button;
 
     public WelcomeView (MainWindow window) {
@@ -52,6 +54,16 @@ public class WelcomeView : Gtk.Box {
         length_label.xalign = 1;
         length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
 
+        var auto_save_label = new Gtk.Label (_("Automatically save files:"));
+        auto_save_label.xalign = 1;
+
+        auto_save = new Gtk.Switch ();
+        auto_save.halign = Gtk.Align.START;
+
+        destination_chooser = new Gtk.FileChooserButton (_("Choose a default destination"), Gtk.FileChooserAction.SELECT_FOLDER);
+        destination_chooser.set_filename (window.app.destination);
+        destination_chooser.sensitive = auto_save.active;
+
         var settings_grid = new Gtk.Grid ();
         settings_grid.column_spacing = 6;
         settings_grid.row_spacing = 6;
@@ -62,6 +74,9 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (delay_spin, 1, 2, 1, 1);
         settings_grid.attach (length_label, 0, 3, 1, 1);
         settings_grid.attach (length_spin, 1, 3, 1, 1);
+        settings_grid.attach (auto_save_label, 0, 4, 1, 1);
+        settings_grid.attach (auto_save, 1, 4, 1, 1);
+        settings_grid.attach (destination_chooser, 1, 5, 1, 1);
 
         record_button = new Gtk.Button ();
         record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
@@ -74,6 +89,10 @@ public class WelcomeView : Gtk.Box {
 
         pack_start (settings_grid, false, false);
         pack_end (record_button, false, false);
+
+        auto_save.notify["active"].connect (() => {
+            destination_chooser.sensitive = auto_save.active;
+        });
 
         record_button.clicked.connect (() => {
             if (delay_spin.value != 0) {

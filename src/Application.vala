@@ -18,12 +18,21 @@
 public class Application : Gtk.Application {
     private MainWindow window;
     public static GLib.Settings settings;
+    public string destination { get; set; }
 
     public Application () {
         Object (
             application_id: "com.github.ryonakano.reco",
             flags: ApplicationFlags.FLAGS_NONE
         );
+    }
+
+    construct {
+        /// TRANSLATORS: Folder name where what users record is saved
+        destination = GLib.Environment.get_home_dir () + "/%s".printf (_("Recordings"));
+        if (destination != null) {
+            DirUtils.create_with_parents (destination, 0775);
+        }
     }
 
     static construct {

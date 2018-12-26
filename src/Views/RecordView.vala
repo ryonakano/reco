@@ -98,33 +98,40 @@ public class RecordView : Gtk.Box {
 
             is_recording = false;
 
-            string destination = GLib.Environment.get_home_dir () + "/%s".printf (_("Recordings"));
-            if (destination != null) {
-                DirUtils.create_with_parents (destination, 0775);
-            }
             string filename = _("Recording from ") + new GLib.DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S");
 
-            var filechooser = new Gtk.FileChooserDialog (_("Save your recording"), window, Gtk.FileChooserAction.SAVE, _("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK);
-            filechooser.set_current_name (filename + suffix);
-            filechooser.set_current_folder (destination);
-
             var tmp_source = File.new_for_path (tmp_full_path);
-            if (filechooser.run () == Gtk.ResponseType.OK) {
+
+            if (window.welcome_view.auto_save.active) { // The app saved files automatically
+                string destination = window.welcome_view.destination_chooser.get_filename ();
                 try {
-                    var uri = File.new_for_path (filechooser.get_filename ());
+                    var uri = File.new_for_path (destination + "/" + filename + suffix);
                     tmp_source.move (uri, FileCopyFlags.OVERWRITE);
                 } catch (Error e) {
                     stderr.printf ("Error: %s\n", e.message);
                 }
-            } else {
-                try {
-                    tmp_source.delete ();
-                } catch (Error e) {
-                    stderr.printf ("Error: %s", e.message);
-                }
-            }
+            } else { // The app asks destination and filename each time
+                var filechooser = new Gtk.FileChooserDialog (_("Save your recording"), window, Gtk.FileChooserAction.SAVE, _("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK);
+                filechooser.set_current_name (filename + suffix);
+                filechooser.set_filename (app.destination);
 
-            filechooser.destroy ();
+                if (filechooser.run () == Gtk.ResponseType.OK) {
+                    try {
+                        var uri = File.new_for_path (filechooser.get_filename ());
+                        tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+                    } catch (Error e) {
+                        stderr.printf ("Error: %s\n", e.message);
+                    }
+                } else {
+                    try {
+                        tmp_source.delete ();
+                    } catch (Error e) {
+                        stderr.printf ("Error: %s", e.message);
+                    }
+                }
+
+                filechooser.destroy ();
+            }
 
             pipeline.dispose ();
             pipeline = null;
