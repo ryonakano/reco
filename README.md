@@ -4,8 +4,6 @@ Reco is an audio recording app designed for elementary OS.
 
 ![Screenshot](data/Screenshot.png)
 
-One day when I joined a discussion in my department I had to take a minutes with my elementary laptop. The discussion was so high-paced that I couldn't hear and write down everything into the minutes. After coming back home I searched whether there was a sound recorder designed for elementary OS but I couldn't find, althought there were some non-elementary apps like GNOME Sound Recorder. I decided to create one designed for and fits in elementary OS.
-
 Useful when:
 
 * you join a discussion and take your minutes later
@@ -51,3 +49,7 @@ To install, use `ninja install`, then execute with `com.github.ryonakano.reco`
 
     sudo ninja install
     com.github.ryonakano.reco
+
+## A Story Behind This App
+
+One day when I joined a discussion in my department, I had to take a minutes with my elementary laptop. The discussion was so high-paced that I couldn't hear and write down everything into the minutes. After coming back home I searched for a sound recorder designed for elementary OS but couldn't, althought there were some non-elementary apps like GNOME Sound Recorder. I decided to create one designed for and fits in elementary OS.
