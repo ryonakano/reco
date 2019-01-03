@@ -34,7 +34,7 @@ public class WelcomeView : Gtk.Box {
     }
 
     construct {
-        var behavior_header_label = new Granite.HeaderLabel ("Behavior");
+        var behavior_header_label = new Granite.HeaderLabel (_("Recording"));
 
         var delay_label = new Gtk.Label (_("Delay in seconds:"));
         delay_label.halign = Gtk.Align.END;
@@ -46,7 +46,7 @@ public class WelcomeView : Gtk.Box {
         length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
         length_spin.halign = Gtk.Align.START;
 
-        var saving_header_label = new Granite.HeaderLabel ("Saving");
+        var saving_header_label = new Granite.HeaderLabel (_("Saving"));
 
         var format_label = new Gtk.Label (_("Format:"));
         format_label.halign = Gtk.Align.END;
