@@ -88,7 +88,6 @@ public class WelcomeView : Gtk.Box {
         var stack = new Gtk.Stack ();
         stack.add_titled (recording_grid, "record", _("Recording"));
         stack.add_titled (saving_grid, "saving", _("Saving"));
-        stack.margin_top = stack.margin_bottom = 12;
 
         var stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.halign = Gtk.Align.CENTER;
@@ -100,6 +99,7 @@ public class WelcomeView : Gtk.Box {
         record_button.tooltip_text = _("Start recording");
         record_button.get_style_context ().add_class ("record-button");
         record_button.halign = Gtk.Align.CENTER;
+        record_button.margin_top = 12;
         record_button.width_request = 48;
         record_button.height_request = 48;
 
