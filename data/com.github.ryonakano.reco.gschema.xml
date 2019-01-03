@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
+  <enum id="formatlist">
+    <value value="0" nick="aac"/>
+    <value value="1" nick="flac"/>
+    <value value="2" nick="mp3"/>
+    <value value="3" nick="ogg"/>
+    <value value="4" nick="opus"/>
+    <value value="5" nick="wav"/>
+  </enum>
+
   <schema path="/com/github/ryonakano/reco/" id="com.github.ryonakano.reco">
+    <key name="delay" type="i">
+      <default>0</default>
+      <summary>Delay in seconds</summary>
+    </key>
+    <key name="length" type="i">
+      <default>0</default>
+      <summary>Length in seconds</summary>
+    </key>
+    <key name="format" enum="formatlist">
+      <default>'wav'</default>
+      <summary>Format</summary>
+    </key>
+    <key name="auto-save" type="b">
+      <default>true</default>
+      <summary>Automatically save files</summary>
+    </key>
+    <key name="destination" type="s">
+      <default>''</default>
+      <summary>Default destination</summary>
+    </key>
     <key name="window-x" type="i">
       <default>-1</default>
       <summary>Window x position</summary>

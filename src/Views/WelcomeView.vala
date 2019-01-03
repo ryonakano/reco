@@ -40,11 +40,13 @@ public class WelcomeView : Gtk.Box {
         delay_label.halign = Gtk.Align.END;
         delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
         delay_spin.halign = Gtk.Align.START;
+        delay_spin.value = Application.settings.get_int ("delay");
 
         var length_label = new Gtk.Label (_("Length in seconds:"));
         length_label.halign = Gtk.Align.END;
         length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
         length_spin.halign = Gtk.Align.START;
+        length_spin.value = Application.settings.get_int ("length");
 
         var saving_header_label = new Granite.HeaderLabel (_("Saving"));
 
@@ -59,17 +61,18 @@ public class WelcomeView : Gtk.Box {
         format_combobox.append ("ogg", _("Ogg Vorbis"));
         format_combobox.append ("opus", _("Opus"));
         format_combobox.append ("wav", _("Wav"));
-        format_combobox.active_id = "wav";
+        format_combobox.active = Application.settings.get_enum ("format");
 
         var auto_save_label = new Gtk.Label (_("Automatically save files:"));
         auto_save_label.halign = Gtk.Align.END;
 
         auto_save = new Gtk.Switch ();
         auto_save.halign = Gtk.Align.START;
+        auto_save.active = Application.settings.get_boolean ("auto-save");
 
         destination_chooser = new Gtk.FileChooserButton (_("Choose a default destination"), Gtk.FileChooserAction.SELECT_FOLDER);
         destination_chooser.halign = Gtk.Align.START;
-        destination_chooser.set_filename (window.app.destination);
+        destination_chooser.set_filename (Application.settings.get_string ("destination"));
         destination_chooser.sensitive = auto_save.active;
 
         var settings_grid = new Gtk.Grid ();
@@ -100,8 +103,25 @@ public class WelcomeView : Gtk.Box {
         pack_start (settings_grid, false, false);
         pack_end (record_button, false, false);
 
+        delay_spin.changed.connect (() => {
+            Application.settings.set_int ("delay", delay_spin.get_value_as_int ());
+        });
+
+        length_spin.changed.connect (() => {
+            Application.settings.set_int ("length", length_spin.get_value_as_int ());
+        });
+
+        format_combobox.changed.connect (() => {
+            Application.settings.set_enum ("format", format_combobox.active);
+        });
+
         auto_save.notify["active"].connect (() => {
             destination_chooser.sensitive = auto_save.active;
+            Application.settings.set_boolean ("auto-save", auto_save.active);
+        });
+
+        destination_chooser.file_set.connect (() => {
+            Application.settings.set_string ("destination", destination_chooser.get_filename ());
         });
 
         record_button.clicked.connect (() => {

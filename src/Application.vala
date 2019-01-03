@@ -33,6 +33,10 @@ public class Application : Gtk.Application {
         if (destination != null) {
             DirUtils.create_with_parents (destination, 0775);
         }
+
+        if (Application.settings.get_string ("destination") == "") {
+            Application.settings.set_string ("destination", destination);
+        }
     }
 
     static construct {
