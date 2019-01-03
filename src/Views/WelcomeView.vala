@@ -22,7 +22,6 @@ public class WelcomeView : Gtk.Box {
     public Gtk.SpinButton length_spin { get; private set; }
     public Gtk.Switch auto_save { get; private set; }
     public Gtk.FileChooserButton destination_chooser { get; private set; }
-    public Gtk.StackSwitcher stack_switcher { get; set; }
     private Gtk.Button record_button;
 
     public WelcomeView (MainWindow window) {
@@ -91,7 +90,7 @@ public class WelcomeView : Gtk.Box {
         stack.add_titled (saving_grid, "saving", _("Saving"));
         stack.margin_top = stack.margin_bottom = 12;
 
-        stack_switcher = new Gtk.StackSwitcher ();
+        var stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.halign = Gtk.Align.CENTER;
         stack_switcher.homogeneous = true;
         stack_switcher.stack = stack;
@@ -104,6 +103,7 @@ public class WelcomeView : Gtk.Box {
         record_button.width_request = 48;
         record_button.height_request = 48;
 
+        pack_start (stack_switcher, false, false);
         pack_start (stack, false, false);
         pack_end (record_button, false, false);
 
