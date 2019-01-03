@@ -37,19 +37,22 @@ public class WelcomeView : Gtk.Box {
         var behavior_header_label = new Granite.HeaderLabel ("Behavior");
 
         var delay_label = new Gtk.Label (_("Delay in seconds:"));
-        delay_label.xalign = 1;
+        delay_label.halign = Gtk.Align.END;
         delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
+        delay_spin.halign = Gtk.Align.START;
 
         var length_label = new Gtk.Label (_("Length in seconds:"));
-        length_label.xalign = 1;
+        length_label.halign = Gtk.Align.END;
         length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
+        length_spin.halign = Gtk.Align.START;
 
         var saving_header_label = new Granite.HeaderLabel ("Saving");
 
         var format_label = new Gtk.Label (_("Format:"));
-        format_label.xalign = 1;
+        format_label.halign = Gtk.Align.END;
 
         format_combobox = new Gtk.ComboBoxText ();
+        format_combobox.halign = Gtk.Align.START;
         format_combobox.append ("aac", _("AAC"));
         format_combobox.append ("flac", _("FLAC"));
         format_combobox.append ("mp3", _("MP3"));
@@ -59,12 +62,13 @@ public class WelcomeView : Gtk.Box {
         format_combobox.active_id = "wav";
 
         var auto_save_label = new Gtk.Label (_("Automatically save files:"));
-        auto_save_label.xalign = 1;
+        auto_save_label.halign = Gtk.Align.END;
 
         auto_save = new Gtk.Switch ();
         auto_save.halign = Gtk.Align.START;
 
         destination_chooser = new Gtk.FileChooserButton (_("Choose a default destination"), Gtk.FileChooserAction.SELECT_FOLDER);
+        destination_chooser.halign = Gtk.Align.START;
         destination_chooser.set_filename (window.app.destination);
         destination_chooser.sensitive = auto_save.active;
 
