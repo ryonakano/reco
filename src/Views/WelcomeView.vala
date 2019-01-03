@@ -34,28 +34,10 @@ public class WelcomeView : Gtk.Box {
     }
 
     construct {
-        var delay_label = new Gtk.Label (_("Delay in seconds:"));
-        delay_label.xalign = 1;
-        delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
-
-        var length_label = new Gtk.Label (_("Length in seconds:"));
-        length_label.xalign = 1;
-        length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
-
-        var recording_grid = new Gtk.Grid ();
-        recording_grid.column_spacing = 6;
-        recording_grid.row_spacing = 6;
-        recording_grid.halign = Gtk.Align.CENTER;
-        recording_grid.attach (delay_label, 0, 0, 1, 1);
-        recording_grid.attach (delay_spin, 1, 0, 1, 1);
-        recording_grid.attach (length_label, 0, 1, 1, 1);
-        recording_grid.attach (length_spin, 1, 1, 1, 1);
-
         var format_label = new Gtk.Label (_("Format:"));
         format_label.xalign = 1;
 
         format_combobox = new Gtk.ComboBoxText ();
-        format_combobox.halign = Gtk.Align.START;
         format_combobox.append ("aac", _("AAC"));
         format_combobox.append ("flac", _("FLAC"));
         format_combobox.append ("mp3", _("MP3"));
@@ -64,6 +46,14 @@ public class WelcomeView : Gtk.Box {
         format_combobox.append ("wav", _("Wav"));
         format_combobox.active_id = "wav";
 
+        var delay_label = new Gtk.Label (_("Delay in seconds:"));
+        delay_label.xalign = 1;
+        delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
+
+        var length_label = new Gtk.Label (_("Length in seconds:"));
+        length_label.xalign = 1;
+        length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
+
         var auto_save_label = new Gtk.Label (_("Automatically save files:"));
         auto_save_label.xalign = 1;
 
@@ -71,28 +61,22 @@ public class WelcomeView : Gtk.Box {
         auto_save.halign = Gtk.Align.START;
 
         destination_chooser = new Gtk.FileChooserButton (_("Choose a default destination"), Gtk.FileChooserAction.SELECT_FOLDER);
-        destination_chooser.halign = Gtk.Align.START;
         destination_chooser.set_filename (window.app.destination);
         destination_chooser.sensitive = auto_save.active;
 
-        var saving_grid = new Gtk.Grid ();
-        saving_grid.column_spacing = 6;
-        saving_grid.row_spacing = 6;
-        saving_grid.halign = Gtk.Align.CENTER;
-        saving_grid.attach (format_label, 0, 0, 1, 1);
-        saving_grid.attach (format_combobox, 1, 0, 1, 1);
-        saving_grid.attach (auto_save_label, 0, 1, 1, 1);
-        saving_grid.attach (auto_save, 1, 1, 1, 1);
-        saving_grid.attach (destination_chooser, 1, 2, 1, 1);
-
-        var stack = new Gtk.Stack ();
-        stack.add_titled (recording_grid, "record", _("Recording"));
-        stack.add_titled (saving_grid, "saving", _("Saving"));
-
-        var stack_switcher = new Gtk.StackSwitcher ();
-        stack_switcher.halign = Gtk.Align.CENTER;
-        stack_switcher.homogeneous = true;
-        stack_switcher.stack = stack;
+        var settings_grid = new Gtk.Grid ();
+        settings_grid.column_spacing = 6;
+        settings_grid.row_spacing = 6;
+        settings_grid.halign = Gtk.Align.CENTER;
+        settings_grid.attach (format_label, 0, 1, 1, 1);
+        settings_grid.attach (format_combobox, 1, 1, 1, 1);
+        settings_grid.attach (delay_label, 0, 2, 1, 1);
+        settings_grid.attach (delay_spin, 1, 2, 1, 1);
+        settings_grid.attach (length_label, 0, 3, 1, 1);
+        settings_grid.attach (length_spin, 1, 3, 1, 1);
+        settings_grid.attach (auto_save_label, 0, 4, 1, 1);
+        settings_grid.attach (auto_save, 1, 4, 1, 1);
+        settings_grid.attach (destination_chooser, 1, 5, 1, 1);
 
         record_button = new Gtk.Button ();
         record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
@@ -103,8 +87,7 @@ public class WelcomeView : Gtk.Box {
         record_button.width_request = 48;
         record_button.height_request = 48;
 
-        pack_start (stack_switcher, false, false);
-        pack_start (stack, false, false);
+        pack_start (settings_grid, false, false);
         pack_end (record_button, false, false);
 
         auto_save.notify["active"].connect (() => {
