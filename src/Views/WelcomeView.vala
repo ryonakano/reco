@@ -34,6 +34,18 @@ public class WelcomeView : Gtk.Box {
     }
 
     construct {
+        var behavior_header_label = new Granite.HeaderLabel ("Behavior");
+
+        var delay_label = new Gtk.Label (_("Delay in seconds:"));
+        delay_label.xalign = 1;
+        delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
+
+        var length_label = new Gtk.Label (_("Length in seconds:"));
+        length_label.xalign = 1;
+        length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
+
+        var saving_header_label = new Granite.HeaderLabel ("Saving");
+
         var format_label = new Gtk.Label (_("Format:"));
         format_label.xalign = 1;
 
@@ -45,14 +57,6 @@ public class WelcomeView : Gtk.Box {
         format_combobox.append ("opus", _("Opus"));
         format_combobox.append ("wav", _("Wav"));
         format_combobox.active_id = "wav";
-
-        var delay_label = new Gtk.Label (_("Delay in seconds:"));
-        delay_label.xalign = 1;
-        delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
-
-        var length_label = new Gtk.Label (_("Length in seconds:"));
-        length_label.xalign = 1;
-        length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
 
         var auto_save_label = new Gtk.Label (_("Automatically save files:"));
         auto_save_label.xalign = 1;
@@ -68,15 +72,17 @@ public class WelcomeView : Gtk.Box {
         settings_grid.column_spacing = 6;
         settings_grid.row_spacing = 6;
         settings_grid.halign = Gtk.Align.CENTER;
-        settings_grid.attach (format_label, 0, 1, 1, 1);
-        settings_grid.attach (format_combobox, 1, 1, 1, 1);
-        settings_grid.attach (delay_label, 0, 2, 1, 1);
-        settings_grid.attach (delay_spin, 1, 2, 1, 1);
-        settings_grid.attach (length_label, 0, 3, 1, 1);
-        settings_grid.attach (length_spin, 1, 3, 1, 1);
-        settings_grid.attach (auto_save_label, 0, 4, 1, 1);
-        settings_grid.attach (auto_save, 1, 4, 1, 1);
-        settings_grid.attach (destination_chooser, 1, 5, 1, 1);
+        settings_grid.attach (behavior_header_label, 0, 0, 1, 1);
+        settings_grid.attach (delay_label, 0, 1, 1, 1);
+        settings_grid.attach (delay_spin, 1, 1, 1, 1);
+        settings_grid.attach (length_label, 0, 2, 1, 1);
+        settings_grid.attach (length_spin, 1, 2, 1, 1);
+        settings_grid.attach (saving_header_label, 0, 3, 1, 1);
+        settings_grid.attach (format_label, 0, 4, 1, 1);
+        settings_grid.attach (format_combobox, 1, 4, 1, 1);
+        settings_grid.attach (auto_save_label, 0, 5, 1, 1);
+        settings_grid.attach (auto_save, 1, 5, 1, 1);
+        settings_grid.attach (destination_chooser, 1, 6, 1, 1);
 
         record_button = new Gtk.Button ();
         record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
