@@ -24,11 +24,10 @@ public class RecordView : Gtk.Box {
     private Gtk.Label remaining_time_label;
     private Gtk.Button stop_button;
     private bool is_recording;
+    private string suffix;
+    private string tmp_full_path;
     private uint count;
     private uint countdown;
-    private string destination;
-    private string filename;
-    private string full_path;
     private Gst.Bin audiobin;
     private Gst.Pipeline pipeline;
 
@@ -99,10 +98,41 @@ public class RecordView : Gtk.Box {
 
             is_recording = false;
 
-            var notification = new Notification (_("Audio Recorded Successfully"));
-            notification.set_body (_("Audio was saved as %s").printf (full_path));
-            notification.set_default_action_and_target_value ("app.show-file", new Variant.string (destination));
-            app.send_notification ("com.github.ryonakano.reco", notification);
+            /// TRANSLATORS: %s represents a timestamp here
+            string filename = _("Recording from %s").printf (new GLib.DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"));
+
+            var tmp_source = File.new_for_path (tmp_full_path);
+
+            if (window.welcome_view.auto_save.active) { // The app saved files automatically
+                string destination = window.welcome_view.destination_chooser.get_filename ();
+                try {
+                    var uri = File.new_for_path (destination + "/" + filename + suffix);
+                    tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+                } catch (Error e) {
+                    stderr.printf ("Error: %s\n", e.message);
+                }
+            } else { // The app asks destination and filename each time
+                var filechooser = new Gtk.FileChooserDialog (_("Save your recording"), window, Gtk.FileChooserAction.SAVE, _("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK);
+                filechooser.set_current_name (filename + suffix);
+                filechooser.set_filename (app.destination);
+
+                if (filechooser.run () == Gtk.ResponseType.OK) {
+                    try {
+                        var uri = File.new_for_path (filechooser.get_filename ());
+                        tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+                    } catch (Error e) {
+                        stderr.printf ("Error: %s\n", e.message);
+                    }
+                } else {
+                    try {
+                        tmp_source.delete ();
+                    } catch (Error e) {
+                        stderr.printf ("Error: %s", e.message);
+                    }
+                }
+
+                filechooser.destroy ();
+            }
 
             pipeline.dispose ();
             pipeline = null;
@@ -144,40 +174,36 @@ public class RecordView : Gtk.Box {
         }
 
         assert (sink != null);
-        destination = GLib.Environment.get_home_dir () + "/%s".printf (_("Recordings"));
-        if (destination != null) {
-            DirUtils.create_with_parents (destination, 0775);
-        }
-        /// TRANSLATORS: %s represents a timestamp here
-        filename = _("Recording from %s").printf (new GLib.DateTime.now_local ().to_unix ().to_string ());
+        string tmp_destination = GLib.Environment.get_tmp_dir ();
+        string tmp_filename = "reco_" + new GLib.DateTime.now_local ().to_unix ().to_string ();
 
         try {
             if (window.welcome_view.format_combobox.active_id == "aac") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! avenc_aac ! mp4mux", true);
-                filename += ".m4a";
+                suffix = ".m4a";
             } else if (window.welcome_view.format_combobox.active_id == "flac") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! flacenc", true);
-                filename += ".flac";
+                suffix = ".flac";
             } else if (window.welcome_view.format_combobox.active_id == "mp3") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! lamemp3enc", true);
-                filename += ".mp3";
+                suffix = ".mp3";
             } else if (window.welcome_view.format_combobox.active_id == "ogg") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! vorbisenc ! oggmux", true);
-                filename += ".ogg";
+                suffix = ".ogg";
             } else if (window.welcome_view.format_combobox.active_id == "opus") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! opusenc ! oggmux", true);
-                filename += ".opus";
+                suffix = ".opus";
             } else if (window.welcome_view.format_combobox.active_id == "wav") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! wavenc", true);
-                filename += ".wav";
+                suffix = ".wav";
             }
         } catch (Error e) {
             stderr.printf ("Error: %s\n", e.message);
         }
 
-        full_path = destination + "/%s".printf (filename);
-        sink.set ("location", full_path);
-        stdout.printf ("Audio is stored as %s\n".printf (full_path));
+        tmp_full_path = tmp_destination + "/%s%s".printf (tmp_filename, suffix);
+        sink.set ("location", tmp_full_path);
+        stdout.printf ("Audio is stored as %s temporary\n".printf (tmp_full_path));
 
         pipeline.add_many (audiobin, sink);
         audiobin.link (sink);

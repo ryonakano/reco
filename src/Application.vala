@@ -18,12 +18,21 @@
 public class Application : Gtk.Application {
     private MainWindow window;
     public static GLib.Settings settings;
+    public string destination { get; set; }
 
     public Application () {
         Object (
             application_id: "com.github.ryonakano.reco",
             flags: ApplicationFlags.FLAGS_NONE
         );
+    }
+
+    construct {
+        /// TRANSLATORS: Folder name where what users record is saved
+        destination = GLib.Environment.get_home_dir () + "/%s".printf (_("Recordings"));
+        if (destination != null) {
+            DirUtils.create_with_parents (destination, 0775);
+        }
     }
 
     static construct {
@@ -55,18 +64,6 @@ public class Application : Gtk.Application {
         quit_action.activate.connect (() => {
             if (window != null) {
                 window.destroy ();
-            }
-        });
-
-        var show_file_action = new SimpleAction ("show-file", VariantType.STRING);
-        add_action (show_file_action);
-        show_file_action.activate.connect ((destination) => {
-            var uri = destination.get_string ();
-
-            try {
-                Process.spawn_command_line_sync ("xdg-open " + uri);
-            } catch (Error e) {
-                stderr.printf ("Error: %s".printf (e.message));
             }
         });
     }
