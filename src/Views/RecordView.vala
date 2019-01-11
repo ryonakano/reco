@@ -223,6 +223,7 @@ public class RecordView : Gtk.Box {
         }
         if (countdown != 0) {
             countdown = 0;
+            remaining_time_label.label = null;
         }
         pipeline.send_event (new Gst.Event.eos ());
     }
