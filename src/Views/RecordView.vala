@@ -219,10 +219,10 @@ public class RecordView : Gtk.Box {
 
     private void stop_recording () {
         if (count != 0) {
-            Source.remove (count);
+            count = 0;
         }
         if (countdown != 0) {
-            Source.remove (countdown);
+            countdown = 0;
         }
         pipeline.send_event (new Gst.Event.eos ());
     }
