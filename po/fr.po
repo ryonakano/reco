@@ -1,0 +1,93 @@
+# French translations for com.github.ryonakano.reco package.
+# Copyright (C) 2019 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.ryonakano.reco package.
+# NathanBnm, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.ryonakano.reco\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-26 10:55+0900\n"
+"PO-Revision-Date: 2019-01-16 22:17+0100\n"
+"Last-Translator: NathanBnm\n"
+"Language-Team: Français\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/Views/WelcomeView.vala:35
+msgid "Format:"
+msgstr "Format :"
+
+#: src/Views/WelcomeView.vala:39
+msgid "AAC"
+msgstr "AAC"
+
+#: src/Views/WelcomeView.vala:40
+msgid "FLAC"
+msgstr "FLAC"
+
+#: src/Views/WelcomeView.vala:41
+msgid "MP3"
+msgstr "MP3"
+
+#: src/Views/WelcomeView.vala:42
+msgid "Ogg Vorbis"
+msgstr "Ogg Vorbis"
+
+#: src/Views/WelcomeView.vala:43
+msgid "Opus"
+msgstr "Opus"
+
+#: src/Views/WelcomeView.vala:44
+msgid "Wav"
+msgstr "Wav"
+
+#: src/Views/WelcomeView.vala:47
+msgid "Delay in seconds:"
+msgstr "Délai en secondes :"
+
+#: src/Views/WelcomeView.vala:51
+msgid "Length in seconds:"
+msgstr "Longueur en secondes :"
+
+#: src/Views/WelcomeView.vala:68
+msgid "Start recording"
+msgstr "Démarrer l'enregistrement"
+
+#: src/Views/RecordView.vala:61
+msgid "Stop recording"
+msgstr "Arrêter l'enregistrement"
+
+#: src/Views/RecordView.vala:88
+msgid "Unable to Create an Audio File"
+msgstr "Impossible de créer un fichier audio"
+
+#: src/Views/RecordView.vala:88
+msgid "A GStreamer error happened while recording:"
+msgstr "Une erreur GStreamer est survenue pendant l'enregistrement :"
+
+#: src/Views/RecordView.vala:88
+#, c-format
+msgid "Error: %s"
+msgstr "Erreur : %s"
+
+#: src/Views/RecordView.vala:102
+msgid "Audio Recorded Successfully"
+msgstr "Audio enregistré avec succès"
+
+#: src/Views/RecordView.vala:103
+#, c-format
+msgid "Audio was saved as %s"
+msgstr "Audio enregistré à %s"
+
+#: src/Views/RecordView.vala:147
+msgid "Recordings"
+msgstr "Enregistrements"
+
+#. / TRANSLATORS: %s represents a timestamp here
+#: src/Views/RecordView.vala:152
+#, c-format
+msgid "Recording from %s"
+msgstr "Enregistré depuis %s"
