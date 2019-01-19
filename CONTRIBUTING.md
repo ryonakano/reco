@@ -1,8 +1,16 @@
-# How to Translate This App
+# Contributing
 
-Translating an app is one of important things to make it easy-to-use for more people around the world. In this document, we'll walk through it.
+There are many ways you can contribute, even if you don't know how to code.
 
-## How to Add New Translation
+## Reporting Bugs or Suggesting Improvements
+
+Simply [create a new issue](https://github.com/ryonakano/reco/issues/new) describing your problem and how to reproduce or your suggestion. If you are not used to do, [this section](https://elementary.io/docs/code/reference#reporting-bugs) is for you.
+
+## Writing Some Code
+
+We follow the [coding style of elementary OS](https://elementary.io/docs/code/reference#code-style) and [its Human Interface Guidelines](https://elementary.io/docs/human-interface-guidelines#human-interface-guidelines) in our code, please try to respect them.
+
+## Translating This App
 
 ### Fork and Clone the Repository
 
@@ -54,11 +62,11 @@ Finally, open your cloned repository on GitHub, select "Compare & Pull Request",
 
 And that's all! I'll check whether there is no problem in your pull request, and if so I'll approve and merge your pull request! Your translation is released every time I push the app to AppCenter, so it is not always reflected when your pull request is merged. Please be patient.
 
-## How to Update Existing Translation
+### How to Update Existing Translation
 
 You can also update existing translation and create a pull request. In this case, you don't have to edit LINGUAS files. Open existing PO files with any PO editor and commit them when completed.
 
-## Note
+### Note
 
 * **If you find some issue (e.g. typo) in the source strings, create another pull request which fix it! Do NOT fix it in your translation pull request!** If you don't know how to fix it, create a new issue about it. I'll fix it.
 * **If you would like to translate the app into multiple languages, please make separated PRs per languages!** It's not good thing to include more than two translation in your one pull request.
