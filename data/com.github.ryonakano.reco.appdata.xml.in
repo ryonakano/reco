@@ -59,6 +59,18 @@
   </content_rating>
 
   <releases>
+    <release version="1.0.2" date="2019-01-20">
+      <description>
+        <ul>
+          <li>Save and restore settings</li>
+          <li>Support both do-not-ask-where-to-save flow and ask-where-to-save flow</li>
+          <li>Organized UI</li>
+          <li>Some small bug fixes</li>
+          <li>Add French translation (by NathanBnm)</li>
+          <li>Update Japanese translation</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.1" date="2018-12-26">
       <description>
         <ul>
