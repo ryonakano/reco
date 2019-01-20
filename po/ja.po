@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 19:49+0900\n"
-"PO-Revision-Date: 2018-12-26 10:58+0900\n"
+"PO-Revision-Date: 2019-01-20 19:50+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -16,12 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: src/Views/WelcomeView.vala:37
-#, fuzzy
 msgid "Recording"
-msgstr "録音したもの"
+msgstr "録音"
 
 #: src/Views/WelcomeView.vala:39
 msgid "Delay in seconds:"
@@ -33,7 +32,7 @@ msgstr "録音する秒数:"
 
 #: src/Views/WelcomeView.vala:51
 msgid "Saving"
-msgstr ""
+msgstr "保存"
 
 #: src/Views/WelcomeView.vala:53
 msgid "Format:"
@@ -65,11 +64,11 @@ msgstr "Wav"
 
 #: src/Views/WelcomeView.vala:66
 msgid "Automatically save files:"
-msgstr ""
+msgstr "ファイルを自動的に保存:"
 
 #: src/Views/WelcomeView.vala:73
 msgid "Choose a default destination"
-msgstr ""
+msgstr "デフォルトの保存先を選択"
 
 #: src/Views/WelcomeView.vala:96
 msgid "Start recording"
@@ -100,17 +99,16 @@ msgstr "録音 %s"
 
 #. The app asks destination and filename each time
 #: src/Views/RecordView.vala:115
-#, fuzzy
 msgid "Save your recording"
-msgstr "録音を開始します"
+msgstr "録音したものを保存"
 
 #: src/Views/RecordView.vala:115
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: src/Views/RecordView.vala:115
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #. / TRANSLATORS: Folder name where what users record is saved
 #: src/Application.vala:32
