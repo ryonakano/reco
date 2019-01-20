@@ -1,3 +1,14 @@
+com.github.ryonakano.reco (1.0.2) bionic; urgency=low
+
+  * Save and restore settings
+  * Support both do-not-ask-where-to-save flow and ask-where-to-save flow
+  * Organized UI
+  * Some small bug fixes
+  * Add French translation (by NathanBnm)
+  * Update Japanese translation
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Sun, 20 Jan 2019 19:56:33 +0900
+
 com.github.ryonakano.reco (1.0.0) bionic; urgency=medium
 
   * Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats
