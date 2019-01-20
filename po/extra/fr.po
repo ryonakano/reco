@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-26 10:55+0900\n"
+"POT-Creation-Date: 2019-01-20 19:49+0900\n"
 "PO-Revision-Date: 2019-01-17 19:13+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -24,11 +24,14 @@ msgstr "Reco"
 #: data/com.github.ryonakano.reco.appdata.xml.in:8
 #: data/com.github.ryonakano.reco.desktop.in:5
 msgid "Record talks to remember the contents later"
-msgstr "Enregistrez des discussions pour vous en rappeler le contenu plus tard."
+msgstr ""
+"Enregistrez des discussions pour vous en rappeler le contenu plus tard."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:10
 msgid "An audio recording app that helps you recall things talked later."
-msgstr "Une application d'enregistrement audio qui vous aide à vous rappeler des choses dont vous avez parlé."
+msgstr ""
+"Une application d'enregistrement audio qui vous aide à vous rappeler des "
+"choses dont vous avez parlé."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:13
 msgid "Useful when:"
@@ -40,7 +43,8 @@ msgstr "vous vous joignez à une discussion et prenez vos notes plus tard"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:16
 msgid "you want to record talk with your friends or lover"
-msgstr "vous voulez enregistrer une conversation avec vos amis ou votre amoureux"
+msgstr ""
+"vous voulez enregistrer une conversation avec vos amis ou votre amoureux"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:17
 msgid "you want to stream videos on the Internet"
@@ -58,7 +62,7 @@ msgstr "Enregistrement chronométré"
 msgid "Available format: AAC, FLAC, MP3, Ogg Vorbis, Opus and WAV"
 msgstr "Formats disponibles : AAC, FLAC, MP3, Ogg Vorbis, Opus et WAV"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:73
+#: data/com.github.ryonakano.reco.appdata.xml.in:83
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 
@@ -70,6 +74,6 @@ msgstr "Aplication d'enregistrement audio"
 msgid "com.github.ryonakano.reco"
 msgstr "com.github.ryonakano.reco"
 
-#: data/com.github.ryonakano.reco.desktop.in:12
+#: data/com.github.ryonakano.reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Enregistrement;Audio;Son;Voix;"
