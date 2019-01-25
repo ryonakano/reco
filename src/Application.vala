@@ -17,7 +17,7 @@
 
 public class Application : Gtk.Application {
     private MainWindow window;
-    public static GLib.Settings settings;
+    public static Settings settings;
     private string destination;
 
     public Application () {
@@ -32,7 +32,7 @@ public class Application : Gtk.Application {
 
         if (destination == "") {
             /// TRANSLATORS: Folder name where what users record is saved
-            destination = GLib.Environment.get_home_dir () + "/%s".printf (_("Recordings"));
+            destination = Environment.get_home_dir () + "/%s".printf (_("Recordings"));
             if (destination != null) {
                 DirUtils.create_with_parents (destination, 0775);
             }

@@ -77,7 +77,7 @@ public class RecordView : Gtk.Box {
     private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
         switch (msg.type) {
         case Gst.MessageType.ERROR:
-            GLib.Error err;
+            Error err;
 
             string debug;
 
@@ -99,7 +99,7 @@ public class RecordView : Gtk.Box {
             is_recording = false;
 
             /// TRANSLATORS: %s represents a timestamp here
-            string filename = _("Recording from %s").printf (new GLib.DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"));
+            string filename = _("Recording from %s").printf (new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"));
 
             var tmp_source = File.new_for_path (tmp_full_path);
 
@@ -164,7 +164,7 @@ public class RecordView : Gtk.Box {
         try {
             string sound_inputs = "";
             Process.spawn_command_line_sync ("pacmd list-sources", out sound_inputs);
-            GLib.Regex re = new GLib.Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
+            var re = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
             MatchInfo mi;
             if (re.match (sound_inputs, 0, out mi)) {
                 default_input = mi.fetch (0);
@@ -175,8 +175,8 @@ public class RecordView : Gtk.Box {
         }
 
         assert (sink != null);
-        string tmp_destination = GLib.Environment.get_tmp_dir ();
-        string tmp_filename = "reco_" + new GLib.DateTime.now_local ().to_unix ().to_string ();
+        string tmp_destination = Environment.get_tmp_dir ();
+        string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string ();
 
         string file_format = Application.settings.get_string ("format");
 
