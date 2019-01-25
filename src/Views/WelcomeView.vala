@@ -17,11 +17,11 @@
 
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
-    public Gtk.ComboBoxText format_combobox { get; set; }
-    public Gtk.SpinButton delay_spin { get; private set; }
-    public Gtk.SpinButton length_spin { get; private set; }
-    public Gtk.Switch auto_save { get; private set; }
-    public Gtk.FileChooserButton destination_chooser { get; private set; }
+    private Gtk.ComboBoxText format_combobox;
+    private Gtk.SpinButton delay_spin;
+    private Gtk.SpinButton length_spin;
+    private Gtk.Switch auto_save;
+    private Gtk.FileChooserButton destination_chooser;
     private Gtk.Button record_button;
 
     public WelcomeView (MainWindow window) {

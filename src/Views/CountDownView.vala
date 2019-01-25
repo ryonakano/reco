@@ -43,7 +43,7 @@ public class CountDownView : Gtk.Box {
     }
 
     public void start_count () {
-        remaining_time = window.welcome_view.delay_spin.get_value_as_int ();
+        remaining_time = Application.settings.get_int ("delay");
 
         // Show initial remaining_time
         recording_label.label = remaining_time.to_string ();

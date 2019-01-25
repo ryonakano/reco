@@ -103,8 +103,9 @@ public class RecordView : Gtk.Box {
 
             var tmp_source = File.new_for_path (tmp_full_path);
 
-            if (window.welcome_view.auto_save.active) { // The app saved files automatically
-                string destination = window.welcome_view.destination_chooser.get_filename ();
+            string destination = Application.settings.get_string ("destination");
+
+            if (Application.settings.get_boolean ("auto-save")) { // The app saved files automatically
                 try {
                     var uri = File.new_for_path (destination + "/" + filename + suffix);
                     tmp_source.move (uri, FileCopyFlags.OVERWRITE);
@@ -114,7 +115,7 @@ public class RecordView : Gtk.Box {
             } else { // The app asks destination and filename each time
                 var filechooser = new Gtk.FileChooserDialog (_("Save your recording"), window, Gtk.FileChooserAction.SAVE, _("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK);
                 filechooser.set_current_name (filename + suffix);
-                filechooser.set_filename (app.destination);
+                filechooser.set_filename (destination);
 
                 if (filechooser.run () == Gtk.ResponseType.OK) {
                     try {
@@ -177,23 +178,25 @@ public class RecordView : Gtk.Box {
         string tmp_destination = GLib.Environment.get_tmp_dir ();
         string tmp_filename = "reco_" + new GLib.DateTime.now_local ().to_unix ().to_string ();
 
+        string file_format = Application.settings.get_string ("format");
+
         try {
-            if (window.welcome_view.format_combobox.active_id == "aac") {
+            if (file_format == "aac") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! avenc_aac ! mp4mux", true);
                 suffix = ".m4a";
-            } else if (window.welcome_view.format_combobox.active_id == "flac") {
+            } else if (file_format == "flac") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! flacenc", true);
                 suffix = ".flac";
-            } else if (window.welcome_view.format_combobox.active_id == "mp3") {
+            } else if (file_format == "mp3") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! lamemp3enc", true);
                 suffix = ".mp3";
-            } else if (window.welcome_view.format_combobox.active_id == "ogg") {
+            } else if (file_format == "ogg") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! vorbisenc ! oggmux", true);
                 suffix = ".ogg";
-            } else if (window.welcome_view.format_combobox.active_id == "opus") {
+            } else if (file_format == "opus") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! opusenc ! oggmux", true);
                 suffix = ".opus";
-            } else if (window.welcome_view.format_combobox.active_id == "wav") {
+            } else if (file_format == "wav") {
                 audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! wavenc", true);
                 suffix = ".wav";
             }
@@ -211,7 +214,7 @@ public class RecordView : Gtk.Box {
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
         pipeline.set_state (Gst.State.PLAYING);
 
-        int record_length = window.welcome_view.length_spin.get_value_as_int ();
+        int record_length = Application.settings.get_int ("length");
         if (record_length != 0) {
             start_countdown (record_length);
         }
