@@ -33,10 +33,11 @@ public class Application : Gtk.Application {
         if (destination == "") {
             /// TRANSLATORS: Folder name where what users record is saved
             destination = Environment.get_home_dir () + "/%s".printf (_("Recordings"));
-            if (destination != null) {
-                DirUtils.create_with_parents (destination, 0775);
-            }
             Application.settings.set_string ("destination", destination);
+        }
+
+        if (destination != null) {
+            DirUtils.create_with_parents (destination, 0775);
         }
     }
 
