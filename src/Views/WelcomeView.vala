@@ -17,12 +17,6 @@
 
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
-    private Gtk.ComboBoxText format_combobox;
-    private Gtk.SpinButton delay_spin;
-    private Gtk.SpinButton length_spin;
-    private Gtk.Switch auto_save;
-    private Gtk.FileChooserButton destination_chooser;
-    private Gtk.Button record_button;
 
     public WelcomeView (MainWindow window) {
         Object (
@@ -38,13 +32,13 @@ public class WelcomeView : Gtk.Box {
 
         var delay_label = new Gtk.Label (_("Delay in seconds:"));
         delay_label.halign = Gtk.Align.END;
-        delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
+        var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
         delay_spin.halign = Gtk.Align.START;
         delay_spin.value = Application.settings.get_int ("delay");
 
         var length_label = new Gtk.Label (_("Length in seconds:"));
         length_label.halign = Gtk.Align.END;
-        length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
+        var length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
         length_spin.halign = Gtk.Align.START;
         length_spin.value = Application.settings.get_int ("length");
 
@@ -53,7 +47,7 @@ public class WelcomeView : Gtk.Box {
         var format_label = new Gtk.Label (_("Format:"));
         format_label.halign = Gtk.Align.END;
 
-        format_combobox = new Gtk.ComboBoxText ();
+        var format_combobox = new Gtk.ComboBoxText ();
         format_combobox.halign = Gtk.Align.START;
         format_combobox.append ("aac", _("AAC"));
         format_combobox.append ("flac", _("FLAC"));
@@ -66,11 +60,11 @@ public class WelcomeView : Gtk.Box {
         var auto_save_label = new Gtk.Label (_("Automatically save files:"));
         auto_save_label.halign = Gtk.Align.END;
 
-        auto_save = new Gtk.Switch ();
+        var auto_save = new Gtk.Switch ();
         auto_save.halign = Gtk.Align.START;
         auto_save.active = Application.settings.get_boolean ("auto-save");
 
-        destination_chooser = new Gtk.FileChooserButton (_("Choose a default destination"), Gtk.FileChooserAction.SELECT_FOLDER);
+        var destination_chooser = new Gtk.FileChooserButton (_("Choose a default destination"), Gtk.FileChooserAction.SELECT_FOLDER);
         destination_chooser.halign = Gtk.Align.START;
         destination_chooser.set_filename (Application.settings.get_string ("destination"));
         destination_chooser.sensitive = auto_save.active;
@@ -91,7 +85,7 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (auto_save, 1, 5, 1, 1);
         settings_grid.attach (destination_chooser, 1, 6, 1, 1);
 
-        record_button = new Gtk.Button ();
+        var record_button = new Gtk.Button ();
         record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
         record_button.tooltip_text = _("Start recording");
         record_button.get_style_context ().add_class ("record-button");

@@ -18,7 +18,6 @@
 public class CountDownView : Gtk.Box {
     public MainWindow window { get; construct; }
     private Gtk.Label recording_label;
-    public int remaining_time { get; private set; }
 
     public CountDownView (MainWindow window) {
         Object (
@@ -43,7 +42,7 @@ public class CountDownView : Gtk.Box {
     }
 
     public void start_count () {
-        remaining_time = Application.settings.get_int ("delay");
+        int remaining_time = Application.settings.get_int ("delay");
 
         // Show initial remaining_time
         recording_label.label = remaining_time.to_string ();

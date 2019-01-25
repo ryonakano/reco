@@ -18,7 +18,6 @@
 public class Application : Gtk.Application {
     private MainWindow window;
     public static Settings settings;
-    private string destination;
 
     public Application () {
         Object (
@@ -28,7 +27,7 @@ public class Application : Gtk.Application {
     }
 
     construct {
-        destination = Application.settings.get_string ("destination");
+        string destination = Application.settings.get_string ("destination");
 
         if (destination == "") {
             /// TRANSLATORS: Folder name where what users record is saved
