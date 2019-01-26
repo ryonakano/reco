@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-20 19:49+0900\n"
+"POT-Creation-Date: 2019-01-27 00:01+0900\n"
 "PO-Revision-Date: 2019-01-20 19:50+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -18,59 +18,75 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 2.2.1\n"
 
-#: src/Views/WelcomeView.vala:37
+#: src/Dialogs/DestructionWarnginDialog.vala:25
+msgid "Are you sure you want to quit Reco?"
+msgstr ""
+
+#: src/Dialogs/DestructionWarnginDialog.vala:26
+msgid "If you quit Reco, the recording in progress will end."
+msgstr ""
+
+#: src/Dialogs/DestructionWarnginDialog.vala:36 src/Views/RecordView.vala:116
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: src/Dialogs/DestructionWarnginDialog.vala:38
+msgid "Quit Reco"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:31
 msgid "Recording"
 msgstr "録音"
 
-#: src/Views/WelcomeView.vala:39
+#: src/Views/WelcomeView.vala:33
 msgid "Delay in seconds:"
 msgstr "遅延する秒数:"
 
-#: src/Views/WelcomeView.vala:45
+#: src/Views/WelcomeView.vala:39
 msgid "Length in seconds:"
 msgstr "録音する秒数:"
 
-#: src/Views/WelcomeView.vala:51
+#: src/Views/WelcomeView.vala:45
 msgid "Saving"
 msgstr "保存"
 
-#: src/Views/WelcomeView.vala:53
+#: src/Views/WelcomeView.vala:47
 msgid "Format:"
 msgstr "形式:"
 
-#: src/Views/WelcomeView.vala:58
+#: src/Views/WelcomeView.vala:52
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:59
+#: src/Views/WelcomeView.vala:53
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:60
+#: src/Views/WelcomeView.vala:54
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:61
+#: src/Views/WelcomeView.vala:55
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:62
+#: src/Views/WelcomeView.vala:56
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:63
+#: src/Views/WelcomeView.vala:57
 msgid "Wav"
 msgstr "Wav"
 
-#: src/Views/WelcomeView.vala:66
+#: src/Views/WelcomeView.vala:60
 msgid "Automatically save files:"
 msgstr "ファイルを自動的に保存:"
 
-#: src/Views/WelcomeView.vala:73
+#: src/Views/WelcomeView.vala:67
 msgid "Choose a default destination"
 msgstr "デフォルトの保存先を選択"
 
-#: src/Views/WelcomeView.vala:96
+#: src/Views/WelcomeView.vala:90
 msgid "Start recording"
 msgstr "録音を開始します"
 
@@ -98,20 +114,16 @@ msgid "Recording from %s"
 msgstr "録音 %s"
 
 #. The app asks destination and filename each time
-#: src/Views/RecordView.vala:115
+#: src/Views/RecordView.vala:116
 msgid "Save your recording"
 msgstr "録音したものを保存"
 
-#: src/Views/RecordView.vala:115
-msgid "Cancel"
-msgstr "キャンセル"
-
-#: src/Views/RecordView.vala:115
+#: src/Views/RecordView.vala:116
 msgid "Save"
 msgstr "保存"
 
 #. / TRANSLATORS: Folder name where what users record is saved
-#: src/Application.vala:32
+#: src/Application.vala:34
 msgid "Recordings"
 msgstr "録音したもの"
 
