@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-27 00:01+0900\n"
-"PO-Revision-Date: 2019-01-20 19:50+0900\n"
+"PO-Revision-Date: 2019-01-27 00:06+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: src/Dialogs/DestructionWarnginDialog.vala:25
 msgid "Are you sure you want to quit Reco?"
-msgstr ""
+msgstr "Reco を終了してもよろしいですか？"
 
 #: src/Dialogs/DestructionWarnginDialog.vala:26
 msgid "If you quit Reco, the recording in progress will end."
-msgstr ""
+msgstr "Reco を終了すると、進行中の録音は終了します。"
 
 #: src/Dialogs/DestructionWarnginDialog.vala:36 src/Views/RecordView.vala:116
 msgid "Cancel"
@@ -32,7 +32,7 @@ msgstr "キャンセル"
 
 #: src/Dialogs/DestructionWarnginDialog.vala:38
 msgid "Quit Reco"
-msgstr ""
+msgstr "Reco を終了"
 
 #: src/Views/WelcomeView.vala:31
 msgid "Recording"
