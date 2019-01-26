@@ -45,23 +45,23 @@ public class Application : Gtk.Application {
     }
 
     protected override void activate () {
-        var window_x = settings.get_int ("window-x");
-        var window_y = settings.get_int ("window-y");
-
         if (window != null) { // The app is already launched
             window.present ();
             return;
-        } else {
-            window = new MainWindow (this);
-
-            if (window_x != -1 || window_y != -1) { // Not a first time launch
-                window.move (window_x, window_y);
-            } else { // First time launch
-                window.window_position = Gtk.WindowPosition.CENTER;
-            }
-
-            window.show_all ();
         }
+
+        var window_x = settings.get_int ("window-x");
+        var window_y = settings.get_int ("window-y");
+
+        window = new MainWindow (this);
+
+        if (window_x != -1 || window_y != -1) { // Not a first time launch
+            window.move (window_x, window_y);
+        } else { // First time launch
+            window.window_position = Gtk.WindowPosition.CENTER;
+        }
+
+        window.show_all ();
 
         var quit_action = new SimpleAction ("quit", null);
         add_action (quit_action);
