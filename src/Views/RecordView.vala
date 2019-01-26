@@ -23,7 +23,7 @@ public class RecordView : Gtk.Box {
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
     private Gtk.Button stop_button;
-    private bool is_recording;
+    public bool is_recording { get; private set; }
     private string suffix;
     private string tmp_full_path;
     private uint count;

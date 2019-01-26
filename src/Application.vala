@@ -67,8 +67,11 @@ public class Application : Gtk.Application {
         add_action (quit_action);
         set_accels_for_action ("app.quit", {"<Control>q"});
         quit_action.activate.connect (() => {
-            if (window != null) {
+            if (!window.record_view.is_recording) {
                 window.destroy ();
+            } else {
+                var destraction_warning_dialog = new DestructionWarnginDialog (window);
+                destraction_warning_dialog.show_all ();
             }
         });
     }
