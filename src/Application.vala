@@ -30,7 +30,7 @@ public class Application : Gtk.Application {
         string destination = Application.settings.get_string ("destination");
 
         if (destination == "") {
-            /// TRANSLATORS: Folder name where what users record is saved
+            /// TRANSLATORS: The name of the folder which recordings are saved
             destination = Environment.get_home_dir () + "/%s".printf (_("Recordings"));
             Application.settings.set_string ("destination", destination);
         }
