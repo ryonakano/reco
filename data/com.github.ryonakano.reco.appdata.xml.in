@@ -59,6 +59,15 @@
   </content_rating>
 
   <releases>
+    <release version="1.0.3" date="2019-02-19">
+      <description>
+        <ul>
+          <li>Show a confirmation dialog when trying to quit the app if a recording is in progress</li>
+          <li>Add Lithuanian translation (by welaq)</li>
+          <li>Update Japanese translation</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.2" date="2019-01-20">
       <description>
         <ul>
