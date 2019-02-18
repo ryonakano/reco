@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-27 00:01+0900\n"
+"POT-Creation-Date: 2019-02-19 08:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,22 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: src/Dialogs/DestructionWarnginDialog.vala:25
-msgid "Are you sure you want to quit Reco?"
-msgstr ""
-
-#: src/Dialogs/DestructionWarnginDialog.vala:26
-msgid "If you quit Reco, the recording in progress will end."
-msgstr ""
-
-#: src/Dialogs/DestructionWarnginDialog.vala:36 src/Views/RecordView.vala:116
-msgid "Cancel"
-msgstr ""
-
-#: src/Dialogs/DestructionWarnginDialog.vala:38
-msgid "Quit Reco"
-msgstr ""
 
 #: src/Views/WelcomeView.vala:31
 msgid "Recording"
@@ -117,11 +101,27 @@ msgstr ""
 msgid "Save your recording"
 msgstr ""
 
+#: src/Views/RecordView.vala:116 src/Application.vala:76
+msgid "Cancel"
+msgstr ""
+
 #: src/Views/RecordView.vala:116
 msgid "Save"
 msgstr ""
 
-#. / TRANSLATORS: Folder name where what users record is saved
+#. / TRANSLATORS: The name of the folder which recordings are saved
 #: src/Application.vala:34
 msgid "Recordings"
+msgstr ""
+
+#: src/Application.vala:73
+msgid "Are you sure you want to quit Reco?"
+msgstr ""
+
+#: src/Application.vala:73
+msgid "If you quit Reco, the recording in progress will end."
+msgstr ""
+
+#: src/Application.vala:78
+msgid "Quit Reco"
 msgstr ""
