@@ -1,3 +1,11 @@
+com.github.ryonakano.reco (1.0.3) bionic; urgency=low
+
+  * Show a confirmation dialog when trying to quit the app if a recording is in progress
+  * Add Lithuanian translation (by welaq)
+  * Update Japanese translation
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Tue, 19 Feb 2019 08:51:47 +0900
+
 com.github.ryonakano.reco (1.0.2) bionic; urgency=low
 
   * Save and restore settings
