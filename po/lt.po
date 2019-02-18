@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.ryonakano.reco package.
+# Moo, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.ryonakano.reco\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-27 00:01+0900\n"
+"PO-Revision-Date: 2019-02-18 14:35+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: Moo\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: lt\n"
+
+#: src/Dialogs/DestructionWarnginDialog.vala:25
+msgid "Are you sure you want to quit Reco?"
+msgstr "Ar tikrai norite išeiti iš Reco?"
+
+#: src/Dialogs/DestructionWarnginDialog.vala:26
+msgid "If you quit Reco, the recording in progress will end."
+msgstr "Jeigu išeisite iš Reco, dabartinis įrašinėjimas bus užbaigtas."
+
+#: src/Dialogs/DestructionWarnginDialog.vala:36 src/Views/RecordView.vala:116
+msgid "Cancel"
+msgstr "Atsisakyti"
+
+#: src/Dialogs/DestructionWarnginDialog.vala:38
+msgid "Quit Reco"
+msgstr "Išeiti iš Reco"
+
+#: src/Views/WelcomeView.vala:31
+msgid "Recording"
+msgstr "Įrašinėjimas"
+
+#: src/Views/WelcomeView.vala:33
+msgid "Delay in seconds:"
+msgstr "Delsa sekundėmis:"
+
+#: src/Views/WelcomeView.vala:39
+msgid "Length in seconds:"
+msgstr "Trukmė sekundėmis:"
+
+#: src/Views/WelcomeView.vala:45
+msgid "Saving"
+msgstr "Išsaugojimas"
+
+#: src/Views/WelcomeView.vala:47
+msgid "Format:"
+msgstr "Formatas:"
+
+#: src/Views/WelcomeView.vala:52
+msgid "AAC"
+msgstr "AAC"
+
+#: src/Views/WelcomeView.vala:53
+msgid "FLAC"
+msgstr "FLAC"
+
+#: src/Views/WelcomeView.vala:54
+msgid "MP3"
+msgstr "MP3"
+
+#: src/Views/WelcomeView.vala:55
+msgid "Ogg Vorbis"
+msgstr "Ogg Vorbis"
+
+#: src/Views/WelcomeView.vala:56
+msgid "Opus"
+msgstr "Opus"
+
+#: src/Views/WelcomeView.vala:57
+msgid "Wav"
+msgstr "Wav"
+
+#: src/Views/WelcomeView.vala:60
+msgid "Automatically save files:"
+msgstr "Automatiškai išsaugoti failus:"
+
+#: src/Views/WelcomeView.vala:67
+msgid "Choose a default destination"
+msgstr "Pasirinkite numatytąją vietą"
+
+#: src/Views/WelcomeView.vala:90
+msgid "Start recording"
+msgstr "Pradėti įrašinėjimą"
+
+#: src/Views/RecordView.vala:60
+msgid "Stop recording"
+msgstr "Stabdyti įrašinėjimą"
+
+#: src/Views/RecordView.vala:87
+msgid "Unable to Create an Audio File"
+msgstr "Nepavyko sukurti garso failą"
+
+#: src/Views/RecordView.vala:87
+msgid "A GStreamer error happened while recording:"
+msgstr "Įrašanėjant, įvyko GStreamer klaida:"
+
+#: src/Views/RecordView.vala:87
+#, c-format
+msgid "Error: %s"
+msgstr "Klaida: %s"
+
+#. / TRANSLATORS: %s represents a timestamp here
+#: src/Views/RecordView.vala:102
+#, c-format
+msgid "Recording from %s"
+msgstr "Įrašinėjimas iš %s"
+
+#. The app asks destination and filename each time
+#: src/Views/RecordView.vala:116
+msgid "Save your recording"
+msgstr "Išsaugokite savo įrašinėjimą"
+
+#: src/Views/RecordView.vala:116
+msgid "Save"
+msgstr "Išsaugoti"
+
+#. / TRANSLATORS: Folder name where what users record is saved
+#: src/Application.vala:34
+msgid "Recordings"
+msgstr "Įrašinėjimai"
