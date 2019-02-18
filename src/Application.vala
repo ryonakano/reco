@@ -70,8 +70,24 @@ public class Application : Gtk.Application {
             if (!window.record_view.is_recording) {
                 window.destroy ();
             } else {
-                var destraction_warning_dialog = new DestructionWarnginDialog (window);
-                destraction_warning_dialog.show_all ();
+                var warning_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Are you sure you want to quit Reco?"), _("If you quit Reco, the recording in progress will end."), "dialog-warning", Gtk.ButtonsType.NONE);
+                warning_dialog.transient_for = window;
+                warning_dialog.modal = true;
+                warning_dialog.add_button (_("Cancel"), Gtk.ButtonsType.CANCEL);
+
+                var quit_button = new Gtk.Button.with_label (_("Quit Reco"));
+                quit_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+                warning_dialog.add_action_widget (quit_button, Gtk.ResponseType.YES);
+
+                warning_dialog.show_all ();
+
+                warning_dialog.response.connect ((response_id) => {
+                    if (response_id == Gtk.ResponseType.YES) {
+                        window.destroy ();
+                    }
+
+                    warning_dialog.destroy ();
+                });
             }
         });
     }

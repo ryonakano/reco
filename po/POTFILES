@@ -1,4 +1,3 @@
-src/Dialogs/DestructionWarnginDialog.vala
 src/Views/WelcomeView.vala
 src/Views/RecordView.vala
 src/Application.vala
