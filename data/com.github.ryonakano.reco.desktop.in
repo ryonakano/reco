@@ -1,10 +1,13 @@
 [Desktop Entry]
 Name=Reco
 GenericName=Audio Recording App
+GenericName[lt]=Garso įrašymo programa
 Comment=Record talks to remember the contents later
+Comment[lt]=Įrašyti pokalbius, siekiant vėliau prisiminti jų turinį
 Categories=Audio;Utility;Recorder;
 Exec=com.github.ryonakano.reco %U
 Icon=com.github.ryonakano.reco
 Terminal=false
 Type=Application
 Keywords=Record;Audio;Sound;Voice;
+Keywords[lt]=Įrašinėti;Įrašyti;Rašytuvas;Audio;Garsas;Balsas;
