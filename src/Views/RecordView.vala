@@ -55,17 +55,37 @@ public class RecordView : Gtk.Box {
         label_grid.attach (time_label, 0, 1, 1, 1);
         label_grid.attach (remaining_time_label, 0, 2, 1, 1);
 
+        var cancel_button = new Gtk.Button ();
+        cancel_button.image = new Gtk.Image.from_icon_name ("user-trash-symbolic", Gtk.IconSize.BUTTON);
+        cancel_button.tooltip_text = _("Cancel recording");
+        cancel_button.get_style_context ().add_class ("buttons-without-border");
+        cancel_button.halign = Gtk.Align.START;
+
         stop_button = new Gtk.Button ();
         stop_button.image = new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", Gtk.IconSize.DND);
-        stop_button.tooltip_text = _("Stop recording");
+        stop_button.tooltip_text = _("Finish recording");
         stop_button.get_style_context ().add_class ("record-button");
-        stop_button.halign = Gtk.Align.CENTER;
-        stop_button.margin_top = 12;
+        stop_button.halign = Gtk.Align.END;
         stop_button.width_request = 48;
         stop_button.height_request = 48;
 
+        var pause_button = new Gtk.Button ();
+        pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+        pause_button.tooltip_text = _("Pause recording");
+        pause_button.get_style_context ().add_class ("buttons-without-border");
+        pause_button.halign = Gtk.Align.CENTER;
+
+        var buttons_grid = new Gtk.Grid ();
+        buttons_grid.column_spacing = 30;
+        buttons_grid.row_spacing = 6;
+        buttons_grid.margin_top = 12;
+        buttons_grid.halign = Gtk.Align.CENTER;
+        buttons_grid.attach (cancel_button, 0, 0, 1, 1);
+        buttons_grid.attach (stop_button, 1, 0, 1, 1);
+        buttons_grid.attach (pause_button, 2, 0, 1, 1);
+
         pack_start (label_grid, false, false);
-        pack_end (stop_button, false, false);
+        pack_end (buttons_grid, false, false);
 
         stop_button.clicked.connect (() => {
             stop_recording ();
