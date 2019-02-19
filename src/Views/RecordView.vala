@@ -87,6 +87,12 @@ public class RecordView : Gtk.Box {
         pack_start (label_grid, false, false);
         pack_end (buttons_grid, false, false);
 
+        cancel_button.clicked.connect (() => {
+            cancel_recording ();
+            window.show_welcome ();
+            is_recording = false;
+        });
+
         stop_button.clicked.connect (() => {
             stop_recording ();
             window.show_welcome ();
@@ -238,6 +244,26 @@ public class RecordView : Gtk.Box {
         int record_length = Application.settings.get_int ("length");
         if (record_length != 0) {
             start_countdown (record_length);
+        }
+    }
+
+    private void cancel_recording () {
+        if (count != 0) {
+            count = 0;
+        }
+        if (countdown != 0) {
+            countdown = 0;
+            remaining_time_label.label = null;
+        }
+        pipeline.set_state (Gst.State.NULL);
+        pipeline.dispose ();
+        pipeline = null;
+
+        // Remove canceled file in /tmp
+        try {
+            File.new_for_path (tmp_full_path).delete ();
+        } catch (Error e) {
+            stderr.printf ("Error: %s\n", e.message);
         }
     }
 
