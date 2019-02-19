@@ -113,11 +113,12 @@ public class RecordView : Gtk.Box {
                     stderr.printf ("Error: %s\n", e.message);
                 }
             } else { // The app asks destination and filename each time
-                var filechooser = new Gtk.FileChooserDialog (_("Save your recording"), window, Gtk.FileChooserAction.SAVE, _("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK);
+                var filechooser = new Gtk.FileChooserNative (_("Save your recording"), window, Gtk.FileChooserAction.SAVE, _("Save"), _("Cancel"));
                 filechooser.set_current_name (filename + suffix);
                 filechooser.set_filename (destination);
+                filechooser.do_overwrite_confirmation = true;
 
-                if (filechooser.run () == Gtk.ResponseType.OK) {
+                if (filechooser.run () == Gtk.ResponseType.ACCEPT) {
                     try {
                         var uri = File.new_for_path (filechooser.get_filename ());
                         tmp_source.move (uri, FileCopyFlags.OVERWRITE);
