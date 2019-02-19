@@ -17,6 +17,7 @@
 
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
+    private Gtk.Button record_button;
 
     public WelcomeView (MainWindow window) {
         Object (
@@ -85,7 +86,7 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (auto_save, 1, 5, 1, 1);
         settings_grid.attach (destination_chooser, 1, 6, 1, 1);
 
-        var record_button = new Gtk.Button ();
+        record_button = new Gtk.Button ();
         record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
         record_button.tooltip_text = _("Start recording");
         record_button.get_style_context ().add_class ("record-button");
@@ -125,5 +126,16 @@ public class WelcomeView : Gtk.Box {
                 window.show_record ();
             }
         });
+    }
+
+    public void show_success_button () {
+        record_button.get_style_context ().add_class ("record-button-success");
+        record_button.image = new Gtk.Image.from_icon_name ("record-completed-symbolic", Gtk.IconSize.DND);
+        uint timeout = Timeout.add (3000, () => {
+            record_button.get_style_context ().remove_class ("record-button-success");
+            record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
+            return false;
+        });
+        timeout = 0;
     }
 }

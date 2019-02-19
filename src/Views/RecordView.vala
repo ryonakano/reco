@@ -109,6 +109,7 @@ public class RecordView : Gtk.Box {
                 try {
                     var uri = File.new_for_path (destination + "/" + filename + suffix);
                     tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+                    window.welcome_view.show_success_button ();
                 } catch (Error e) {
                     stderr.printf ("Error: %s\n", e.message);
                 }
@@ -122,6 +123,7 @@ public class RecordView : Gtk.Box {
                     try {
                         var uri = File.new_for_path (filechooser.get_filename ());
                         tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+                        window.welcome_view.show_success_button ();
                     } catch (Error e) {
                         stderr.printf ("Error: %s\n", e.message);
                     }
