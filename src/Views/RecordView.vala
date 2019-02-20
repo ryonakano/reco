@@ -171,6 +171,7 @@ public class RecordView : Gtk.Box {
             pipeline = null;
             break;
         default:
+            pipeline.set_state (Gst.State.NULL);
             break;
         }
 
