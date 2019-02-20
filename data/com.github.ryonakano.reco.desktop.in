@@ -2,7 +2,7 @@
 Name=Reco
 GenericName=Audio Recording App
 Comment=Record talks to remember the contents later
-Categories=Audio;Utility;Recorder;
+Categories=Audio;AudioVideo;Utility;Recorder;
 Exec=com.github.ryonakano.reco %U
 Icon=com.github.ryonakano.reco
 Terminal=false

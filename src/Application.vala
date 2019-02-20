@@ -27,17 +27,6 @@ public class Application : Gtk.Application {
     }
 
     construct {
-        string destination = Application.settings.get_string ("destination");
-
-        if (destination == "") {
-            /// TRANSLATORS: The name of the folder which recordings are saved
-            destination = Environment.get_home_dir () + "/%s".printf (_("Recordings"));
-            Application.settings.set_string ("destination", destination);
-        }
-
-        if (destination != null) {
-            DirUtils.create_with_parents (destination, 0775);
-        }
     }
 
     static construct {
@@ -88,6 +77,17 @@ public class Application : Gtk.Application {
 
                     warning_dialog.destroy ();
                 });
+            }
+        });
+
+        var toggle_recording_action = new SimpleAction ("toggle_recording", null);
+        add_action (toggle_recording_action);
+        set_accels_for_action ("app.toggle_recording", {"<Control><Shift>R"});
+        toggle_recording_action.activate.connect (() => {
+            if (window.stack.visible_child_name == "welcome") {
+                window.welcome_view.record_button.clicked ();
+            } else if (window.stack.visible_child_name == "record") {
+                window.record_view.stop_button.clicked ();
             }
         });
     }
