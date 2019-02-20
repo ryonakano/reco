@@ -67,7 +67,7 @@ public class WelcomeView : Gtk.Box {
 
         var destination_chooser = new Gtk.FileChooserButton (_("Choose a default destination"), Gtk.FileChooserAction.SELECT_FOLDER);
         destination_chooser.halign = Gtk.Align.START;
-        destination_chooser.set_filename (Application.settings.get_string ("destination"));
+        destination_chooser.set_filename (get_destination ());
         destination_chooser.sensitive = auto_save.active;
 
         var settings_grid = new Gtk.Grid ();
@@ -126,5 +126,21 @@ public class WelcomeView : Gtk.Box {
                 window.show_record ();
             }
         });
+    }
+
+    private string get_destination () {
+        string destination = Application.settings.get_string ("destination");
+
+        if (destination == "") {
+            /// TRANSLATORS: The name of the folder which recordings are saved
+            destination = Environment.get_home_dir () + "/%s".printf (_("Recordings"));
+            Application.settings.set_string ("destination", destination);
+        }
+
+        if (destination != null) {
+            DirUtils.create_with_parents (destination, 0775);
+        }
+
+        return destination;
     }
 }
