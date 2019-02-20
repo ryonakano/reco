@@ -17,6 +17,7 @@
 
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
+    public Gtk.Button record_button { get; private set; }
 
     public WelcomeView (MainWindow window) {
         Object (
@@ -85,9 +86,9 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (auto_save, 1, 5, 1, 1);
         settings_grid.attach (destination_chooser, 1, 6, 1, 1);
 
-        var record_button = new Gtk.Button ();
+        record_button = new Gtk.Button ();
         record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
-        record_button.tooltip_text = _("Start recording");
+        record_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Start recording"));
         record_button.get_style_context ().add_class ("record-button");
         record_button.halign = Gtk.Align.CENTER;
         record_button.margin_top = 12;

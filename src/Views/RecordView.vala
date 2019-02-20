@@ -22,7 +22,7 @@ public class RecordView : Gtk.Box {
     public Application app { get; construct; }
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
-    private Gtk.Button stop_button;
+    public Gtk.Button stop_button { get; private set; }
     public bool is_recording { get; private set; }
     private string suffix;
     private string tmp_full_path;
@@ -57,7 +57,7 @@ public class RecordView : Gtk.Box {
 
         stop_button = new Gtk.Button ();
         stop_button.image = new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", Gtk.IconSize.DND);
-        stop_button.tooltip_text = _("Stop recording");
+        stop_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Stop recording"));
         stop_button.get_style_context ().add_class ("record-button");
         stop_button.halign = Gtk.Align.CENTER;
         stop_button.margin_top = 12;

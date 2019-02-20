@@ -18,7 +18,7 @@
 public class MainWindow : Gtk.ApplicationWindow {
     public Application app { get; construct; }
     private Gtk.HeaderBar headerbar;
-    private Gtk.Stack stack;
+    public Gtk.Stack stack { get; private set; }
     public WelcomeView welcome_view { get; private set; }
     public CountDownView countdown_view { get; private set; }
     public RecordView record_view { get; private set; }

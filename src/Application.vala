@@ -90,6 +90,17 @@ public class Application : Gtk.Application {
                 });
             }
         });
+
+        var toggle_recording_action = new SimpleAction ("toggle_recording", null);
+        add_action (toggle_recording_action);
+        set_accels_for_action ("app.toggle_recording", {"<Control><Shift>R"});
+        toggle_recording_action.activate.connect (() => {
+            if (window.stack.visible_child_name == "welcome") {
+                window.welcome_view.record_button.clicked ();
+            } else if (window.stack.visible_child_name == "record") {
+                window.record_view.stop_button.clicked ();
+            }
+        });
     }
 
     public static int main (string[] args) {
