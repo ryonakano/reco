@@ -182,24 +182,31 @@ public class RecordView : Gtk.Box {
         string file_format = Application.settings.get_string ("format");
 
         try {
-            if (file_format == "aac") {
-                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! avenc_aac ! mp4mux", true);
-                suffix = ".m4a";
-            } else if (file_format == "flac") {
-                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! flacenc", true);
-                suffix = ".flac";
-            } else if (file_format == "mp3") {
-                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! lamemp3enc", true);
-                suffix = ".mp3";
-            } else if (file_format == "ogg") {
-                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! vorbisenc ! oggmux", true);
-                suffix = ".ogg";
-            } else if (file_format == "opus") {
-                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! opusenc ! oggmux", true);
-                suffix = ".opus";
-            } else if (file_format == "wav") {
-                audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! wavenc", true);
-                suffix = ".wav";
+            switch (file_format) {
+                case "aac":
+                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! avenc_aac ! mp4mux", true);
+                    suffix = ".m4a";
+                    break;
+                case "flac":
+                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! flacenc", true);
+                    suffix = ".flac";
+                    break;
+                case "mp3":
+                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! lamemp3enc", true);
+                    suffix = ".mp3";
+                    break;
+                case "ogg":
+                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! vorbisenc ! oggmux", true);
+                    suffix = ".ogg";
+                    break;
+                case "opus":
+                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! opusenc ! oggmux", true);
+                    suffix = ".opus";
+                    break;
+                default:
+                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! wavenc", true);
+                    suffix = ".wav";
+                    break;
             }
         } catch (Error e) {
             stderr.printf ("Error: %s\n", e.message);
