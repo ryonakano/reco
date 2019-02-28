@@ -143,4 +143,19 @@ public class WelcomeView : Gtk.Box {
 
         return destination;
     }
+
+    public void show_success_button () {
+        record_button.get_style_context ().add_class ("record-button-success");
+        record_button.image = new Gtk.Image.from_icon_name ("record-completed-symbolic", Gtk.IconSize.DND);
+        uint timeout_button_color = Timeout.add (3000, () => {
+            record_button.get_style_context ().remove_class ("record-button-success");
+            return false;
+        });
+        timeout_button_color = 0;
+        uint timeout_button_icon = Timeout.add (3250, () => {
+            record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
+            return false;
+        });
+        timeout_button_icon = 0;
+    }
 }
