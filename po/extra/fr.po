@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 19:49+0900\n"
-"PO-Revision-Date: 2019-01-17 19:13+0100\n"
+"PO-Revision-Date: 2019-01-28 08:28+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
 "Language: fr\n"
@@ -25,7 +25,7 @@ msgstr "Reco"
 #: data/com.github.ryonakano.reco.desktop.in:5
 msgid "Record talks to remember the contents later"
 msgstr ""
-"Enregistrez des discussions pour vous en rappeler le contenu plus tard."
+"Enregistrez des discussions pour vous en rappeler le contenu plus tard"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:10
 msgid "An audio recording app that helps you recall things talked later."
