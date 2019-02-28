@@ -17,7 +17,7 @@
 
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
-    private Gtk.Button record_button;
+    public Gtk.Button record_button { get; private set; }
 
     public WelcomeView (MainWindow window) {
         Object (
@@ -67,7 +67,7 @@ public class WelcomeView : Gtk.Box {
 
         var destination_chooser = new Gtk.FileChooserButton (_("Choose a default destination"), Gtk.FileChooserAction.SELECT_FOLDER);
         destination_chooser.halign = Gtk.Align.START;
-        destination_chooser.set_filename (Application.settings.get_string ("destination"));
+        destination_chooser.set_filename (get_destination ());
         destination_chooser.sensitive = auto_save.active;
 
         var settings_grid = new Gtk.Grid ();
@@ -88,7 +88,7 @@ public class WelcomeView : Gtk.Box {
 
         record_button = new Gtk.Button ();
         record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
-        record_button.tooltip_text = _("Start recording");
+        record_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Start recording"));
         record_button.get_style_context ().add_class ("record-button");
         record_button.halign = Gtk.Align.CENTER;
         record_button.margin_top = 12;
@@ -126,6 +126,22 @@ public class WelcomeView : Gtk.Box {
                 window.show_record ();
             }
         });
+    }
+
+    private string get_destination () {
+        string destination = Application.settings.get_string ("destination");
+
+        if (destination == "") {
+            /// TRANSLATORS: The name of the folder which recordings are saved
+            destination = Environment.get_home_dir () + "/%s".printf (_("Recordings"));
+            Application.settings.set_string ("destination", destination);
+        }
+
+        if (destination != null) {
+            DirUtils.create_with_parents (destination, 0775);
+        }
+
+        return destination;
     }
 
     public void show_success_button () {
