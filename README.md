@@ -34,7 +34,7 @@ Arch Linux users can find Reco under the name [reco-git](https://aur.archlinux.o
 You'll need the following dependencies:
 
 * libgtk-3.0-dev
-* libgranite-dev (>= 5.2.0)
+* libgranite-dev (>= 5.2.3)
 * libgstreamer1.0-dev
 * meson
 * valac
