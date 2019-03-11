@@ -289,6 +289,13 @@ public class RecordView : Gtk.Box {
             countdown = 0;
             remaining_time_label.label = null;
         }
+        // If a user tries to stop recording while pausing, resume recording once and reset the button icon
+        if (!is_recording) {
+            pipeline.set_state (Gst.State.PLAYING);
+            is_recording = true;
+            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+            pause_button.tooltip_text = _("Pause recording");
+        }
         pipeline.send_event (new Gst.Event.eos ());
     }
 
