@@ -3,7 +3,7 @@ Upstream-Name: Reco
 Source: https://github.com/ryonakano/reco
 
 Files: data/ src/
-Copyright: 2018 Ryo Nakano
+Copyright: 2019 Ryo Nakano
 License: GPL-3.0+
 
 License: GPL-3.0+
