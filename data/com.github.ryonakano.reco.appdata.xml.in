@@ -68,6 +68,18 @@
   </content_rating>
 
   <releases>
+    <release version="1.1.0" date="2019-03-11">
+      <description>
+        <ul>
+          <li>Fix the app isn't listed in the "Sound &amp; Video" category in Applications Menu</li>
+          <li>Add a shortcut key to toggle recording</li>
+          <li>Fix the name of "Recordings" folder is not created in system language</li>
+          <li>Notify success of recording with a check mark</li>
+          <li>Allow to cancel/pause recording</li>
+          <li>Update translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.3" date="2019-02-19">
       <description>
         <ul>
