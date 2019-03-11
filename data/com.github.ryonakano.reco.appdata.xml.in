@@ -24,22 +24,22 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <caption>Welcome screen that allows you to set recording configuration</caption>
       <image>https://raw.githubusercontent.com/ryonakano/reco/master/data/Screenshot.png</image>
       <image xml:lang="fr_FR">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/fr/Screenshot.png</image>
       <image xml:lang="ja_JP">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/ja/Screenshot.png</image>
       <image xml:lang="lt_LT">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/lt/Screenshot.png</image>
+      <caption>Welcome screen that allows you to set recording configuration</caption>
     </screenshot>
     <screenshot>
-      <caption>Recording screen</caption>
       <image>https://raw.githubusercontent.com/ryonakano/reco/master/data/Screenshot2.png</image>
+      <caption>Recording screen</caption>
     </screenshot>
     <screenshot>
-      <caption>Recording is successfully finished</caption>
       <image>https://raw.githubusercontent.com/ryonakano/reco/master/data/Screenshot3.png</image>
       <image xml:lang="fr_FR">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/fr/Screenshot3.png</image>
       <image xml:lang="ja_JP">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/ja/Screenshot3.png</image>
       <image xml:lang="lt_LT">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/lt/Screenshot3.png</image>
+      <caption>Recording is successfully finished</caption>
     </screenshot>
   </screenshots>
 
