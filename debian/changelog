@@ -1,3 +1,14 @@
+com.github.ryonakano.reco (1.1.0) bionic; urgency=medium
+
+  * Fix the app isn't listed in the "Sound & Video" category in Applications Menu
+  * Add a shortcut key to toggle recording
+  * Fix the name of "Recordings" folder is not created in system language
+  * Notify success of recording with a check mark
+  * Allow to cancel/pause recording
+  * Update translations
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Mon, 11 Mar 2019 17:59:07 +0900
+
 com.github.ryonakano.reco (1.0.3) bionic; urgency=low
 
   * Show a confirmation dialog when trying to quit the app if a recording is in progress
