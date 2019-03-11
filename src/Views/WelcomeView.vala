@@ -65,7 +65,9 @@ public class WelcomeView : Gtk.Box {
         auto_save.halign = Gtk.Align.START;
         auto_save.active = Application.settings.get_boolean ("auto-save");
 
-        var destination_chooser = new Gtk.FileChooserButton (_("Choose a default destination"), Gtk.FileChooserAction.SELECT_FOLDER);
+        var destination_chooser = new Gtk.FileChooserButton (
+            _("Choose a default destination"),
+            Gtk.FileChooserAction.SELECT_FOLDER);
         destination_chooser.halign = Gtk.Align.START;
         destination_chooser.set_filename (get_destination ());
         destination_chooser.sensitive = auto_save.active;

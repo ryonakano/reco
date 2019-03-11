@@ -59,7 +59,10 @@ public class Application : Gtk.Application {
             if (!window.record_view.is_recording) {
                 window.destroy ();
             } else {
-                var warning_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Are you sure you want to quit Reco?"), _("If you quit Reco, the recording in progress will end."), "dialog-warning", Gtk.ButtonsType.NONE);
+                var warning_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("Are you sure you want to quit Reco?"),
+                    _("If you quit Reco, the recording in progress will end."),
+                    "dialog-warning", Gtk.ButtonsType.NONE);
                 warning_dialog.transient_for = window;
                 warning_dialog.modal = true;
                 warning_dialog.add_button (_("Cancel"), Gtk.ButtonsType.CANCEL);

@@ -107,77 +107,79 @@ public class RecordView : Gtk.Box {
 
     private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
         switch (msg.type) {
-        case Gst.MessageType.ERROR:
-            Error err;
+            case Gst.MessageType.ERROR:
+                Error err;
 
-            string debug;
+                string debug;
 
-            msg.parse_error (out err, out debug);
+                msg.parse_error (out err, out debug);
 
-            is_recording = false;
-            var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                _("Unable to Create an Audio File"),
-                _("A GStreamer error happened while recording, the following error message may be helpful:"),
-                "dialog-error", Gtk.ButtonsType.CLOSE);
-            error_dialog.transient_for = window;
-            error_dialog.show_error_details ("%s\n%s".printf (err.message, debug));
-            error_dialog.run ();
-            error_dialog.destroy ();
-            stop_recording ();
-            window.show_welcome ();
+                is_recording = false;
+                var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("Unable to Create an Audio File"),
+                    _("A GStreamer error happened while recording, the following error message may be helpful:"),
+                    "dialog-error", Gtk.ButtonsType.CLOSE);
+                error_dialog.transient_for = window;
+                error_dialog.show_error_details ("%s\n%s".printf (err.message, debug));
+                error_dialog.run ();
+                error_dialog.destroy ();
+                stop_recording ();
+                window.show_welcome ();
 
-            pipeline.set_state (Gst.State.NULL);
-            break;
-        case Gst.MessageType.EOS:
-            pipeline.set_state (Gst.State.NULL);
+                pipeline.set_state (Gst.State.NULL);
+                break;
+            case Gst.MessageType.EOS:
+                pipeline.set_state (Gst.State.NULL);
 
-            is_recording = false;
+                is_recording = false;
 
-            /// TRANSLATORS: %s represents a timestamp here
-            string filename = _("Recording from %s").printf (new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"));
+                /// TRANSLATORS: %s represents a timestamp here
+                string filename = _("Recording from %s").printf (new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"));
 
-            var tmp_source = File.new_for_path (tmp_full_path);
+                var tmp_source = File.new_for_path (tmp_full_path);
 
-            string destination = Application.settings.get_string ("destination");
+                string destination = Application.settings.get_string ("destination");
 
-            if (Application.settings.get_boolean ("auto-save")) { // The app saved files automatically
-                try {
-                    var uri = File.new_for_path (destination + "/" + filename + suffix);
-                    tmp_source.move (uri, FileCopyFlags.OVERWRITE);
-                    window.welcome_view.show_success_button ();
-                } catch (Error e) {
-                    stderr.printf ("Error: %s\n", e.message);
-                }
-            } else { // The app asks destination and filename each time
-                var filechooser = new Gtk.FileChooserNative (_("Save your recording"), window, Gtk.FileChooserAction.SAVE, _("Save"), _("Cancel"));
-                filechooser.set_current_name (filename + suffix);
-                filechooser.set_filename (destination);
-                filechooser.do_overwrite_confirmation = true;
-
-                if (filechooser.run () == Gtk.ResponseType.ACCEPT) {
+                if (Application.settings.get_boolean ("auto-save")) { // The app saved files automatically
                     try {
-                        var uri = File.new_for_path (filechooser.get_filename ());
+                        var uri = File.new_for_path (destination + "/" + filename + suffix);
                         tmp_source.move (uri, FileCopyFlags.OVERWRITE);
                         window.welcome_view.show_success_button ();
                     } catch (Error e) {
                         stderr.printf ("Error: %s\n", e.message);
                     }
-                } else {
-                    try {
-                        tmp_source.delete ();
-                    } catch (Error e) {
-                        stderr.printf ("Error: %s", e.message);
+                } else { // The app asks destination and filename each time
+                    var filechooser = new Gtk.FileChooserNative (
+                        _("Save your recording"), window, Gtk.FileChooserAction.SAVE,
+                        _("Save"), _("Cancel"));
+                    filechooser.set_current_name (filename + suffix);
+                    filechooser.set_filename (destination);
+                    filechooser.do_overwrite_confirmation = true;
+
+                    if (filechooser.run () == Gtk.ResponseType.ACCEPT) {
+                        try {
+                            var uri = File.new_for_path (filechooser.get_filename ());
+                            tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+                            window.welcome_view.show_success_button ();
+                        } catch (Error e) {
+                            stderr.printf ("Error: %s\n", e.message);
+                        }
+                    } else {
+                        try {
+                            tmp_source.delete ();
+                        } catch (Error e) {
+                            stderr.printf ("Error: %s", e.message);
+                        }
                     }
+
+                    filechooser.destroy ();
                 }
 
-                filechooser.destroy ();
-            }
-
-            pipeline.dispose ();
-            pipeline = null;
-            break;
-        default:
-            break;
+                pipeline.dispose ();
+                pipeline = null;
+                break;
+            default:
+                break;
         }
 
         return true;
@@ -269,10 +271,12 @@ public class RecordView : Gtk.Box {
         if (count != 0) {
             count = 0;
         }
+
         if (countdown != 0) {
             countdown = 0;
             remaining_time_label.label = null;
         }
+
         pipeline.set_state (Gst.State.NULL);
         pipeline.dispose ();
         pipeline = null;
@@ -289,10 +293,12 @@ public class RecordView : Gtk.Box {
         if (count != 0) {
             count = 0;
         }
+
         if (countdown != 0) {
             countdown = 0;
             remaining_time_label.label = null;
         }
+
         // If a user tries to stop recording while pausing, resume recording once and reset the button icon
         if (!is_recording) {
             pipeline.set_state (Gst.State.PLAYING);
@@ -300,6 +306,7 @@ public class RecordView : Gtk.Box {
             pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
             pause_button.tooltip_text = _("Pause recording");
         }
+
         pipeline.send_event (new Gst.Event.eos ());
     }
 
@@ -328,16 +335,20 @@ public class RecordView : Gtk.Box {
         is_recording = true;
 
         count = Timeout.add (1000, () => {
-            if (past_seconds_10 < 5 && past_seconds_1 == 9) { // The count turns from wx:y9 to wx:(y+1)0
+            if (past_seconds_10 < 5 && past_seconds_1 == 9) {
+                // The count turns from wx:y9 to wx:(y+1)0
                 past_seconds_10++;
                 past_seconds_1 = 0;
-            } else if (past_minutes_1 < 9 && past_seconds_10 == 5 && past_seconds_1 == 9) { // The count turns from wx:59 to w(x+1):00
+            } else if (past_minutes_1 < 9 && past_seconds_10 == 5 && past_seconds_1 == 9) {
+                // The count turns from wx:59 to w(x+1):00
                 past_minutes_1++;
                 past_seconds_1 = past_seconds_10 = 0;
-            } else if (past_minutes_1 == 9 && past_seconds_10 == 5 && past_seconds_1 == 9) { // The count turns from w9:59 to (w+1)0:00
+            } else if (past_minutes_1 == 9 && past_seconds_10 == 5 && past_seconds_1 == 9) {
+                // The count turns from w9:59 to (w+1)0:00
                 past_minutes_10++;
                 past_minutes_1 = past_seconds_10 = past_seconds_1 = 0;
-            } else { // The count turns from wx:yx to wx:y(z+1)
+            } else {
+                // The count turns from wx:yx to wx:y(z+1)
                 past_seconds_1++;
             }
 
@@ -361,6 +372,7 @@ public class RecordView : Gtk.Box {
             remain_minutes_10 = remain_minutes / 10;
             remain_minutes_1 = remain_minutes % 10;
         }
+
         int remain_seconds = remaining_time % 60;
         if (remain_seconds < 10) {
             remain_seconds_10 = 0;
@@ -374,18 +386,22 @@ public class RecordView : Gtk.Box {
         show_timer_label (remaining_time_label, remain_minutes_10, remain_minutes_1, remain_seconds_10, remain_seconds_1);
 
         countdown = Timeout.add (1000, () => {
-            if (remain_minutes_1 == 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) { // The count turns from w0:00 to (w-1)9:59
+            if (remain_minutes_1 == 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) {
+                // The count turns from w0:00 to (w-1)9:59
                 remain_minutes_10--;
                 remain_minutes_1 = remain_seconds_1 = 9;
                 remain_seconds_10 = 5;
-            } else if (remain_minutes_1 > 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) { // The count turns from wx:00 to w(x-1):59
+            } else if (remain_minutes_1 > 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) {
+                // The count turns from wx:00 to w(x-1):59
                 remain_minutes_1--;
                 remain_seconds_10 = 5;
                 remain_seconds_1 = 9;
-            } else if (remain_seconds_10 > 0 && remain_seconds_1 == 0) { // The count turns from wx:y0 to wx:(y-1)9
+            } else if (remain_seconds_10 > 0 && remain_seconds_1 == 0) {
+                // The count turns from wx:y0 to wx:(y-1)9
                 remain_seconds_10--;
                 remain_seconds_1 = 9;
-            } else { // The count turns from wx:yz to wx:y(z-1)
+            } else {
+                // The count turns from wx:yz to wx:y(z-1)
                 remain_seconds_1--;
             }
 
