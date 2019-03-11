@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-20 19:49+0900\n"
+"POT-Creation-Date: 2019-03-11 16:03+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,7 +59,19 @@ msgstr ""
 msgid "Available format: AAC, FLAC, MP3, Ogg Vorbis, Opus and WAV"
 msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:83
+#: data/com.github.ryonakano.reco.appdata.xml.in:27
+msgid "Welcome screen that allows you to set recording configuration"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:34
+msgid "Recording screen"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:38
+msgid "Recording is successfully finished"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:119
 msgid "Ryo Nakano"
 msgstr ""
 

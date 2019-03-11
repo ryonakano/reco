@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-19 08:42+0900\n"
+"POT-Creation-Date: 2019-03-11 16:03+0900\n"
 "PO-Revision-Date: 2019-02-19 08:45+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -18,114 +18,132 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 2.2.1\n"
 
-#: src/Views/WelcomeView.vala:31
+#: src/Views/WelcomeView.vala:32
 msgid "Recording"
 msgstr "録音"
 
-#: src/Views/WelcomeView.vala:33
+#: src/Views/WelcomeView.vala:34
 msgid "Delay in seconds:"
 msgstr "遅延する秒数:"
 
-#: src/Views/WelcomeView.vala:39
+#: src/Views/WelcomeView.vala:40
 msgid "Length in seconds:"
 msgstr "録音する秒数:"
 
-#: src/Views/WelcomeView.vala:45
+#: src/Views/WelcomeView.vala:46
 msgid "Saving"
 msgstr "保存"
 
-#: src/Views/WelcomeView.vala:47
+#: src/Views/WelcomeView.vala:48
 msgid "Format:"
 msgstr "形式:"
 
-#: src/Views/WelcomeView.vala:52
+#: src/Views/WelcomeView.vala:53
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:53
+#: src/Views/WelcomeView.vala:54
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:54
+#: src/Views/WelcomeView.vala:55
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:55
+#: src/Views/WelcomeView.vala:56
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:56
+#: src/Views/WelcomeView.vala:57
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:57
+#: src/Views/WelcomeView.vala:58
 msgid "Wav"
 msgstr "Wav"
 
-#: src/Views/WelcomeView.vala:60
+#: src/Views/WelcomeView.vala:61
 msgid "Automatically save files:"
 msgstr "ファイルを自動的に保存:"
 
-#: src/Views/WelcomeView.vala:67
+#: src/Views/WelcomeView.vala:69
 msgid "Choose a default destination"
 msgstr "デフォルトの保存先を選択"
 
-#: src/Views/WelcomeView.vala:90
+#: src/Views/WelcomeView.vala:93
 msgid "Start recording"
 msgstr "録音を開始します"
 
-#: src/Views/RecordView.vala:60
-msgid "Stop recording"
+#. / TRANSLATORS: The name of the folder which recordings are saved
+#: src/Views/WelcomeView.vala:138
+msgid "Recordings"
+msgstr "レコーディング"
+
+#: src/Views/RecordView.vala:61
+#, fuzzy
+msgid "Cancel recording"
+msgstr "録音を開始します"
+
+#: src/Views/RecordView.vala:67
+#, fuzzy
+msgid "Finish recording"
 msgstr "録音を終了します"
 
-#: src/Views/RecordView.vala:87
+#: src/Views/RecordView.vala:75 src/Views/RecordView.vala:307
+#: src/Views/RecordView.vala:323
+#, fuzzy
+msgid "Pause recording"
+msgstr "録音を開始します"
+
+#: src/Views/RecordView.vala:119
 msgid "Unable to Create an Audio File"
 msgstr "オーディオファイルを作成できません"
 
-#: src/Views/RecordView.vala:87
-msgid "A GStreamer error happened while recording:"
+#: src/Views/RecordView.vala:120
+#, fuzzy
+msgid ""
+"A GStreamer error happened while recording, the following error message may "
+"be helpful:"
 msgstr "録音中に Gstreamer エラーが発生しました:"
 
-#: src/Views/RecordView.vala:87
-#, c-format
-msgid "Error: %s"
-msgstr "エラー: %s"
-
 #. / TRANSLATORS: %s represents a timestamp here
-#: src/Views/RecordView.vala:102
+#: src/Views/RecordView.vala:137
 #, c-format
 msgid "Recording from %s"
 msgstr "録音 %s"
 
 #. The app asks destination and filename each time
-#: src/Views/RecordView.vala:116
+#: src/Views/RecordView.vala:153
 msgid "Save your recording"
 msgstr "録音したものを保存"
 
-#: src/Views/RecordView.vala:116 src/Application.vala:76
-msgid "Cancel"
-msgstr "キャンセル"
-
-#: src/Views/RecordView.vala:116
+#: src/Views/RecordView.vala:154
 msgid "Save"
 msgstr "保存"
 
-#. / TRANSLATORS: The name of the folder which recordings are saved
-#: src/Application.vala:34
-msgid "Recordings"
-msgstr "レコーディング"
+#: src/Views/RecordView.vala:154 src/Application.vala:68
+msgid "Cancel"
+msgstr "キャンセル"
 
-#: src/Application.vala:73
+#: src/Views/RecordView.vala:318
+#, fuzzy
+msgid "Resume recording"
+msgstr "録音"
+
+#: src/Application.vala:63
 msgid "Are you sure you want to quit Reco?"
 msgstr "Reco を終了してもよろしいですか？"
 
-#: src/Application.vala:73
+#: src/Application.vala:64
 msgid "If you quit Reco, the recording in progress will end."
 msgstr "Reco を終了すると、進行中の録音は終了します。"
 
-#: src/Application.vala:78
+#: src/Application.vala:70
 msgid "Quit Reco"
 msgstr "Reco を終了"
+
+#~ msgid "Error: %s"
+#~ msgstr "エラー: %s"
 
 #~ msgid "Audio Recorded Successfully"
 #~ msgstr "オーディオの録音に成功しました"
