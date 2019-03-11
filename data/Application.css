@@ -13,3 +13,8 @@
     color: #fafafa;
     transition: all 1s 0s ease;
 }
+
+.buttons-without-border {
+    background: none;
+    border: none;
+}

@@ -23,6 +23,7 @@ public class RecordView : Gtk.Box {
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
     public Gtk.Button stop_button { get; private set; }
+    private Gtk.Button pause_button;
     public bool is_recording { get; private set; }
     private string suffix;
     private string tmp_full_path;
@@ -55,22 +56,52 @@ public class RecordView : Gtk.Box {
         label_grid.attach (time_label, 0, 1, 1, 1);
         label_grid.attach (remaining_time_label, 0, 2, 1, 1);
 
+        var cancel_button = new Gtk.Button ();
+        cancel_button.image = new Gtk.Image.from_icon_name ("user-trash-symbolic", Gtk.IconSize.BUTTON);
+        cancel_button.tooltip_text = _("Cancel recording");
+        cancel_button.get_style_context ().add_class ("buttons-without-border");
+        cancel_button.halign = Gtk.Align.START;
+
         stop_button = new Gtk.Button ();
         stop_button.image = new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", Gtk.IconSize.DND);
-        stop_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Stop recording"));
+        stop_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Finish recording"));
         stop_button.get_style_context ().add_class ("record-button");
-        stop_button.halign = Gtk.Align.CENTER;
-        stop_button.margin_top = 12;
+        stop_button.halign = Gtk.Align.END;
         stop_button.width_request = 48;
         stop_button.height_request = 48;
 
+        pause_button = new Gtk.Button ();
+        pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+        pause_button.tooltip_text = _("Pause recording");
+        pause_button.get_style_context ().add_class ("buttons-without-border");
+        pause_button.halign = Gtk.Align.CENTER;
+
+        var buttons_grid = new Gtk.Grid ();
+        buttons_grid.column_spacing = 30;
+        buttons_grid.row_spacing = 6;
+        buttons_grid.margin_top = 12;
+        buttons_grid.halign = Gtk.Align.CENTER;
+        buttons_grid.attach (cancel_button, 0, 0, 1, 1);
+        buttons_grid.attach (stop_button, 1, 0, 1, 1);
+        buttons_grid.attach (pause_button, 2, 0, 1, 1);
+
         pack_start (label_grid, false, false);
-        pack_end (stop_button, false, false);
+        pack_end (buttons_grid, false, false);
+
+        cancel_button.clicked.connect (() => {
+            cancel_recording ();
+            window.show_welcome ();
+            is_recording = false;
+        });
 
         stop_button.clicked.connect (() => {
             stop_recording ();
             window.show_welcome ();
             is_recording = false;
+        });
+
+        pause_button.clicked.connect (() => {
+            pause_recording ();
         });
     }
 
@@ -230,6 +261,26 @@ public class RecordView : Gtk.Box {
         }
     }
 
+    private void cancel_recording () {
+        if (count != 0) {
+            count = 0;
+        }
+        if (countdown != 0) {
+            countdown = 0;
+            remaining_time_label.label = null;
+        }
+        pipeline.set_state (Gst.State.NULL);
+        pipeline.dispose ();
+        pipeline = null;
+
+        // Remove canceled file in /tmp
+        try {
+            File.new_for_path (tmp_full_path).delete ();
+        } catch (Error e) {
+            stderr.printf ("Error: %s\n", e.message);
+        }
+    }
+
     private void stop_recording () {
         if (count != 0) {
             count = 0;
@@ -238,7 +289,28 @@ public class RecordView : Gtk.Box {
             countdown = 0;
             remaining_time_label.label = null;
         }
+        // If a user tries to stop recording while pausing, resume recording once and reset the button icon
+        if (!is_recording) {
+            pipeline.set_state (Gst.State.PLAYING);
+            is_recording = true;
+            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+            pause_button.tooltip_text = _("Pause recording");
+        }
         pipeline.send_event (new Gst.Event.eos ());
+    }
+
+    private void pause_recording () {
+        if (is_recording) {
+            pipeline.set_state (Gst.State.PAUSED);
+            is_recording = false;
+            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.BUTTON);
+            pause_button.tooltip_text = _("Resume recording");
+        } else {
+            pipeline.set_state (Gst.State.PLAYING);
+            is_recording = true;
+            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+            pause_button.tooltip_text = _("Pause recording");
+        }
     }
 
     private void start_count () {
