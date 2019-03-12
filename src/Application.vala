@@ -75,6 +75,7 @@ public class Application : Gtk.Application {
 
                 warning_dialog.response.connect ((response_id) => {
                     if (response_id == Gtk.ResponseType.YES) {
+                        window.record_view.cancel_recording ();
                         window.destroy ();
                     }
 

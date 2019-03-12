@@ -267,7 +267,7 @@ public class RecordView : Gtk.Box {
         }
     }
 
-    private void cancel_recording () {
+    public void cancel_recording () {
         if (count != 0) {
             count = 0;
         }
