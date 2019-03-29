@@ -76,55 +76,14 @@
   </content_rating>
 
   <releases>
-    <release version="1.1.0" date="2019-03-11">
+    <release version="1.1.0" date="2019-03-30">
       <description>
         <ul>
-          <li>Fix the app isn't listed in the "Sound &amp; Video" category in Applications Menu</li>
-          <li>Add a shortcut key to toggle recording</li>
-          <li>Fix the name of "Recordings" folder is not created in system language</li>
-          <li>Notify success of recording with a check mark</li>
-          <li>Allow to cancel/pause recording</li>
-          <li>Update translations</li>
-        </ul>
-      </description>
-    </release>
-    <release version="1.0.3" date="2019-02-19">
-      <description>
-        <ul>
-          <li>Show a confirmation dialog when trying to quit the app if a recording is in progress</li>
-          <li>Add Lithuanian translation (by welaq)</li>
+          <li>Provide localized screenshots to AppCenter (French, Japanese, Lithuanian and Dutch)</li>
+          <li>Fix temporary recording files remain when quit the app while recording</li>
+          <li>Use upper case for WAV</li>
           <li>Update Japanese translation</li>
-        </ul>
-      </description>
-    </release>
-    <release version="1.0.2" date="2019-01-20">
-      <description>
-        <ul>
-          <li>Save and restore settings</li>
-          <li>Support both do-not-ask-where-to-save flow and ask-where-to-save flow</li>
-          <li>Organized UI</li>
-          <li>Some small bug fixes</li>
-          <li>Add French translation (by NathanBnm)</li>
-          <li>Update Japanese translation</li>
-        </ul>
-      </description>
-    </release>
-    <release version="1.0.1" date="2018-12-26">
-      <description>
-        <ul>
-          <li>Allow to set recording length</li>
-          <li>Fix the countdown is weird when recording more than twice</li>
-          <li>Localization improvement</li>
-          <li>Update Japanese translation</li>
-        </ul>
-      </description>
-    </release>
-    <release version="1.0.0" date="2018-12-09">
-      <description>
-        <ul>
-          <li>Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats</li>
-          <li>Show a notification after recorded successfully</li>
-          <li>Add Japanese translation</li>
+          <li>Add Dutch translation (by Vistaus)</li>
         </ul>
       </description>
     </release>
