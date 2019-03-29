@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 16:03+0900\n"
+"POT-Creation-Date: 2019-03-29 23:03+0900\n"
 "PO-Revision-Date: 2019-03-29 14:04+0100\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +59,7 @@ msgid "Opus"
 msgstr "Opus"
 
 #: src/Views/WelcomeView.vala:58
-msgid "Wav"
+msgid "WAV"
 msgstr "WAV"
 
 #: src/Views/WelcomeView.vala:61
