@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 16:03+0900\n"
+"POT-Creation-Date: 2019-03-29 23:03+0900\n"
 "PO-Revision-Date: 2019-01-16 22:17+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -58,8 +58,8 @@ msgid "Opus"
 msgstr "Opus"
 
 #: src/Views/WelcomeView.vala:58
-msgid "Wav"
-msgstr "Wav"
+msgid "WAV"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:61
 msgid "Automatically save files:"
@@ -141,6 +141,9 @@ msgstr ""
 #: src/Application.vala:70
 msgid "Quit Reco"
 msgstr ""
+
+#~ msgid "Wav"
+#~ msgstr "Wav"
 
 #~ msgid "Error: %s"
 #~ msgstr "Erreur : %s"

@@ -55,7 +55,7 @@ public class WelcomeView : Gtk.Box {
         format_combobox.append ("mp3", _("MP3"));
         format_combobox.append ("ogg", _("Ogg Vorbis"));
         format_combobox.append ("opus", _("Opus"));
-        format_combobox.append ("wav", _("Wav"));
+        format_combobox.append ("wav", _("WAV"));
         format_combobox.active = Application.settings.get_enum ("format");
 
         var auto_save_label = new Gtk.Label (_("Automatically save files:"));
