@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 16:03+0900\n"
+"POT-Creation-Date: 2019-03-29 23:03+0900\n"
 "PO-Revision-Date: 2019-02-18 14:35+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -60,8 +60,8 @@ msgid "Opus"
 msgstr "Opus"
 
 #: src/Views/WelcomeView.vala:58
-msgid "Wav"
-msgstr "Wav"
+msgid "WAV"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:61
 msgid "Automatically save files:"
@@ -142,6 +142,9 @@ msgstr "Jeigu išeisite iš Reco, dabartinis įrašinėjimas bus užbaigtas."
 #: src/Application.vala:70
 msgid "Quit Reco"
 msgstr "Išeiti iš Reco"
+
+#~ msgid "Wav"
+#~ msgstr "Wav"
 
 #~ msgid "Error: %s"
 #~ msgstr "Klaida: %s"
