@@ -1,3 +1,13 @@
+com.github.ryonakano.reco (1.1.1) bionic; urgency=low
+
+  * Provide localized screenshots to AppCenter (French, Japanese, Lithuanian and Dutch)
+  * Fix temporary recording files remain when quit the app while recording
+  * Use upper case for WAV
+  * Update Japanese translation
+  * Add Dutch translation (by Vistaus)
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Sat, 30 Mar 2019 01:05:17 +0900
+
 com.github.ryonakano.reco (1.1.0) bionic; urgency=medium
 
   * Fix the app isn't listed in the "Sound & Video" category in Applications Menu
