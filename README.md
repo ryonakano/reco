@@ -4,22 +4,22 @@ Reco is an audio recording app designed for elementary OS.
 
 ![Screenshot](data/Screenshot.png)
 
-Useful when:
+Useful for:
 
-* you join a discussion and take your minutes later
-* you want to record talk with your friends or lover
-* you want to stream videos on the Internet
+* Joining meetings and taking minutes later
+* Recording conversations with a friend or lover
+* Streaming videos on the Internet
 
-Features Include:
+Features include:
 
 * Timed recording
-* Available format: AAC, FLAC, MP3, Ogg Vorbis, Opus and WAV
+* Available formats: AAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV
 
 ## Installation
 
 ### For Users
 
-On elementary OS? Hit the button to get Reco:
+On elementary OS? Click the button to get Reco on AppCenter:
 
 [![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.ryonakano.reco)
 
@@ -50,6 +50,6 @@ To install, use `ninja install`, then execute with `com.github.ryonakano.reco`
     sudo ninja install
     com.github.ryonakano.reco
 
-## A Story Behind This App
+## The Story Behind This App
 
-One day when I joined a discussion in my department, I had to take a minutes with my elementary laptop. The discussion was so high-paced that I couldn't hear and write down everything into the minutes. After coming back home I searched for a sound recorder designed for elementary OS but couldn't, althought there were some non-elementary apps like GNOME Sound Recorder. I decided to create one designed for and fits in elementary OS.
+One day, I had to take minutes for a meeting in my department with my elementary laptop. The discussion was so fast-paced, though, that I couldn't listen and write down everything in the minutes. When I got home, I searched for a sound recorder app. I found some non-elementary apps like GNOME Sound Recorder, but there were none for elementary OS. Thus, I decided to create one designed for elementary OS.
