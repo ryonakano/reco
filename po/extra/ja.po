@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-07 16:35+0900\n"
-"PO-Revision-Date: 2019-03-11 16:17+0900\n"
+"PO-Revision-Date: 2019-04-07 16:46+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -33,22 +33,18 @@ msgid "An audio recording app that helps you recall things talked later."
 msgstr "会話内容を後で思い出すのに役に立つ、オーディオ録音アプリです。"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:13
-#, fuzzy
 msgid "Useful for:"
 msgstr "こんな場合に便利:"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:15
-#, fuzzy
 msgid "Joining meetings and taking minutes later"
-msgstr "議論に参加して後で議事録を取る場合"
+msgstr "話し合いに参加して後で議事録を取る場合"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:16
-#, fuzzy
 msgid "Recording conversations with a friend or lover"
 msgstr "友達や恋人との会話を録音したい場合"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:17
-#, fuzzy
 msgid "Streaming videos on the Internet"
 msgstr "インターネットで動画配信をしたい場合"
 
@@ -61,7 +57,6 @@ msgid "Timed recording"
 msgstr "遅延しての録音"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:22
-#, fuzzy
 msgid "Available formats: AAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV"
 msgstr "録音可能な形式: AAC・FLAC・MP3・Ogg Vorbis・Opus・WAV"
 
