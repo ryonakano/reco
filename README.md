@@ -13,7 +13,7 @@ Useful for:
 Features include:
 
 * Timed recording
-* Available formats: AAC, FLAC, MP3, Ogg Vorbis, Opus and WAV
+* Available formats: AAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV
 
 ## Installation
 
