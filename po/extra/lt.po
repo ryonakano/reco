@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 16:03+0900\n"
+"POT-Creation-Date: 2019-04-07 16:35+0900\n"
 "PO-Revision-Date: 2019-02-18 14:43+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -36,19 +36,23 @@ msgstr ""
 "dalykus."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:13
-msgid "Useful when:"
+#, fuzzy
+msgid "Useful for:"
 msgstr "Naudinga, kuomet:"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:15
-msgid "you join a discussion and take your minutes later"
+#, fuzzy
+msgid "Joining meetings and taking minutes later"
 msgstr "dalyvaujate diskusijoje ir vėliau ją aptarinėjate"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:16
-msgid "you want to record talk with your friends or lover"
+#, fuzzy
+msgid "Recording conversations with a friend or lover"
 msgstr "norite įrašyti pokalbį su draugais ar mylimu žmogumi"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:17
-msgid "you want to stream videos on the Internet"
+#, fuzzy
+msgid "Streaming videos on the Internet"
 msgstr "norite transliuoti vaizdo įrašus internetu"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:19
@@ -60,22 +64,23 @@ msgid "Timed recording"
 msgstr "Nustatytos trukmės įrašinėjimas"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:22
-msgid "Available format: AAC, FLAC, MP3, Ogg Vorbis, Opus and WAV"
+#, fuzzy
+msgid "Available formats: AAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV"
 msgstr "Prieinami formatai: AAC, FLAC, MP3, Ogg Vorbis, Opus ir WAV"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:27
 msgid "Welcome screen that allows you to set recording configuration"
 msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:34
+#: data/com.github.ryonakano.reco.appdata.xml.in:35
 msgid "Recording screen"
 msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:38
+#: data/com.github.ryonakano.reco.appdata.xml.in:39
 msgid "Recording is successfully finished"
 msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:119
+#: data/com.github.ryonakano.reco.appdata.xml.in:92
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 
