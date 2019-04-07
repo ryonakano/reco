@@ -10,16 +10,16 @@
     <p>
       An audio recording app that helps you recall things talked later.
     </p>
-    <p>Useful when:</p>
+    <p>Useful for:</p>
     <ul>
-      <li>you join a discussion and take your minutes later</li>
-      <li>you want to record talk with your friends or lover</li>
-      <li>you want to stream videos on the Internet</li>
+      <li>Joining meetings and taking minutes later</li>
+      <li>Recording conversations with a friend or lover</li>
+      <li>Streaming videos on the Internet</li>
     </ul>
     <p>Features include:</p>
     <ul>
       <li>Timed recording</li>
-      <li>Available format: AAC, FLAC, MP3, Ogg Vorbis, Opus and WAV</li>
+      <li>Available formats: AAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV</li>
     </ul>
   </description>
   <screenshots>
