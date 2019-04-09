@@ -1,3 +1,11 @@
+com.github.ryonakano.reco (1.1.2) bionic; urgency=low
+
+  * Grammatically fixes in the app description (by imasaru)
+  * Fix the localized screenshots don't appear to AppCenter
+  * Update Japanese translation
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Tue, 09 Apr 2019 12:27:05 +0900
+
 com.github.ryonakano.reco (1.1.1) bionic; urgency=low
 
   * Provide localized screenshots to AppCenter (French, Japanese, Lithuanian and Dutch)
