@@ -76,14 +76,12 @@
   </content_rating>
 
   <releases>
-    <release version="1.1.0" date="2019-03-30">
+    <release version="1.1.2" date="2019-04-09">
       <description>
         <ul>
-          <li>Provide localized screenshots to AppCenter (French, Japanese, Lithuanian and Dutch)</li>
-          <li>Fix temporary recording files remain when quit the app while recording</li>
-          <li>Use upper case for WAV</li>
+          <li>Grammatically fixes in the app description (by imasaru)</li>
+          <li>Fix the localized screenshots don't appear to AppCenter</li>
           <li>Update Japanese translation</li>
-          <li>Add Dutch translation (by Vistaus)</li>
         </ul>
       </description>
     </release>

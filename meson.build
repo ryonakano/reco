@@ -1,4 +1,4 @@
-project('com.github.ryonakano.reco', 'vala', 'c', version: '1.1.1')
+project('com.github.ryonakano.reco', 'vala', 'c', version: '1.1.2')
 
 gnome = import('gnome')
 i18n = import('i18n')
