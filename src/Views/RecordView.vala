@@ -214,6 +214,22 @@ public class RecordView : Gtk.Box {
             warning (e.message);
         }
 
+        string default_output = "";
+        if (Application.settings.get_boolean ("system-sound")) {
+            try {
+                string sound_outputs = "";
+                Process.spawn_command_line_sync ("pacmd list-sinks", out sound_outputs);
+                var re = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
+                MatchInfo mi;
+                if (re.match (sound_outputs, 0, out mi)) {
+                    default_output = mi.fetch (0);
+                    stdout.printf ("Recording system sound is enabled: %s\n".printf (default_output));
+                }
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+
         assert (sink != null);
         string tmp_destination = Environment.get_tmp_dir ();
         string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string ();
