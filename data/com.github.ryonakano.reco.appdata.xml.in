@@ -91,7 +91,7 @@
   <url type="homepage">https://github.com/ryonakano/reco</url>
   <url type="bugtracker">https://github.com/ryonakano/reco/issues</url>
   <url type="help">https://github.com/ryonakano/reco/issues</url>
-  <ulr type="translate">https://www.transifex.com/reco/public</url>
+  <url type="translate">https://www.transifex.com/reco/public</url>
   
   <custom>
     <value key="x-appcenter-color-primary">#a10705</value>
