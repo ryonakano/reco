@@ -64,7 +64,7 @@ We follow the [coding style of elementary OS](https://elementary.io/docs/code/re
 
 ### Translating This App
 
-You can translate this app at https://www.transifex.com/reco/public.
+You can translate this app at https://www.transifex.com/reco/public. If a language you want to translate does not exist, choose "Request a language" at the bottom of the Overview page.
 
 ## The Story Behind This App
 
