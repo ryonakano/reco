@@ -140,7 +140,7 @@ public class RecordView : Gtk.Box {
 
                 string destination = Application.settings.get_string ("destination");
 
-                if (Application.settings.get_boolean ("auto-save")) { // The app saved files automatically
+                if (!window.app.is_first_run && Application.settings.get_boolean ("auto-save")) { // The app saved files automatically
                     try {
                         var uri = File.new_for_path (destination + "/" + filename + suffix);
                         tmp_source.move (uri, FileCopyFlags.OVERWRITE);
@@ -153,13 +153,14 @@ public class RecordView : Gtk.Box {
                         _("Save your recording"), window, Gtk.FileChooserAction.SAVE,
                         _("Save"), _("Cancel"));
                     filechooser.set_current_name (filename + suffix);
-                    filechooser.set_filename (destination);
+                    filechooser.set_filename (get_destionation ());
                     filechooser.do_overwrite_confirmation = true;
 
                     if (filechooser.run () == Gtk.ResponseType.ACCEPT) {
                         try {
                             var uri = File.new_for_path (filechooser.get_filename ());
                             tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+                            Application.settings.set_string ("destination", filechooser.get_current_folder ());
                             window.welcome_view.show_success_button ();
                         } catch (Error e) {
                             stderr.printf ("Error: %s\n", e.message);
@@ -183,6 +184,16 @@ public class RecordView : Gtk.Box {
         }
 
         return true;
+    }
+
+    private string get_destionation () {
+        string destination = Application.settings.get_string ("destination");
+
+        if (destination == "") {
+            destination = Environment.get_home_dir ();
+        }
+
+        return destination;
     }
 
     public void start_recording () {

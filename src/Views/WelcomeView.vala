@@ -64,6 +64,11 @@ public class WelcomeView : Gtk.Box {
         var auto_save = new Gtk.Switch ();
         auto_save.halign = Gtk.Align.START;
         auto_save.active = Application.settings.get_boolean ("auto-save");
+        if (window.app.is_first_run) {
+            auto_save_label.sensitive = false;
+            auto_save.sensitive = false;
+            auto_save.tooltip_text = _("This option will be available once you save your recording and restart the app");
+        }
 
         var destination_chooser = new Gtk.FileChooserButton (
             _("Choose a default destination"),
@@ -132,12 +137,6 @@ public class WelcomeView : Gtk.Box {
 
     private string get_destination () {
         string destination = Application.settings.get_string ("destination");
-
-        if (destination == "") {
-            /// TRANSLATORS: The name of the folder which recordings are saved
-            destination = Environment.get_home_dir () + "/%s".printf (_("Recordings"));
-            Application.settings.set_string ("destination", destination);
-        }
 
         if (destination != null) {
             DirUtils.create_with_parents (destination, 0775);

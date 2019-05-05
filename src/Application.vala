@@ -18,6 +18,7 @@
 public class Application : Gtk.Application {
     private MainWindow window;
     public static Settings settings;
+    public bool is_first_run { get; private set; }
 
     public Application () {
         Object (
@@ -41,6 +42,11 @@ public class Application : Gtk.Application {
 
         var window_x = settings.get_int ("window-x");
         var window_y = settings.get_int ("window-y");
+
+        if (Application.settings.get_string ("destination") == "") {
+            is_first_run = true;
+            Application.settings.set_boolean ("auto-save", false);
+        }
 
         window = new MainWindow (this);
 
