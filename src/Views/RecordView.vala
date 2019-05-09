@@ -66,7 +66,7 @@ public class RecordView : Gtk.Box {
         stop_button.image = new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", Gtk.IconSize.DND);
         stop_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Finish recording"));
         stop_button.get_style_context ().add_class ("record-button");
-        stop_button.halign = Gtk.Align.END;
+        stop_button.halign = Gtk.Align.CENTER;
         stop_button.width_request = 48;
         stop_button.height_request = 48;
 
@@ -74,7 +74,7 @@ public class RecordView : Gtk.Box {
         pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
         pause_button.tooltip_text = _("Pause recording");
         pause_button.get_style_context ().add_class ("buttons-without-border");
-        pause_button.halign = Gtk.Align.CENTER;
+        pause_button.halign = Gtk.Align.END;
 
         var buttons_grid = new Gtk.Grid ();
         buttons_grid.column_spacing = 30;
