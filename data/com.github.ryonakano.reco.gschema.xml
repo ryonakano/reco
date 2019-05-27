@@ -18,6 +18,10 @@
       <default>0</default>
       <summary>Length in seconds</summary>
     </key>
+    <key name="system-sound" type="b">
+      <default>false</default>
+      <summary>Record system sound</summary>
+    </key>
     <key name="format" enum="formatlist">
       <default>'wav'</default>
       <summary>Format</summary>

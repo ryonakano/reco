@@ -43,6 +43,12 @@ public class WelcomeView : Gtk.Box {
         length_spin.halign = Gtk.Align.START;
         length_spin.value = Application.settings.get_int ("length");
 
+        var system_sound_label = new Gtk.Label (_("Record system sound:"));
+        system_sound_label.halign = Gtk.Align.END;
+        var system_sound_switch = new Gtk.Switch ();
+        system_sound_switch.halign = Gtk.Align.START;
+        system_sound_switch.active = Application.settings.get_boolean ("system-sound");
+
         var saving_header_label = new Granite.HeaderLabel (_("Saving"));
 
         var format_label = new Gtk.Label (_("Format:"));
@@ -81,12 +87,14 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (delay_spin, 1, 1, 1, 1);
         settings_grid.attach (length_label, 0, 2, 1, 1);
         settings_grid.attach (length_spin, 1, 2, 1, 1);
-        settings_grid.attach (saving_header_label, 0, 3, 1, 1);
-        settings_grid.attach (format_label, 0, 4, 1, 1);
-        settings_grid.attach (format_combobox, 1, 4, 1, 1);
-        settings_grid.attach (auto_save_label, 0, 5, 1, 1);
-        settings_grid.attach (auto_save, 1, 5, 1, 1);
-        settings_grid.attach (destination_chooser, 1, 6, 1, 1);
+        settings_grid.attach (system_sound_label, 0, 3, 1, 1);
+        settings_grid.attach (system_sound_switch, 1, 3, 1, 1);
+        settings_grid.attach (saving_header_label, 0, 4, 1, 1);
+        settings_grid.attach (format_label, 0, 5, 1, 1);
+        settings_grid.attach (format_combobox, 1, 5, 1, 1);
+        settings_grid.attach (auto_save_label, 0, 6, 1, 1);
+        settings_grid.attach (auto_save, 1, 6, 1, 1);
+        settings_grid.attach (destination_chooser, 1, 7, 1, 1);
 
         record_button = new Gtk.Button ();
         record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
@@ -106,6 +114,10 @@ public class WelcomeView : Gtk.Box {
 
         length_spin.changed.connect (() => {
             Application.settings.set_int ("length", length_spin.get_value_as_int ());
+        });
+
+        system_sound_switch.notify["active"].connect (() => {
+            Application.settings.set_boolean ("system-sound", system_sound_switch.active);
         });
 
         format_combobox.changed.connect (() => {
