@@ -200,34 +200,23 @@ public class RecordView : Gtk.Box {
             stderr.printf ("Error: Gstreamer audiobin was not created correctly!\n");
         }
 
-        string default_input = "";
+        string command = Application.settings.get_boolean ("system-sound") ? "pacmd list-sinks" : "pacmd list-sources";
+        string default_device = "";
         try {
-            string sound_inputs = "";
-            Process.spawn_command_line_sync ("pacmd list-sources", out sound_inputs);
+            string sound_devices = "";
+            Process.spawn_command_line_sync (command, out sound_devices);
             var re = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
             MatchInfo mi;
-            if (re.match (sound_inputs, 0, out mi)) {
-                default_input = mi.fetch (0);
-                stdout.printf ("Input device found: %s\n".printf (default_input));
+
+            if (re.match (sound_devices, 0, out mi)) {
+                default_device = mi.fetch (0);
+            }
+
+            if (Application.settings.get_boolean ("system-sound")) {
+                default_device += ".monitor";
             }
         } catch (Error e) {
             warning (e.message);
-        }
-
-        string default_output = "";
-        if (Application.settings.get_boolean ("system-sound")) {
-            try {
-                string sound_outputs = "";
-                Process.spawn_command_line_sync ("pacmd list-sinks", out sound_outputs);
-                var re = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
-                MatchInfo mi;
-                if (re.match (sound_outputs, 0, out mi)) {
-                    default_output = mi.fetch (0);
-                    stdout.printf ("Recording system sound is enabled: %s\n".printf (default_output));
-                }
-            } catch (Error e) {
-                warning (e.message);
-            }
         }
 
         assert (sink != null);
@@ -239,27 +228,27 @@ public class RecordView : Gtk.Box {
         try {
             switch (file_format) {
                 case "aac":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! avenc_aac ! mp4mux", true);
+                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! avenc_aac ! mp4mux", true);
                     suffix = ".m4a";
                     break;
                 case "flac":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! flacenc", true);
+                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! flacenc", true);
                     suffix = ".flac";
                     break;
                 case "mp3":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! lamemp3enc", true);
+                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! lamemp3enc", true);
                     suffix = ".mp3";
                     break;
                 case "ogg":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! vorbisenc ! oggmux", true);
+                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! vorbisenc ! oggmux", true);
                     suffix = ".ogg";
                     break;
                 case "opus":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! opusenc ! oggmux", true);
+                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! opusenc ! oggmux", true);
                     suffix = ".opus";
                     break;
                 default:
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_input + " ! wavenc", true);
+                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! wavenc", true);
                     suffix = ".wav";
                     break;
             }
