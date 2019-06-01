@@ -141,7 +141,7 @@ public class RecordView : Gtk.Box {
 
                 is_recording = false;
 
-                /// TRANSLATORS: %s represents a timestamp here
+                ///TRANSLATORS: %s represents a timestamp here
                 string filename = _("Recording from %s").printf (new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"));
 
                 var tmp_source = File.new_for_path (tmp_full_path);
