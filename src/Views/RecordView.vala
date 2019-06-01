@@ -31,6 +31,14 @@ public class RecordView : Gtk.Box {
     private uint countdown;
     private Gst.Bin audiobin;
     private Gst.Pipeline pipeline;
+    private int past_minutes_10;
+    private int past_minutes_1;
+    private int past_seconds_10;
+    private int past_seconds_1;
+    private int remain_minutes_10;
+    private int remain_minutes_1;
+    private int remain_seconds_10;
+    private int remain_seconds_1;
 
     public RecordView (MainWindow window, Application app) {
         Object (
@@ -186,7 +194,7 @@ public class RecordView : Gtk.Box {
     }
 
     public void start_recording () {
-        start_count ();
+        init_count ();
 
         pipeline = new Gst.Pipeline ("pipeline");
         audiobin = new Gst.Bin ("audio");
@@ -268,7 +276,7 @@ public class RecordView : Gtk.Box {
 
         int record_length = Application.settings.get_int ("length");
         if (record_length != 0) {
-            start_countdown (record_length);
+            init_countdown (record_length);
         }
     }
 
@@ -317,11 +325,25 @@ public class RecordView : Gtk.Box {
 
     private void pause_recording () {
         if (is_recording) {
+            if (count != 0) {
+                count = 0;
+            }
+
+            if (countdown != 0) {
+                countdown = 0;
+            }
+
             pipeline.set_state (Gst.State.PAUSED);
             is_recording = false;
             pause_button.image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.BUTTON);
             pause_button.tooltip_text = _("Resume recording");
         } else {
+            start_count ();
+
+            if (Application.settings.get_int ("length") != 0) {
+                start_countdown ();
+            }
+
             pipeline.set_state (Gst.State.PLAYING);
             is_recording = true;
             pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
@@ -329,16 +351,20 @@ public class RecordView : Gtk.Box {
         }
     }
 
-    private void start_count () {
-        int past_minutes_10 = 0;
-        int past_minutes_1 = 0;
-        int past_seconds_10 = 0;
-        int past_seconds_1 = 0;
+    private void init_count () {
+        past_minutes_10 = 0;
+        past_minutes_1 = 0;
+        past_seconds_10 = 0;
+        past_seconds_1 = 0;
 
         // Show initial time (00:00)
         show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
         is_recording = true;
 
+        start_count ();
+    }
+
+    private void start_count () {
         count = Timeout.add (1000, () => {
             if (past_seconds_10 < 5 && past_seconds_1 == 9) {
                 // The count turns from wx:y9 to wx:(y+1)0
@@ -363,12 +389,7 @@ public class RecordView : Gtk.Box {
         });
     }
 
-    private void start_countdown (int remaining_time) {
-        int remain_minutes_10;
-        int remain_minutes_1;
-        int remain_seconds_10;
-        int remain_seconds_1;
-
+    private void init_countdown (int remaining_time) {
         int remain_minutes = remaining_time / 60;
         if (remain_minutes < 10) {
             remain_minutes_10 = 0;
@@ -387,6 +408,14 @@ public class RecordView : Gtk.Box {
             remain_seconds_1 = remain_seconds % 10;
         }
 
+        // Show initial time (00:00)
+        show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
+        is_recording = true;
+
+        start_countdown ();
+    }
+
+    private void start_countdown () {
         // Show initial time
         show_timer_label (remaining_time_label, remain_minutes_10, remain_minutes_1, remain_seconds_10, remain_seconds_1);
 
@@ -419,7 +448,7 @@ public class RecordView : Gtk.Box {
                 return false;
             }
 
-            return true;
+            return is_recording? true : false;
         });
     }
 
