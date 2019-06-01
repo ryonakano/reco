@@ -1,3 +1,11 @@
+com.github.ryonakano.reco (2.0.0) bionic; urgency=medium
+
+  * Allow to record system sound
+  * Fix the timer does not stop in accordance with the recording
+  * Update Japanese translation
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Sat, 01 Jun 2019 20:45:31 +0900
+
 com.github.ryonakano.reco (1.1.2) bionic; urgency=low
 
   * Grammatically fixes in the app description (by imasaru)
