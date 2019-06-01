@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-01 20:05+0900\n"
-"PO-Revision-Date: 2019-03-29 23:07+0900\n"
+"PO-Revision-Date: 2019-06-01 20:42+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #: src/Views/WelcomeView.vala:32
 msgid "Recording"
@@ -32,7 +32,7 @@ msgstr "録音する秒数:"
 
 #: src/Views/WelcomeView.vala:46
 msgid "Record system sound:"
-msgstr ""
+msgstr "システムサウンドを録音:"
 
 #: src/Views/WelcomeView.vala:52
 msgid "Saving"
@@ -105,8 +105,8 @@ msgid ""
 "A GStreamer error happened while recording, the following error message may "
 "be helpful:"
 msgstr ""
-"録音中に Gstreamer エラーが発生しました。以下のエラーメッセージが役に立つ可能"
-"性があります:"
+"録音中に Gstreamer エラーが発生しました。以下のエラーメッセージが役に立つ可"
+"能性があります:"
 
 #. TRANSLATORS: %s represents a timestamp here
 #: src/Views/RecordView.vala:145
