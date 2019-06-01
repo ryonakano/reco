@@ -76,11 +76,11 @@
   </content_rating>
 
   <releases>
-    <release version="1.1.2" date="2019-04-09">
+    <release version="2.0.0" date="2019-06-01">
       <description>
         <ul>
-          <li>Grammatically fixes in the app description (by imasaru)</li>
-          <li>Fix the localized screenshots don't appear to AppCenter</li>
+          <li>Allow to record system sound</li>
+          <li>Fix the timer does not stop in accordance with the recording</li>
           <li>Update Japanese translation</li>
         </ul>
       </description>
