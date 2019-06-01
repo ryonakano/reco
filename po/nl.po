@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 23:03+0900\n"
+"POT-Creation-Date: 2019-06-01 20:05+0900\n"
 "PO-Revision-Date: 2019-03-29 14:04+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.1.1\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: nl_NL\n"
 
 #: src/Views/WelcomeView.vala:32
 msgid "Recording"
@@ -31,72 +31,76 @@ msgid "Length in seconds:"
 msgstr "Duur, in seconden:"
 
 #: src/Views/WelcomeView.vala:46
+msgid "Record system sound:"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:52
 msgid "Saving"
 msgstr "Opslaan"
 
-#: src/Views/WelcomeView.vala:48
+#: src/Views/WelcomeView.vala:54
 msgid "Format:"
 msgstr "Formaat:"
 
-#: src/Views/WelcomeView.vala:53
+#: src/Views/WelcomeView.vala:59
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:54
+#: src/Views/WelcomeView.vala:60
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:55
+#: src/Views/WelcomeView.vala:61
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:56
+#: src/Views/WelcomeView.vala:62
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:57
+#: src/Views/WelcomeView.vala:63
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:58
+#: src/Views/WelcomeView.vala:64
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:61
+#: src/Views/WelcomeView.vala:67
 msgid "Automatically save files:"
 msgstr "Bestanden automatisch opslaan:"
 
-#: src/Views/WelcomeView.vala:69
+#: src/Views/WelcomeView.vala:75
 msgid "Choose a default destination"
 msgstr "Kies een standaard opslagmap"
 
-#: src/Views/WelcomeView.vala:93
+#: src/Views/WelcomeView.vala:101
 msgid "Start recording"
 msgstr "Opname starten"
 
-#. / TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:138
+#. TRANSLATORS: The name of the folder which recordings are saved
+#: src/Views/WelcomeView.vala:150
 msgid "Recordings"
 msgstr "Opnamen"
 
-#: src/Views/RecordView.vala:61
+#: src/Views/RecordView.vala:69
 msgid "Cancel recording"
 msgstr "Opname afbreken"
 
-#: src/Views/RecordView.vala:67
+#: src/Views/RecordView.vala:75
 msgid "Finish recording"
 msgstr "Opname afronden"
 
-#: src/Views/RecordView.vala:75 src/Views/RecordView.vala:307
-#: src/Views/RecordView.vala:323
+#: src/Views/RecordView.vala:83 src/Views/RecordView.vala:320
+#: src/Views/RecordView.vala:350
 msgid "Pause recording"
 msgstr "Opname pauzeren"
 
-#: src/Views/RecordView.vala:119
+#: src/Views/RecordView.vala:127
 msgid "Unable to Create an Audio File"
 msgstr "Kan geen audiobestand creëren"
 
-#: src/Views/RecordView.vala:120
+#: src/Views/RecordView.vala:128
 msgid ""
 "A GStreamer error happened while recording, the following error message may "
 "be helpful:"
@@ -104,26 +108,25 @@ msgstr ""
 "Er is een GStreamer-fout opgetreden tijdens het opnemen. De volgende "
 "foutmelding kan nuttig zijn:"
 
-#. / TRANSLATORS: %s represents a timestamp here
-#: src/Views/RecordView.vala:137
+#. TRANSLATORS: %s represents a timestamp here
+#: src/Views/RecordView.vala:145
 #, c-format
 msgid "Recording from %s"
 msgstr "Opnemen van %s"
 
-#. The app asks destination and filename each time
-#: src/Views/RecordView.vala:153
+#: src/Views/RecordView.vala:161
 msgid "Save your recording"
 msgstr "Sla je opname op"
 
-#: src/Views/RecordView.vala:154
+#: src/Views/RecordView.vala:162
 msgid "Save"
 msgstr "Opslaan"
 
-#: src/Views/RecordView.vala:154 src/Application.vala:68
+#: src/Views/RecordView.vala:162 src/Application.vala:68
 msgid "Cancel"
 msgstr "Afbreken"
 
-#: src/Views/RecordView.vala:318
+#: src/Views/RecordView.vala:339
 msgid "Resume recording"
 msgstr "Opname hervatten"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 23:03+0900\n"
+"POT-Creation-Date: 2019-06-01 20:05+0900\n"
 "PO-Revision-Date: 2019-01-16 22:17+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -30,102 +30,105 @@ msgid "Length in seconds:"
 msgstr "Longueur en secondes :"
 
 #: src/Views/WelcomeView.vala:46
+msgid "Record system sound:"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:52
 msgid "Saving"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:48
+#: src/Views/WelcomeView.vala:54
 msgid "Format:"
 msgstr "Format :"
 
-#: src/Views/WelcomeView.vala:53
+#: src/Views/WelcomeView.vala:59
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:54
+#: src/Views/WelcomeView.vala:60
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:55
+#: src/Views/WelcomeView.vala:61
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:56
+#: src/Views/WelcomeView.vala:62
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:57
+#: src/Views/WelcomeView.vala:63
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:58
+#: src/Views/WelcomeView.vala:64
 msgid "WAV"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:61
+#: src/Views/WelcomeView.vala:67
 msgid "Automatically save files:"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:69
+#: src/Views/WelcomeView.vala:75
 msgid "Choose a default destination"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:93
+#: src/Views/WelcomeView.vala:101
 msgid "Start recording"
 msgstr "Démarrer l'enregistrement"
 
-#. / TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:138
+#. TRANSLATORS: The name of the folder which recordings are saved
+#: src/Views/WelcomeView.vala:150
 msgid "Recordings"
 msgstr "Enregistrements"
 
-#: src/Views/RecordView.vala:61
+#: src/Views/RecordView.vala:69
 #, fuzzy
 msgid "Cancel recording"
 msgstr "Démarrer l'enregistrement"
 
-#: src/Views/RecordView.vala:67
+#: src/Views/RecordView.vala:75
 #, fuzzy
 msgid "Finish recording"
 msgstr "Arrêter l'enregistrement"
 
-#: src/Views/RecordView.vala:75 src/Views/RecordView.vala:307
-#: src/Views/RecordView.vala:323
+#: src/Views/RecordView.vala:83 src/Views/RecordView.vala:320
+#: src/Views/RecordView.vala:350
 #, fuzzy
 msgid "Pause recording"
 msgstr "Démarrer l'enregistrement"
 
-#: src/Views/RecordView.vala:119
+#: src/Views/RecordView.vala:127
 msgid "Unable to Create an Audio File"
 msgstr "Impossible de créer un fichier audio"
 
-#: src/Views/RecordView.vala:120
+#: src/Views/RecordView.vala:128
 #, fuzzy
 msgid ""
 "A GStreamer error happened while recording, the following error message may "
 "be helpful:"
 msgstr "Une erreur GStreamer est survenue pendant l'enregistrement :"
 
-#. / TRANSLATORS: %s represents a timestamp here
-#: src/Views/RecordView.vala:137
+#. TRANSLATORS: %s represents a timestamp here
+#: src/Views/RecordView.vala:145
 #, c-format
 msgid "Recording from %s"
 msgstr "Enregistré depuis %s"
 
-#. The app asks destination and filename each time
-#: src/Views/RecordView.vala:153
+#: src/Views/RecordView.vala:161
 #, fuzzy
 msgid "Save your recording"
 msgstr "Démarrer l'enregistrement"
 
-#: src/Views/RecordView.vala:154
+#: src/Views/RecordView.vala:162
 msgid "Save"
 msgstr ""
 
-#: src/Views/RecordView.vala:154 src/Application.vala:68
+#: src/Views/RecordView.vala:162 src/Application.vala:68
 msgid "Cancel"
 msgstr ""
 
-#: src/Views/RecordView.vala:318
+#: src/Views/RecordView.vala:339
 #, fuzzy
 msgid "Resume recording"
 msgstr "Enregistrements"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-07 16:35+0900\n"
+"POT-Creation-Date: 2019-06-01 20:05+0900\n"
 "PO-Revision-Date: 2019-02-18 14:43+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -80,7 +80,7 @@ msgstr ""
 msgid "Recording is successfully finished"
 msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:92
+#: data/com.github.ryonakano.reco.appdata.xml.in:90
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 
