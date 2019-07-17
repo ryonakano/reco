@@ -30,7 +30,7 @@ public class CountDownView : Gtk.Box {
 
     construct {
         recording_label = new Gtk.Label (null);
-        recording_label.get_style_context ().add_class ("h2");
+        recording_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
         var label_grid = new Gtk.Grid ();
         label_grid.column_spacing = 6;

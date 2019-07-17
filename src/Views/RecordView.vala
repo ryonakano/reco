@@ -52,10 +52,10 @@ public class RecordView : Gtk.Box {
 
     construct {
         time_label = new Gtk.Label (null);
-        time_label.get_style_context ().add_class ("h2");
+        time_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
         remaining_time_label = new Gtk.Label (null);
-        remaining_time_label.get_style_context ().add_class ("h3");
+        remaining_time_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
 
         var label_grid = new Gtk.Grid ();
         label_grid.column_spacing = 6;
