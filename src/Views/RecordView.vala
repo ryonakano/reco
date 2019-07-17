@@ -104,8 +104,6 @@ public class RecordView : Gtk.Box {
 
         stop_button.clicked.connect (() => {
             stop_recording ();
-            window.show_welcome ();
-            is_recording = false;
         });
 
         pause_button.clicked.connect (() => {
@@ -122,7 +120,6 @@ public class RecordView : Gtk.Box {
 
                 msg.parse_error (out err, out debug);
 
-                is_recording = false;
                 var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                     _("Unable to Create an Audio File"),
                     _("A GStreamer error happened while recording, the following error message may be helpful:"),
@@ -132,7 +129,6 @@ public class RecordView : Gtk.Box {
                 error_dialog.run ();
                 error_dialog.destroy ();
                 stop_recording ();
-                window.show_welcome ();
 
                 pipeline.set_state (Gst.State.NULL);
                 break;
@@ -302,7 +298,7 @@ public class RecordView : Gtk.Box {
         }
     }
 
-    private void stop_recording () {
+    public void stop_recording () {
         if (count != 0) {
             count = 0;
         }
@@ -321,6 +317,9 @@ public class RecordView : Gtk.Box {
         }
 
         pipeline.send_event (new Gst.Event.eos ());
+
+        window.show_welcome ();
+        is_recording = false;
     }
 
     private void pause_recording () {
@@ -443,8 +442,6 @@ public class RecordView : Gtk.Box {
 
             if (remain_minutes_10 == 0 && remain_minutes_1 == 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) {
                 stop_recording ();
-                window.show_welcome ();
-                is_recording = false;
                 return false;
             }
 

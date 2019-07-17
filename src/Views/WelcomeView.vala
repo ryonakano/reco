@@ -17,6 +17,7 @@
 
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
+    private Gtk.SpinButton delay_spin;
     public Gtk.Button record_button { get; private set; }
 
     public WelcomeView (MainWindow window) {
@@ -33,7 +34,7 @@ public class WelcomeView : Gtk.Box {
 
         var delay_label = new Gtk.Label (_("Delay in seconds:"));
         delay_label.halign = Gtk.Align.END;
-        var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
+        delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
         delay_spin.halign = Gtk.Align.START;
         delay_spin.value = Application.settings.get_int ("delay");
 
@@ -134,11 +135,7 @@ public class WelcomeView : Gtk.Box {
         });
 
         record_button.clicked.connect (() => {
-            if (delay_spin.value != 0) {
-                window.show_countdown ();
-            } else {
-                window.show_record ();
-            }
+            trigger_recording ();
         });
     }
 
@@ -171,5 +168,13 @@ public class WelcomeView : Gtk.Box {
             return false;
         });
         timeout_button_icon = 0;
+    }
+
+    public void trigger_recording () {
+        if (delay_spin.value != 0) {
+            window.show_countdown ();
+        } else {
+            window.show_record ();
+        }
     }
 }
