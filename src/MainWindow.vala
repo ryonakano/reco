@@ -59,6 +59,14 @@ public class MainWindow : Gtk.ApplicationWindow {
         get_style_context ().add_class ("rounded");
         add (stack);
         show_welcome ();
+
+        delete_event.connect ((event) => {
+            if (record_view.is_recording) {
+                record_view.stop_recording ();
+            }
+
+            return false;
+        });
     }
 
     public void show_welcome () {
