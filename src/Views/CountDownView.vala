@@ -17,7 +17,7 @@
 
 public class CountDownView : Gtk.Box {
     public MainWindow window { get; construct; }
-    private Gtk.Label recording_label;
+    private Gtk.Label delay_remaining_label;
 
     public CountDownView (MainWindow window) {
         Object (
@@ -29,33 +29,33 @@ public class CountDownView : Gtk.Box {
     }
 
     construct {
-        recording_label = new Gtk.Label (null);
-        recording_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
+        delay_remaining_label = new Gtk.Label (null);
+        delay_remaining_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
         var label_grid = new Gtk.Grid ();
         label_grid.column_spacing = 6;
         label_grid.row_spacing = 6;
         label_grid.halign = Gtk.Align.CENTER;
-        label_grid.attach (recording_label, 0, 1, 1, 1);
+        label_grid.attach (delay_remaining_label, 0, 1, 1, 1);
 
         pack_start (label_grid, false, false);
     }
 
     public void start_count () {
-        int remaining_time = Application.settings.get_int ("delay");
+        int delay_remaining_time = Application.settings.get_int ("delay");
 
-        // Show initial remaining_time
-        recording_label.label = remaining_time.to_string ();
+        // Show initial delay_remaining_time
+        delay_remaining_label.label = delay_remaining_time.to_string ();
 
-        // Decrease remaining_time per seconds
+        // Decrease delay_remaining_time per seconds
         Timeout.add (1000, () => {
-            remaining_time--;
+            delay_remaining_time--;
 
-            // Show the decreased remaining_time
-            recording_label.label = remaining_time.to_string ();
+            // Show the decreased delay_remaining_time
+            delay_remaining_label.label = delay_remaining_time.to_string ();
 
-            // Start recording when remaining_time turns 0
-            if (remaining_time == 0) {
+            // Start recording when delay_remaining_time turns 0
+            if (delay_remaining_time == 0) {
                 window.show_record ();
                 return false;
             }

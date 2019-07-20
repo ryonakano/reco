@@ -18,10 +18,10 @@
 public class MainWindow : Gtk.ApplicationWindow {
     public Application app { get; construct; }
     private Gtk.HeaderBar headerbar;
-    public Gtk.Stack stack { get; private set; }
     public WelcomeView welcome_view { get; private set; }
-    public CountDownView countdown_view { get; private set; }
+    private CountDownView countdown_view;
     public RecordView record_view { get; private set; }
+    public Gtk.Stack stack { get; private set; }
 
     public MainWindow (Application app) {
         Object (
@@ -49,10 +49,11 @@ public class MainWindow : Gtk.ApplicationWindow {
         headerbar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
         headerbar_style_context.add_class ("default-decoration");
 
-        stack = new Gtk.Stack ();
         welcome_view = new WelcomeView (this);
         countdown_view = new CountDownView (this);
         record_view = new RecordView (this, app);
+
+        stack = new Gtk.Stack ();
         stack.add_named (welcome_view, "welcome");
         stack.add_named (countdown_view, "count");
         stack.add_named (record_view, "record");

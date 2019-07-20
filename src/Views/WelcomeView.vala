@@ -18,7 +18,7 @@
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
     private Gtk.SpinButton delay_spin;
-    public Gtk.Button record_button { get; private set; }
+    private Gtk.Button record_button;
 
     public WelcomeView (MainWindow window) {
         Object (
