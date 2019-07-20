@@ -42,10 +42,12 @@ public class MainWindow : Gtk.ApplicationWindow {
                                                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         headerbar = new Gtk.HeaderBar ();
-        headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
-        headerbar.get_style_context ().add_class ("default-decoration");
         headerbar.title = "";
         headerbar.has_subtitle = false;
+
+        var headerbar_style_context = headerbar.get_style_context ();
+        headerbar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        headerbar_style_context.add_class ("default-decoration");
 
         stack = new Gtk.Stack ();
         welcome_view = new WelcomeView (this);
