@@ -20,6 +20,7 @@ public class CountDownView : Gtk.Box {
     private Gtk.Label delay_remaining_label;
     private Gtk.Button pause_button;
     private int paused_time;
+    private int delay_remaining_time;
     private uint countdown;
     private bool is_paused;
 
@@ -66,8 +67,8 @@ public class CountDownView : Gtk.Box {
         pack_end (buttons_grid, false, false);
 
         cancel_button.clicked.connect (() => {
-            cancel_countdown ();
             paused_time = 0;
+            cancel_countdown ();
         });
 
         pause_button.clicked.connect (() => {
@@ -77,7 +78,7 @@ public class CountDownView : Gtk.Box {
 
     public void start_countdown () {
         is_paused = false;
-        int delay_remaining_time = paused_time != 0 ? paused_time : Application.settings.get_int ("delay");
+        delay_remaining_time = init_delay_remaining_time ();
 
         // Show initial delay_remaining_time
         delay_remaining_label.label = delay_remaining_time.to_string ();
@@ -85,7 +86,7 @@ public class CountDownView : Gtk.Box {
         // Decrease delay_remaining_time per seconds
         countdown = Timeout.add (1000, () => {
             delay_remaining_time--;
-            paused_time = delay_remaining_time;
+            paused_time = delay_remaining_time + 1;
 
             // Show the decreased delay_remaining_time
             delay_remaining_label.label = delay_remaining_time.to_string ();
@@ -106,6 +107,7 @@ public class CountDownView : Gtk.Box {
 
         if (countdown != 0) {
             countdown = 0;
+            delay_remaining_time = init_delay_remaining_time ();
             delay_remaining_label.label = null;
         }
 
@@ -131,5 +133,9 @@ public class CountDownView : Gtk.Box {
             pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
             pause_button.tooltip_text = _("Pause the countdown");
         }
+    }
+
+    private int init_delay_remaining_time () {
+        return paused_time != 0 ? paused_time : Application.settings.get_int ("delay");
     }
 }
