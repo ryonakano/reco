@@ -17,10 +17,10 @@
 
 public class MainWindow : Gtk.ApplicationWindow {
     public Application app { get; construct; }
-    public Gtk.Stack stack { get; private set; }
     public WelcomeView welcome_view { get; private set; }
-    public CountDownView countdown_view { get; private set; }
+    private CountDownView countdown_view;
     public RecordView record_view { get; private set; }
+    public Gtk.Stack stack { get; private set; }
 
     public MainWindow (Application app) {
         Object (
@@ -41,16 +41,19 @@ public class MainWindow : Gtk.ApplicationWindow {
                                                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         var headerbar = new Gtk.HeaderBar ();
-        headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
-        headerbar.get_style_context ().add_class ("default-decoration");
         headerbar.title = "";
         headerbar.has_subtitle = false;
         headerbar.show_close_button = true;
 
-        stack = new Gtk.Stack ();
+        var headerbar_style_context = headerbar.get_style_context ();
+        headerbar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        headerbar_style_context.add_class ("default-decoration");
+
         welcome_view = new WelcomeView (this);
         countdown_view = new CountDownView (this);
         record_view = new RecordView (this, app);
+
+        stack = new Gtk.Stack ();
         stack.add_named (welcome_view, "welcome");
         stack.add_named (countdown_view, "count");
         stack.add_named (record_view, "record");
@@ -75,7 +78,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     public void show_countdown () {
         stack.visible_child_name = "count";
-        countdown_view.start_count ();
+        countdown_view.start_countdown ();
     }
 
     public void show_record () {
