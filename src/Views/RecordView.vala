@@ -149,7 +149,7 @@ public class RecordView : Gtk.Box {
                         var uri = File.new_for_path (destination + "/" + filename + suffix);
                         tmp_source.move (uri, FileCopyFlags.OVERWRITE);
                     } catch (Error e) {
-                        stderr.printf ("Error: %s\n", e.message);
+                        warning (e.message);
                     }
                 } else { // The app asks destination and filename each time
                     var filechooser = new Gtk.FileChooserNative (
@@ -164,13 +164,13 @@ public class RecordView : Gtk.Box {
                             var uri = File.new_for_path (filechooser.get_filename ());
                             tmp_source.move (uri, FileCopyFlags.OVERWRITE);
                         } catch (Error e) {
-                            stderr.printf ("Error: %s\n", e.message);
+                            warning (e.message);
                         }
                     } else {
                         try {
                             tmp_source.delete ();
                         } catch (Error e) {
-                            stderr.printf ("Error: %s", e.message);
+                            warning (e.message);
                         }
                     }
 
@@ -195,11 +195,11 @@ public class RecordView : Gtk.Box {
         var sink = Gst.ElementFactory.make ("filesink", "sink");
 
         if (pipeline == null) {
-            stderr.printf ("Error: Gstreamer sink was not created correctly!\n");
+            error ("Gstreamer sink was not created correctly!");
         } else if (audiobin == null) {
-            stderr.printf ("Error: Gstreamer pipeline was not created correctly!\n");
+            error ("Gstreamer pipeline was not created correctly!");
         } else if (sink == null) {
-            stderr.printf ("Error: Gstreamer audiobin was not created correctly!\n");
+            error ("Gstreamer audiobin was not created correctly!");
         }
 
         string command = Application.settings.get_boolean ("system-sound") ? "pacmd list-sinks" : "pacmd list-sources";
@@ -255,12 +255,12 @@ public class RecordView : Gtk.Box {
                     break;
             }
         } catch (Error e) {
-            stderr.printf ("Error: %s\n", e.message);
+            error ("Could not set the audio format correctly: %s", e.message);
         }
 
         tmp_full_path = tmp_destination + "/%s%s".printf (tmp_filename, suffix);
         sink.set ("location", tmp_full_path);
-        stdout.printf ("Audio is stored as %s temporary\n".printf (tmp_full_path));
+        debug ("The recording is stored at %s temporary".printf (tmp_full_path));
 
         pipeline.add_many (audiobin, sink);
         audiobin.link (sink);
@@ -292,7 +292,7 @@ public class RecordView : Gtk.Box {
         try {
             File.new_for_path (tmp_full_path).delete ();
         } catch (Error e) {
-            stderr.printf ("Error: %s\n", e.message);
+            warning (e.message);
         }
     }
 
