@@ -119,9 +119,7 @@ public class RecordView : Gtk.Box {
         switch (msg.type) {
             case Gst.MessageType.ERROR:
                 Error err;
-
                 string debug;
-
                 msg.parse_error (out err, out debug);
 
                 var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
@@ -132,7 +130,18 @@ public class RecordView : Gtk.Box {
                 error_dialog.show_error_details ("%s\n%s".printf (err.message, debug));
                 error_dialog.run ();
                 error_dialog.destroy ();
-                stop_recording ();
+
+                if (count != 0) {
+                    count = 0;
+                }
+
+                if (countdown != 0) {
+                    countdown = 0;
+                    remaining_time_label.label = null;
+                }
+
+                window.show_welcome ();
+                is_recording = false;
 
                 pipeline.set_state (Gst.State.NULL);
                 break;
