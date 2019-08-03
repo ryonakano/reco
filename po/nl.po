@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-01 20:05+0900\n"
+"POT-Creation-Date: 2019-08-03 09:32+0900\n"
 "PO-Revision-Date: 2019-03-29 14:04+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -18,68 +18,68 @@ msgstr ""
 "X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Views/WelcomeView.vala:32
+#: src/Views/WelcomeView.vala:33
 msgid "Recording"
 msgstr "Opname"
 
-#: src/Views/WelcomeView.vala:34
+#: src/Views/WelcomeView.vala:35
 msgid "Delay in seconds:"
 msgstr "Vertraging, in seconden:"
 
-#: src/Views/WelcomeView.vala:40
+#: src/Views/WelcomeView.vala:41
 msgid "Length in seconds:"
 msgstr "Duur, in seconden:"
 
-#: src/Views/WelcomeView.vala:46
+#: src/Views/WelcomeView.vala:47
 msgid "Record system sound:"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:52
+#: src/Views/WelcomeView.vala:53
 msgid "Saving"
 msgstr "Opslaan"
 
-#: src/Views/WelcomeView.vala:54
+#: src/Views/WelcomeView.vala:55
 msgid "Format:"
 msgstr "Formaat:"
 
-#: src/Views/WelcomeView.vala:59
+#: src/Views/WelcomeView.vala:60
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:60
+#: src/Views/WelcomeView.vala:61
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:61
+#: src/Views/WelcomeView.vala:62
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:62
+#: src/Views/WelcomeView.vala:63
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:63
+#: src/Views/WelcomeView.vala:64
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:64
+#: src/Views/WelcomeView.vala:65
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:67
+#: src/Views/WelcomeView.vala:68
 msgid "Automatically save files:"
 msgstr "Bestanden automatisch opslaan:"
 
-#: src/Views/WelcomeView.vala:75
+#: src/Views/WelcomeView.vala:76
 msgid "Choose a default destination"
 msgstr "Kies een standaard opslagmap"
 
-#: src/Views/WelcomeView.vala:101
+#: src/Views/WelcomeView.vala:102
 msgid "Start recording"
 msgstr "Opname starten"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:150
+#: src/Views/WelcomeView.vala:147
 msgid "Recordings"
 msgstr "Opnamen"
 
@@ -91,16 +91,16 @@ msgstr "Opname afbreken"
 msgid "Finish recording"
 msgstr "Opname afronden"
 
-#: src/Views/RecordView.vala:83 src/Views/RecordView.vala:320
-#: src/Views/RecordView.vala:350
+#: src/Views/RecordView.vala:83 src/Views/RecordView.vala:327
+#: src/Views/RecordView.vala:362
 msgid "Pause recording"
 msgstr "Opname pauzeren"
 
-#: src/Views/RecordView.vala:127
+#: src/Views/RecordView.vala:126
 msgid "Unable to Create an Audio File"
 msgstr "Kan geen audiobestand creëren"
 
-#: src/Views/RecordView.vala:128
+#: src/Views/RecordView.vala:127
 msgid ""
 "A GStreamer error happened while recording, the following error message may "
 "be helpful:"
@@ -109,35 +109,32 @@ msgstr ""
 "foutmelding kan nuttig zijn:"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/Views/RecordView.vala:145
+#: src/Views/RecordView.vala:154
 #, c-format
 msgid "Recording from %s"
 msgstr "Opnemen van %s"
 
-#: src/Views/RecordView.vala:161
+#: src/Views/RecordView.vala:169
 msgid "Save your recording"
 msgstr "Sla je opname op"
 
-#: src/Views/RecordView.vala:162
+#: src/Views/RecordView.vala:170
 msgid "Save"
 msgstr "Opslaan"
 
-#: src/Views/RecordView.vala:162 src/Application.vala:68
+#: src/Views/RecordView.vala:170
 msgid "Cancel"
 msgstr "Afbreken"
 
-#: src/Views/RecordView.vala:339
+#: src/Views/RecordView.vala:351
 msgid "Resume recording"
 msgstr "Opname hervatten"
 
-#: src/Application.vala:63
-msgid "Are you sure you want to quit Reco?"
-msgstr "Weet je zeker dat je Reco wilt afsluiten?"
+#~ msgid "Are you sure you want to quit Reco?"
+#~ msgstr "Weet je zeker dat je Reco wilt afsluiten?"
 
-#: src/Application.vala:64
-msgid "If you quit Reco, the recording in progress will end."
-msgstr "Als je Reco afsluit, dan wordt de opname stopgezet."
+#~ msgid "If you quit Reco, the recording in progress will end."
+#~ msgstr "Als je Reco afsluit, dan wordt de opname stopgezet."
 
-#: src/Application.vala:70
-msgid "Quit Reco"
-msgstr "Reco afsluiten"
+#~ msgid "Quit Reco"
+#~ msgstr "Reco afsluiten"

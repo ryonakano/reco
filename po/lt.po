@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-01 20:05+0900\n"
+"POT-Creation-Date: 2019-08-03 09:32+0900\n"
 "PO-Revision-Date: 2019-02-18 14:35+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -19,68 +19,68 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/Views/WelcomeView.vala:32
+#: src/Views/WelcomeView.vala:33
 msgid "Recording"
 msgstr "Įrašinėjimas"
 
-#: src/Views/WelcomeView.vala:34
+#: src/Views/WelcomeView.vala:35
 msgid "Delay in seconds:"
 msgstr "Delsa sekundėmis:"
 
-#: src/Views/WelcomeView.vala:40
+#: src/Views/WelcomeView.vala:41
 msgid "Length in seconds:"
 msgstr "Trukmė sekundėmis:"
 
-#: src/Views/WelcomeView.vala:46
+#: src/Views/WelcomeView.vala:47
 msgid "Record system sound:"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:52
+#: src/Views/WelcomeView.vala:53
 msgid "Saving"
 msgstr "Išsaugojimas"
 
-#: src/Views/WelcomeView.vala:54
+#: src/Views/WelcomeView.vala:55
 msgid "Format:"
 msgstr "Formatas:"
 
-#: src/Views/WelcomeView.vala:59
+#: src/Views/WelcomeView.vala:60
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:60
+#: src/Views/WelcomeView.vala:61
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:61
+#: src/Views/WelcomeView.vala:62
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:62
+#: src/Views/WelcomeView.vala:63
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:63
+#: src/Views/WelcomeView.vala:64
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:64
+#: src/Views/WelcomeView.vala:65
 msgid "WAV"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:67
+#: src/Views/WelcomeView.vala:68
 msgid "Automatically save files:"
 msgstr "Automatiškai išsaugoti failus:"
 
-#: src/Views/WelcomeView.vala:75
+#: src/Views/WelcomeView.vala:76
 msgid "Choose a default destination"
 msgstr "Pasirinkite numatytąją vietą"
 
-#: src/Views/WelcomeView.vala:101
+#: src/Views/WelcomeView.vala:102
 msgid "Start recording"
 msgstr "Pradėti įrašinėjimą"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:150
+#: src/Views/WelcomeView.vala:147
 msgid "Recordings"
 msgstr "Įrašinėjimai"
 
@@ -94,17 +94,17 @@ msgstr "Pradėti įrašinėjimą"
 msgid "Finish recording"
 msgstr "Stabdyti įrašinėjimą"
 
-#: src/Views/RecordView.vala:83 src/Views/RecordView.vala:320
-#: src/Views/RecordView.vala:350
+#: src/Views/RecordView.vala:83 src/Views/RecordView.vala:327
+#: src/Views/RecordView.vala:362
 #, fuzzy
 msgid "Pause recording"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/Views/RecordView.vala:127
+#: src/Views/RecordView.vala:126
 msgid "Unable to Create an Audio File"
 msgstr "Nepavyko sukurti garso failą"
 
-#: src/Views/RecordView.vala:128
+#: src/Views/RecordView.vala:127
 #, fuzzy
 msgid ""
 "A GStreamer error happened while recording, the following error message may "
@@ -112,39 +112,36 @@ msgid ""
 msgstr "Įrašanėjant, įvyko GStreamer klaida:"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/Views/RecordView.vala:145
+#: src/Views/RecordView.vala:154
 #, c-format
 msgid "Recording from %s"
 msgstr "Įrašinėjimas iš %s"
 
-#: src/Views/RecordView.vala:161
+#: src/Views/RecordView.vala:169
 msgid "Save your recording"
 msgstr "Išsaugokite savo įrašinėjimą"
 
-#: src/Views/RecordView.vala:162
+#: src/Views/RecordView.vala:170
 msgid "Save"
 msgstr "Išsaugoti"
 
-#: src/Views/RecordView.vala:162 src/Application.vala:68
+#: src/Views/RecordView.vala:170
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: src/Views/RecordView.vala:339
+#: src/Views/RecordView.vala:351
 #, fuzzy
 msgid "Resume recording"
 msgstr "Įrašinėjimas"
 
-#: src/Application.vala:63
-msgid "Are you sure you want to quit Reco?"
-msgstr "Ar tikrai norite išeiti iš Reco?"
+#~ msgid "Are you sure you want to quit Reco?"
+#~ msgstr "Ar tikrai norite išeiti iš Reco?"
 
-#: src/Application.vala:64
-msgid "If you quit Reco, the recording in progress will end."
-msgstr "Jeigu išeisite iš Reco, dabartinis įrašinėjimas bus užbaigtas."
+#~ msgid "If you quit Reco, the recording in progress will end."
+#~ msgstr "Jeigu išeisite iš Reco, dabartinis įrašinėjimas bus užbaigtas."
 
-#: src/Application.vala:70
-msgid "Quit Reco"
-msgstr "Išeiti iš Reco"
+#~ msgid "Quit Reco"
+#~ msgstr "Išeiti iš Reco"
 
 #~ msgid "Wav"
 #~ msgstr "Wav"
