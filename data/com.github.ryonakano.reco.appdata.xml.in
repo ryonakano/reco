@@ -76,12 +76,12 @@
   </content_rating>
 
   <releases>
-    <release version="2.0.0" date="2019-06-01">
+    <release version="2.1.0" date="2019-08-03">
       <description>
         <ul>
-          <li>Allow to record system sound</li>
-          <li>Fix the timer does not stop in accordance with the recording</li>
-          <li>Update Japanese translation</li>
+          <li>Allow to cancel/pause countdown before recording</li>
+          <li>Save recordings when the app window is destroyed</li>
+          <li>Fix the app freezes on closing an error dialog</li>
         </ul>
       </description>
     </release>
