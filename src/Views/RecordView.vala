@@ -103,7 +103,11 @@ public class RecordView : Gtk.Box {
         });
 
         stop_button.clicked.connect (() => {
-            stop_recording ();
+            var loop = new MainLoop ();
+            window.record_view.stop_recording.begin ((obj, res) => {
+                loop.quit ();
+            });
+            loop.run ();
         });
 
         pause_button.clicked.connect (() => {
@@ -148,7 +152,6 @@ public class RecordView : Gtk.Box {
                     try {
                         var uri = File.new_for_path (destination + "/" + filename + suffix);
                         tmp_source.move (uri, FileCopyFlags.OVERWRITE);
-                        window.welcome_view.show_success_button ();
                     } catch (Error e) {
                         warning (e.message);
                     }
@@ -164,7 +167,6 @@ public class RecordView : Gtk.Box {
                         try {
                             var uri = File.new_for_path (filechooser.get_filename ());
                             tmp_source.move (uri, FileCopyFlags.OVERWRITE);
-                            window.welcome_view.show_success_button ();
                         } catch (Error e) {
                             warning (e.message);
                         }
@@ -298,7 +300,7 @@ public class RecordView : Gtk.Box {
         }
     }
 
-    public void stop_recording () {
+    public async void stop_recording () {
         if (count != 0) {
             count = 0;
         }
@@ -316,7 +318,9 @@ public class RecordView : Gtk.Box {
             pause_button.tooltip_text = _("Pause recording");
         }
 
-        pipeline.send_event (new Gst.Event.eos ());
+        if (pipeline.send_event (new Gst.Event.eos ())) {
+            window.welcome_view.show_success_button ();
+        }
 
         window.show_welcome ();
         is_recording = false;
@@ -441,7 +445,11 @@ public class RecordView : Gtk.Box {
             show_timer_label (remaining_time_label, remain_minutes_10, remain_minutes_1, remain_seconds_10, remain_seconds_1);
 
             if (remain_minutes_10 == 0 && remain_minutes_1 == 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) {
-                stop_recording ();
+                var loop = new MainLoop ();
+                window.record_view.stop_recording.begin ((obj, res) => {
+                    loop.quit ();
+                });
+                loop.run ();
                 return false;
             }
 

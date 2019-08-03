@@ -17,7 +17,6 @@
 
 public class MainWindow : Gtk.ApplicationWindow {
     public Application app { get; construct; }
-    private Gtk.HeaderBar headerbar;
     public WelcomeView welcome_view { get; private set; }
     private CountDownView countdown_view;
     public RecordView record_view { get; private set; }
@@ -41,9 +40,10 @@ public class MainWindow : Gtk.ApplicationWindow {
                                                     cssprovider,
                                                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        headerbar = new Gtk.HeaderBar ();
+        var headerbar = new Gtk.HeaderBar ();
         headerbar.title = "";
         headerbar.has_subtitle = false;
+        headerbar.show_close_button = true;
 
         var headerbar_style_context = headerbar.get_style_context ();
         headerbar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
@@ -62,11 +62,22 @@ public class MainWindow : Gtk.ApplicationWindow {
         get_style_context ().add_class ("rounded");
         add (stack);
         show_welcome ();
+
+        delete_event.connect ((event) => {
+            if (record_view.is_recording) {
+                var loop = new MainLoop ();
+                record_view.stop_recording.begin ((obj, res) => {
+                    loop.quit ();
+                });
+                loop.run ();
+            }
+
+            return false;
+        });
     }
 
     public void show_welcome () {
         stack.visible_child_name = "welcome";
-        headerbar.show_close_button = true;
     }
 
     public void show_countdown () {
@@ -77,7 +88,6 @@ public class MainWindow : Gtk.ApplicationWindow {
     public void show_record () {
         stack.visible_child_name = "record";
         record_view.start_recording ();
-        headerbar.show_close_button = false;
     }
 
     // Save window position when changed

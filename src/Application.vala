@@ -56,32 +56,15 @@ public class Application : Gtk.Application {
         add_action (quit_action);
         set_accels_for_action ("app.quit", {"<Control>q"});
         quit_action.activate.connect (() => {
-            if (!window.record_view.is_recording) {
-                window.destroy ();
-            } else {
-                var warning_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                    _("Are you sure you want to quit Reco?"),
-                    _("If you quit Reco, the recording in progress will end."),
-                    "dialog-warning", Gtk.ButtonsType.NONE);
-                warning_dialog.transient_for = window;
-                warning_dialog.modal = true;
-                warning_dialog.add_button (_("Cancel"), Gtk.ButtonsType.CANCEL);
-
-                var quit_button = new Gtk.Button.with_label (_("Quit Reco"));
-                quit_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-                warning_dialog.add_action_widget (quit_button, Gtk.ResponseType.YES);
-
-                warning_dialog.show_all ();
-
-                warning_dialog.response.connect ((response_id) => {
-                    if (response_id == Gtk.ResponseType.YES) {
-                        window.record_view.cancel_recording ();
-                        window.destroy ();
-                    }
-
-                    warning_dialog.destroy ();
+            if (window.record_view.is_recording) {
+                var loop = new MainLoop ();
+                window.record_view.stop_recording.begin ((obj, res) => {
+                    loop.quit ();
                 });
+                loop.run ();
             }
+
+            window.destroy ();
         });
 
         var toggle_recording_action = new SimpleAction ("toggle_recording", null);
@@ -91,7 +74,11 @@ public class Application : Gtk.Application {
             if (window.stack.visible_child_name == "welcome") {
                 window.welcome_view.trigger_recording ();
             } else if (window.stack.visible_child_name == "record") {
-                window.record_view.stop_recording ();
+                var loop = new MainLoop ();
+                window.record_view.stop_recording.begin ((obj, res) => {
+                    loop.quit ();
+                });
+                loop.run ();
             }
         });
     }
