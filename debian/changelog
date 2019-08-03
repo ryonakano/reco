@@ -1,3 +1,11 @@
+com.github.ryonakano.reco (2.1.0) bionic; urgency=medium
+
+  * Allow to cancel/pause countdown before recording
+  * Save recordings when the app window is destroyed
+  * Fix the app freezes on closing an error dialog
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Sat, 03 Aug 2019 09:37:23 +0900
+
 com.github.ryonakano.reco (2.0.0) bionic; urgency=medium
 
   * Allow to record system sound
