@@ -103,7 +103,11 @@ public class RecordView : Gtk.Box {
         });
 
         stop_button.clicked.connect (() => {
-            stop_recording ();
+            var loop = new MainLoop ();
+            window.record_view.stop_recording.begin ((obj, res) => {
+                loop.quit ();
+            });
+            loop.run ();
         });
 
         pause_button.clicked.connect (() => {
@@ -296,7 +300,7 @@ public class RecordView : Gtk.Box {
         }
     }
 
-    public void stop_recording () {
+    public async void stop_recording () {
         if (count != 0) {
             count = 0;
         }
@@ -441,7 +445,11 @@ public class RecordView : Gtk.Box {
             show_timer_label (remaining_time_label, remain_minutes_10, remain_minutes_1, remain_seconds_10, remain_seconds_1);
 
             if (remain_minutes_10 == 0 && remain_minutes_1 == 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) {
-                stop_recording ();
+                var loop = new MainLoop ();
+                window.record_view.stop_recording.begin ((obj, res) => {
+                    loop.quit ();
+                });
+                loop.run ();
                 return false;
             }
 

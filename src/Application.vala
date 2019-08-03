@@ -57,7 +57,11 @@ public class Application : Gtk.Application {
         set_accels_for_action ("app.quit", {"<Control>q"});
         quit_action.activate.connect (() => {
             if (window.record_view.is_recording) {
-                window.record_view.stop_recording ();
+                var loop = new MainLoop ();
+                window.record_view.stop_recording.begin ((obj, res) => {
+                    loop.quit ();
+                });
+                loop.run ();
             }
 
             window.destroy ();
@@ -70,7 +74,11 @@ public class Application : Gtk.Application {
             if (window.stack.visible_child_name == "welcome") {
                 window.welcome_view.trigger_recording ();
             } else if (window.stack.visible_child_name == "record") {
-                window.record_view.stop_recording ();
+                var loop = new MainLoop ();
+                window.record_view.stop_recording.begin ((obj, res) => {
+                    loop.quit ();
+                });
+                loop.run ();
             }
         });
     }
