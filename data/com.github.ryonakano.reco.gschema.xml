@@ -34,15 +34,10 @@
       <default>''</default>
       <summary>Default destination</summary>
     </key>
-    <key name="window-x" type="i">
-      <default>-1</default>
-      <summary>Window x position</summary>
-      <description>X position of last closed window</description>
-    </key>
-    <key name="window-y" type="i">
-      <default>-1</default>
-      <summary>Window y position</summary>
-      <description>Y position of last closed window</description>
+    <key name="window-position" type="(ii)">
+      <default>(-1, -1)</default>
+      <summary>Window position</summary>
+      <description>Position of last closed window</description>
     </key>
   </schema>
 </schemalist>

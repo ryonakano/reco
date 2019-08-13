@@ -94,8 +94,7 @@ public class MainWindow : Gtk.ApplicationWindow {
     public override bool configure_event (Gdk.EventConfigure event) {
         int x, y;
         get_position (out x, out y);
-        Application.settings.set_int ("window-x", x);
-        Application.settings.set_int ("window-y", y);
+        Application.settings.set ("window-position", "(ii)", x, y);
 
         return base.configure_event (event);
     }

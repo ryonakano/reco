@@ -39,8 +39,8 @@ public class Application : Gtk.Application {
             return;
         }
 
-        var window_x = settings.get_int ("window-x");
-        var window_y = settings.get_int ("window-y");
+        int window_x, window_y;
+        settings.get ("window-position", "(ii)", out window_x, out window_y);
 
         window = new MainWindow (this);
 
