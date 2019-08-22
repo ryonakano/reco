@@ -14,20 +14,9 @@ Search for your language code (e.g. en = English, zh_CN = Chinese Simplified). S
     mr
     zh_TW
 
-## Build the App and Generate the Translation File
+## Translate .po Files
 
-After that, change the current directory to the root folder of the project and run the following command to create the translation file of your language:
-
-    meson build --prefix=/usr
-    cd build/
-    ninja com.github.ryonakano.reco-update-po
-    ninja extra-update-po
-
-Other language files are also updated when you run this command, but **ignore them.**
-
-## Translate .po Files Generated
-
-Now what you've been waiting for! Translate `po/<language_code>.po` and `po/extra/<language_code>.po` using a .po file editor of your choice (e.g. Poedit). The former file contains strings for the app itself and the latter is for metadata files (.appdata.xml and .desktop files).
+Now what you've been waiting for! Copy `po/com.github.ryonakano.reco.pot` and name `po/<language_code>.po` and copy `po/extra/extra.pot` and name `po/extra/<language_code>.po`. Then translate these created .po files using a .po file editor of your choice (e.g. Poedit). The former file contains strings for the app itself and the latter is for metadata files (.appdata.xml and .desktop files).
 
 ## Commit Your Translation Works
 
