@@ -64,7 +64,7 @@ We follow the [coding style of elementary OS](https://elementary.io/docs/code/re
 
 ### Translating This App
 
-I accept translations through Pull Requests.
+I accept translations through Pull Requests. If you're not sure how to do, [the guideline I made](po/README.md) might be helpful.
 
 ## The Story Behind This App
 
