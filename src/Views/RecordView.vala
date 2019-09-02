@@ -24,13 +24,8 @@ public class RecordView : Gtk.Box {
     private Gtk.Label remaining_time_label;
     private Gtk.Button stop_button;
     private Gtk.Button pause_button;
-    public bool is_recording { get; private set; }
-    private string suffix;
-    private string tmp_full_path;
     private uint count;
     private uint countdown;
-    private Gst.Bin audiobin;
-    private Gst.Pipeline pipeline;
     private int past_minutes_10;
     private int past_minutes_1;
     private int past_seconds_10;
@@ -97,25 +92,83 @@ public class RecordView : Gtk.Box {
         pack_end (buttons_grid, false, false);
 
         cancel_button.clicked.connect (() => {
-            cancel_recording ();
+            if (count != 0) {
+                count = 0;
+            }
+
+            if (countdown != 0) {
+                countdown = 0;
+                remaining_time_label.label = null;
+            }
+
+            window.recorder.cancel_recording ();
             window.show_welcome ();
-            is_recording = false;
         });
 
         stop_button.clicked.connect (() => {
             var loop = new MainLoop ();
-            window.record_view.stop_recording.begin ((obj, res) => {
+            stop_recording.begin ((obj, res) => {
                 loop.quit ();
             });
             loop.run ();
         });
 
         pause_button.clicked.connect (() => {
-            pause_recording ();
+            if (window.recorder.is_recording) {
+                if (count != 0) {
+                    count = 0;
+                }
+
+                if (countdown != 0) {
+                    countdown = 0;
+                }
+
+                window.recorder.pipeline.set_state (Gst.State.PAUSED);
+                window.recorder.is_recording = false;
+                pause_button.image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.BUTTON);
+                pause_button.tooltip_text = _("Resume recording");
+            } else {
+                start_count ();
+
+                if (Application.settings.get_int ("length") != 0) {
+                    start_countdown ();
+                }
+
+                window.recorder.pipeline.set_state (Gst.State.PLAYING);
+                window.recorder.is_recording = true;
+                pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+                pause_button.tooltip_text = _("Pause recording");
+            }
         });
     }
 
-    private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
+    public async void stop_recording () {
+        if (count != 0) {
+            count = 0;
+        }
+
+        if (countdown != 0) {
+            countdown = 0;
+            remaining_time_label.label = null;
+        }
+
+        // If a user tries to stop recording while pausing, resume recording once and reset the button icon
+        if (!window.recorder.is_recording) {
+            window.recorder.pipeline.set_state (Gst.State.PLAYING);
+            window.recorder.is_recording = true;
+            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+            pause_button.tooltip_text = _("Pause recording");
+        }
+
+        if (window.recorder.pipeline.send_event (new Gst.Event.eos ())) {
+            window.welcome_view.show_success_button ();
+        }
+
+        window.show_welcome ();
+        window.recorder.is_recording = false;
+    }
+
+    public bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
         switch (msg.type) {
             case Gst.MessageType.ERROR:
                 Error err;
@@ -141,25 +194,25 @@ public class RecordView : Gtk.Box {
                 }
 
                 window.show_welcome ();
-                is_recording = false;
+                window.recorder.is_recording = false;
 
-                pipeline.set_state (Gst.State.NULL);
+                window.recorder.pipeline.set_state (Gst.State.NULL);
                 break;
             case Gst.MessageType.EOS:
-                pipeline.set_state (Gst.State.NULL);
+                window.recorder.pipeline.set_state (Gst.State.NULL);
 
-                is_recording = false;
+                window.recorder.is_recording = false;
 
                 ///TRANSLATORS: %s represents a timestamp here
                 string filename = _("Recording from %s").printf (new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"));
 
-                var tmp_source = File.new_for_path (tmp_full_path);
+                var tmp_source = File.new_for_path (window.recorder.tmp_full_path);
 
                 string destination = Application.settings.get_string ("destination");
 
                 if (Application.settings.get_boolean ("auto-save")) { // The app saved files automatically
                     try {
-                        var uri = File.new_for_path (destination + "/" + filename + suffix);
+                        var uri = File.new_for_path (destination + "/" + filename + window.recorder.suffix);
                         tmp_source.move (uri, FileCopyFlags.OVERWRITE);
                     } catch (Error e) {
                         warning (e.message);
@@ -168,7 +221,7 @@ public class RecordView : Gtk.Box {
                     var filechooser = new Gtk.FileChooserNative (
                         _("Save your recording"), window, Gtk.FileChooserAction.SAVE,
                         _("Save"), _("Cancel"));
-                    filechooser.set_current_name (filename + suffix);
+                    filechooser.set_current_name (filename + window.recorder.suffix);
                     filechooser.set_filename (destination);
                     filechooser.do_overwrite_confirmation = true;
 
@@ -190,8 +243,8 @@ public class RecordView : Gtk.Box {
                     filechooser.destroy ();
                 }
 
-                pipeline.dispose ();
-                pipeline = null;
+                window.recorder.pipeline.dispose ();
+                window.recorder.pipeline = null;
                 break;
             default:
                 break;
@@ -200,170 +253,7 @@ public class RecordView : Gtk.Box {
         return true;
     }
 
-    public void start_recording () {
-        init_count ();
-
-        pipeline = new Gst.Pipeline ("pipeline");
-        audiobin = new Gst.Bin ("audio");
-        var sink = Gst.ElementFactory.make ("filesink", "sink");
-
-        if (pipeline == null) {
-            error ("Gstreamer sink was not created correctly!");
-        } else if (audiobin == null) {
-            error ("Gstreamer pipeline was not created correctly!");
-        } else if (sink == null) {
-            error ("Gstreamer audiobin was not created correctly!");
-        }
-
-        string command = Application.settings.get_boolean ("system-sound") ? "pacmd list-sinks" : "pacmd list-sources";
-        string default_device = "";
-        try {
-            string sound_devices = "";
-            Process.spawn_command_line_sync (command, out sound_devices);
-            var re = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
-            MatchInfo mi;
-
-            if (re.match (sound_devices, 0, out mi)) {
-                default_device = mi.fetch (0);
-            }
-
-            if (Application.settings.get_boolean ("system-sound")) {
-                default_device += ".monitor";
-            }
-        } catch (Error e) {
-            warning (e.message);
-        }
-
-        assert (sink != null);
-        string tmp_destination = Environment.get_tmp_dir ();
-        string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string ();
-
-        string file_format = Application.settings.get_string ("format");
-
-        try {
-            switch (file_format) {
-                case "aac":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! avenc_aac ! mp4mux", true);
-                    suffix = ".m4a";
-                    break;
-                case "flac":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! flacenc", true);
-                    suffix = ".flac";
-                    break;
-                case "mp3":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! lamemp3enc", true);
-                    suffix = ".mp3";
-                    break;
-                case "ogg":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! vorbisenc ! oggmux", true);
-                    suffix = ".ogg";
-                    break;
-                case "opus":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! opusenc ! oggmux", true);
-                    suffix = ".opus";
-                    break;
-                default:
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! wavenc", true);
-                    suffix = ".wav";
-                    break;
-            }
-        } catch (Error e) {
-            error ("Could not set the audio format correctly: %s", e.message);
-        }
-
-        tmp_full_path = tmp_destination + "/%s%s".printf (tmp_filename, suffix);
-        sink.set ("location", tmp_full_path);
-        debug ("The recording is stored at %s temporary".printf (tmp_full_path));
-
-        pipeline.add_many (audiobin, sink);
-        audiobin.link (sink);
-
-        pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
-        pipeline.set_state (Gst.State.PLAYING);
-
-        int record_length = Application.settings.get_int ("length");
-        if (record_length != 0) {
-            init_countdown (record_length);
-        }
-    }
-
-    public void cancel_recording () {
-        if (count != 0) {
-            count = 0;
-        }
-
-        if (countdown != 0) {
-            countdown = 0;
-            remaining_time_label.label = null;
-        }
-
-        pipeline.set_state (Gst.State.NULL);
-        pipeline.dispose ();
-        pipeline = null;
-
-        // Remove canceled file in /tmp
-        try {
-            File.new_for_path (tmp_full_path).delete ();
-        } catch (Error e) {
-            warning (e.message);
-        }
-    }
-
-    public async void stop_recording () {
-        if (count != 0) {
-            count = 0;
-        }
-
-        if (countdown != 0) {
-            countdown = 0;
-            remaining_time_label.label = null;
-        }
-
-        // If a user tries to stop recording while pausing, resume recording once and reset the button icon
-        if (!is_recording) {
-            pipeline.set_state (Gst.State.PLAYING);
-            is_recording = true;
-            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
-            pause_button.tooltip_text = _("Pause recording");
-        }
-
-        if (pipeline.send_event (new Gst.Event.eos ())) {
-            window.welcome_view.show_success_button ();
-        }
-
-        window.show_welcome ();
-        is_recording = false;
-    }
-
-    private void pause_recording () {
-        if (is_recording) {
-            if (count != 0) {
-                count = 0;
-            }
-
-            if (countdown != 0) {
-                countdown = 0;
-            }
-
-            pipeline.set_state (Gst.State.PAUSED);
-            is_recording = false;
-            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.BUTTON);
-            pause_button.tooltip_text = _("Resume recording");
-        } else {
-            start_count ();
-
-            if (Application.settings.get_int ("length") != 0) {
-                start_countdown ();
-            }
-
-            pipeline.set_state (Gst.State.PLAYING);
-            is_recording = true;
-            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
-            pause_button.tooltip_text = _("Pause recording");
-        }
-    }
-
-    private void init_count () {
+    public void init_count () {
         past_minutes_10 = 0;
         past_minutes_1 = 0;
         past_seconds_10 = 0;
@@ -371,7 +261,7 @@ public class RecordView : Gtk.Box {
 
         // Show initial time (00:00)
         show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
-        is_recording = true;
+        window.recorder.is_recording = true;
 
         start_count ();
     }
@@ -397,11 +287,11 @@ public class RecordView : Gtk.Box {
 
             show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
 
-            return is_recording? true : false;
+            return window.recorder.is_recording? true : false;
         });
     }
 
-    private void init_countdown (int remaining_time) {
+    public void init_countdown (int remaining_time) {
         int remain_minutes = remaining_time / 60;
         if (remain_minutes < 10) {
             remain_minutes_10 = 0;
@@ -422,7 +312,7 @@ public class RecordView : Gtk.Box {
 
         // Show initial time (00:00)
         show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
-        is_recording = true;
+        window.recorder.is_recording = true;
 
         start_countdown ();
     }
@@ -455,14 +345,14 @@ public class RecordView : Gtk.Box {
 
             if (remain_minutes_10 == 0 && remain_minutes_1 == 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) {
                 var loop = new MainLoop ();
-                window.record_view.stop_recording.begin ((obj, res) => {
+                stop_recording.begin ((obj, res) => {
                     loop.quit ();
                 });
                 loop.run ();
                 return false;
             }
 
-            return is_recording? true : false;
+            return window.recorder.is_recording? true : false;
         });
     }
 

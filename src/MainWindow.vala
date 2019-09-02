@@ -20,6 +20,7 @@ public class MainWindow : Gtk.ApplicationWindow {
     public WelcomeView welcome_view { get; private set; }
     private CountDownView countdown_view;
     public RecordView record_view { get; private set; }
+    public Recorder recorder { get; set; }
     public Gtk.Stack stack { get; private set; }
 
     public MainWindow (Application app) {
@@ -64,7 +65,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         show_welcome ();
 
         delete_event.connect ((event) => {
-            if (record_view.is_recording) {
+            if (recorder.is_recording) {
                 var loop = new MainLoop ();
                 record_view.stop_recording.begin ((obj, res) => {
                     loop.quit ();
@@ -86,8 +87,15 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     public void show_record () {
+        recorder = new Recorder (this);
+        recorder.start_recording ();
+        int record_length = Application.settings.get_int ("length");
+        if (record_length != 0) {
+            record_view.init_countdown (record_length);
+        }
+
+        record_view.init_count ();
         stack.visible_child_name = "record";
-        record_view.start_recording ();
     }
 
     // Save window position when changed

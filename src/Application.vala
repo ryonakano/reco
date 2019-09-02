@@ -56,7 +56,7 @@ public class Application : Gtk.Application {
         add_action (quit_action);
         set_accels_for_action ("app.quit", {"<Control>q"});
         quit_action.activate.connect (() => {
-            if (window.record_view.is_recording) {
+            if (window.recorder.is_recording) {
                 var loop = new MainLoop ();
                 window.record_view.stop_recording.begin ((obj, res) => {
                     loop.quit ();
