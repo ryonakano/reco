@@ -52,7 +52,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
         welcome_view = new WelcomeView (this);
         countdown_view = new CountDownView (this);
-        record_view = new RecordView (this, app);
+        record_view = new RecordView (this);
 
         stack = new Gtk.Stack ();
         stack.add_named (welcome_view, "welcome");

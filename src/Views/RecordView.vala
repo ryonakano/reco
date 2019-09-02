@@ -19,7 +19,6 @@
 
 public class RecordView : Gtk.Box {
     public MainWindow window { get; construct; }
-    public Application app { get; construct; }
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
     private Gtk.Button stop_button;
@@ -35,12 +34,11 @@ public class RecordView : Gtk.Box {
     private int remain_seconds_10;
     private int remain_seconds_1;
 
-    public RecordView (MainWindow window, Application app) {
+    public RecordView (MainWindow window) {
         Object (
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 12,
             window: window,
-            app: app,
             margin: 6
         );
     }
