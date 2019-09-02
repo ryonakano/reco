@@ -19,11 +19,9 @@
 
 public class Recorder : Object {
     public MainWindow window { get; construct; }
-    public Application app { get; construct; }
     public bool is_recording { get; set; }
     public string suffix { get; private set; }
     public string tmp_full_path { get; private set; }
-    private Gst.Bin audiobin;
     public Gst.Pipeline pipeline { get; set; }
 
     public Recorder (MainWindow window) {
@@ -34,7 +32,7 @@ public class Recorder : Object {
 
     public void start_recording () {
         pipeline = new Gst.Pipeline ("pipeline");
-        audiobin = new Gst.Bin ("audio");
+        var audiobin = new Gst.Bin ("audio");
         var sink = Gst.ElementFactory.make ("filesink", "sink");
 
         if (pipeline == null) {
