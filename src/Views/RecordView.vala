@@ -90,14 +90,7 @@ public class RecordView : Gtk.Box {
         pack_end (buttons_grid, false, false);
 
         cancel_button.clicked.connect (() => {
-            if (count != 0) {
-                count = 0;
-            }
-
-            if (countdown != 0) {
-                countdown = 0;
-                remaining_time_label.label = null;
-            }
+            reset_count ();
 
             window.recorder.cancel_recording ();
             window.show_welcome ();
@@ -141,14 +134,7 @@ public class RecordView : Gtk.Box {
     }
 
     public async void stop_recording () {
-        if (count != 0) {
-            count = 0;
-        }
-
-        if (countdown != 0) {
-            countdown = 0;
-            remaining_time_label.label = null;
-        }
+        reset_count ();
 
         // If a user tries to stop recording while pausing, resume recording once and reset the button icon
         if (!window.recorder.is_recording) {
@@ -166,88 +152,15 @@ public class RecordView : Gtk.Box {
         window.recorder.is_recording = false;
     }
 
-    public bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
-        switch (msg.type) {
-            case Gst.MessageType.ERROR:
-                Error err;
-                string debug;
-                msg.parse_error (out err, out debug);
-
-                var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                    _("Unable to Create an Audio File"),
-                    _("A GStreamer error happened while recording, the following error message may be helpful:"),
-                    "dialog-error", Gtk.ButtonsType.CLOSE);
-                error_dialog.transient_for = window;
-                error_dialog.show_error_details ("%s\n%s".printf (err.message, debug));
-                error_dialog.run ();
-                error_dialog.destroy ();
-
-                if (count != 0) {
-                    count = 0;
-                }
-
-                if (countdown != 0) {
-                    countdown = 0;
-                    remaining_time_label.label = null;
-                }
-
-                window.show_welcome ();
-                window.recorder.is_recording = false;
-
-                window.recorder.pipeline.set_state (Gst.State.NULL);
-                break;
-            case Gst.MessageType.EOS:
-                window.recorder.pipeline.set_state (Gst.State.NULL);
-
-                window.recorder.is_recording = false;
-
-                ///TRANSLATORS: %s represents a timestamp here
-                string filename = _("Recording from %s").printf (new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"));
-
-                var tmp_source = File.new_for_path (window.recorder.tmp_full_path);
-
-                string destination = Application.settings.get_string ("destination");
-
-                if (Application.settings.get_boolean ("auto-save")) { // The app saved files automatically
-                    try {
-                        var uri = File.new_for_path (destination + "/" + filename + window.recorder.suffix);
-                        tmp_source.move (uri, FileCopyFlags.OVERWRITE);
-                    } catch (Error e) {
-                        warning (e.message);
-                    }
-                } else { // The app asks destination and filename each time
-                    var filechooser = new Gtk.FileChooserNative (
-                        _("Save your recording"), window, Gtk.FileChooserAction.SAVE,
-                        _("Save"), _("Cancel"));
-                    filechooser.set_current_name (filename + window.recorder.suffix);
-                    filechooser.set_filename (destination);
-                    filechooser.do_overwrite_confirmation = true;
-
-                    if (filechooser.run () == Gtk.ResponseType.ACCEPT) {
-                        try {
-                            var uri = File.new_for_path (filechooser.get_filename ());
-                            tmp_source.move (uri, FileCopyFlags.OVERWRITE);
-                        } catch (Error e) {
-                            warning (e.message);
-                        }
-                    } else {
-                        try {
-                            tmp_source.delete ();
-                        } catch (Error e) {
-                            warning (e.message);
-                        }
-                    }
-
-                    filechooser.destroy ();
-                }
-
-                window.recorder.pipeline.dispose ();
-                break;
-            default:
-                break;
+    public void reset_count () {
+        if (count != 0) {
+            count = 0;
         }
 
-        return true;
+        if (countdown != 0) {
+            countdown = 0;
+            remaining_time_label.label = null;
+        }
     }
 
     public void init_count () {

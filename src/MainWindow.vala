@@ -35,6 +35,8 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     construct {
+        recorder = new Recorder (this);
+
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
@@ -75,6 +77,62 @@ public class MainWindow : Gtk.ApplicationWindow {
 
             return false;
         });
+
+        recorder.handle_error.connect ((err, debug) => {
+            var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                _("Unable to Create an Audio File"),
+                _("A GStreamer error happened while recording, the following error message may be helpful:"),
+                "dialog-error", Gtk.ButtonsType.CLOSE);
+            error_dialog.transient_for = this;
+            error_dialog.show_error_details ("%s\n%s".printf (err.message, debug));
+            error_dialog.run ();
+            error_dialog.destroy ();
+
+            record_view.reset_count ();
+            show_welcome ();
+        });
+
+        recorder.handle_save_file.connect ((tmp_full_path, suffix) => {
+            ///TRANSLATORS: %s represents a timestamp here
+            string filename = _("Recording from %s").printf (new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"));
+
+            var tmp_source = File.new_for_path (tmp_full_path);
+
+            string destination = Application.settings.get_string ("destination");
+
+            if (Application.settings.get_boolean ("auto-save")) { // The app saved files automatically
+                try {
+                    var uri = File.new_for_path (destination + "/" + filename + suffix);
+                    tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+                } catch (Error e) {
+                    warning (e.message);
+                }
+            } else { // The app asks destination and filename each time
+                var filechooser = new Gtk.FileChooserNative (
+                    _("Save your recording"), this, Gtk.FileChooserAction.SAVE,
+                    _("Save"), _("Cancel"));
+                filechooser.set_current_name (filename + suffix);
+                filechooser.set_filename (destination);
+                filechooser.do_overwrite_confirmation = true;
+
+                if (filechooser.run () == Gtk.ResponseType.ACCEPT) {
+                    try {
+                        var uri = File.new_for_path (filechooser.get_filename ());
+                        tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
+                } else {
+                    try {
+                        tmp_source.delete ();
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
+                }
+
+                filechooser.destroy ();
+            }
+        });
     }
 
     public void show_welcome () {
@@ -87,7 +145,6 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     public void show_record () {
-        recorder = new Recorder (this);
         recorder.start_recording ();
 
         int record_length = Application.settings.get_int ("length");

@@ -20,9 +20,12 @@
 public class Recorder : Object {
     public MainWindow window { get; construct; }
     public bool is_recording { get; set; }
-    public string suffix { get; private set; }
-    public string tmp_full_path { get; private set; }
+    private string suffix;
+    private string tmp_full_path;
     public Gst.Pipeline pipeline { get; private set; }
+
+    public signal void handle_error (Error err, string debug);
+    public signal void handle_save_file (string tmp_full_path, string suffix);
 
     public Recorder (MainWindow window) {
         Object (
@@ -106,8 +109,37 @@ public class Recorder : Object {
         pipeline.add_many (audiobin, sink);
         audiobin.link (sink);
 
-        pipeline.get_bus ().add_watch (Priority.DEFAULT, window.record_view.bus_message_cb);
+        pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
         pipeline.set_state (Gst.State.PLAYING);
+    }
+
+    private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
+        switch (msg.type) {
+            case Gst.MessageType.ERROR:
+                Error err;
+                string debug;
+                msg.parse_error (out err, out debug);
+
+                handle_error (err, debug);
+
+                is_recording = false;
+
+                pipeline.set_state (Gst.State.NULL);
+                break;
+            case Gst.MessageType.EOS:
+                pipeline.set_state (Gst.State.NULL);
+
+                is_recording = false;
+
+                handle_save_file (tmp_full_path, suffix);
+
+                pipeline.dispose ();
+                break;
+            default:
+                break;
+        }
+
+        return true;
     }
 
     public void cancel_recording () {
