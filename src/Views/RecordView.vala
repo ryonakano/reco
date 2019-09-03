@@ -242,7 +242,6 @@ public class RecordView : Gtk.Box {
                 }
 
                 window.recorder.pipeline.dispose ();
-                window.recorder.pipeline = null;
                 break;
             default:
                 break;

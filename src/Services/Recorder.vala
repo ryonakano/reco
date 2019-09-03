@@ -22,7 +22,7 @@ public class Recorder : Object {
     public bool is_recording { get; set; }
     public string suffix { get; private set; }
     public string tmp_full_path { get; private set; }
-    public Gst.Pipeline pipeline { get; set; }
+    public Gst.Pipeline pipeline { get; private set; }
 
     public Recorder (MainWindow window) {
         Object (
