@@ -20,7 +20,7 @@ public class MainWindow : Gtk.ApplicationWindow {
     public WelcomeView welcome_view { get; private set; }
     private CountDownView countdown_view;
     public RecordView record_view { get; private set; }
-    public Recorder recorder { get; set; }
+    public Recorder recorder { get; private set; }
     public Gtk.Stack stack { get; private set; }
 
     public MainWindow (Application app) {
@@ -89,6 +89,7 @@ public class MainWindow : Gtk.ApplicationWindow {
     public void show_record () {
         recorder = new Recorder (this);
         recorder.start_recording ();
+
         int record_length = Application.settings.get_int ("length");
         if (record_length != 0) {
             record_view.init_countdown (record_length);
