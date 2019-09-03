@@ -16,7 +16,6 @@
 */
 
 public class MainWindow : Gtk.ApplicationWindow {
-    public Application app { get; construct; }
     public WelcomeView welcome_view { get; private set; }
     private CountDownView countdown_view;
     public RecordView record_view { get; private set; }
@@ -26,7 +25,6 @@ public class MainWindow : Gtk.ApplicationWindow {
         Object (
             border_width: 6,
             application: app,
-            app: app,
             resizable: false,
             width_request: 400,
             height_request: 300
