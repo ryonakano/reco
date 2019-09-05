@@ -141,7 +141,6 @@ public class Recorder : Object {
     public void cancel_recording () {
         set_recording_state (Gst.State.NULL);
         pipeline.dispose ();
-        pipeline = null;
 
         // Remove canceled file in /tmp
         try {
