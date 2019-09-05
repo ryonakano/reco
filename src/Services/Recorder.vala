@@ -119,20 +119,18 @@ public class Recorder : Object {
                 Error err;
                 string debug;
                 msg.parse_error (out err, out debug);
-
                 handle_error (err, debug);
 
                 set_recording_state (Gst.State.NULL);
+                pipeline.dispose ();
                 break;
             case Gst.MessageType.EOS:
                 set_recording_state (Gst.State.NULL);
-
                 handle_save_file (tmp_full_path, suffix);
-
                 pipeline.dispose ();
                 break;
             default:
-                break;
+                assert_not_reached ();
         }
 
         return true;
