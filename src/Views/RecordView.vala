@@ -114,8 +114,7 @@ public class RecordView : Gtk.Box {
                     countdown = 0;
                 }
 
-                window.recorder.pipeline.set_state (Gst.State.PAUSED);
-                window.recorder.is_recording = false;
+                window.recorder.set_recording_state (Gst.State.PAUSED);
                 pause_button.image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.BUTTON);
                 pause_button.tooltip_text = _("Resume recording");
             } else {
@@ -125,8 +124,7 @@ public class RecordView : Gtk.Box {
                     start_countdown ();
                 }
 
-                window.recorder.pipeline.set_state (Gst.State.PLAYING);
-                window.recorder.is_recording = true;
+                window.recorder.set_recording_state (Gst.State.PLAYING);
                 pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
                 pause_button.tooltip_text = _("Pause recording");
             }
@@ -138,8 +136,7 @@ public class RecordView : Gtk.Box {
 
         // If a user tries to stop recording while pausing, resume recording once and reset the button icon
         if (!window.recorder.is_recording) {
-            window.recorder.pipeline.set_state (Gst.State.PLAYING);
-            window.recorder.is_recording = true;
+            window.recorder.set_recording_state (Gst.State.PLAYING);
             pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
             pause_button.tooltip_text = _("Pause recording");
         }
@@ -149,7 +146,7 @@ public class RecordView : Gtk.Box {
         }
 
         window.show_welcome ();
-        window.recorder.is_recording = false;
+        window.recorder.set_recording_state (Gst.State.PAUSED);
     }
 
     public void reset_count () {
@@ -171,7 +168,6 @@ public class RecordView : Gtk.Box {
 
         // Show initial time (00:00)
         show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
-        window.recorder.is_recording = true;
 
         start_count ();
     }
@@ -222,7 +218,6 @@ public class RecordView : Gtk.Box {
 
         // Show initial time (00:00)
         show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
-        window.recorder.is_recording = true;
 
         start_countdown ();
     }

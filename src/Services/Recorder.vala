@@ -19,7 +19,7 @@
 
 public class Recorder : Object {
     public MainWindow window { get; construct; }
-    public bool is_recording { get; set; }
+    public bool is_recording { get; private set; }
     private string suffix;
     private string tmp_full_path;
     public Gst.Pipeline pipeline { get; private set; }
@@ -110,7 +110,7 @@ public class Recorder : Object {
         audiobin.link (sink);
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
-        pipeline.set_state (Gst.State.PLAYING);
+        set_recording_state (Gst.State.PLAYING);
     }
 
     private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
@@ -122,14 +122,10 @@ public class Recorder : Object {
 
                 handle_error (err, debug);
 
-                is_recording = false;
-
-                pipeline.set_state (Gst.State.NULL);
+                set_recording_state (Gst.State.NULL);
                 break;
             case Gst.MessageType.EOS:
-                pipeline.set_state (Gst.State.NULL);
-
-                is_recording = false;
+                set_recording_state (Gst.State.NULL);
 
                 handle_save_file (tmp_full_path, suffix);
 
@@ -143,17 +139,31 @@ public class Recorder : Object {
     }
 
     public void cancel_recording () {
-        pipeline.set_state (Gst.State.NULL);
+        set_recording_state (Gst.State.NULL);
         pipeline.dispose ();
         pipeline = null;
-
-        is_recording = false;
 
         // Remove canceled file in /tmp
         try {
             File.new_for_path (tmp_full_path).delete ();
         } catch (Error e) {
             warning (e.message);
+        }
+    }
+
+    public void set_recording_state (Gst.State state) {
+        pipeline.set_state (state);
+
+        switch (state) {
+            case Gst.State.PLAYING:
+                is_recording = true;
+                break;
+            case Gst.State.PAUSED:
+            case Gst.State.NULL:
+                is_recording = false;
+                break;
+            default:
+                assert_not_reached ();
         }
     }
 }
