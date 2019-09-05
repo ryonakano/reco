@@ -130,7 +130,7 @@ public class Recorder : Object {
                 pipeline.dispose ();
                 break;
             default:
-                assert_not_reached ();
+                break;
         }
 
         return true;
