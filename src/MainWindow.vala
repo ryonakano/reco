@@ -19,7 +19,7 @@ public class MainWindow : Gtk.ApplicationWindow {
     public WelcomeView welcome_view { get; private set; }
     private CountDownView countdown_view;
     public RecordView record_view { get; private set; }
-    public Recorder recorder { get; private set; }
+    public Recorder recorder { get; private set; default = new Recorder (); }
     public Gtk.Stack stack { get; private set; }
 
     public MainWindow (Application app) {
@@ -33,8 +33,6 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     construct {
-        recorder = new Recorder (this);
-
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),

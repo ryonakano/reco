@@ -18,7 +18,6 @@
 */
 
 public class Recorder : Object {
-    public MainWindow window { get; construct; }
     public bool is_recording { get; private set; }
     private string suffix;
     private string tmp_full_path;
@@ -27,10 +26,7 @@ public class Recorder : Object {
     public signal void handle_error (Error err, string debug);
     public signal void handle_save_file (string tmp_full_path, string suffix);
 
-    public Recorder (MainWindow window) {
-        Object (
-            window: window
-        );
+    construct {
     }
 
     public void start_recording () {
