@@ -112,18 +112,20 @@ public class Recorder : Object {
     private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
         switch (msg.type) {
             case Gst.MessageType.ERROR:
+                set_recording_state (Gst.State.NULL);
+                pipeline.dispose ();
+
                 Error err;
                 string debug;
                 msg.parse_error (out err, out debug);
-                handle_error (err, debug);
 
-                set_recording_state (Gst.State.NULL);
-                pipeline.dispose ();
+                handle_error (err, debug);
                 break;
             case Gst.MessageType.EOS:
                 set_recording_state (Gst.State.NULL);
-                handle_save_file (tmp_full_path, suffix);
                 pipeline.dispose ();
+
+                handle_save_file (tmp_full_path, suffix);
                 break;
             default:
                 break;
