@@ -65,7 +65,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         delete_event.connect ((event) => {
             if (recorder.is_recording) {
                 var loop = new MainLoop ();
-                record_view.stop_recording.begin ((obj, res) => {
+                record_view.trigger_stop_recording.begin ((obj, res) => {
                     loop.quit ();
                 });
                 loop.run ();

@@ -98,7 +98,7 @@ public class RecordView : Gtk.Box {
 
         stop_button.clicked.connect (() => {
             var loop = new MainLoop ();
-            stop_recording.begin ((obj, res) => {
+            trigger_stop_recording.begin ((obj, res) => {
                 loop.quit ();
             });
             loop.run ();
@@ -131,7 +131,7 @@ public class RecordView : Gtk.Box {
         });
     }
 
-    public async void stop_recording () {
+    public async void trigger_stop_recording () {
         reset_count ();
 
         // If a user tries to stop recording while pausing, resume recording once and reset the button icon
@@ -141,7 +141,7 @@ public class RecordView : Gtk.Box {
             pause_button.tooltip_text = _("Pause recording");
         }
 
-        if (window.recorder.pipeline.send_event (new Gst.Event.eos ())) {
+        if (window.recorder.stop_recording ()) {
             window.welcome_view.show_success_button ();
         }
 
@@ -250,7 +250,7 @@ public class RecordView : Gtk.Box {
 
             if (remain_minutes_10 == 0 && remain_minutes_1 == 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) {
                 var loop = new MainLoop ();
-                stop_recording.begin ((obj, res) => {
+                trigger_stop_recording.begin ((obj, res) => {
                     loop.quit ();
                 });
                 loop.run ();

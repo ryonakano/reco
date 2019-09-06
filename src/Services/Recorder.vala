@@ -21,7 +21,7 @@ public class Recorder : Object {
     public bool is_recording { get; private set; }
     private string suffix;
     private string tmp_full_path;
-    public Gst.Pipeline pipeline { get; private set; }
+    private Gst.Pipeline pipeline;
 
     public signal void handle_error (Error err, string debug);
     public signal void handle_save_file (string tmp_full_path, string suffix);
@@ -144,6 +144,10 @@ public class Recorder : Object {
         } catch (Error e) {
             warning (e.message);
         }
+    }
+
+    public bool stop_recording () {
+        return pipeline.send_event (new Gst.Event.eos ());
     }
 
     public void set_recording_state (Gst.State state) {

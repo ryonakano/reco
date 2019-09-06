@@ -58,7 +58,7 @@ public class Application : Gtk.Application {
         quit_action.activate.connect (() => {
             if (window.recorder.is_recording) {
                 var loop = new MainLoop ();
-                window.record_view.stop_recording.begin ((obj, res) => {
+                window.record_view.trigger_stop_recording.begin ((obj, res) => {
                     loop.quit ();
                 });
                 loop.run ();
@@ -75,7 +75,7 @@ public class Application : Gtk.Application {
                 window.welcome_view.trigger_recording ();
             } else if (window.stack.visible_child_name == "record") {
                 var loop = new MainLoop ();
-                window.record_view.stop_recording.begin ((obj, res) => {
+                window.record_view.trigger_stop_recording.begin ((obj, res) => {
                     loop.quit ();
                 });
                 loop.run ();
