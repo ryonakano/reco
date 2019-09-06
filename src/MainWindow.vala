@@ -96,14 +96,14 @@ public class MainWindow : Gtk.ApplicationWindow {
 
             string destination = Application.settings.get_string ("destination");
 
-            if (Application.settings.get_boolean ("auto-save")) { // The app saved files automatically
+            if (Application.settings.get_boolean ("auto-save")) {
                 try {
                     var uri = File.new_for_path (destination + "/" + filename + suffix);
                     tmp_source.move (uri, FileCopyFlags.OVERWRITE);
                 } catch (Error e) {
                     warning (e.message);
                 }
-            } else { // The app asks destination and filename each time
+            } else {
                 var filechooser = new Gtk.FileChooserNative (
                     _("Save your recording"), this, Gtk.FileChooserAction.SAVE,
                     _("Save"), _("Cancel"));
