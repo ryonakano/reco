@@ -92,6 +92,12 @@ public class RecordView : Gtk.Box {
         cancel_button.clicked.connect (() => {
             reset_count ();
 
+            // If a user tries to cancel recording while pausing, resume recording once and reset the button icon
+            if (!window.recorder.is_recording) {
+                pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+                pause_button.tooltip_text = _("Pause recording");
+            }
+
             window.recorder.cancel_recording ();
             window.show_welcome ();
         });
