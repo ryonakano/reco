@@ -109,21 +109,10 @@ public class WelcomeView : Gtk.Box {
         pack_start (settings_grid, false, false);
         pack_end (record_button, false, false);
 
-        delay_spin.changed.connect (() => {
-            Application.settings.set_int ("delay", delay_spin.get_value_as_int ());
-        });
-
-        length_spin.changed.connect (() => {
-            Application.settings.set_int ("length", length_spin.get_value_as_int ());
-        });
-
-        system_sound_switch.notify["active"].connect (() => {
-            Application.settings.set_boolean ("system-sound", system_sound_switch.active);
-        });
-
-        format_combobox.changed.connect (() => {
-            Application.settings.set_enum ("format", format_combobox.active);
-        });
+        Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("system-sound", system_sound_switch, "active", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
 
         auto_save.notify["active"].connect (() => {
             destination_chooser.sensitive = auto_save.active;
