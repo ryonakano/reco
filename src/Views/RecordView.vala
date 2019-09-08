@@ -149,16 +149,6 @@ public class RecordView : Gtk.Box {
         window.recorder.set_recording_state (Gst.State.PAUSED);
     }
 
-    public void stop_count () {
-        if (count != 0) {
-            count = 0;
-        }
-
-        if (countdown != 0) {
-            countdown = 0;
-        }
-    }
-
     public void init_count () {
         past_minutes_10 = 0;
         past_minutes_1 = 0;
@@ -194,6 +184,16 @@ public class RecordView : Gtk.Box {
 
             return window.recorder.is_recording? true : false;
         });
+    }
+
+    public void stop_count () {
+        if (count != 0) {
+            count = 0;
+        }
+
+        if (countdown != 0) {
+            countdown = 0;
+        }
     }
 
     public void init_countdown (int remaining_time) {
