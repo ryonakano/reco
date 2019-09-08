@@ -99,7 +99,10 @@ public class MainWindow : Gtk.ApplicationWindow {
             if (Application.settings.get_boolean ("auto-save")) {
                 try {
                     var uri = File.new_for_path (destination + "/" + filename + suffix);
-                    tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+
+                    if (tmp_source.move (uri, FileCopyFlags.OVERWRITE)) {
+                        welcome_view.show_success_button ();
+                    }
                 } catch (Error e) {
                     warning (e.message);
                 }
@@ -114,7 +117,10 @@ public class MainWindow : Gtk.ApplicationWindow {
                 if (filechooser.run () == Gtk.ResponseType.ACCEPT) {
                     try {
                         var uri = File.new_for_path (filechooser.get_filename ());
-                        tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+
+                        if (tmp_source.move (uri, FileCopyFlags.OVERWRITE)) {
+                            welcome_view.show_success_button ();
+                        }
                     } catch (Error e) {
                         warning (e.message);
                     }

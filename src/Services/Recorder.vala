@@ -146,8 +146,8 @@ public class Recorder : Object {
         }
     }
 
-    public bool stop_recording () {
-        return pipeline.send_event (new Gst.Event.eos ());
+    public void stop_recording () {
+        pipeline.send_event (new Gst.Event.eos ());
     }
 
     public void set_recording_state (Gst.State state) {
