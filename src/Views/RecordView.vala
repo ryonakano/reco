@@ -157,7 +157,7 @@ public class RecordView : Gtk.Box {
 
                 if (Application.settings.get_boolean ("auto-save")) { // The app saved files automatically
                     try {
-                        var uri = File.new_for_path (destination + "/a/" + filename + suffix);
+                        var uri = File.new_for_path (destination + "/" + filename + suffix);
 
                         if (tmp_source.move (uri, FileCopyFlags.OVERWRITE)) {
                             window.welcome_view.show_success_button ();
