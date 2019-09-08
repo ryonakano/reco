@@ -21,6 +21,7 @@ public class MainWindow : Gtk.ApplicationWindow {
     public RecordView record_view { get; private set; }
     public Recorder recorder { get; private set; default = new Recorder (); }
     public Gtk.Stack stack { get; private set; }
+    private uint configure_id;
 
     public MainWindow (Application app) {
         Object (
@@ -160,9 +161,18 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     // Save window position when changed
     public override bool configure_event (Gdk.EventConfigure event) {
-        int x, y;
-        get_position (out x, out y);
-        Application.settings.set ("window-position", "(ii)", x, y);
+        if (configure_id != 0) {
+            GLib.Source.remove (configure_id);
+        }
+
+        configure_id = Timeout.add (100, () => {
+            configure_id = 0;
+            int x, y;
+            get_position (out x, out y);
+            Application.settings.set ("window-position", "(ii)", x, y);
+
+            return false;
+        });
 
         return base.configure_event (event);
     }
