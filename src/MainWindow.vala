@@ -84,7 +84,7 @@ public class MainWindow : Gtk.ApplicationWindow {
             error_dialog.run ();
             error_dialog.destroy ();
 
-            record_view.reset_count ();
+            record_view.stop_count ();
             show_welcome ();
         });
 
