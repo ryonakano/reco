@@ -1,3 +1,12 @@
+com.github.ryonakano.reco (2.2.0) bionic; urgency=medium
+
+  * Getting/setting window positions gets more efficient
+  * Fix the app does not resume the pause icon when you cancel recording while pausing it
+  * Fix the app shows the successful mark even if a recording is not saved correctly
+  * Save and restore values typed into the spin buttons
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Sun, 08 Sep 2019 22:45:39 +0900
+
 com.github.ryonakano.reco (2.1.0) bionic; urgency=medium
 
   * Allow to cancel/pause countdown before recording
