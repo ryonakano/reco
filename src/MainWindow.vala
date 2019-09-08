@@ -159,7 +159,6 @@ public class MainWindow : Gtk.ApplicationWindow {
         stack.visible_child_name = "record";
     }
 
-    // Save window position when changed
     public override bool configure_event (Gdk.EventConfigure event) {
         if (configure_id != 0) {
             GLib.Source.remove (configure_id);
