@@ -141,10 +141,7 @@ public class RecordView : Gtk.Box {
             pause_button.tooltip_text = _("Pause recording");
         }
 
-        if (window.recorder.stop_recording ()) {
-            window.welcome_view.show_success_button ();
-        }
-
+        window.recorder.stop_recording ();
         window.show_welcome ();
         window.recorder.set_recording_state (Gst.State.PAUSED);
     }
