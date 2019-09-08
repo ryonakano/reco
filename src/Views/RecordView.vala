@@ -157,8 +157,11 @@ public class RecordView : Gtk.Box {
 
                 if (Application.settings.get_boolean ("auto-save")) { // The app saved files automatically
                     try {
-                        var uri = File.new_for_path (destination + "/" + filename + suffix);
-                        tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+                        var uri = File.new_for_path (destination + "/a/" + filename + suffix);
+
+                        if (tmp_source.move (uri, FileCopyFlags.OVERWRITE)) {
+                            window.welcome_view.show_success_button ();
+                        }
                     } catch (Error e) {
                         warning (e.message);
                     }
@@ -173,7 +176,10 @@ public class RecordView : Gtk.Box {
                     if (filechooser.run () == Gtk.ResponseType.ACCEPT) {
                         try {
                             var uri = File.new_for_path (filechooser.get_filename ());
-                            tmp_source.move (uri, FileCopyFlags.OVERWRITE);
+
+                            if (tmp_source.move (uri, FileCopyFlags.OVERWRITE)) {
+                                window.welcome_view.show_success_button ();
+                            }
                         } catch (Error e) {
                             warning (e.message);
                         }
@@ -331,9 +337,7 @@ public class RecordView : Gtk.Box {
             pause_button.tooltip_text = _("Pause recording");
         }
 
-        if (pipeline.send_event (new Gst.Event.eos ())) {
-            window.welcome_view.show_success_button ();
-        }
+        pipeline.send_event (new Gst.Event.eos ());
 
         window.show_welcome ();
         is_recording = false;
