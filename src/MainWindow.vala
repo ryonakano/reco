@@ -19,6 +19,7 @@ public class MainWindow : Gtk.ApplicationWindow {
     public WelcomeView welcome_view { get; private set; }
     private CountDownView countdown_view;
     public RecordView record_view { get; private set; }
+    public Recorder recorder { get; private set; default = new Recorder (); }
     public Gtk.Stack stack { get; private set; }
 
     public MainWindow (Application app) {
@@ -62,15 +63,77 @@ public class MainWindow : Gtk.ApplicationWindow {
         show_welcome ();
 
         delete_event.connect ((event) => {
-            if (record_view.is_recording) {
+            if (recorder.is_recording) {
                 var loop = new MainLoop ();
-                record_view.stop_recording.begin ((obj, res) => {
+                record_view.trigger_stop_recording.begin ((obj, res) => {
                     loop.quit ();
                 });
                 loop.run ();
             }
 
             return false;
+        });
+
+        recorder.handle_error.connect ((err, debug) => {
+            var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                _("Unable to Create an Audio File"),
+                _("A GStreamer error happened while recording, the following error message may be helpful:"),
+                "dialog-error", Gtk.ButtonsType.CLOSE);
+            error_dialog.transient_for = this;
+            error_dialog.show_error_details ("%s\n%s".printf (err.message, debug));
+            error_dialog.run ();
+            error_dialog.destroy ();
+
+            record_view.stop_count ();
+            show_welcome ();
+        });
+
+        recorder.handle_save_file.connect ((tmp_full_path, suffix) => {
+            ///TRANSLATORS: %s represents a timestamp here
+            string filename = _("Recording from %s").printf (new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"));
+
+            var tmp_source = File.new_for_path (tmp_full_path);
+
+            string destination = Application.settings.get_string ("destination");
+
+            if (Application.settings.get_boolean ("auto-save")) {
+                try {
+                    var uri = File.new_for_path (destination + "/" + filename + suffix);
+
+                    if (tmp_source.move (uri, FileCopyFlags.OVERWRITE)) {
+                        welcome_view.show_success_button ();
+                    }
+                } catch (Error e) {
+                    warning (e.message);
+                }
+            } else {
+                var filechooser = new Gtk.FileChooserNative (
+                    _("Save your recording"), this, Gtk.FileChooserAction.SAVE,
+                    _("Save"), _("Cancel"));
+                filechooser.set_current_name (filename + suffix);
+                filechooser.set_filename (destination);
+                filechooser.do_overwrite_confirmation = true;
+
+                if (filechooser.run () == Gtk.ResponseType.ACCEPT) {
+                    try {
+                        var uri = File.new_for_path (filechooser.get_filename ());
+
+                        if (tmp_source.move (uri, FileCopyFlags.OVERWRITE)) {
+                            welcome_view.show_success_button ();
+                        }
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
+                } else {
+                    try {
+                        tmp_source.delete ();
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
+                }
+
+                filechooser.destroy ();
+            }
         });
     }
 
@@ -84,8 +147,15 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     public void show_record () {
+        recorder.start_recording ();
+
+        int record_length = Application.settings.get_int ("length");
+        if (record_length != 0) {
+            record_view.init_countdown (record_length);
+        }
+
+        record_view.init_count ();
         stack.visible_child_name = "record";
-        record_view.start_recording ();
     }
 
     // Save window position when changed

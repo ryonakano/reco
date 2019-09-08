@@ -18,6 +18,7 @@ asresources = gnome.compile_resources(
 executable(
     meson.project_name(),
     asresources,
+    'src/Services/Recorder.vala',
     'src/Views/CountDownView.vala',
     'src/Views/WelcomeView.vala',
     'src/Views/RecordView.vala',
