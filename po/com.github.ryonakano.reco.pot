@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-03 09:32+0900\n"
+"POT-Creation-Date: 2019-09-08 22:39+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,51 +78,51 @@ msgid "Start recording"
 msgstr ""
 
 #. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:147
+#: src/Views/WelcomeView.vala:136
 msgid "Recordings"
 msgstr ""
 
-#: src/Views/RecordView.vala:69
+#: src/Views/RecordView.vala:62
 msgid "Cancel recording"
 msgstr ""
 
-#: src/Views/RecordView.vala:75
+#: src/Views/RecordView.vala:68
 msgid "Finish recording"
 msgstr ""
 
-#: src/Views/RecordView.vala:83 src/Views/RecordView.vala:327
-#: src/Views/RecordView.vala:362
+#: src/Views/RecordView.vala:76 src/Views/RecordView.vala:98
+#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
 msgid "Pause recording"
 msgstr ""
 
-#: src/Views/RecordView.vala:126
+#: src/Views/RecordView.vala:119
+msgid "Resume recording"
+msgstr ""
+
+#: src/MainWindow.vala:80
 msgid "Unable to Create an Audio File"
 msgstr ""
 
-#: src/Views/RecordView.vala:127
+#: src/MainWindow.vala:81
 msgid ""
 "A GStreamer error happened while recording, the following error message may "
 "be helpful:"
 msgstr ""
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/Views/RecordView.vala:154
+#: src/MainWindow.vala:94
 #, c-format
 msgid "Recording from %s"
 msgstr ""
 
-#: src/Views/RecordView.vala:169
+#: src/MainWindow.vala:112
 msgid "Save your recording"
 msgstr ""
 
-#: src/Views/RecordView.vala:170
+#: src/MainWindow.vala:113
 msgid "Save"
 msgstr ""
 
-#: src/Views/RecordView.vala:170
+#: src/MainWindow.vala:113
 msgid "Cancel"
-msgstr ""
-
-#: src/Views/RecordView.vala:351
-msgid "Resume recording"
 msgstr ""

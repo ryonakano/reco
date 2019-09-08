@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-03 09:32+0900\n"
+"POT-Creation-Date: 2019-09-08 22:39+0900\n"
 "PO-Revision-Date: 2019-01-16 22:17+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -78,31 +78,36 @@ msgid "Start recording"
 msgstr "Démarrer l'enregistrement"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:147
+#: src/Views/WelcomeView.vala:136
 msgid "Recordings"
 msgstr "Enregistrements"
 
-#: src/Views/RecordView.vala:69
+#: src/Views/RecordView.vala:62
 #, fuzzy
 msgid "Cancel recording"
 msgstr "Démarrer l'enregistrement"
 
-#: src/Views/RecordView.vala:75
+#: src/Views/RecordView.vala:68
 #, fuzzy
 msgid "Finish recording"
 msgstr "Arrêter l'enregistrement"
 
-#: src/Views/RecordView.vala:83 src/Views/RecordView.vala:327
-#: src/Views/RecordView.vala:362
+#: src/Views/RecordView.vala:76 src/Views/RecordView.vala:98
+#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
 #, fuzzy
 msgid "Pause recording"
 msgstr "Démarrer l'enregistrement"
 
-#: src/Views/RecordView.vala:126
+#: src/Views/RecordView.vala:119
+#, fuzzy
+msgid "Resume recording"
+msgstr "Enregistrements"
+
+#: src/MainWindow.vala:80
 msgid "Unable to Create an Audio File"
 msgstr "Impossible de créer un fichier audio"
 
-#: src/Views/RecordView.vala:127
+#: src/MainWindow.vala:81
 #, fuzzy
 msgid ""
 "A GStreamer error happened while recording, the following error message may "
@@ -110,28 +115,23 @@ msgid ""
 msgstr "Une erreur GStreamer est survenue pendant l'enregistrement :"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/Views/RecordView.vala:154
+#: src/MainWindow.vala:94
 #, c-format
 msgid "Recording from %s"
 msgstr "Enregistré depuis %s"
 
-#: src/Views/RecordView.vala:169
+#: src/MainWindow.vala:112
 #, fuzzy
 msgid "Save your recording"
 msgstr "Démarrer l'enregistrement"
 
-#: src/Views/RecordView.vala:170
+#: src/MainWindow.vala:113
 msgid "Save"
 msgstr ""
 
-#: src/Views/RecordView.vala:170
+#: src/MainWindow.vala:113
 msgid "Cancel"
 msgstr ""
-
-#: src/Views/RecordView.vala:351
-#, fuzzy
-msgid "Resume recording"
-msgstr "Enregistrements"
 
 #~ msgid "Wav"
 #~ msgstr "Wav"
