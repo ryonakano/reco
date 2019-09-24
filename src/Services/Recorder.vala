@@ -66,34 +66,37 @@ public class Recorder : Object {
         string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string ();
 
         string file_format = Application.settings.get_string ("format");
+        string encoder = " ! "; // "!" represents a pipe in GStreamer
 
         try {
             switch (file_format) {
                 case "aac":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! avenc_aac ! mp4mux", true);
+                    encoder += "avenc_aac ! mp4mux";
                     suffix = ".m4a";
                     break;
                 case "flac":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! flacenc", true);
+                    encoder += "flacenc";
                     suffix = ".flac";
                     break;
                 case "mp3":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! lamemp3enc", true);
+                    encoder += "lamemp3enc";
                     suffix = ".mp3";
                     break;
                 case "ogg":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! vorbisenc ! oggmux", true);
+                    encoder += "vorbisenc ! oggmux";
                     suffix = ".ogg";
                     break;
                 case "opus":
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! opusenc ! oggmux", true);
+                    encoder += "opusenc ! oggmux";
                     suffix = ".opus";
                     break;
                 default:
-                    audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + " ! wavenc", true);
+                    encoder += "wavenc";
                     suffix = ".wav";
                     break;
             }
+
+            audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + encoder, true);
         } catch (Error e) {
             error ("Could not set the audio format correctly: %s", e.message);
         }
