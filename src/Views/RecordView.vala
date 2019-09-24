@@ -143,7 +143,6 @@ public class RecordView : Gtk.Box {
 
         window.recorder.stop_recording ();
         window.show_welcome ();
-        window.recorder.set_recording_state (Gst.State.PAUSED);
     }
 
     public void init_count () {
