@@ -1,3 +1,10 @@
+com.github.ryonakano.reco (2.2.1) bionic; urgency=medium
+
+  * Fix recording won't success when changing the file format
+  * Add Spanish translation (by fitojb)
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Tue, 24 Sep 2019 18:35:34 +0900
+
 com.github.ryonakano.reco (2.2.0) bionic; urgency=medium
 
   * Getting/setting window positions gets more efficient
