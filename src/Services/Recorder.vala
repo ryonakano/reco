@@ -19,7 +19,6 @@
 
 public class Recorder : Object {
     public bool is_recording { get; private set; }
-    private bool record_sys_sound;
     private string suffix;
     private string tmp_full_path;
     private Gst.Pipeline pipeline;
@@ -32,7 +31,7 @@ public class Recorder : Object {
     }
 
     public void start_recording () {
-        record_sys_sound = Application.settings.get_boolean ("system-sound");
+        bool record_sys_sound = Application.settings.get_boolean ("system-sound");
 
         pipeline = new Gst.Pipeline ("pipeline");
         var mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
