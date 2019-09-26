@@ -156,7 +156,7 @@ public class Recorder : Object {
 
         if (muxer != null) {
             stdout.printf ("%s\n", mixer.get_static_pad ("src").link (encoder.get_static_pad ("sink")).to_string ());
-            stdout.printf ("%s\n", encoder.get_static_pad ("src").link (muxer.get_static_pad ("sink")).to_string ());
+            stdout.printf ("%s\n", encoder.get_static_pad ("src").link (muxer.get_request_pad ("audio_%u")).to_string ());
             stdout.printf ("%s\n", muxer.get_static_pad ("src").link (sink.get_static_pad ("sink")).to_string ());
         } else {
             stdout.printf ("%s\n", mixer.get_static_pad ("src").link (encoder.get_static_pad ("sink")).to_string ());
