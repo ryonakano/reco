@@ -23,6 +23,7 @@ public class Recorder : Object {
     private string suffix;
     private string tmp_full_path;
     private Gst.Pipeline pipeline;
+    private Gst.Element sys_sound;
 
     public signal void handle_error (Error err, string debug);
     public signal void handle_save_file (string tmp_full_path, string suffix);
@@ -35,15 +36,16 @@ public class Recorder : Object {
 
         pipeline = new Gst.Pipeline ("pipeline");
         var mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
-        var sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
         var sink = Gst.ElementFactory.make ("filesink", "sink");
+
+        if (record_sys_sound) {
+            sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
+        }
 
         if (pipeline == null) {
             error ("Gstreamer sink was not created correctly!");
         } else if (mic_sound == null) {
             error ("Gstreamer mic_sound was not created correctly!");
-        } else if (sys_sound == null) {
-            error ("Gstreamer sys_sound was not created correctly!");
         } else if (sink == null) {
             error ("Gstreamer mic_sound was not created correctly!");
         }
