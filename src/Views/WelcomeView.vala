@@ -44,7 +44,7 @@ public class WelcomeView : Gtk.Box {
         length_spin.halign = Gtk.Align.START;
         length_spin.value = Application.settings.get_int ("length");
 
-        var system_sound_label = new Gtk.Label (_("Record system sound:"));
+        var system_sound_label = new Gtk.Label (_("Include system sound:"));
         system_sound_label.halign = Gtk.Align.END;
         var system_sound_switch = new Gtk.Switch ();
         system_sound_switch.halign = Gtk.Align.START;
