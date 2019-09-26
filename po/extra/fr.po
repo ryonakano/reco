@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-01 20:05+0900\n"
+"POT-Creation-Date: 2019-09-26 22:10+0900\n"
 "PO-Revision-Date: 2019-01-28 08:28+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -33,52 +33,55 @@ msgstr ""
 "choses dont vous avez parlé."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:13
-#, fuzzy
-msgid "Useful for:"
-msgstr "Utile quand :"
-
-#: data/com.github.ryonakano.reco.appdata.xml.in:15
-#, fuzzy
-msgid "Joining meetings and taking minutes later"
-msgstr "vous vous joignez à une discussion et prenez vos notes plus tard"
-
-#: data/com.github.ryonakano.reco.appdata.xml.in:16
-#, fuzzy
-msgid "Recording conversations with a friend or lover"
-msgstr ""
-"vous voulez enregistrer une conversation avec vos amis ou votre amoureux"
-
-#: data/com.github.ryonakano.reco.appdata.xml.in:17
-#, fuzzy
-msgid "Streaming videos on the Internet"
-msgstr "vous souhaitez streamer des vidéos sur Internet"
-
-#: data/com.github.ryonakano.reco.appdata.xml.in:19
 msgid "Features include:"
 msgstr "Fonctionnalités incluses :"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:21
-msgid "Timed recording"
-msgstr "Enregistrement chronométré"
+#: data/com.github.ryonakano.reco.appdata.xml.in:15
+msgid ""
+"Recording from both your microphone and system sound. This would be useful "
+"when you record conversations with chat apps or stream videos on the Internet"
+msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:22
+#: data/com.github.ryonakano.reco.appdata.xml.in:16
 #, fuzzy
-msgid "Available formats: AAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV"
+msgid ""
+"Saving in some commonly used formats. It supports AAC, FLAC, MP3, Ogg "
+"Vorbis, Opus, and WAV"
 msgstr "Formats disponibles : AAC, FLAC, MP3, Ogg Vorbis, Opus et WAV"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:27
+#: data/com.github.ryonakano.reco.appdata.xml.in:17
+msgid ""
+"Timed recording. You can set a delay before recording up to 15 seconds, and "
+"the length of recording up to 600 seconds"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:18
+msgid ""
+"Autosaving or do-not-ask-where-to-save workflow. You can select whether the "
+"app saves recordings automatically or you choose a destination each time on "
+"saving them"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:19
+msgid ""
+"Save recording when the app quits. Even if you happen to quit the app while "
+"recording, the recording is saved automatically or a FileChooserDialog is "
+"shown depends on your saving setting"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:24
 msgid "Welcome screen that allows you to set recording configuration"
 msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:35
+#: data/com.github.ryonakano.reco.appdata.xml.in:33
 msgid "Recording screen"
 msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:39
+#: data/com.github.ryonakano.reco.appdata.xml.in:37
 msgid "Recording is successfully finished"
 msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:90
+#: data/com.github.ryonakano.reco.appdata.xml.in:88
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 
@@ -93,3 +96,23 @@ msgstr "com.github.ryonakano.reco"
 #: data/com.github.ryonakano.reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Enregistrement;Audio;Son;Voix;"
+
+#, fuzzy
+#~ msgid "Useful for:"
+#~ msgstr "Utile quand :"
+
+#, fuzzy
+#~ msgid "Joining meetings and taking minutes later"
+#~ msgstr "vous vous joignez à une discussion et prenez vos notes plus tard"
+
+#, fuzzy
+#~ msgid "Recording conversations with a friend or lover"
+#~ msgstr ""
+#~ "vous voulez enregistrer une conversation avec vos amis ou votre amoureux"
+
+#, fuzzy
+#~ msgid "Streaming videos on the Internet"
+#~ msgstr "vous souhaitez streamer des vidéos sur Internet"
+
+#~ msgid "Timed recording"
+#~ msgstr "Enregistrement chronométré"

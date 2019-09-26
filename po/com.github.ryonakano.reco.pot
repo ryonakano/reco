@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-08 22:39+0900\n"
+"POT-Creation-Date: 2019-09-26 22:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgid "Length in seconds:"
 msgstr ""
 
 #: src/Views/WelcomeView.vala:47
-msgid "Record system sound:"
+msgid "Include system sound:"
 msgstr ""
 
 #: src/Views/WelcomeView.vala:53
@@ -77,7 +77,7 @@ msgstr ""
 msgid "Start recording"
 msgstr ""
 
-#. TRANSLATORS: The name of the folder which recordings are saved
+#. /TRANSLATORS: The name of the folder which recordings are saved
 #: src/Views/WelcomeView.vala:136
 msgid "Recordings"
 msgstr ""
@@ -109,7 +109,7 @@ msgid ""
 "be helpful:"
 msgstr ""
 
-#. TRANSLATORS: %s represents a timestamp here
+#. /TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:94
 #, c-format
 msgid "Recording from %s"
