@@ -47,7 +47,7 @@ public class Recorder : Object {
         } else if (mic_sound == null) {
             error ("Gstreamer mic_sound was not created correctly!");
         } else if (sink == null) {
-            error ("Gstreamer mic_sound was not created correctly!");
+            error ("Gstreamer sink was not created correctly!");
         }
 
         if (record_sys_sound) {
