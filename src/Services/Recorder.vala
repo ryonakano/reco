@@ -94,38 +94,34 @@ public class Recorder : Object {
         Gst.Element encoder;
         Gst.Element muxer = null;
 
-        try {
-            switch (file_format) {
-                case "aac":
-                    encoder = Gst.ElementFactory.make ("avenc_aac", "encoder");
-                    muxer = Gst.ElementFactory.make ("mp4mux", "muxer");
-                    suffix = ".m4a";
-                    break;
-                case "flac":
-                    encoder = Gst.ElementFactory.make ("flacenc", "encoder");
-                    suffix = ".flac";
-                    break;
-                case "mp3":
-                    encoder = Gst.ElementFactory.make ("lamemp3enc", "encoder");
-                    suffix = ".mp3";
-                    break;
-                case "ogg":
-                    encoder = Gst.ElementFactory.make ("vorbisenc", "encoder");
-                    muxer = Gst.ElementFactory.make ("oggmux", "muxer");
-                    suffix = ".ogg";
-                    break;
-                case "opus":
-                    encoder = Gst.ElementFactory.make ("opusenc", "encoder");
-                    muxer = Gst.ElementFactory.make ("oggmux", "muxer");
-                    suffix = ".opus";
-                    break;
-                default:
-                    encoder = Gst.ElementFactory.make ("wavenc", "encoder");
-                    suffix = ".wav";
-                    break;
-            }
-        } catch (Error e) {
-            error ("Could not set the audio format correctly: %s", e.message);
+        switch (file_format) {
+            case "aac":
+                encoder = Gst.ElementFactory.make ("avenc_aac", "encoder");
+                muxer = Gst.ElementFactory.make ("mp4mux", "muxer");
+                suffix = ".m4a";
+                break;
+            case "flac":
+                encoder = Gst.ElementFactory.make ("flacenc", "encoder");
+                suffix = ".flac";
+                break;
+            case "mp3":
+                encoder = Gst.ElementFactory.make ("lamemp3enc", "encoder");
+                suffix = ".mp3";
+                break;
+            case "ogg":
+                encoder = Gst.ElementFactory.make ("vorbisenc", "encoder");
+                muxer = Gst.ElementFactory.make ("oggmux", "muxer");
+                suffix = ".ogg";
+                break;
+            case "opus":
+                encoder = Gst.ElementFactory.make ("opusenc", "encoder");
+                muxer = Gst.ElementFactory.make ("oggmux", "muxer");
+                suffix = ".opus";
+                break;
+            default:
+                encoder = Gst.ElementFactory.make ("wavenc", "encoder");
+                suffix = ".wav";
+                break;
         }
 
         tmp_full_path = tmp_destination + "/%s%s".printf (tmp_filename, suffix);
