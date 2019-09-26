@@ -135,21 +135,15 @@ public class Recorder : Object {
         debug ("The recording is stored at %s temporary".printf (tmp_full_path));
 
         pipeline.add_many (mic_sound, mixer, encoder, sink);
-        if (record_sys_sound) {
-            pipeline.add (sys_sound);
-        }
-
-        if (muxer != null) {
-            pipeline.add (muxer);
-        }
-
         mic_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
         if (record_sys_sound) {
+            pipeline.add (sys_sound);
             sys_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
         }
 
         mixer.link (encoder);
         if (muxer != null) {
+            pipeline.add (muxer);
             encoder.get_static_pad ("src").link (muxer.get_request_pad ("audio_%u"));
             muxer.link (sink);
         } else {
