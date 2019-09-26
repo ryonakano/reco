@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27 07:56+0900\n"
-"PO-Revision-Date: 2019-09-26 23:03+0900\n"
+"PO-Revision-Date: 2019-09-27 07:58+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -70,7 +70,6 @@ msgstr ""
 "のを保存するか、保存するたびに保存先を指定するかを選択できます"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:19
-#, fuzzy
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
 "while recording, the recording is saved automatically or a FileChooserDialog "
