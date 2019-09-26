@@ -39,14 +39,17 @@ public class Recorder : Object {
 
         if (record_sys_sound) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
+            if (sys_sound == null) {
+                error ("The GStreamer element pulsesrc (named \"sys_sound\") was not created correctly");
+            }
         }
 
         if (pipeline == null) {
-            error ("Gstreamer sink was not created correctly!");
+            error ("The GStreamer element pipeline was not created correctly");
         } else if (mic_sound == null) {
-            error ("Gstreamer mic_sound was not created correctly!");
+            error ("The GStreamer element pulsesrc (named \"mic_sound\") was not created correctly");
         } else if (sink == null) {
-            error ("Gstreamer sink was not created correctly!");
+            error ("The GStreamer element filesink was not created correctly");
         }
 
         if (record_sys_sound) {
@@ -63,6 +66,7 @@ public class Recorder : Object {
 
                 default_output += ".monitor";
                 sys_sound.set ("device", default_output);
+                debug ("Detected system sound device: %s", default_output);
             } catch (Error e) {
                 warning (e.message);
             }
@@ -80,19 +84,15 @@ public class Recorder : Object {
             }
 
             mic_sound.set ("device", default_input);
+            debug ("Detected microphone: %s", default_input);
         } catch (Error e) {
             warning (e.message);
         }
 
-        assert (sink != null);
-        string tmp_destination = Environment.get_tmp_dir ();
-        string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string ();
-
-        string file_format = Application.settings.get_string ("format");
-
         Gst.Element encoder;
         Gst.Element muxer = null;
 
+        string file_format = Application.settings.get_string ("format");
         switch (file_format) {
             case "aac":
                 encoder = Gst.ElementFactory.make ("avenc_aac", "encoder");
@@ -117,15 +117,18 @@ public class Recorder : Object {
                 muxer = Gst.ElementFactory.make ("oggmux", "muxer");
                 suffix = ".opus";
                 break;
-            default:
+            case "wav":
                 encoder = Gst.ElementFactory.make ("wavenc", "encoder");
                 suffix = ".wav";
                 break;
+            default:
+                assert_not_reached ();
         }
 
-        tmp_full_path = tmp_destination + "/%s%s".printf (tmp_filename, suffix);
+        string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string ();
+        tmp_full_path = Environment.get_tmp_dir () + "/%s%s".printf (tmp_filename, suffix);
         sink.set ("location", tmp_full_path);
-        debug ("The recording is stored at %s temporary".printf (tmp_full_path));
+        debug ("The recording is temporary stored at %s", tmp_full_path);
 
         pipeline.add_many (mic_sound, encoder, sink);
         if (record_sys_sound) {
