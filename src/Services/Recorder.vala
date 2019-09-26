@@ -36,7 +36,6 @@ public class Recorder : Object {
         pipeline = new Gst.Pipeline ("pipeline");
         var mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
         var sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
-        var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
         var sink = Gst.ElementFactory.make ("filesink", "sink");
         Gst.Element encoder;
         Gst.Element muxer = null;
@@ -47,8 +46,6 @@ public class Recorder : Object {
             error ("Gstreamer mic_sound was not created correctly!");
         } else if (sys_sound == null) {
             error ("Gstreamer sys_sound was not created correctly!");
-        } else if (mixer == null) {
-            error ("Gstreamer mixer was not created correctly!");
         } else if (sink == null) {
             error ("Gstreamer mic_sound was not created correctly!");
         }
@@ -134,14 +131,17 @@ public class Recorder : Object {
         sink.set ("location", tmp_full_path);
         debug ("The recording is stored at %s temporary".printf (tmp_full_path));
 
-        pipeline.add_many (mic_sound, mixer, encoder, sink);
-        mic_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
+        pipeline.add_many (mic_sound, encoder, sink);
         if (record_sys_sound) {
-            pipeline.add (sys_sound);
+            var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
+            pipeline.add_many (sys_sound, mixer);
+            mic_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
             sys_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
+            mixer.link (encoder);
+        } else {
+            mic_sound.link (encoder);
         }
 
-        mixer.link (encoder);
         if (muxer != null) {
             pipeline.add (muxer);
             encoder.get_static_pad ("src").link (muxer.get_request_pad ("audio_%u"));
