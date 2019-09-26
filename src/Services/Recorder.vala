@@ -134,12 +134,6 @@ public class Recorder : Object {
         sink.set ("location", tmp_full_path);
         debug ("The recording is stored at %s temporary".printf (tmp_full_path));
 
-        //  if (record_sys_sound) {
-        //      pipeline.add_many (mic_sound, sys_sound, mixer, encoder, sink);
-        //  } else {
-        //      pipeline.add_many (mic_sound, mixer, encoder, sink);
-        //  }
-
         pipeline.add_many (mic_sound, mixer, encoder, sink);
         if (record_sys_sound) {
             pipeline.add (sys_sound);
@@ -149,18 +143,18 @@ public class Recorder : Object {
             pipeline.add (muxer);
         }
 
-        stdout.printf ("%s\n", mic_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u")).to_string ());
+        mic_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
         if (record_sys_sound) {
-            stdout.printf ("%s\n", sys_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u")).to_string ());
+            sys_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
         }
 
         if (muxer != null) {
-            stdout.printf ("%s\n", mixer.get_static_pad ("src").link (encoder.get_static_pad ("sink")).to_string ());
-            stdout.printf ("%s\n", encoder.get_static_pad ("src").link (muxer.get_request_pad ("audio_%u")).to_string ());
-            stdout.printf ("%s\n", muxer.get_static_pad ("src").link (sink.get_static_pad ("sink")).to_string ());
+            mixer.get_static_pad ("src").link (encoder.get_static_pad ("sink"));
+            encoder.get_static_pad ("src").link (muxer.get_request_pad ("audio_%u"));
+            muxer.get_static_pad ("src").link (sink.get_static_pad ("sink"));
         } else {
-            stdout.printf ("%s\n", mixer.get_static_pad ("src").link (encoder.get_static_pad ("sink")).to_string ());
-            stdout.printf ("%s\n", encoder.get_static_pad ("src").link (sink.get_static_pad ("sink")).to_string ());
+            mixer.get_static_pad ("src").link (encoder.get_static_pad ("sink"));
+            encoder.get_static_pad ("src").link (sink.get_static_pad ("sink"));
         }
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
