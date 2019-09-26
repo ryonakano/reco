@@ -37,8 +37,6 @@ public class Recorder : Object {
         var mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
         var sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
         var sink = Gst.ElementFactory.make ("filesink", "sink");
-        Gst.Element encoder;
-        Gst.Element muxer = null;
 
         if (pipeline == null) {
             error ("Gstreamer sink was not created correctly!");
@@ -92,6 +90,9 @@ public class Recorder : Object {
         string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string ();
 
         string file_format = Application.settings.get_string ("format");
+
+        Gst.Element encoder;
+        Gst.Element muxer = null;
 
         try {
             switch (file_format) {
