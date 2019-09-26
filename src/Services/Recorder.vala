@@ -19,6 +19,7 @@
 
 public class Recorder : Object {
     public bool is_recording { get; private set; }
+    private bool record_sys_sound;
     private string suffix;
     private string tmp_full_path;
     private Gst.Pipeline pipeline;
@@ -30,20 +31,50 @@ public class Recorder : Object {
     }
 
     public void start_recording () {
+        record_sys_sound = Application.settings.get_boolean ("system-sound");
+
         pipeline = new Gst.Pipeline ("pipeline");
-        var audiobin = new Gst.Bin ("audio");
+        var mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
+        var sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
+        var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
         var sink = Gst.ElementFactory.make ("filesink", "sink");
+        Gst.Element encoder;
+        Gst.Element muxer = null;
 
         if (pipeline == null) {
             error ("Gstreamer sink was not created correctly!");
-        } else if (audiobin == null) {
-            error ("Gstreamer pipeline was not created correctly!");
+        } else if (mic_sound == null) {
+            error ("Gstreamer mic_sound was not created correctly!");
+        } else if (sys_sound == null) {
+            error ("Gstreamer sys_sound was not created correctly!");
+        } else if (mixer == null) {
+            error ("Gstreamer mixer was not created correctly!");
         } else if (sink == null) {
-            error ("Gstreamer audiobin was not created correctly!");
+            error ("Gstreamer mic_sound was not created correctly!");
         }
 
-        string command = Application.settings.get_boolean ("system-sound") ? "pacmd list-sinks" : "pacmd list-sources";
-        string default_device = "";
+        string default_output = "";
+        if (record_sys_sound) {
+            string command = "pacmd list-sinks";
+            try {
+                string sound_devices = "";
+                Process.spawn_command_line_sync (command, out sound_devices);
+                var re = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
+                MatchInfo mi;
+
+                if (re.match (sound_devices, 0, out mi)) {
+                    default_output = mi.fetch (0);
+                }
+
+                default_output += ".monitor";
+                sys_sound.set ("device", default_output);
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+
+        string command = "pacmd list-sources";
+        string default_input = "";
         try {
             string sound_devices = "";
             Process.spawn_command_line_sync (command, out sound_devices);
@@ -51,12 +82,10 @@ public class Recorder : Object {
             MatchInfo mi;
 
             if (re.match (sound_devices, 0, out mi)) {
-                default_device = mi.fetch (0);
+                default_input = mi.fetch (0);
             }
 
-            if (Application.settings.get_boolean ("system-sound")) {
-                default_device += ".monitor";
-            }
+            mic_sound.set ("device", default_input);
         } catch (Error e) {
             warning (e.message);
         }
@@ -66,37 +95,37 @@ public class Recorder : Object {
         string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string ();
 
         string file_format = Application.settings.get_string ("format");
-        string encoder = " ! "; // "!" represents a pipe in GStreamer
 
         try {
             switch (file_format) {
                 case "aac":
-                    encoder += "avenc_aac ! mp4mux";
+                    encoder = Gst.ElementFactory.make ("avenc_aac", "encoder");
+                    muxer = Gst.ElementFactory.make ("mp4mux", "muxer");
                     suffix = ".m4a";
                     break;
                 case "flac":
-                    encoder += "flacenc";
+                    encoder = Gst.ElementFactory.make ("flacenc", "encoder");
                     suffix = ".flac";
                     break;
                 case "mp3":
-                    encoder += "lamemp3enc";
+                    encoder = Gst.ElementFactory.make ("lamemp3enc", "encoder");
                     suffix = ".mp3";
                     break;
                 case "ogg":
-                    encoder += "vorbisenc ! oggmux";
+                    encoder = Gst.ElementFactory.make ("vorbisenc", "encoder");
+                    muxer = Gst.ElementFactory.make ("oggmux", "muxer");
                     suffix = ".ogg";
                     break;
                 case "opus":
-                    encoder += "opusenc ! oggmux";
+                    encoder = Gst.ElementFactory.make ("opusenc", "encoder");
+                    muxer = Gst.ElementFactory.make ("oggmux", "muxer");
                     suffix = ".opus";
                     break;
                 default:
-                    encoder += "wavenc";
+                    encoder = Gst.ElementFactory.make ("wavenc", "encoder");
                     suffix = ".wav";
                     break;
             }
-
-            audiobin = (Gst.Bin) Gst.parse_bin_from_description ("pulsesrc device=" + default_device + encoder, true);
         } catch (Error e) {
             error ("Could not set the audio format correctly: %s", e.message);
         }
@@ -105,8 +134,34 @@ public class Recorder : Object {
         sink.set ("location", tmp_full_path);
         debug ("The recording is stored at %s temporary".printf (tmp_full_path));
 
-        pipeline.add_many (audiobin, sink);
-        audiobin.link (sink);
+        //  if (record_sys_sound) {
+        //      pipeline.add_many (mic_sound, sys_sound, mixer, encoder, sink);
+        //  } else {
+        //      pipeline.add_many (mic_sound, mixer, encoder, sink);
+        //  }
+
+        pipeline.add_many (mic_sound, mixer, encoder, sink);
+        if (record_sys_sound) {
+            pipeline.add (sys_sound);
+        }
+
+        if (muxer != null) {
+            pipeline.add (muxer);
+        }
+
+        stdout.printf ("%s\n", mic_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u")).to_string ());
+        if (record_sys_sound) {
+            stdout.printf ("%s\n", sys_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u")).to_string ());
+        }
+
+        if (muxer != null) {
+            stdout.printf ("%s\n", mixer.get_static_pad ("src").link (encoder.get_static_pad ("sink")).to_string ());
+            stdout.printf ("%s\n", encoder.get_static_pad ("src").link (muxer.get_static_pad ("sink")).to_string ());
+            stdout.printf ("%s\n", muxer.get_static_pad ("src").link (sink.get_static_pad ("sink")).to_string ());
+        } else {
+            stdout.printf ("%s\n", mixer.get_static_pad ("src").link (encoder.get_static_pad ("sink")).to_string ());
+            stdout.printf ("%s\n", encoder.get_static_pad ("src").link (sink.get_static_pad ("sink")).to_string ());
+        }
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
         set_recording_state (Gst.State.PLAYING);
