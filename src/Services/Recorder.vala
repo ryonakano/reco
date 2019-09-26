@@ -148,13 +148,12 @@ public class Recorder : Object {
             sys_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
         }
 
+        mixer.link (encoder);
         if (muxer != null) {
-            mixer.get_static_pad ("src").link (encoder.get_static_pad ("sink"));
             encoder.get_static_pad ("src").link (muxer.get_request_pad ("audio_%u"));
-            muxer.get_static_pad ("src").link (sink.get_static_pad ("sink"));
+            muxer.link (sink);
         } else {
-            mixer.get_static_pad ("src").link (encoder.get_static_pad ("sink"));
-            encoder.get_static_pad ("src").link (sink.get_static_pad ("sink"));
+            encoder.link (sink);
         }
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
