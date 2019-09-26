@@ -50,12 +50,11 @@ public class Recorder : Object {
             error ("Gstreamer mic_sound was not created correctly!");
         }
 
-        string default_output = "";
         if (record_sys_sound) {
-            string command = "pacmd list-sinks";
+            string default_output = "";
             try {
                 string sound_devices = "";
-                Process.spawn_command_line_sync (command, out sound_devices);
+                Process.spawn_command_line_sync ("pacmd list-sinks", out sound_devices);
                 var re = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
                 MatchInfo mi;
 
@@ -70,11 +69,10 @@ public class Recorder : Object {
             }
         }
 
-        string command = "pacmd list-sources";
-        string default_input = "";
         try {
+            string default_input = "";
             string sound_devices = "";
-            Process.spawn_command_line_sync (command, out sound_devices);
+            Process.spawn_command_line_sync ("pacmd list-sources", out sound_devices);
             var re = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
             MatchInfo mi;
 
