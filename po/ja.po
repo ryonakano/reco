@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-26 22:10+0900\n"
-"PO-Revision-Date: 2019-09-26 20:42+0900\n"
+"PO-Revision-Date: 2019-09-26 22:43+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -31,9 +31,8 @@ msgid "Length in seconds:"
 msgstr "録音する秒数:"
 
 #: src/Views/WelcomeView.vala:47
-#, fuzzy
 msgid "Include system sound:"
-msgstr "システムサウンドを録音:"
+msgstr "システムサウンドも録音:"
 
 #: src/Views/WelcomeView.vala:53
 msgid "Saving"
@@ -110,8 +109,8 @@ msgid ""
 "A GStreamer error happened while recording, the following error message may "
 "be helpful:"
 msgstr ""
-"録音中に GStreamer エラーが発生しました。以下のエラーメッセージが役に立つ可能"
-"性があります:"
+"録音中に GStreamer エラーが発生しました。以下のエラーメッセージが役に立つ可"
+"能性があります:"
 
 #. /TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:94
