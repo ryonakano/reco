@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-26 22:51+0900\n"
+"POT-Creation-Date: 2019-09-27 07:56+0900\n"
 "PO-Revision-Date: 2019-03-29 14:04+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -66,9 +66,9 @@ msgstr ""
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:19
 msgid ""
-"Save recording when the app quits. Even if you happen to quit the app while "
-"recording, the recording is saved automatically or a FileChooserDialog is "
-"shown depends on your saving setting"
+"Saving recording when the app quits. Even if you happen to quit the app "
+"while recording, the recording is saved automatically or a FileChooserDialog "
+"is shown depends on your saving setting"
 msgstr ""
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:24
