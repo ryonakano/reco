@@ -57,11 +57,11 @@ public class Recorder : Object {
             try {
                 string sound_devices = "";
                 Process.spawn_command_line_sync ("pacmd list-sinks", out sound_devices);
-                var re = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
-                MatchInfo mi;
+                var regex = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
+                MatchInfo match_info;
 
-                if (re.match (sound_devices, 0, out mi)) {
-                    default_output = mi.fetch (0);
+                if (regex.match (sound_devices, 0, out match_info)) {
+                    default_output = match_info.fetch (0);
                 }
 
                 default_output += ".monitor";
@@ -76,11 +76,11 @@ public class Recorder : Object {
             string default_input = "";
             string sound_devices = "";
             Process.spawn_command_line_sync ("pacmd list-sources", out sound_devices);
-            var re = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
-            MatchInfo mi;
+            var regex = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
+            MatchInfo match_info;
 
-            if (re.match (sound_devices, 0, out mi)) {
-                default_input = mi.fetch (0);
+            if (regex.match (sound_devices, 0, out match_info)) {
+                default_input = match_info.fetch (0);
             }
 
             mic_sound.set ("device", default_input);
