@@ -6,7 +6,7 @@ Reco is an audio recording app designed for elementary OS.
 
 Features include:
 
-* **Recording from both your microphone and system sound.** This would be useful when you record conversations with chat apps or stream videos on the Internet
+* **Recording sounds from both your microphone and system at the same time.** This would be useful when you record conversations with chat apps or stream videos on the Internet
 * **Saving in some commonly used formats.** It supports AAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV
 * **Timed recording.** You can set a delay before recording up to 15 seconds, and the length of recording up to 600 seconds
 * **Autosaving or always-ask-where-to-save workflow.** You can select whether the app saves recordings automatically or you choose a destination each time on saving them
