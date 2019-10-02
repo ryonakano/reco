@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-02 20:00+0900\n"
-"PO-Revision-Date: 2019-09-27 07:58+0900\n"
+"PO-Revision-Date: 2019-10-02 20:02+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:7
 #: data/com.github.ryonakano.reco.desktop.in:3
@@ -37,14 +37,13 @@ msgid "Features include:"
 msgstr "含まれる機能:"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:15
-#, fuzzy
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "would be useful when you record conversations with chat apps or stream "
 "videos on the Internet"
 msgstr ""
-"マイクとシステムサウンドの両方からの録音に対応しています。チャットアプリでの"
-"会話を録音したり、インターネットで動画配信をする際に便利です"
+"マイクとシステムの両方からの音を同時に録音できます。チャットアプリでの会話を"
+"録音したり、インターネットで動画配信をする際に便利です"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:16
 msgid ""
