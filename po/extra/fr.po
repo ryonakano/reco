@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-27 07:56+0900\n"
+"POT-Creation-Date: 2019-10-02 20:00+0900\n"
 "PO-Revision-Date: 2019-01-28 08:28+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -38,8 +38,9 @@ msgstr "Fonctionnalités incluses :"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:15
 msgid ""
-"Recording from both your microphone and system sound. This would be useful "
-"when you record conversations with chat apps or stream videos on the Internet"
+"Recording sounds from both your microphone and system at the same time. This "
+"would be useful when you record conversations with chat apps or stream "
+"videos on the Internet"
 msgstr ""
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:16

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-27 07:56+0900\n"
+"POT-Creation-Date: 2019-10-02 20:00+0900\n"
 "PO-Revision-Date: 2019-03-29 14:04+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -40,8 +40,9 @@ msgstr "Mogelijkheden:"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:15
 msgid ""
-"Recording from both your microphone and system sound. This would be useful "
-"when you record conversations with chat apps or stream videos on the Internet"
+"Recording sounds from both your microphone and system at the same time. This "
+"would be useful when you record conversations with chat apps or stream "
+"videos on the Internet"
 msgstr ""
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:16
