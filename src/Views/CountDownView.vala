@@ -85,8 +85,11 @@ public class CountDownView : Gtk.Box {
 
         // Decrease delay_remaining_time per seconds
         countdown = Timeout.add (1000, () => {
+            // If the user pressed "pause", do not count this second.
+            if (is_paused) return false;
+
             delay_remaining_time--;
-            paused_time = delay_remaining_time + 1;
+            paused_time = delay_remaining_time;
 
             // Show the decreased delay_remaining_time
             delay_remaining_label.label = delay_remaining_time.to_string ();
@@ -98,11 +101,14 @@ public class CountDownView : Gtk.Box {
                 return false;
             }
 
-            return is_paused? false : true;
+            return true;
         });
     }
 
     private void cancel_countdown () {
+        // Immediately stop the countdown Timeout
+        Source.remove (countdown);
+
         is_paused = true;
 
         if (countdown != 0) {
@@ -119,6 +125,9 @@ public class CountDownView : Gtk.Box {
 
     private void pause_countdown () {
         if (!is_paused) {
+            // Immediately stop the countdown Timeout - This avoids unnecessary callback
+            Source.remove (countdown);
+
             is_paused = true;
 
             pause_button.image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.BUTTON);
