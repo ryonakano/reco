@@ -109,7 +109,9 @@ public class CountDownView : Gtk.Box {
 
     private void cancel_countdown () {
         // Immediately stop the countdown Timeout
-        Source.remove (countdown);
+        if (!is_paused) {
+            Source.remove (countdown);
+        }
 
         is_paused = true;
 
