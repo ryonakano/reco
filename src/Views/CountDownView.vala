@@ -86,7 +86,9 @@ public class CountDownView : Gtk.Box {
         // Decrease delay_remaining_time per seconds
         countdown = Timeout.add (1000, () => {
             // If the user pressed "pause", do not count this second.
-            if (is_paused) return false;
+            if (is_paused) {
+                return false;
+            }
 
             delay_remaining_time--;
             paused_time = delay_remaining_time;
