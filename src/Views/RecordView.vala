@@ -159,6 +159,11 @@ public class RecordView : Gtk.Box {
 
     private void start_count () {
         count = Timeout.add (1000, () => {
+            // If the user pressed "pause", do not count this second.
+            if (!window.recorder.is_recording) {
+                return false;
+            }
+
             if (past_seconds_10 < 5 && past_seconds_1 == 9) {
                 // The count turns from wx:y9 to wx:(y+1)0
                 past_seconds_10++;
@@ -178,7 +183,7 @@ public class RecordView : Gtk.Box {
 
             show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
 
-            return window.recorder.is_recording? true : false;
+            return true;
         });
     }
 
@@ -222,6 +227,11 @@ public class RecordView : Gtk.Box {
         show_timer_label (remaining_time_label, remain_minutes_10, remain_minutes_1, remain_seconds_10, remain_seconds_1);
 
         countdown = Timeout.add (1000, () => {
+            // If the user pressed "pause", do not count this second.
+            if (!window.recorder.is_recording) {
+                return false;
+            }
+
             if (remain_minutes_1 == 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) {
                 // The count turns from w0:00 to (w-1)9:59
                 remain_minutes_10--;
@@ -252,7 +262,7 @@ public class RecordView : Gtk.Box {
                 return false;
             }
 
-            return window.recorder.is_recording? true : false;
+            return true;
         });
     }
 
