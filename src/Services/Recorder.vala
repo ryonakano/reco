@@ -125,6 +125,10 @@ public class Recorder : Object {
                 assert_not_reached ();
         }
 
+        if (encoder == null) {
+            error ("The GStreamer element encoder was not created correctly");
+        }
+
         string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string ();
         tmp_full_path = Environment.get_tmp_dir () + "/%s%s".printf (tmp_filename, suffix);
         sink.set ("location", tmp_full_path);
