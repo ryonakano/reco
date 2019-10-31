@@ -31,13 +31,18 @@ public class Recorder : Object {
     }
 
     public void start_recording () {
-        bool record_sys_sound = Application.settings.get_boolean ("system-sound");
+        /*
+        * When the value is 0, the app records sounds from a microphone.
+        * When the value is 1, the app records system sounds.
+        * When the value is 2, both sounds from the system and a microphone are recorded.
+        */
+        int device_id = Application.settings.get_enum ("device");
 
         pipeline = new Gst.Pipeline ("pipeline");
         var mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
         var sink = Gst.ElementFactory.make ("filesink", "sink");
 
-        if (record_sys_sound) {
+        if (device_id != 0) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
                 error ("The GStreamer element pulsesrc (named \"sys_sound\") was not created correctly");
@@ -52,7 +57,7 @@ public class Recorder : Object {
             error ("The GStreamer element filesink was not created correctly");
         }
 
-        if (record_sys_sound) {
+        if (device_id != 0) {
             string default_output = "";
             try {
                 string sound_devices = "";
@@ -72,21 +77,23 @@ public class Recorder : Object {
             }
         }
 
-        try {
+        if (device_id != 1) {
             string default_input = "";
-            string sound_devices = "";
-            Process.spawn_command_line_sync ("pacmd list-sources", out sound_devices);
-            var regex = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
-            MatchInfo match_info;
+            try {
+                string sound_devices = "";
+                Process.spawn_command_line_sync ("pacmd list-sources", out sound_devices);
+                var regex = new Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
+                MatchInfo match_info;
 
-            if (regex.match (sound_devices, 0, out match_info)) {
-                default_input = match_info.fetch (0);
+                if (regex.match (sound_devices, 0, out match_info)) {
+                    default_input = match_info.fetch (0);
+                }
+
+                mic_sound.set ("device", default_input);
+                debug ("Detected microphone: %s", default_input);
+            } catch (Error e) {
+                warning (e.message);
             }
-
-            mic_sound.set ("device", default_input);
-            debug ("Detected microphone: %s", default_input);
-        } catch (Error e) {
-            warning (e.message);
         }
 
         Gst.Element encoder;
@@ -134,15 +141,25 @@ public class Recorder : Object {
         sink.set ("location", tmp_full_path);
         debug ("The recording is temporary stored at %s", tmp_full_path);
 
-        pipeline.add_many (mic_sound, encoder, sink);
-        if (record_sys_sound) {
-            var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
-            pipeline.add_many (sys_sound, mixer);
-            mic_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
-            sys_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
-            mixer.link (encoder);
-        } else {
-            mic_sound.link (encoder);
+        pipeline.add_many (encoder, sink);
+        switch (device_id) {
+            case 0:
+                pipeline.add_many (mic_sound);
+                mic_sound.link (encoder);
+                break;
+            case 1:
+                pipeline.add_many (sys_sound);
+                sys_sound.link (encoder);
+                break;
+            case 2:
+                var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
+                pipeline.add_many (mic_sound, sys_sound, mixer);
+                mic_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
+                sys_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
+                mixer.link (encoder);
+                break;
+            default:
+                assert_not_reached ();
         }
 
         if (muxer != null) {
