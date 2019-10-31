@@ -75,11 +75,15 @@
   </content_rating>
 
   <releases>
-    <release version="2.2.1" date="2019-09-24">
+    <release version="2.3.0" date="2019-10-31">
       <description>
         <ul>
-          <li>Fix recording won't success when changing the file format</li>
-          <li>Add Spanish translation (by fitojb)</li>
+          <li>Fix the weird behavior of the countdown timer when pausing/canceling it (by andreasomaini)</li>
+          <li>Support recording sounds from both your microphone and PC at the same time</li>
+          <li>End the app safely if the encoder is not created successfully</li>
+          <li>Update the app description in the readme and AppCenter to be more tantalizing</li>
+          <li>Update Japanese translation</li>
+          <li>Remove unnecessary field code that marks the app handleable files</li>
         </ul>
       </description>
     </release>
