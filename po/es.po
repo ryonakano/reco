@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-26 22:10+0900\n"
+"POT-Creation-Date: 2019-10-31 19:45+0900\n"
 "PO-Revision-Date: 2019-09-17 08:24-0500\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: \n"
@@ -32,55 +32,67 @@ msgstr "Duración en segundos:"
 
 #: src/Views/WelcomeView.vala:47
 #, fuzzy
-msgid "Include system sound:"
-msgstr "Grabar sonidos del sistema:"
+msgid "Record from:"
+msgstr "Grabación desde %s"
+
+#: src/Views/WelcomeView.vala:51
+msgid "Microphone"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:52
+msgid "Computer"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:53
+msgid "Both"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:56
 msgid "Saving"
 msgstr "Guardado"
 
-#: src/Views/WelcomeView.vala:55
+#: src/Views/WelcomeView.vala:58
 msgid "Format:"
 msgstr "Formato:"
 
-#: src/Views/WelcomeView.vala:60
+#: src/Views/WelcomeView.vala:63
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:61
+#: src/Views/WelcomeView.vala:64
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:62
+#: src/Views/WelcomeView.vala:65
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:63
+#: src/Views/WelcomeView.vala:66
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:64
+#: src/Views/WelcomeView.vala:67
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:65
+#: src/Views/WelcomeView.vala:68
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:68
+#: src/Views/WelcomeView.vala:71
 msgid "Automatically save files:"
 msgstr "Guardar archivos automáticamente:"
 
-#: src/Views/WelcomeView.vala:76
+#: src/Views/WelcomeView.vala:79
 msgid "Choose a default destination"
 msgstr "Elija un destino predeterminado"
 
-#: src/Views/WelcomeView.vala:102
+#: src/Views/WelcomeView.vala:105
 msgid "Start recording"
 msgstr "Comenzar grabación"
 
-#. /TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:136
+#. TRANSLATORS: The name of the folder which recordings are saved
+#: src/Views/WelcomeView.vala:139
 msgid "Recordings"
 msgstr "Grabaciones"
 
@@ -113,7 +125,7 @@ msgstr ""
 "Se produjo un error de GStreamer durante la grabación. El mensaje de error "
 "siguiente podría ser de utilidad:"
 
-#. /TRANSLATORS: %s represents a timestamp here
+#. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:94
 #, c-format
 msgid "Recording from %s"
@@ -130,3 +142,7 @@ msgstr "Guardar"
 #: src/MainWindow.vala:113
 msgid "Cancel"
 msgstr "Cancelar"
+
+#, fuzzy
+#~ msgid "Include system sound:"
+#~ msgstr "Grabar sonidos del sistema:"

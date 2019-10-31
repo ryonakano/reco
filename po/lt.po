@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-26 22:10+0900\n"
+"POT-Creation-Date: 2019-10-31 19:45+0900\n"
 "PO-Revision-Date: 2019-02-18 14:35+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -32,55 +32,68 @@ msgid "Length in seconds:"
 msgstr "Trukmė sekundėmis:"
 
 #: src/Views/WelcomeView.vala:47
-msgid "Include system sound:"
+#, fuzzy
+msgid "Record from:"
+msgstr "Įrašinėjimas iš %s"
+
+#: src/Views/WelcomeView.vala:51
+msgid "Microphone"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:52
+msgid "Computer"
 msgstr ""
 
 #: src/Views/WelcomeView.vala:53
+msgid "Both"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:56
 msgid "Saving"
 msgstr "Išsaugojimas"
 
-#: src/Views/WelcomeView.vala:55
+#: src/Views/WelcomeView.vala:58
 msgid "Format:"
 msgstr "Formatas:"
 
-#: src/Views/WelcomeView.vala:60
+#: src/Views/WelcomeView.vala:63
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:61
+#: src/Views/WelcomeView.vala:64
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:62
+#: src/Views/WelcomeView.vala:65
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:63
+#: src/Views/WelcomeView.vala:66
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:64
+#: src/Views/WelcomeView.vala:67
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:65
+#: src/Views/WelcomeView.vala:68
 msgid "WAV"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:68
+#: src/Views/WelcomeView.vala:71
 msgid "Automatically save files:"
 msgstr "Automatiškai išsaugoti failus:"
 
-#: src/Views/WelcomeView.vala:76
+#: src/Views/WelcomeView.vala:79
 msgid "Choose a default destination"
 msgstr "Pasirinkite numatytąją vietą"
 
-#: src/Views/WelcomeView.vala:102
+#: src/Views/WelcomeView.vala:105
 msgid "Start recording"
 msgstr "Pradėti įrašinėjimą"
 
-#. /TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:136
+#. TRANSLATORS: The name of the folder which recordings are saved
+#: src/Views/WelcomeView.vala:139
 msgid "Recordings"
 msgstr "Įrašinėjimai"
 
@@ -116,7 +129,7 @@ msgid ""
 "be helpful:"
 msgstr "Įrašanėjant, įvyko GStreamer klaida:"
 
-#. /TRANSLATORS: %s represents a timestamp here
+#. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:94
 #, c-format
 msgid "Recording from %s"
