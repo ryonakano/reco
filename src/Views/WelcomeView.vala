@@ -44,11 +44,14 @@ public class WelcomeView : Gtk.Box {
         length_spin.halign = Gtk.Align.START;
         length_spin.value = Application.settings.get_int ("length");
 
-        var system_sound_label = new Gtk.Label (_("Include system sound:"));
+        var system_sound_label = new Gtk.Label (_("Record from:"));
         system_sound_label.halign = Gtk.Align.END;
-        var system_sound_switch = new Gtk.Switch ();
-        system_sound_switch.halign = Gtk.Align.START;
-        system_sound_switch.active = Application.settings.get_boolean ("system-sound");
+        var system_sound_combobox = new Gtk.ComboBoxText ();
+        system_sound_combobox.halign = Gtk.Align.START;
+        system_sound_combobox.append ("mic", _("Microphone"));
+        system_sound_combobox.append ("pc", _("Computer"));
+        system_sound_combobox.append ("both", _("Both"));
+        system_sound_combobox.active = Application.settings.get_enum ("device");
 
         var saving_header_label = new Granite.HeaderLabel (_("Saving"));
 
@@ -89,7 +92,7 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (length_label, 0, 2, 1, 1);
         settings_grid.attach (length_spin, 1, 2, 1, 1);
         settings_grid.attach (system_sound_label, 0, 3, 1, 1);
-        settings_grid.attach (system_sound_switch, 1, 3, 1, 1);
+        settings_grid.attach (system_sound_combobox, 1, 3, 1, 1);
         settings_grid.attach (saving_header_label, 0, 4, 1, 1);
         settings_grid.attach (format_label, 0, 5, 1, 1);
         settings_grid.attach (format_combobox, 1, 5, 1, 1);
@@ -111,7 +114,7 @@ public class WelcomeView : Gtk.Box {
 
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("system-sound", system_sound_switch, "active", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("device", system_sound_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
 
         auto_save.notify["active"].connect (() => {
