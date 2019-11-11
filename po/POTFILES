@@ -1,4 +1,4 @@
-src/Views/WelcomeView.vala
+src/Views/CountDownView.vala
 src/Views/RecordView.vala
-src/Application.vala
+src/Views/WelcomeView.vala
 src/MainWindow.vala
