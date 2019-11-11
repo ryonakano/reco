@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-11 21:08+0900\n"
-"PO-Revision-Date: 2019-10-31 19:46+0900\n"
+"PO-Revision-Date: 2019-11-11 21:09+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -19,20 +19,17 @@ msgstr ""
 "X-Generator: Poedit 2.2.4\n"
 
 #: src/Views/CountDownView.vala:48
-#, fuzzy
 msgid "Cancel the countdown"
-msgstr "録音をキャンセルします"
+msgstr "カウントダウンをキャンセルします"
 
 #: src/Views/CountDownView.vala:54 src/Views/CountDownView.vala:125
 #: src/Views/CountDownView.vala:147
-#, fuzzy
 msgid "Pause the countdown"
-msgstr "録音を一時停止します"
+msgstr "カウントダウンを一時停止します"
 
 #: src/Views/CountDownView.vala:138
-#, fuzzy
 msgid "Resume the countdown"
-msgstr "録音を再開します"
+msgstr "カウントダウンを再開します"
 
 #: src/Views/RecordView.vala:62
 msgid "Cancel recording"
@@ -158,26 +155,3 @@ msgstr "保存"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#~ msgid "Include system sound:"
-#~ msgstr "システムサウンドも録音:"
-
-#~ msgid "Are you sure you want to quit Reco?"
-#~ msgstr "Reco を終了してもよろしいですか？"
-
-#~ msgid "If you quit Reco, the recording in progress will end."
-#~ msgstr "Reco を終了すると、進行中の録音は終了します。"
-
-#~ msgid "Quit Reco"
-#~ msgstr "Reco を終了"
-
-#~ msgid "Wav"
-#~ msgstr "Wav"
-
-#~ msgid "Error: %s"
-#~ msgstr "エラー: %s"
-
-#~ msgid "Audio Recorded Successfully"
-#~ msgstr "オーディオの録音に成功しました"
-
-#~ msgid "Audio was saved as %s"
-#~ msgstr "オーディオは %s として保存されました"
