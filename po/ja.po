@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-31 19:45+0900\n"
+"POT-Creation-Date: 2019-11-11 21:08+0900\n"
 "PO-Revision-Date: 2019-10-31 19:46+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -17,6 +17,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 2.2.4\n"
+
+#: src/Views/CountDownView.vala:48
+#, fuzzy
+msgid "Cancel the countdown"
+msgstr "録音をキャンセルします"
+
+#: src/Views/CountDownView.vala:54 src/Views/CountDownView.vala:125
+#: src/Views/CountDownView.vala:147
+#, fuzzy
+msgid "Pause the countdown"
+msgstr "録音を一時停止します"
+
+#: src/Views/CountDownView.vala:138
+#, fuzzy
+msgid "Resume the countdown"
+msgstr "録音を再開します"
+
+#: src/Views/RecordView.vala:62
+msgid "Cancel recording"
+msgstr "録音をキャンセルします"
+
+#: src/Views/RecordView.vala:68
+msgid "Finish recording"
+msgstr "録音を終了します"
+
+#: src/Views/RecordView.vala:76 src/Views/RecordView.vala:98
+#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
+msgid "Pause recording"
+msgstr "録音を一時停止します"
+
+#: src/Views/RecordView.vala:119
+msgid "Resume recording"
+msgstr "録音を再開します"
 
 #: src/Views/WelcomeView.vala:33
 msgid "Recording"
@@ -95,23 +128,6 @@ msgstr "録音を開始します"
 msgid "Recordings"
 msgstr "レコーディング"
 
-#: src/Views/RecordView.vala:62
-msgid "Cancel recording"
-msgstr "録音をキャンセルします"
-
-#: src/Views/RecordView.vala:68
-msgid "Finish recording"
-msgstr "録音を終了します"
-
-#: src/Views/RecordView.vala:76 src/Views/RecordView.vala:98
-#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
-msgid "Pause recording"
-msgstr "録音を一時停止します"
-
-#: src/Views/RecordView.vala:119
-msgid "Resume recording"
-msgstr "録音を再開します"
-
 #: src/MainWindow.vala:80
 msgid "Unable to Create an Audio File"
 msgstr "オーディオファイルを作成できません"
@@ -121,8 +137,8 @@ msgid ""
 "A GStreamer error happened while recording, the following error message may "
 "be helpful:"
 msgstr ""
-"録音中に GStreamer エラーが発生しました。以下のエラーメッセージが役に立つ可"
-"能性があります:"
+"録音中に GStreamer エラーが発生しました。以下のエラーメッセージが役に立つ可能"
+"性があります:"
 
 #. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:94

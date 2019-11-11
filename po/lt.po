@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-31 19:45+0900\n"
+"POT-Creation-Date: 2019-11-11 21:08+0900\n"
 "PO-Revision-Date: 2019-02-18 14:35+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -18,6 +18,43 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: src/Views/CountDownView.vala:48
+#, fuzzy
+msgid "Cancel the countdown"
+msgstr "Pradėti įrašinėjimą"
+
+#: src/Views/CountDownView.vala:54 src/Views/CountDownView.vala:125
+#: src/Views/CountDownView.vala:147
+#, fuzzy
+msgid "Pause the countdown"
+msgstr "Pradėti įrašinėjimą"
+
+#: src/Views/CountDownView.vala:138
+#, fuzzy
+msgid "Resume the countdown"
+msgstr "Įrašinėjimas"
+
+#: src/Views/RecordView.vala:62
+#, fuzzy
+msgid "Cancel recording"
+msgstr "Pradėti įrašinėjimą"
+
+#: src/Views/RecordView.vala:68
+#, fuzzy
+msgid "Finish recording"
+msgstr "Stabdyti įrašinėjimą"
+
+#: src/Views/RecordView.vala:76 src/Views/RecordView.vala:98
+#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
+#, fuzzy
+msgid "Pause recording"
+msgstr "Pradėti įrašinėjimą"
+
+#: src/Views/RecordView.vala:119
+#, fuzzy
+msgid "Resume recording"
+msgstr "Įrašinėjimas"
 
 #: src/Views/WelcomeView.vala:33
 msgid "Recording"
@@ -96,27 +133,6 @@ msgstr "Pradėti įrašinėjimą"
 #: src/Views/WelcomeView.vala:139
 msgid "Recordings"
 msgstr "Įrašinėjimai"
-
-#: src/Views/RecordView.vala:62
-#, fuzzy
-msgid "Cancel recording"
-msgstr "Pradėti įrašinėjimą"
-
-#: src/Views/RecordView.vala:68
-#, fuzzy
-msgid "Finish recording"
-msgstr "Stabdyti įrašinėjimą"
-
-#: src/Views/RecordView.vala:76 src/Views/RecordView.vala:98
-#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
-#, fuzzy
-msgid "Pause recording"
-msgstr "Pradėti įrašinėjimą"
-
-#: src/Views/RecordView.vala:119
-#, fuzzy
-msgid "Resume recording"
-msgstr "Įrašinėjimas"
 
 #: src/MainWindow.vala:80
 msgid "Unable to Create an Audio File"

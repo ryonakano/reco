@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-31 19:45+0900\n"
+"POT-Creation-Date: 2019-11-11 21:08+0900\n"
 "PO-Revision-Date: 2019-09-17 08:24-0500\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: \n"
@@ -17,6 +17,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/Views/CountDownView.vala:48
+#, fuzzy
+msgid "Cancel the countdown"
+msgstr "Cancelar grabación"
+
+#: src/Views/CountDownView.vala:54 src/Views/CountDownView.vala:125
+#: src/Views/CountDownView.vala:147
+#, fuzzy
+msgid "Pause the countdown"
+msgstr "Pausar grabación"
+
+#: src/Views/CountDownView.vala:138
+#, fuzzy
+msgid "Resume the countdown"
+msgstr "Reanudar grabación"
+
+#: src/Views/RecordView.vala:62
+msgid "Cancel recording"
+msgstr "Cancelar grabación"
+
+#: src/Views/RecordView.vala:68
+msgid "Finish recording"
+msgstr "Finalizar grabación"
+
+#: src/Views/RecordView.vala:76 src/Views/RecordView.vala:98
+#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
+msgid "Pause recording"
+msgstr "Pausar grabación"
+
+#: src/Views/RecordView.vala:119
+msgid "Resume recording"
+msgstr "Reanudar grabación"
 
 #: src/Views/WelcomeView.vala:33
 msgid "Recording"
@@ -95,23 +128,6 @@ msgstr "Comenzar grabación"
 #: src/Views/WelcomeView.vala:139
 msgid "Recordings"
 msgstr "Grabaciones"
-
-#: src/Views/RecordView.vala:62
-msgid "Cancel recording"
-msgstr "Cancelar grabación"
-
-#: src/Views/RecordView.vala:68
-msgid "Finish recording"
-msgstr "Finalizar grabación"
-
-#: src/Views/RecordView.vala:76 src/Views/RecordView.vala:98
-#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
-msgid "Pause recording"
-msgstr "Pausar grabación"
-
-#: src/Views/RecordView.vala:119
-msgid "Resume recording"
-msgstr "Reanudar grabación"
 
 #: src/MainWindow.vala:80
 msgid "Unable to Create an Audio File"

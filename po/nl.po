@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-31 19:45+0900\n"
+"POT-Creation-Date: 2019-11-11 21:08+0900\n"
 "PO-Revision-Date: 2019-03-29 14:04+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -17,6 +17,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/Views/CountDownView.vala:48
+#, fuzzy
+msgid "Cancel the countdown"
+msgstr "Opname afbreken"
+
+#: src/Views/CountDownView.vala:54 src/Views/CountDownView.vala:125
+#: src/Views/CountDownView.vala:147
+#, fuzzy
+msgid "Pause the countdown"
+msgstr "Opname pauzeren"
+
+#: src/Views/CountDownView.vala:138
+#, fuzzy
+msgid "Resume the countdown"
+msgstr "Opname hervatten"
+
+#: src/Views/RecordView.vala:62
+msgid "Cancel recording"
+msgstr "Opname afbreken"
+
+#: src/Views/RecordView.vala:68
+msgid "Finish recording"
+msgstr "Opname afronden"
+
+#: src/Views/RecordView.vala:76 src/Views/RecordView.vala:98
+#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
+msgid "Pause recording"
+msgstr "Opname pauzeren"
+
+#: src/Views/RecordView.vala:119
+msgid "Resume recording"
+msgstr "Opname hervatten"
 
 #: src/Views/WelcomeView.vala:33
 msgid "Recording"
@@ -95,23 +128,6 @@ msgstr "Opname starten"
 #: src/Views/WelcomeView.vala:139
 msgid "Recordings"
 msgstr "Opnamen"
-
-#: src/Views/RecordView.vala:62
-msgid "Cancel recording"
-msgstr "Opname afbreken"
-
-#: src/Views/RecordView.vala:68
-msgid "Finish recording"
-msgstr "Opname afronden"
-
-#: src/Views/RecordView.vala:76 src/Views/RecordView.vala:98
-#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
-msgid "Pause recording"
-msgstr "Opname pauzeren"
-
-#: src/Views/RecordView.vala:119
-msgid "Resume recording"
-msgstr "Opname hervatten"
 
 #: src/MainWindow.vala:80
 msgid "Unable to Create an Audio File"
