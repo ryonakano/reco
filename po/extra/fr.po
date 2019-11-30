@@ -1,15 +1,15 @@
 # French translations for com.github.ryonakano.reco package.
 # Copyright (C) 2019 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# NathanBnm, 2019.
+# Nathan Bonnemains (@NathanBnm), 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-02 20:00+0900\n"
+"POT-Creation-Date: 2019-11-30 14:59+0100\n"
 "PO-Revision-Date: 2019-01-28 08:28+0100\n"
-"Last-Translator: NathanBnm\n"
+"Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: Français\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -44,17 +44,21 @@ msgid ""
 msgstr ""
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:16
-#, fuzzy
 msgid ""
 "Saving in some commonly used formats. It supports AAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV"
-msgstr "Formats disponibles : AAC, FLAC, MP3, Ogg Vorbis, Opus et WAV"
+msgstr ""
+"Enregistrement dans les formats les plus courant. Formats pris en charge : "
+"AAC, FLAC, MP3, Ogg Vorbis, Opus et WAV"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:17
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "the length of recording up to 600 seconds"
 msgstr ""
+"Enregistrement différé et chronométré. Vous pouvez définir un délai avant "
+"d'enregistrer jusqu'à 15 secondes, et la durée de l'enregistrement jusqu'à "
+"600 secondes"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:18
 msgid ""
@@ -62,6 +66,10 @@ msgid ""
 "app saves recordings automatically or you choose a destination each time on "
 "saving them"
 msgstr ""
+"Comportement de sauvegarde automatique ou demande d'emplacement de "
+"destination pour chaque enregistrement. Vous pouvez sélectionner si "
+"l'application sauvegarde automatiquement les enregistrements ou si vous "
+"préferez sélectionner un emplacement de destination à chaque sauvegarde."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:19
 msgid ""
@@ -69,20 +77,64 @@ msgid ""
 "while recording, the recording is saved automatically or a FileChooserDialog "
 "is shown depends on your saving setting"
 msgstr ""
+"Sauvegarde de l'enregistrement à la fermeture de l'application. Même si vous "
+"fermez l'application pendant l'enregistrement, l'enregistrement est "
+"automatiquement sauvegardé ou alors une boîte de dialogue d'enregistrement "
+"s'affichera en fonction de vos paramètres de sauvegarde"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:24
 msgid "Welcome screen that allows you to set recording configuration"
 msgstr ""
+"Écran de bienvenue qui vous permet de définir la configuration "
+"d'enregistrement"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:33
 msgid "Recording screen"
-msgstr ""
+msgstr "Enregistrement de l'écran"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:37
 msgid "Recording is successfully finished"
-msgstr ""
+msgstr "L'enregistrement est terminé avec succès"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:88
+#: data/com.github.ryonakano.reco.appdata.xml.in:81
+msgid ""
+"Fix the weird behavior of the countdown timer when pausing/canceling it (by "
+"andreasomaini)"
+msgstr ""
+"Correction du comportement étrange du décompte lors de sa mise en pause/"
+"annulation (par andreasomaini)"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:82
+msgid ""
+"Support recording sounds from both your microphone and PC at the same time"
+msgstr ""
+"Prise en charge de l'enregistrement du son à la fois à partir du micro et du "
+"PC au même moment"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:83
+msgid "End the app safely if the encoder is not created successfully"
+msgstr ""
+"Fermeture de l'application sans problème dans le cas où l'encodeur n'est pas "
+"créé correctement"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:84
+msgid ""
+"Update the app description in the readme and AppCenter to be more tantalizing"
+msgstr ""
+"Mise à jour de la description de l'application dans le fichier readme et "
+"dans le Centre d'Applications pour être plus attirante"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:85
+msgid "Update Japanese translation"
+msgstr "Mise à jour des traductions en japonais"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:86
+msgid "Remove unnecessary field code that marks the app handleable files"
+msgstr ""
+"Suppression du code de champ inutile qui marque les fichiers gérables par "
+"l'application"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:92
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 
@@ -97,23 +149,3 @@ msgstr "com.github.ryonakano.reco"
 #: data/com.github.ryonakano.reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Enregistrement;Audio;Son;Voix;"
-
-#, fuzzy
-#~ msgid "Useful for:"
-#~ msgstr "Utile quand :"
-
-#, fuzzy
-#~ msgid "Joining meetings and taking minutes later"
-#~ msgstr "vous vous joignez à une discussion et prenez vos notes plus tard"
-
-#, fuzzy
-#~ msgid "Recording conversations with a friend or lover"
-#~ msgstr ""
-#~ "vous voulez enregistrer une conversation avec vos amis ou votre amoureux"
-
-#, fuzzy
-#~ msgid "Streaming videos on the Internet"
-#~ msgstr "vous souhaitez streamer des vidéos sur Internet"
-
-#~ msgid "Timed recording"
-#~ msgstr "Enregistrement chronométré"
