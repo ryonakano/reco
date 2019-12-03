@@ -36,13 +36,11 @@ public class WelcomeView : Gtk.Box {
         delay_label.halign = Gtk.Align.END;
         delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
         delay_spin.halign = Gtk.Align.START;
-        delay_spin.value = Application.settings.get_int ("delay");
 
         var length_label = new Gtk.Label (_("Length in seconds:"));
         length_label.halign = Gtk.Align.END;
         var length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
         length_spin.halign = Gtk.Align.START;
-        length_spin.value = Application.settings.get_int ("length");
 
         var system_sound_label = new Gtk.Label (_("Record from:"));
         system_sound_label.halign = Gtk.Align.END;
@@ -51,7 +49,6 @@ public class WelcomeView : Gtk.Box {
         system_sound_combobox.append ("mic", _("Microphone"));
         system_sound_combobox.append ("pc", _("Computer"));
         system_sound_combobox.append ("both", _("Both"));
-        system_sound_combobox.active = Application.settings.get_enum ("device");
 
         var saving_header_label = new Granite.HeaderLabel (_("Saving"));
 
@@ -66,21 +63,18 @@ public class WelcomeView : Gtk.Box {
         format_combobox.append ("ogg", _("Ogg Vorbis"));
         format_combobox.append ("opus", _("Opus"));
         format_combobox.append ("wav", _("WAV"));
-        format_combobox.active = Application.settings.get_enum ("format");
 
         var auto_save_label = new Gtk.Label (_("Automatically save files:"));
         auto_save_label.halign = Gtk.Align.END;
 
-        var auto_save = new Gtk.Switch ();
-        auto_save.halign = Gtk.Align.START;
-        auto_save.active = Application.settings.get_boolean ("auto-save");
+        var auto_save_switch = new Gtk.Switch ();
+        auto_save_switch.halign = Gtk.Align.START;
 
         var destination_chooser = new Gtk.FileChooserButton (
             _("Choose a default destination"),
             Gtk.FileChooserAction.SELECT_FOLDER);
         destination_chooser.halign = Gtk.Align.START;
         destination_chooser.set_filename (get_destination ());
-        destination_chooser.sensitive = auto_save.active;
 
         var settings_grid = new Gtk.Grid ();
         settings_grid.column_spacing = 6;
@@ -97,7 +91,7 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (format_label, 0, 5, 1, 1);
         settings_grid.attach (format_combobox, 1, 5, 1, 1);
         settings_grid.attach (auto_save_label, 0, 6, 1, 1);
-        settings_grid.attach (auto_save, 1, 6, 1, 1);
+        settings_grid.attach (auto_save_switch, 1, 6, 1, 1);
         settings_grid.attach (destination_chooser, 1, 7, 1, 1);
 
         record_button = new Gtk.Button ();
@@ -116,11 +110,8 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("device", system_sound_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
-
-        auto_save.notify["active"].connect (() => {
-            destination_chooser.sensitive = auto_save.active;
-            Application.settings.set_boolean ("auto-save", auto_save.active);
-        });
+        Application.settings.bind ("auto-save", auto_save_switch, "active", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("auto-save", destination_chooser, "sensitive", SettingsBindFlags.DEFAULT);
 
         destination_chooser.file_set.connect (() => {
             Application.settings.set_string ("destination", destination_chooser.get_filename ());
