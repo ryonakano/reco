@@ -65,15 +65,12 @@
   </content_rating>
 
   <releases>
-    <release version="2.3.0" date="2019-10-31">
+    <release version="2.3.1" date="2019-12-05">
       <description>
         <ul>
-          <li>Fix the weird behavior of the countdown timer when pausing/canceling it (by andreasomaini)</li>
-          <li>Support recording sounds from both your microphone and PC at the same time</li>
-          <li>End the app safely if the encoder is not created successfully</li>
-          <li>Update the app description in the readme and AppCenter to be more tantalizing</li>
+          <li>Add Polish translation (by @michalzkosmosu)</li>
+          <li>Update French translation (by @NathanBnm)</li>
           <li>Update Japanese translation</li>
-          <li>Remove unnecessary field code that marks the app handleable files</li>
         </ul>
       </description>
     </release>
