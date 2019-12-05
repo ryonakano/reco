@@ -23,11 +23,6 @@
     <screenshot type="default">
       <caption>Welcome screen that allows you to set recording configuration</caption>
       <image>https://raw.githubusercontent.com/ryonakano/reco/master/data/Screenshot.png</image>
-      <image xml:lang="es-ES">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/es/Screenshot.png</image>
-      <image xml:lang="fr-FR">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/fr/Screenshot.png</image>
-      <image xml:lang="ja-JP">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/ja/Screenshot.png</image>
-      <image xml:lang="lt-LT">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/lt/Screenshot.png</image>
-      <image xml:lang="nl-NL">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/nl/Screenshot.png</image>
     </screenshot>
     <screenshot>
       <caption>Recording screen</caption>
@@ -36,11 +31,6 @@
     <screenshot>
       <caption>Recording is successfully finished</caption>
       <image>https://raw.githubusercontent.com/ryonakano/reco/master/data/Screenshot3.png</image>
-      <image xml:lang="es-ES">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/es/Screenshot3.png</image>
-      <image xml:lang="fr-FR">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/fr/Screenshot3.png</image>
-      <image xml:lang="ja-JP">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/ja/Screenshot3.png</image>
-      <image xml:lang="lt-LT">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/lt/Screenshot3.png</image>
-      <image xml:lang="nl-NL">https://raw.githubusercontent.com/ryonakano/reco/master/data/screenshots/nl/Screenshot3.png</image>
     </screenshot>
   </screenshots>
 
