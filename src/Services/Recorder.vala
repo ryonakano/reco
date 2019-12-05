@@ -18,14 +18,14 @@
 */
 
 public class Recorder : Object {
+    public signal void handle_error (Error err, string debug);
+    public signal void handle_save_file (string tmp_full_path, string suffix);
+
     public bool is_recording { get; private set; }
     private string suffix;
     private string tmp_full_path;
     private Gst.Pipeline pipeline;
     private Gst.Element sys_sound;
-
-    public signal void handle_error (Error err, string debug);
-    public signal void handle_save_file (string tmp_full_path, string suffix);
 
     construct {
     }
