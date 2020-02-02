@@ -17,7 +17,6 @@
 
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
-    private Gtk.SpinButton delay_spin;
     private Gtk.Button record_button;
 
     public WelcomeView (MainWindow window) {
@@ -34,7 +33,7 @@ public class WelcomeView : Gtk.Box {
 
         var delay_label = new Gtk.Label (_("Delay in seconds:"));
         delay_label.halign = Gtk.Align.END;
-        delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
+        var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
         delay_spin.halign = Gtk.Align.START;
 
         var length_label = new Gtk.Label (_("Length in seconds:"));
@@ -154,7 +153,7 @@ public class WelcomeView : Gtk.Box {
     }
 
     public void trigger_recording () {
-        if (delay_spin.value != 0) {
+        if (Application.settings.get_int ("delay") != 0) {
             window.show_countdown ();
         } else {
             window.show_record ();
