@@ -1,7 +1,7 @@
 # Japanese translations for com.github.ryonakano.reco package.
 # Copyright (C) 2018 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Automatically generated, 2018.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2018.
 #
 msgid ""
 msgstr ""
@@ -16,7 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2.4\n"
 
 #: src/Views/CountDownView.vala:48
 msgid "Cancel the countdown"
