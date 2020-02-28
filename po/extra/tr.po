@@ -1,0 +1,110 @@
+# Turkish translations for com.github.ryonakano.reco package.
+# Copyright (C) 2020 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Safak Genisol, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.ryonakano.reco\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-02 20:00+0900\n"
+"PO-Revision-Date: 2020-02-27 16:06+0300\n"
+"Last-Translator: Safak Genisol (safak45)\n"
+"Language-Team: Turkish <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:7
+#: data/com.github.ryonakano.reco.desktop.in:3
+msgid "Reco"
+msgstr "Reco
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:8
+#: data/com.github.ryonakano.reco.desktop.in:5
+msgid "Record talks to remember the contents later"
+msgstr "Sesleri kayıt altına al"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:10
+msgid "An audio recording app that helps you recall things talked later."
+msgstr "Daha sonra konuşulan sesleri hatırlamanıza yardımcı olan ses kayıt uygulaması"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:13
+msgid "Features include:"
+msgstr "Özellikler:
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:15
+msgid ""
+"Recording sounds from both your microphone and system at the same time. This "
+"would be useful when you record conversations with chat apps or stream "
+"videos on the Internet"
+msgstr ""
+"Hem sistem seslerini hem mikrofon sesini aynı anda kayıt altına al.Sohbet"
+"kaydetmek istediğinizde veya internete "
+"video akışı yaptığınızda yararlı olacaktır."
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:16
+msgid ""
+"Saving in some commonly used formats. It supports AAC, FLAC, MP3, Ogg "
+"Vorbis, Opus, and WAV"
+msgstr ""
+"Sık kullanılan ses formatlarında kaydetme.Desteklediği formatlar AAC, FLAC, MP3, Ogg "
+"Vorbis, Opus, ve WAV"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:17
+msgid ""
+"Timed recording. You can set a delay before recording up to 15 seconds, and "
+"the length of recording up to 600 seconds"
+msgstr ""
+"Zamanlanmış kayıt.Kayıttan önce 15 saniyeye kadar geçikme süresi ayarlayabilirsiniz, ve "
+"kayıt uzunluğu ise 600 saniyedir."
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:18
+msgid ""
+"Autosaving or always-ask-where-to-save workflow. You can select whether the "
+"app saves recordings automatically or you choose a destination each time on "
+"saving them"
+msgstr ""
+"Otomatik kaydetme veya her seferinde kaydedileceği yeri belirle.Ses kayıtlarının "
+"otomatik olarak kaydedilip kaydedilmeyeceğini "
+"seçebilrisiniz."
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:19
+msgid ""
+"Saving recording when the app quits. Even if you happen to quit the app "
+"while recording, the recording is saved automatically or a FileChooserDialog "
+"is shown depends on your saving setting"
+msgstr ""
+"Uygulamadan çıkıldığında kayıt altına alınan ses kaydedilir.Kayır sırasında uygulamada "
+"çıksanız bile kayıt otomatik olarak kaydedilir veya kaydetme ayarınıza"
+"bağlı olarak bir FileChooserDialog belirir."
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:24
+msgid "Welcome screen that allows you to set recording configuration"
+msgstr "Kayıt ayarlamınızı sağlayan yapılandırma ekranı"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:33
+msgid "Recording screen"
+msgstr "Kayıt ekranı"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:37
+msgid "Recording is successfully finished"
+msgstr "Kayıt başarıyla tamamlandı"
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:88
+msgid "Ryo Nakano"
+msgstr "Ryo Nakano"
+
+#: data/com.github.ryonakano.reco.desktop.in:4
+msgid "Audio Recording App"
+msgstr "Ses Kayıt Uygulaması"
+
+#: data/com.github.ryonakano.reco.desktop.in:8
+msgid "com.github.ryonakano.reco"
+msgstr "com.github.ryonakano.reco"
+
+#: data/com.github.ryonakano.reco.desktop.in:11
+msgid "Record;Audio;Sound;Voice;"
+msgstr "Record;Audio;Sound;Voice;"
