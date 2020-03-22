@@ -10,11 +10,11 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-11 21:08+0900\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Max Usmanov <usmanovmax@protonmail.com>\n"
+"Last-Translator: Sharigami <usmanovmax@protonmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/Views/CountDownView.vala:48
@@ -133,7 +133,7 @@ msgid ""
 "A GStreamer error happened while recording, the following error message may "
 "be helpful:"
 msgstr ""
-"Произошла ошибка "GStreamer" во время записи, следующее сообщение ошибки "
+"Произошла ошибка \"GStreamer\" во время записи, следующее сообщение ошибки "
 "может быть полезным:"
 
 #. TRANSLATORS: %s represents a timestamp here
