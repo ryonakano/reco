@@ -102,4 +102,4 @@ msgstr "com.github.ryonakano.reco"
 
 #: data/com.github.ryonakano.reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
-msgstr "Запись;Аудио;Звук;Голос"
+msgstr "Запись;Аудио;Звук;Голос;"
