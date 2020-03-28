@@ -1,3 +1,10 @@
+com.github.ryonakano.reco (2.3.2) bionic; urgency=low
+
+  * Add Turkish translation (thanks to @safak45x)
+  * Add Russian translation (thanks to @usmanovmax)
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Sat, 28 Mar 2020 21:01:02 +0900
+
 com.github.ryonakano.reco (2.3.0) bionic; urgency=medium
 
   * Fix the weird behavior of the countdown timer when pausing/canceling it (by andreasomaini)
