@@ -65,7 +65,7 @@
   </content_rating>
 
   <releases>
-    <release version="2.3.2" date="2020-03-28" priority="low">
+    <release version="2.3.2" date="2020-03-28" urgency="low">
       <description>
         <ul>
           <li>Add Turkish translation (by @safak45x)</li>
