@@ -65,12 +65,11 @@
   </content_rating>
 
   <releases>
-    <release version="2.3.1" date="2019-12-05">
+    <release version="2.3.2" date="2020-03-28" urgency="low">
       <description>
         <ul>
-          <li>Add Polish translation (by @michalzkosmosu)</li>
-          <li>Update French translation (by @NathanBnm)</li>
-          <li>Update Japanese translation</li>
+          <li>Add Turkish translation (by @safak45x)</li>
+          <li>Add Russian translation (by @usmanovmax)</li>
         </ul>
       </description>
     </release>
