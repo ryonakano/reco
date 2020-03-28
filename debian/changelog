@@ -1,3 +1,9 @@
+com.github.ryonakano.reco (2.3.1) bionic; urgency=low
+
+  * Update translations
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Thu, 5 Dec 2019 20:33:12 +0900
+
 com.github.ryonakano.reco (2.3.0) bionic; urgency=medium
 
   * Fix the weird behavior of the countdown timer when pausing/canceling it (by andreasomaini)
