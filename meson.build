@@ -29,7 +29,7 @@ executable(
     'src/Application.vala',
     'src/MainWindow.vala',
     dependencies: [
-        dependency('granite', version: '>=5.2.3'),
+        dependency('granite', version: '>=5.4.0'),
         dependency('gtk+-3.0'),
         dependency('gstreamer-1.0')
     ],
