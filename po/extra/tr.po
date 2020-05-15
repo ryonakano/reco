@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-02 20:00+0900\n"
+"POT-Creation-Date: 2020-05-15 10:11+0000\n"
 "PO-Revision-Date: 2020-02-27 16:06+0300\n"
 "Last-Translator: Safak Genisol (safak45)\n"
 "Language-Team: Turkish <LL@li.org>\n"
@@ -29,7 +29,8 @@ msgstr "Sesleri kayıt altına al"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:10
 msgid "An audio recording app that helps you recall things talked later."
-msgstr "Daha sonra konuşulan sesleri hatırlamanıza yardımcı olan ses kayıt uygulaması"
+msgstr ""
+"Daha sonra konuşulan sesleri hatırlamanıza yardımcı olan ses kayıt uygulaması"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:13
 msgid "Features include:"
@@ -41,25 +42,25 @@ msgid ""
 "would be useful when you record conversations with chat apps or stream "
 "videos on the Internet"
 msgstr ""
-"Hem sistem seslerini hem mikrofon sesini aynı anda kayıt altına al.Sohbet"
-"kaydetmek istediğinizde veya internete "
-"video akışı yaptığınızda yararlı olacaktır."
+"Hem sistem seslerini hem mikrofon sesini aynı anda kayıt altına al."
+"Sohbetkaydetmek istediğinizde veya internete video akışı yaptığınızda "
+"yararlı olacaktır."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:16
 msgid ""
 "Saving in some commonly used formats. It supports AAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV"
 msgstr ""
-"Sık kullanılan ses formatlarında kaydetme.Desteklediği formatlar AAC, FLAC, MP3, Ogg "
-"Vorbis, Opus, ve WAV"
+"Sık kullanılan ses formatlarında kaydetme.Desteklediği formatlar AAC, FLAC, "
+"MP3, Ogg Vorbis, Opus, ve WAV"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:17
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "the length of recording up to 600 seconds"
 msgstr ""
-"Zamanlanmış kayıt.Kayıttan önce 15 saniyeye kadar geçikme süresi ayarlayabilirsiniz, ve "
-"kayıt uzunluğu ise 600 saniyedir."
+"Zamanlanmış kayıt.Kayıttan önce 15 saniyeye kadar geçikme süresi "
+"ayarlayabilirsiniz, ve kayıt uzunluğu ise 600 saniyedir."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:18
 msgid ""
@@ -67,9 +68,8 @@ msgid ""
 "app saves recordings automatically or you choose a destination each time on "
 "saving them"
 msgstr ""
-"Otomatik kaydetme veya her seferinde kaydedileceği yeri belirle.Ses kayıtlarının "
-"otomatik olarak kaydedilip kaydedilmeyeceğini "
-"seçebilrisiniz."
+"Otomatik kaydetme veya her seferinde kaydedileceği yeri belirle.Ses "
+"kayıtlarının otomatik olarak kaydedilip kaydedilmeyeceğini seçebilrisiniz."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:19
 msgid ""
@@ -77,23 +77,31 @@ msgid ""
 "while recording, the recording is saved automatically or a FileChooserDialog "
 "is shown depends on your saving setting"
 msgstr ""
-"Uygulamadan çıkıldığında kayıt altına alınan ses kaydedilir.Kayır sırasında uygulamada "
-"çıksanız bile kayıt otomatik olarak kaydedilir veya kaydetme ayarınıza"
-"bağlı olarak bir FileChooserDialog belirir."
+"Uygulamadan çıkıldığında kayıt altına alınan ses kaydedilir.Kayır sırasında "
+"uygulamada çıksanız bile kayıt otomatik olarak kaydedilir veya kaydetme "
+"ayarınızabağlı olarak bir FileChooserDialog belirir."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:24
 msgid "Welcome screen that allows you to set recording configuration"
 msgstr "Kayıt ayarlamınızı sağlayan yapılandırma ekranı"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:33
+#: data/com.github.ryonakano.reco.appdata.xml.in:28
 msgid "Recording screen"
 msgstr "Kayıt ekranı"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:37
+#: data/com.github.ryonakano.reco.appdata.xml.in:32
 msgid "Recording is successfully finished"
 msgstr "Kayıt başarıyla tamamlandı"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:88
+#: data/com.github.ryonakano.reco.appdata.xml.in:71
+msgid "Add Turkish translation (by @safak45x)"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:72
+msgid "Add Russian translation (by @usmanovmax)"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:78
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 

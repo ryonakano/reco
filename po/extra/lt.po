@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-02 20:00+0900\n"
+"POT-Creation-Date: 2020-05-15 10:11+0000\n"
 "PO-Revision-Date: 2019-02-18 14:43+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -77,15 +77,23 @@ msgstr ""
 msgid "Welcome screen that allows you to set recording configuration"
 msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:33
+#: data/com.github.ryonakano.reco.appdata.xml.in:28
 msgid "Recording screen"
 msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:37
+#: data/com.github.ryonakano.reco.appdata.xml.in:32
 msgid "Recording is successfully finished"
 msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:88
+#: data/com.github.ryonakano.reco.appdata.xml.in:71
+msgid "Add Turkish translation (by @safak45x)"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:72
+msgid "Add Russian translation (by @usmanovmax)"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:78
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 

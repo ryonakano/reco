@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-30 19:27+0100\n"
+"POT-Creation-Date: 2020-05-15 10:11+0000\n"
 "PO-Revision-Date: 2019-01-28 08:28+0100\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: Français\n"
@@ -91,53 +91,23 @@ msgstr ""
 "Écran de bienvenue qui vous permet de définir la configuration "
 "d'enregistrement"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:33
+#: data/com.github.ryonakano.reco.appdata.xml.in:28
 msgid "Recording screen"
 msgstr "Enregistrement de l'écran"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:37
+#: data/com.github.ryonakano.reco.appdata.xml.in:32
 msgid "Recording is successfully finished"
 msgstr "L'enregistrement est terminé avec succès"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:81
-msgid ""
-"Fix the weird behavior of the countdown timer when pausing/canceling it (by "
-"andreasomaini)"
+#: data/com.github.ryonakano.reco.appdata.xml.in:71
+msgid "Add Turkish translation (by @safak45x)"
 msgstr ""
-"Correction du comportement étrange du décompte lors de sa mise en pause/"
-"annulation (par andreasomaini)"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:82
-msgid ""
-"Support recording sounds from both your microphone and PC at the same time"
+#: data/com.github.ryonakano.reco.appdata.xml.in:72
+msgid "Add Russian translation (by @usmanovmax)"
 msgstr ""
-"Prise en charge de l'enregistrement du son à la fois à partir du micro et du "
-"PC au même moment"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:83
-msgid "End the app safely if the encoder is not created successfully"
-msgstr ""
-"Fermeture de l'application sans problème dans le cas où l'encodeur n'est pas "
-"créé correctement"
-
-#: data/com.github.ryonakano.reco.appdata.xml.in:84
-msgid ""
-"Update the app description in the readme and AppCenter to be more tantalizing"
-msgstr ""
-"Mise à jour de la description de l'application dans le fichier readme et "
-"dans le Centre d'Applications pour être plus attirante"
-
-#: data/com.github.ryonakano.reco.appdata.xml.in:85
-msgid "Update Japanese translation"
-msgstr "Mise à jour des traductions en japonais"
-
-#: data/com.github.ryonakano.reco.appdata.xml.in:86
-msgid "Remove unnecessary field code that marks the app handleable files"
-msgstr ""
-"Suppression du code de champ inutile qui marque les fichiers gérables par "
-"l'application"
-
-#: data/com.github.ryonakano.reco.appdata.xml.in:92
+#: data/com.github.ryonakano.reco.appdata.xml.in:78
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 
@@ -152,3 +122,36 @@ msgstr "com.github.ryonakano.reco"
 #: data/com.github.ryonakano.reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Enregistrement;Audio;Son;Voix;"
+
+#~ msgid ""
+#~ "Fix the weird behavior of the countdown timer when pausing/canceling it "
+#~ "(by andreasomaini)"
+#~ msgstr ""
+#~ "Correction du comportement étrange du décompte lors de sa mise en pause/"
+#~ "annulation (par andreasomaini)"
+
+#~ msgid ""
+#~ "Support recording sounds from both your microphone and PC at the same time"
+#~ msgstr ""
+#~ "Prise en charge de l'enregistrement du son à la fois à partir du micro et "
+#~ "du PC au même moment"
+
+#~ msgid "End the app safely if the encoder is not created successfully"
+#~ msgstr ""
+#~ "Fermeture de l'application sans problème dans le cas où l'encodeur n'est "
+#~ "pas créé correctement"
+
+#~ msgid ""
+#~ "Update the app description in the readme and AppCenter to be more "
+#~ "tantalizing"
+#~ msgstr ""
+#~ "Mise à jour de la description de l'application dans le fichier readme et "
+#~ "dans le Centre d'Applications pour être plus attirante"
+
+#~ msgid "Update Japanese translation"
+#~ msgstr "Mise à jour des traductions en japonais"
+
+#~ msgid "Remove unnecessary field code that marks the app handleable files"
+#~ msgstr ""
+#~ "Suppression du code de champ inutile qui marque les fichiers gérables par "
+#~ "l'application"

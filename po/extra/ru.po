@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-02 20:00+0900\n"
+"POT-Creation-Date: 2020-05-15 10:11+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Sharigami <usmanovmax@protonmail.com>\n"
 "Language-Team: \n"
@@ -29,7 +29,9 @@ msgstr "Запишите разговор, чтобы запомнить инф�
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:10
 msgid "An audio recording app that helps you recall things talked later."
-msgstr "Приложение для записи звука, которое позволит вам вспомнить то, что вы сказали ранее."
+msgstr ""
+"Приложение для записи звука, которое позволит вам вспомнить то, что вы "
+"сказали ранее."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:13
 msgid "Features include:"
@@ -40,55 +42,69 @@ msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "would be useful when you record conversations with chat apps or stream "
 "videos on the Internet"
-msgstr "Запись звука при помощи микрофона и системы в одно и то же время. Это "
-"может быть полезно тогда, когда вы записываете разговоры с чата или записываете видеоролики "
-"в Интернет."
+msgstr ""
+"Запись звука при помощи микрофона и системы в одно и то же время. Это может "
+"быть полезно тогда, когда вы записываете разговоры с чата или записываете "
+"видеоролики в Интернет."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:16
 msgid ""
 "Saving in some commonly used formats. It supports AAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV"
-msgstr "Сохрание в самых привычных форматах. Reco поддерживает AAC, FLAC, MP3, Ogg "
+msgstr ""
+"Сохрание в самых привычных форматах. Reco поддерживает AAC, FLAC, MP3, Ogg "
 "Vorbis, Opus и WAV"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:17
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "the length of recording up to 600 seconds"
-msgstr "Запись по таймеру. Вы можете поставить задержку перед начало записи до 15 секундр и "
-"длительность записи до 600 секунд."
+msgstr ""
+"Запись по таймеру. Вы можете поставить задержку перед начало записи до 15 "
+"секундр и длительность записи до 600 секунд."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:18
 msgid ""
 "Autosaving or always-ask-where-to-save workflow. You can select whether the "
 "app saves recordings automatically or you choose a destination each time on "
 "saving them"
-msgstr "Автосохранение или всегда-спроси-куда-сохранить метод. Вы можете выбрать, хотите ли, чтобы"
-"приложение автоматически сохраняло запись, или вы будете решать место сохранение каждый раз, когда"
-"сохраняете их"
+msgstr ""
+"Автосохранение или всегда-спроси-куда-сохранить метод. Вы можете выбрать, "
+"хотите ли, чтобыприложение автоматически сохраняло запись, или вы будете "
+"решать место сохранение каждый раз, когдасохраняете их"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:19
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
 "while recording, the recording is saved automatically or a FileChooserDialog "
 "is shown depends on your saving setting"
-msgstr "Сохранение записи, когда вы выходите из приложения. Если вдруг вам необходимо выйти из"
-"приложения во время записи, то она, в зависимости от ваших настроек, будет сохраняться"
-"автоматически или вы будете выбирать место сохранения"
+msgstr ""
+"Сохранение записи, когда вы выходите из приложения. Если вдруг вам "
+"необходимо выйти изприложения во время записи, то она, в зависимости от "
+"ваших настроек, будет сохранятьсяавтоматически или вы будете выбирать место "
+"сохранения"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:24
 msgid "Welcome screen that allows you to set recording configuration"
 msgstr "Экран приветствия, позволяющий вам настроить конфигурацию записи"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:33
+#: data/com.github.ryonakano.reco.appdata.xml.in:28
 msgid "Recording screen"
 msgstr "Записываю экран"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:37
+#: data/com.github.ryonakano.reco.appdata.xml.in:32
 msgid "Recording is successfully finished"
 msgstr "Запись успешно закончена"
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:88
+#: data/com.github.ryonakano.reco.appdata.xml.in:71
+msgid "Add Turkish translation (by @safak45x)"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:72
+msgid "Add Russian translation (by @usmanovmax)"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:78
 msgid "Ryo Nakano"
 msgstr "Рё Накано"
 

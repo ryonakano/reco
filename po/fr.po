@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-30 14:59+0100\n"
+"POT-Creation-Date: 2020-05-15 10:11+0000\n"
 "PO-Revision-Date: 2019-01-16 22:17+0100\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: Français\n"
@@ -46,88 +46,88 @@ msgstr "Mettre en pause l'enregistrement"
 msgid "Resume recording"
 msgstr "Reprendre l'enregistrement"
 
-#: src/Views/WelcomeView.vala:33
+#: src/Views/WelcomeView.vala:32
 msgid "Recording"
 msgstr "Enregistrement"
 
-#: src/Views/WelcomeView.vala:35
+#: src/Views/WelcomeView.vala:34
 msgid "Delay in seconds:"
 msgstr "Délai en secondes :"
 
-#: src/Views/WelcomeView.vala:41
+#: src/Views/WelcomeView.vala:39
 msgid "Length in seconds:"
 msgstr "Longueur en secondes :"
 
-#: src/Views/WelcomeView.vala:47
+#: src/Views/WelcomeView.vala:44
 msgid "Record from:"
 msgstr "Enregistrer à partir de :"
 
-#: src/Views/WelcomeView.vala:51
+#: src/Views/WelcomeView.vala:48
 msgid "Microphone"
 msgstr "Micro"
 
-#: src/Views/WelcomeView.vala:52
+#: src/Views/WelcomeView.vala:49
 msgid "Computer"
 msgstr "Ordinateur"
 
-#: src/Views/WelcomeView.vala:53
+#: src/Views/WelcomeView.vala:50
 msgid "Both"
 msgstr "Les deux"
 
-#: src/Views/WelcomeView.vala:56
+#: src/Views/WelcomeView.vala:52
 msgid "Saving"
 msgstr "Sauvegarde"
 
-#: src/Views/WelcomeView.vala:58
+#: src/Views/WelcomeView.vala:54
 msgid "Format:"
 msgstr "Format :"
 
-#: src/Views/WelcomeView.vala:63
+#: src/Views/WelcomeView.vala:59
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:64
+#: src/Views/WelcomeView.vala:60
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:65
+#: src/Views/WelcomeView.vala:61
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:66
+#: src/Views/WelcomeView.vala:62
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:67
+#: src/Views/WelcomeView.vala:63
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:68
+#: src/Views/WelcomeView.vala:64
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:71
+#: src/Views/WelcomeView.vala:66
 msgid "Automatically save files:"
 msgstr "Sauvegarder automatiquement les fichiers :"
 
-#: src/Views/WelcomeView.vala:79
+#: src/Views/WelcomeView.vala:73
 msgid "Choose a default destination"
 msgstr "Sélectionner une destination par défaut"
 
-#: src/Views/WelcomeView.vala:105
+#: src/Views/WelcomeView.vala:98
 msgid "Start recording"
 msgstr "Démarrer l'enregistrement"
 
 #. /TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:139
+#: src/Views/WelcomeView.vala:129
 msgid "Recordings"
 msgstr "Enregistrements"
 
-#: src/MainWindow.vala:80
+#: src/MainWindow.vala:90
 msgid "Unable to Create an Audio File"
 msgstr "Impossible de créer un fichier audio"
 
-#: src/MainWindow.vala:81
+#: src/MainWindow.vala:91
 msgid ""
 "A GStreamer error happened while recording, the following error message may "
 "be helpful:"
@@ -136,19 +136,19 @@ msgstr ""
 "d'erreur suivant pourrait être utile :"
 
 #. /TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:94
+#: src/MainWindow.vala:104
 #, c-format
 msgid "Recording from %s"
 msgstr "En cours d'enregistrement depuis %s"
 
-#: src/MainWindow.vala:112
+#: src/MainWindow.vala:122
 msgid "Save your recording"
 msgstr "Sauvegardez votre enregistrement"
 
-#: src/MainWindow.vala:113
+#: src/MainWindow.vala:123
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: src/MainWindow.vala:113
+#: src/MainWindow.vala:123
 msgid "Cancel"
 msgstr "Annuler"
