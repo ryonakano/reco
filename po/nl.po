@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 10:11+0000\n"
+"POT-Creation-Date: 2020-05-15 10:19+0000\n"
 "PO-Revision-Date: 2019-03-29 14:04+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -124,7 +124,7 @@ msgstr "Kies een standaard opslagmap"
 msgid "Start recording"
 msgstr "Opname starten"
 
-#. /TRANSLATORS: The name of the folder which recordings are saved
+#. TRANSLATORS: The name of the folder which recordings are saved
 #: src/Views/WelcomeView.vala:129
 msgid "Recordings"
 msgstr "Opnamen"
@@ -141,7 +141,7 @@ msgstr ""
 "Er is een GStreamer-fout opgetreden tijdens het opnemen. De volgende "
 "foutmelding kan nuttig zijn:"
 
-#. /TRANSLATORS: %s represents a timestamp here
+#. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:104
 #, c-format
 msgid "Recording from %s"

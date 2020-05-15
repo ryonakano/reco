@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 10:11+0000\n"
+"POT-Creation-Date: 2020-05-15 10:19+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Sharigami <usmanovmax@protonmail.com>\n"
 "Language-Team: \n"
@@ -119,7 +119,7 @@ msgstr "Выберите место по умолчанию"
 msgid "Start recording"
 msgstr "Начать запись"
 
-#. /TRANSLATORS: The name of the folder which recordings are saved
+#. TRANSLATORS: The name of the folder which recordings are saved
 #: src/Views/WelcomeView.vala:129
 msgid "Recordings"
 msgstr "Записи"
@@ -136,7 +136,7 @@ msgstr ""
 "Произошла ошибка \"GStreamer\" во время записи, следующее сообщение ошибки "
 "может быть полезным:"
 
-#. /TRANSLATORS: %s represents a timestamp here
+#. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:104
 #, c-format
 msgid "Recording from %s"

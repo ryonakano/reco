@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 10:11+0000\n"
+"POT-Creation-Date: 2020-05-15 10:19+0000\n"
 "PO-Revision-Date: 2019-01-16 22:17+0100\n"
 "Last-Translator: Safak Genisol (@safak45x)\n"
 "Language-Team: Turkish\n"
@@ -118,7 +118,7 @@ msgstr "Varsayılan bir hedef seçin"
 msgid "Start recording"
 msgstr "Kayda Başla"
 
-#. /TRANSLATORS: The name of the folder which recordings are saved
+#. TRANSLATORS: The name of the folder which recordings are saved
 #: src/Views/WelcomeView.vala:129
 msgid "Recordings"
 msgstr "Kayıtlar"
@@ -135,7 +135,7 @@ msgstr ""
 "Kayıt sırasında GStreamer hatası meydana geldi,aşağıdaki hata iletisi "
 "yararlı olabilir :"
 
-#. /TRANSLATORS: %s represents a timestamp here
+#. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:104
 #, c-format
 msgid "Recording from %s"
