@@ -8,31 +8,27 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-15 10:19+0000\n"
-"PO-Revision-Date: 2019-09-17 08:24-0500\n"
+"PO-Revision-Date: 2020-05-29 09:19-0500\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/Views/CountDownView.vala:48
-#, fuzzy
 msgid "Cancel the countdown"
-msgstr "Cancelar grabación"
+msgstr "Cancelar cuenta regresiva"
 
 #: src/Views/CountDownView.vala:54 src/Views/CountDownView.vala:125
 #: src/Views/CountDownView.vala:147
-#, fuzzy
 msgid "Pause the countdown"
-msgstr "Pausar grabación"
+msgstr "Pausar cuenta regresiva"
 
 #: src/Views/CountDownView.vala:138
-#, fuzzy
 msgid "Resume the countdown"
-msgstr "Reanudar grabación"
+msgstr "Reanudar cuenta regresiva"
 
 #: src/Views/RecordView.vala:62
 msgid "Cancel recording"
@@ -64,21 +60,20 @@ msgid "Length in seconds:"
 msgstr "Duración en segundos:"
 
 #: src/Views/WelcomeView.vala:44
-#, fuzzy
 msgid "Record from:"
-msgstr "Grabación desde %s"
+msgstr "Grabar desde:"
 
 #: src/Views/WelcomeView.vala:48
 msgid "Microphone"
-msgstr ""
+msgstr "Micrófono"
 
 #: src/Views/WelcomeView.vala:49
 msgid "Computer"
-msgstr ""
+msgstr "Computador"
 
 #: src/Views/WelcomeView.vala:50
 msgid "Both"
-msgstr ""
+msgstr "Ambos"
 
 #: src/Views/WelcomeView.vala:52
 msgid "Saving"
