@@ -31,18 +31,13 @@ public class Recorder : Object {
     }
 
     public void start_recording () {
-        /*
-        * When the value is 0, the app records sounds from a microphone.
-        * When the value is 1, the app records system sounds.
-        * When the value is 2, both sounds from the system and a microphone are recorded.
-        */
-        int device_id = Application.settings.get_enum ("device");
+        SourceDevice device_id = (SourceDevice) Application.settings.get_enum ("device");
 
         pipeline = new Gst.Pipeline ("pipeline");
         var mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
         var sink = Gst.ElementFactory.make ("filesink", "sink");
 
-        if (device_id != 0) {
+        if (device_id != SourceDevice.MIC) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
                 error ("The GStreamer element pulsesrc (named \"sys_sound\") was not created correctly");
@@ -57,7 +52,7 @@ public class Recorder : Object {
             error ("The GStreamer element filesink was not created correctly");
         }
 
-        if (device_id != 0) {
+        if (device_id != SourceDevice.MIC) {
             string default_output = "";
             try {
                 string sound_devices = "";
@@ -77,7 +72,7 @@ public class Recorder : Object {
             }
         }
 
-        if (device_id != 1) {
+        if (device_id != SourceDevice.SYSTEM) {
             string default_input = "";
             try {
                 string sound_devices = "";
@@ -143,15 +138,15 @@ public class Recorder : Object {
 
         pipeline.add_many (encoder, sink);
         switch (device_id) {
-            case 0:
+            case SourceDevice.MIC:
                 pipeline.add_many (mic_sound);
                 mic_sound.link (encoder);
                 break;
-            case 1:
+            case SourceDevice.SYSTEM:
                 pipeline.add_many (sys_sound);
                 sys_sound.link (encoder);
                 break;
-            case 2:
+            case SourceDevice.BOTH:
                 var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
                 pipeline.add_many (mic_sound, sys_sound, mixer);
                 mic_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
@@ -229,5 +224,11 @@ public class Recorder : Object {
             default:
                 assert_not_reached ();
         }
+    }
+
+    private enum SourceDevice {
+        MIC,
+        SYSTEM,
+        BOTH
     }
 }
