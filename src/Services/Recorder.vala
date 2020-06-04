@@ -37,7 +37,7 @@ public class Recorder : Object {
         var mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
         var sink = Gst.ElementFactory.make ("filesink", "sink");
 
-        if (device_id != SourceDevice.FROM_MIC) {
+        if (device_id != SourceDevice.MIC) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
                 error ("The GStreamer element pulsesrc (named \"sys_sound\") was not created correctly");
@@ -52,7 +52,7 @@ public class Recorder : Object {
             error ("The GStreamer element filesink was not created correctly");
         }
 
-        if (device_id != SourceDevice.FROM_MIC) {
+        if (device_id != SourceDevice.MIC) {
             string default_output = "";
             try {
                 string sound_devices = "";
@@ -72,7 +72,7 @@ public class Recorder : Object {
             }
         }
 
-        if (device_id != SourceDevice.FROM_SYSTEM) {
+        if (device_id != SourceDevice.SYSTEM) {
             string default_input = "";
             try {
                 string sound_devices = "";
@@ -138,11 +138,11 @@ public class Recorder : Object {
 
         pipeline.add_many (encoder, sink);
         switch (device_id) {
-            case SourceDevice.FROM_MIC:
+            case SourceDevice.MIC:
                 pipeline.add_many (mic_sound);
                 mic_sound.link (encoder);
                 break;
-            case SourceDevice.FROM_SYSTEM:
+            case SourceDevice.SYSTEM:
                 pipeline.add_many (sys_sound);
                 sys_sound.link (encoder);
                 break;
@@ -227,8 +227,8 @@ public class Recorder : Object {
     }
 
     private enum SourceDevice {
-        FROM_MIC,
-        FROM_SYSTEM,
+        MIC,
+        SYSTEM,
         BOTH
     }
 }
