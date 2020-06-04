@@ -2,7 +2,7 @@
 <schemalist>
   <enum id="devicelist">
     <value value="0" nick="mic"/>
-    <value value="1" nick="pc"/>
+    <value value="1" nick="system"/>
     <value value="2" nick="both"/>
   </enum>
   <enum id="formatlist">

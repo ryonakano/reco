@@ -46,7 +46,7 @@ public class WelcomeView : Gtk.Box {
         var system_sound_combobox = new Gtk.ComboBoxText ();
         system_sound_combobox.halign = Gtk.Align.START;
         system_sound_combobox.append ("mic", _("Microphone"));
-        system_sound_combobox.append ("pc", _("Computer"));
+        system_sound_combobox.append ("system", _("Computer"));
         system_sound_combobox.append ("both", _("Both"));
 
         var saving_header_label = new Granite.HeaderLabel (_("Saving"));
