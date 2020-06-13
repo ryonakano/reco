@@ -12,5 +12,5 @@ Standards-Version: 4.1.1
 
 Package: com.github.ryonakano.reco
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, gstreamer1.0-libav
 Description: Record talks to remember the contents later
