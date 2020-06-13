@@ -28,13 +28,17 @@ Arch Linux users can find Reco under the name [reco-git](https://aur.archlinux.o
 
 ### For Developers
 
-You'll need the following dependencies:
+You'll need the following dependencies to build:
 
 * libgtk-3.0-dev
 * libgranite-dev (>= 5.4.0)
 * libgstreamer1.0-dev
 * meson
 * valac
+
+You'll need the following dependencies to run:
+
+* gstreamer1.0-libav
 
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
 
