@@ -39,6 +39,16 @@
       <default>''</default>
       <summary>Default destination</summary>
     </key>
+    <key name="is-prefer-dark" type="b">
+      <default>false</default>
+      <summary>Prefer dark</summary>
+      <description>Whether to show the window in a dark style or not</description>
+    </key>
+    <key name="is-follow-system-style" type="b">
+      <default>true</default>
+      <summary>Follow system style</summary>
+      <description>Whether to follow system's dark style settings or not</description>
+    </key>
     <key name="window-position" type="(ii)">
       <default>(-1, -1)</default>
       <summary>Window position</summary>

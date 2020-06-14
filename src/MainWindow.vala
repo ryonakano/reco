@@ -40,20 +40,45 @@ public class MainWindow : Gtk.ApplicationWindow {
                                                     cssprovider,
                                                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        // Follow elementary OS-wide dark preference
-        var granite_settings = Granite.Settings.get_default ();
-        var gtk_settings = Gtk.Settings.get_default ();
+        var mode_switch = new Granite.ModeSwitch.from_icon_name (
+            "display-brightness-symbolic",
+            "weather-clear-night-symbolic"
+        );
+        mode_switch.primary_icon_tooltip_text = _("Light background");
+        mode_switch.secondary_icon_tooltip_text = _("Dark background");
+        mode_switch.valign = Gtk.Align.CENTER;
 
-        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+        //TRANSLATORS: Whether to follow system's dark style settings
+        var follow_system_label = new Gtk.Label (_("Follow system style:"));
+        follow_system_label.halign = Gtk.Align.END;
 
-        granite_settings.notify["prefers-color-scheme"].connect (() => {
-            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+        var follow_system_switch = new Gtk.Switch ();
+        follow_system_switch.halign = Gtk.Align.START;
+
+        var preferences_grid = new Gtk.Grid ();
+        preferences_grid.margin = 12;
+        preferences_grid.column_spacing = 6;
+        preferences_grid.row_spacing = 6;
+        preferences_grid.attach (follow_system_label, 0, 0);
+        preferences_grid.attach (follow_system_switch, 1, 0);
+
+        var preferences_button_icon = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+        var preferences_button = new Gtk.ToolButton (preferences_button_icon, null);
+        preferences_button.tooltip_text = _("Preferences");
+
+        var preferences_popover = new Gtk.Popover (preferences_button);
+        preferences_popover.add (preferences_grid);
+
+        preferences_button.clicked.connect (() => {
+            preferences_popover.show_all ();
         });
 
         var headerbar = new Gtk.HeaderBar ();
         headerbar.title = "";
         headerbar.has_subtitle = false;
         headerbar.show_close_button = true;
+        headerbar.pack_end (preferences_button);
+        headerbar.pack_end (mode_switch);
 
         var headerbar_style_context = headerbar.get_style_context ();
         headerbar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
@@ -146,6 +171,28 @@ public class MainWindow : Gtk.ApplicationWindow {
                 filechooser.destroy ();
             }
         });
+
+        var granite_settings = Granite.Settings.get_default ();
+        var gtk_settings = Gtk.Settings.get_default ();
+
+        granite_settings.notify["prefers-color-scheme"].connect (() => {
+            if (Application.settings.get_boolean ("is-follow-system-style")) {
+                gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+            }
+        });
+
+        follow_system_switch.notify["active"].connect (() => {
+            if (follow_system_switch.active) {
+                gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+            } else {
+                gtk_settings.gtk_application_prefer_dark_theme = Application.settings.get_boolean ("is-prefer-dark");
+            }
+        });
+
+        Application.settings.bind ("is-prefer-dark", mode_switch, "active", GLib.SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("is-prefer-dark", gtk_settings, "gtk-application-prefer-dark-theme", GLib.SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("is-follow-system-style", follow_system_switch, "active", GLib.SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("is-follow-system-style", mode_switch, "sensitive", GLib.SettingsBindFlags.INVERT_BOOLEAN);
     }
 
     public void show_welcome () {
