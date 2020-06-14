@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 10:19+0000\n"
+"POT-Creation-Date: 2020-06-14 23:04+0000\n"
 "PO-Revision-Date: 2019-01-16 22:17+0100\n"
 "Last-Translator: Safak Genisol (@safak45x)\n"
 "Language-Team: Turkish\n"
@@ -123,11 +123,28 @@ msgstr "Kayda Başla"
 msgid "Recordings"
 msgstr "Kayıtlar"
 
-#: src/MainWindow.vala:90
+#: src/MainWindow.vala:47
+msgid "Light background"
+msgstr ""
+
+#: src/MainWindow.vala:48
+msgid "Dark background"
+msgstr ""
+
+#. TRANSLATORS: Whether to follow system's dark style settings
+#: src/MainWindow.vala:52
+msgid "Follow system style:"
+msgstr ""
+
+#: src/MainWindow.vala:67
+msgid "Preferences"
+msgstr ""
+
+#: src/MainWindow.vala:115
 msgid "Unable to Create an Audio File"
 msgstr "Ses Dosyası Oluşturulamıyor"
 
-#: src/MainWindow.vala:91
+#: src/MainWindow.vala:116
 msgid ""
 "A GStreamer error happened while recording, the following error message may "
 "be helpful:"
@@ -136,19 +153,19 @@ msgstr ""
 "yararlı olabilir :"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:104
+#: src/MainWindow.vala:129
 #, c-format
 msgid "Recording from %s"
 msgstr "Kayıt yeri %s"
 
-#: src/MainWindow.vala:122
+#: src/MainWindow.vala:147
 msgid "Save your recording"
 msgstr "Kaydı kaydedin"
 
-#: src/MainWindow.vala:123
+#: src/MainWindow.vala:148
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/MainWindow.vala:123
+#: src/MainWindow.vala:148
 msgid "Cancel"
 msgstr "İptal"
