@@ -13,6 +13,10 @@
     <value value="4" nick="opus"/>
     <value value="5" nick="wav"/>
   </enum>
+  <enum id="channelslist">
+    <value value="1" nick="mono"/>
+    <value value="2" nick="stereo"/>
+  </enum>
 
   <schema path="/com/github/ryonakano/reco/" id="com.github.ryonakano.reco">
     <key name="delay" type="i">
@@ -30,6 +34,10 @@
     <key name="format" enum="formatlist">
       <default>'wav'</default>
       <summary>Format</summary>
+    </key>
+    <key name="channels" enum="channelslist">
+      <default>'stereo'</default>
+      <summary>Audio channels</summary>
     </key>
     <key name="auto-save" type="b">
       <default>true</default>

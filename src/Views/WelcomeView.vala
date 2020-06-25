@@ -49,6 +49,13 @@ public class WelcomeView : Gtk.Box {
         system_sound_combobox.append ("system", _("Computer"));
         system_sound_combobox.append ("both", _("Both"));
 
+        var channels_label = new Gtk.Label (_("Channels:"));
+        channels_label.halign = Gtk.Align.END;
+        var channels_combobox = new Gtk.ComboBoxText ();
+        channels_combobox.halign = Gtk.Align.START;
+        channels_combobox.append ("mono", _("Mono"));
+        channels_combobox.append ("stereo", _("Stereo"));
+
         var saving_header_label = new Granite.HeaderLabel (_("Saving"));
 
         var format_label = new Gtk.Label (_("Format:"));
@@ -86,12 +93,14 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (length_spin, 1, 2, 1, 1);
         settings_grid.attach (system_sound_label, 0, 3, 1, 1);
         settings_grid.attach (system_sound_combobox, 1, 3, 1, 1);
-        settings_grid.attach (saving_header_label, 0, 4, 1, 1);
-        settings_grid.attach (format_label, 0, 5, 1, 1);
-        settings_grid.attach (format_combobox, 1, 5, 1, 1);
-        settings_grid.attach (auto_save_label, 0, 6, 1, 1);
-        settings_grid.attach (auto_save_switch, 1, 6, 1, 1);
-        settings_grid.attach (destination_chooser, 1, 7, 1, 1);
+        settings_grid.attach (channels_label, 0, 4, 1, 1);
+        settings_grid.attach (channels_combobox, 1, 4, 1, 1);
+        settings_grid.attach (saving_header_label, 0, 5, 1, 1);
+        settings_grid.attach (format_label, 0, 6, 1, 1);
+        settings_grid.attach (format_combobox, 1, 6, 1, 1);
+        settings_grid.attach (auto_save_label, 0, 7, 1, 1);
+        settings_grid.attach (auto_save_switch, 1, 7, 1, 1);
+        settings_grid.attach (destination_chooser, 1, 8, 1, 1);
 
         record_button = new Gtk.Button ();
         record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
@@ -109,6 +118,7 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("device", system_sound_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("channels", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("auto-save", auto_save_switch, "active", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("auto-save", destination_chooser, "sensitive", SettingsBindFlags.DEFAULT);
 
