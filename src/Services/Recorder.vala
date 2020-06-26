@@ -27,6 +27,12 @@ public class Recorder : Object {
     private Gst.Pipeline pipeline;
     private Gst.Element sys_sound;
 
+    private enum SourceDevice {
+        MIC,
+        SYSTEM,
+        BOTH
+    }
+
     private enum Channels {
         MONO = 1,
         STEREO = 2
