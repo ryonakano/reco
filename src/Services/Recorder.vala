@@ -231,10 +231,4 @@ public class Recorder : Object {
                 assert_not_reached ();
         }
     }
-
-    private enum SourceDevice {
-        MIC,
-        SYSTEM,
-        BOTH
-    }
 }
