@@ -1,3 +1,14 @@
+com.github.ryonakano.reco (2.4.0) bionic; urgency=medium
+
+  * Respect an elementary OS-wide dark preference
+  * Allow setting per-app dark style preference
+  * Allow choosing stereo or mono
+  * Update Spanish translation (thanks to @CCaroV)
+  * Update Japanese translation
+  * Explicit gstreamer1.0-libav as a dependency to fix a potential crash when trying to record in AAC
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Thu, 02 Jul 2020 21:24:01 +0900
+
 com.github.ryonakano.reco (2.3.2) bionic; urgency=low
 
   * Update translations
