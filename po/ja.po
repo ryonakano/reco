@@ -1,14 +1,14 @@
 # Japanese translations for com.github.ryonakano.reco package.
 # Copyright (C) 2018 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2018.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-02 12:11+0000\n"
-"PO-Revision-Date: 2019-11-11 21:09+0900\n"
+"PO-Revision-Date: 2020-07-02 21:18+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -77,15 +77,15 @@ msgstr "両方"
 
 #: src/Views/WelcomeView.vala:52
 msgid "Channels:"
-msgstr ""
+msgstr "チャンネル:"
 
 #: src/Views/WelcomeView.vala:56
 msgid "Mono"
-msgstr ""
+msgstr "モノラル"
 
 #: src/Views/WelcomeView.vala:57
 msgid "Stereo"
-msgstr ""
+msgstr "ステレオ"
 
 #: src/Views/WelcomeView.vala:59
 msgid "Saving"
@@ -138,20 +138,20 @@ msgstr "レコーディング"
 
 #: src/MainWindow.vala:47
 msgid "Light background"
-msgstr ""
+msgstr "ライトモード"
 
 #: src/MainWindow.vala:48
 msgid "Dark background"
-msgstr ""
+msgstr "ダークモード"
 
 #. TRANSLATORS: Whether to follow system's dark style settings
 #: src/MainWindow.vala:52
 msgid "Follow system style:"
-msgstr ""
+msgstr "システムのスタイルに従う:"
 
 #: src/MainWindow.vala:67
 msgid "Preferences"
-msgstr ""
+msgstr "設定"
 
 #: src/MainWindow.vala:115
 msgid "Unable to Create an Audio File"
