@@ -33,6 +33,11 @@ public class Recorder : Object {
         BOTH
     }
 
+    private enum Channels {
+        MONO = 1,
+        STEREO = 2
+    }
+
     construct {
     }
 
@@ -142,22 +147,26 @@ public class Recorder : Object {
         sink.set ("location", tmp_full_path);
         debug ("The recording is temporary stored at %s", tmp_full_path);
 
-        pipeline.add_many (encoder, sink);
+        // Dual-channelization
+        var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
+        caps_filter.set ("caps", new Gst.Caps.simple ("audio/x-raw", "channels", GLib.Type.INT, (Channels) Application.settings.get_enum ("channels")));
+        pipeline.add_many (caps_filter, encoder, sink);
+
         switch (device_id) {
             case SourceDevice.MIC:
                 pipeline.add_many (mic_sound);
-                mic_sound.link (encoder);
+                mic_sound.link_many (caps_filter, encoder);
                 break;
             case SourceDevice.SYSTEM:
                 pipeline.add_many (sys_sound);
-                sys_sound.link (encoder);
+                sys_sound.link_many (caps_filter, encoder);
                 break;
             case SourceDevice.BOTH:
                 var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
                 pipeline.add_many (mic_sound, sys_sound, mixer);
                 mic_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
                 sys_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
-                mixer.link (encoder);
+                mixer.link_many (caps_filter, encoder);
                 break;
             default:
                 assert_not_reached ();
