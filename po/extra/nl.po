@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-02 12:11+0000\n"
+"POT-Creation-Date: 2020-07-02 12:32+0000\n"
 "PO-Revision-Date: 2019-03-29 14:04+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -85,14 +85,32 @@ msgid "Recording is successfully finished"
 msgstr "Opname is afgerond"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:71
-msgid "Add Turkish translation (by @safak45x)"
+msgid "Respect an elementary OS-wide dark preference"
 msgstr ""
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:72
-msgid "Add Russian translation (by @usmanovmax)"
+msgid "Allow setting per-app dark style preference"
 msgstr ""
 
-#: data/com.github.ryonakano.reco.appdata.xml.in:78
+#: data/com.github.ryonakano.reco.appdata.xml.in:73
+msgid "Allow choosing stereo or mono"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:74
+msgid "Update Spanish translation (thanks to @CCaroV)"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:75
+msgid "Update Japanese translation"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:76
+msgid ""
+"Explicit gstreamer1.0-libav as a dependency to fix a potential crash when "
+"trying to record in AAC"
+msgstr ""
+
+#: data/com.github.ryonakano.reco.appdata.xml.in:82
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 
