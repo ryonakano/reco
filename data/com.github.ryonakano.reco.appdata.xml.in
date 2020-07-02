@@ -65,11 +65,15 @@
   </content_rating>
 
   <releases>
-    <release version="2.3.2" date="2020-03-28" urgency="low">
+    <release version="2.4.0" date="2020-07-02" urgency="medium">
       <description>
         <ul>
-          <li>Add Turkish translation (by @safak45x)</li>
-          <li>Add Russian translation (by @usmanovmax)</li>
+          <li>Respect an elementary OS-wide dark preference</li>
+          <li>Allow setting per-app dark style preference</li>
+          <li>Allow choosing stereo or mono</li>
+          <li>Update Spanish translation (thanks to @CCaroV)</li>
+          <li>Update Japanese translation</li>
+          <li>Explicit gstreamer1.0-libav as a dependency to fix a potential crash when trying to record in AAC</li>
         </ul>
       </description>
     </release>
