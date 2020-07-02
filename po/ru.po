@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-14 23:04+0000\n"
+"POT-Creation-Date: 2020-07-02 12:11+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Sharigami <usmanovmax@protonmail.com>\n"
 "Language-Team: \n"
@@ -76,51 +76,63 @@ msgid "Both"
 msgstr "Оба"
 
 #: src/Views/WelcomeView.vala:52
+msgid "Channels:"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:56
+msgid "Mono"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:57
+msgid "Stereo"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:59
 msgid "Saving"
 msgstr "Сохраняю"
 
-#: src/Views/WelcomeView.vala:54
+#: src/Views/WelcomeView.vala:61
 msgid "Format:"
 msgstr "Формат:"
 
-#: src/Views/WelcomeView.vala:59
+#: src/Views/WelcomeView.vala:66
 msgid "AAC"
 msgstr "ААС"
 
-#: src/Views/WelcomeView.vala:60
+#: src/Views/WelcomeView.vala:67
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:61
+#: src/Views/WelcomeView.vala:68
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:62
+#: src/Views/WelcomeView.vala:69
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:63
+#: src/Views/WelcomeView.vala:70
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:64
+#: src/Views/WelcomeView.vala:71
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:66
+#: src/Views/WelcomeView.vala:73
 msgid "Automatically save files:"
 msgstr "Автоматически сохранять файлы:"
 
-#: src/Views/WelcomeView.vala:73
+#: src/Views/WelcomeView.vala:80
 msgid "Choose a default destination"
 msgstr "Выберите место по умолчанию"
 
-#: src/Views/WelcomeView.vala:98
+#: src/Views/WelcomeView.vala:107
 msgid "Start recording"
 msgstr "Начать запись"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:129
+#: src/Views/WelcomeView.vala:139
 msgid "Recordings"
 msgstr "Записи"
 
