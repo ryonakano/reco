@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-02 12:32+0000\n"
-"PO-Revision-Date: 2019-03-29 14:04+0100\n"
+"PO-Revision-Date: 2020-07-03 12:30+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.3.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:7
@@ -31,8 +31,8 @@ msgstr "Neem gesprekken op om ze later terug te luisteren"
 #: data/com.github.ryonakano.reco.appdata.xml.in:10
 msgid "An audio recording app that helps you recall things talked later."
 msgstr ""
-"Een audio-opnameapp die je helpt om op een later moment gesprekken terug te "
-"luisteren."
+"Een audio-opnametoepassing die je helpt om op een later moment gesprekken "
+"terug te luisteren."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:13
 msgid "Features include:"
@@ -44,19 +44,24 @@ msgid ""
 "would be useful when you record conversations with chat apps or stream "
 "videos on the Internet"
 msgstr ""
+"Neem tegelijkertijd audio op van je microfoon en computer. Dit kan handig "
+"zijn als je gesprekken van chattoepassingen of videostreams wilt opnemen."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:16
-#, fuzzy
 msgid ""
 "Saving in some commonly used formats. It supports AAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV"
-msgstr "Beschikbare formaten: AAC, FLAC, MP3, Ogg Vorbis, Opus en WAV"
+msgstr ""
+"Reco ondersteunt de gebruikelijke formaten: AAC, FLAC, MP3, Ogg Vorbis, Opus "
+"en WAV"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:17
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "the length of recording up to 600 seconds"
 msgstr ""
+"Tijdsopname. Je kunt instellen dat de opname met max. 15 seconden vertraging "
+"moet beginnen en de duur van de opname max. 600 seconden moet duren."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:18
 msgid ""
@@ -64,6 +69,9 @@ msgid ""
 "app saves recordings automatically or you choose a destination each time on "
 "saving them"
 msgstr ""
+"Automatisch opslaan of altijd zelf een locatie kiezen. Je kunt aangeven of "
+"Reco opnames automatisch moet opslaan of dat je na elke opname wordt "
+"gevraagd een locatie te kiezen."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:19
 msgid ""
@@ -71,6 +79,9 @@ msgid ""
 "while recording, the recording is saved automatically or a FileChooserDialog "
 "is shown depends on your saving setting"
 msgstr ""
+"De opname wordt opgeslagen als je Reco afsluit, zélfs als je afsluit tijdens "
+"een opname. Dit gebeurt ofwel automatisch, ofwel handmatig, afhankelijk van "
+"je opslaginstellingen."
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:24
 msgid "Welcome screen that allows you to set recording configuration"
@@ -86,29 +97,31 @@ msgstr "Opname is afgerond"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:71
 msgid "Respect an elementary OS-wide dark preference"
-msgstr ""
+msgstr "Ondersteuning voor elementary OS' donkere thema"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:72
 msgid "Allow setting per-app dark style preference"
-msgstr ""
+msgstr "Ondersteuning voor donker thema per toepassing"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:73
 msgid "Allow choosing stereo or mono"
-msgstr ""
+msgstr "Altijd keuze tussen stereo of mono"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:74
 msgid "Update Spanish translation (thanks to @CCaroV)"
-msgstr ""
+msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:75
 msgid "Update Japanese translation"
-msgstr ""
+msgstr "Japanse vertaling bijgewerkt"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:76
 msgid ""
 "Explicit gstreamer1.0-libav as a dependency to fix a potential crash when "
 "trying to record in AAC"
 msgstr ""
+"gstreamer1.0-libav is voortaan een verplichte afhankelijkheid om te "
+"voorkomen dat Reco crasht tijdens het opnemen in AAC-formaat"
 
 #: data/com.github.ryonakano.reco.appdata.xml.in:82
 msgid "Ryo Nakano"
@@ -116,7 +129,7 @@ msgstr "Ryo Nakano"
 
 #: data/com.github.ryonakano.reco.desktop.in:4
 msgid "Audio Recording App"
-msgstr "Audio-opnameapp"
+msgstr "Audio-opnametoepassing"
 
 #: data/com.github.ryonakano.reco.desktop.in:8
 msgid "com.github.ryonakano.reco"
