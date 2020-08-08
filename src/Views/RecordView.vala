@@ -25,14 +25,14 @@ public class RecordView : Gtk.Box {
     private Gtk.Button pause_button;
     private uint count;
     private uint countdown;
-    private int past_minutes_10;
-    private int past_minutes_1;
-    private int past_seconds_10;
-    private int past_seconds_1;
-    private int remain_minutes_10;
-    private int remain_minutes_1;
-    private int remain_seconds_10;
-    private int remain_seconds_1;
+    private uint past_minutes_10;
+    private uint past_minutes_1;
+    private uint past_seconds_10;
+    private uint past_seconds_1;
+    private uint remain_minutes_10;
+    private uint remain_minutes_1;
+    private uint remain_seconds_10;
+    private uint remain_seconds_1;
 
     public RecordView (MainWindow window) {
         Object (
@@ -120,7 +120,7 @@ public class RecordView : Gtk.Box {
             } else {
                 start_count ();
 
-                if (Application.settings.get_int ("length") != 0) {
+                if (Application.settings.get_uint ("length") != 0) {
                     start_countdown ();
                 }
 
@@ -197,8 +197,8 @@ public class RecordView : Gtk.Box {
         }
     }
 
-    public void init_countdown (int remaining_time) {
-        int remain_minutes = remaining_time / 60;
+    public void init_countdown (uint remaining_time) {
+        uint remain_minutes = remaining_time / 60;
         if (remain_minutes < 10) {
             remain_minutes_10 = 0;
             remain_minutes_1 = remain_minutes;
@@ -207,7 +207,7 @@ public class RecordView : Gtk.Box {
             remain_minutes_1 = remain_minutes % 10;
         }
 
-        int remain_seconds = remaining_time % 60;
+        uint remain_seconds = remaining_time % 60;
         if (remain_seconds < 10) {
             remain_seconds_10 = 0;
             remain_seconds_1 = remain_seconds;
@@ -266,7 +266,7 @@ public class RecordView : Gtk.Box {
         });
     }
 
-    private void show_timer_label (Gtk.Label label, int minutes_10, int minutes_1, int seconds_10, int seconds_1) {
-        label.label = "%i%i:%i%i".printf (minutes_10, minutes_1, seconds_10, seconds_1);
+    private void show_timer_label (Gtk.Label label, uint minutes_10, uint minutes_1, uint seconds_10, uint seconds_1) {
+        label.label = "%ld%ld:%ld%ld".printf (minutes_10, minutes_1, seconds_10, seconds_1);
     }
 }
