@@ -19,8 +19,8 @@ public class CountDownView : Gtk.Box {
     public MainWindow window { get; construct; }
     private Gtk.Label delay_remaining_label;
     private Gtk.Button pause_button;
-    private int paused_time;
-    private int delay_remaining_time;
+    private uint paused_time;
+    private uint delay_remaining_time;
     private uint countdown;
     private bool is_paused;
 
@@ -148,7 +148,7 @@ public class CountDownView : Gtk.Box {
         }
     }
 
-    private int init_delay_remaining_time () {
-        return paused_time != 0 ? paused_time : Application.settings.get_int ("delay");
+    private uint init_delay_remaining_time () {
+        return paused_time != 0 ? paused_time : Application.settings.get_uint ("delay");
     }
 }

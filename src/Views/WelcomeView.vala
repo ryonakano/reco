@@ -163,7 +163,7 @@ public class WelcomeView : Gtk.Box {
     }
 
     public void trigger_recording () {
-        if (Application.settings.get_int ("delay") != 0) {
+        if (Application.settings.get_uint ("delay") != 0) {
             window.show_countdown ();
         } else {
             window.show_record ();

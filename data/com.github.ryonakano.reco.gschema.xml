@@ -19,11 +19,11 @@
   </enum>
 
   <schema path="/com/github/ryonakano/reco/" id="com.github.ryonakano.reco">
-    <key name="delay" type="i">
+    <key name="delay" type="u">
       <default>0</default>
       <summary>Delay in seconds</summary>
     </key>
-    <key name="length" type="i">
+    <key name="length" type="u">
       <default>0</default>
       <summary>Length in seconds</summary>
     </key>

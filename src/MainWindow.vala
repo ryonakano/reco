@@ -207,7 +207,7 @@ public class MainWindow : Gtk.ApplicationWindow {
     public void show_record () {
         recorder.start_recording ();
 
-        int record_length = Application.settings.get_int ("length");
+        uint record_length = Application.settings.get_uint ("length");
         if (record_length != 0) {
             record_view.init_countdown (record_length);
         }
