@@ -149,26 +149,27 @@ public class MainWindow : Gtk.ApplicationWindow {
                 filechooser.set_current_name (filename + suffix);
                 filechooser.set_filename (destination);
                 filechooser.do_overwrite_confirmation = true;
+                filechooser.show ();
 
-                if (filechooser.run () == Gtk.ResponseType.ACCEPT) {
-                    try {
-                        var uri = File.new_for_path (filechooser.get_filename ());
+                filechooser.response.connect ((response_id) => {
+                    if (response_id == Gtk.ResponseType.ACCEPT) {
+                        try {
+                            var uri = File.new_for_path (filechooser.get_filename ());
 
-                        if (tmp_source.move (uri, FileCopyFlags.OVERWRITE)) {
-                            welcome_view.show_success_button ();
+                            if (tmp_source.move (uri, FileCopyFlags.OVERWRITE)) {
+                                welcome_view.show_success_button ();
+                            }
+                        } catch (Error e) {
+                            warning (e.message);
                         }
-                    } catch (Error e) {
-                        warning (e.message);
+                    } else {
+                        try {
+                            tmp_source.delete ();
+                        } catch (Error e) {
+                            warning (e.message);
+                        }
                     }
-                } else {
-                    try {
-                        tmp_source.delete ();
-                    } catch (Error e) {
-                        warning (e.message);
-                    }
-                }
-
-                filechooser.destroy ();
+                });
             }
         });
 
