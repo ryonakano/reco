@@ -187,8 +187,7 @@ public class Recorder : Object {
     private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
         switch (msg.type) {
             case Gst.MessageType.ERROR:
-                set_recording_state (Gst.State.NULL);
-                pipeline.dispose ();
+                cancel_recording ();
 
                 Error err;
                 string debug;
