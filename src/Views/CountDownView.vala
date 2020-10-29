@@ -37,29 +37,33 @@ public class CountDownView : Gtk.Box {
         delay_remaining_label = new Gtk.Label (null);
         delay_remaining_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
-        var label_grid = new Gtk.Grid ();
-        label_grid.column_spacing = 6;
-        label_grid.row_spacing = 6;
-        label_grid.halign = Gtk.Align.CENTER;
+        var label_grid = new Gtk.Grid () {
+            column_spacing = 6,
+            row_spacing = 6,
+            halign = Gtk.Align.CENTER
+        };
         label_grid.attach (delay_remaining_label, 0, 1, 1, 1);
 
-        var cancel_button = new Gtk.Button ();
-        cancel_button.image = new Gtk.Image.from_icon_name ("user-trash-symbolic", Gtk.IconSize.BUTTON);
-        cancel_button.tooltip_text = _("Cancel the countdown");
+        var cancel_button = new Gtk.Button () {
+            image = new Gtk.Image.from_icon_name ("user-trash-symbolic", Gtk.IconSize.BUTTON),
+            tooltip_text = _("Cancel the countdown"),
+            halign = Gtk.Align.START
+        };
         cancel_button.get_style_context ().add_class ("buttons-without-border");
-        cancel_button.halign = Gtk.Align.START;
 
-        pause_button = new Gtk.Button ();
-        pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
-        pause_button.tooltip_text = _("Pause the countdown");
+        pause_button = new Gtk.Button () {
+            image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON),
+            tooltip_text = _("Pause the countdown"),
+            halign = Gtk.Align.END
+        };
         pause_button.get_style_context ().add_class ("buttons-without-border");
-        pause_button.halign = Gtk.Align.END;
 
-        var buttons_grid = new Gtk.Grid ();
-        buttons_grid.column_spacing = 30;
-        buttons_grid.row_spacing = 6;
-        buttons_grid.margin_top = 12;
-        buttons_grid.halign = Gtk.Align.CENTER;
+        var buttons_grid = new Gtk.Grid () {
+            column_spacing = 30,
+            row_spacing = 6,
+            margin_top = 12,
+            halign = Gtk.Align.CENTER
+        };
         buttons_grid.attach (cancel_button, 0, 0, 1, 1);
         buttons_grid.attach (pause_button, 1, 0, 1, 1);
 

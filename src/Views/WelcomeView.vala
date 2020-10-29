@@ -31,38 +31,48 @@ public class WelcomeView : Gtk.Box {
     construct {
         var behavior_header_label = new Granite.HeaderLabel (_("Recording"));
 
-        var delay_label = new Gtk.Label (_("Delay in seconds:"));
-        delay_label.halign = Gtk.Align.END;
-        var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
-        delay_spin.halign = Gtk.Align.START;
+        var delay_label = new Gtk.Label (_("Delay in seconds:")) {
+            halign = Gtk.Align.END
+        };
+        var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1) {
+            halign = Gtk.Align.START
+        };
 
-        var length_label = new Gtk.Label (_("Length in seconds:"));
-        length_label.halign = Gtk.Align.END;
-        var length_spin = new Gtk.SpinButton.with_range (0, 600, 1);
-        length_spin.halign = Gtk.Align.START;
+        var length_label = new Gtk.Label (_("Length in seconds:")) {
+            halign = Gtk.Align.END
+        };
+        var length_spin = new Gtk.SpinButton.with_range (0, 600, 1) {
+            halign = Gtk.Align.START
+        };
 
-        var system_sound_label = new Gtk.Label (_("Record from:"));
-        system_sound_label.halign = Gtk.Align.END;
-        var system_sound_combobox = new Gtk.ComboBoxText ();
-        system_sound_combobox.halign = Gtk.Align.START;
+        var system_sound_label = new Gtk.Label (_("Record from:")) {
+            halign = Gtk.Align.END
+        };
+        var system_sound_combobox = new Gtk.ComboBoxText () {
+            halign = Gtk.Align.START
+        };
         system_sound_combobox.append ("mic", _("Microphone"));
         system_sound_combobox.append ("system", _("Computer"));
         system_sound_combobox.append ("both", _("Both"));
 
-        var channels_label = new Gtk.Label (_("Channels:"));
-        channels_label.halign = Gtk.Align.END;
-        var channels_combobox = new Gtk.ComboBoxText ();
-        channels_combobox.halign = Gtk.Align.START;
+        var channels_label = new Gtk.Label (_("Channels:")) {
+            halign = Gtk.Align.END
+        };
+        var channels_combobox = new Gtk.ComboBoxText () {
+            halign = Gtk.Align.START
+        };
         channels_combobox.append ("mono", _("Mono"));
         channels_combobox.append ("stereo", _("Stereo"));
 
         var saving_header_label = new Granite.HeaderLabel (_("Saving"));
 
-        var format_label = new Gtk.Label (_("Format:"));
-        format_label.halign = Gtk.Align.END;
+        var format_label = new Gtk.Label (_("Format:")) {
+            halign = Gtk.Align.END
+        };
 
-        var format_combobox = new Gtk.ComboBoxText ();
-        format_combobox.halign = Gtk.Align.START;
+        var format_combobox = new Gtk.ComboBoxText () {
+            halign = Gtk.Align.START
+        };
         format_combobox.append ("aac", _("AAC"));
         format_combobox.append ("flac", _("FLAC"));
         format_combobox.append ("mp3", _("MP3"));
@@ -70,22 +80,27 @@ public class WelcomeView : Gtk.Box {
         format_combobox.append ("opus", _("Opus"));
         format_combobox.append ("wav", _("WAV"));
 
-        var auto_save_label = new Gtk.Label (_("Automatically save files:"));
-        auto_save_label.halign = Gtk.Align.END;
+        var auto_save_label = new Gtk.Label (_("Automatically save files:")) {
+            halign = Gtk.Align.END
+        };
 
-        var auto_save_switch = new Gtk.Switch ();
-        auto_save_switch.halign = Gtk.Align.START;
+        var auto_save_switch = new Gtk.Switch () {
+            halign = Gtk.Align.START
+        };
 
         var destination_chooser = new Gtk.FileChooserButton (
             _("Choose a default destination"),
-            Gtk.FileChooserAction.SELECT_FOLDER);
-        destination_chooser.halign = Gtk.Align.START;
+            Gtk.FileChooserAction.SELECT_FOLDER
+        ) {
+            halign = Gtk.Align.START
+        };
         destination_chooser.set_filename (get_destination ());
 
-        var settings_grid = new Gtk.Grid ();
-        settings_grid.column_spacing = 6;
-        settings_grid.row_spacing = 6;
-        settings_grid.halign = Gtk.Align.CENTER;
+        var settings_grid = new Gtk.Grid () {
+            column_spacing = 6,
+            row_spacing = 6,
+            halign = Gtk.Align.CENTER
+        };
         settings_grid.attach (behavior_header_label, 0, 0, 1, 1);
         settings_grid.attach (delay_label, 0, 1, 1, 1);
         settings_grid.attach (delay_spin, 1, 1, 1, 1);
@@ -102,14 +117,15 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (auto_save_switch, 1, 7, 1, 1);
         settings_grid.attach (destination_chooser, 1, 8, 1, 1);
 
-        record_button = new Gtk.Button ();
-        record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
-        record_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Start recording"));
+        record_button = new Gtk.Button () {
+            image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND),
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Start recording")),
+            halign = Gtk.Align.CENTER,
+            margin_top = 12,
+            width_request = 48,
+            height_request = 48
+        };
         record_button.get_style_context ().add_class ("record-button");
-        record_button.halign = Gtk.Align.CENTER;
-        record_button.margin_top = 12;
-        record_button.width_request = 48;
-        record_button.height_request = 48;
 
         pack_start (settings_grid, false, false);
         pack_end (record_button, false, false);
