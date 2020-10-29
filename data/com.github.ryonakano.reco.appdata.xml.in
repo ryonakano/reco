@@ -65,6 +65,18 @@
   </content_rating>
 
   <releases>
+    <release version="2.4.1" date="2020-10-31" urgency="low">
+      <description>
+        <ul>
+          <li>Make sure GSettings key "length" and "delay" take only natural numbers</li>
+          <li>Follow API change of Gtk.FileChooser in GTK 4</li>
+          <li>Fix temporary recordings are not deleted on error</li>
+          <li>Fix some microphones are not recognized (thanks to @peteruithoven)</li>
+          <li>Updated Dutch translation (thanks to @Vistaus)</li>
+          <li>Update Turkish translation (thanks to @safak45x)</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.4.0" date="2020-07-02" urgency="medium">
       <description>
         <ul>
