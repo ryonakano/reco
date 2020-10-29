@@ -43,28 +43,34 @@ public class MainWindow : Gtk.ApplicationWindow {
         var mode_switch = new Granite.ModeSwitch.from_icon_name (
             "display-brightness-symbolic",
             "weather-clear-night-symbolic"
-        );
-        mode_switch.primary_icon_tooltip_text = _("Light background");
-        mode_switch.secondary_icon_tooltip_text = _("Dark background");
-        mode_switch.valign = Gtk.Align.CENTER;
+        ) {
+            primary_icon_tooltip_text = _("Light background"),
+            secondary_icon_tooltip_text = _("Dark background"),
+            valign = Gtk.Align.CENTER
+        };
 
         //TRANSLATORS: Whether to follow system's dark style settings
-        var follow_system_label = new Gtk.Label (_("Follow system style:"));
-        follow_system_label.halign = Gtk.Align.END;
+        var follow_system_label = new Gtk.Label (_("Follow system style:")) {
+            halign = Gtk.Align.END
+        };
 
-        var follow_system_switch = new Gtk.Switch ();
-        follow_system_switch.halign = Gtk.Align.START;
+        var follow_system_switch = new Gtk.Switch () {
+            halign = Gtk.Align.START
+        };
 
-        var preferences_grid = new Gtk.Grid ();
-        preferences_grid.margin = 12;
-        preferences_grid.column_spacing = 6;
-        preferences_grid.row_spacing = 6;
+        var preferences_grid = new Gtk.Grid () {
+            margin = 12,
+            column_spacing = 6,
+            row_spacing = 6
+        };
         preferences_grid.attach (follow_system_label, 0, 0);
         preferences_grid.attach (follow_system_switch, 1, 0);
 
-        var preferences_button_icon = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
-        var preferences_button = new Gtk.ToolButton (preferences_button_icon, null);
-        preferences_button.tooltip_text = _("Preferences");
+        var preferences_button = new Gtk.ToolButton (
+            new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR), null
+        ) {
+            tooltip_text = _("Preferences")
+        };
 
         var preferences_popover = new Gtk.Popover (preferences_button);
         preferences_popover.add (preferences_grid);
@@ -73,10 +79,11 @@ public class MainWindow : Gtk.ApplicationWindow {
             preferences_popover.show_all ();
         });
 
-        var headerbar = new Gtk.HeaderBar ();
-        headerbar.title = "";
-        headerbar.has_subtitle = false;
-        headerbar.show_close_button = true;
+        var headerbar = new Gtk.HeaderBar () {
+            title = "",
+            has_subtitle = false,
+            show_close_button = true
+        };
         headerbar.pack_end (preferences_button);
         headerbar.pack_end (mode_switch);
 
@@ -114,8 +121,10 @@ public class MainWindow : Gtk.ApplicationWindow {
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                 _("Unable to Create an Audio File"),
                 _("A GStreamer error happened while recording, the following error message may be helpful:"),
-                "dialog-error", Gtk.ButtonsType.CLOSE);
-            error_dialog.transient_for = this;
+                "dialog-error", Gtk.ButtonsType.CLOSE
+            ) {
+                transient_for = this
+            };
             error_dialog.show_error_details ("%s\n%s".printf (err.message, debug));
             error_dialog.run ();
             error_dialog.destroy ();
@@ -145,10 +154,12 @@ public class MainWindow : Gtk.ApplicationWindow {
             } else {
                 var filechooser = new Gtk.FileChooserNative (
                     _("Save your recording"), this, Gtk.FileChooserAction.SAVE,
-                    _("Save"), _("Cancel"));
+                    _("Save"), _("Cancel")
+                ) {
+                    do_overwrite_confirmation = true
+                };
                 filechooser.set_current_name (filename + suffix);
                 filechooser.set_filename (destination);
-                filechooser.do_overwrite_confirmation = true;
                 filechooser.show ();
 
                 filechooser.response.connect ((response_id) => {
