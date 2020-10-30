@@ -1,3 +1,14 @@
+com.github.ryonakano.reco (2.4.1) bionic; urgency=low
+
+  * Make sure GSettings key "length" and "delay" take only natural numbers
+  * Follow API change of Gtk.FileChooser in GTK 4
+  * Fix temporary recordings are not deleted on error
+  * Fix some microphones are not recognized (thanks to @peteruithoven)
+  * Update Dutch translation (thanks to @Vistaus)
+  * Update Turkish translation (thanks to @safak45x)
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Sat, 31 Oct 2020 08:55:45 +0900
+
 com.github.ryonakano.reco (2.4.0) bionic; urgency=medium
 
   * Respect an elementary OS-wide dark preference
