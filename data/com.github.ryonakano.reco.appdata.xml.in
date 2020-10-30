@@ -72,7 +72,7 @@
           <li>Follow API change of Gtk.FileChooser in GTK 4</li>
           <li>Fix temporary recordings are not deleted on error</li>
           <li>Fix some microphones are not recognized (thanks to @peteruithoven)</li>
-          <li>Updated Dutch translation (thanks to @Vistaus)</li>
+          <li>Update Dutch translation (thanks to @Vistaus)</li>
           <li>Update Turkish translation (thanks to @safak45x)</li>
         </ul>
       </description>
