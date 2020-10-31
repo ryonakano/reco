@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-23 10:32+0000\n"
+"POT-Creation-Date: 2020-10-31 00:01+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Sharigami <usmanovmax@protonmail.com>\n"
 "Language-Team: \n"
@@ -17,33 +17,33 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Views/CountDownView.vala:48
+#: src/Views/CountDownView.vala:49
 msgid "Cancel the countdown"
 msgstr "Отменить обратный отсчёт"
 
-#: src/Views/CountDownView.vala:54 src/Views/CountDownView.vala:125
-#: src/Views/CountDownView.vala:147
+#: src/Views/CountDownView.vala:56 src/Views/CountDownView.vala:129
+#: src/Views/CountDownView.vala:151
 msgid "Pause the countdown"
 msgstr "Остановить обратный отсчёт"
 
-#: src/Views/CountDownView.vala:138
+#: src/Views/CountDownView.vala:142
 msgid "Resume the countdown"
 msgstr "Продолжить обратный отсчёт"
 
-#: src/Views/RecordView.vala:62
+#: src/Views/RecordView.vala:63
 msgid "Cancel recording"
 msgstr "Отменить запись"
 
-#: src/Views/RecordView.vala:68
+#: src/Views/RecordView.vala:70
 msgid "Finish recording"
 msgstr "Закончить запись"
 
-#: src/Views/RecordView.vala:76 src/Views/RecordView.vala:98
-#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
+#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:103
+#: src/Views/RecordView.vala:134 src/Views/RecordView.vala:146
 msgid "Pause recording"
 msgstr "Остановить запись"
 
-#: src/Views/RecordView.vala:119
+#: src/Views/RecordView.vala:124
 msgid "Resume recording"
 msgstr "Продолжить запись"
 
@@ -55,84 +55,84 @@ msgstr "Записываю"
 msgid "Delay in seconds:"
 msgstr "Задержка в секундах:"
 
-#: src/Views/WelcomeView.vala:39
+#: src/Views/WelcomeView.vala:41
 msgid "Length in seconds:"
 msgstr "Длина в секундах:"
 
-#: src/Views/WelcomeView.vala:44
+#: src/Views/WelcomeView.vala:48
 msgid "Record from:"
 msgstr "Запись из:"
 
-#: src/Views/WelcomeView.vala:48
+#: src/Views/WelcomeView.vala:54
 msgid "Microphone"
 msgstr "Микрофон"
 
-#: src/Views/WelcomeView.vala:49
+#: src/Views/WelcomeView.vala:55
 msgid "Computer"
 msgstr "Компьютер"
 
-#: src/Views/WelcomeView.vala:50
+#: src/Views/WelcomeView.vala:56
 msgid "Both"
 msgstr "Оба"
 
-#: src/Views/WelcomeView.vala:52
+#: src/Views/WelcomeView.vala:58
 msgid "Channels:"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:56
+#: src/Views/WelcomeView.vala:64
 msgid "Mono"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:57
+#: src/Views/WelcomeView.vala:65
 msgid "Stereo"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:59
+#: src/Views/WelcomeView.vala:67
 msgid "Saving"
 msgstr "Сохраняю"
 
-#: src/Views/WelcomeView.vala:61
+#: src/Views/WelcomeView.vala:69
 msgid "Format:"
 msgstr "Формат:"
 
-#: src/Views/WelcomeView.vala:66
+#: src/Views/WelcomeView.vala:76
 msgid "AAC"
 msgstr "ААС"
 
-#: src/Views/WelcomeView.vala:67
+#: src/Views/WelcomeView.vala:77
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:68
+#: src/Views/WelcomeView.vala:78
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:69
+#: src/Views/WelcomeView.vala:79
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:70
+#: src/Views/WelcomeView.vala:80
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:71
+#: src/Views/WelcomeView.vala:81
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:73
+#: src/Views/WelcomeView.vala:83
 msgid "Automatically save files:"
 msgstr "Автоматически сохранять файлы:"
 
-#: src/Views/WelcomeView.vala:80
+#: src/Views/WelcomeView.vala:92
 msgid "Choose a default destination"
 msgstr "Выберите место по умолчанию"
 
-#: src/Views/WelcomeView.vala:107
+#: src/Views/WelcomeView.vala:122
 msgid "Start recording"
 msgstr "Начать запись"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:139
+#: src/Views/WelcomeView.vala:155
 msgid "Recordings"
 msgstr "Записи"
 
@@ -145,19 +145,19 @@ msgid "Dark background"
 msgstr ""
 
 #. TRANSLATORS: Whether to follow system's dark style settings
-#: src/MainWindow.vala:52
+#: src/MainWindow.vala:53
 msgid "Follow system style:"
 msgstr ""
 
-#: src/MainWindow.vala:67
+#: src/MainWindow.vala:72
 msgid "Preferences"
 msgstr ""
 
-#: src/MainWindow.vala:115
+#: src/MainWindow.vala:122
 msgid "Unable to Create an Audio File"
 msgstr "Невозможно Создать Аудиофайл"
 
-#: src/MainWindow.vala:116
+#: src/MainWindow.vala:123
 msgid ""
 "A GStreamer error happened while recording, the following error message may "
 "be helpful:"
@@ -166,19 +166,19 @@ msgstr ""
 "может быть полезным:"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:129
+#: src/MainWindow.vala:138
 #, c-format
 msgid "Recording from %s"
 msgstr "Запись из %s"
 
-#: src/MainWindow.vala:147
+#: src/MainWindow.vala:156
 msgid "Save your recording"
 msgstr "Сохраните свою запись"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:157
 msgid "Save"
 msgstr "сохранить"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:157
 msgid "Cancel"
 msgstr "Отменить"
