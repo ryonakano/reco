@@ -1,7 +1,7 @@
 project(
     'com.github.ryonakano.reco',
     'vala', 'c',
-    version: '2.4.0'
+    version: '2.4.1'
 )
 
 gnome = import('gnome')
