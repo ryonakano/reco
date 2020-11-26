@@ -20,11 +20,9 @@ On elementary OS? Click the button to get Reco on AppCenter:
 
 [![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.ryonakano.reco)
 
-#### Arch Linux
+Community packages are available on the following distributions:
 
-Arch Linux users can find Reco under the name [reco-git](https://aur.archlinux.org/packages/reco-git/) in the AUR (thanks to [btd1337](https://github.com/btd1337)):
-
-    aurman -S reco-git
+[![Packaging status](https://repology.org/badge/vertical-allrepos/reco.svg)](https://repology.org/project/reco/versions)
 
 ### For Developers
 
