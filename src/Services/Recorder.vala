@@ -246,20 +246,15 @@ public class Recorder : Object {
 
     private void inhibit_sleep () {
         unowned Gtk.Application app = (Gtk.Application) GLib.Application.get_default ();
-        if (is_recording) {
-            if (inhibit_token != 0) {
-                app.uninhibit (inhibit_token);
-            }
-
-            inhibit_token = app.inhibit (
-                app.get_active_window (),
-                Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.SUSPEND,
-                _("Recording is ongoing")
-            );
-        } else if (inhibit_token != 0) {
+        if (inhibit_token != 0) {
             app.uninhibit (inhibit_token);
-            inhibit_token = 0;
         }
+
+        inhibit_token = app.inhibit (
+            app.get_active_window (),
+            Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.SUSPEND,
+            _("Recording is ongoing")
+        );
     }
 
     private void uninhibit_sleep () {
