@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-31 00:01+0000\n"
+"POT-Creation-Date: 2020-12-19 12:10+0000\n"
 "PO-Revision-Date: 2019-02-18 14:35+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -18,6 +18,11 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: src/Services/Recorder.vala:256
+#, fuzzy
+msgid "Recording is ongoing"
+msgstr "Įrašinėjimai"
 
 #: src/Views/CountDownView.vala:49
 #, fuzzy

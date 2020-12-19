@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-31 00:01+0000\n"
+"POT-Creation-Date: 2020-12-19 12:10+0000\n"
 "PO-Revision-Date: 2019-11-18 14:08-0300\n"
 "Last-Translator:  Michał Nowakowski <nowakowski@offshore.rocks>\n"
 "Language-Team: none\n"
@@ -15,6 +15,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: src/Services/Recorder.vala:256
+#, fuzzy
+msgid "Recording is ongoing"
+msgstr "Nagrania"
 
 #: src/Views/CountDownView.vala:49
 msgid "Cancel the countdown"

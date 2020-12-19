@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-31 00:01+0000\n"
+"POT-Creation-Date: 2020-12-19 12:10+0000\n"
 "PO-Revision-Date: 2020-09-25 09:40+0300\n"
 "Last-Translator: Safak <bjksafak45@gmail.com>\n"
 "Language-Team: Turkish\n"
@@ -17,6 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 2.0\n"
+
+#: src/Services/Recorder.vala:256
+#, fuzzy
+msgid "Recording is ongoing"
+msgstr "Kayıtlar"
 
 #: src/Views/CountDownView.vala:49
 msgid "Cancel the countdown"
