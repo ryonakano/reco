@@ -26,6 +26,7 @@ public class Recorder : Object {
     private string tmp_full_path;
     private Gst.Pipeline pipeline;
     private Gst.Element sys_sound;
+    private uint inhibit_token = 0;
 
     private enum SourceDevice {
         MIC,
@@ -182,6 +183,7 @@ public class Recorder : Object {
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
         set_recording_state (Gst.State.PLAYING);
+        inhibit_sleep ();
     }
 
     private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
@@ -209,6 +211,7 @@ public class Recorder : Object {
     }
 
     public void cancel_recording () {
+        uninhibit_sleep ();
         set_recording_state (Gst.State.NULL);
         pipeline.dispose ();
 
@@ -221,6 +224,7 @@ public class Recorder : Object {
     }
 
     public void stop_recording () {
+        uninhibit_sleep ();
         pipeline.send_event (new Gst.Event.eos ());
     }
 
@@ -237,6 +241,26 @@ public class Recorder : Object {
                 break;
             default:
                 assert_not_reached ();
+        }
+    }
+
+    private void inhibit_sleep () {
+        unowned Gtk.Application app = (Gtk.Application) GLib.Application.get_default ();
+        if (inhibit_token != 0) {
+            app.uninhibit (inhibit_token);
+        }
+
+        inhibit_token = app.inhibit (
+            app.get_active_window (),
+            Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.SUSPEND,
+            _("Recording is ongoing")
+        );
+    }
+
+    private void uninhibit_sleep () {
+        if (inhibit_token != 0) {
+            ((Gtk.Application) GLib.Application.get_default ()).uninhibit (inhibit_token);
+            inhibit_token = 0;
         }
     }
 }
