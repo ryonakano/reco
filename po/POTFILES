@@ -1,3 +1,4 @@
+src/Services/Recorder.vala
 src/Views/CountDownView.vala
 src/Views/RecordView.vala
 src/Views/WelcomeView.vala
