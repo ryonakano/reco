@@ -1,14 +1,14 @@
 # Japanese translations for com.github.ryonakano.reco package.
 # Copyright (C) 2018 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2020.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-19 12:10+0000\n"
-"PO-Revision-Date: 2020-07-02 21:18+0900\n"
+"PO-Revision-Date: 2021-01-03 10:32+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -18,9 +18,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/Services/Recorder.vala:256
-#, fuzzy
 msgid "Recording is ongoing"
-msgstr "レコーディング"
+msgstr "録音中です"
 
 #: src/Views/CountDownView.vala:49
 msgid "Cancel the countdown"
@@ -167,8 +166,8 @@ msgid ""
 "A GStreamer error happened while recording, the following error message may "
 "be helpful:"
 msgstr ""
-"録音中に GStreamer エラーが発生しました。以下のエラーメッセージが役に立つ可能"
-"性があります:"
+"録音中に GStreamer エラーが発生しました。以下のエラーメッセージが役に立つ可"
+"能性があります:"
 
 #. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:138
