@@ -1,5 +1,5 @@
 /*
-* Copyright 2018-2020 Ryo Nakano
+* Copyright 2018-2021 Ryo Nakano
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by

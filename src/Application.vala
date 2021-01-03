@@ -1,5 +1,5 @@
 /*
-* Copyright 2018-2020 Ryo Nakano
+* Copyright 2018-2021 Ryo Nakano
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -24,9 +24,6 @@ public class Application : Gtk.Application {
             application_id: "com.github.ryonakano.reco",
             flags: ApplicationFlags.FLAGS_NONE
         );
-    }
-
-    construct {
     }
 
     static construct {
@@ -85,7 +82,6 @@ public class Application : Gtk.Application {
 
     public static int main (string[] args) {
         Gst.init (ref args);
-        var app = new Application ();
-        return app.run (args);
+        return new Application ().run (args);
     }
 }
