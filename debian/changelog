@@ -1,3 +1,10 @@
+com.github.ryonakano.reco (2.4.2) bionic; urgency=low
+
+  * Inhibit sleeping while recording
+  * Update Japanese translation
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Sun, 03 Jan 2021 10:40:01 +0900
+
 com.github.ryonakano.reco (2.4.1) bionic; urgency=low
 
   * Make sure GSettings key "length" and "delay" take only natural numbers
