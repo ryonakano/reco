@@ -65,6 +65,14 @@
   </content_rating>
 
   <releases>
+    <release version="2.4.2" date="2021-01-03" urgency="low">
+      <description>
+        <ul>
+          <li>Inhibit sleeping while recording</li>
+          <li>Update Japanese translation</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.4.1" date="2020-10-31" urgency="low">
       <description>
         <ul>
