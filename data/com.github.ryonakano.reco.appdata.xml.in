@@ -22,15 +22,15 @@
   <screenshots>
     <screenshot type="default">
       <caption>Welcome screen that allows you to set recording configuration</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/master/data/Screenshot.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/Screenshot.png</image>
     </screenshot>
     <screenshot>
       <caption>Recording screen</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/master/data/Screenshot2.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/Screenshot2.png</image>
     </screenshot>
     <screenshot>
       <caption>Recording is successfully finished</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/master/data/Screenshot3.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/Screenshot3.png</image>
     </screenshot>
   </screenshots>
 
