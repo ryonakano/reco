@@ -14,7 +14,7 @@ add_project_arguments(
 
 asresources = gnome.compile_resources(
     'as-resources',
-    'data/' + meson.project_name() + '.gresource.xml',
+    join_paths('data', 'reco.gresource.xml'),
     source_dir: 'data',
     c_name: 'as'
 )
