@@ -4,6 +4,8 @@ project(
     version: '2.4.2'
 )
 
+app_nickname = 'reco'
+
 gnome = import('gnome')
 i18n = import('i18n')
 
@@ -14,7 +16,7 @@ add_project_arguments(
 
 asresources = gnome.compile_resources(
     'as-resources',
-    join_paths('data', 'reco.gresource.xml'),
+    join_paths('data', app_nickname + '.gresource.xml'),
     source_dir: 'data',
     c_name: 'as'
 )
