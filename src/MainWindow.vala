@@ -16,17 +16,17 @@
 */
 
 public class MainWindow : Gtk.ApplicationWindow {
-    public WelcomeView welcome_view { get; private set; }
-    private CountDownView countdown_view;
-    public RecordView record_view { get; private set; }
     public Recorder recorder { get; private set; default = new Recorder (); }
-    public Gtk.Stack stack { get; private set; }
     private uint configure_id;
 
-    public MainWindow (Application app) {
+    public WelcomeView welcome_view { get; private set; }
+    private CountDownView countdown_view;
+    private RecordView record_view;
+    private Gtk.Stack stack;
+
+    public MainWindow () {
         Object (
             border_width: 6,
-            application: app,
             resizable: false,
             width_request: 400,
             height_request: 300
@@ -228,7 +228,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         stack.visible_child_name = "record";
     }
 
-    public override bool configure_event (Gdk.EventConfigure event) {
+    protected override bool configure_event (Gdk.EventConfigure event) {
         if (configure_id != 0) {
             GLib.Source.remove (configure_id);
         }
@@ -243,5 +243,39 @@ public class MainWindow : Gtk.ApplicationWindow {
         });
 
         return base.configure_event (event);
+    }
+
+    protected override bool key_press_event (Gdk.EventKey key) {
+        if (Gdk.ModifierType.CONTROL_MASK in key.state) {
+            switch (key.keyval) {
+                //  Ctrl + Q to quit the app
+                case Gdk.Key.q:
+                    if (recorder.is_recording) {
+                        var loop = new MainLoop ();
+                        record_view.trigger_stop_recording.begin ((obj, res) => {
+                            loop.quit ();
+                        });
+                        loop.run ();
+                    }
+
+                    destroy ();
+                    break;
+                //  Ctrl + Shift + R to toggle recording state
+                case Gdk.Key.R:
+                    if (stack.visible_child_name == "welcome") {
+                        welcome_view.trigger_recording ();
+                    } else if (stack.visible_child_name == "record") {
+                        var loop = new MainLoop ();
+                        record_view.trigger_stop_recording.begin ((obj, res) => {
+                            loop.quit ();
+                        });
+                        loop.run ();
+                    }
+
+                    break;
+            }
+        }
+
+        return Gdk.EVENT_PROPAGATE;
     }
 }
