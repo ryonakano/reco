@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-03 01:42+0000\n"
+"POT-Creation-Date: 2021-01-29 05:42+0000\n"
 "PO-Revision-Date: 2019-02-18 14:35+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -169,33 +169,34 @@ msgid "Preferences"
 msgstr ""
 
 #: src/MainWindow.vala:122
-msgid "Unable to Create an Audio File"
-msgstr "Nepavyko sukurti garso failą"
+msgid "Unable to Complete Recording"
+msgstr ""
 
 #: src/MainWindow.vala:123
 #, fuzzy
-msgid ""
-"A GStreamer error happened while recording, the following error message may "
-"be helpful:"
+msgid "The following error message may be helpful:"
 msgstr "Įrašanėjant, įvyko GStreamer klaida:"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:138
+#: src/MainWindow.vala:139
 #, c-format
 msgid "Recording from %s"
 msgstr "Įrašinėjimas iš %s"
 
-#: src/MainWindow.vala:156
+#: src/MainWindow.vala:157
 msgid "Save your recording"
 msgstr "Išsaugokite savo įrašinėjimą"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:158
 msgid "Save"
 msgstr "Išsaugoti"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:158
 msgid "Cancel"
 msgstr "Atsisakyti"
+
+#~ msgid "Unable to Create an Audio File"
+#~ msgstr "Nepavyko sukurti garso failą"
 
 #~ msgid "Are you sure you want to quit Reco?"
 #~ msgstr "Ar tikrai norite išeiti iš Reco?"

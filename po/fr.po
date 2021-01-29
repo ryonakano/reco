@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-03 01:42+0000\n"
+"POT-Creation-Date: 2021-01-29 05:42+0000\n"
 "PO-Revision-Date: 2019-01-16 22:17+0100\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: Français\n"
@@ -158,31 +158,33 @@ msgid "Preferences"
 msgstr ""
 
 #: src/MainWindow.vala:122
-msgid "Unable to Create an Audio File"
-msgstr "Impossible de créer un fichier audio"
+msgid "Unable to Complete Recording"
+msgstr ""
 
 #: src/MainWindow.vala:123
-msgid ""
-"A GStreamer error happened while recording, the following error message may "
-"be helpful:"
+#, fuzzy
+msgid "The following error message may be helpful:"
 msgstr ""
 "Une erreur GStreamer est survenue pendant l'enregistrement, le message "
 "d'erreur suivant pourrait être utile :"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:138
+#: src/MainWindow.vala:139
 #, c-format
 msgid "Recording from %s"
 msgstr "En cours d'enregistrement depuis %s"
 
-#: src/MainWindow.vala:156
+#: src/MainWindow.vala:157
 msgid "Save your recording"
 msgstr "Sauvegardez votre enregistrement"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:158
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:158
 msgid "Cancel"
 msgstr "Annuler"
+
+#~ msgid "Unable to Create an Audio File"
+#~ msgstr "Impossible de créer un fichier audio"

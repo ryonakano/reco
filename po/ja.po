@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-03 01:42+0000\n"
+"POT-Creation-Date: 2021-01-29 05:42+0000\n"
 "PO-Revision-Date: 2021-01-03 10:32+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -158,31 +158,33 @@ msgid "Preferences"
 msgstr "設定"
 
 #: src/MainWindow.vala:122
-msgid "Unable to Create an Audio File"
-msgstr "オーディオファイルを作成できません"
+msgid "Unable to Complete Recording"
+msgstr ""
 
 #: src/MainWindow.vala:123
-msgid ""
-"A GStreamer error happened while recording, the following error message may "
-"be helpful:"
+#, fuzzy
+msgid "The following error message may be helpful:"
 msgstr ""
 "録音中に GStreamer エラーが発生しました。以下のエラーメッセージが役に立つ可能"
 "性があります:"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:138
+#: src/MainWindow.vala:139
 #, c-format
 msgid "Recording from %s"
 msgstr "録音 %s"
 
-#: src/MainWindow.vala:156
+#: src/MainWindow.vala:157
 msgid "Save your recording"
 msgstr "録音したものを保存"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:158
 msgid "Save"
 msgstr "保存"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:158
 msgid "Cancel"
 msgstr "キャンセル"
+
+#~ msgid "Unable to Create an Audio File"
+#~ msgstr "オーディオファイルを作成できません"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-03 01:42+0000\n"
+"POT-Creation-Date: 2021-01-29 05:42+0000\n"
 "PO-Revision-Date: 2020-07-03 12:23+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -160,34 +160,36 @@ msgid "Preferences"
 msgstr "Voorkeuren"
 
 #: src/MainWindow.vala:122
-msgid "Unable to Create an Audio File"
-msgstr "Kan audiobestand niet aanmaken"
+msgid "Unable to Complete Recording"
+msgstr ""
 
 #: src/MainWindow.vala:123
-msgid ""
-"A GStreamer error happened while recording, the following error message may "
-"be helpful:"
+#, fuzzy
+msgid "The following error message may be helpful:"
 msgstr ""
 "Er is een GStreamer-fout opgetreden tijdens het opnemen. Wellicht biedt de "
 "volgende foutmelding meer informatie:"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:138
+#: src/MainWindow.vala:139
 #, c-format
 msgid "Recording from %s"
 msgstr "Opnemen van %s"
 
-#: src/MainWindow.vala:156
+#: src/MainWindow.vala:157
 msgid "Save your recording"
 msgstr "Sla je opname op"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:158
 msgid "Save"
 msgstr "Opslaan"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:158
 msgid "Cancel"
 msgstr "Afbreken"
+
+#~ msgid "Unable to Create an Audio File"
+#~ msgstr "Kan audiobestand niet aanmaken"
 
 #~ msgid "Are you sure you want to quit Reco?"
 #~ msgstr "Weet je zeker dat je Reco wilt afsluiten?"
