@@ -119,8 +119,8 @@ public class MainWindow : Gtk.ApplicationWindow {
 
         recorder.handle_error.connect ((err, debug) => {
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                _("Unable to Create an Audio File"),
-                _("A GStreamer error happened while recording, the following error message may be helpful:"),
+                _("Unable to Complete Recording"),
+                _("The following error message may be helpful:"),
                 "dialog-error", Gtk.ButtonsType.CLOSE
             ) {
                 transient_for = this,
