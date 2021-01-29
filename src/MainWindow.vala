@@ -123,11 +123,12 @@ public class MainWindow : Gtk.ApplicationWindow {
                 _("A GStreamer error happened while recording, the following error message may be helpful:"),
                 "dialog-error", Gtk.ButtonsType.CLOSE
             ) {
-                transient_for = this
+                transient_for = this,
+                modal = true
             };
             error_dialog.show_error_details ("%s\n%s".printf (err.message, debug));
-            error_dialog.run ();
-            error_dialog.destroy ();
+            error_dialog.response.connect (error_dialog.destroy);
+            error_dialog.show_all ();
 
             record_view.stop_count ();
             show_welcome ();
