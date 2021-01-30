@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 05:42+0000\n"
-"PO-Revision-Date: 2019-10-02 20:02+0900\n"
+"PO-Revision-Date: 2021-01-30 11:49+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -361,18 +361,3 @@ msgstr "com.github.ryonakano.reco"
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Record;Audio;Sound;Voice;録音;オーディオ;サウンド;ボイス;"
-
-#~ msgid "Useful for:"
-#~ msgstr "こんな場合に便利:"
-
-#~ msgid "Joining meetings and taking minutes later"
-#~ msgstr "話し合いに参加して後で議事録を取る場合"
-
-#~ msgid "Recording conversations with a friend or lover"
-#~ msgstr "友達や恋人との会話を録音したい場合"
-
-#~ msgid "Streaming videos on the Internet"
-#~ msgstr "インターネットで動画配信をしたい場合"
-
-#~ msgid "Timed recording"
-#~ msgstr "遅延しての録音"
