@@ -1,6 +1,6 @@
 Source: com.github.ryonakano.reco
 Section: x11
-Priority: extra
+Priority: optional
 Maintainer: Ryo Nakano <ryonakaknock3@gmail.com>
 Build-Depends: debhelper (>= 10.5.1),
                libgranite-dev (>= 5.4.0),
@@ -8,7 +8,7 @@ Build-Depends: debhelper (>= 10.5.1),
                libgstreamer1.0-dev,
                meson,
                valac
-Standards-Version: 4.1.1
+Standards-Version: 4.5.0
 
 Package: com.github.ryonakano.reco
 Architecture: any
