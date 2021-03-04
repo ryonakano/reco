@@ -2,8 +2,8 @@ Format: http://dep.debian.net/deps/dep5
 Upstream-Name: Reco
 Source: https://github.com/ryonakano/reco
 
-Files: data/ src/
-Copyright: 2018-2020 Ryo Nakano
+Files: *
+Copyright: 2018-2021 Ryo Nakano
 License: GPL-3.0+
 
 License: GPL-3.0+
