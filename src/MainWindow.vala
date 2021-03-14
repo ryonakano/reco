@@ -29,7 +29,8 @@ public class MainWindow : Gtk.ApplicationWindow {
             application: app,
             resizable: false,
             width_request: 400,
-            height_request: 300
+            height_request: 300,
+            title: _("Reco")
         );
     }
 
@@ -80,7 +81,8 @@ public class MainWindow : Gtk.ApplicationWindow {
         });
 
         var headerbar = new Gtk.HeaderBar () {
-            title = "",
+            // Create a titlebar without title
+            custom_title = new Gtk.Grid (),
             has_subtitle = false,
             show_close_button = true
         };
