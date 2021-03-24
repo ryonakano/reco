@@ -248,7 +248,6 @@ public class MainWindow : Gtk.ApplicationWindow {
     protected override bool key_press_event (Gdk.EventKey key) {
         if (Gdk.ModifierType.CONTROL_MASK in key.state) {
             switch (key.keyval) {
-                //  Ctrl + Q to quit the app
                 case Gdk.Key.q:
                     if (recorder.is_recording) {
                         var loop = new MainLoop ();
@@ -260,16 +259,17 @@ public class MainWindow : Gtk.ApplicationWindow {
 
                     destroy ();
                     break;
-                //  Ctrl + Shift + R to toggle recording state
                 case Gdk.Key.R:
-                    if (stack.visible_child_name == "welcome") {
-                        welcome_view.trigger_recording ();
-                    } else if (stack.visible_child_name == "record") {
-                        var loop = new MainLoop ();
-                        record_view.trigger_stop_recording.begin ((obj, res) => {
-                            loop.quit ();
-                        });
-                        loop.run ();
+                    if (Gdk.ModifierType.SHIFT_MASK in key.state) {
+                        if (stack.visible_child_name == "welcome") {
+                            welcome_view.trigger_recording ();
+                        } else if (stack.visible_child_name == "record") {
+                            var loop = new MainLoop ();
+                            record_view.trigger_stop_recording.begin ((obj, res) => {
+                                loop.quit ();
+                            });
+                            loop.run ();
+                        }
                     }
 
                     break;
