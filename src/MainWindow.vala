@@ -29,7 +29,8 @@ public class MainWindow : Gtk.ApplicationWindow {
             border_width: 6,
             resizable: false,
             width_request: 400,
-            height_request: 300
+            height_request: 300,
+            title: _("Reco")
         );
     }
 
@@ -80,7 +81,8 @@ public class MainWindow : Gtk.ApplicationWindow {
         });
 
         var headerbar = new Gtk.HeaderBar () {
-            title = "",
+            // Create a titlebar without title
+            custom_title = new Gtk.Grid (),
             has_subtitle = false,
             show_close_button = true
         };
@@ -119,15 +121,16 @@ public class MainWindow : Gtk.ApplicationWindow {
 
         recorder.handle_error.connect ((err, debug) => {
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                _("Unable to Create an Audio File"),
-                _("A GStreamer error happened while recording, the following error message may be helpful:"),
+                _("Unable to Complete Recording"),
+                _("The following error message may be helpful:"),
                 "dialog-error", Gtk.ButtonsType.CLOSE
             ) {
-                transient_for = this
+                transient_for = this,
+                modal = true
             };
             error_dialog.show_error_details ("%s\n%s".printf (err.message, debug));
-            error_dialog.run ();
-            error_dialog.destroy ();
+            error_dialog.response.connect (error_dialog.destroy);
+            error_dialog.show_all ();
 
             record_view.stop_count ();
             show_welcome ();

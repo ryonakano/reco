@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-03 01:42+0000\n"
-"PO-Revision-Date: 2021-01-03 10:32+0900\n"
+"POT-Creation-Date: 2021-03-14 10:45+0000\n"
+"PO-Revision-Date: 2021-01-30 11:48+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -140,49 +140,50 @@ msgstr "録音を開始します"
 msgid "Recordings"
 msgstr "レコーディング"
 
-#: src/MainWindow.vala:47
+#: src/MainWindow.vala:33
+#, fuzzy
+msgid "Reco"
+msgstr "録音"
+
+#: src/MainWindow.vala:48
 msgid "Light background"
 msgstr "ライトモード"
 
-#: src/MainWindow.vala:48
+#: src/MainWindow.vala:49
 msgid "Dark background"
 msgstr "ダークモード"
 
 #. TRANSLATORS: Whether to follow system's dark style settings
-#: src/MainWindow.vala:53
+#: src/MainWindow.vala:54
 msgid "Follow system style:"
 msgstr "システムのスタイルに従う:"
 
-#: src/MainWindow.vala:72
+#: src/MainWindow.vala:73
 msgid "Preferences"
 msgstr "設定"
 
-#: src/MainWindow.vala:122
-msgid "Unable to Create an Audio File"
-msgstr "オーディオファイルを作成できません"
+#: src/MainWindow.vala:124
+msgid "Unable to Complete Recording"
+msgstr "録音を完了できません"
 
-#: src/MainWindow.vala:123
-msgid ""
-"A GStreamer error happened while recording, the following error message may "
-"be helpful:"
-msgstr ""
-"録音中に GStreamer エラーが発生しました。以下のエラーメッセージが役に立つ可能"
-"性があります:"
+#: src/MainWindow.vala:125
+msgid "The following error message may be helpful:"
+msgstr "以下のエラーメッセージが役に立つ可能性があります:"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:138
+#: src/MainWindow.vala:141
 #, c-format
 msgid "Recording from %s"
 msgstr "録音 %s"
 
-#: src/MainWindow.vala:156
+#: src/MainWindow.vala:159
 msgid "Save your recording"
 msgstr "録音したものを保存"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:160
 msgid "Save"
 msgstr "保存"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:160
 msgid "Cancel"
 msgstr "キャンセル"
