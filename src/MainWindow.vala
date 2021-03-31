@@ -24,9 +24,10 @@ public class MainWindow : Gtk.ApplicationWindow {
     private RecordView record_view;
     private Gtk.Stack stack;
 
-    public MainWindow () {
+    public MainWindow (Application app) {
         Object (
             border_width: 6,
+            application: app,
             resizable: false,
             width_request: 400,
             height_request: 300,

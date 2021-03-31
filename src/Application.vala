@@ -39,8 +39,7 @@ public class Application : Gtk.Application {
         int window_x, window_y;
         settings.get ("window-position", "(ii)", out window_x, out window_y);
 
-        window = new MainWindow ();
-        window.set_application (this);
+        window = new MainWindow (this);
 
         if (window_x != -1 || window_y != -1) { // Not a first time launch
             window.move (window_x, window_y);
