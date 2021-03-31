@@ -19,7 +19,7 @@ public class MainWindow : Gtk.ApplicationWindow {
     public Recorder recorder { get; private set; default = new Recorder (); }
     private uint configure_id;
 
-    public WelcomeView welcome_view { get; private set; }
+    private WelcomeView welcome_view;
     private CountDownView countdown_view;
     private RecordView record_view;
     private Gtk.Stack stack;
