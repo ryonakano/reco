@@ -1,0 +1,187 @@
+# ITALIAN TRANSLATION FOR RECO.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.ryonakano.reco package.
+# ALBANO BATTISTELLA <albano_battistella@hotmail.com>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.ryonakano.reco\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-14 10:45+0000\n"
+"PO-Revision-Date: 2021-04-09 17:15+0100\n"
+"Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
+"Language-Team: ITALIAN <LL@li.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/Services/Recorder.vala:253
+msgid "Recording is ongoing"
+msgstr "La registrazione è in corso"
+
+#: src/Views/CountDownView.vala:49
+msgid "Cancel the countdown"
+msgstr "Annulla il conto alla rovescia"
+
+#: src/Views/CountDownView.vala:56 src/Views/CountDownView.vala:129
+#: src/Views/CountDownView.vala:151
+msgid "Pause the countdown"
+msgstr "Metti in pausa il conto alla rovescia"
+
+#: src/Views/CountDownView.vala:142
+msgid "Resume the countdown"
+msgstr "Riprendi il conto alla rovescia"
+
+#: src/Views/RecordView.vala:63
+msgid "Cancel recording"
+msgstr "Annulla la registrazione"
+
+#: src/Views/RecordView.vala:70
+msgid "Finish recording"
+msgstr "Termina registrazione"
+
+#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:103
+#: src/Views/RecordView.vala:134 src/Views/RecordView.vala:146
+msgid "Pause recording"
+msgstr "Metti in pausa la registrazione"
+
+#: src/Views/RecordView.vala:124
+msgid "Resume recording"
+msgstr "Riprendi la registrazione"
+
+#: src/Views/WelcomeView.vala:32
+msgid "Recording"
+msgstr "Registrazione"
+
+#: src/Views/WelcomeView.vala:34
+msgid "Delay in seconds:"
+msgstr "Ritardo in secondi:"
+
+#: src/Views/WelcomeView.vala:41
+msgid "Length in seconds:"
+msgstr "Durata in secondi:"
+
+#: src/Views/WelcomeView.vala:48
+msgid "Record from:"
+msgstr "Registra da:"
+
+#: src/Views/WelcomeView.vala:54
+msgid "Microphone"
+msgstr "Microfono"
+
+#: src/Views/WelcomeView.vala:55
+msgid "Computer"
+msgstr "Computer"
+
+#: src/Views/WelcomeView.vala:56
+msgid "Both"
+msgstr "Entrambi"
+
+#: src/Views/WelcomeView.vala:58
+msgid "Channels:"
+msgstr "Canali:"
+
+#: src/Views/WelcomeView.vala:64
+msgid "Mono"
+msgstr "Mono"
+
+#: src/Views/WelcomeView.vala:65
+msgid "Stereo"
+msgstr "Stereo"
+
+#: src/Views/WelcomeView.vala:67
+msgid "Saving"
+msgstr "Salvataggio"
+
+#: src/Views/WelcomeView.vala:69
+msgid "Format:"
+msgstr "Formato:"
+
+#: src/Views/WelcomeView.vala:76
+msgid "AAC"
+msgstr "AAC"
+
+#: src/Views/WelcomeView.vala:77
+msgid "FLAC"
+msgstr "FLAC"
+
+#: src/Views/WelcomeView.vala:78
+msgid "MP3"
+msgstr "MP3"
+
+#: src/Views/WelcomeView.vala:79
+msgid "Ogg Vorbis"
+msgstr "Ogg Vorbis"
+
+#: src/Views/WelcomeView.vala:80
+msgid "Opus"
+msgstr "Opus"
+
+#: src/Views/WelcomeView.vala:81
+msgid "WAV"
+msgstr "WAV"
+
+#: src/Views/WelcomeView.vala:83
+msgid "Automatically save files:"
+msgstr "Salva automaticamente i file:"
+
+#: src/Views/WelcomeView.vala:92
+msgid "Choose a default destination"
+msgstr "Scegli una destinazione predefinita"
+
+#: src/Views/WelcomeView.vala:122
+msgid "Start recording"
+msgstr "Avvia registrazione"
+
+#. TRANSLATORS: The name of the folder which recordings are saved
+#: src/Views/WelcomeView.vala:155
+msgid "Recordings"
+msgstr "Registrazioni"
+
+#: src/MainWindow.vala:33
+msgid "Reco"
+msgstr "Reco"
+
+#: src/MainWindow.vala:48
+msgid "Light background"
+msgstr "Sfondo chiaro"
+
+#: src/MainWindow.vala:49
+msgid "Dark background"
+msgstr "Sfondo scuro"
+
+#. TRANSLATORS: Whether to follow system's dark style settings
+#: src/MainWindow.vala:54
+msgid "Follow system style:"
+msgstr "Segui lo stile del sistema:"
+
+#: src/MainWindow.vala:73
+msgid "Preferences"
+msgstr "Preferenze"
+
+#: src/MainWindow.vala:124
+msgid "Unable to Complete Recording"
+msgstr "Impossibile completare la registrazione"
+
+#: src/MainWindow.vala:125
+msgid "The following error message may be helpful:"
+msgstr "Il seguente messaggio di errore può essere utile:"
+
+#. TRANSLATORS: %s represents a timestamp here
+#: src/MainWindow.vala:141
+#, c-format
+msgid "Recording from %s"
+msgstr "Registrazione da %s"
+
+#: src/MainWindow.vala:159
+msgid "Save your recording"
+msgstr "Salva registrazione"
+
+#: src/MainWindow.vala:160
+msgid "Save"
+msgstr "Salva"
+
+#: src/MainWindow.vala:160
+msgid "Cancel"
+msgstr "Cancella"
