@@ -1,0 +1,188 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.ryonakano.reco package.
+#
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.ryonakano.reco\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-14 10:45+0000\n"
+"PO-Revision-Date: 2021-04-11 15:40+0100\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.12\n"
+
+#: src/Services/Recorder.vala:253
+msgid "Recording is ongoing"
+msgstr "A gravação está em curso"
+
+#: src/Views/CountDownView.vala:49
+msgid "Cancel the countdown"
+msgstr "Cancelar a contagem decrescente"
+
+#: src/Views/CountDownView.vala:56 src/Views/CountDownView.vala:129
+#: src/Views/CountDownView.vala:151
+msgid "Pause the countdown"
+msgstr "Colocar contagem decrescente em pausa"
+
+#: src/Views/CountDownView.vala:142
+msgid "Resume the countdown"
+msgstr "Retomar a contagem decrescente"
+
+#: src/Views/RecordView.vala:63
+msgid "Cancel recording"
+msgstr "Cancelar gravação"
+
+#: src/Views/RecordView.vala:70
+msgid "Finish recording"
+msgstr "Terminar gravação"
+
+#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:103
+#: src/Views/RecordView.vala:134 src/Views/RecordView.vala:146
+msgid "Pause recording"
+msgstr "Colocar gravação em pausa"
+
+#: src/Views/RecordView.vala:124
+msgid "Resume recording"
+msgstr "Retomar gravação"
+
+#: src/Views/WelcomeView.vala:32
+msgid "Recording"
+msgstr "A gravar"
+
+#: src/Views/WelcomeView.vala:34
+msgid "Delay in seconds:"
+msgstr "Atraso em segundos:"
+
+#: src/Views/WelcomeView.vala:41
+msgid "Length in seconds:"
+msgstr "Duração em segundos:"
+
+#: src/Views/WelcomeView.vala:48
+msgid "Record from:"
+msgstr "Gravar de:"
+
+#: src/Views/WelcomeView.vala:54
+msgid "Microphone"
+msgstr "Microfone"
+
+#: src/Views/WelcomeView.vala:55
+msgid "Computer"
+msgstr "Computador"
+
+#: src/Views/WelcomeView.vala:56
+msgid "Both"
+msgstr "Ambos"
+
+#: src/Views/WelcomeView.vala:58
+msgid "Channels:"
+msgstr "Canais:"
+
+#: src/Views/WelcomeView.vala:64
+msgid "Mono"
+msgstr "Mono"
+
+#: src/Views/WelcomeView.vala:65
+msgid "Stereo"
+msgstr "Estéreo"
+
+#: src/Views/WelcomeView.vala:67
+msgid "Saving"
+msgstr "A guardar"
+
+#: src/Views/WelcomeView.vala:69
+msgid "Format:"
+msgstr "Formato:"
+
+#: src/Views/WelcomeView.vala:76
+msgid "AAC"
+msgstr "AAC"
+
+#: src/Views/WelcomeView.vala:77
+msgid "FLAC"
+msgstr "FLAC"
+
+#: src/Views/WelcomeView.vala:78
+msgid "MP3"
+msgstr "MP3"
+
+#: src/Views/WelcomeView.vala:79
+msgid "Ogg Vorbis"
+msgstr "Ogg Vorbis"
+
+#: src/Views/WelcomeView.vala:80
+msgid "Opus"
+msgstr "Opus"
+
+#: src/Views/WelcomeView.vala:81
+msgid "WAV"
+msgstr "WAV"
+
+#: src/Views/WelcomeView.vala:83
+msgid "Automatically save files:"
+msgstr "Guardar ficheiros automaticamente:"
+
+#: src/Views/WelcomeView.vala:92
+msgid "Choose a default destination"
+msgstr "Escolher um destino predefinido"
+
+#: src/Views/WelcomeView.vala:122
+msgid "Start recording"
+msgstr "Iniciar gravação"
+
+#. TRANSLATORS: The name of the folder which recordings are saved
+#: src/Views/WelcomeView.vala:155
+msgid "Recordings"
+msgstr "Gravações"
+
+#: src/MainWindow.vala:33
+msgid "Reco"
+msgstr "Reco"
+
+#: src/MainWindow.vala:48
+msgid "Light background"
+msgstr "Fundo claro"
+
+#: src/MainWindow.vala:49
+msgid "Dark background"
+msgstr "Fundo escuro"
+
+#. TRANSLATORS: Whether to follow system's dark style settings
+#: src/MainWindow.vala:54
+msgid "Follow system style:"
+msgstr "Seguir o estilo do sistema:"
+
+#: src/MainWindow.vala:73
+msgid "Preferences"
+msgstr "Preferências"
+
+#: src/MainWindow.vala:124
+msgid "Unable to Complete Recording"
+msgstr "Não foi possível concluir a gravação"
+
+#: src/MainWindow.vala:125
+msgid "The following error message may be helpful:"
+msgstr "A seguinte mensagem de erro pode ser útil:"
+
+#. TRANSLATORS: %s represents a timestamp here
+#: src/MainWindow.vala:141
+#, c-format
+msgid "Recording from %s"
+msgstr "A gravar de %s"
+
+#: src/MainWindow.vala:159
+msgid "Save your recording"
+msgstr "Guardar a gravação"
+
+#: src/MainWindow.vala:160
+msgid "Save"
+msgstr "Guardar"
+
+#: src/MainWindow.vala:160
+msgid "Cancel"
+msgstr "Cancelar"
