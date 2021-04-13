@@ -1,3 +1,9 @@
+com.github.ryonakano.reco (2.4.4) bionic; urgency=low
+
+  * Revert changes done in version 2.4.3 that potentially caused an error during the packaging process
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Tue, 13 Apr 2021 16:49:30 +0900
+
 com.github.ryonakano.reco (2.4.3) bionic; urgency=low
 
   * MainWindow: Readable copy for dialog messages
