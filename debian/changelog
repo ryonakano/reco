@@ -1,3 +1,11 @@
+com.github.ryonakano.reco (2.4.5) bionic; urgency=low
+
+  * Update Dutch translation (thanks to @Vistaus)
+  * Revert another change done in version 2.4.3 that potentially caused an error during the packaging process
+  * Revive the change that had been reverted in version 2.4.4
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Tue, 13 Apr 2021 22:12:13 +0900
+
 com.github.ryonakano.reco (2.4.4) bionic; urgency=low
 
   * Revert changes done in version 2.4.3 that potentially caused an error during the packaging process
