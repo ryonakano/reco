@@ -1,7 +1,7 @@
 project(
     'com.github.ryonakano.reco',
     'vala', 'c',
-    version: '2.4.4'
+    version: '2.4.5'
 )
 
 app_nickname = 'reco'
