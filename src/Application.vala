@@ -48,6 +48,36 @@ public class Application : Gtk.Application {
         }
 
         window.show_all ();
+
+        var quit_action = new SimpleAction ("quit", null);
+        add_action (quit_action);
+        set_accels_for_action ("app.quit", {"<Control>q"});
+        quit_action.activate.connect (() => {
+            if (window.recorder.is_recording) {
+                var loop = new MainLoop ();
+                window.record_view.trigger_stop_recording.begin ((obj, res) => {
+                    loop.quit ();
+                });
+                loop.run ();
+            }
+
+            window.destroy ();
+        });
+
+        var toggle_recording_action = new SimpleAction ("toggle_recording", null);
+        add_action (toggle_recording_action);
+        set_accels_for_action ("app.toggle_recording", {"<Control><Shift>R"});
+        toggle_recording_action.activate.connect (() => {
+            if (window.stack.visible_child_name == "welcome") {
+                window.welcome_view.trigger_recording ();
+            } else if (window.stack.visible_child_name == "record") {
+                var loop = new MainLoop ();
+                window.record_view.trigger_stop_recording.begin ((obj, res) => {
+                    loop.quit ();
+                });
+                loop.run ();
+            }
+        });
     }
 
     public static int main (string[] args) {
