@@ -16,12 +16,13 @@
 */
 
 public class MainWindow : Gtk.ApplicationWindow {
-    public WelcomeView welcome_view { get; private set; }
-    private CountDownView countdown_view;
-    public RecordView record_view { get; private set; }
-    public Recorder recorder { get; private set; default = new Recorder (); }
-    public Gtk.Stack stack { get; private set; }
+    public Recorder recorder { get; default = new Recorder (); }
     private uint configure_id;
+
+    public WelcomeView welcome_view { get; construct; }
+    private CountDownView countdown_view;
+    public RecordView record_view { get; construct; }
+    public Gtk.Stack stack { get; construct; }
 
     public MainWindow (Application app) {
         Object (
@@ -231,7 +232,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         stack.visible_child_name = "record";
     }
 
-    public override bool configure_event (Gdk.EventConfigure event) {
+    protected override bool configure_event (Gdk.EventConfigure event) {
         if (configure_id != 0) {
             GLib.Source.remove (configure_id);
         }
