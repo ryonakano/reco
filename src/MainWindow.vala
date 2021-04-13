@@ -16,13 +16,13 @@
 */
 
 public class MainWindow : Gtk.ApplicationWindow {
-    public Recorder recorder { get; default = new Recorder (); }
+    public Recorder recorder { get; private set; default = new Recorder (); }
     private uint configure_id;
 
-    public WelcomeView welcome_view { get; construct; }
+    private WelcomeView welcome_view;
     private CountDownView countdown_view;
-    public RecordView record_view { get; construct; }
-    public Gtk.Stack stack { get; construct; }
+    private RecordView record_view;
+    private Gtk.Stack stack;
 
     public MainWindow (Application app) {
         Object (
@@ -251,5 +251,39 @@ public class MainWindow : Gtk.ApplicationWindow {
         });
 
         return base.configure_event (event);
+    }
+
+    protected override bool key_press_event (Gdk.EventKey key) {
+        if (Gdk.ModifierType.CONTROL_MASK in key.state) {
+            switch (key.keyval) {
+                case Gdk.Key.q:
+                    if (recorder.is_recording) {
+                        var loop = new MainLoop ();
+                        record_view.trigger_stop_recording.begin ((obj, res) => {
+                            loop.quit ();
+                        });
+                        loop.run ();
+                    }
+
+                    destroy ();
+                    break;
+                case Gdk.Key.R:
+                    if (Gdk.ModifierType.SHIFT_MASK in key.state) {
+                        if (stack.visible_child_name == "welcome") {
+                            welcome_view.trigger_recording ();
+                        } else if (stack.visible_child_name == "record") {
+                            var loop = new MainLoop ();
+                            record_view.trigger_stop_recording.begin ((obj, res) => {
+                                loop.quit ();
+                            });
+                            loop.run ();
+                        }
+                    }
+
+                    break;
+            }
+        }
+
+        return Gdk.EVENT_PROPAGATE;
     }
 }
