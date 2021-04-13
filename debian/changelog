@@ -1,3 +1,14 @@
+com.github.ryonakano.reco (2.4.3) bionic; urgency=low
+
+  * MainWindow: Readable copy for dialog messages
+  * MainWindow: Add window title for the new Gala feature that shows windows titles in Multitasking view
+  * Add Italian translation (thanks to @albanobattistella)
+  * Add Portuguese translation (thanks to @hugok79)
+  * Update Japanese translation
+  * Clean code
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Tue, 13 Apr 2021 14:53:59 +0900
+
 com.github.ryonakano.reco (2.4.2) bionic; urgency=low
 
   * Inhibit sleeping while recording
