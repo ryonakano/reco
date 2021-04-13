@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-14 10:45+0000\n"
+"POT-Creation-Date: 2021-04-13 05:56+0000\n"
 "PO-Revision-Date: 2021-04-09 17:15+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: ITALIAN <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Services/Recorder.vala:253
+#: src/Services/Recorder.vala:256
 msgid "Recording is ongoing"
 msgstr "La registrazione è in corso"
 
@@ -41,12 +41,12 @@ msgstr "Annulla la registrazione"
 msgid "Finish recording"
 msgstr "Termina registrazione"
 
-#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:103
-#: src/Views/RecordView.vala:134 src/Views/RecordView.vala:146
+#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:105
+#: src/Views/RecordView.vala:140 src/Views/RecordView.vala:152
 msgid "Pause recording"
 msgstr "Metti in pausa la registrazione"
 
-#: src/Views/RecordView.vala:124
+#: src/Views/RecordView.vala:128
 msgid "Resume recording"
 msgstr "Riprendi la registrazione"
 
@@ -139,49 +139,49 @@ msgstr "Avvia registrazione"
 msgid "Recordings"
 msgstr "Registrazioni"
 
-#: src/MainWindow.vala:33
+#: src/MainWindow.vala:34
 msgid "Reco"
 msgstr "Reco"
 
-#: src/MainWindow.vala:48
+#: src/MainWindow.vala:49
 msgid "Light background"
 msgstr "Sfondo chiaro"
 
-#: src/MainWindow.vala:49
+#: src/MainWindow.vala:50
 msgid "Dark background"
 msgstr "Sfondo scuro"
 
 #. TRANSLATORS: Whether to follow system's dark style settings
-#: src/MainWindow.vala:54
+#: src/MainWindow.vala:55
 msgid "Follow system style:"
 msgstr "Segui lo stile del sistema:"
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:74
 msgid "Preferences"
 msgstr "Preferenze"
 
-#: src/MainWindow.vala:124
+#: src/MainWindow.vala:125
 msgid "Unable to Complete Recording"
 msgstr "Impossibile completare la registrazione"
 
-#: src/MainWindow.vala:125
+#: src/MainWindow.vala:126
 msgid "The following error message may be helpful:"
 msgstr "Il seguente messaggio di errore può essere utile:"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:142
 #, c-format
 msgid "Recording from %s"
 msgstr "Registrazione da %s"
 
-#: src/MainWindow.vala:159
+#: src/MainWindow.vala:160
 msgid "Save your recording"
 msgstr "Salva registrazione"
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:161
 msgid "Save"
 msgstr "Salva"
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:161
 msgid "Cancel"
 msgstr "Cancella"

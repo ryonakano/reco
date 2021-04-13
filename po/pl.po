@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-14 10:45+0000\n"
+"POT-Creation-Date: 2021-04-13 05:56+0000\n"
 "PO-Revision-Date: 2019-11-18 14:08-0300\n"
 "Last-Translator:  Michał Nowakowski <nowakowski@offshore.rocks>\n"
 "Language-Team: none\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Services/Recorder.vala:253
+#: src/Services/Recorder.vala:256
 #, fuzzy
 msgid "Recording is ongoing"
 msgstr "Nagrania"
@@ -42,12 +42,12 @@ msgstr "Anuluj nagrywanie"
 msgid "Finish recording"
 msgstr "Zakończ nagrywanie"
 
-#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:103
-#: src/Views/RecordView.vala:134 src/Views/RecordView.vala:146
+#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:105
+#: src/Views/RecordView.vala:140 src/Views/RecordView.vala:152
 msgid "Pause recording"
 msgstr "Wstrzymaj nagrywanie"
 
-#: src/Views/RecordView.vala:124
+#: src/Views/RecordView.vala:128
 msgid "Resume recording"
 msgstr "Wznów nagrywanie"
 
@@ -140,33 +140,33 @@ msgstr "Zacznij nagrywanie"
 msgid "Recordings"
 msgstr "Nagrania"
 
-#: src/MainWindow.vala:33
+#: src/MainWindow.vala:34
 #, fuzzy
 msgid "Reco"
 msgstr "Nagrywanie"
 
-#: src/MainWindow.vala:48
+#: src/MainWindow.vala:49
 msgid "Light background"
 msgstr ""
 
-#: src/MainWindow.vala:49
+#: src/MainWindow.vala:50
 msgid "Dark background"
 msgstr ""
 
 #. TRANSLATORS: Whether to follow system's dark style settings
-#: src/MainWindow.vala:54
+#: src/MainWindow.vala:55
 msgid "Follow system style:"
 msgstr ""
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:74
 msgid "Preferences"
 msgstr ""
 
-#: src/MainWindow.vala:124
+#: src/MainWindow.vala:125
 msgid "Unable to Complete Recording"
 msgstr ""
 
-#: src/MainWindow.vala:125
+#: src/MainWindow.vala:126
 #, fuzzy
 msgid "The following error message may be helpful:"
 msgstr ""
@@ -174,20 +174,20 @@ msgstr ""
 "komunikat o błędzie:"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:142
 #, c-format
 msgid "Recording from %s"
 msgstr "Nagrywanie z %s"
 
-#: src/MainWindow.vala:159
+#: src/MainWindow.vala:160
 msgid "Save your recording"
 msgstr "Zapisz swoje nagrania"
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:161
 msgid "Save"
 msgstr "Zapisz"
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:161
 msgid "Cancel"
 msgstr "Anuluj"
 

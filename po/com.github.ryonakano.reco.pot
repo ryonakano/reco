@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-14 10:45+0000\n"
+"POT-Creation-Date: 2021-04-13 05:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Services/Recorder.vala:253
+#: src/Services/Recorder.vala:256
 msgid "Recording is ongoing"
 msgstr ""
 
@@ -42,12 +42,12 @@ msgstr ""
 msgid "Finish recording"
 msgstr ""
 
-#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:103
-#: src/Views/RecordView.vala:134 src/Views/RecordView.vala:146
+#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:105
+#: src/Views/RecordView.vala:140 src/Views/RecordView.vala:152
 msgid "Pause recording"
 msgstr ""
 
-#: src/Views/RecordView.vala:124
+#: src/Views/RecordView.vala:128
 msgid "Resume recording"
 msgstr ""
 
@@ -140,49 +140,49 @@ msgstr ""
 msgid "Recordings"
 msgstr ""
 
-#: src/MainWindow.vala:33
+#: src/MainWindow.vala:34
 msgid "Reco"
 msgstr ""
 
-#: src/MainWindow.vala:48
+#: src/MainWindow.vala:49
 msgid "Light background"
 msgstr ""
 
-#: src/MainWindow.vala:49
+#: src/MainWindow.vala:50
 msgid "Dark background"
 msgstr ""
 
 #. TRANSLATORS: Whether to follow system's dark style settings
-#: src/MainWindow.vala:54
+#: src/MainWindow.vala:55
 msgid "Follow system style:"
 msgstr ""
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:74
 msgid "Preferences"
 msgstr ""
 
-#: src/MainWindow.vala:124
+#: src/MainWindow.vala:125
 msgid "Unable to Complete Recording"
 msgstr ""
 
-#: src/MainWindow.vala:125
+#: src/MainWindow.vala:126
 msgid "The following error message may be helpful:"
 msgstr ""
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:142
 #, c-format
 msgid "Recording from %s"
 msgstr ""
 
-#: src/MainWindow.vala:159
+#: src/MainWindow.vala:160
 msgid "Save your recording"
 msgstr ""
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:161
 msgid "Save"
 msgstr ""
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:161
 msgid "Cancel"
 msgstr ""

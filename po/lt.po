@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-14 10:45+0000\n"
+"POT-Creation-Date: 2021-04-13 05:56+0000\n"
 "PO-Revision-Date: 2019-02-18 14:35+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/Services/Recorder.vala:253
+#: src/Services/Recorder.vala:256
 #, fuzzy
 msgid "Recording is ongoing"
 msgstr "Įrašinėjimai"
@@ -50,13 +50,13 @@ msgstr "Pradėti įrašinėjimą"
 msgid "Finish recording"
 msgstr "Stabdyti įrašinėjimą"
 
-#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:103
-#: src/Views/RecordView.vala:134 src/Views/RecordView.vala:146
+#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:105
+#: src/Views/RecordView.vala:140 src/Views/RecordView.vala:152
 #, fuzzy
 msgid "Pause recording"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/Views/RecordView.vala:124
+#: src/Views/RecordView.vala:128
 #, fuzzy
 msgid "Resume recording"
 msgstr "Įrašinėjimas"
@@ -151,52 +151,52 @@ msgstr "Pradėti įrašinėjimą"
 msgid "Recordings"
 msgstr "Įrašinėjimai"
 
-#: src/MainWindow.vala:33
+#: src/MainWindow.vala:34
 #, fuzzy
 msgid "Reco"
 msgstr "Įrašinėjimas"
 
-#: src/MainWindow.vala:48
+#: src/MainWindow.vala:49
 msgid "Light background"
 msgstr ""
 
-#: src/MainWindow.vala:49
+#: src/MainWindow.vala:50
 msgid "Dark background"
 msgstr ""
 
 #. TRANSLATORS: Whether to follow system's dark style settings
-#: src/MainWindow.vala:54
+#: src/MainWindow.vala:55
 msgid "Follow system style:"
 msgstr ""
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:74
 msgid "Preferences"
 msgstr ""
 
-#: src/MainWindow.vala:124
+#: src/MainWindow.vala:125
 msgid "Unable to Complete Recording"
 msgstr ""
 
-#: src/MainWindow.vala:125
+#: src/MainWindow.vala:126
 #, fuzzy
 msgid "The following error message may be helpful:"
 msgstr "Įrašanėjant, įvyko GStreamer klaida:"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:142
 #, c-format
 msgid "Recording from %s"
 msgstr "Įrašinėjimas iš %s"
 
-#: src/MainWindow.vala:159
+#: src/MainWindow.vala:160
 msgid "Save your recording"
 msgstr "Išsaugokite savo įrašinėjimą"
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:161
 msgid "Save"
 msgstr "Išsaugoti"
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:161
 msgid "Cancel"
 msgstr "Atsisakyti"
 
