@@ -65,6 +65,13 @@
   </content_rating>
 
   <releases>
+    <release version="2.4.4" date="2021-04-13" urgency="low">
+      <description>
+        <ul>
+          <li>Revert changes done in version 2.4.3 that potentially caused an error during the packaging process</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.4.3" date="2021-04-13" urgency="low">
       <description>
         <ul>
