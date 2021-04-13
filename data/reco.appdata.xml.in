@@ -65,6 +65,18 @@
   </content_rating>
 
   <releases>
+    <release version="2.4.3" date="2021-04-13" urgency="low">
+      <description>
+        <ul>
+          <li>MainWindow: Readable copy for dialog messages</li>
+          <li>MainWindow: Add window title for the new Gala feature that shows windows titles in Multitasking view</li>
+          <li>Add Italian translation (thanks to @albanobattistella)</li>
+          <li>Add Portuguese translation (thanks to @hugok79)</li>
+          <li>Update Japanese translation</li>
+          <li>Clean code</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.4.2" date="2021-01-03" urgency="low">
       <description>
         <ul>
