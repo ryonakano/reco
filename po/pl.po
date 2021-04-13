@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-13 07:52+0000\n"
+"POT-Creation-Date: 2021-04-13 13:23+0000\n"
 "PO-Revision-Date: 2019-11-18 14:08-0300\n"
 "Last-Translator:  Michał Nowakowski <nowakowski@offshore.rocks>\n"
 "Language-Team: none\n"
@@ -174,20 +174,20 @@ msgstr ""
 "komunikat o błędzie:"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:142
+#: src/MainWindow.vala:146
 #, c-format
 msgid "Recording from %s"
 msgstr "Nagrywanie z %s"
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:164
 msgid "Save your recording"
 msgstr "Zapisz swoje nagrania"
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:165
 msgid "Save"
 msgstr "Zapisz"
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:165
 msgid "Cancel"
 msgstr "Anuluj"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-13 07:52+0000\n"
+"POT-Creation-Date: 2021-04-13 13:23+0000\n"
 "PO-Revision-Date: 2021-04-09 17:15+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: ITALIAN <LL@li.org>\n"
@@ -169,19 +169,19 @@ msgid "The following error message may be helpful:"
 msgstr "Il seguente messaggio di errore può essere utile:"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:142
+#: src/MainWindow.vala:146
 #, c-format
 msgid "Recording from %s"
 msgstr "Registrazione da %s"
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:164
 msgid "Save your recording"
 msgstr "Salva registrazione"
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:165
 msgid "Save"
 msgstr "Salva"
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:165
 msgid "Cancel"
 msgstr "Cancella"
