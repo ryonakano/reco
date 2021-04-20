@@ -59,7 +59,7 @@ Simply [create a new issue](https://github.com/ryonakano/reco/issues/new) descri
 
 ### Writing Some Code
 
-We follow the [coding style of elementary OS](https://elementary.io/docs/code/reference#code-style) and [its Human Interface Guidelines](https://elementary.io/docs/human-interface-guidelines#human-interface-guidelines), please try to respect them.
+We follow [the coding style of elementary OS](https://docs.elementary.io/develop/writing-apps/code-style) and [its Human Interface Guidelines](https://docs.elementary.io/hig/). Try to respect them.
 
 ### Translating This App
 
