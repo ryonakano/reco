@@ -2,8 +2,9 @@
 <!-- Copyright 2018-2021 Ryo Nakano -->
 <component type="desktop">
   <id>com.github.ryonakano.reco</id>
+  <launchable type="desktop-id">com.github.ryonakano.reco.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-3.0</project_license>
+  <project_license>GPL-3.0+</project_license>
   <name>Reco</name>
   <summary>Record talks to remember the contents later</summary>
   <description>
