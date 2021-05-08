@@ -1,104 +1,104 @@
-# Spanish translations for Reco.
-# Copyright (C) 2019 THE PACKAGE'S COPYRIGHT HOLDER
+# Catalan translations for Reco.
+# Copyright (C) 2021 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2019.
+# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-13 13:23+0000\n"
-"PO-Revision-Date: 2021-05-08 05:29-0500\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"PO-Revision-Date: 2021-05-08 06:14-0500\n"
 "Language-Team: \n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.4.2\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ca\n"
 
 #: src/Services/Recorder.vala:256
 msgid "Recording is ongoing"
-msgstr "Grabación en curso"
+msgstr "L’enregistrament està en curs"
 
 #: src/Views/CountDownView.vala:49
 msgid "Cancel the countdown"
-msgstr "Cancelar cuenta regresiva"
+msgstr "Cancel·la el compte enrere"
 
 #: src/Views/CountDownView.vala:56 src/Views/CountDownView.vala:129
 #: src/Views/CountDownView.vala:151
 msgid "Pause the countdown"
-msgstr "Pausar cuenta regresiva"
+msgstr "Posa en pausa el compte enrere"
 
 #: src/Views/CountDownView.vala:142
 msgid "Resume the countdown"
-msgstr "Reanudar cuenta regresiva"
+msgstr "Reprèn el compte enrere"
 
 #: src/Views/RecordView.vala:63
 msgid "Cancel recording"
-msgstr "Cancelar grabación"
+msgstr "Cancel·la l’enregistrament"
 
 #: src/Views/RecordView.vala:70
 msgid "Finish recording"
-msgstr "Finalizar grabación"
+msgstr "Finalitza l’enregistrament"
 
 #: src/Views/RecordView.vala:79 src/Views/RecordView.vala:105
 #: src/Views/RecordView.vala:140 src/Views/RecordView.vala:152
 msgid "Pause recording"
-msgstr "Pausar grabación"
+msgstr "Posa en pausa l’enregistrament"
 
 #: src/Views/RecordView.vala:128
 msgid "Resume recording"
-msgstr "Reanudar grabación"
+msgstr "Reprèn l’enregistrament"
 
 #: src/Views/WelcomeView.vala:32
 msgid "Recording"
-msgstr "Grabación"
+msgstr "Enregistrament"
 
 #: src/Views/WelcomeView.vala:34
 msgid "Delay in seconds:"
-msgstr "Demora en segundos:"
+msgstr "Retard en segons:"
 
 #: src/Views/WelcomeView.vala:41
 msgid "Length in seconds:"
-msgstr "Duración en segundos:"
+msgstr "Durada en segons:"
 
 #: src/Views/WelcomeView.vala:48
 msgid "Record from:"
-msgstr "Grabar desde:"
+msgstr "Enregistra des de:"
 
 #: src/Views/WelcomeView.vala:54
 msgid "Microphone"
-msgstr "Micrófono"
+msgstr "Micròfon"
 
 #: src/Views/WelcomeView.vala:55
 msgid "Computer"
-msgstr "PC"
+msgstr "Ordinador"
 
 #: src/Views/WelcomeView.vala:56
 msgid "Both"
-msgstr "Ambos"
+msgstr "Tots dos"
 
 #: src/Views/WelcomeView.vala:58
 msgid "Channels:"
-msgstr "Canales:"
+msgstr "Canals:"
 
 #: src/Views/WelcomeView.vala:64
 msgid "Mono"
-msgstr "Monoaural"
+msgstr "Monofònic"
 
 #: src/Views/WelcomeView.vala:65
 msgid "Stereo"
-msgstr "Estéreo"
+msgstr "Estereofònic"
 
 #: src/Views/WelcomeView.vala:67
 msgid "Saving"
-msgstr "Guardado"
+msgstr "Desament"
 
 #: src/Views/WelcomeView.vala:69
 msgid "Format:"
-msgstr "Formato:"
+msgstr "Format:"
 
 #: src/Views/WelcomeView.vala:76
 msgid "AAC"
@@ -126,20 +126,20 @@ msgstr "WAV"
 
 #: src/Views/WelcomeView.vala:83
 msgid "Automatically save files:"
-msgstr "Guardar archivos automáticamente:"
+msgstr "Desa els fitxers automàticament:"
 
 #: src/Views/WelcomeView.vala:92
 msgid "Choose a default destination"
-msgstr "Elija un destino predeterminado"
+msgstr "Trieu una destinació per defecte"
 
 #: src/Views/WelcomeView.vala:122
 msgid "Start recording"
-msgstr "Comenzar grabación"
+msgstr "Comença a enregistrar"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
 #: src/Views/WelcomeView.vala:155
 msgid "Recordings"
-msgstr "Grabaciones"
+msgstr "Enregistraments"
 
 #: src/MainWindow.vala:34
 msgid "Reco"
@@ -147,50 +147,43 @@ msgstr "Reco"
 
 #: src/MainWindow.vala:49
 msgid "Light background"
-msgstr "Fondo claro"
+msgstr "Fons clar"
 
 #: src/MainWindow.vala:50
 msgid "Dark background"
-msgstr "Fondo oscuro"
+msgstr "Fons fosc"
 
 #. TRANSLATORS: Whether to follow system's dark style settings
 #: src/MainWindow.vala:55
 msgid "Follow system style:"
-msgstr "Seguir estilo del sistema:"
+msgstr "Segueix l’estil del sistema:"
 
 #: src/MainWindow.vala:74
 msgid "Preferences"
-msgstr "Preferencias"
+msgstr "Preferències"
 
 #: src/MainWindow.vala:125
 msgid "Unable to Complete Recording"
-msgstr "No se pudo completar la grabación"
+msgstr "No s’ha pogut completar l’enregistrament"
 
 #: src/MainWindow.vala:126
 msgid "The following error message may be helpful:"
-msgstr "El mensaje de error siguiente podría ser de utilidad:"
+msgstr "Aquest missatge d’error us pot ser útil:"
 
 #. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:146
 #, c-format
 msgid "Recording from %s"
-msgstr "Grabación desde %s"
+msgstr "Enregistrament de %s"
 
 #: src/MainWindow.vala:164
 msgid "Save your recording"
-msgstr "Guarde su grabación"
+msgstr "Deseu el vostre enregistrament"
 
 #: src/MainWindow.vala:165
 msgid "Save"
-msgstr "Guardar"
+msgstr "Desa"
 
 #: src/MainWindow.vala:165
 msgid "Cancel"
-msgstr "Cancelar"
-
-#~ msgid "Unable to Create an Audio File"
-#~ msgstr "No se pudo crear un archivo de audio"
-
-#, fuzzy
-#~ msgid "Include system sound:"
-#~ msgstr "Grabar sonidos del sistema:"
+msgstr "Cancel·la"
