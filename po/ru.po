@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-13 13:23+0000\n"
+"POT-Creation-Date: 2021-05-10 03:15+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Sharigami <usmanovmax@protonmail.com>\n"
 "Language-Team: \n"
@@ -73,8 +73,8 @@ msgid "Microphone"
 msgstr "Микрофон"
 
 #: src/Views/WelcomeView.vala:55
-msgid "Computer"
-msgstr "Компьютер"
+msgid "System"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:56
 msgid "Both"
@@ -191,6 +191,9 @@ msgstr "сохранить"
 #: src/MainWindow.vala:165
 msgid "Cancel"
 msgstr "Отменить"
+
+#~ msgid "Computer"
+#~ msgstr "Компьютер"
 
 #~ msgid "Unable to Create an Audio File"
 #~ msgstr "Невозможно Создать Аудиофайл"
