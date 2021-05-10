@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-13 13:23+0000\n"
+"POT-Creation-Date: 2021-05-10 03:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,7 +72,7 @@ msgid "Microphone"
 msgstr ""
 
 #: src/Views/WelcomeView.vala:55
-msgid "Computer"
+msgid "System"
 msgstr ""
 
 #: src/Views/WelcomeView.vala:56
