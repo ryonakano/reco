@@ -52,7 +52,7 @@ public class WelcomeView : Gtk.Box {
             halign = Gtk.Align.START
         };
         system_sound_combobox.append ("mic", _("Microphone"));
-        system_sound_combobox.append ("system", _("Computer"));
+        system_sound_combobox.append ("system", _("System"));
         system_sound_combobox.append ("both", _("Both"));
 
         var channels_label = new Gtk.Label (_("Channels:")) {
