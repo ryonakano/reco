@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-10 03:15+0000\n"
-"PO-Revision-Date: 2021-05-08 05:29-0500\n"
+"PO-Revision-Date: 2021-05-25 06:13-0500\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.4.3\n"
 
 #: src/Services/Recorder.vala:256
 msgid "Recording is ongoing"
@@ -73,9 +73,8 @@ msgid "Microphone"
 msgstr "Micrófono"
 
 #: src/Views/WelcomeView.vala:55
-#, fuzzy
 msgid "System"
-msgstr "PC"
+msgstr "Sistema"
 
 #: src/Views/WelcomeView.vala:56
 msgid "Both"
