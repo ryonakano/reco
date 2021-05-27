@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-10 03:15+0000\n"
-"PO-Revision-Date: 2020-05-29 09:19-0500\n"
+"PO-Revision-Date: 2021-05-25 06:13-0500\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.3\n"
 
 #: src/Services/Recorder.vala:256
-#, fuzzy
 msgid "Recording is ongoing"
-msgstr "Grabaciones"
+msgstr "Grabación en curso"
 
 #: src/Views/CountDownView.vala:49
 msgid "Cancel the countdown"
@@ -58,7 +58,7 @@ msgstr "Grabación"
 
 #: src/Views/WelcomeView.vala:34
 msgid "Delay in seconds:"
-msgstr "Retardo en segundos:"
+msgstr "Demora en segundos:"
 
 #: src/Views/WelcomeView.vala:41
 msgid "Length in seconds:"
@@ -74,7 +74,7 @@ msgstr "Micrófono"
 
 #: src/Views/WelcomeView.vala:55
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #: src/Views/WelcomeView.vala:56
 msgid "Both"
@@ -82,15 +82,15 @@ msgstr "Ambos"
 
 #: src/Views/WelcomeView.vala:58
 msgid "Channels:"
-msgstr ""
+msgstr "Canales:"
 
 #: src/Views/WelcomeView.vala:64
 msgid "Mono"
-msgstr ""
+msgstr "Monoaural"
 
 #: src/Views/WelcomeView.vala:65
 msgid "Stereo"
-msgstr ""
+msgstr "Estéreo"
 
 #: src/Views/WelcomeView.vala:67
 msgid "Saving"
@@ -142,37 +142,33 @@ msgid "Recordings"
 msgstr "Grabaciones"
 
 #: src/MainWindow.vala:34
-#, fuzzy
 msgid "Reco"
-msgstr "Grabación"
+msgstr "Reco"
 
 #: src/MainWindow.vala:49
 msgid "Light background"
-msgstr ""
+msgstr "Fondo claro"
 
 #: src/MainWindow.vala:50
 msgid "Dark background"
-msgstr ""
+msgstr "Fondo oscuro"
 
 #. TRANSLATORS: Whether to follow system's dark style settings
 #: src/MainWindow.vala:55
 msgid "Follow system style:"
-msgstr ""
+msgstr "Seguir estilo del sistema:"
 
 #: src/MainWindow.vala:74
 msgid "Preferences"
-msgstr ""
+msgstr "Preferencias"
 
 #: src/MainWindow.vala:125
 msgid "Unable to Complete Recording"
-msgstr ""
+msgstr "No se pudo completar la grabación"
 
 #: src/MainWindow.vala:126
-#, fuzzy
 msgid "The following error message may be helpful:"
-msgstr ""
-"Se produjo un error de GStreamer durante la grabación. El mensaje de error "
-"siguiente podría ser de utilidad:"
+msgstr "El mensaje de error siguiente podría ser de utilidad:"
 
 #. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:146
