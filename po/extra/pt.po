@@ -2,12 +2,13 @@
 # This file is distributed under the same license as the extra package.
 #
 # Hugo Carvalho <hugokarvalho@hotmail.com>, 2021.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-10 03:15+0000\n"
-"PO-Revision-Date: 2021-04-11 17:26+0100\n"
+"PO-Revision-Date: 2021-06-03 10:16+0100\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <hugokarvalho@hotmail.com>\n"
 "Language: pt\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.4.3\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -103,36 +104,40 @@ msgid ""
 "Revert another change done in version 2.4.3 that potentially caused an error "
 "during the packaging process"
 msgstr ""
+"Reverter outra alteração feita na versão 2.4.3 que potencialmente causou um "
+"erro durante o processo de empacotamento"
 
 #: data/reco.appdata.xml.in:74
 msgid "Revive the change that had been reverted in version 2.4.4"
-msgstr ""
+msgstr "Recuperar a mudança que tinha sido revertida na versão 2.4.4"
 
 #: data/reco.appdata.xml.in:81
 msgid ""
 "Revert changes done in version 2.4.3 that potentially caused an error during "
 "the packaging process"
 msgstr ""
+"Reverter as alterações feitas na versão 2.4.3 que potencialmente causaram um "
+"erro durante o processo de empacotamento"
 
 #: data/reco.appdata.xml.in:88
 msgid "MainWindow: Readable copy for dialog messages"
-msgstr ""
+msgstr "MainWindow: Cópia legível para mensagens de janela de diálogo"
 
 #: data/reco.appdata.xml.in:89
 msgid ""
 "MainWindow: Add window title for the new Gala feature that shows windows "
 "titles in Multitasking view"
 msgstr ""
+"MainWindow: Adição do título da janela para o nova funcionalidade Gala que "
+"mostra títulos das janelas na exibição do Multitarefas"
 
 #: data/reco.appdata.xml.in:90
-#, fuzzy
 msgid "Add Italian translation (thanks to @albanobattistella)"
-msgstr "Atualização da tradução holandesa (obrigado a @Vistaus)"
+msgstr "Tradução italiana adicionada (obrigado a @albanobattistella)"
 
 #: data/reco.appdata.xml.in:91
-#, fuzzy
 msgid "Add Portuguese translation (thanks to @hugok79)"
-msgstr "Atualização da tradução (obrigado a @CCaroV)"
+msgstr "Tradução portuguesa adicionada (obrigado a @hugok79)"
 
 #: data/reco.appdata.xml.in:92 data/reco.appdata.xml.in:101
 #: data/reco.appdata.xml.in:124 data/reco.appdata.xml.in:142
@@ -145,7 +150,7 @@ msgstr "Atualização da tradução japonesa"
 
 #: data/reco.appdata.xml.in:93
 msgid "Clean code"
-msgstr ""
+msgstr "Limpeza de código"
 
 #: data/reco.appdata.xml.in:100
 msgid "Inhibit sleeping while recording"
