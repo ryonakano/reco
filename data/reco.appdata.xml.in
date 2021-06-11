@@ -66,6 +66,15 @@
   </content_rating>
 
   <releases>
+    <release version="2.4.6" date="2021-06-11" urgency="low">
+      <description>
+        <ul>
+          <li>Update Portuguese translation (thanks to @hugok79)</li>
+          <li>Update Spanish translation and add Catalan translation (thanks to @fitojb)</li>
+          <li>Update Japanese translation</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.4.5" date="2021-04-13" urgency="low">
       <description>
         <ul>
