@@ -1,7 +1,8 @@
 project(
     'com.github.ryonakano.reco',
     'vala', 'c',
-    version: '2.4.6'
+    version: '2.4.6',
+    meson_version: '>=0.49.0'
 )
 
 app_nickname = 'reco'
@@ -16,20 +17,24 @@ add_project_arguments(
 
 asresources = gnome.compile_resources(
     'as-resources',
-    join_paths('data', app_nickname + '.gresource.xml'),
+    'data' / app_nickname + '.gresource.xml',
     source_dir: 'data',
     c_name: 'as'
+)
+
+sources = files(
+    'src' / 'Services' / 'Recorder.vala',
+    'src' / 'Views' / 'CountDownView.vala',
+    'src' / 'Views' / 'WelcomeView.vala',
+    'src' / 'Views' / 'RecordView.vala',
+    'src' / 'Application.vala',
+    'src' / 'MainWindow.vala',
 )
 
 executable(
     meson.project_name(),
     asresources,
-    'src/Services/Recorder.vala',
-    'src/Views/CountDownView.vala',
-    'src/Views/WelcomeView.vala',
-    'src/Views/RecordView.vala',
-    'src/Application.vala',
-    'src/MainWindow.vala',
+    sources,
     dependencies: [
         dependency('granite', version: '>=5.4.0'),
         dependency('gtk+-3.0'),
@@ -41,4 +46,4 @@ executable(
 subdir('data')
 subdir('po')
 
-meson.add_install_script('meson/post_install.py')
+meson.add_install_script('meson' / 'post_install.py')

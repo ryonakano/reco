@@ -31,7 +31,7 @@ You'll need the following dependencies to build:
 * libgtk-3.0-dev
 * libgranite-dev (>= 5.4.0)
 * libgstreamer1.0-dev
-* meson
+* meson (>=0.49.0)
 * valac
 
 You'll need the following dependencies to run:
