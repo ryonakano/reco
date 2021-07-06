@@ -11,6 +11,9 @@ finish-args:
   - '--socket=fallback-x11'
   - '--socket=pulseaudio'
 
+  - '--filesystem=/tmp/com.github.ryonakano.reco:create'
+  - '--env=TMPDIR=/tmp/com.github.ryonakano.reco'
+
   # needed for perfers-color-scheme
   - '--system-talk-name=org.freedesktop.Accounts'
 
