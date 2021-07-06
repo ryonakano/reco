@@ -65,15 +65,14 @@ public class Recorder : Object {
             string default_output = "";
             try {
                 string sound_devices = "";
-                Process.spawn_command_line_sync ("pacmd list-sinks", out sound_devices);
-                var regex = new Regex ("\\*\\sindex:\\s\\d+\\s\\sname:\\s<([\\w\\.\\-]*)");
+                Process.spawn_command_line_sync ("env LANG=C pactl list sinks", out sound_devices);
+                var regex = new Regex ("Monitor Source: (.*)");
                 MatchInfo match_info;
 
                 if (regex.match (sound_devices, 0, out match_info)) {
                     default_output = match_info.fetch (1);
                 }
 
-                default_output += ".monitor";
                 sys_sound.set ("device", default_output);
                 debug ("Detected system sound device: %s", default_output);
             } catch (Error e) {
@@ -85,8 +84,8 @@ public class Recorder : Object {
             string default_input = "";
             try {
                 string sound_devices = "";
-                Process.spawn_command_line_sync ("pacmd list-sources", out sound_devices);
-                var regex = new Regex ("\\*\\sindex:\\s\\d+\\s\\sname:\\s<([\\w\\.\\-]*)");
+                Process.spawn_command_line_sync ("env LANG=C pactl list sources", out sound_devices);
+                var regex = new Regex ("Monitor of Sink: (.*)");
                 MatchInfo match_info;
 
                 if (regex.match (sound_devices, 0, out match_info)) {
