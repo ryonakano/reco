@@ -15,6 +15,15 @@ add_project_arguments(
     language: 'c'
 )
 
+config_data = configuration_data()
+config_data.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
+config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+config_file = configure_file(
+    input: 'src' / 'Config.vala.in',
+    output: '@BASENAME@',
+    configuration: config_data
+)
+
 asresources = gnome.compile_resources(
     'as-resources',
     'data' / app_nickname + '.gresource.xml',
@@ -34,6 +43,7 @@ sources = files(
 executable(
     meson.project_name(),
     asresources,
+    config_file,
     sources,
     dependencies: [
         dependency('granite', version: '>=5.4.0'),
