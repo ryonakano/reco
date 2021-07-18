@@ -85,7 +85,7 @@ public class Recorder : Object {
             try {
                 string sound_devices = "";
                 Process.spawn_command_line_sync ("env LANG=C pactl list sources", out sound_devices);
-                var regex = new Regex ("Monitor of Sink: (.*)");
+                var regex = new Regex ("Name: (.*(?<!monitor)$)", RegexCompileFlags.MULTILINE);
                 MatchInfo match_info;
 
                 if (regex.match (sound_devices, 0, out match_info)) {
