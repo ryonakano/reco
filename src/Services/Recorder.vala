@@ -63,7 +63,7 @@ public class Recorder : Object {
 
         if (device_id != SourceDevice.MIC) {
             string system_sound_source;
-            foreach (var device in Application.device_manager.devices) {
+            foreach (var device in DeviceManager.get_default ().devices) {
                 if (device.name.contains (".monitor")) {
                     system_sound_source = device.name;
                     sys_sound.set ("device", system_sound_source);

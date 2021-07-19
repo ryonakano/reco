@@ -163,7 +163,7 @@ public class WelcomeView : Gtk.Box {
             trigger_recording ();
         });
 
-        Application.device_manager.device_updated.connect (update_device_list);
+        DeviceManager.get_default ().device_updated.connect (update_device_list);
     }
 
     private string get_destination () {
@@ -208,7 +208,7 @@ public class WelcomeView : Gtk.Box {
     private void update_device_list () {
         device_combobox.remove_all ();
 
-        foreach (var device in Application.device_manager.devices) {
+        foreach (var device in DeviceManager.get_default ().devices) {
             if (!device.name.contains (".monitor")) {
                 device_combobox.append (device.name, device.display_name);
             }
