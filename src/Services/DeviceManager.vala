@@ -37,6 +37,8 @@ public class DeviceManager : Object {
 
         devices = new Gee.ArrayList<Device> ();
         update_devices ();
+
+        monitor.start ();
     }
 
     private bool bus_func (Gst.Bus bus, Gst.Message msg) {
@@ -50,7 +52,7 @@ public class DeviceManager : Object {
                 break;
         }
 
-        return true;
+        return Source.CONTINUE;
     }
 
     private void update_devices () {
