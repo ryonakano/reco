@@ -16,6 +16,8 @@
 */
 
 public class DeviceManager : Object {
+    public signal void device_updated ();
+
     private Gst.DeviceMonitor monitor;
     public Gee.ArrayList<Device> devices { get; private set; }
 
@@ -76,6 +78,8 @@ public class DeviceManager : Object {
         foreach (var device in devices) {
             debug ("Device detected: %s, %s\n", device.display_name, device.name);
         }
+
+        device_updated ();
     }
 
     public class Device : Object {

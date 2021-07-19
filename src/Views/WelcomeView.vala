@@ -17,6 +17,7 @@
 
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
+    private Gtk.ComboBoxText device_combobox;
     private Gtk.Button record_button;
 
     public WelcomeView (MainWindow window) {
@@ -58,14 +59,10 @@ public class WelcomeView : Gtk.Box {
         var device_label = new Gtk.Label (_("Selected microphone:")) {
             halign = Gtk.Align.END
         };
-        var device_combobox = new Gtk.ComboBoxText () {
+        device_combobox = new Gtk.ComboBoxText () {
             halign = Gtk.Align.START
         };
-        foreach (var device in Application.device_manager.devices) {
-            if (!device.name.contains (".monitor")) {
-                device_combobox.append (device.name, device.display_name);
-            }
-        }
+        update_device_list ();
 
         var channels_label = new Gtk.Label (_("Channels:")) {
             halign = Gtk.Align.END
@@ -165,6 +162,8 @@ public class WelcomeView : Gtk.Box {
         record_button.clicked.connect (() => {
             trigger_recording ();
         });
+
+        Application.device_manager.device_updated.connect (update_device_list);
     }
 
     private string get_destination () {
@@ -204,6 +203,18 @@ public class WelcomeView : Gtk.Box {
         } else {
             window.show_record ();
         }
+    }
+
+    private void update_device_list () {
+        device_combobox.remove_all ();
+
+        foreach (var device in Application.device_manager.devices) {
+            if (!device.name.contains (".monitor")) {
+                device_combobox.append (device.name, device.display_name);
+            }
+        }
+
+        device_combobox.show_all ();
     }
 
     private bool update_device_combobox_sensitivity (string active_id) {
