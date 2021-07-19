@@ -46,17 +46,17 @@ public class WelcomeView : Gtk.Box {
             halign = Gtk.Align.START
         };
 
-        var system_sound_label = new Gtk.Label (_("Record from:")) {
+        var source_label = new Gtk.Label (_("Record from:")) {
             halign = Gtk.Align.END
         };
-        var system_sound_combobox = new Gtk.ComboBoxText () {
+        var source_combobox = new Gtk.ComboBoxText () {
             halign = Gtk.Align.START
         };
-        system_sound_combobox.append ("mic", _("Microphone"));
-        system_sound_combobox.append ("system", _("System"));
-        system_sound_combobox.append ("both", _("Both"));
+        source_combobox.append ("mic", _("Microphone"));
+        source_combobox.append ("system", _("System"));
+        source_combobox.append ("both", _("Both"));
 
-        var device_label = new Gtk.Label (_("Selected microphone:")) {
+        var device_label = new Gtk.Label (_("Microphone to use:")) {
             halign = Gtk.Align.END
         };
         device_combobox = new Gtk.ComboBoxText () {
@@ -115,8 +115,8 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (delay_spin, 1, 1, 1, 1);
         settings_grid.attach (length_label, 0, 2, 1, 1);
         settings_grid.attach (length_spin, 1, 2, 1, 1);
-        settings_grid.attach (system_sound_label, 0, 3, 1, 1);
-        settings_grid.attach (system_sound_combobox, 1, 3, 1, 1);
+        settings_grid.attach (source_label, 0, 3, 1, 1);
+        settings_grid.attach (source_combobox, 1, 3, 1, 1);
         settings_grid.attach (device_label, 0, 4, 1, 1);
         settings_grid.attach (device_combobox, 1, 4, 1, 1);
         settings_grid.attach (channels_label, 0, 5, 1, 1);
@@ -143,16 +143,16 @@ public class WelcomeView : Gtk.Box {
 
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("device", system_sound_combobox, "active_id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("device", source_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("microphone", device_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channels", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("auto-save", auto_save_switch, "active", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("auto-save", destination_chooser, "sensitive", SettingsBindFlags.DEFAULT);
 
-        device_combobox.sensitive = update_device_combobox_sensitivity (system_sound_combobox.active_id);
-        system_sound_combobox.changed.connect (() => {
-            device_combobox.sensitive = update_device_combobox_sensitivity (system_sound_combobox.active_id);
+        device_combobox.sensitive = update_device_combobox_sensitivity (source_combobox.active_id);
+        source_combobox.changed.connect (() => {
+            device_combobox.sensitive = update_device_combobox_sensitivity (source_combobox.active_id);
         });
 
         destination_chooser.file_set.connect (() => {

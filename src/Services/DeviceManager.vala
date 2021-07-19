@@ -17,9 +17,9 @@
 
 public class DeviceManager : Object {
     public signal void device_updated ();
+    public Gee.ArrayList<Device> devices { get; private set; }
 
     private Gst.DeviceMonitor monitor;
-    public Gee.ArrayList<Device> devices { get; private set; }
 
     private static DeviceManager? _instance = null;
     public static DeviceManager get_default () {
@@ -32,27 +32,25 @@ public class DeviceManager : Object {
 
     private DeviceManager () {
         monitor = new Gst.DeviceMonitor ();
-        monitor.get_bus ().add_watch (Priority.DEFAULT, bus_func);
+        monitor.get_bus ().add_watch (Priority.DEFAULT, (bus, msg) => {
+            switch (msg.type) {
+                case Gst.MessageType.DEVICE_ADDED:
+                case Gst.MessageType.DEVICE_REMOVED:
+                    devices.clear ();
+                    update_devices ();
+                    break;
+                default:
+                    break;
+            }
+    
+            return Source.CONTINUE;
+        });
         monitor.add_filter ("Source/Audio", new Gst.Caps.empty_simple ("audio/x-raw"));
 
         devices = new Gee.ArrayList<Device> ();
         update_devices ();
 
         monitor.start ();
-    }
-
-    private bool bus_func (Gst.Bus bus, Gst.Message msg) {
-        switch (msg.type) {
-            case Gst.MessageType.DEVICE_ADDED:
-            case Gst.MessageType.DEVICE_REMOVED:
-                devices.clear ();
-                update_devices ();
-                break;
-            default:
-                break;
-        }
-
-        return Source.CONTINUE;
     }
 
     private void update_devices () {
@@ -71,14 +69,11 @@ public class DeviceManager : Object {
                     error ("Unexpected device class: %s", properties.get_string ("device.class"));
             }
 
-            var d = new Device (device.display_name, device_name);
-            if (!(devices.contains (d))) {
-                devices.add (d);
+            var detected_device = new Device (device.display_name, device_name);
+            if (!(devices.contains (detected_device))) {
+                debug ("Device detected: %s, %s\n", device.display_name, device_name);
+                devices.add (detected_device);
             }
-        }
-
-        foreach (var device in devices) {
-            debug ("Device detected: %s, %s\n", device.display_name, device.name);
         }
 
         device_updated ();
