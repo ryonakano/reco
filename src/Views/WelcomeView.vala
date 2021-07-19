@@ -55,6 +55,18 @@ public class WelcomeView : Gtk.Box {
         system_sound_combobox.append ("system", _("System"));
         system_sound_combobox.append ("both", _("Both"));
 
+        var device_label = new Gtk.Label (_("Selected microphone:")) {
+            halign = Gtk.Align.END
+        };
+        var device_combobox = new Gtk.ComboBoxText () {
+            halign = Gtk.Align.START
+        };
+        foreach (var device in Application.device_manager.devices) {
+            if (!device.name.contains (".monitor")) {
+                device_combobox.append (device.name, device.display_name);
+            }
+        }
+
         var channels_label = new Gtk.Label (_("Channels:")) {
             halign = Gtk.Align.END
         };
@@ -108,14 +120,16 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (length_spin, 1, 2, 1, 1);
         settings_grid.attach (system_sound_label, 0, 3, 1, 1);
         settings_grid.attach (system_sound_combobox, 1, 3, 1, 1);
-        settings_grid.attach (channels_label, 0, 4, 1, 1);
-        settings_grid.attach (channels_combobox, 1, 4, 1, 1);
-        settings_grid.attach (saving_header_label, 0, 5, 1, 1);
-        settings_grid.attach (format_label, 0, 6, 1, 1);
-        settings_grid.attach (format_combobox, 1, 6, 1, 1);
-        settings_grid.attach (auto_save_label, 0, 7, 1, 1);
-        settings_grid.attach (auto_save_switch, 1, 7, 1, 1);
-        settings_grid.attach (destination_chooser, 1, 8, 1, 1);
+        settings_grid.attach (device_label, 0, 4, 1, 1);
+        settings_grid.attach (device_combobox, 1, 4, 1, 1);
+        settings_grid.attach (channels_label, 0, 5, 1, 1);
+        settings_grid.attach (channels_combobox, 1, 5, 1, 1);
+        settings_grid.attach (saving_header_label, 0, 6, 1, 1);
+        settings_grid.attach (format_label, 0, 7, 1, 1);
+        settings_grid.attach (format_combobox, 1, 7, 1, 1);
+        settings_grid.attach (auto_save_label, 0, 8, 1, 1);
+        settings_grid.attach (auto_save_switch, 1, 8, 1, 1);
+        settings_grid.attach (destination_chooser, 1, 9, 1, 1);
 
         record_button = new Gtk.Button () {
             image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND),
@@ -133,10 +147,16 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("device", system_sound_combobox, "active_id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("microphone", device_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channels", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("auto-save", auto_save_switch, "active", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("auto-save", destination_chooser, "sensitive", SettingsBindFlags.DEFAULT);
+
+        device_combobox.sensitive = update_device_combobox_sensitivity (system_sound_combobox.active_id);
+        system_sound_combobox.changed.connect (() => {
+            device_combobox.sensitive = update_device_combobox_sensitivity (system_sound_combobox.active_id);
+        });
 
         destination_chooser.file_set.connect (() => {
             Application.settings.set_string ("destination", destination_chooser.get_filename ());
@@ -183,6 +203,18 @@ public class WelcomeView : Gtk.Box {
             window.show_countdown ();
         } else {
             window.show_record ();
+        }
+    }
+
+    private bool update_device_combobox_sensitivity (string active_id) {
+        switch (active_id) {
+            case "mic":
+            case "both":
+                return true;
+            case "system":
+                return false;
+            default:
+                assert_not_reached ();
         }
     }
 }

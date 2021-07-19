@@ -18,6 +18,7 @@
 public class Application : Gtk.Application {
     private MainWindow window;
     public static Settings settings;
+    public static DeviceManager device_manager { get; private set; }
 
     public Application () {
         Object (
@@ -35,6 +36,7 @@ public class Application : Gtk.Application {
 
     static construct {
         settings = new Settings ("com.github.ryonakano.reco");
+        device_manager = DeviceManager.get_default ();
     }
 
     protected override void activate () {
