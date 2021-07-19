@@ -56,14 +56,15 @@ public class DeviceManager : Object {
     private void update_devices () {
         foreach (var device in monitor.get_devices ()) {
             Gst.Structure properties = device.properties;
-            string device_path = properties.get_string ("device.bus_path").replace (":", "_");
+            string bus_path = properties.get_string ("device.bus_path").replace (":", "_");
+
             string device_name;
             switch (properties.get_string ("device.class")) {
                 case "sound":
-                    device_name = "alsa_input.%s.analog-stereo".printf (device_path);
+                    device_name = "alsa_input.%s.%s".printf (bus_path, properties.get_string ("device.profile.name"));
                     break;
                 case "monitor":
-                    device_name = "alsa_output.%s.analog-stereo.monitor".printf (device_path);
+                    device_name = "alsa_output.%s.analog-stereo.monitor".printf (bus_path);
                     break;
                 default:
                     error ("Unexpected device class: %s", properties.get_string ("device.class"));
