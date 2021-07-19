@@ -42,7 +42,7 @@ public class DeviceManager : Object {
                 default:
                     break;
             }
-    
+
             return Source.CONTINUE;
         });
         monitor.add_filter ("Source/Audio", new Gst.Caps.empty_simple ("audio/x-raw"));
