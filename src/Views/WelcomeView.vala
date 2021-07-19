@@ -30,21 +30,7 @@ public class WelcomeView : Gtk.Box {
     }
 
     construct {
-        var behavior_header_label = new Granite.HeaderLabel (_("Recording"));
-
-        var delay_label = new Gtk.Label (_("Delay in seconds:")) {
-            halign = Gtk.Align.END
-        };
-        var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1) {
-            halign = Gtk.Align.START
-        };
-
-        var length_label = new Gtk.Label (_("Length in seconds:")) {
-            halign = Gtk.Align.END
-        };
-        var length_spin = new Gtk.SpinButton.with_range (0, 600, 1) {
-            halign = Gtk.Align.START
-        };
+        var recording_header_label = new Granite.HeaderLabel (_("Recording"));
 
         var source_label = new Gtk.Label (_("Record from:")) {
             halign = Gtk.Align.END
@@ -72,6 +58,22 @@ public class WelcomeView : Gtk.Box {
         };
         channels_combobox.append ("mono", _("Mono"));
         channels_combobox.append ("stereo", _("Stereo"));
+
+        var timer_header_label = new Granite.HeaderLabel (_("Timer"));
+
+        var delay_label = new Gtk.Label (_("Delay in seconds:")) {
+            halign = Gtk.Align.END
+        };
+        var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1) {
+            halign = Gtk.Align.START
+        };
+
+        var length_label = new Gtk.Label (_("Length in seconds:")) {
+            halign = Gtk.Align.END
+        };
+        var length_spin = new Gtk.SpinButton.with_range (0, 600, 1) {
+            halign = Gtk.Align.START
+        };
 
         var saving_header_label = new Granite.HeaderLabel (_("Saving"));
 
@@ -110,23 +112,24 @@ public class WelcomeView : Gtk.Box {
             row_spacing = 6,
             halign = Gtk.Align.CENTER
         };
-        settings_grid.attach (behavior_header_label, 0, 0, 1, 1);
-        settings_grid.attach (delay_label, 0, 1, 1, 1);
-        settings_grid.attach (delay_spin, 1, 1, 1, 1);
-        settings_grid.attach (length_label, 0, 2, 1, 1);
-        settings_grid.attach (length_spin, 1, 2, 1, 1);
-        settings_grid.attach (source_label, 0, 3, 1, 1);
-        settings_grid.attach (source_combobox, 1, 3, 1, 1);
-        settings_grid.attach (device_label, 0, 4, 1, 1);
-        settings_grid.attach (device_combobox, 1, 4, 1, 1);
-        settings_grid.attach (channels_label, 0, 5, 1, 1);
-        settings_grid.attach (channels_combobox, 1, 5, 1, 1);
-        settings_grid.attach (saving_header_label, 0, 6, 1, 1);
-        settings_grid.attach (format_label, 0, 7, 1, 1);
-        settings_grid.attach (format_combobox, 1, 7, 1, 1);
-        settings_grid.attach (auto_save_label, 0, 8, 1, 1);
-        settings_grid.attach (auto_save_switch, 1, 8, 1, 1);
-        settings_grid.attach (destination_chooser, 1, 9, 1, 1);
+        settings_grid.attach (recording_header_label, 0, 0, 1, 1);
+        settings_grid.attach (source_label, 0, 1, 1, 1);
+        settings_grid.attach (source_combobox, 1, 1, 1, 1);
+        settings_grid.attach (device_label, 0, 2, 1, 1);
+        settings_grid.attach (device_combobox, 1, 2, 1, 1);
+        settings_grid.attach (channels_label, 0, 3, 1, 1);
+        settings_grid.attach (channels_combobox, 1, 3, 1, 1);
+        settings_grid.attach (timer_header_label, 0, 4, 1, 1);
+        settings_grid.attach (delay_label, 0, 5, 1, 1);
+        settings_grid.attach (delay_spin, 1, 5, 1, 1);
+        settings_grid.attach (length_label, 0, 6, 1, 1);
+        settings_grid.attach (length_spin, 1, 6, 1, 1);
+        settings_grid.attach (saving_header_label, 0, 7, 1, 1);
+        settings_grid.attach (format_label, 0, 8, 1, 1);
+        settings_grid.attach (format_combobox, 1, 8, 1, 1);
+        settings_grid.attach (auto_save_label, 0, 9, 1, 1);
+        settings_grid.attach (auto_save_switch, 1, 9, 1, 1);
+        settings_grid.attach (destination_chooser, 1, 10, 1, 1);
 
         record_button = new Gtk.Button () {
             image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND),
