@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 11:55+0000\n"
+"POT-Creation-Date: 2021-07-20 07:01+0000\n"
 "PO-Revision-Date: 2021-05-27 20:31+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: src/Services/Recorder.vala:256
+#: src/Services/Recorder.vala:234
 msgid "Recording is ongoing"
 msgstr "録音中です"
 
@@ -51,92 +51,101 @@ msgstr "録音を一時停止します"
 msgid "Resume recording"
 msgstr "録音を再開します"
 
-#: src/Views/WelcomeView.vala:32
+#: src/Views/WelcomeView.vala:33
 msgid "Recording"
 msgstr "録音"
 
-#: src/Views/WelcomeView.vala:34
-msgid "Delay in seconds:"
-msgstr "遅延する秒数:"
-
-#: src/Views/WelcomeView.vala:41
-msgid "Length in seconds:"
-msgstr "録音する秒数:"
-
-#: src/Views/WelcomeView.vala:48
+#: src/Views/WelcomeView.vala:35
 msgid "Record from:"
 msgstr "録音ソース:"
 
-#: src/Views/WelcomeView.vala:54
+#: src/Views/WelcomeView.vala:41
 msgid "Microphone"
 msgstr "マイク"
 
-#: src/Views/WelcomeView.vala:55
+#: src/Views/WelcomeView.vala:42
 msgid "System"
 msgstr "システム"
 
-#: src/Views/WelcomeView.vala:56
+#: src/Views/WelcomeView.vala:43
 msgid "Both"
 msgstr "両方"
 
-#: src/Views/WelcomeView.vala:58
+#: src/Views/WelcomeView.vala:45
+#, fuzzy
+msgid "Microphone to use:"
+msgstr "マイク"
+
+#: src/Views/WelcomeView.vala:53
 msgid "Channels:"
 msgstr "チャンネル:"
 
-#: src/Views/WelcomeView.vala:64
+#: src/Views/WelcomeView.vala:59
 msgid "Mono"
 msgstr "モノラル"
 
-#: src/Views/WelcomeView.vala:65
+#: src/Views/WelcomeView.vala:60
 msgid "Stereo"
 msgstr "ステレオ"
 
-#: src/Views/WelcomeView.vala:67
+#: src/Views/WelcomeView.vala:62
+msgid "Timer"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:64
+msgid "Delay in seconds:"
+msgstr "遅延する秒数:"
+
+#: src/Views/WelcomeView.vala:71
+msgid "Length in seconds:"
+msgstr "録音する秒数:"
+
+#: src/Views/WelcomeView.vala:78
 msgid "Saving"
 msgstr "保存"
 
-#: src/Views/WelcomeView.vala:69
+#: src/Views/WelcomeView.vala:80
 msgid "Format:"
 msgstr "形式:"
 
-#: src/Views/WelcomeView.vala:76
+#: src/Views/WelcomeView.vala:87
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:77
+#: src/Views/WelcomeView.vala:88
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:78
+#: src/Views/WelcomeView.vala:89
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:79
+#: src/Views/WelcomeView.vala:90
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:80
+#: src/Views/WelcomeView.vala:91
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:81
+#: src/Views/WelcomeView.vala:92
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:83
+#: src/Views/WelcomeView.vala:94
 msgid "Automatically save files:"
 msgstr "ファイルを自動的に保存:"
 
-#: src/Views/WelcomeView.vala:92
+#: src/Views/WelcomeView.vala:103
 msgid "Choose a default destination"
 msgstr "デフォルトの保存先を選択"
 
-#: src/Views/WelcomeView.vala:122
+#: src/Views/WelcomeView.vala:136
 msgid "Start recording"
 msgstr "録音を開始します"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:155
+#: src/Views/WelcomeView.vala:177
 msgid "Recordings"
 msgstr "レコーディング"
 
