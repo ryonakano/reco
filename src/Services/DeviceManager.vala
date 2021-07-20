@@ -58,7 +58,7 @@ public class DeviceManager : Object {
             Gst.Structure properties = device.properties;
             string bus_path = properties.get_string ("device.bus_path").replace (":", "_");
 
-            string device_name;
+            string device_name = "";
             switch (properties.get_string ("device.class")) {
                 case "sound":
                     device_name = "alsa_input.%s.%s".printf (bus_path, properties.get_string ("device.profile.name"));
@@ -67,7 +67,8 @@ public class DeviceManager : Object {
                     device_name = "alsa_output.%s.analog-stereo.monitor".printf (bus_path);
                     break;
                 default:
-                    error ("Unexpected device class: %s", properties.get_string ("device.class"));
+                    warning ("Unexpected device class: %s", properties.get_string ("device.class"));
+                    break;
             }
 
             var detected_device = new Device (device.display_name, device_name);
