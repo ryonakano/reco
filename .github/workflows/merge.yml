@@ -14,15 +14,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          submodules: true
-          token: ${{ secrets.GIT_USER_TOKEN }}
 
       - name: Build
         uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v3
         with:
-          bundle: konbucase.flatpak
-          manifest-path: com.github.ryonakano.konbucase.yml
+          bundle: reco.flatpak
+          manifest-path: com.github.ryonakano.reco.yml
           repository-name: appcenter
           repository-url: https://flatpak.elementary.io/repo.flatpakrepo
           cache-key: "flatpak-builder-${{ github.sha }}"
