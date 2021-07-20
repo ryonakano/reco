@@ -146,8 +146,8 @@ public class WelcomeView : Gtk.Box {
 
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("device", source_combobox, "active_id", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("microphone", device_combobox, "active_id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("source", source_combobox, "active_id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("device", device_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channels", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("auto-save", auto_save_switch, "active", SettingsBindFlags.DEFAULT);
@@ -218,9 +218,9 @@ public class WelcomeView : Gtk.Box {
         }
 
         // When the app launches for the first time, select the first microphone
-        if (Application.settings.get_string ("microphone") == "") {
+        if (Application.settings.get_string ("device") == "") {
             device_combobox.active = 0;
-            Application.settings.set_string ("microphone", device_combobox.active_id);
+            Application.settings.set_string ("device", device_combobox.active_id);
         }
 
         device_combobox.show_all ();

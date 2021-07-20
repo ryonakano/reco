@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <enum id="devicelist">
+  <enum id="sourcelist">
     <value value="0" nick="mic"/>
     <value value="1" nick="system"/>
     <value value="2" nick="both"/>
@@ -27,13 +27,13 @@
       <default>0</default>
       <summary>Length in seconds</summary>
     </key>
-    <key name="device" enum="devicelist">
+    <key name="source" enum="sourcelist">
       <default>'mic'</default>
-      <summary>Recording device</summary>
+      <summary>Recording source</summary>
     </key>
-    <key name="microphone" type="s">
+    <key name="device" type="s">
       <default>''</default>
-      <summary>Source microphone name</summary>
+      <summary>Device name</summary>
     </key>
     <key name="format" enum="formatlist">
       <default>'wav'</default>
