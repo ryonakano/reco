@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 11:55+0000\n"
+"POT-Creation-Date: 2021-07-20 07:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Services/Recorder.vala:256
+#: src/Services/Recorder.vala:234
 msgid "Recording is ongoing"
 msgstr ""
 
@@ -51,92 +51,100 @@ msgstr ""
 msgid "Resume recording"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:32
+#: src/Views/WelcomeView.vala:33
 msgid "Recording"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:34
-msgid "Delay in seconds:"
-msgstr ""
-
-#: src/Views/WelcomeView.vala:41
-msgid "Length in seconds:"
-msgstr ""
-
-#: src/Views/WelcomeView.vala:48
+#: src/Views/WelcomeView.vala:35
 msgid "Record from:"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:54
+#: src/Views/WelcomeView.vala:41
 msgid "Microphone"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:55
+#: src/Views/WelcomeView.vala:42
 msgid "System"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:56
+#: src/Views/WelcomeView.vala:43
 msgid "Both"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:58
+#: src/Views/WelcomeView.vala:45
+msgid "Microphone to use:"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:53
 msgid "Channels:"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:64
+#: src/Views/WelcomeView.vala:59
 msgid "Mono"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:65
+#: src/Views/WelcomeView.vala:60
 msgid "Stereo"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:67
-msgid "Saving"
+#: src/Views/WelcomeView.vala:62
+msgid "Timer"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:69
-msgid "Format:"
+#: src/Views/WelcomeView.vala:64
+msgid "Delay in seconds:"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:76
-msgid "AAC"
-msgstr ""
-
-#: src/Views/WelcomeView.vala:77
-msgid "FLAC"
+#: src/Views/WelcomeView.vala:71
+msgid "Length in seconds:"
 msgstr ""
 
 #: src/Views/WelcomeView.vala:78
-msgid "MP3"
-msgstr ""
-
-#: src/Views/WelcomeView.vala:79
-msgid "Ogg Vorbis"
+msgid "Saving"
 msgstr ""
 
 #: src/Views/WelcomeView.vala:80
+msgid "Format:"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:87
+msgid "AAC"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:88
+msgid "FLAC"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:89
+msgid "MP3"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:90
+msgid "Ogg Vorbis"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:91
 msgid "Opus"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:81
+#: src/Views/WelcomeView.vala:92
 msgid "WAV"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:83
+#: src/Views/WelcomeView.vala:94
 msgid "Automatically save files:"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:92
+#: src/Views/WelcomeView.vala:103
 msgid "Choose a default destination"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:122
+#: src/Views/WelcomeView.vala:136
 msgid "Start recording"
 msgstr ""
 
 #. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:155
+#: src/Views/WelcomeView.vala:177
 msgid "Recordings"
 msgstr ""
 
