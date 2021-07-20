@@ -62,42 +62,20 @@ public class Recorder : Object {
         }
 
         if (device_id != SourceDevice.MIC) {
-            string default_output = "";
-            try {
-                string sound_devices = "";
-                Process.spawn_command_line_sync ("pacmd list-sinks", out sound_devices);
-                var regex = new Regex ("\\*\\sindex:\\s\\d+\\s\\sname:\\s<([\\w\\.\\-]*)");
-                MatchInfo match_info;
-
-                if (regex.match (sound_devices, 0, out match_info)) {
-                    default_output = match_info.fetch (1);
+            string system_sound_source;
+            foreach (var device in DeviceManager.get_default ().devices) {
+                if (device.name.contains (".monitor")) {
+                    system_sound_source = device.name;
+                    sys_sound.set ("device", system_sound_source);
+                    debug ("Set system sound source device to %s", system_sound_source);
                 }
-
-                default_output += ".monitor";
-                sys_sound.set ("device", default_output);
-                debug ("Detected system sound device: %s", default_output);
-            } catch (Error e) {
-                warning (e.message);
             }
         }
 
         if (device_id != SourceDevice.SYSTEM) {
-            string default_input = "";
-            try {
-                string sound_devices = "";
-                Process.spawn_command_line_sync ("pacmd list-sources", out sound_devices);
-                var regex = new Regex ("\\*\\sindex:\\s\\d+\\s\\sname:\\s<([\\w\\.\\-]*)");
-                MatchInfo match_info;
-
-                if (regex.match (sound_devices, 0, out match_info)) {
-                    default_input = match_info.fetch (1);
-                }
-
-                mic_sound.set ("device", default_input);
-                debug ("Detected microphone: %s", default_input);
-            } catch (Error e) {
-                warning (e.message);
-            }
+            string microphone_source = Application.settings.get_string ("microphone");
+            mic_sound.set ("device", microphone_source);
+            debug ("Set source microphone to %s", microphone_source);
         }
 
         Gst.Element encoder;

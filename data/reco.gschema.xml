@@ -31,6 +31,10 @@
       <default>'mic'</default>
       <summary>Recording device</summary>
     </key>
+    <key name="microphone" type="s">
+      <default>''</default>
+      <summary>Source microphone name</summary>
+    </key>
     <key name="format" enum="formatlist">
       <default>'wav'</default>
       <summary>Format</summary>
