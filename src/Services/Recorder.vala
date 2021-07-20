@@ -28,7 +28,7 @@ public class Recorder : Object {
     private Gst.Element sys_sound;
     private uint inhibit_token = 0;
 
-    private enum SourceDevice {
+    private enum Source {
         MIC,
         SYSTEM,
         BOTH
@@ -40,13 +40,13 @@ public class Recorder : Object {
     }
 
     public void start_recording () {
-        SourceDevice device_id = (SourceDevice) Application.settings.get_enum ("device");
+        Source source = (Source) Application.settings.get_enum ("source");
 
         pipeline = new Gst.Pipeline ("pipeline");
         var mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
         var sink = Gst.ElementFactory.make ("filesink", "sink");
 
-        if (device_id != SourceDevice.MIC) {
+        if (source != Source.MIC) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
                 error ("The GStreamer element pulsesrc (named \"sys_sound\") was not created correctly");
@@ -61,7 +61,7 @@ public class Recorder : Object {
             error ("The GStreamer element filesink was not created correctly");
         }
 
-        if (device_id != SourceDevice.MIC) {
+        if (source != Source.MIC) {
             string system_sound_source;
             foreach (var device in DeviceManager.get_default ().devices) {
                 if (device.name.contains (".monitor")) {
@@ -72,8 +72,8 @@ public class Recorder : Object {
             }
         }
 
-        if (device_id != SourceDevice.SYSTEM) {
-            string microphone_source = Application.settings.get_string ("microphone");
+        if (source != Source.SYSTEM) {
+            string microphone_source = Application.settings.get_string ("device");
             mic_sound.set ("device", microphone_source);
             debug ("Set source microphone to %s", microphone_source);
         }
@@ -131,16 +131,16 @@ public class Recorder : Object {
         ));
         pipeline.add_many (caps_filter, encoder, sink);
 
-        switch (device_id) {
-            case SourceDevice.MIC:
+        switch (source) {
+            case Source.MIC:
                 pipeline.add_many (mic_sound);
                 mic_sound.link_many (caps_filter, encoder);
                 break;
-            case SourceDevice.SYSTEM:
+            case Source.SYSTEM:
                 pipeline.add_many (sys_sound);
                 sys_sound.link_many (caps_filter, encoder);
                 break;
-            case SourceDevice.BOTH:
+            case Source.BOTH:
                 var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
                 pipeline.add_many (mic_sound, sys_sound, mixer);
                 mic_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
