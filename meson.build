@@ -32,6 +32,7 @@ asresources = gnome.compile_resources(
 )
 
 sources = files(
+    'src' / 'Services' / 'DeviceManager.vala',
     'src' / 'Services' / 'Recorder.vala',
     'src' / 'Views' / 'CountDownView.vala',
     'src' / 'Views' / 'WelcomeView.vala',
