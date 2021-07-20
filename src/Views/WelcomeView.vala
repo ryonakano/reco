@@ -220,6 +220,7 @@ public class WelcomeView : Gtk.Box {
         // When the app launches for the first time, select the first microphone
         if (Application.settings.get_string ("microphone") == "") {
             device_combobox.active = 0;
+            Application.settings.set_string ("microphone", device_combobox.active_id);
         }
 
         device_combobox.show_all ();
