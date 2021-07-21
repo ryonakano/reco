@@ -82,12 +82,14 @@ public class DeviceManager : Object {
     }
 
     public class Device : Object {
-        public string display_name { get; private set ; }
-        public string name { get; private set; }
+        public string display_name { get; construct ; }
+        public string name { get; construct; }
 
         public Device (string display_name, string name) {
-            this.display_name = display_name;
-            this.name = name;
+            Object (
+                display_name: display_name,
+                name: name
+            );
         }
     }
 }
