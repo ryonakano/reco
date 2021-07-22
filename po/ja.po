@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-20 07:01+0000\n"
-"PO-Revision-Date: 2021-05-27 20:31+0900\n"
+"PO-Revision-Date: 2021-07-21 20:42+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -72,9 +72,8 @@ msgid "Both"
 msgstr "両方"
 
 #: src/Views/WelcomeView.vala:45
-#, fuzzy
 msgid "Microphone to use:"
-msgstr "マイク"
+msgstr "使用するマイク:"
 
 #: src/Views/WelcomeView.vala:53
 msgid "Channels:"
@@ -90,7 +89,7 @@ msgstr "ステレオ"
 
 #: src/Views/WelcomeView.vala:62
 msgid "Timer"
-msgstr ""
+msgstr "タイマー"
 
 #: src/Views/WelcomeView.vala:64
 msgid "Delay in seconds:"
@@ -195,6 +194,3 @@ msgstr "保存"
 #: src/MainWindow.vala:165
 msgid "Cancel"
 msgstr "キャンセル"
-
-#~ msgid "Computer"
-#~ msgstr "コンピューター"

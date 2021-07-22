@@ -36,7 +36,6 @@ public class DeviceManager : Object {
             switch (msg.type) {
                 case Gst.MessageType.DEVICE_ADDED:
                 case Gst.MessageType.DEVICE_REMOVED:
-                    devices.clear ();
                     update_devices ();
                     break;
                 default:
@@ -54,6 +53,10 @@ public class DeviceManager : Object {
     }
 
     private void update_devices () {
+        if (devices.size > 0) {
+            devices.clear ();
+        }
+
         foreach (var device in monitor.get_devices ()) {
             Gst.Structure properties = device.properties;
             string bus_path = properties.get_string ("device.bus_path").replace (":", "_");
@@ -82,12 +85,14 @@ public class DeviceManager : Object {
     }
 
     public class Device : Object {
-        public string display_name { get; private set ; }
-        public string name { get; private set; }
+        public string display_name { get; construct ; }
+        public string name { get; construct; }
 
         public Device (string display_name, string name) {
-            this.display_name = display_name;
-            this.name = name;
+            Object (
+                display_name: display_name,
+                name: name
+            );
         }
     }
 }
