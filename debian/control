@@ -2,13 +2,14 @@ Source: com.github.ryonakano.reco
 Section: x11
 Priority: optional
 Maintainer: Ryo Nakano <ryonakaknock3@gmail.com>
-Build-Depends: debhelper (>= 10.5.1),
+Build-Depends: debhelper-compat (= 13),
                libgranite-dev,
                libgtk-3-dev,
                libgstreamer1.0-dev,
                meson,
                valac
 Standards-Version: 4.5.0
+Homepage: https://github.com/ryonakano/reco
 
 Package: com.github.ryonakano.reco
 Architecture: any
