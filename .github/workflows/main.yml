@@ -1,37 +1,36 @@
 name: CI
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
-  build:
-
+  deploy_flatpak:
+    name: Deploy Flatpak
     runs-on: ubuntu-latest
 
     container:
-      image: elementary/docker:unstable
+      image: ghcr.io/elementary/flatpak-platform/runtime:6
+      options: --privileged
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Install Dependencies
-      run: |
-        apt update
-        apt install -y libgstreamer1.0-dev
-    - name: Build
-      env:
-        DESTDIR: out
-      run: |
-        meson build
-        ninja -C build
-        ninja -C build install
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v3
+        with:
+          bundle: reco.flatpak
+          manifest-path: com.github.ryonakano.reco.yml
+          run-tests: true
+          repository-name: appcenter
+          repository-url: https://flatpak.elementary.io/repo.flatpakrepo
+          cache-key: "flatpak-builder-${{ github.sha }}"
 
   lint:
-
+    name: Lint
     runs-on: ubuntu-latest
-    
     container:
       image: valalang/lint
-      
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Lint
       run: io.elementary.vala-lint -d .
