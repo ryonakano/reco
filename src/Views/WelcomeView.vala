@@ -249,7 +249,7 @@ public class WelcomeView : Gtk.Box {
         first_cell.width = 180;
         first_cell.ellipsize = Pango.EllipsizeMode.END;
 
-        // Show full device name in case it's ellipsized
+        // Show full device name as a tooltip in case it's ellipsized
         device_combobox.tooltip_text = device_combobox.get_active_text ();
     }
 }
