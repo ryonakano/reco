@@ -245,7 +245,7 @@ public class WelcomeView : Gtk.Box {
 
     private void update_device_combobox () {
         // Ellipsize if device name is long; otherwise the app window get stretched
-        unowned var first_cell = device_combobox.get_cells ().nth_data (0) as Gtk.CellRendererText;
+        unowned Gtk.CellRendererText first_cell = device_combobox.get_cells ().nth_data (0) as Gtk.CellRendererText;
         first_cell.width = 180;
         first_cell.ellipsize = Pango.EllipsizeMode.END;
 
