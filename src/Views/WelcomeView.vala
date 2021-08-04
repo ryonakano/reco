@@ -158,6 +158,11 @@ public class WelcomeView : Gtk.Box {
             device_combobox.sensitive = update_device_combobox_sensitivity (source_combobox.active_id);
         });
 
+        update_device_combobox ();
+        device_combobox.changed.connect (() => {
+            update_device_combobox ();
+        });
+
         destination_chooser.file_set.connect (() => {
             Application.settings.set_string ("destination", destination_chooser.get_filename ());
         });
@@ -236,5 +241,15 @@ public class WelcomeView : Gtk.Box {
             default:
                 assert_not_reached ();
         }
+    }
+
+    private void update_device_combobox () {
+        // Ellipsize if device name is long; otherwise the app window get stretched
+        unowned Gtk.CellRendererText first_cell = device_combobox.get_cells ().nth_data (0) as Gtk.CellRendererText;
+        first_cell.width = 200;
+        first_cell.ellipsize = Pango.EllipsizeMode.END;
+
+        // Show full device name as a tooltip in case it's ellipsized
+        device_combobox.tooltip_text = device_combobox.get_active_text ();
     }
 }
