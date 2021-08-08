@@ -17,7 +17,8 @@
 
 public class DeviceManager : Object {
     public signal void device_updated ();
-    public Gee.ArrayList<Device> devices { get; private set; }
+    public Gee.ArrayList<Gst.Device> devices { get; private set; }
+    public Gee.ArrayList<Gst.Device> monitors { get; private set; }
 
     private Gst.DeviceMonitor monitor;
 
@@ -46,7 +47,8 @@ public class DeviceManager : Object {
         });
         monitor.add_filter ("Source/Audio", new Gst.Caps.empty_simple ("audio/x-raw"));
 
-        devices = new Gee.ArrayList<Device> ();
+        devices = new Gee.ArrayList<Gst.Device> ();
+        monitors = new Gee.ArrayList<Gst.Device> ();
         update_devices ();
 
         monitor.start ();
@@ -59,40 +61,28 @@ public class DeviceManager : Object {
 
         foreach (var device in monitor.get_devices ()) {
             Gst.Structure properties = device.properties;
-            string bus_path = properties.get_string ("device.bus_path").replace (":", "_");
 
-            string device_name = "";
             switch (properties.get_string ("device.class")) {
                 case "sound":
-                    device_name = "alsa_input.%s.%s".printf (bus_path, properties.get_string ("device.profile.name"));
+                    if (!devices.contains (device)) {
+                        debug ("Device detected: %s", device.display_name);
+                        devices.add (device);
+                    }
+
                     break;
                 case "monitor":
-                    device_name = "alsa_output.%s.analog-stereo.monitor".printf (bus_path);
+                    if (!monitors.contains (device)) {
+                        debug ("Monitor detected: %s", device.display_name);
+                        monitors.add (device);
+                    }
+
                     break;
                 default:
                     warning ("Unexpected device class: %s", properties.get_string ("device.class"));
-                    break;
-            }
-
-            var detected_device = new Device (device.display_name, device_name);
-            if (!(devices.contains (detected_device))) {
-                debug ("Device detected: %s, %s\n", device.display_name, device_name);
-                devices.add (detected_device);
+                    continue;
             }
         }
 
         device_updated ();
-    }
-
-    public class Device : Object {
-        public string display_name { get; construct ; }
-        public string name { get; construct; }
-
-        public Device (string display_name, string name) {
-            Object (
-                display_name: display_name,
-                name: name
-            );
-        }
     }
 }

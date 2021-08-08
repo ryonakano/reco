@@ -147,7 +147,7 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("source", source_combobox, "active_id", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("device", device_combobox, "active_id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("device", device_combobox, "active", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channels", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("auto-save", auto_save_switch, "active", SettingsBindFlags.DEFAULT);
@@ -216,16 +216,9 @@ public class WelcomeView : Gtk.Box {
     private void update_device_list () {
         device_combobox.remove_all ();
 
-        foreach (var device in DeviceManager.get_default ().devices) {
-            if (!device.name.contains (".monitor")) {
-                device_combobox.append (device.name, device.display_name);
-            }
-        }
-
-        // When the app launches for the first time, select the first microphone
-        if (Application.settings.get_string ("device") == "") {
-            device_combobox.active = 0;
-            Application.settings.set_string ("device", device_combobox.active_id);
+        for (int i = 0; i < DeviceManager.get_default ().devices.size; i++) {
+            Gst.Device device = DeviceManager.get_default ().devices.get (i);
+            device_combobox.append (i.to_string (), device.display_name);
         }
 
         device_combobox.show_all ();

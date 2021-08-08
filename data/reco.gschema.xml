@@ -31,9 +31,9 @@
       <default>'mic'</default>
       <summary>Recording source</summary>
     </key>
-    <key name="device" type="s">
-      <default>''</default>
-      <summary>Device name</summary>
+    <key name="device" type="i">
+      <default>0</default>
+      <summary>Device number</summary>
     </key>
     <key name="format" enum="formatlist">
       <default>'wav'</default>
