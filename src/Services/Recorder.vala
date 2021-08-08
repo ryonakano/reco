@@ -71,7 +71,7 @@ public class Recorder : Object {
 
         if (source != Source.SYSTEM) {
             int microphone_source = Application.settings.get_int ("device");
-            Gst.Device device = DeviceManager.get_default ().devices.get (microphone_source);
+            Gst.Device device = DeviceManager.get_default ().microphones.get (microphone_source);
             device.reconfigure_element (mic_sound);
             debug ("Set source microphone to %s", device.display_name);
         }

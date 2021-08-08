@@ -17,7 +17,7 @@
 
 public class DeviceManager : Object {
     public signal void device_updated ();
-    public Gee.ArrayList<Gst.Device> devices { get; private set; }
+    public Gee.ArrayList<Gst.Device> microphones { get; private set; }
     public Gee.ArrayList<Gst.Device> monitors { get; private set; }
 
     private Gst.DeviceMonitor monitor;
@@ -47,7 +47,7 @@ public class DeviceManager : Object {
         });
         monitor.add_filter ("Source/Audio", new Gst.Caps.empty_simple ("audio/x-raw"));
 
-        devices = new Gee.ArrayList<Gst.Device> ();
+        microphones = new Gee.ArrayList<Gst.Device> ();
         monitors = new Gee.ArrayList<Gst.Device> ();
         update_devices ();
 
@@ -55,8 +55,12 @@ public class DeviceManager : Object {
     }
 
     private void update_devices () {
-        if (devices.size > 0) {
-            devices.clear ();
+        if (microphones.size > 0) {
+            microphones.clear ();
+        }
+
+        if (monitors.size > 0) {
+            monitors.clear ();
         }
 
         foreach (var device in monitor.get_devices ()) {
@@ -64,9 +68,9 @@ public class DeviceManager : Object {
 
             switch (properties.get_string ("device.class")) {
                 case "sound":
-                    if (!devices.contains (device)) {
-                        debug ("Device detected: %s", device.display_name);
-                        devices.add (device);
+                    if (!microphones.contains (device)) {
+                        debug ("Microphone detected: %s", device.display_name);
+                        microphones.add (device);
                     }
 
                     break;

@@ -216,8 +216,8 @@ public class WelcomeView : Gtk.Box {
     private void update_device_list () {
         device_combobox.remove_all ();
 
-        for (int i = 0; i < DeviceManager.get_default ().devices.size; i++) {
-            Gst.Device device = DeviceManager.get_default ().devices.get (i);
+        for (int i = 0; i < DeviceManager.get_default ().microphones.size; i++) {
+            Gst.Device device = DeviceManager.get_default ().microphones.get (i);
             device_combobox.append (i.to_string (), device.display_name);
         }
 
