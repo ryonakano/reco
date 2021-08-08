@@ -221,6 +221,12 @@ public class WelcomeView : Gtk.Box {
             device_combobox.append (i.to_string (), device.display_name);
         }
 
+        // When the app launches for the first time, select the first microphone
+        if (Application.settings.get_int ("device") == 0) {
+            device_combobox.active = 0;
+            Application.settings.set_int ("device", device_combobox.active);
+        }
+
         device_combobox.show_all ();
     }
 
