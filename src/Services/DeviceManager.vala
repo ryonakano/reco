@@ -17,10 +17,9 @@
 
 public class DeviceManager : Object {
     public signal void device_updated ();
+
     public Gee.ArrayList<Gst.Device> microphones { get; private set; }
     public Gee.ArrayList<Gst.Device> monitors { get; private set; }
-
-    private Gst.DeviceMonitor monitor;
 
     private static DeviceManager? _instance = null;
     public static DeviceManager get_default () {
@@ -30,6 +29,8 @@ public class DeviceManager : Object {
 
         return _instance;
     }
+
+    private Gst.DeviceMonitor monitor;
 
     private DeviceManager () {
         monitor = new Gst.DeviceMonitor ();
