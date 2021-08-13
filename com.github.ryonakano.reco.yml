@@ -25,9 +25,9 @@ modules:
     config-opts:
       - --with-system-libav=no
     sources:
-      - type: git
-        url: git://anongit.freedesktop.org/gstreamer/gst-libav
-        tag: '1.16'
+      - type: archive
+        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.3.tar.xz
+        sha256: d10c5eb1a00a91de97c85c0956c663aa6e99d268195cdec4534c179b831538ec
   - name: reco
     buildsystem: meson
     sources:
