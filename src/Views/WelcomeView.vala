@@ -48,7 +48,6 @@ public class WelcomeView : Gtk.Box {
         microphone_combobox = new Gtk.ComboBoxText () {
             halign = Gtk.Align.START
         };
-        update_microphone_list ();
 
         var channels_label = new Gtk.Label (_("Channels:")) {
             halign = Gtk.Align.END
@@ -158,7 +157,7 @@ public class WelcomeView : Gtk.Box {
             microphone_combobox.sensitive = update_microphone_combobox_sensitivity (source_combobox.active_id);
         });
 
-        update_microphone_combobox ();
+        update_microphone_list ();
         microphone_combobox.changed.connect (() => {
             update_microphone_combobox ();
         });
@@ -227,6 +226,7 @@ public class WelcomeView : Gtk.Box {
             Application.settings.set_int ("microphone", microphone_combobox.active);
         }
 
+        update_microphone_combobox ();
         microphone_combobox.show_all ();
     }
 
