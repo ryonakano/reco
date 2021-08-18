@@ -17,9 +17,9 @@
 
 public class DeviceManager : Object {
     public signal void device_updated ();
-    public Gee.ArrayList<Device> devices { get; private set; }
 
-    private Gst.DeviceMonitor monitor;
+    public Gee.ArrayList<Gst.Device> microphones { get; private set; }
+    public Gee.ArrayList<Gst.Device> monitors { get; private set; }
 
     private static DeviceManager? _instance = null;
     public static DeviceManager get_default () {
@@ -29,6 +29,8 @@ public class DeviceManager : Object {
 
         return _instance;
     }
+
+    private Gst.DeviceMonitor monitor;
 
     private DeviceManager () {
         monitor = new Gst.DeviceMonitor ();
@@ -46,53 +48,46 @@ public class DeviceManager : Object {
         });
         monitor.add_filter ("Source/Audio", new Gst.Caps.empty_simple ("audio/x-raw"));
 
-        devices = new Gee.ArrayList<Device> ();
+        microphones = new Gee.ArrayList<Gst.Device> ();
+        monitors = new Gee.ArrayList<Gst.Device> ();
         update_devices ();
 
         monitor.start ();
     }
 
     private void update_devices () {
-        if (devices.size > 0) {
-            devices.clear ();
+        if (microphones.size > 0) {
+            microphones.clear ();
+        }
+
+        if (monitors.size > 0) {
+            monitors.clear ();
         }
 
         foreach (var device in monitor.get_devices ()) {
             Gst.Structure properties = device.properties;
-            string bus_path = properties.get_string ("device.bus_path").replace (":", "_");
 
-            string device_name = "";
             switch (properties.get_string ("device.class")) {
                 case "sound":
-                    device_name = "alsa_input.%s.%s".printf (bus_path, properties.get_string ("device.profile.name"));
+                    if (!microphones.contains (device)) {
+                        debug ("Microphone detected: %s", device.display_name);
+                        microphones.add (device);
+                    }
+
                     break;
                 case "monitor":
-                    device_name = "alsa_output.%s.analog-stereo.monitor".printf (bus_path);
+                    if (!monitors.contains (device)) {
+                        debug ("Monitor detected: %s", device.display_name);
+                        monitors.add (device);
+                    }
+
                     break;
                 default:
                     warning ("Unexpected device class: %s", properties.get_string ("device.class"));
-                    break;
-            }
-
-            var detected_device = new Device (device.display_name, device_name);
-            if (!(devices.contains (detected_device))) {
-                debug ("Device detected: %s, %s\n", device.display_name, device_name);
-                devices.add (detected_device);
+                    continue;
             }
         }
 
         device_updated ();
-    }
-
-    public class Device : Object {
-        public string display_name { get; construct ; }
-        public string name { get; construct; }
-
-        public Device (string display_name, string name) {
-            Object (
-                display_name: display_name,
-                name: name
-            );
-        }
     }
 }

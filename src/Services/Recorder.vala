@@ -62,20 +62,17 @@ public class Recorder : Object {
         }
 
         if (source != Source.MIC) {
-            string system_sound_source;
-            foreach (var device in DeviceManager.get_default ().devices) {
-                if (device.name.contains (".monitor")) {
-                    system_sound_source = device.name;
-                    sys_sound.set ("device", system_sound_source);
-                    debug ("Set system sound source device to %s", system_sound_source);
-                }
-            }
+            // TODO: How to fetch the default monitor?
+            Gst.Device monitor = DeviceManager.get_default ().monitors.get (0);
+            monitor.reconfigure_element (sys_sound);
+            debug ("Set system sound source device to %s", monitor.display_name);
         }
 
         if (source != Source.SYSTEM) {
-            string microphone_source = Application.settings.get_string ("device");
-            mic_sound.set ("device", microphone_source);
-            debug ("Set source microphone to %s", microphone_source);
+            int microphone_number = Application.settings.get_int ("microphone");
+            Gst.Device microphone = DeviceManager.get_default ().microphones.get (microphone_number);
+            microphone.reconfigure_element (mic_sound);
+            debug ("Set source microphone to %s", microphone.display_name);
         }
 
         Gst.Element encoder;
