@@ -194,6 +194,3 @@ msgstr "Salvar"
 #: src/MainWindow.vala:165
 msgid "Cancel"
 msgstr "Cancelar"
-
-#~ msgid "Computer"
-#~ msgstr "Computador"
