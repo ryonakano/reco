@@ -100,7 +100,7 @@ msgstr "Tradução portuguesa atualizada (obrigado a @hugok79)"
 #: data/reco.appdata.xml.in:73
 msgid ""
 "Update Spanish translation and add Catalan translation (thanks to @fitojb)"
-msgstr "Atualização da tradução e adicionado Catalão (obrigado a @CCaroV)"
+msgstr "Atualização da tradução e adicionado Catalão (obrigado a @fitojb)"
 
 #: data/reco.appdata.xml.in:74 data/reco.appdata.xml.in:101
 #: data/reco.appdata.xml.in:110 data/reco.appdata.xml.in:133
