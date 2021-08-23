@@ -71,9 +71,8 @@ msgid "Both"
 msgstr "Ambos"
 
 #: src/Views/WelcomeView.vala:45
-#, fuzzy
 msgid "Microphone to use:"
-msgstr "Microfone"
+msgstr "Microfone usado:"
 
 #: src/Views/WelcomeView.vala:53
 msgid "Channels:"
@@ -194,6 +193,3 @@ msgstr "Salvar"
 #: src/MainWindow.vala:165
 msgid "Cancel"
 msgstr "Cancelar"
-
-#~ msgid "Computer"
-#~ msgstr "Computador"
