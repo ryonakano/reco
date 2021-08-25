@@ -70,14 +70,14 @@ public class DeviceManager : Object {
             switch (properties.get_string ("device.class")) {
                 case "sound":
                     if (!microphones.contains (device)) {
-                        debug ("Microphone detected: %s", device.display_name);
+                        debug ("Microphone detected: \"%s\"", device.display_name);
                         microphones.add (device);
                     }
 
                     break;
                 case "monitor":
                     if (!monitors.contains (device)) {
-                        debug ("Monitor detected: %s", device.display_name);
+                        debug ("Monitor detected: \"%s\"", device.display_name);
                         monitors.add (device);
                     }
 
