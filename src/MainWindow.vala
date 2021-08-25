@@ -209,10 +209,10 @@ public class MainWindow : Gtk.ApplicationWindow {
             }
         });
 
-        Application.settings.bind ("is-prefer-dark", mode_switch, "active", GLib.SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("is-prefer-dark", gtk_settings, "gtk-application-prefer-dark-theme", GLib.SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("is-follow-system-style", follow_system_switch, "active", GLib.SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("is-follow-system-style", mode_switch, "sensitive", GLib.SettingsBindFlags.INVERT_BOOLEAN);
+        Application.settings.bind ("is-prefer-dark", mode_switch, "active", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("is-prefer-dark", gtk_settings, "gtk-application-prefer-dark-theme", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("is-follow-system-style", follow_system_switch, "active", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("is-follow-system-style", mode_switch, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
     }
 
     public void show_welcome () {

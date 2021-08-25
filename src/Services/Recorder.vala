@@ -122,7 +122,7 @@ public class Recorder : Object {
         // Dual-channelization
         var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
         caps_filter.set ("caps", new Gst.Caps.simple (
-                            "audio/x-raw", "channels", GLib.Type.INT,
+                            "audio/x-raw", "channels", Type.INT,
                             (Channels) Application.settings.get_enum ("channels")
         ));
         pipeline.add_many (caps_filter, encoder, sink);
