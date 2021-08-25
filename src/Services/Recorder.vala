@@ -54,7 +54,7 @@ public class Recorder : Object {
         if (source != Source.MIC) {
             // TODO: How to fetch the default monitor?
             Gst.Device monitor = DeviceManager.get_default ().monitors.get (0);
-            sys_sound = monitor.create_element ("mic_sound");
+            sys_sound = monitor.create_element ("sys_sound");
             if (sys_sound == null) {
                 error ("The GStreamer element pulsesrc (named \"sys_sound\") was not created correctly");
             }
