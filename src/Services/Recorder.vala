@@ -25,7 +25,6 @@ public class Recorder : Object {
     private string suffix;
     private string tmp_full_path;
     private Gst.Pipeline pipeline;
-    private Gst.Element sys_sound;
     private uint inhibit_token = 0;
 
     private enum Source {
@@ -40,43 +39,43 @@ public class Recorder : Object {
     }
 
     public void start_recording () {
-        Source source = (Source) Application.settings.get_enum ("source");
-
         pipeline = new Gst.Pipeline ("pipeline");
-        var mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
         var sink = Gst.ElementFactory.make ("filesink", "sink");
-
-        if (source != Source.MIC) {
-            sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
-            if (sys_sound == null) {
-                error ("The GStreamer element pulsesrc (named \"sys_sound\") was not created correctly");
-            }
-        }
 
         if (pipeline == null) {
             error ("The GStreamer element pipeline was not created correctly");
-        } else if (mic_sound == null) {
-            error ("The GStreamer element pulsesrc (named \"mic_sound\") was not created correctly");
         } else if (sink == null) {
             error ("The GStreamer element filesink was not created correctly");
         }
 
+        Source source = (Source) Application.settings.get_enum ("source");
+
+        Gst.Element? sys_sound = null;
         if (source != Source.MIC) {
             // TODO: How to fetch the default monitor?
             Gst.Device monitor = DeviceManager.get_default ().monitors.get (0);
-            monitor.reconfigure_element (sys_sound);
-            debug ("Set system sound source device to %s", monitor.display_name);
+            sys_sound = monitor.create_element ("mic_sound");
+            if (sys_sound == null) {
+                error ("The GStreamer element pulsesrc (named \"sys_sound\") was not created correctly");
+            }
+
+            debug ("Set system sound source device to \"%s\"", monitor.display_name);
         }
 
+        Gst.Element? mic_sound = null;
         if (source != Source.SYSTEM) {
             int microphone_number = Application.settings.get_int ("microphone");
             Gst.Device microphone = DeviceManager.get_default ().microphones.get (microphone_number);
-            microphone.reconfigure_element (mic_sound);
-            debug ("Set source microphone to %s", microphone.display_name);
+            mic_sound = microphone.create_element ("mic_sound");
+            if (mic_sound == null) {
+                error ("The GStreamer element pulsesrc (named \"mic_sound\") was not created correctly");
+            }
+
+            debug ("Set source microphone to \"%s\"", microphone.display_name);
         }
 
         Gst.Element encoder;
-        Gst.Element muxer = null;
+        Gst.Element? muxer = null;
 
         string file_format = Application.settings.get_string ("format");
         switch (file_format) {
