@@ -120,28 +120,11 @@ public class MainWindow : Gtk.ApplicationWindow {
             return false;
         });
 
-        recorder.handle_error.connect ((err, debug) => {
-            var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                _("Unable to Complete Recording"),
-                _("The following error message may be helpful:"),
-                "dialog-error", Gtk.ButtonsType.CLOSE
-            ) {
-                transient_for = this,
-                modal = true
-            };
-            error_dialog.show_error_details ("%s\n%s".printf (err.message, debug));
-            error_dialog.response.connect ((response_id) => {
-                if (response_id == Gtk.ResponseType.CLOSE) {
-                    error_dialog.destroy ();
-                }
-            });
-            error_dialog.show_all ();
-
-            record_view.stop_count ();
-            show_welcome ();
+        recorder.throw_error.connect ((err, debug) => {
+            show_error_dialog ("%s\n%s".printf (err.message, debug));
         });
 
-        recorder.handle_save_file.connect ((tmp_full_path, suffix) => {
+        recorder.save_file.connect ((tmp_full_path, suffix) => {
             //TRANSLATORS: %s represents a timestamp here
             string filename = _("Recording from %s").printf (new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"));
 
@@ -225,15 +208,40 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     public void show_record () {
-        recorder.start_recording ();
+        try {
+            recorder.start_recording ();
 
-        uint record_length = Application.settings.get_uint ("length");
-        if (record_length != 0) {
-            record_view.init_countdown (record_length);
+            uint record_length = Application.settings.get_uint ("length");
+            if (record_length != 0) {
+                record_view.init_countdown (record_length);
+            }
+
+            record_view.init_count ();
+            stack.visible_child_name = "record";
+        } catch (Gst.ParseError e) {
+            show_error_dialog (e.message);
         }
+    }
 
-        record_view.init_count ();
-        stack.visible_child_name = "record";
+    private void show_error_dialog (string error_message) {
+        var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            _("Unable to Complete Recording"),
+            _("The following error message may be helpful:"),
+            "dialog-error", Gtk.ButtonsType.CLOSE
+        ) {
+            transient_for = this,
+            modal = true
+        };
+        error_dialog.show_error_details (error_message);
+        error_dialog.response.connect ((response_id) => {
+            if (response_id == Gtk.ResponseType.CLOSE) {
+                error_dialog.destroy ();
+            }
+        });
+        error_dialog.show_all ();
+
+        record_view.stop_count ();
+        show_welcome ();
     }
 
     protected override bool configure_event (Gdk.EventConfigure event) {

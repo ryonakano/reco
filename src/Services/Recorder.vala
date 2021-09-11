@@ -18,8 +18,8 @@
 */
 
 public class Recorder : Object {
-    public signal void handle_error (Error err, string debug);
-    public signal void handle_save_file (string tmp_full_path, string suffix);
+    public signal void throw_error (Error err, string debug);
+    public signal void save_file (string tmp_full_path, string suffix);
 
     public bool is_recording { get; private set; }
     private string suffix;
@@ -38,14 +38,14 @@ public class Recorder : Object {
         STEREO = 2
     }
 
-    public void start_recording () {
+    public void start_recording () throws Gst.ParseError {
         pipeline = new Gst.Pipeline ("pipeline");
         var sink = Gst.ElementFactory.make ("filesink", "sink");
 
         if (pipeline == null) {
-            error ("The GStreamer element pipeline was not created correctly");
+            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer element \"pipeline\"");
         } else if (sink == null) {
-            error ("The GStreamer element filesink was not created correctly");
+            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer element \"filesink\"");
         }
 
         Source source = (Source) Application.settings.get_enum ("source");
@@ -56,7 +56,7 @@ public class Recorder : Object {
             Gst.Device monitor = DeviceManager.get_default ().monitors.get (0);
             sys_sound = monitor.create_element ("sys_sound");
             if (sys_sound == null) {
-                error ("The GStreamer element pulsesrc (named \"sys_sound\") was not created correctly");
+                throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer pulsesrc element \"sys_sound\"");
             }
 
             debug ("Set system sound source device to \"%s\"", monitor.display_name);
@@ -68,7 +68,7 @@ public class Recorder : Object {
             Gst.Device microphone = DeviceManager.get_default ().microphones.get (microphone_number);
             mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
-                error ("The GStreamer element pulsesrc (named \"mic_sound\") was not created correctly");
+                throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer pulsesrc element \"mic_sound\"");
             }
 
             debug ("Set source microphone to \"%s\"", microphone.display_name);
@@ -111,7 +111,7 @@ public class Recorder : Object {
         }
 
         if (encoder == null) {
-            error ("The GStreamer element encoder was not created correctly");
+            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer element \"encoder\"");
         }
 
         string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string ();
@@ -169,13 +169,13 @@ public class Recorder : Object {
                 string debug;
                 msg.parse_error (out err, out debug);
 
-                handle_error (err, debug);
+                throw_error (err, debug);
                 break;
             case Gst.MessageType.EOS:
                 set_recording_state (Gst.State.NULL);
                 pipeline.dispose ();
 
-                handle_save_file (tmp_full_path, suffix);
+                save_file (tmp_full_path, suffix);
                 break;
             default:
                 break;
