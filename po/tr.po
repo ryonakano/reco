@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 07:01+0000\n"
+"POT-Creation-Date: 2021-09-12 06:46+0000\n"
 "PO-Revision-Date: 2020-09-25 09:40+0300\n"
 "Last-Translator: Safak <bjksafak45@gmail.com>\n"
 "Language-Team: Turkish\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: src/Services/Recorder.vala:234
+#: src/Services/Recorder.vala:230
 #, fuzzy
 msgid "Recording is ongoing"
 msgstr "Kayıtlar"
@@ -78,76 +78,76 @@ msgstr "Her İkiside"
 msgid "Microphone to use:"
 msgstr "Mikrofon"
 
-#: src/Views/WelcomeView.vala:53
+#: src/Views/WelcomeView.vala:52
 msgid "Channels:"
 msgstr "Kanallar:"
 
-#: src/Views/WelcomeView.vala:59
+#: src/Views/WelcomeView.vala:58
 msgid "Mono"
 msgstr "Mono"
 
-#: src/Views/WelcomeView.vala:60
+#: src/Views/WelcomeView.vala:59
 msgid "Stereo"
 msgstr "Stereo"
 
-#: src/Views/WelcomeView.vala:62
+#: src/Views/WelcomeView.vala:61
 msgid "Timer"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:64
+#: src/Views/WelcomeView.vala:63
 msgid "Delay in seconds:"
 msgstr "Saniye cinsinden gecikme :"
 
-#: src/Views/WelcomeView.vala:71
+#: src/Views/WelcomeView.vala:70
 msgid "Length in seconds:"
 msgstr "Saniye cinsinden uzunluk :"
 
-#: src/Views/WelcomeView.vala:78
+#: src/Views/WelcomeView.vala:77
 msgid "Saving"
 msgstr "Kaydedilen"
 
-#: src/Views/WelcomeView.vala:80
+#: src/Views/WelcomeView.vala:79
 msgid "Format:"
 msgstr "Format :"
 
-#: src/Views/WelcomeView.vala:87
+#: src/Views/WelcomeView.vala:86
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:88
+#: src/Views/WelcomeView.vala:87
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:89
+#: src/Views/WelcomeView.vala:88
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:90
+#: src/Views/WelcomeView.vala:89
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:91
+#: src/Views/WelcomeView.vala:90
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:92
+#: src/Views/WelcomeView.vala:91
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:94
+#: src/Views/WelcomeView.vala:93
 msgid "Automatically save files:"
 msgstr "Dosyaları otomatik olarak yedekle :"
 
-#: src/Views/WelcomeView.vala:103
+#: src/Views/WelcomeView.vala:102
 msgid "Choose a default destination"
 msgstr "Varsayılan bir hedef seçin"
 
-#: src/Views/WelcomeView.vala:136
+#: src/Views/WelcomeView.vala:135
 msgid "Start recording"
 msgstr "Kayda Başla"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:177
+#: src/Views/WelcomeView.vala:181
 msgid "Recordings"
 msgstr "Kayıtlar"
 
@@ -173,34 +173,34 @@ msgstr "Sistem stilini takip edin:"
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: src/MainWindow.vala:125
+#. TRANSLATORS: %s represents a timestamp here
+#: src/MainWindow.vala:129
+#, c-format
+msgid "Recording from %s"
+msgstr "Kayıt yeri %s"
+
+#: src/MainWindow.vala:147
+msgid "Save your recording"
+msgstr "Kaydı kaydedin"
+
+#: src/MainWindow.vala:148
+msgid "Save"
+msgstr "Kaydet"
+
+#: src/MainWindow.vala:148
+msgid "Cancel"
+msgstr "İptal"
+
+#: src/MainWindow.vala:228
 msgid "Unable to Complete Recording"
 msgstr ""
 
-#: src/MainWindow.vala:126
+#: src/MainWindow.vala:229
 #, fuzzy
 msgid "The following error message may be helpful:"
 msgstr ""
 "Kayıt sırasında GStreamer hatası meydana geldi,aşağıdaki hata iletisi "
 "yararlı olabilir :"
-
-#. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:146
-#, c-format
-msgid "Recording from %s"
-msgstr "Kayıt yeri %s"
-
-#: src/MainWindow.vala:164
-msgid "Save your recording"
-msgstr "Kaydı kaydedin"
-
-#: src/MainWindow.vala:165
-msgid "Save"
-msgstr "Kaydet"
-
-#: src/MainWindow.vala:165
-msgid "Cancel"
-msgstr "İptal"
 
 #~ msgid "Computer"
 #~ msgstr "Bilgisayar"
