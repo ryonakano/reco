@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-12 06:46+0000\n"
-"PO-Revision-Date: 2021-06-03 10:00+0100\n"
+"PO-Revision-Date: 2021-09-15 15:25+0100\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <hugokarvalho@hotmail.com>\n"
 "Language: pt\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.3\n"
+"X-Generator: Poedit 3.0\n"
 
 #: src/Services/Recorder.vala:230
 msgid "Recording is ongoing"
@@ -73,9 +73,8 @@ msgid "Both"
 msgstr "Ambos"
 
 #: src/Views/WelcomeView.vala:45
-#, fuzzy
 msgid "Microphone to use:"
-msgstr "Microfone"
+msgstr "Microfone a usar:"
 
 #: src/Views/WelcomeView.vala:52
 msgid "Channels:"
@@ -91,7 +90,7 @@ msgstr "Estéreo"
 
 #: src/Views/WelcomeView.vala:61
 msgid "Timer"
-msgstr ""
+msgstr "Temporizador"
 
 #: src/Views/WelcomeView.vala:63
 msgid "Delay in seconds:"
