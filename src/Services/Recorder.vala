@@ -38,6 +38,18 @@ public class Recorder : Object {
         STEREO = 2
     }
 
+    private static Recorder _instance;
+    public static Recorder get_default () {
+        if (_instance == null) {
+            _instance = new Recorder ();
+        }
+
+        return _instance;
+    }
+
+    private Recorder () {
+    }
+
     public void start_recording () throws Gst.ParseError {
         pipeline = new Gst.Pipeline ("pipeline");
         var sink = Gst.ElementFactory.make ("filesink", "sink");

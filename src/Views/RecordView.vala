@@ -19,6 +19,8 @@
 
 public class RecordView : Gtk.Box {
     public MainWindow window { get; construct; }
+    private Recorder recorder;
+
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
     private Gtk.Button stop_button;
@@ -44,6 +46,8 @@ public class RecordView : Gtk.Box {
     }
 
     construct {
+        recorder = Recorder.get_default ();
+
         time_label = new Gtk.Label (null);
         time_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
@@ -98,14 +102,14 @@ public class RecordView : Gtk.Box {
             stop_count ();
 
             // If a user tries to cancel recording while pausing, resume recording once and reset the button icon
-            if (!window.recorder.is_recording) {
+            if (!recorder.is_recording) {
                 pause_button.image = new Gtk.Image.from_icon_name (
                     "media-playback-pause-symbolic", Gtk.IconSize.BUTTON
                 );
                 pause_button.tooltip_text = _("Pause recording");
             }
 
-            window.recorder.cancel_recording ();
+            recorder.cancel_recording ();
             window.show_welcome ();
         });
 
@@ -118,10 +122,10 @@ public class RecordView : Gtk.Box {
         });
 
         pause_button.clicked.connect (() => {
-            if (window.recorder.is_recording) {
+            if (recorder.is_recording) {
                 stop_count ();
 
-                window.recorder.set_recording_state (Gst.State.PAUSED);
+                recorder.set_recording_state (Gst.State.PAUSED);
                 pause_button.image = new Gtk.Image.from_icon_name (
                     "media-playback-start-symbolic", Gtk.IconSize.BUTTON
                 );
@@ -133,7 +137,7 @@ public class RecordView : Gtk.Box {
                     start_countdown ();
                 }
 
-                window.recorder.set_recording_state (Gst.State.PLAYING);
+                recorder.set_recording_state (Gst.State.PLAYING);
                 pause_button.image = new Gtk.Image.from_icon_name (
                     "media-playback-pause-symbolic", Gtk.IconSize.BUTTON
                 );
@@ -146,13 +150,13 @@ public class RecordView : Gtk.Box {
         stop_count ();
 
         // If a user tries to stop recording while pausing, resume recording once and reset the button icon
-        if (!window.recorder.is_recording) {
-            window.recorder.set_recording_state (Gst.State.PLAYING);
+        if (!recorder.is_recording) {
+            recorder.set_recording_state (Gst.State.PLAYING);
             pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
             pause_button.tooltip_text = _("Pause recording");
         }
 
-        window.recorder.stop_recording ();
+        recorder.stop_recording ();
         window.show_welcome ();
     }
 
@@ -171,7 +175,7 @@ public class RecordView : Gtk.Box {
     private void start_count () {
         count = Timeout.add (1000, () => {
             // If the user pressed "pause", do not count this second.
-            if (!window.recorder.is_recording) {
+            if (!recorder.is_recording) {
                 return false;
             }
 
@@ -239,7 +243,7 @@ public class RecordView : Gtk.Box {
 
         countdown = Timeout.add (1000, () => {
             // If the user pressed "pause", do not count this second.
-            if (!window.recorder.is_recording) {
+            if (!recorder.is_recording) {
                 return false;
             }
 

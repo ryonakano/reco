@@ -16,7 +16,7 @@
 */
 
 public class MainWindow : Hdy.Window {
-    public Recorder recorder { get; private set; default = new Recorder (); }
+    private Recorder recorder;
     private uint configure_id;
 
     private WelcomeView welcome_view;
@@ -36,6 +36,7 @@ public class MainWindow : Hdy.Window {
 
     construct {
         Hdy.init ();
+        recorder = Recorder.get_default ();
 
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
