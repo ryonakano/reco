@@ -15,7 +15,7 @@
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-public class MainWindow : Gtk.ApplicationWindow {
+public class MainWindow : Hdy.Window {
     public Recorder recorder { get; private set; default = new Recorder (); }
     private uint configure_id;
 
@@ -26,7 +26,6 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     public MainWindow (Application app) {
         Object (
-            border_width: 6,
             application: app,
             resizable: false,
             width_request: 400,
@@ -36,6 +35,8 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     construct {
+        Hdy.init ();
+
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
@@ -81,9 +82,7 @@ public class MainWindow : Gtk.ApplicationWindow {
             preferences_popover.show_all ();
         });
 
-        var headerbar = new Gtk.HeaderBar () {
-            // Create a titlebar without title
-            custom_title = new Gtk.Grid (),
+        var headerbar = new Hdy.HeaderBar () {
             has_subtitle = false,
             show_close_button = true
         };
@@ -92,20 +91,25 @@ public class MainWindow : Gtk.ApplicationWindow {
 
         var headerbar_style_context = headerbar.get_style_context ();
         headerbar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        headerbar_style_context.add_class ("default-decoration");
+        headerbar_style_context.add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
 
         welcome_view = new WelcomeView (this);
         countdown_view = new CountDownView (this);
         record_view = new RecordView (this);
 
-        stack = new Gtk.Stack ();
+        stack = new Gtk.Stack () {
+            margin = 6
+        };
         stack.add_named (welcome_view, "welcome");
         stack.add_named (countdown_view, "count");
         stack.add_named (record_view, "record");
 
-        set_titlebar (headerbar);
-        get_style_context ().add_class ("rounded");
-        add (stack);
+        var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        main_box.add (headerbar);
+        main_box.add (stack);
+
+        add (main_box);
+
         show_welcome ();
 
         delete_event.connect ((event) => {
