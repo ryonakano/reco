@@ -92,7 +92,7 @@ public class MainWindow : Hdy.Window {
 
         var headerbar_style_context = headerbar.get_style_context ();
         headerbar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        headerbar_style_context.add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
+        headerbar_style_context.add_class ("default-decoration");
 
         welcome_view = new WelcomeView (this);
         countdown_view = new CountDownView (this);
