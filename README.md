@@ -34,7 +34,7 @@ You'll need the following dependencies to build:
 * libhandy-1-dev
 * libpulse-dev
 * libpulse-mainloop-glib0
-* meson (>=0.49.0)
+* meson (>= 0.49.0)
 * valac
 
 You'll need the following dependencies to run:

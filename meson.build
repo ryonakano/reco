@@ -1,7 +1,7 @@
 project(
     'com.github.ryonakano.reco',
     'vala', 'c',
-    version: '2.4.6',
+    version: '3.0.0',
     meson_version: '>=0.49.0'
 )
 
