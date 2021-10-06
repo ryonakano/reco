@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-06 05:30+0000\n"
-"PO-Revision-Date: 2021-04-09 17:15+0100\n"
+"PO-Revision-Date: 2021-10-06 17:15+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: ITALIAN <LL@li.org>\n"
 "Language: it\n"
@@ -64,7 +64,7 @@ msgstr "Microfono"
 
 #: src/Views/WelcomeView.vala:29
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #: src/Views/WelcomeView.vala:30
 msgid "Both"
@@ -84,7 +84,7 @@ msgstr "Stereo"
 
 #: src/Views/WelcomeView.vala:41
 msgid "Timer"
-msgstr ""
+msgstr "Timer"
 
 #: src/Views/WelcomeView.vala:43
 msgid "Delay in seconds:"
@@ -190,9 +190,8 @@ msgstr "Impossibile completare la registrazione"
 msgid "The following error message may be helpful:"
 msgstr "Il seguente messaggio di errore può essere utile:"
 
-#, fuzzy
 #~ msgid "Microphone to use:"
-#~ msgstr "Microfono"
+#~ msgstr "Microfono da usare:"
 
 #~ msgid "Computer"
 #~ msgstr "Computer"
