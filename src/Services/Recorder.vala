@@ -9,8 +9,9 @@ public class Recorder : Object {
     public signal void throw_error (Error err, string debug);
     public signal void save_file (string tmp_full_path, string suffix);
 
-    private PulseAudioManager pam;
     public bool is_recording { get; private set; }
+
+    private PulseAudioManager pam;
     private string suffix;
     private string tmp_full_path;
     private Gst.Pipeline pipeline;
