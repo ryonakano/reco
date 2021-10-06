@@ -190,6 +190,3 @@ msgstr "録音を完了できません"
 #: src/MainWindow.vala:222
 msgid "The following error message may be helpful:"
 msgstr "以下のエラーメッセージが役に立つ可能性があります:"
-
-#~ msgid "Microphone to use:"
-#~ msgstr "使用するマイク:"

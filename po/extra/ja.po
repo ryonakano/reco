@@ -1,14 +1,14 @@
 # Japanese translations for extra package.
 # Copyright (C) 2018 THE extra'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2018.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-06 05:30+0000\n"
-"PO-Revision-Date: 2021-01-30 11:49+0900\n"
+"PO-Revision-Date: 2021-10-06 15:17+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -94,40 +94,44 @@ msgid ""
 "Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
 "manifest"
 msgstr ""
+"Flatpak マニフェストを追加し、アプリを elementary OS 6 の新しい AppCenter に"
+"リリース"
 
 #: data/reco.appdata.xml.in:73
 msgid "A completely rewrited and improved method to detect recording sources"
-msgstr ""
+msgstr "録音ソースの検出方法を根本的に書き直し、処理を改善"
 
 #: data/reco.appdata.xml.in:74
 msgid ""
 "Redesign: Separate Delay and Duration settings from Recording section as "
 "Timer section and put it under Recording section"
 msgstr ""
+"再設計: 遅延と録音時間の設定を“録音”セクションから分離し“タイマー”セクション"
+"として独立させ、“録音”セクションの下に配置"
 
 #: data/reco.appdata.xml.in:75
 msgid "Make sure to show a dialog for any errors in recording"
-msgstr ""
+msgstr "録音中にエラーが発生した場合必ずエラーダイアログを表示するように修正"
 
 #: data/reco.appdata.xml.in:76
 msgid "Code refactoring"
-msgstr ""
+msgstr "コードのリファクタリング"
 
 #: data/reco.appdata.xml.in:78
 msgid "Translation updates:"
-msgstr ""
+msgstr "翻訳の更新:"
 
 #: data/reco.appdata.xml.in:80
 msgid "Add Brazilian Portuguese translation (thanks to @mathessaricci)"
-msgstr ""
+msgstr "ブラジルポルトガル語翻訳を追加 (貢献者: @mathessaricci)"
 
 #: data/reco.appdata.xml.in:81 data/reco.appdata.xml.in:90
 msgid "Update Portuguese translation (thanks to @hugok79)"
-msgstr ""
+msgstr "ポルトガル語翻訳を更新 (貢献者: @hugok79)"
 
 #: data/reco.appdata.xml.in:82
 msgid "Update Spanish translation (thanks to @Eldhrimer)"
-msgstr ""
+msgstr "スペイン語翻訳を更新 (貢献者: @Eldhrimer)"
 
 #: data/reco.appdata.xml.in:83 data/reco.appdata.xml.in:92
 #: data/reco.appdata.xml.in:119 data/reco.appdata.xml.in:128
@@ -137,299 +141,321 @@ msgstr ""
 #: data/reco.appdata.xml.in:258 data/reco.appdata.xml.in:270
 #: data/reco.appdata.xml.in:280
 msgid "Update Japanese translation"
-msgstr ""
+msgstr "日本語翻訳を更新"
 
 #: data/reco.appdata.xml.in:91
 msgid ""
 "Update Spanish translation and add Catalan translation (thanks to @fitojb)"
-msgstr ""
+msgstr "スペイン語翻訳を更新し、カタルーニャ語翻訳を追加 (貢献者: @fitojb)"
 
 #: data/reco.appdata.xml.in:99 data/reco.appdata.xml.in:139
 msgid "Update Dutch translation (thanks to @Vistaus)"
-msgstr ""
+msgstr "ドイツ語翻訳を更新 (貢献者: @Vistaus)"
 
 #: data/reco.appdata.xml.in:100
 msgid ""
 "Revert another change done in version 2.4.3 that potentially caused an error "
 "during the packaging process"
 msgstr ""
+"パッケージングの過程で発生していたエラーの原因と思われる、バージョン 2.4.3 で"
+"行われた別の変更箇所を差し戻し"
 
 #: data/reco.appdata.xml.in:101
 msgid "Revive the change that had been reverted in version 2.4.4"
-msgstr ""
+msgstr "バージョン 2.4.4 で差し戻された変更を復元"
 
 #: data/reco.appdata.xml.in:108
 msgid ""
 "Revert changes done in version 2.4.3 that potentially caused an error during "
 "the packaging process"
 msgstr ""
+"パッケージングの過程で発生していたエラーの原因と思われる、バージョン 2.4.3 で"
+"行われた変更箇所を差し戻し"
 
 #: data/reco.appdata.xml.in:115
 msgid "MainWindow: Readable copy for dialog messages"
 msgstr ""
+"メインウィンドウ: ダイアログメッセージのテキストをわかりやすいものに変更"
 
 #: data/reco.appdata.xml.in:116
 msgid ""
 "MainWindow: Add window title for the new Gala feature that shows windows "
 "titles in Multitasking view"
 msgstr ""
+"メインウィンドウ: マルチタスク画面でウィンドウタイトルを表示する Gala の新機"
+"能に使われるウィンドウタイトルを追加"
 
 #: data/reco.appdata.xml.in:117
 msgid "Add Italian translation (thanks to @albanobattistella)"
-msgstr ""
+msgstr "イタリア語翻訳を追加 (貢献者: @albanobattistella)"
 
 #: data/reco.appdata.xml.in:118
 msgid "Add Portuguese translation (thanks to @hugok79)"
-msgstr ""
+msgstr "ポルトガル語翻訳を追加 (貢献者: @hugok79)"
 
 #: data/reco.appdata.xml.in:120
 msgid "Clean code"
-msgstr ""
+msgstr "コードの整理"
 
 #: data/reco.appdata.xml.in:127
 msgid "Inhibit sleeping while recording"
-msgstr ""
+msgstr "録音中はスリープしないように修正"
 
 #: data/reco.appdata.xml.in:135
 msgid ""
 "Make sure GSettings key \"length\" and \"delay\" take only natural numbers"
 msgstr ""
+"\"length\"・\"delay\" の両 GSettings キーが必ず整数のみを取るように修正"
 
 #: data/reco.appdata.xml.in:136
 msgid "Follow API change of Gtk.FileChooser in GTK 4"
-msgstr ""
+msgstr "GTK 4 での Gtk.FileChooser の API の変更に追従"
 
 #: data/reco.appdata.xml.in:137
 msgid "Fix temporary recordings are not deleted on error"
-msgstr ""
+msgstr "エラー発生時に一時的な録音ファイルが削除されない不具合を修正"
 
 #: data/reco.appdata.xml.in:138
 msgid "Fix some microphones are not recognized (thanks to @peteruithoven)"
-msgstr ""
+msgstr "マイクを認識しないことがある不具合を修正 (貢献者: @peteruithoven)"
 
 #: data/reco.appdata.xml.in:140
 msgid "Update Turkish translation (thanks to @safak45x)"
-msgstr ""
+msgstr "トルコ語翻訳を更新 (貢献者: @safak45x)"
 
 #: data/reco.appdata.xml.in:147
 msgid "Respect an elementary OS-wide dark preference"
-msgstr ""
+msgstr "elementary OS のダークスタイル設定を反映するように修正"
 
 #: data/reco.appdata.xml.in:148
 msgid "Allow setting per-app dark style preference"
-msgstr ""
+msgstr "このアプリ内限定でダークスタイルを設定できる機能を追加"
 
 #: data/reco.appdata.xml.in:149
 msgid "Allow choosing stereo or mono"
-msgstr ""
+msgstr "ステレオ・モノを選択できる機能を追加"
 
 #: data/reco.appdata.xml.in:150
 msgid "Update Spanish translation (thanks to @CCaroV)"
-msgstr ""
+msgstr "スペイン語翻訳を更新 (貢献者: @CCaroV)"
 
 #: data/reco.appdata.xml.in:152
 msgid ""
 "Explicit gstreamer1.0-libav as a dependency to fix a potential crash when "
 "trying to record in AAC"
 msgstr ""
+"依存関係として gstreamer1.0-libav を明示することで、AAC 形式で録音しようとす"
+"るとクラッシュすることがある不具合を修正"
 
 #: data/reco.appdata.xml.in:159
 msgid "Add Turkish translation (by @safak45x)"
-msgstr ""
+msgstr "トルコ語翻訳を追加 (貢献者: @safak45x)"
 
 #: data/reco.appdata.xml.in:160
 msgid "Add Russian translation (by @usmanovmax)"
-msgstr ""
+msgstr "ロシア語翻訳を追加 (貢献者: @usmanovmax)"
 
 #: data/reco.appdata.xml.in:167
 msgid "Add Polish translation (by @michalzkosmosu)"
-msgstr ""
+msgstr "ポーランド語翻訳を追加 (貢献者: @michalzkosmosu)"
 
 #: data/reco.appdata.xml.in:168
 msgid "Update French translation (by @NathanBnm)"
-msgstr ""
+msgstr "フランス語翻訳を更新 (貢献者: @NathanBnm)"
 
 #: data/reco.appdata.xml.in:176
 msgid ""
 "Fix the weird behavior of the countdown timer when pausing/canceling it (by "
 "andreasomaini)"
 msgstr ""
+"カウントダウンタイマーを一時停止／キャンセルすると、タイマーの動作がおかしく"
+"なる不具合を修正 (貢献者: andreasomaini)"
 
 #: data/reco.appdata.xml.in:177
 msgid ""
 "Support recording sounds from both your microphone and PC at the same time"
-msgstr ""
+msgstr "マイクからの音とと PC の内部音を同時に録音できる機能を追加"
 
 #: data/reco.appdata.xml.in:178
 msgid "End the app safely if the encoder is not created successfully"
 msgstr ""
+"エンコーダーを正しく作成できなかった場合、安全にアプリを終了するように修正"
 
 #: data/reco.appdata.xml.in:179
 msgid ""
 "Update the app description in the readme and AppCenter to be more tantalizing"
 msgstr ""
+"ユーザーの興味を惹くように、README と AppCenter に記載されているアプリの説明"
+"を更新"
 
 #: data/reco.appdata.xml.in:181
 msgid "Remove unnecessary field code that marks the app handleable files"
-msgstr ""
+msgstr "ファイルを開けるアプリとしてマークされていたのを削除"
 
 #: data/reco.appdata.xml.in:188
 msgid "Fix recording won't success when changing the file format"
-msgstr ""
+msgstr "ファイル形式を変更すると録音に失敗する不具合を修正"
 
 #: data/reco.appdata.xml.in:189
 msgid "Add Spanish translation (by fitojb)"
-msgstr ""
+msgstr "スペイン語翻訳を追加 (貢献者: fitojb)"
 
 #: data/reco.appdata.xml.in:196
 msgid "Getting/setting window positions gets more efficient"
-msgstr ""
+msgstr "ウィンドウ位置の取得と設定における処理の効率化"
 
 #: data/reco.appdata.xml.in:197
 msgid ""
 "Fix the app does not resume the pause icon when you cancel recording while "
 "pausing it"
 msgstr ""
+"録音の一時停止中にキャンセルすると一時停止アイコンが元に戻らない不具合を修正"
 
 #: data/reco.appdata.xml.in:198
 msgid ""
 "Fix the app shows the successful mark even if a recording is not saved "
 "correctly"
-msgstr ""
+msgstr "録音に失敗しても成功のチェックマークが表示される不具合を修正"
 
 #: data/reco.appdata.xml.in:199
 msgid "Save and restore values typed into the spin buttons"
-msgstr ""
+msgstr "スピンボタンに直接入力された値を保存し復元するように修正"
 
 #: data/reco.appdata.xml.in:206
 msgid "Allow to cancel/pause countdown before recording"
-msgstr ""
+msgstr "録音開始前にカウントダウンをキャンセル／一時停止できる機能を追加"
 
 #: data/reco.appdata.xml.in:207
 msgid "Save recordings when the app window is destroyed"
-msgstr ""
+msgstr "アプリウィンドウが閉じられた時に録音を保存するように修正"
 
 #: data/reco.appdata.xml.in:208
 msgid "Fix the app freezes on closing an error dialog"
-msgstr ""
+msgstr "エラーダイアログを閉じるとアプリがフリーズする不具合を修正"
 
 #: data/reco.appdata.xml.in:215
 msgid "Allow to record system sound"
-msgstr ""
+msgstr "システム音を録音できる機能を追加"
 
 #: data/reco.appdata.xml.in:216
 msgid "Fix the timer does not stop in accordance with the recording"
-msgstr ""
+msgstr "録音終了と同時にタイマーが停止しない不具合を修正"
 
 #: data/reco.appdata.xml.in:224
 msgid "Grammatically fixes in the app description (by imasaru)"
-msgstr ""
+msgstr "アプリの説明の文法ミスを修正 (貢献者: imasaru)"
 
 #: data/reco.appdata.xml.in:225
 msgid "Fix the localized screenshots don't appear to AppCenter"
 msgstr ""
+"AppCenter にローカライズされたスクリーンショットが表示されない不具合を修正"
 
 #: data/reco.appdata.xml.in:233
 msgid ""
 "Provide localized screenshots to AppCenter (French, Japanese, Lithuanian and "
 "Dutch)"
 msgstr ""
+"AppCenter にローカライズされたスクリーンショットが表示されるように変更 (フラ"
+"ンス語、日本語、リトアニア語、ドイツ語)"
 
 #: data/reco.appdata.xml.in:234
 msgid "Fix temporary recording files remain when quit the app while recording"
-msgstr ""
+msgstr "録音中にアプリを終了すると、一時録音ファイルが削除されない不具合を修正"
 
 #: data/reco.appdata.xml.in:235
 msgid "Use upper case for WAV"
-msgstr ""
+msgstr "WAV 形式の “WAV” を大文字で表記"
 
 #: data/reco.appdata.xml.in:237
 msgid "Add Dutch translation (by Vistaus)"
-msgstr ""
+msgstr "ドイツ語翻訳を追加 (貢献者: Vistaus)"
 
 #: data/reco.appdata.xml.in:244
 msgid ""
 "Fix the app isn't listed in the \"Sound &amp; Video\" category in "
 "Applications Menu"
 msgstr ""
+"アプリケーションメニューの\"サウンドとビデオ\"のカテゴリーにアプリが表示され"
+"ない不具合を修正"
 
 #: data/reco.appdata.xml.in:245
 msgid "Add a shortcut key to toggle recording"
-msgstr ""
+msgstr "録音開始と一時停止を切り替えられるショートカットを追加"
 
 #: data/reco.appdata.xml.in:246
 msgid "Fix the name of \"Recordings\" folder is not created in system language"
-msgstr ""
+msgstr "\"レコーディング\"フォルダーの名前がシステム言語にならない不具合を修正"
 
 #: data/reco.appdata.xml.in:247
 msgid "Notify success of recording with a check mark"
-msgstr ""
+msgstr "録音の完了をチェックマークでお知らせ"
 
 #: data/reco.appdata.xml.in:248
 msgid "Allow to cancel/pause recording"
-msgstr ""
+msgstr "録音をキャンセル／一時停止できる機能を追加"
 
 #: data/reco.appdata.xml.in:249
 msgid "Update translations"
-msgstr ""
+msgstr "翻訳を更新"
 
 #: data/reco.appdata.xml.in:256
 msgid ""
 "Show a confirmation dialog when trying to quit the app if a recording is in "
 "progress"
 msgstr ""
+"録音中にアプリを終了しようとすると、確認ダイアログが表示されるように修正"
 
 #: data/reco.appdata.xml.in:257
 msgid "Add Lithuanian translation (by welaq)"
-msgstr ""
+msgstr "リトアニア語翻訳を追加 (貢献者: welaq)"
 
 #: data/reco.appdata.xml.in:265
 msgid "Save and restore settings"
-msgstr ""
+msgstr "設定を保存し復元するように修正"
 
 #: data/reco.appdata.xml.in:266
 msgid "Support both do-not-ask-where-to-save flow and ask-where-to-save flow"
-msgstr ""
+msgstr "録音を自動的に保存するか、保存場所を毎回尋ねるか選べるように変更"
 
 #: data/reco.appdata.xml.in:267
 msgid "Organized UI"
-msgstr ""
+msgstr "UI を整理"
 
 #: data/reco.appdata.xml.in:268
 msgid "Some small bug fixes"
-msgstr ""
+msgstr "軽微なバグを修正"
 
 #: data/reco.appdata.xml.in:269
 msgid "Add French translation (by NathanBnm)"
-msgstr ""
+msgstr "フランス語翻訳を追加 (貢献者: NathanBnm)"
 
 #: data/reco.appdata.xml.in:277
 msgid "Allow to set recording length"
-msgstr ""
+msgstr "録音時間を設定する機能を追加"
 
 #: data/reco.appdata.xml.in:278
 msgid "Fix the countdown is weird when recording more than twice"
-msgstr ""
+msgstr "録音を2回以上行うと、カウントダウンの挙動がおかしくなる不具合を修正"
 
 #: data/reco.appdata.xml.in:279
 msgid "Localization improvement"
-msgstr ""
+msgstr "ローカライゼーションの改善"
 
 #: data/reco.appdata.xml.in:287
 msgid "Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats"
-msgstr ""
+msgstr "AAC、FLAC、Ogg Vorbis、Opus、MP3 形式での録音に対応"
 
 #: data/reco.appdata.xml.in:288
 msgid "Show a notification after recorded successfully"
-msgstr ""
+msgstr "録音完了時に通知を表示するように変更"
 
 #: data/reco.appdata.xml.in:289
 msgid "Add Japanese translation"
-msgstr ""
+msgstr "日本語翻訳を追加"
 
 #: data/reco.appdata.xml.in:296
 msgid "Initial release"
-msgstr ""
+msgstr "最初のリリース"
 
 #: data/reco.appdata.xml.in:302
 msgid "Ryo Nakano"
