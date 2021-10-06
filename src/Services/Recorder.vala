@@ -1,21 +1,9 @@
 /*
-* Copyright 2018-2021 Ryo Nakano
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*
-* GStreamer related codes are inspired from https://github.com/artemanufrij/screencast/blob/master/src/MainWindow.vala
-*/
+ * Copyright 2018-2021 Ryo Nakano
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ *
+ * GStreamer related codes are inspired from artemanufrij/screencast, src/MainWindow.vala
+ */
 
 public class Recorder : Object {
     public signal void throw_error (Error err, string debug);
