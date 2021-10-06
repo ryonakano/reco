@@ -5,7 +5,7 @@
 
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
-    private Gtk.ComboBoxText microphone_combobox;
+    //  private Gtk.ComboBoxText microphone_combobox;
     private Gtk.Button record_button;
 
     public WelcomeView (MainWindow window) {
@@ -30,12 +30,12 @@ public class WelcomeView : Gtk.Box {
         source_combobox.append ("system", _("System"));
         source_combobox.append ("both", _("Both"));
 
-        var device_label = new Gtk.Label (_("Microphone to use:")) {
-            halign = Gtk.Align.END
-        };
-        microphone_combobox = new Gtk.ComboBoxText () {
-            halign = Gtk.Align.START
-        };
+        //  var device_label = new Gtk.Label (_("Microphone to use:")) {
+        //      halign = Gtk.Align.END
+        //  };
+        //  microphone_combobox = new Gtk.ComboBoxText () {
+        //      halign = Gtk.Align.START
+        //  };
 
         var channels_label = new Gtk.Label (_("Channels:")) {
             halign = Gtk.Align.END
@@ -102,8 +102,8 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (recording_header_label, 0, 0, 1, 1);
         settings_grid.attach (source_label, 0, 1, 1, 1);
         settings_grid.attach (source_combobox, 1, 1, 1, 1);
-        settings_grid.attach (device_label, 0, 2, 1, 1);
-        settings_grid.attach (microphone_combobox, 1, 2, 1, 1);
+        //  settings_grid.attach (device_label, 0, 2, 1, 1);
+        //  settings_grid.attach (microphone_combobox, 1, 2, 1, 1);
         settings_grid.attach (channels_label, 0, 3, 1, 1);
         settings_grid.attach (channels_combobox, 1, 3, 1, 1);
         settings_grid.attach (timer_header_label, 0, 4, 1, 1);
@@ -134,21 +134,21 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("source", source_combobox, "active_id", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("microphone", microphone_combobox, "active", SettingsBindFlags.DEFAULT);
+        //  Application.settings.bind ("microphone", microphone_combobox, "active", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channels", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("auto-save", auto_save_switch, "active", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("auto-save", destination_chooser, "sensitive", SettingsBindFlags.DEFAULT);
 
-        microphone_combobox.sensitive = update_microphone_combobox_sensitivity (source_combobox.active_id);
-        source_combobox.changed.connect (() => {
-            microphone_combobox.sensitive = update_microphone_combobox_sensitivity (source_combobox.active_id);
-        });
+        //  microphone_combobox.sensitive = update_microphone_combobox_sensitivity (source_combobox.active_id);
+        //  source_combobox.changed.connect (() => {
+        //      microphone_combobox.sensitive = update_microphone_combobox_sensitivity (source_combobox.active_id);
+        //  });
 
-        update_microphone_list ();
-        microphone_combobox.changed.connect (() => {
-            update_microphone_combobox ();
-        });
+        //  update_microphone_list ();
+        //  microphone_combobox.changed.connect (() => {
+        //      update_microphone_combobox ();
+        //  });
 
         destination_chooser.file_set.connect (() => {
             Application.settings.set_string ("destination", destination_chooser.get_filename ());
@@ -158,7 +158,7 @@ public class WelcomeView : Gtk.Box {
             trigger_recording ();
         });
 
-        DeviceManager.get_default ().device_updated.connect (update_microphone_list);
+        //  DeviceManager.get_default ().device_updated.connect (update_microphone_list);
     }
 
     private string get_destination () {
@@ -200,43 +200,43 @@ public class WelcomeView : Gtk.Box {
         }
     }
 
-    private void update_microphone_list () {
-        microphone_combobox.remove_all ();
+    //  private void update_microphone_list () {
+    //      microphone_combobox.remove_all ();
 
-        for (int i = 0; i < DeviceManager.get_default ().microphones.size; i++) {
-            Gst.Device device = DeviceManager.get_default ().microphones.get (i);
-            microphone_combobox.append (i.to_string (), device.display_name);
-        }
+    //      for (int i = 0; i < DeviceManager.get_default ().microphones.size; i++) {
+    //          Gst.Device device = DeviceManager.get_default ().microphones.get (i);
+    //          microphone_combobox.append (i.to_string (), device.display_name);
+    //      }
 
-        // When the app launches for the first time, select the first microphone
-        if (Application.settings.get_int ("microphone") == 0) {
-            microphone_combobox.active = 0;
-            Application.settings.set_int ("microphone", microphone_combobox.active);
-        }
+    //      // When the app launches for the first time, select the first microphone
+    //      if (Application.settings.get_int ("microphone") == 0) {
+    //          microphone_combobox.active = 0;
+    //          Application.settings.set_int ("microphone", microphone_combobox.active);
+    //      }
 
-        update_microphone_combobox ();
-        microphone_combobox.show_all ();
-    }
+    //      update_microphone_combobox ();
+    //      microphone_combobox.show_all ();
+    //  }
 
-    private bool update_microphone_combobox_sensitivity (string active_id) {
-        switch (active_id) {
-            case "mic":
-            case "both":
-                return true;
-            case "system":
-                return false;
-            default:
-                assert_not_reached ();
-        }
-    }
+    //  private bool update_microphone_combobox_sensitivity (string active_id) {
+    //      switch (active_id) {
+    //          case "mic":
+    //          case "both":
+    //              return true;
+    //          case "system":
+    //              return false;
+    //          default:
+    //              assert_not_reached ();
+    //      }
+    //  }
 
-    private void update_microphone_combobox () {
-        // Ellipsize if device name is long; otherwise the app window get stretched
-        unowned Gtk.CellRendererText first_cell = microphone_combobox.get_cells ().nth_data (0) as Gtk.CellRendererText;
-        first_cell.width = 200;
-        first_cell.ellipsize = Pango.EllipsizeMode.END;
+    //  private void update_microphone_combobox () {
+    //      // Ellipsize if device name is long; otherwise the app window get stretched
+    //      unowned Gtk.CellRendererText first_cell = microphone_combobox.get_cells ().nth_data (0) as Gtk.CellRendererText;
+    //      first_cell.width = 200;
+    //      first_cell.ellipsize = Pango.EllipsizeMode.END;
 
-        // Show full device name as a tooltip in case it's ellipsized
-        microphone_combobox.tooltip_text = microphone_combobox.get_active_text ();
-    }
+    //      // Show full device name as a tooltip in case it's ellipsized
+    //      microphone_combobox.tooltip_text = microphone_combobox.get_active_text ();
+    //  }
 }
