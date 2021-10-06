@@ -15,6 +15,11 @@ add_project_arguments(
     language: 'c'
 )
 
+add_project_arguments(
+    ['--vapidir', meson.current_source_dir() / 'vapi'],
+    language: 'vala'
+)
+
 config_data = configuration_data()
 config_data.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
