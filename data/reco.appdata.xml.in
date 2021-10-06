@@ -66,6 +66,24 @@
   </content_rating>
 
   <releases>
+    <release version="3.0.0" date="2021-10-06" urgency="high">
+      <description>
+        <ul>
+          <li>Publish the app to the new AppCenter on elementary OS 6 with the Flatpak manifest</li>
+          <li>A completely rewrited and improved method to detect recording sources</li>
+          <li>Redesign: Separate Delay and Duration settings from Recording section as Timer section and put it under Recording section</li>
+          <li>Make sure to show a dialog for any errors in recording</li>
+          <li>Code refactoring</li>
+        </li>
+        <p>Translation updates:</p>
+        <ul>
+          <li>Add Brazilian Portuguese translation (thanks to @mathessaricci)</li>
+          <li>Update Portuguese translation (thanks to @hugok79)</li>
+          <li>Update Spanish translation (thanks to @Eldhrimer)</li>
+          <li>Update Japanese translation</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.4.6" date="2021-06-11" urgency="low">
       <description>
         <ul>
