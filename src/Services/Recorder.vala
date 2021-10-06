@@ -10,6 +10,8 @@ public class Recorder : Object {
     public signal void save_file (string tmp_full_path, string suffix);
 
     public bool is_recording { get; private set; }
+
+    private PulseAudioManager pam;
     private string suffix;
     private string tmp_full_path;
     private Gst.Pipeline pipeline;
@@ -36,6 +38,8 @@ public class Recorder : Object {
     }
 
     private Recorder () {
+        pam = PulseAudioManager.get_default ();
+        pam.start ();
     }
 
     public void start_recording () throws Gst.ParseError {
@@ -52,26 +56,25 @@ public class Recorder : Object {
 
         Gst.Element? sys_sound = null;
         if (source != Source.MIC) {
-            // TODO: How to fetch the default monitor?
-            Gst.Device monitor = DeviceManager.get_default ().monitors.get (0);
-            sys_sound = monitor.create_element ("sys_sound");
+            sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer pulsesrc element \"sys_sound\"");
             }
 
-            debug ("Set system sound source device to \"%s\"", monitor.display_name);
+            string default_monitor = pam.default_sink_name + ".monitor";
+            sys_sound.set ("device", default_monitor);
+            debug ("Set system sound source device to \"%s\"", default_monitor);
         }
 
         Gst.Element? mic_sound = null;
         if (source != Source.SYSTEM) {
-            int microphone_number = Application.settings.get_int ("microphone");
-            Gst.Device microphone = DeviceManager.get_default ().microphones.get (microphone_number);
-            mic_sound = microphone.create_element ("mic_sound");
+            mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
             if (mic_sound == null) {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer pulsesrc element \"mic_sound\"");
             }
 
-            debug ("Set source microphone to \"%s\"", microphone.display_name);
+            mic_sound.set ("device", pam.default_source_name);
+            debug ("Set source microphone to \"%s\"", pam.default_source_name);
         }
 
         Gst.Element encoder;

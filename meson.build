@@ -15,6 +15,11 @@ add_project_arguments(
     language: 'c'
 )
 
+add_project_arguments(
+    ['--vapidir', meson.current_source_dir() / 'vapi'],
+    language: 'vala'
+)
+
 config_data = configuration_data()
 config_data.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
@@ -32,7 +37,7 @@ asresources = gnome.compile_resources(
 )
 
 sources = files(
-    'src' / 'Services' / 'DeviceManager.vala',
+    'src' / 'Services' / 'PulseAudioManager.vala',
     'src' / 'Services' / 'Recorder.vala',
     'src' / 'Views' / 'CountDownView.vala',
     'src' / 'Views' / 'WelcomeView.vala',
@@ -50,7 +55,9 @@ executable(
         dependency('granite', version: '>=5.4.0'),
         dependency('gtk+-3.0'),
         dependency('gstreamer-1.0'),
-        dependency('libhandy-1')
+        dependency('libhandy-1'),
+        dependency('libpulse'),
+        dependency('libpulse-mainloop-glib')
     ],
     install: true
 )

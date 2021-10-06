@@ -32,6 +32,8 @@ You'll need the following dependencies to build:
 * libgranite-dev (>= 5.4.0)
 * libgstreamer1.0-dev
 * libhandy-1-dev
+* libpulse-dev
+* libpulse-mainloop-glib0
 * meson (>=0.49.0)
 * valac
 
