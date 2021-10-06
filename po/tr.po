@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-12 06:46+0000\n"
+"POT-Creation-Date: 2021-10-06 05:30+0000\n"
 "PO-Revision-Date: 2020-09-25 09:40+0300\n"
 "Last-Translator: Safak <bjksafak45@gmail.com>\n"
 "Language-Team: Turkish\n"
@@ -18,189 +18,188 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: src/Services/Recorder.vala:230
+#: src/Services/Recorder.vala:233
 #, fuzzy
 msgid "Recording is ongoing"
 msgstr "Kayıtlar"
 
-#: src/Views/CountDownView.vala:49
+#: src/Views/CountDownView.vala:37
 msgid "Cancel the countdown"
 msgstr "Geri sayımı iptal et"
 
-#: src/Views/CountDownView.vala:56 src/Views/CountDownView.vala:129
-#: src/Views/CountDownView.vala:151
+#: src/Views/CountDownView.vala:44 src/Views/CountDownView.vala:117
+#: src/Views/CountDownView.vala:139
 msgid "Pause the countdown"
 msgstr "Geri sayımı durdur"
 
-#: src/Views/CountDownView.vala:142
+#: src/Views/CountDownView.vala:130
 msgid "Resume the countdown"
 msgstr "Geri sayıma devam et"
 
-#: src/Views/RecordView.vala:63
+#: src/Views/RecordView.vala:53
 msgid "Cancel recording"
 msgstr "Kaydı iptal et"
 
-#: src/Views/RecordView.vala:70
+#: src/Views/RecordView.vala:60
 msgid "Finish recording"
 msgstr "Kaydı bitir"
 
-#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:105
-#: src/Views/RecordView.vala:140 src/Views/RecordView.vala:152
+#: src/Views/RecordView.vala:69 src/Views/RecordView.vala:95
+#: src/Views/RecordView.vala:130 src/Views/RecordView.vala:142
 msgid "Pause recording"
 msgstr "Kaydı durdur"
 
-#: src/Views/RecordView.vala:128
+#: src/Views/RecordView.vala:118
 msgid "Resume recording"
 msgstr "Kaydı devam et"
 
-#: src/Views/WelcomeView.vala:33
+#: src/Views/WelcomeView.vala:20
 msgid "Recording"
 msgstr "Kayıt"
 
-#: src/Views/WelcomeView.vala:35
+#: src/Views/WelcomeView.vala:22
 msgid "Record from:"
 msgstr "Kayıt yeri :"
 
-#: src/Views/WelcomeView.vala:41
+#: src/Views/WelcomeView.vala:28
 msgid "Microphone"
 msgstr "Mikrofon"
 
-#: src/Views/WelcomeView.vala:42
+#: src/Views/WelcomeView.vala:29
 msgid "System"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:43
+#: src/Views/WelcomeView.vala:30
 msgid "Both"
 msgstr "Her İkiside"
 
-#: src/Views/WelcomeView.vala:45
-#, fuzzy
-msgid "Microphone to use:"
-msgstr "Mikrofon"
-
-#: src/Views/WelcomeView.vala:52
+#: src/Views/WelcomeView.vala:32
 msgid "Channels:"
 msgstr "Kanallar:"
 
-#: src/Views/WelcomeView.vala:58
+#: src/Views/WelcomeView.vala:38
 msgid "Mono"
 msgstr "Mono"
 
-#: src/Views/WelcomeView.vala:59
+#: src/Views/WelcomeView.vala:39
 msgid "Stereo"
 msgstr "Stereo"
 
-#: src/Views/WelcomeView.vala:61
+#: src/Views/WelcomeView.vala:41
 msgid "Timer"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:63
+#: src/Views/WelcomeView.vala:43
 msgid "Delay in seconds:"
 msgstr "Saniye cinsinden gecikme :"
 
-#: src/Views/WelcomeView.vala:70
+#: src/Views/WelcomeView.vala:50
 msgid "Length in seconds:"
 msgstr "Saniye cinsinden uzunluk :"
 
-#: src/Views/WelcomeView.vala:77
+#: src/Views/WelcomeView.vala:57
 msgid "Saving"
 msgstr "Kaydedilen"
 
-#: src/Views/WelcomeView.vala:79
+#: src/Views/WelcomeView.vala:59
 msgid "Format:"
 msgstr "Format :"
 
-#: src/Views/WelcomeView.vala:86
+#: src/Views/WelcomeView.vala:66
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:87
+#: src/Views/WelcomeView.vala:67
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:88
+#: src/Views/WelcomeView.vala:68
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:89
+#: src/Views/WelcomeView.vala:69
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:90
+#: src/Views/WelcomeView.vala:70
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:91
+#: src/Views/WelcomeView.vala:71
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:93
+#: src/Views/WelcomeView.vala:73
 msgid "Automatically save files:"
 msgstr "Dosyaları otomatik olarak yedekle :"
 
-#: src/Views/WelcomeView.vala:102
+#: src/Views/WelcomeView.vala:82
 msgid "Choose a default destination"
 msgstr "Varsayılan bir hedef seçin"
 
-#: src/Views/WelcomeView.vala:135
+#: src/Views/WelcomeView.vala:113
 msgid "Start recording"
 msgstr "Kayda Başla"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:181
+#: src/Views/WelcomeView.vala:146
 msgid "Recordings"
 msgstr "Kayıtlar"
 
-#: src/MainWindow.vala:34
+#: src/MainWindow.vala:21
 #, fuzzy
 msgid "Reco"
 msgstr "Kayıt"
 
-#: src/MainWindow.vala:49
+#: src/MainWindow.vala:39
 msgid "Light background"
 msgstr "Açık arkaplan"
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:40
 msgid "Dark background"
 msgstr "Koyu arkaplan"
 
 #. TRANSLATORS: Whether to follow system's dark style settings
-#: src/MainWindow.vala:55
+#: src/MainWindow.vala:45
 msgid "Follow system style:"
 msgstr "Sistem stilini takip edin:"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:64
 msgid "Preferences"
 msgstr "Tercihler"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:129
+#: src/MainWindow.vala:122
 #, c-format
 msgid "Recording from %s"
 msgstr "Kayıt yeri %s"
 
-#: src/MainWindow.vala:147
+#: src/MainWindow.vala:140
 msgid "Save your recording"
 msgstr "Kaydı kaydedin"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:141
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:141
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/MainWindow.vala:228
+#: src/MainWindow.vala:221
 msgid "Unable to Complete Recording"
 msgstr ""
 
-#: src/MainWindow.vala:229
+#: src/MainWindow.vala:222
 #, fuzzy
 msgid "The following error message may be helpful:"
 msgstr ""
 "Kayıt sırasında GStreamer hatası meydana geldi,aşağıdaki hata iletisi "
 "yararlı olabilir :"
+
+#, fuzzy
+#~ msgid "Microphone to use:"
+#~ msgstr "Mikrofon"
 
 #~ msgid "Computer"
 #~ msgstr "Bilgisayar"

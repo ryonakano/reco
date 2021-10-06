@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-12 06:46+0000\n"
+"POT-Creation-Date: 2021-10-06 05:30+0000\n"
 "PO-Revision-Date: 2021-04-13 14:03+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -18,184 +18,183 @@ msgstr ""
 "X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Services/Recorder.vala:230
+#: src/Services/Recorder.vala:233
 msgid "Recording is ongoing"
 msgstr "Er wordt een opname gemaakt"
 
-#: src/Views/CountDownView.vala:49
+#: src/Views/CountDownView.vala:37
 msgid "Cancel the countdown"
 msgstr "Aftellen stoppen"
 
-#: src/Views/CountDownView.vala:56 src/Views/CountDownView.vala:129
-#: src/Views/CountDownView.vala:151
+#: src/Views/CountDownView.vala:44 src/Views/CountDownView.vala:117
+#: src/Views/CountDownView.vala:139
 msgid "Pause the countdown"
 msgstr "Aftellen onderbreken"
 
-#: src/Views/CountDownView.vala:142
+#: src/Views/CountDownView.vala:130
 msgid "Resume the countdown"
 msgstr "Aftellen hervatten"
 
-#: src/Views/RecordView.vala:63
+#: src/Views/RecordView.vala:53
 msgid "Cancel recording"
 msgstr "Opname afbreken"
 
-#: src/Views/RecordView.vala:70
+#: src/Views/RecordView.vala:60
 msgid "Finish recording"
 msgstr "Opname afronden"
 
-#: src/Views/RecordView.vala:79 src/Views/RecordView.vala:105
-#: src/Views/RecordView.vala:140 src/Views/RecordView.vala:152
+#: src/Views/RecordView.vala:69 src/Views/RecordView.vala:95
+#: src/Views/RecordView.vala:130 src/Views/RecordView.vala:142
 msgid "Pause recording"
 msgstr "Opname pauzeren"
 
-#: src/Views/RecordView.vala:128
+#: src/Views/RecordView.vala:118
 msgid "Resume recording"
 msgstr "Opname hervatten"
 
-#: src/Views/WelcomeView.vala:33
+#: src/Views/WelcomeView.vala:20
 msgid "Recording"
 msgstr "Opname"
 
-#: src/Views/WelcomeView.vala:35
+#: src/Views/WelcomeView.vala:22
 msgid "Record from:"
 msgstr "Opnemen van:"
 
-#: src/Views/WelcomeView.vala:41
+#: src/Views/WelcomeView.vala:28
 msgid "Microphone"
 msgstr "Microfoon"
 
-#: src/Views/WelcomeView.vala:42
+#: src/Views/WelcomeView.vala:29
 msgid "System"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:43
+#: src/Views/WelcomeView.vala:30
 msgid "Both"
 msgstr "Beide"
 
-#: src/Views/WelcomeView.vala:45
-#, fuzzy
-msgid "Microphone to use:"
-msgstr "Microfoon"
-
-#: src/Views/WelcomeView.vala:52
+#: src/Views/WelcomeView.vala:32
 msgid "Channels:"
 msgstr "Kanalen:"
 
-#: src/Views/WelcomeView.vala:58
+#: src/Views/WelcomeView.vala:38
 msgid "Mono"
 msgstr "Mono"
 
-#: src/Views/WelcomeView.vala:59
+#: src/Views/WelcomeView.vala:39
 msgid "Stereo"
 msgstr "Stereo"
 
-#: src/Views/WelcomeView.vala:61
+#: src/Views/WelcomeView.vala:41
 msgid "Timer"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:63
+#: src/Views/WelcomeView.vala:43
 msgid "Delay in seconds:"
 msgstr "Vertraging, in seconden:"
 
-#: src/Views/WelcomeView.vala:70
+#: src/Views/WelcomeView.vala:50
 msgid "Length in seconds:"
 msgstr "Duur, in seconden:"
 
-#: src/Views/WelcomeView.vala:77
+#: src/Views/WelcomeView.vala:57
 msgid "Saving"
 msgstr "Opslaan"
 
-#: src/Views/WelcomeView.vala:79
+#: src/Views/WelcomeView.vala:59
 msgid "Format:"
 msgstr "Formaat:"
 
-#: src/Views/WelcomeView.vala:86
+#: src/Views/WelcomeView.vala:66
 msgid "AAC"
 msgstr "AAC"
 
-#: src/Views/WelcomeView.vala:87
+#: src/Views/WelcomeView.vala:67
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:88
+#: src/Views/WelcomeView.vala:68
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:89
+#: src/Views/WelcomeView.vala:69
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:90
+#: src/Views/WelcomeView.vala:70
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:91
+#: src/Views/WelcomeView.vala:71
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:93
+#: src/Views/WelcomeView.vala:73
 msgid "Automatically save files:"
 msgstr "Bestanden automatisch opslaan:"
 
-#: src/Views/WelcomeView.vala:102
+#: src/Views/WelcomeView.vala:82
 msgid "Choose a default destination"
 msgstr "Kies een standaard opslagmap"
 
-#: src/Views/WelcomeView.vala:135
+#: src/Views/WelcomeView.vala:113
 msgid "Start recording"
 msgstr "Opname starten"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:181
+#: src/Views/WelcomeView.vala:146
 msgid "Recordings"
 msgstr "Opnamen"
 
-#: src/MainWindow.vala:34
+#: src/MainWindow.vala:21
 msgid "Reco"
 msgstr "Reco"
 
-#: src/MainWindow.vala:49
+#: src/MainWindow.vala:39
 msgid "Light background"
 msgstr "Licht thema"
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:40
 msgid "Dark background"
 msgstr "Donker thema"
 
 #. TRANSLATORS: Whether to follow system's dark style settings
-#: src/MainWindow.vala:55
+#: src/MainWindow.vala:45
 msgid "Follow system style:"
 msgstr "Systeeminstelling gebruiken:"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:64
 msgid "Preferences"
 msgstr "Voorkeuren"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:129
+#: src/MainWindow.vala:122
 #, c-format
 msgid "Recording from %s"
 msgstr "Opnemen van %s"
 
-#: src/MainWindow.vala:147
+#: src/MainWindow.vala:140
 msgid "Save your recording"
 msgstr "Sla je opname op"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:141
 msgid "Save"
 msgstr "Opslaan"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:141
 msgid "Cancel"
 msgstr "Afbreken"
 
-#: src/MainWindow.vala:228
+#: src/MainWindow.vala:221
 msgid "Unable to Complete Recording"
 msgstr "De opname kan niet worden afgerond"
 
-#: src/MainWindow.vala:229
+#: src/MainWindow.vala:222
 msgid "The following error message may be helpful:"
 msgstr "Wellicht biedt de volgende foutmelding meer informatie:"
+
+#, fuzzy
+#~ msgid "Microphone to use:"
+#~ msgstr "Microfoon"
 
 #~ msgid "Computer"
 #~ msgstr "Computer"
