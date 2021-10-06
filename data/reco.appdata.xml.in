@@ -74,7 +74,7 @@
           <li>Redesign: Separate Delay and Duration settings from Recording section as Timer section and put it under Recording section</li>
           <li>Make sure to show a dialog for any errors in recording</li>
           <li>Code refactoring</li>
-        </li>
+        </ul>
         <p>Translation updates:</p>
         <ul>
           <li>Add Brazilian Portuguese translation (thanks to @mathessaricci)</li>
