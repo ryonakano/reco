@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-07 04:03+0000\n"
-"PO-Revision-Date: 2021-10-06 15:17+0900\n"
+"PO-Revision-Date: 2021-10-07 13:15+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -94,19 +94,20 @@ msgid ""
 "Use the user cache folder instead of the system temporary folder to save "
 "temporary recording files"
 msgstr ""
+"一時録音ファイルの保存先を、システムの一時フォルダーからユーザーのキャッシュ"
+"フォルダーに変更"
 
 #: data/reco.appdata.xml.in:73
 msgid "Fix wrong OARS data"
-msgstr ""
+msgstr "OARS データの間違いを修正"
 
 #: data/reco.appdata.xml.in:75 data/reco.appdata.xml.in:91
 msgid "Translation updates:"
 msgstr "翻訳の更新:"
 
 #: data/reco.appdata.xml.in:77
-#, fuzzy
 msgid "Update Italian translation (thanks to @albanobattistella)"
-msgstr "イタリア語翻訳を追加 (貢献者: @albanobattistella)"
+msgstr "イタリア語翻訳を更新 (貢献者: @albanobattistella)"
 
 #: data/reco.appdata.xml.in:78 data/reco.appdata.xml.in:96
 #: data/reco.appdata.xml.in:105 data/reco.appdata.xml.in:132
