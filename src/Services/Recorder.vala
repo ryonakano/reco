@@ -118,7 +118,7 @@ public class Recorder : Object {
         }
 
         string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string ();
-        tmp_full_path = Environment.get_tmp_dir () + "/%s%s".printf (tmp_filename, suffix);
+        tmp_full_path = Environment.get_user_cache_dir () + "/%s%s".printf (tmp_filename, suffix);
         sink.set ("location", tmp_full_path);
         debug ("The recording is temporary stored at %s", tmp_full_path);
 

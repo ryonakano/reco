@@ -12,9 +12,6 @@ finish-args:
   - '--socket=pulseaudio'
   - '--env=GST_PLUGIN_PATH_1_0=/app/lib/gstreamer-1.0'
 
-  - '--filesystem=/tmp/com.github.ryonakano.reco:create'
-  - '--env=TMPDIR=/tmp/com.github.ryonakano.reco'
-
   # needed for perfers-color-scheme
   - '--system-talk-name=org.freedesktop.Accounts'
 
