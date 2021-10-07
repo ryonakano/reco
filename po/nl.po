@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-07 04:03+0000\n"
-"PO-Revision-Date: 2021-04-13 14:03+0200\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"PO-Revision-Date: 2021-10-07 20:16+0200\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/Services/Recorder.vala:233
@@ -66,7 +66,7 @@ msgstr "Microfoon"
 
 #: src/Views/WelcomeView.vala:29
 msgid "System"
-msgstr ""
+msgstr "Systeem"
 
 #: src/Views/WelcomeView.vala:30
 msgid "Both"
@@ -86,7 +86,7 @@ msgstr "Stereo"
 
 #: src/Views/WelcomeView.vala:41
 msgid "Timer"
-msgstr ""
+msgstr "Tijdklok"
 
 #: src/Views/WelcomeView.vala:43
 msgid "Delay in seconds:"
@@ -134,7 +134,7 @@ msgstr "Bestanden automatisch opslaan:"
 
 #: src/Views/WelcomeView.vala:82
 msgid "Choose a default destination"
-msgstr "Kies een standaard opslagmap"
+msgstr "Kies de standaard opslaglocatie"
 
 #: src/Views/WelcomeView.vala:113
 msgid "Start recording"
