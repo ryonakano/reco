@@ -66,6 +66,19 @@
   </content_rating>
 
   <releases>
+    <release version="3.0.1" date="2021-10-07" urgency="high">
+      <description>
+        <ul>
+          <li>Use the user cache folder instead of the system temporary folder to save temporary recording files</li>
+          <li>Fix wrong OARS data</li>
+        </ul>
+        <p>Translation updates:</p>
+        <ul>
+          <li>Update Italian translation (thanks to @albanobattistella)</li>
+          <li>Update Japanese translation</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.0.0" date="2021-10-06" urgency="high">
       <description>
         <ul>
