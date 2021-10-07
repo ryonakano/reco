@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-06 05:30+0000\n"
+"POT-Creation-Date: 2021-10-07 04:03+0000\n"
 "PO-Revision-Date: 2019-11-18 14:08-0300\n"
 "Last-Translator:  Michał Nowakowski <nowakowski@offshore.rocks>\n"
 "Language-Team: none\n"
@@ -144,51 +144,51 @@ msgstr "Zacznij nagrywanie"
 msgid "Recordings"
 msgstr "Nagrania"
 
-#: src/MainWindow.vala:21
+#: src/MainWindow.vala:19
 #, fuzzy
 msgid "Reco"
 msgstr "Nagrywanie"
 
-#: src/MainWindow.vala:39
+#: src/MainWindow.vala:37
 msgid "Light background"
 msgstr ""
 
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:38
 msgid "Dark background"
 msgstr ""
 
 #. TRANSLATORS: Whether to follow system's dark style settings
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:43
 msgid "Follow system style:"
 msgstr ""
 
-#: src/MainWindow.vala:64
+#: src/MainWindow.vala:62
 msgid "Preferences"
 msgstr ""
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:122
+#: src/MainWindow.vala:120
 #, c-format
 msgid "Recording from %s"
 msgstr "Nagrywanie z %s"
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:138
 msgid "Save your recording"
 msgstr "Zapisz swoje nagrania"
 
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:139
 msgid "Save"
 msgstr "Zapisz"
 
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:139
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/MainWindow.vala:221
+#: src/MainWindow.vala:219
 msgid "Unable to Complete Recording"
 msgstr ""
 
-#: src/MainWindow.vala:222
+#: src/MainWindow.vala:220
 #, fuzzy
 msgid "The following error message may be helpful:"
 msgstr ""
