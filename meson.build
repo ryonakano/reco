@@ -36,7 +36,10 @@ asresources = gnome.compile_resources(
     c_name: 'as'
 )
 
-sources = files(
+executable(
+    meson.project_name(),
+    asresources,
+    config_file,
     'src' / 'Services' / 'PulseAudioManager.vala',
     'src' / 'Services' / 'Recorder.vala',
     'src' / 'Views' / 'CountDownView.vala',
@@ -44,13 +47,6 @@ sources = files(
     'src' / 'Views' / 'RecordView.vala',
     'src' / 'Application.vala',
     'src' / 'MainWindow.vala',
-)
-
-executable(
-    meson.project_name(),
-    asresources,
-    config_file,
-    sources,
     dependencies: [
         dependency('granite', version: '>=5.4.0'),
         dependency('gtk+-3.0'),
