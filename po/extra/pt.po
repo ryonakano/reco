@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-07 04:03+0000\n"
+"POT-Creation-Date: 2021-10-15 06:11+0000\n"
 "PO-Revision-Date: 2021-09-15 15:28+0100\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <hugokarvalho@hotmail.com>\n"
@@ -84,15 +84,18 @@ msgstr ""
 "gravação"
 
 #: data/reco.appdata.xml.in:25
-msgid "Welcome screen that allows you to set recording configuration"
+#, fuzzy
+msgid "Welcome view; perform recording configuration"
 msgstr "Ecrã de boas-vindas que lhe permite definir a configuração da gravação"
 
 #: data/reco.appdata.xml.in:29
-msgid "Recording screen"
+#, fuzzy
+msgid "Recording view"
 msgstr "Ecrã de gravação"
 
 #: data/reco.appdata.xml.in:33
-msgid "Recording is successfully finished"
+#, fuzzy
+msgid "An indication that recording is successfully finished"
 msgstr "A gravação foi concluída com sucesso"
 
 #: data/reco.appdata.xml.in:72

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-07 04:03+0000\n"
+"POT-Creation-Date: 2021-10-15 06:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,15 +67,15 @@ msgid ""
 msgstr ""
 
 #: data/reco.appdata.xml.in:25
-msgid "Welcome screen that allows you to set recording configuration"
+msgid "Welcome view; perform recording configuration"
 msgstr ""
 
 #: data/reco.appdata.xml.in:29
-msgid "Recording screen"
+msgid "Recording view"
 msgstr ""
 
 #: data/reco.appdata.xml.in:33
-msgid "Recording is successfully finished"
+msgid "An indication that recording is successfully finished"
 msgstr ""
 
 #: data/reco.appdata.xml.in:72
