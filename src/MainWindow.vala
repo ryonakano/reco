@@ -1,6 +1,6 @@
 /*
- * Copyright 2018-2021 Ryo Nakano
  * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2018-2021 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 public class MainWindow : Hdy.Window {

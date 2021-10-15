@@ -1,6 +1,6 @@
 /*
- * Copyright 2018-2021 Ryo Nakano
  * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2018-2021 Ryo Nakano <ryonakaknock3@gmail.com>
  *
  * Code brought from elementary/switchboard-plug-sound, src/PulseAudioManager.vala, authored by Corentin Noël
  */
@@ -50,7 +50,7 @@ public class PulseAudioManager : GLib.Object {
         context.set_state_callback (context_state_callback);
 
         if (context.connect (null, PulseAudio.Context.Flags.NOFAIL, null) < 0) {
-            warning ("pa_context_connect () failed: %s\n", PulseAudio.strerror (context.errno ()));
+            warning ("pa_context_connect () failed: %s", PulseAudio.strerror (context.errno ()));
         }
     }
 
