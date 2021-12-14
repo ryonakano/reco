@@ -3,3 +3,4 @@ src/Views/CountDownView.vala
 src/Views/RecordView.vala
 src/Views/WelcomeView.vala
 src/MainWindow.vala
+src/StyleSwitcher.vala

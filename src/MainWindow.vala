@@ -30,31 +30,13 @@ public class MainWindow : Hdy.Window {
                                                     cssprovider,
                                                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        var mode_switch = new Granite.ModeSwitch.from_icon_name (
-            "display-brightness-symbolic",
-            "weather-clear-night-symbolic"
-        ) {
-            primary_icon_tooltip_text = _("Light background"),
-            secondary_icon_tooltip_text = _("Dark background"),
-            valign = Gtk.Align.CENTER
-        };
-
-        //TRANSLATORS: Whether to follow system's dark style settings
-        var follow_system_label = new Gtk.Label (_("Follow system style:")) {
-            halign = Gtk.Align.END
-        };
-
-        var follow_system_switch = new Gtk.Switch () {
-            halign = Gtk.Align.START
-        };
 
         var preferences_grid = new Gtk.Grid () {
             margin = 12,
             column_spacing = 6,
             row_spacing = 6
         };
-        preferences_grid.attach (follow_system_label, 0, 0);
-        preferences_grid.attach (follow_system_switch, 1, 0);
+        preferences_grid.attach (new StyleSwitcher (), 0, 0);
 
         var preferences_button = new Gtk.ToolButton (
             new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR), null
@@ -74,7 +56,6 @@ public class MainWindow : Hdy.Window {
             show_close_button = true
         };
         headerbar.pack_end (preferences_button);
-        headerbar.pack_end (mode_switch);
 
         var headerbar_style_context = headerbar.get_style_context ();
         headerbar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
@@ -165,28 +146,6 @@ public class MainWindow : Hdy.Window {
                 });
             }
         });
-
-        var granite_settings = Granite.Settings.get_default ();
-        var gtk_settings = Gtk.Settings.get_default ();
-
-        granite_settings.notify["prefers-color-scheme"].connect (() => {
-            if (Application.settings.get_boolean ("is-follow-system-style")) {
-                gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-            }
-        });
-
-        follow_system_switch.notify["active"].connect (() => {
-            if (follow_system_switch.active) {
-                gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-            } else {
-                gtk_settings.gtk_application_prefer_dark_theme = Application.settings.get_boolean ("is-prefer-dark");
-            }
-        });
-
-        Application.settings.bind ("is-prefer-dark", mode_switch, "active", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("is-prefer-dark", gtk_settings, "gtk-application-prefer-dark-theme", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("is-follow-system-style", follow_system_switch, "active", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("is-follow-system-style", mode_switch, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
     }
 
     public void show_welcome () {

@@ -44,6 +44,7 @@ sources = files(
     'src' / 'Views' / 'RecordView.vala',
     'src' / 'Application.vala',
     'src' / 'MainWindow.vala',
+    'src' / 'StyleSwitcher.vala'
 )
 
 executable(
