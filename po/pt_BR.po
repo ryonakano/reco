@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-15 06:11+0000\n"
+"POT-Creation-Date: 2021-12-14 01:31+0000\n"
 "PO-Revision-Date: 2021-08-19 14:35+0900\n"
 "Last-Translator: Matheus Tessarini Ricci\n"
 "Language: pt_BR\n"
@@ -62,7 +62,7 @@ msgstr "Gravar de:"
 msgid "Microphone"
 msgstr "Microfone"
 
-#: src/Views/WelcomeView.vala:29
+#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:53
 msgid "System"
 msgstr "Sistema"
 
@@ -147,48 +147,68 @@ msgstr "Gravações"
 msgid "Reco"
 msgstr "Reco"
 
-#: src/MainWindow.vala:37
-msgid "Light background"
-msgstr "Fundo claro"
-
-#: src/MainWindow.vala:38
-msgid "Dark background"
-msgstr "Fundo escuro"
-
-#. TRANSLATORS: Whether to follow system's dark style settings
-#: src/MainWindow.vala:43
-msgid "Follow system style:"
-msgstr "Seguir o estilo do sistema:"
-
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:44
 msgid "Preferences"
 msgstr "Preferências"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:120
+#: src/MainWindow.vala:101
 #, c-format
 msgid "Recording from %s"
 msgstr "Gravando de %s"
 
-#: src/MainWindow.vala:138
+#: src/MainWindow.vala:119
 msgid "Save your recording"
 msgstr "Salvar a gravação"
 
-#: src/MainWindow.vala:139
+#: src/MainWindow.vala:120
 msgid "Save"
 msgstr "Salvar"
 
-#: src/MainWindow.vala:139
+#: src/MainWindow.vala:120
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:219
+#: src/MainWindow.vala:178
 msgid "Unable to Complete Recording"
 msgstr "Não foi possível concluir a gravação"
 
-#: src/MainWindow.vala:220
+#: src/MainWindow.vala:179
 msgid "The following error message may be helpful:"
 msgstr "A seguinte mensagem de erro pode ser útil:"
+
+#: src/StyleSwitcher.vala:24
+msgid "Style:"
+msgstr ""
+
+#: src/StyleSwitcher.vala:31
+msgid "Light"
+msgstr ""
+
+#: src/StyleSwitcher.vala:34
+msgid "Light style"
+msgstr ""
+
+#: src/StyleSwitcher.vala:42
+msgid "Dark"
+msgstr ""
+
+#: src/StyleSwitcher.vala:45
+msgid "Dark style"
+msgstr ""
+
+#: src/StyleSwitcher.vala:56
+msgid "Use the same style set in the system"
+msgstr ""
+
+#~ msgid "Light background"
+#~ msgstr "Fundo claro"
+
+#~ msgid "Dark background"
+#~ msgstr "Fundo escuro"
+
+#~ msgid "Follow system style:"
+#~ msgstr "Seguir o estilo do sistema:"
 
 #~ msgid "Microphone to use:"
 #~ msgstr "Microfone usado:"
