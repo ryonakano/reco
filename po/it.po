@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-14 01:31+0000\n"
+"POT-Creation-Date: 2021-12-16 07:40+0000\n"
 "PO-Revision-Date: 2021-10-06 17:15+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: ITALIAN <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgstr "Registra da:"
 msgid "Microphone"
 msgstr "Microfono"
 
-#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:53
+#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:45
 msgid "System"
 msgstr "Sistema"
 
@@ -147,57 +147,57 @@ msgstr "Registrazioni"
 msgid "Reco"
 msgstr "Reco"
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:41
 msgid "Preferences"
 msgstr "Preferenze"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:101
+#: src/MainWindow.vala:98
 #, c-format
 msgid "Recording from %s"
 msgstr "Registrazione da %s"
 
-#: src/MainWindow.vala:119
+#: src/MainWindow.vala:116
 msgid "Save your recording"
 msgstr "Salva registrazione"
 
-#: src/MainWindow.vala:120
+#: src/MainWindow.vala:117
 msgid "Save"
 msgstr "Salva"
 
-#: src/MainWindow.vala:120
+#: src/MainWindow.vala:117
 msgid "Cancel"
 msgstr "Cancella"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:175
 msgid "Unable to Complete Recording"
 msgstr "Impossibile completare la registrazione"
 
-#: src/MainWindow.vala:179
+#: src/MainWindow.vala:176
 msgid "The following error message may be helpful:"
 msgstr "Il seguente messaggio di errore può essere utile:"
 
-#: src/StyleSwitcher.vala:24
+#: src/StyleSwitcher.vala:22
 msgid "Style:"
+msgstr ""
+
+#: src/StyleSwitcher.vala:28
+msgid "Light style"
 msgstr ""
 
 #: src/StyleSwitcher.vala:31
 msgid "Light"
 msgstr ""
 
-#: src/StyleSwitcher.vala:34
-msgid "Light style"
-msgstr ""
-
-#: src/StyleSwitcher.vala:42
-msgid "Dark"
-msgstr ""
-
-#: src/StyleSwitcher.vala:45
+#: src/StyleSwitcher.vala:35
 msgid "Dark style"
 msgstr ""
 
-#: src/StyleSwitcher.vala:56
+#: src/StyleSwitcher.vala:38
+msgid "Dark"
+msgstr ""
+
+#: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
 msgstr ""
 

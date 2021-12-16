@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-14 01:31+0000\n"
+"POT-Creation-Date: 2021-12-16 07:40+0000\n"
 "PO-Revision-Date: 2020-09-25 09:40+0300\n"
 "Last-Translator: Safak <bjksafak45@gmail.com>\n"
 "Language-Team: Turkish\n"
@@ -65,7 +65,7 @@ msgstr "Kayıt yeri :"
 msgid "Microphone"
 msgstr "Mikrofon"
 
-#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:53
+#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:45
 msgid "System"
 msgstr ""
 
@@ -151,60 +151,60 @@ msgstr "Kayıtlar"
 msgid "Reco"
 msgstr "Kayıt"
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:41
 msgid "Preferences"
 msgstr "Tercihler"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:101
+#: src/MainWindow.vala:98
 #, c-format
 msgid "Recording from %s"
 msgstr "Kayıt yeri %s"
 
-#: src/MainWindow.vala:119
+#: src/MainWindow.vala:116
 msgid "Save your recording"
 msgstr "Kaydı kaydedin"
 
-#: src/MainWindow.vala:120
+#: src/MainWindow.vala:117
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/MainWindow.vala:120
+#: src/MainWindow.vala:117
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:175
 msgid "Unable to Complete Recording"
 msgstr ""
 
-#: src/MainWindow.vala:179
+#: src/MainWindow.vala:176
 #, fuzzy
 msgid "The following error message may be helpful:"
 msgstr ""
 "Kayıt sırasında GStreamer hatası meydana geldi,aşağıdaki hata iletisi "
 "yararlı olabilir :"
 
-#: src/StyleSwitcher.vala:24
+#: src/StyleSwitcher.vala:22
 msgid "Style:"
+msgstr ""
+
+#: src/StyleSwitcher.vala:28
+msgid "Light style"
 msgstr ""
 
 #: src/StyleSwitcher.vala:31
 msgid "Light"
 msgstr ""
 
-#: src/StyleSwitcher.vala:34
-msgid "Light style"
-msgstr ""
-
-#: src/StyleSwitcher.vala:42
-msgid "Dark"
-msgstr ""
-
-#: src/StyleSwitcher.vala:45
+#: src/StyleSwitcher.vala:35
 msgid "Dark style"
 msgstr ""
 
-#: src/StyleSwitcher.vala:56
+#: src/StyleSwitcher.vala:38
+msgid "Dark"
+msgstr ""
+
+#: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
 msgstr ""
 
