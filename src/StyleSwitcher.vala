@@ -5,18 +5,16 @@
  * Some code inspired from elementary/switchboard-plug-pantheon-shell, src/Views/Appearance.vala
  */
 
-public class StyleSwitcher : Gtk.Grid {
+public class StyleSwitcher : Gtk.Box {
     private Gtk.Settings gtk_settings = Gtk.Settings.get_default ();
     private Granite.Settings granite_settings = Granite.Settings.get_default ();
 
-    private Gtk.RadioButton light_style_radio;
-    private Gtk.RadioButton dark_style_radio;
-    private Gtk.RadioButton system_style_radio;
+    private Granite.Widgets.ModeButton style_mode_button;
 
     public StyleSwitcher () {
         Object (
-            column_spacing: 6,
-            row_spacing: 6
+            orientation: Gtk.Orientation.VERTICAL,
+            spacing: 6
         );
     }
 
@@ -26,61 +24,56 @@ public class StyleSwitcher : Gtk.Grid {
         };
 
         var light_style_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.BUTTON);
-        var light_style_grid = new Gtk.Grid ();
-        light_style_grid.attach (light_style_image, 0, 0, 1, 1);
-        light_style_grid.attach (new Gtk.Label (_("Light")), 0, 1, 1, 1);
-
-        light_style_radio = new Gtk.RadioButton (null) {
+        var light_style_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
             tooltip_text = _("Light style")
         };
-        light_style_radio.get_style_context ().add_class ("image-button");
-        light_style_radio.add (light_style_grid);
+        light_style_box.add (light_style_image);
+        light_style_box.add (new Gtk.Label (_("Light")));
 
         var dark_style_image = new Gtk.Image.from_icon_name ("weather-clear-night-symbolic", Gtk.IconSize.BUTTON);
-        var dark_style_grid = new Gtk.Grid ();
-        dark_style_grid.attach (dark_style_image, 0, 0, 1, 1);
-        dark_style_grid.attach (new Gtk.Label (_("Dark")), 0, 1, 1, 1);
-
-        dark_style_radio = new Gtk.RadioButton.from_widget (light_style_radio) {
+        var dark_style_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
             tooltip_text = _("Dark style")
         };
-        dark_style_radio.get_style_context ().add_class ("image-button");
-        dark_style_radio.add (dark_style_grid);
+        dark_style_box.add (dark_style_image);
+        dark_style_box.add (new Gtk.Label (_("Dark")));
 
         var system_style_image = new Gtk.Image.from_icon_name ("emblem-system-symbolic", Gtk.IconSize.BUTTON);
-        var system_style_grid = new Gtk.Grid ();
-        system_style_grid.attach (system_style_image, 0, 0, 1, 1);
-        system_style_grid.attach (new Gtk.Label (_("System")), 0, 1, 1, 1);
-
-        system_style_radio = new Gtk.RadioButton.from_widget (light_style_radio) {
+        var system_style_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
             tooltip_text = _("Use the same style set in the system")
         };
-        system_style_radio.get_style_context ().add_class ("image-button");
-        system_style_radio.add (system_style_grid);
+        system_style_box.add (system_style_image);
+        system_style_box.add (new Gtk.Label (_("System")));
 
-        attach (style_label, 0, 0, 3, 1);
-        attach (light_style_radio, 0, 1, 1, 1);
-        attach (dark_style_radio, 1, 1, 1, 1);
-        attach (system_style_radio, 2, 1, 1, 1);
+        style_mode_button = new Granite.Widgets.ModeButton ();
+        style_mode_button.append (light_style_box);
+        style_mode_button.append (dark_style_box);
+        style_mode_button.append (system_style_box);
+
+        add (style_label);
+        add (style_mode_button);
 
         granite_settings.notify["prefers-color-scheme"].connect (() => {
-            setup_style ();
+            construct_app_style ();
         });
 
-        light_style_radio.notify["active"].connect (() => {
-            set_app_style (false, false);
-        });
-        dark_style_radio.notify["active"].connect (() => {
-            set_app_style (true, false);
-        });
-        system_style_radio.notify["active"].connect (() => {
-            set_app_style (
-                granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK,
-                true
-            );
+        style_mode_button.notify["selected"].connect (() => {
+            switch (style_mode_button.selected) {
+                case 0:
+                    set_app_style (false, false);
+                    break;
+                case 1:
+                    set_app_style (true, false);
+                    break;
+                case 2:
+                    set_app_style (
+                        granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK,
+                        true
+                    );
+                    break;
+            }
         });
 
-        setup_style ();
+        construct_app_style ();
     }
 
     private void set_app_style (bool is_prefer_dark, bool is_follow_system_style) {
@@ -89,17 +82,17 @@ public class StyleSwitcher : Gtk.Grid {
         Application.settings.set_boolean ("is-follow-system-style", is_follow_system_style);
     }
 
-    private void setup_style () {
+    private void construct_app_style () {
         if (Application.settings.get_boolean ("is-follow-system-style")) {
             set_app_style (granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK, true);
-            system_style_radio.active = true;
+            style_mode_button.selected = 2;
         } else {
             bool is_prefer_dark = Application.settings.get_boolean ("is-prefer-dark");
             set_app_style (is_prefer_dark, false);
             if (is_prefer_dark) {
-                dark_style_radio.active = true;
+                style_mode_button.selected = 1;
             } else {
-                light_style_radio.active = true;
+                style_mode_button.selected = 0;
             }
         }
     }

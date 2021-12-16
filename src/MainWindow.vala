@@ -30,13 +30,10 @@ public class MainWindow : Hdy.Window {
                                                     cssprovider,
                                                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-
-        var preferences_grid = new Gtk.Grid () {
-            margin = 12,
-            column_spacing = 6,
-            row_spacing = 6
+        var preferences_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6) {
+            margin = 12
         };
-        preferences_grid.attach (new StyleSwitcher (), 0, 0);
+        preferences_box.add (new StyleSwitcher ());
 
         var preferences_button = new Gtk.ToolButton (
             new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR), null
@@ -45,7 +42,7 @@ public class MainWindow : Hdy.Window {
         };
 
         var preferences_popover = new Gtk.Popover (preferences_button);
-        preferences_popover.add (preferences_grid);
+        preferences_popover.add (preferences_box);
 
         preferences_button.clicked.connect (() => {
             preferences_popover.show_all ();
