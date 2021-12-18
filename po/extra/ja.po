@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-18 01:12+0000\n"
-"PO-Revision-Date: 2021-10-07 13:15+0900\n"
+"PO-Revision-Date: 2021-12-18 10:20+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -68,7 +68,6 @@ msgstr ""
 "のを保存するか、保存するたびに保存先を指定するかを選択できます"
 
 #: data/reco.appdata.xml.in:20
-#, fuzzy
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
 "while recording, the recording is saved automatically or the file chooser "
@@ -79,27 +78,24 @@ msgstr ""
 "ル選択ダイアログが表示されます"
 
 #: data/reco.appdata.xml.in:25
-#, fuzzy
 msgid "Welcome view; perform recording configuration"
-msgstr "録音の設定ができるようこそ画面"
+msgstr "ようこそ画面では録音の設定をします"
 
 #: data/reco.appdata.xml.in:29
-#, fuzzy
 msgid "Recording view"
 msgstr "録音中の画面"
 
 #: data/reco.appdata.xml.in:33
-#, fuzzy
 msgid "An indication that recording is successfully finished"
-msgstr "録音が正常に完了したところ"
+msgstr "録音が正常に完了したことを示すマーク"
 
 #: data/reco.appdata.xml.in:43
 msgid "The release for celebrating the 3rd anniversary of the app!"
-msgstr ""
+msgstr "アプリの3周年記念リリース！"
 
 #: data/reco.appdata.xml.in:47
 msgid "Add new style switcher"
-msgstr ""
+msgstr "新しいスタイルスイッチャーを追加"
 
 #: data/reco.appdata.xml.in:49 data/reco.appdata.xml.in:64
 #: data/reco.appdata.xml.in:80

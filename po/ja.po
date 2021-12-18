@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-18 01:12+0000\n"
-"PO-Revision-Date: 2021-07-21 20:42+0900\n"
+"PO-Revision-Date: 2021-12-18 10:18+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -180,33 +180,24 @@ msgstr "以下のエラーメッセージが役に立つ可能性があります
 
 #: src/StyleSwitcher.vala:22
 msgid "Style:"
-msgstr ""
+msgstr "スタイル:"
 
 #: src/StyleSwitcher.vala:28
 msgid "Light style"
-msgstr ""
+msgstr "ライトスタイル"
 
 #: src/StyleSwitcher.vala:31
 msgid "Light"
-msgstr ""
+msgstr "ライト"
 
 #: src/StyleSwitcher.vala:35
 msgid "Dark style"
-msgstr ""
+msgstr "ダークスタイル"
 
 #: src/StyleSwitcher.vala:38
 msgid "Dark"
-msgstr ""
+msgstr "ダーク"
 
 #: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
-msgstr ""
-
-#~ msgid "Light background"
-#~ msgstr "ライトモード"
-
-#~ msgid "Dark background"
-#~ msgstr "ダークモード"
-
-#~ msgid "Follow system style:"
-#~ msgstr "システムのスタイルに従う:"
+msgstr "システムの設定と同じスタイルを使います"
