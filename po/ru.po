@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-18 01:12+0000\n"
+"POT-Creation-Date: 2021-12-20 13:49+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Sharigami <usmanovmax@protonmail.com>\n"
 "Language-Team: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Services/Recorder.vala:233
+#: src/Services/Recorder.vala:232
 #, fuzzy
 msgid "Recording is ongoing"
 msgstr "Записи"
@@ -105,8 +105,8 @@ msgid "Format:"
 msgstr "Формат:"
 
 #: src/Views/WelcomeView.vala:66
-msgid "AAC"
-msgstr "ААС"
+msgid "ALAC"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -206,6 +206,9 @@ msgstr ""
 #: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
 msgstr ""
+
+#~ msgid "AAC"
+#~ msgstr "ААС"
 
 #, fuzzy
 #~ msgid "Microphone to use:"

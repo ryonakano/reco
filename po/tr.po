@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-18 01:12+0000\n"
+"POT-Creation-Date: 2021-12-20 13:49+0000\n"
 "PO-Revision-Date: 2020-09-25 09:40+0300\n"
 "Last-Translator: Safak <bjksafak45@gmail.com>\n"
 "Language-Team: Turkish\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: src/Services/Recorder.vala:233
+#: src/Services/Recorder.vala:232
 #, fuzzy
 msgid "Recording is ongoing"
 msgstr "Kayıtlar"
@@ -106,8 +106,8 @@ msgid "Format:"
 msgstr "Format :"
 
 #: src/Views/WelcomeView.vala:66
-msgid "AAC"
-msgstr "AAC"
+msgid "ALAC"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -207,6 +207,9 @@ msgstr ""
 #: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
 msgstr ""
+
+#~ msgid "AAC"
+#~ msgstr "AAC"
 
 #~ msgid "Light background"
 #~ msgstr "Açık arkaplan"
