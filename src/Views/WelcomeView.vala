@@ -63,7 +63,7 @@ public class WelcomeView : Gtk.Box {
         var format_combobox = new Gtk.ComboBoxText () {
             halign = Gtk.Align.START
         };
-        format_combobox.append ("aac", _("AAC"));
+        format_combobox.append ("alac", _("ALAC"));
         format_combobox.append ("flac", _("FLAC"));
         format_combobox.append ("mp3", _("MP3"));
         format_combobox.append ("ogg", _("Ogg Vorbis"));
