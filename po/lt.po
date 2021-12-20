@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-18 01:12+0000\n"
+"POT-Creation-Date: 2021-12-20 13:49+0000\n"
 "PO-Revision-Date: 2019-02-18 14:35+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/Services/Recorder.vala:233
+#: src/Services/Recorder.vala:232
 #, fuzzy
 msgid "Recording is ongoing"
 msgstr "Įrašinėjimai"
@@ -115,8 +115,8 @@ msgid "Format:"
 msgstr "Formatas:"
 
 #: src/Views/WelcomeView.vala:66
-msgid "AAC"
-msgstr "AAC"
+msgid "ALAC"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -214,6 +214,9 @@ msgstr ""
 #: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
 msgstr ""
+
+#~ msgid "AAC"
+#~ msgstr "AAC"
 
 #~ msgid "Unable to Create an Audio File"
 #~ msgstr "Nepavyko sukurti garso failą"

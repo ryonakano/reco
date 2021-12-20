@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-18 01:12+0000\n"
+"POT-Creation-Date: 2021-12-20 13:49+0000\n"
 "PO-Revision-Date: 2021-12-18 10:18+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: src/Services/Recorder.vala:233
+#: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
 msgstr "録音中です"
 
@@ -104,8 +104,8 @@ msgid "Format:"
 msgstr "形式:"
 
 #: src/Views/WelcomeView.vala:66
-msgid "AAC"
-msgstr "AAC"
+msgid "ALAC"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -201,3 +201,6 @@ msgstr "ダーク"
 #: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
 msgstr "システムの設定と同じスタイルを使います"
+
+#~ msgid "AAC"
+#~ msgstr "AAC"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-18 01:12+0000\n"
+"POT-Creation-Date: 2021-12-20 13:49+0000\n"
 "PO-Revision-Date: 2021-05-25 06:13-0500\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 2.4.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Services/Recorder.vala:233
+#: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
 msgstr "L’enregistrament està en curs"
 
@@ -105,8 +105,8 @@ msgid "Format:"
 msgstr "Format:"
 
 #: src/Views/WelcomeView.vala:66
-msgid "AAC"
-msgstr "AAC"
+msgid "ALAC"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -202,6 +202,9 @@ msgstr ""
 #: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
 msgstr ""
+
+#~ msgid "AAC"
+#~ msgstr "AAC"
 
 #~ msgid "Light background"
 #~ msgstr "Fons clar"
