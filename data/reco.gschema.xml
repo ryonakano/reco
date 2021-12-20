@@ -6,7 +6,7 @@
     <value value="2" nick="both"/>
   </enum>
   <enum id="formatlist">
-    <value value="0" nick="aac"/>
+    <value value="0" nick="alac"/>
     <value value="1" nick="flac"/>
     <value value="2" nick="mp3"/>
     <value value="3" nick="ogg"/>
