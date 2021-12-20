@@ -82,8 +82,8 @@ public class Recorder : Object {
 
         string file_format = Application.settings.get_string ("format");
         switch (file_format) {
-            case "aac":
-                encoder = Gst.ElementFactory.make ("avenc_aac", "encoder");
+            case "alac":
+                encoder = Gst.ElementFactory.make ("avenc_alac", "encoder");
                 muxer = Gst.ElementFactory.make ("mp4mux", "muxer");
                 suffix = ".m4a";
                 break;
@@ -106,11 +106,10 @@ public class Recorder : Object {
                 suffix = ".opus";
                 break;
             case "wav":
+            default:
                 encoder = Gst.ElementFactory.make ("wavenc", "encoder");
                 suffix = ".wav";
                 break;
-            default:
-                assert_not_reached ();
         }
 
         if (encoder == null) {
