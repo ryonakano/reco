@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-20 14:18+0000\n"
-"PO-Revision-Date: 2021-12-18 10:20+0900\n"
+"PO-Revision-Date: 2021-12-20 23:21+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -43,12 +43,11 @@ msgstr ""
 "録音したり、インターネットで動画配信をする際に便利です"
 
 #: data/reco.appdata.xml.in:17
-#, fuzzy
 msgid ""
 "Saving in some commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV"
 msgstr ""
-"よく使用される形式で保存できます。AAC・FLAC・MP3・Ogg Vorbis・Opus・WAV での"
+"よく使用される形式で保存できます。ALAC・FLAC・MP3・Ogg Vorbis・Opus・WAV での"
 "保存に対応しています"
 
 #: data/reco.appdata.xml.in:18
@@ -93,11 +92,15 @@ msgstr "録音が正常に完了したことを示すマーク"
 #: data/reco.appdata.xml.in:43
 msgid "Let's celebrate the new year with the issue from the ancient fixed!"
 msgstr ""
+"かなり前から存在していた不具合が修正されたバージョンにアップデートして、新年"
+"を迎えましょう！"
 
 #: data/reco.appdata.xml.in:47
 msgid ""
 "Replace AAC option with ALAC to prevent strange stereo files being generated"
 msgstr ""
+"AAC 形式で保存するオプションを ALAC 形式に変更し、不自然なステレオファイルが"
+"生成される不具合を修正"
 
 #: data/reco.appdata.xml.in:53
 msgid "The release for celebrating the 3rd anniversary of the app!"

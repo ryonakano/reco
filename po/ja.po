@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-20 14:18+0000\n"
-"PO-Revision-Date: 2021-12-18 10:18+0900\n"
+"PO-Revision-Date: 2021-12-20 23:22+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -105,7 +105,7 @@ msgstr "形式:"
 
 #: src/Views/WelcomeView.vala:66
 msgid "ALAC"
-msgstr ""
+msgstr "ALAC"
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -201,6 +201,3 @@ msgstr "ダーク"
 #: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
 msgstr "システムの設定と同じスタイルを使います"
-
-#~ msgid "AAC"
-#~ msgstr "AAC"
