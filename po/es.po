@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-20 14:18+0000\n"
-"PO-Revision-Date: 2021-09-18 23:39-0300\n"
+"PO-Revision-Date: 2021-12-27 02:10-0300\n"
 "Last-Translator: Eldhrimer <eldhrimer@pm.me>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -106,7 +106,7 @@ msgstr "Formato:"
 
 #: src/Views/WelcomeView.vala:66
 msgid "ALAC"
-msgstr ""
+msgstr "ALAC"
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -181,27 +181,27 @@ msgstr "El mensaje de error siguiente podría ser de utilidad:"
 
 #: src/StyleSwitcher.vala:22
 msgid "Style:"
-msgstr ""
+msgstr "Estilo:"
 
 #: src/StyleSwitcher.vala:28
 msgid "Light style"
-msgstr ""
+msgstr "Estilo claro"
 
 #: src/StyleSwitcher.vala:31
 msgid "Light"
-msgstr ""
+msgstr "Claro"
 
 #: src/StyleSwitcher.vala:35
 msgid "Dark style"
-msgstr ""
+msgstr "Estilo oscuro"
 
 #: src/StyleSwitcher.vala:38
 msgid "Dark"
-msgstr ""
+msgstr "Oscuro"
 
 #: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
-msgstr ""
+msgstr "Utilizar el mismo estilo que el sistema"
 
 #~ msgid "AAC"
 #~ msgstr "AAC"
