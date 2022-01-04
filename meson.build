@@ -36,6 +36,10 @@ asresources = gnome.compile_resources(
     c_name: 'as'
 )
 
+if get_option('for_pantheon')
+    add_project_arguments('--define=FOR_PANTHEON', language: 'vala')
+endif
+
 sources = files(
     'src' / 'Services' / 'PulseAudioManager.vala',
     'src' / 'Services' / 'Recorder.vala',

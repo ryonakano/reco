@@ -23,6 +23,8 @@ modules:
         sha256: 822e008a910e9dd13aedbdd8dc63fedef4040c0ee2e927bab3112e9de693a548
   - name: reco
     buildsystem: meson
+    config-opts:
+      - -Dfor_pantheon=false
     sources:
       - type: dir
         path: .
