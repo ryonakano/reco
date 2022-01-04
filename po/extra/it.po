@@ -77,7 +77,7 @@ msgid ""
 msgstr ""
 "Salva la registrazione quando l'app si chiude. Anche se ti capita di chiudere l'app "
 "durante la registrazione, la registrazione viene salvata automaticamente o la finestra di selezione file "
-di dialogo viene visualizzato in base alle impostazioni di salvataggio"
+"di dialogo viene visualizzata in base alle impostazioni di salvataggio"
 
 #: data/reco.appdata.xml.in:25
 msgid "Welcome view; perform recording configuration"
