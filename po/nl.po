@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-20 14:18+0000\n"
+"POT-Creation-Date: 2022-01-04 13:35+0000\n"
 "PO-Revision-Date: 2021-10-07 20:16+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -145,10 +145,6 @@ msgstr "Opname starten"
 msgid "Recordings"
 msgstr "Opnamen"
 
-#: src/MainWindow.vala:19
-msgid "Reco"
-msgstr "Reco"
-
 #: src/MainWindow.vala:41
 msgid "Preferences"
 msgstr "Voorkeuren"
@@ -202,6 +198,9 @@ msgstr ""
 #: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
 msgstr ""
+
+#~ msgid "Reco"
+#~ msgstr "Reco"
 
 #~ msgid "AAC"
 #~ msgstr "AAC"

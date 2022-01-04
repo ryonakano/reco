@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-20 14:18+0000\n"
+"POT-Creation-Date: 2022-01-04 13:35+0000\n"
 "PO-Revision-Date: 2019-02-18 14:35+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -155,11 +155,6 @@ msgstr "Pradėti įrašinėjimą"
 msgid "Recordings"
 msgstr "Įrašinėjimai"
 
-#: src/MainWindow.vala:19
-#, fuzzy
-msgid "Reco"
-msgstr "Įrašinėjimas"
-
 #: src/MainWindow.vala:41
 msgid "Preferences"
 msgstr ""
@@ -214,6 +209,10 @@ msgstr ""
 #: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Reco"
+#~ msgstr "Įrašinėjimas"
 
 #~ msgid "AAC"
 #~ msgstr "AAC"
