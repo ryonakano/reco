@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-04 13:35+0000\n"
+"POT-Creation-Date: 2022-01-04 23:08+0000\n"
 "PO-Revision-Date: 2021-05-25 06:13-0500\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: \n"
@@ -64,7 +64,7 @@ msgstr "Enregistra des de:"
 msgid "Microphone"
 msgstr "Micròfon"
 
-#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:45
+#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:56
 msgid "System"
 msgstr "Sistema"
 
@@ -175,27 +175,27 @@ msgstr "No s’ha pogut completar l’enregistrament"
 msgid "The following error message may be helpful:"
 msgstr "Aquest missatge d’error us pot ser útil:"
 
-#: src/StyleSwitcher.vala:22
+#: src/StyleSwitcher.vala:25
 msgid "Style:"
 msgstr ""
 
-#: src/StyleSwitcher.vala:28
+#: src/StyleSwitcher.vala:31
 msgid "Light style"
 msgstr ""
 
-#: src/StyleSwitcher.vala:31
+#: src/StyleSwitcher.vala:34
 msgid "Light"
 msgstr ""
 
-#: src/StyleSwitcher.vala:35
+#: src/StyleSwitcher.vala:38
 msgid "Dark style"
 msgstr ""
 
-#: src/StyleSwitcher.vala:38
+#: src/StyleSwitcher.vala:41
 msgid "Dark"
 msgstr ""
 
-#: src/StyleSwitcher.vala:42
+#: src/StyleSwitcher.vala:53
 msgid "Use the same style set in the system"
 msgstr ""
 
