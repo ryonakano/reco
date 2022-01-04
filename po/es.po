@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-20 14:18+0000\n"
+"POT-Creation-Date: 2022-01-04 13:35+0000\n"
 "PO-Revision-Date: 2021-12-27 02:10-0300\n"
 "Last-Translator: Eldhrimer <eldhrimer@pm.me>\n"
 "Language-Team: \n"
@@ -145,10 +145,6 @@ msgstr "Comenzar grabación"
 msgid "Recordings"
 msgstr "Grabaciones"
 
-#: src/MainWindow.vala:19
-msgid "Reco"
-msgstr "Reco"
-
 #: src/MainWindow.vala:41
 msgid "Preferences"
 msgstr "Preferencias"
@@ -202,6 +198,9 @@ msgstr "Oscuro"
 #: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
 msgstr "Utilizar el mismo estilo que el sistema"
+
+#~ msgid "Reco"
+#~ msgstr "Reco"
 
 #~ msgid "AAC"
 #~ msgstr "AAC"

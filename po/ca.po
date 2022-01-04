@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-20 14:18+0000\n"
+"POT-Creation-Date: 2022-01-04 13:35+0000\n"
 "PO-Revision-Date: 2021-05-25 06:13-0500\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: \n"
@@ -145,10 +145,6 @@ msgstr "Comença a enregistrar"
 msgid "Recordings"
 msgstr "Enregistraments"
 
-#: src/MainWindow.vala:19
-msgid "Reco"
-msgstr "Reco"
-
 #: src/MainWindow.vala:41
 msgid "Preferences"
 msgstr "Preferències"
@@ -202,6 +198,9 @@ msgstr ""
 #: src/StyleSwitcher.vala:42
 msgid "Use the same style set in the system"
 msgstr ""
+
+#~ msgid "Reco"
+#~ msgstr "Reco"
 
 #~ msgid "AAC"
 #~ msgstr "AAC"

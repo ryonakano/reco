@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-20 14:18+0000\n"
+"POT-Creation-Date: 2022-01-04 13:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -142,10 +142,6 @@ msgstr ""
 #. TRANSLATORS: The name of the folder which recordings are saved
 #: src/Views/WelcomeView.vala:146
 msgid "Recordings"
-msgstr ""
-
-#: src/MainWindow.vala:19
-msgid "Reco"
 msgstr ""
 
 #: src/MainWindow.vala:41
