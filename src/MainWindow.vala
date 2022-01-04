@@ -16,7 +16,7 @@ public class MainWindow : Hdy.Window {
         Object (
             application: app,
             resizable: false,
-            title: _("Reco")
+            title: "Reco"
         );
     }
 
