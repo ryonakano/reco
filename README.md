@@ -1,6 +1,6 @@
 # Reco
 
-Reco is an audio recording app designed for elementary OS.
+Reco is a simple audio recording app that helps you recall things talked later.
 
 ![Screenshot](data/Screenshot.png)
 
