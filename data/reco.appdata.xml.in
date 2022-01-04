@@ -38,6 +38,18 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="3.2.1" date="2021-01-05" urgency="low">
+      <description>
+        <p>
+          Reco is now available on Flathub too!
+        </p>
+        <p>Translation updates:</p>
+        <ul>
+          <li>Update Spanish translation (thanks to @Eldhrimer)</li>
+          <li>Update Italian translation (thanks to @albanobattistella)</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.2.0" date="2021-12-20" urgency="medium">
       <description>
         <p>
