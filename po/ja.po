@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-04 13:35+0000\n"
+"POT-Creation-Date: 2022-01-04 23:08+0000\n"
 "PO-Revision-Date: 2021-12-20 23:22+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -63,7 +63,7 @@ msgstr "録音ソース:"
 msgid "Microphone"
 msgstr "マイク"
 
-#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:45
+#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:56
 msgid "System"
 msgstr "システム"
 
@@ -174,27 +174,27 @@ msgstr "録音を完了できません"
 msgid "The following error message may be helpful:"
 msgstr "以下のエラーメッセージが役に立つ可能性があります:"
 
-#: src/StyleSwitcher.vala:22
+#: src/StyleSwitcher.vala:25
 msgid "Style:"
 msgstr "スタイル:"
 
-#: src/StyleSwitcher.vala:28
+#: src/StyleSwitcher.vala:31
 msgid "Light style"
 msgstr "ライトスタイル"
 
-#: src/StyleSwitcher.vala:31
+#: src/StyleSwitcher.vala:34
 msgid "Light"
 msgstr "ライト"
 
-#: src/StyleSwitcher.vala:35
+#: src/StyleSwitcher.vala:38
 msgid "Dark style"
 msgstr "ダークスタイル"
 
-#: src/StyleSwitcher.vala:38
+#: src/StyleSwitcher.vala:41
 msgid "Dark"
 msgstr "ダーク"
 
-#: src/StyleSwitcher.vala:42
+#: src/StyleSwitcher.vala:53
 msgid "Use the same style set in the system"
 msgstr "システムの設定と同じスタイルを使います"
 

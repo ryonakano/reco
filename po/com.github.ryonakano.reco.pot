@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-04 13:35+0000\n"
+"POT-Creation-Date: 2022-01-04 23:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,7 +63,7 @@ msgstr ""
 msgid "Microphone"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:45
+#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:56
 msgid "System"
 msgstr ""
 
@@ -174,26 +174,26 @@ msgstr ""
 msgid "The following error message may be helpful:"
 msgstr ""
 
-#: src/StyleSwitcher.vala:22
+#: src/StyleSwitcher.vala:25
 msgid "Style:"
 msgstr ""
 
-#: src/StyleSwitcher.vala:28
+#: src/StyleSwitcher.vala:31
 msgid "Light style"
 msgstr ""
 
-#: src/StyleSwitcher.vala:31
+#: src/StyleSwitcher.vala:34
 msgid "Light"
 msgstr ""
 
-#: src/StyleSwitcher.vala:35
+#: src/StyleSwitcher.vala:38
 msgid "Dark style"
 msgstr ""
 
-#: src/StyleSwitcher.vala:38
+#: src/StyleSwitcher.vala:41
 msgid "Dark"
 msgstr ""
 
-#: src/StyleSwitcher.vala:42
+#: src/StyleSwitcher.vala:53
 msgid "Use the same style set in the system"
 msgstr ""

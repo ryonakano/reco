@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-04 13:35+0000\n"
+"POT-Creation-Date: 2022-01-04 23:08+0000\n"
 "PO-Revision-Date: 2021-12-27 02:10-0300\n"
 "Last-Translator: Eldhrimer <eldhrimer@pm.me>\n"
 "Language-Team: \n"
@@ -64,7 +64,7 @@ msgstr "Grabar desde:"
 msgid "Microphone"
 msgstr "Micrófono"
 
-#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:45
+#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:56
 msgid "System"
 msgstr "Sistema"
 
@@ -175,27 +175,27 @@ msgstr "No se pudo completar la grabación"
 msgid "The following error message may be helpful:"
 msgstr "El mensaje de error siguiente podría ser de utilidad:"
 
-#: src/StyleSwitcher.vala:22
+#: src/StyleSwitcher.vala:25
 msgid "Style:"
 msgstr "Estilo:"
 
-#: src/StyleSwitcher.vala:28
+#: src/StyleSwitcher.vala:31
 msgid "Light style"
 msgstr "Estilo claro"
 
-#: src/StyleSwitcher.vala:31
+#: src/StyleSwitcher.vala:34
 msgid "Light"
 msgstr "Claro"
 
-#: src/StyleSwitcher.vala:35
+#: src/StyleSwitcher.vala:38
 msgid "Dark style"
 msgstr "Estilo oscuro"
 
-#: src/StyleSwitcher.vala:38
+#: src/StyleSwitcher.vala:41
 msgid "Dark"
 msgstr "Oscuro"
 
-#: src/StyleSwitcher.vala:42
+#: src/StyleSwitcher.vala:53
 msgid "Use the same style set in the system"
 msgstr "Utilizar el mismo estilo que el sistema"
 
