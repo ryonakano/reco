@@ -70,4 +70,6 @@ I accept translations through Pull Requests. If you're not sure how to do, [the 
 
 ## The Story Behind This App
 
+This app is originally designed and released for elementary OS.
+
 One day, I had to take minutes for a meeting in my department with my elementary laptop. The discussion was so fast-paced, though, that I couldn't listen and write down everything in the minutes. When I got home, I searched for a sound recorder app. I found some non-elementary apps like GNOME Sound Recorder, but there were none for elementary OS. Thus, I decided to create one designed for elementary OS.
