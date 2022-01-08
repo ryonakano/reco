@@ -1,14 +1,15 @@
 # ITALIAN TRANSLATION FOR RECO.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# ALBANO BATTISTELLA <albano_battistella@hotmail.com>, 2021.
+# ALBANO BATTISTELLA <albano_battistella@hotmail.com>, 2021,2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-04 13:35+0000\n"
 "POT-Creation-Date: 2022-01-04 23:08+0000\n"
-"PO-Revision-Date: 2021-12-17 21:30+0100\n"
+"PO-Revision-Date: 2022-01-04 21:10+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: ITALIAN <LL@li.org>\n"
 "Language: it\n"
@@ -44,12 +45,11 @@ msgstr ""
 "video su Internet"
 
 #: data/reco.appdata.xml.in:17
-#, fuzzy
 msgid ""
 "Saving in some commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV"
 msgstr ""
-"Salvataggio in alcuni formati di uso comune. Supporta AAC, FLAC, MP3, Ogg "
+"Salva in alcuni formati di uso comune. Supporta ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus e WAV"
 
 #: data/reco.appdata.xml.in:18
@@ -71,16 +71,14 @@ msgstr ""
 "oppure scegli una destinazione ogni volta dove salvarli"
 
 #: data/reco.appdata.xml.in:20
-#, fuzzy
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
 "while recording, the recording is saved automatically or the file chooser "
 "dialog is shown depends on your saving setting"
 msgstr ""
-"Salvataggio della registrazione all'uscita dall'app. Anche se esci dall'app "
-"durante la registrazione, la registrazione viene salvata automaticamente o "
-"un FileChooserDialog viene visualizzato e dipende dalle impostazioni di "
-"salvataggio"
+"Salva la registrazione quando l'app si chiude. Anche se ti capita di chiudere l'app "
+"durante la registrazione, la registrazione viene salvata automaticamente o la finestra di selezione file "
+"di dialogo viene visualizzata in base alle impostazioni di salvataggio"
 
 #: data/reco.appdata.xml.in:25
 msgid "Welcome view; perform recording configuration"
@@ -96,7 +94,7 @@ msgstr "Un'indicazione che la registrazione è terminata con successo"
 
 #: data/reco.appdata.xml.in:43
 msgid "Reco is now available on Flathub too!"
-msgstr ""
+msgstr "Reco è ora disponibile anche su Flathub!"
 
 #: data/reco.appdata.xml.in:46 data/reco.appdata.xml.in:71
 #: data/reco.appdata.xml.in:86 data/reco.appdata.xml.in:102
@@ -114,20 +112,21 @@ msgstr "Aggiornato traduzione italiana (grazie a @albanobattistella)"
 
 #: data/reco.appdata.xml.in:55
 msgid "Let's celebrate the new year with the issue from the ancient fixed!"
-msgstr ""
+msgstr "Festeggiamo il nuovo anno con un problema sistemato dell'anno scorso!"
 
 #: data/reco.appdata.xml.in:59
 msgid ""
 "Replace AAC option with ALAC to prevent strange stereo files being generated"
 msgstr ""
+"Sostituisce l'opzione AAC con ALAC per evitare che vengano generati strani file stereo"
 
 #: data/reco.appdata.xml.in:65
 msgid "The release for celebrating the 3rd anniversary of the app!"
-msgstr ""
+msgstr "La release per celebrare il 3° anniversario dell'app!"
 
 #: data/reco.appdata.xml.in:69
 msgid "Add new style switcher"
-msgstr ""
+msgstr "Aggiunto un nuovo selettore di stile"
 
 #: data/reco.appdata.xml.in:73 data/reco.appdata.xml.in:123
 #: data/reco.appdata.xml.in:163
