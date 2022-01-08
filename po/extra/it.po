@@ -94,7 +94,7 @@ msgstr "Un'indicazione che la registrazione è terminata con successo"
 
 #: data/reco.appdata.xml.in:43
 msgid "Reco is now available on Flathub too!"
-msgstr ""
+msgstr "Reco è ora disponibile anche su Flathub!"
 
 #: data/reco.appdata.xml.in:46 data/reco.appdata.xml.in:71
 #: data/reco.appdata.xml.in:86 data/reco.appdata.xml.in:102
