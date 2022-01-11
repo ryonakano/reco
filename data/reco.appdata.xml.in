@@ -23,15 +23,15 @@
   <screenshots>
     <screenshot type="default">
       <caption>Welcome view; perform recording configuration</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/Screenshot.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/screenshots/pantheon/welcome-init.png</image>
     </screenshot>
     <screenshot>
       <caption>Recording view</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/Screenshot2.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/screenshots/pantheon/recording.png</image>
     </screenshot>
     <screenshot>
       <caption>An indication that recording is successfully finished</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/Screenshot3.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/screenshots/pantheon/welcome-success.png</image>
     </screenshot>
   </screenshots>
 
