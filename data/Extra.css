@@ -1,0 +1,11 @@
+/* From elementary/stylesheet, src/gtk-3.0/_typography.scss */
+
+.h2 {
+    font-weight: 300;
+    font-size: 18pt;
+    letter-spacing: -0.05em;
+}
+
+.h3 {
+    font-size: 11pt;
+}
