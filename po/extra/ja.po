@@ -1,14 +1,14 @@
 # Japanese translations for extra package.
 # Copyright (C) 2018 THE extra'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2021.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-04 23:08+0000\n"
-"PO-Revision-Date: 2021-12-20 23:21+0900\n"
+"PO-Revision-Date: 2022-01-11 19:48+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -91,7 +91,7 @@ msgstr "録音が正常に完了したことを示すマーク"
 
 #: data/reco.appdata.xml.in:43
 msgid "Reco is now available on Flathub too!"
-msgstr ""
+msgstr "Reco が Flathub でも入手できるようになりました！"
 
 #: data/reco.appdata.xml.in:46 data/reco.appdata.xml.in:71
 #: data/reco.appdata.xml.in:86 data/reco.appdata.xml.in:102
