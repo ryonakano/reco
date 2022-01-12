@@ -1,14 +1,14 @@
 # French translations for com.github.ryonakano.reco package.
 # Copyright (C) 2019 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Nathan Bonnemains (@NathanBnm), 2019.
+# Nathan Bonnemains (@NathanBnm), 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-04 23:08+0000\n"
-"PO-Revision-Date: 2019-01-16 22:17+0100\n"
+"POT-Creation-Date: 2022-01-12 12:30+0900\n"
+"PO-Revision-Date: 2022-01-11 12:30+0100\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: Français\n"
 "Language: fr\n"
@@ -17,9 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/Services/Recorder.vala:232
-#, fuzzy
 msgid "Recording is ongoing"
-msgstr "Enregistrements"
+msgstr "Enregistrement en cours"
 
 #: src/Views/CountDownView.vala:37
 msgid "Cancel the countdown"
@@ -65,7 +64,7 @@ msgstr "Micro"
 
 #: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:56
 msgid "System"
-msgstr ""
+msgstr "Système"
 
 #: src/Views/WelcomeView.vala:30
 msgid "Both"
@@ -73,19 +72,19 @@ msgstr "Les deux"
 
 #: src/Views/WelcomeView.vala:32
 msgid "Channels:"
-msgstr ""
+msgstr "Canaux :"
 
 #: src/Views/WelcomeView.vala:38
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: src/Views/WelcomeView.vala:39
 msgid "Stereo"
-msgstr ""
+msgstr "Stéréo"
 
 #: src/Views/WelcomeView.vala:41
 msgid "Timer"
-msgstr ""
+msgstr "Minuteur"
 
 #: src/Views/WelcomeView.vala:43
 msgid "Delay in seconds:"
@@ -93,7 +92,7 @@ msgstr "Délai en secondes :"
 
 #: src/Views/WelcomeView.vala:50
 msgid "Length in seconds:"
-msgstr "Longueur en secondes :"
+msgstr "Durée en secondes :"
 
 #: src/Views/WelcomeView.vala:57
 msgid "Saving"
@@ -105,7 +104,7 @@ msgstr "Format :"
 
 #: src/Views/WelcomeView.vala:66
 msgid "ALAC"
-msgstr ""
+msgstr "ALAC"
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -144,76 +143,56 @@ msgstr "Démarrer l'enregistrement"
 msgid "Recordings"
 msgstr "Enregistrements"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:49
 msgid "Preferences"
-msgstr ""
+msgstr "Préférences"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:98
+#: src/MainWindow.vala:106
 #, c-format
 msgid "Recording from %s"
 msgstr "En cours d'enregistrement depuis %s"
 
-#: src/MainWindow.vala:116
+#: src/MainWindow.vala:124
 msgid "Save your recording"
 msgstr "Sauvegardez votre enregistrement"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:125
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:125
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/MainWindow.vala:175
+#: src/MainWindow.vala:183
 msgid "Unable to Complete Recording"
-msgstr ""
+msgstr "Impossible de procéder à l'enregistrement"
 
-#: src/MainWindow.vala:176
-#, fuzzy
+#: src/MainWindow.vala:184
 msgid "The following error message may be helpful:"
-msgstr ""
-"Une erreur GStreamer est survenue pendant l'enregistrement, le message "
-"d'erreur suivant pourrait être utile :"
+msgstr "Le message d'erreur suivant pourrait être utile :"
 
 #: src/StyleSwitcher.vala:25
 msgid "Style:"
-msgstr ""
+msgstr "Thème :"
 
 #: src/StyleSwitcher.vala:31
 msgid "Light style"
-msgstr ""
+msgstr "Thème clair"
 
 #: src/StyleSwitcher.vala:34
 msgid "Light"
-msgstr ""
+msgstr "Clair"
 
 #: src/StyleSwitcher.vala:38
 msgid "Dark style"
-msgstr ""
+msgstr "Thème sombre"
 
 #: src/StyleSwitcher.vala:41
 msgid "Dark"
-msgstr ""
+msgstr "Sombre"
 
 #: src/StyleSwitcher.vala:53
 msgid "Use the same style set in the system"
-msgstr ""
-
-#, fuzzy
-#~ msgid "Reco"
-#~ msgstr "Enregistrement"
-
-#~ msgid "AAC"
-#~ msgstr "AAC"
-
-#, fuzzy
-#~ msgid "Microphone to use:"
-#~ msgstr "Micro"
-
-#~ msgid "Computer"
-#~ msgstr "Ordinateur"
-
-#~ msgid "Unable to Create an Audio File"
-#~ msgstr "Impossible de créer un fichier audio"
+msgstr "Utiliser le thème du système"
