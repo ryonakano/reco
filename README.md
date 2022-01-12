@@ -2,7 +2,7 @@
 
 Reco is a simple audio recording app that helps you recall things talked later.
 
-![Screenshot](data/Screenshot.png)
+![Screenshot](data/screenshots/pantheon/welcome-init.png)
 
 Features include:
 
@@ -20,7 +20,11 @@ On elementary OS? Click the button to get Reco on AppCenter:
 
 [![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.ryonakano.reco)
 
-Community packages are available on the following distributions:
+You can also download the app from Flathub, in case you're using another distribution. This version is tweaked to work well and look good on other desktop environment.
+
+[<img src="https://flathub.org/assets/badges/flathub-badge-en.svg" width="160" alt="Download on Flathub">](https://flathub.org/apps/details/com.github.ryonakano.reco)
+
+Community packages maintained by volunteers are also available on some distributions:
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/reco.svg)](https://repology.org/project/reco/versions)
 
