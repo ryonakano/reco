@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-04 23:08+0000\n"
+"POT-Creation-Date: 2022-01-12 12:30+0900\n"
 "PO-Revision-Date: 2022-01-11 12:30+0100\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: Français\n"
@@ -143,33 +143,33 @@ msgstr "Démarrer l'enregistrement"
 msgid "Recordings"
 msgstr "Enregistrements"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:49
 msgid "Preferences"
 msgstr "Préférences"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:98
+#: src/MainWindow.vala:106
 #, c-format
 msgid "Recording from %s"
 msgstr "En cours d'enregistrement depuis %s"
 
-#: src/MainWindow.vala:116
+#: src/MainWindow.vala:124
 msgid "Save your recording"
 msgstr "Sauvegardez votre enregistrement"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:125
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:125
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/MainWindow.vala:175
+#: src/MainWindow.vala:183
 msgid "Unable to Complete Recording"
 msgstr "Impossible de procéder à l'enregistrement"
 
-#: src/MainWindow.vala:176
+#: src/MainWindow.vala:184
 msgid "The following error message may be helpful:"
 msgstr "Le message d'erreur suivant pourrait être utile :"
 
