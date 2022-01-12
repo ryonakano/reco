@@ -20,7 +20,7 @@ On elementary OS? Click the button to get Reco on AppCenter:
 
 [![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.ryonakano.reco)
 
-You can also download the app from Flathub, in case you're using another distribution. This version excludes the feature to respect OS-wide style preference which depends on Pantheon desktop environment.
+You can also download the app from Flathub, in case you're using another distribution. This version is tweaked to work well and look good on other desktop environment.
 
 [<img src="https://flathub.org/assets/badges/flathub-badge-en.svg" width="160" alt="Download on Flathub">](https://flathub.org/apps/details/com.github.ryonakano.reco)
 
