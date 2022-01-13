@@ -179,21 +179,36 @@ public class MainWindow : Hdy.Window {
     }
 
     private void show_error_dialog (string error_message) {
-        var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-            _("Unable to Complete Recording"),
-            _("The following error message may be helpful:"),
-            "dialog-error", Gtk.ButtonsType.CLOSE
-        ) {
-            transient_for = this,
-            modal = true
-        };
-        error_dialog.show_error_details (error_message);
-        error_dialog.response.connect ((response_id) => {
-            if (response_id == Gtk.ResponseType.CLOSE) {
-                error_dialog.destroy ();
-            }
-        });
-        error_dialog.show_all ();
+        if (Application.IS_ON_PANTHEON) {
+            var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                _("Unable to Complete Recording"),
+                _("The following error message may be helpful:"),
+                "dialog-error", Gtk.ButtonsType.CLOSE
+            ) {
+                transient_for = this,
+                modal = true
+            };
+            error_dialog.show_error_details (error_message);
+            error_dialog.response.connect ((response_id) => {
+                if (response_id == Gtk.ResponseType.CLOSE) {
+                    error_dialog.destroy ();
+                }
+            });
+            error_dialog.show_all ();
+        } else {
+            var error_dialog = new Gtk.MessageDialog (
+                this, Gtk.DialogFlags.MODAL, Gtk.MessageType.ERROR, Gtk.ButtonsType.CLOSE, null
+            ) {
+                text = _("Unable to Complete Recording"),
+                secondary_text = _("The following error message may be helpful:") + "\n\n" + error_message
+            };
+            error_dialog.response.connect ((response_id) => {
+                if (response_id == Gtk.ResponseType.CLOSE) {
+                    error_dialog.destroy ();
+                }
+            });
+            error_dialog.show_all ();    
+        }
 
         record_view.stop_count ();
         show_welcome ();
