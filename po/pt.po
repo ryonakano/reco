@@ -1,14 +1,14 @@
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Portuguese translations for com.github.ryonakano.reco package.
+# Copyright (C) 2019-2022 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-#
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2021.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2021, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-04 23:08+0000\n"
-"PO-Revision-Date: 2021-09-15 15:25+0100\n"
+"PO-Revision-Date: 2022-01-13 15:24+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <hugokarvalho@hotmail.com>\n"
 "Language: pt\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
@@ -46,7 +46,7 @@ msgstr "Terminar gravação"
 #: src/Views/RecordView.vala:69 src/Views/RecordView.vala:95
 #: src/Views/RecordView.vala:130 src/Views/RecordView.vala:142
 msgid "Pause recording"
-msgstr "Colocar gravação em pausa"
+msgstr "Pausar a gravação"
 
 #: src/Views/RecordView.vala:118
 msgid "Resume recording"
@@ -106,7 +106,7 @@ msgstr "Formato:"
 
 #: src/Views/WelcomeView.vala:66
 msgid "ALAC"
-msgstr ""
+msgstr "ALAC"
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -177,27 +177,27 @@ msgstr "A seguinte mensagem de erro pode ser útil:"
 
 #: src/StyleSwitcher.vala:25
 msgid "Style:"
-msgstr ""
+msgstr "Estilo:"
 
 #: src/StyleSwitcher.vala:31
 msgid "Light style"
-msgstr ""
+msgstr "Estilo claro"
 
 #: src/StyleSwitcher.vala:34
 msgid "Light"
-msgstr ""
+msgstr "Claro"
 
 #: src/StyleSwitcher.vala:38
 msgid "Dark style"
-msgstr ""
+msgstr "Estilo escuro"
 
 #: src/StyleSwitcher.vala:41
 msgid "Dark"
-msgstr ""
+msgstr "Escuro"
 
 #: src/StyleSwitcher.vala:53
 msgid "Use the same style set in the system"
-msgstr ""
+msgstr "Usar o mesmo estilo do sistema"
 
 #~ msgid "Reco"
 #~ msgstr "Reco"
