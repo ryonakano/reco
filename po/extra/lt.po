@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-14 00:28+0000\n"
+"POT-Creation-Date: 2022-01-14 12:21+0000\n"
 "PO-Revision-Date: 2019-02-18 14:43+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -85,7 +85,7 @@ msgid "An indication that recording is successfully finished"
 msgstr ""
 
 #: data/reco.appdata.xml.in:44
-msgid "Show nicer message dialogs depending on the running desktpp environment"
+msgid "Show nicer message dialogs depending on the running desktop environment"
 msgstr ""
 
 #: data/reco.appdata.xml.in:46 data/reco.appdata.xml.in:57
