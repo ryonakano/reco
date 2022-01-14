@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-14 12:21+0000\n"
-"PO-Revision-Date: 2022-01-13 15:34+0000\n"
+"PO-Revision-Date: 2022-01-14 11:28+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <hugokarvalho@hotmail.com>\n"
 "Language: pt\n"
@@ -97,6 +97,8 @@ msgstr "Uma indicação de que a gravação foi concluída com sucesso"
 #: data/reco.appdata.xml.in:44
 msgid "Show nicer message dialogs depending on the running desktop environment"
 msgstr ""
+"Mostra diálogos de mensagens de melhor aparência, dependendo do ambiente "
+"gráfico em execução"
 
 #: data/reco.appdata.xml.in:46 data/reco.appdata.xml.in:57
 #: data/reco.appdata.xml.in:82 data/reco.appdata.xml.in:97
