@@ -207,7 +207,7 @@ public class MainWindow : Hdy.Window {
                     error_dialog.destroy ();
                 }
             });
-            error_dialog.show_all ();    
+            error_dialog.show_all ();
         }
 
         record_view.stop_count ();
