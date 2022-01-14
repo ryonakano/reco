@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-04 23:08+0000\n"
+"POT-Creation-Date: 2022-01-14 00:28+0000\n"
 "PO-Revision-Date: 2019-02-18 14:35+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -74,7 +74,7 @@ msgstr "Įrašinėjimas iš %s"
 msgid "Microphone"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:56
+#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:57
 msgid "System"
 msgstr ""
 
@@ -155,58 +155,58 @@ msgstr "Pradėti įrašinėjimą"
 msgid "Recordings"
 msgstr "Įrašinėjimai"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:49
 msgid "Preferences"
 msgstr ""
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:98
+#: src/MainWindow.vala:106
 #, c-format
 msgid "Recording from %s"
 msgstr "Įrašinėjimas iš %s"
 
-#: src/MainWindow.vala:116
+#: src/MainWindow.vala:124
 msgid "Save your recording"
 msgstr "Išsaugokite savo įrašinėjimą"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:125
 msgid "Save"
 msgstr "Išsaugoti"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:125
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: src/MainWindow.vala:175
+#: src/MainWindow.vala:184 src/MainWindow.vala:202
 msgid "Unable to Complete Recording"
 msgstr ""
 
-#: src/MainWindow.vala:176
+#: src/MainWindow.vala:185 src/MainWindow.vala:203
 #, fuzzy
 msgid "The following error message may be helpful:"
 msgstr "Įrašanėjant, įvyko GStreamer klaida:"
 
-#: src/StyleSwitcher.vala:25
+#: src/StyleSwitcher.vala:24
 msgid "Style:"
 msgstr ""
 
-#: src/StyleSwitcher.vala:31
+#: src/StyleSwitcher.vala:30
 msgid "Light style"
 msgstr ""
 
-#: src/StyleSwitcher.vala:34
+#: src/StyleSwitcher.vala:33
 msgid "Light"
 msgstr ""
 
-#: src/StyleSwitcher.vala:38
+#: src/StyleSwitcher.vala:37
 msgid "Dark style"
 msgstr ""
 
-#: src/StyleSwitcher.vala:41
+#: src/StyleSwitcher.vala:40
 msgid "Dark"
 msgstr ""
 
-#: src/StyleSwitcher.vala:53
+#: src/StyleSwitcher.vala:54
 msgid "Use the same style set in the system"
 msgstr ""
 

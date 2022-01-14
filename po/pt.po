@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-04 23:08+0000\n"
+"POT-Creation-Date: 2022-01-14 00:28+0000\n"
 "PO-Revision-Date: 2022-01-13 15:24+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <hugokarvalho@hotmail.com>\n"
@@ -64,7 +64,7 @@ msgstr "Gravar de:"
 msgid "Microphone"
 msgstr "Microfone"
 
-#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:56
+#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:57
 msgid "System"
 msgstr "Sistema"
 
@@ -145,57 +145,57 @@ msgstr "Iniciar gravação"
 msgid "Recordings"
 msgstr "Gravações"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:49
 msgid "Preferences"
 msgstr "Preferências"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:98
+#: src/MainWindow.vala:106
 #, c-format
 msgid "Recording from %s"
 msgstr "A gravar de %s"
 
-#: src/MainWindow.vala:116
+#: src/MainWindow.vala:124
 msgid "Save your recording"
 msgstr "Guardar a gravação"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:125
 msgid "Save"
 msgstr "Guardar"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:125
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:175
+#: src/MainWindow.vala:184 src/MainWindow.vala:202
 msgid "Unable to Complete Recording"
 msgstr "Não foi possível concluir a gravação"
 
-#: src/MainWindow.vala:176
+#: src/MainWindow.vala:185 src/MainWindow.vala:203
 msgid "The following error message may be helpful:"
 msgstr "A seguinte mensagem de erro pode ser útil:"
 
-#: src/StyleSwitcher.vala:25
+#: src/StyleSwitcher.vala:24
 msgid "Style:"
 msgstr "Estilo:"
 
-#: src/StyleSwitcher.vala:31
+#: src/StyleSwitcher.vala:30
 msgid "Light style"
 msgstr "Estilo claro"
 
-#: src/StyleSwitcher.vala:34
+#: src/StyleSwitcher.vala:33
 msgid "Light"
 msgstr "Claro"
 
-#: src/StyleSwitcher.vala:38
+#: src/StyleSwitcher.vala:37
 msgid "Dark style"
 msgstr "Estilo escuro"
 
-#: src/StyleSwitcher.vala:41
+#: src/StyleSwitcher.vala:40
 msgid "Dark"
 msgstr "Escuro"
 
-#: src/StyleSwitcher.vala:53
+#: src/StyleSwitcher.vala:54
 msgid "Use the same style set in the system"
 msgstr "Usar o mesmo estilo do sistema"
 

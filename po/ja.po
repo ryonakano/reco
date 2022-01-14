@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-04 23:08+0000\n"
+"POT-Creation-Date: 2022-01-14 00:28+0000\n"
 "PO-Revision-Date: 2021-12-20 23:22+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -63,7 +63,7 @@ msgstr "録音ソース:"
 msgid "Microphone"
 msgstr "マイク"
 
-#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:56
+#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:57
 msgid "System"
 msgstr "システム"
 
@@ -144,57 +144,57 @@ msgstr "録音を開始します"
 msgid "Recordings"
 msgstr "レコーディング"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:49
 msgid "Preferences"
 msgstr "設定"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:98
+#: src/MainWindow.vala:106
 #, c-format
 msgid "Recording from %s"
 msgstr "録音 %s"
 
-#: src/MainWindow.vala:116
+#: src/MainWindow.vala:124
 msgid "Save your recording"
 msgstr "録音したものを保存"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:125
 msgid "Save"
 msgstr "保存"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:125
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/MainWindow.vala:175
+#: src/MainWindow.vala:184 src/MainWindow.vala:202
 msgid "Unable to Complete Recording"
 msgstr "録音を完了できません"
 
-#: src/MainWindow.vala:176
+#: src/MainWindow.vala:185 src/MainWindow.vala:203
 msgid "The following error message may be helpful:"
 msgstr "以下のエラーメッセージが役に立つ可能性があります:"
 
-#: src/StyleSwitcher.vala:25
+#: src/StyleSwitcher.vala:24
 msgid "Style:"
 msgstr "スタイル:"
 
-#: src/StyleSwitcher.vala:31
+#: src/StyleSwitcher.vala:30
 msgid "Light style"
 msgstr "ライトスタイル"
 
-#: src/StyleSwitcher.vala:34
+#: src/StyleSwitcher.vala:33
 msgid "Light"
 msgstr "ライト"
 
-#: src/StyleSwitcher.vala:38
+#: src/StyleSwitcher.vala:37
 msgid "Dark style"
 msgstr "ダークスタイル"
 
-#: src/StyleSwitcher.vala:41
+#: src/StyleSwitcher.vala:40
 msgid "Dark"
 msgstr "ダーク"
 
-#: src/StyleSwitcher.vala:53
+#: src/StyleSwitcher.vala:54
 msgid "Use the same style set in the system"
 msgstr "システムの設定と同じスタイルを使います"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-12 12:30+0900\n"
+"POT-Creation-Date: 2022-01-14 00:28+0000\n"
 "PO-Revision-Date: 2022-01-11 12:30+0100\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: Français\n"
@@ -62,7 +62,7 @@ msgstr "Enregistrer à partir de :"
 msgid "Microphone"
 msgstr "Micro"
 
-#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:56
+#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:57
 msgid "System"
 msgstr "Système"
 
@@ -165,34 +165,34 @@ msgstr "Sauvegarder"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/MainWindow.vala:183
+#: src/MainWindow.vala:184 src/MainWindow.vala:202
 msgid "Unable to Complete Recording"
 msgstr "Impossible de procéder à l'enregistrement"
 
-#: src/MainWindow.vala:184
+#: src/MainWindow.vala:185 src/MainWindow.vala:203
 msgid "The following error message may be helpful:"
 msgstr "Le message d'erreur suivant pourrait être utile :"
 
-#: src/StyleSwitcher.vala:25
+#: src/StyleSwitcher.vala:24
 msgid "Style:"
 msgstr "Thème :"
 
-#: src/StyleSwitcher.vala:31
+#: src/StyleSwitcher.vala:30
 msgid "Light style"
 msgstr "Thème clair"
 
-#: src/StyleSwitcher.vala:34
+#: src/StyleSwitcher.vala:33
 msgid "Light"
 msgstr "Clair"
 
-#: src/StyleSwitcher.vala:38
+#: src/StyleSwitcher.vala:37
 msgid "Dark style"
 msgstr "Thème sombre"
 
-#: src/StyleSwitcher.vala:41
+#: src/StyleSwitcher.vala:40
 msgid "Dark"
 msgstr "Sombre"
 
-#: src/StyleSwitcher.vala:53
+#: src/StyleSwitcher.vala:54
 msgid "Use the same style set in the system"
 msgstr "Utiliser le thème du système"
