@@ -41,7 +41,7 @@
     <release version="3.2.2" date="2021-01-13" urgency="low">
       <description>
         <ul>
-          <li>Show nicer message dialogs depending on the running desktpp environment</li>
+          <li>Show nicer message dialogs depending on the running desktop environment</li>
         </ul>
         <p>Translation updates:</p>
         <ul>
