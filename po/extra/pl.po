@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-14 00:28+0000\n"
+"POT-Creation-Date: 2022-01-14 12:21+0000\n"
 "PO-Revision-Date: 2019-11-18 15:12-0300\n"
 "Last-Translator:  Michał Nowakowski <nowakowski@offshore.rocks>\n"
 "Language-Team: none\n"
@@ -96,7 +96,7 @@ msgid "An indication that recording is successfully finished"
 msgstr "Nagrywanie zakończone"
 
 #: data/reco.appdata.xml.in:44
-msgid "Show nicer message dialogs depending on the running desktpp environment"
+msgid "Show nicer message dialogs depending on the running desktop environment"
 msgstr ""
 
 #: data/reco.appdata.xml.in:46 data/reco.appdata.xml.in:57

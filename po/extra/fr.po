@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-14 00:28+0000\n"
+"POT-Creation-Date: 2022-01-14 12:21+0000\n"
 "PO-Revision-Date: 2022-01-11 12:30+0100\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: Français\n"
@@ -98,7 +98,7 @@ msgid "An indication that recording is successfully finished"
 msgstr "Une indication montrant que l'enregistrement est terminé avec succès"
 
 #: data/reco.appdata.xml.in:44
-msgid "Show nicer message dialogs depending on the running desktpp environment"
+msgid "Show nicer message dialogs depending on the running desktop environment"
 msgstr ""
 
 #: data/reco.appdata.xml.in:46 data/reco.appdata.xml.in:57
