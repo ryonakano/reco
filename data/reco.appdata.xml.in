@@ -38,6 +38,17 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="3.2.2" date="2021-01-13" urgency="low">
+      <description>
+        <ul>
+          <li>Show nicer message dialogs depending on the running desktpp environment</li>
+        </ul>
+        <p>Translation updates:</p>
+        <ul>
+          <li>Update French translation (by @NathanBnm)</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.2.1" date="2021-01-11" urgency="low">
       <description>
         <p>
