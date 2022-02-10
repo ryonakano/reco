@@ -1,0 +1,200 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.ryonakano.reco package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.ryonakano.reco\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-14 12:21+0000\n"
+"PO-Revision-Date: 2022-02-08 20:25+0800\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: zh_CN\n"
+
+#: src/Services/Recorder.vala:232
+msgid "Recording is ongoing"
+msgstr "正在录音"
+
+#: src/Views/CountDownView.vala:37
+msgid "Cancel the countdown"
+msgstr "取消倒计时"
+
+#: src/Views/CountDownView.vala:44 src/Views/CountDownView.vala:117
+#: src/Views/CountDownView.vala:139
+msgid "Pause the countdown"
+msgstr "暂停倒计时"
+
+#: src/Views/CountDownView.vala:130
+msgid "Resume the countdown"
+msgstr "恢复倒计时"
+
+#: src/Views/RecordView.vala:53
+msgid "Cancel recording"
+msgstr "取消录音"
+
+#: src/Views/RecordView.vala:60
+msgid "Finish recording"
+msgstr "完成录音"
+
+#: src/Views/RecordView.vala:69 src/Views/RecordView.vala:95
+#: src/Views/RecordView.vala:130 src/Views/RecordView.vala:142
+msgid "Pause recording"
+msgstr "暂停录音"
+
+#: src/Views/RecordView.vala:118
+msgid "Resume recording"
+msgstr "恢复录音"
+
+#: src/Views/WelcomeView.vala:20
+msgid "Recording"
+msgstr "录音"
+
+#: src/Views/WelcomeView.vala:22
+msgid "Record from:"
+msgstr "声音来源："
+
+#: src/Views/WelcomeView.vala:28
+msgid "Microphone"
+msgstr "麦克风"
+
+#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:57
+msgid "System"
+msgstr "系统"
+
+#: src/Views/WelcomeView.vala:30
+msgid "Both"
+msgstr "都有"
+
+#: src/Views/WelcomeView.vala:32
+msgid "Channels:"
+msgstr "声道："
+
+#: src/Views/WelcomeView.vala:38
+msgid "Mono"
+msgstr "单声道"
+
+#: src/Views/WelcomeView.vala:39
+msgid "Stereo"
+msgstr "立体"
+
+#: src/Views/WelcomeView.vala:41
+msgid "Timer"
+msgstr "计时"
+
+#: src/Views/WelcomeView.vala:43
+msgid "Delay in seconds:"
+msgstr "延迟秒数："
+
+#: src/Views/WelcomeView.vala:50
+msgid "Length in seconds:"
+msgstr "持续秒数："
+
+#: src/Views/WelcomeView.vala:57
+msgid "Saving"
+msgstr "保存"
+
+#: src/Views/WelcomeView.vala:59
+msgid "Format:"
+msgstr "格式："
+
+#: src/Views/WelcomeView.vala:66
+msgid "ALAC"
+msgstr "ALAC"
+
+#: src/Views/WelcomeView.vala:67
+msgid "FLAC"
+msgstr "FLAC"
+
+#: src/Views/WelcomeView.vala:68
+msgid "MP3"
+msgstr "MP3"
+
+#: src/Views/WelcomeView.vala:69
+msgid "Ogg Vorbis"
+msgstr "Ogg Vorbis"
+
+#: src/Views/WelcomeView.vala:70
+msgid "Opus"
+msgstr "Opus"
+
+#: src/Views/WelcomeView.vala:71
+msgid "WAV"
+msgstr "WAV"
+
+#: src/Views/WelcomeView.vala:73
+msgid "Automatically save files:"
+msgstr "自动保存文件："
+
+#: src/Views/WelcomeView.vala:82
+msgid "Choose a default destination"
+msgstr "选择默认目录"
+
+#: src/Views/WelcomeView.vala:113
+msgid "Start recording"
+msgstr "开始录音"
+
+#. TRANSLATORS: The name of the folder which recordings are saved
+#: src/Views/WelcomeView.vala:146
+msgid "Recordings"
+msgstr "录音"
+
+#: src/MainWindow.vala:49
+msgid "Preferences"
+msgstr "首选项"
+
+#. TRANSLATORS: %s represents a timestamp here
+#: src/MainWindow.vala:106
+#, c-format
+msgid "Recording from %s"
+msgstr "录音 %s"
+
+#: src/MainWindow.vala:124
+msgid "Save your recording"
+msgstr "保存录音"
+
+#: src/MainWindow.vala:125
+msgid "Save"
+msgstr "保存"
+
+#: src/MainWindow.vala:125
+msgid "Cancel"
+msgstr "取消"
+
+#: src/MainWindow.vala:184 src/MainWindow.vala:202
+msgid "Unable to Complete Recording"
+msgstr "无法完成录音"
+
+#: src/MainWindow.vala:185 src/MainWindow.vala:203
+msgid "The following error message may be helpful:"
+msgstr "下面的错误消息可能会有所帮助："
+
+#: src/StyleSwitcher.vala:24
+msgid "Style:"
+msgstr "样式："
+
+#: src/StyleSwitcher.vala:30
+msgid "Light style"
+msgstr "亮色样式"
+
+#: src/StyleSwitcher.vala:33
+msgid "Light"
+msgstr "亮"
+
+#: src/StyleSwitcher.vala:37
+msgid "Dark style"
+msgstr "暗色样式"
+
+#: src/StyleSwitcher.vala:40
+msgid "Dark"
+msgstr "暗"
+
+#: src/StyleSwitcher.vala:54
+msgid "Use the same style set in the system"
+msgstr "与系统一致的样式"
