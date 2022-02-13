@@ -12,7 +12,10 @@ public class WelcomeView : Gtk.Box {
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 12,
             window: window,
-            margin: 6
+            margin_top: 6,
+            margin_bottom: 6,
+            margin_start: 6,
+            margin_end: 6
         );
     }
 
@@ -78,13 +81,10 @@ public class WelcomeView : Gtk.Box {
             halign = Gtk.Align.START
         };
 
-        var destination_chooser = new Gtk.FileChooserButton (
-            _("Choose a default destination"),
-            Gtk.FileChooserAction.SELECT_FOLDER
-        ) {
-            halign = Gtk.Align.START
+        var destination_chooser_button = new Gtk.Button () {
+            halign = Gtk.Align.START,
+            label = get_destination ()
         };
-        destination_chooser.set_filename (get_destination ());
 
         var settings_grid = new Gtk.Grid () {
             column_spacing = 6,
@@ -106,10 +106,10 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (format_combobox, 1, 7, 1, 1);
         settings_grid.attach (auto_save_label, 0, 8, 1, 1);
         settings_grid.attach (auto_save_switch, 1, 8, 1, 1);
-        settings_grid.attach (destination_chooser, 1, 9, 1, 1);
+        settings_grid.attach (destination_chooser_button, 1, 9, 1, 1);
 
         record_button = new Gtk.Button () {
-            image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND),
+            icon_name = "audio-input-microphone-symbolic",
             tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Start recording")),
             halign = Gtk.Align.CENTER,
             margin_top = 12,
@@ -118,8 +118,8 @@ public class WelcomeView : Gtk.Box {
         };
         record_button.get_style_context ().add_class ("record-button");
 
-        pack_start (settings_grid, false, false);
-        pack_end (record_button, false, false);
+        append (settings_grid);
+        append (record_button);
 
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
@@ -127,10 +127,20 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channels", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("auto-save", auto_save_switch, "active", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("auto-save", destination_chooser, "sensitive", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("auto-save", destination_chooser_button, "sensitive", SettingsBindFlags.DEFAULT);
 
-        destination_chooser.file_set.connect (() => {
-            Application.settings.set_string ("destination", destination_chooser.get_filename ());
+        destination_chooser_button.clicked.connect (() => {
+            var filechooser = new Gtk.FileChooserNative (
+                _("Choose a default destination"), window, Gtk.FileChooserAction.SELECT_FOLDER,
+                _("Select"), _("Cancel")
+            );
+            filechooser.show ();
+            filechooser.response.connect ((response_id) => {
+                if (response_id == Gtk.ResponseType.ACCEPT) {
+                    Application.settings.set_string ("destination", filechooser.get_current_folder ().get_path ());
+                    filechooser.destroy ();
+                }
+            });
         });
 
         record_button.clicked.connect (() => {
@@ -156,14 +166,14 @@ public class WelcomeView : Gtk.Box {
 
     public void show_success_button () {
         record_button.get_style_context ().add_class ("record-button-success");
-        record_button.image = new Gtk.Image.from_icon_name ("record-completed-symbolic", Gtk.IconSize.DND);
+        record_button.icon_name = "record-completed-symbolic";
         uint timeout_button_color = Timeout.add (3000, () => {
             record_button.get_style_context ().remove_class ("record-button-success");
             return false;
         });
         timeout_button_color = 0;
         uint timeout_button_icon = Timeout.add (3250, () => {
-            record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
+            record_button.icon_name = "audio-input-microphone-symbolic";
             return false;
         });
         timeout_button_icon = 0;

@@ -132,18 +132,16 @@ public class MainWindow : Gtk.ApplicationWindow {
         });
 
         recorder.save_file.connect ((tmp_full_path, suffix) => {
+            var tmp_file = File.new_for_path (tmp_full_path);
+
             //TRANSLATORS: %s represents a timestamp here
-            string filename = _("Recording from %s").printf (new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"));
-
-            var tmp_source = File.new_for_path (tmp_full_path);
-
-            string destination = Application.settings.get_string ("destination");
+            var final_file = File.new_for_path (Application.settings.get_string ("destination") + "/" +
+                                _("Recording from %s").printf (new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"))
+                                + suffix);
 
             if (Application.settings.get_boolean ("auto-save")) {
                 try {
-                    var uri = File.new_for_path (destination + "/" + filename + suffix);
-
-                    if (tmp_source.move (uri, FileCopyFlags.OVERWRITE)) {
+                    if (tmp_file.move (final_file, FileCopyFlags.OVERWRITE)) {
                         welcome_view.show_success_button ();
                     }
                 } catch (Error e) {
@@ -153,19 +151,18 @@ public class MainWindow : Gtk.ApplicationWindow {
                 var filechooser = new Gtk.FileChooserNative (
                     _("Save your recording"), this, Gtk.FileChooserAction.SAVE,
                     _("Save"), _("Cancel")
-                ) {
-                    do_overwrite_confirmation = true
-                };
-                filechooser.set_current_name (filename + suffix);
-                filechooser.set_filename (destination);
-                filechooser.show ();
+                );
+                try {
+                    filechooser.set_file (final_file);
+                } catch (Error e) {
+                    warning (e.message);
+                }
 
+                filechooser.show ();
                 filechooser.response.connect ((response_id) => {
                     if (response_id == Gtk.ResponseType.ACCEPT) {
                         try {
-                            var uri = File.new_for_path (filechooser.get_filename ());
-
-                            if (tmp_source.move (uri, FileCopyFlags.OVERWRITE)) {
+                            if (tmp_file.move (filechooser.get_file (), FileCopyFlags.OVERWRITE)) {
                                 welcome_view.show_success_button ();
                             }
                         } catch (Error e) {
@@ -173,7 +170,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                         }
                     } else {
                         try {
-                            tmp_source.delete ();
+                            tmp_file.delete ();
                         } catch (Error e) {
                             warning (e.message);
                         }

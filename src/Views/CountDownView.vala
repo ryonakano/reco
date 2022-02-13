@@ -17,7 +17,10 @@ public class CountDownView : Gtk.Box {
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 12,
             window: window,
-            margin: 6
+            margin_top: 6,
+            margin_bottom: 6,
+            margin_start: 6,
+            margin_end: 6
         );
     }
 
@@ -33,14 +36,14 @@ public class CountDownView : Gtk.Box {
         label_grid.attach (delay_remaining_label, 0, 1, 1, 1);
 
         var cancel_button = new Gtk.Button () {
-            image = new Gtk.Image.from_icon_name ("user-trash-symbolic", Gtk.IconSize.BUTTON),
+            icon_name = "user-trash-symbolic",
             tooltip_text = _("Cancel the countdown"),
             halign = Gtk.Align.START
         };
         cancel_button.get_style_context ().add_class ("buttons-without-border");
 
         pause_button = new Gtk.Button () {
-            image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON),
+            icon_name = "media-playback-pause-symbolic",
             tooltip_text = _("Pause the countdown"),
             halign = Gtk.Align.END
         };
@@ -55,8 +58,8 @@ public class CountDownView : Gtk.Box {
         buttons_grid.attach (cancel_button, 0, 0, 1, 1);
         buttons_grid.attach (pause_button, 1, 0, 1, 1);
 
-        pack_start (label_grid, false, false);
-        pack_end (buttons_grid, false, false);
+        append (label_grid);
+        prepend (buttons_grid);
 
         cancel_button.clicked.connect (() => {
             paused_time = 0;
@@ -113,7 +116,7 @@ public class CountDownView : Gtk.Box {
             delay_remaining_label.label = null;
         }
 
-        pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+        pause_button.icon_name = "media-playback-pause-symbolic";
         pause_button.tooltip_text = _("Pause the countdown");
 
         window.show_welcome ();
@@ -126,7 +129,7 @@ public class CountDownView : Gtk.Box {
 
             is_paused = true;
 
-            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.BUTTON);
+            pause_button.icon_name = "media-playback-start-symbolic";
             pause_button.tooltip_text = _("Resume the countdown");
         } else {
             is_paused = false;
@@ -135,7 +138,7 @@ public class CountDownView : Gtk.Box {
                 start_countdown ();
             }
 
-            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+            pause_button.icon_name = "media-playback-pause-symbolic";
             pause_button.tooltip_text = _("Pause the countdown");
         }
     }
