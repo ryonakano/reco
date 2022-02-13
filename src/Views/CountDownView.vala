@@ -31,7 +31,8 @@ public class CountDownView : Gtk.Box {
         var label_grid = new Gtk.Grid () {
             column_spacing = 6,
             row_spacing = 6,
-            halign = Gtk.Align.CENTER
+            halign = Gtk.Align.CENTER,
+            vexpand = true
         };
         label_grid.attach (delay_remaining_label, 0, 1, 1, 1);
 
@@ -59,7 +60,7 @@ public class CountDownView : Gtk.Box {
         buttons_grid.attach (pause_button, 1, 0, 1, 1);
 
         append (label_grid);
-        prepend (buttons_grid);
+        append (buttons_grid);
 
         cancel_button.clicked.connect (() => {
             paused_time = 0;

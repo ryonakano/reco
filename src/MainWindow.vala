@@ -54,7 +54,9 @@ public class MainWindow : Gtk.ApplicationWindow {
             popover = preferences_popover
         };
 
-        var headerbar = new Gtk.HeaderBar ();
+        var headerbar = new Gtk.HeaderBar () {
+            title_widget = new Gtk.Label ("")
+        };
         headerbar.pack_end (preferences_button);
         set_titlebar (headerbar);
 
