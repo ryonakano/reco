@@ -91,7 +91,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                             });
                             loop.run ();
                         }
-    
+
                         destroy ();
                         return true;
                     case Gdk.Key.R:
@@ -106,11 +106,11 @@ public class MainWindow : Gtk.ApplicationWindow {
                                 loop.run ();
                             }
                         }
-    
+
                         return true;
                 }
             }
-    
+
             return false;
         });
         ((Gtk.Widget) this).add_controller (event_controller);
