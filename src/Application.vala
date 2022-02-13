@@ -32,23 +32,11 @@ public class Application : Gtk.Application {
     }
 
     protected override void activate () {
-        if (window != null) { // The app is already launched
-            window.present ();
-            return;
+        if (window == null) {
+            window = new MainWindow (this);
         }
 
-        int window_x, window_y;
-        settings.get ("window-position", "(ii)", out window_x, out window_y);
-
-        window = new MainWindow (this);
-
-        if (window_x != -1 || window_y != -1) { // Not a first time launch
-            window.move (window_x, window_y);
-        } else { // First time launch
-            window.window_position = Gtk.WindowPosition.CENTER;
-        }
-
-        window.show_all ();
+        window.present ();
     }
 
     public static int main (string[] args) {

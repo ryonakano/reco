@@ -9,7 +9,9 @@ public class StyleSwitcher : Gtk.Box {
     private Gtk.Settings gtk_settings;
     private Granite.Settings granite_settings;
 
-    private Granite.Widgets.ModeButton style_mode_button;
+    private StyleButton light_style_button;
+    private StyleButton dark_style_button;
+    private StyleButton system_style_button;
 
     public StyleSwitcher () {
         Object (
@@ -25,62 +27,44 @@ public class StyleSwitcher : Gtk.Box {
             halign = Gtk.Align.START
         };
 
-        var light_style_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.BUTTON);
-        var light_style_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-            tooltip_text = _("Light style")
-        };
-        light_style_box.add (light_style_image);
-        light_style_box.add (new Gtk.Label (_("Light")));
+        var buttons_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
 
-        var dark_style_image = new Gtk.Image.from_icon_name ("weather-clear-night-symbolic", Gtk.IconSize.BUTTON);
-        var dark_style_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-            tooltip_text = _("Dark style")
-        };
-        dark_style_box.add (dark_style_image);
-        dark_style_box.add (new Gtk.Label (_("Dark")));
+        light_style_button = new StyleButton ("display-brightness-symbolic", _("Light"));
+        buttons_box.append (light_style_button);
 
-        style_mode_button = new Granite.Widgets.ModeButton ();
-        style_mode_button.append (light_style_box);
-        style_mode_button.append (dark_style_box);
-
-        add (style_label);
-        add (style_mode_button);
+        dark_style_button = new StyleButton ("weather-clear-night-symbolic", _("Dark"), light_style_button);
+        buttons_box.append (dark_style_button);
 
         if (Application.IS_ON_PANTHEON) {
             granite_settings = Granite.Settings.get_default ();
 
-            var system_style_image = new Gtk.Image.from_icon_name ("emblem-system-symbolic", Gtk.IconSize.BUTTON);
-            var system_style_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-                tooltip_text = _("Use the same style set in the system")
-            };
-            system_style_box.add (system_style_image);
-            system_style_box.add (new Gtk.Label (_("System")));
-
-            style_mode_button.append (system_style_box);
+            system_style_button = new StyleButton ("emblem-system-symbolic", _("System"), light_style_button);
+            buttons_box.append (system_style_button);
 
             granite_settings.notify["prefers-color-scheme"].connect (() => {
                 construct_app_style ();
             });
+
+            system_style_button.toggled.connect (() => {
+                set_app_style (
+                    granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK,
+                    true
+                );
+            });
         }
 
-        style_mode_button.notify["selected"].connect (() => {
-            switch (style_mode_button.selected) {
-                case 0:
-                    set_app_style (false, false);
-                    break;
-                case 1:
-                    set_app_style (true, false);
-                    break;
-                case 2:
-                    set_app_style (
-                        granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK,
-                        true
-                    );
-                    break;
-            }
+        light_style_button.toggled.connect (() => {
+            set_app_style (false, false);
+        });
+
+        dark_style_button.toggled.connect (() => {
+            set_app_style (true, false);
         });
 
         construct_app_style ();
+
+        append (style_label);
+        append (buttons_box);
     }
 
     private void set_app_style (bool is_prefer_dark, bool is_follow_system_style) {
@@ -92,15 +76,37 @@ public class StyleSwitcher : Gtk.Box {
     private void construct_app_style () {
         if (Application.settings.get_boolean ("is-follow-system-style")) {
             set_app_style (granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK, true);
-            style_mode_button.selected = 2;
+            system_style_button.active = true;
         } else {
             bool is_prefer_dark = Application.settings.get_boolean ("is-prefer-dark");
             set_app_style (is_prefer_dark, false);
             if (is_prefer_dark) {
-                style_mode_button.selected = 1;
+                dark_style_button.active = true;
             } else {
-                style_mode_button.selected = 0;
+                light_style_button.active = true;
             }
+        }
+    }
+
+    private class StyleButton : Gtk.ToggleButton {
+        public new string icon_name { get; construct; }
+        public string label_text { get; construct; }
+
+        public StyleButton (string icon_name, string label_text, Gtk.ToggleButton? group = null) {
+            Object (
+                icon_name: icon_name,
+                label_text: label_text,
+                group: group
+            );
+        }
+
+        construct {
+            var button_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 3);
+            button_content.append (new Gtk.Image.from_icon_name (icon_name));
+            button_content.append (new Gtk.Label (label_text));
+
+            child = button_content;
+            can_focus = false;
         }
     }
 }
