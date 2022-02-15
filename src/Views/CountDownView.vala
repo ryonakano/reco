@@ -59,7 +59,7 @@ public class CountDownView : Gtk.Box {
         buttons_grid.attach (cancel_button, 0, 0, 1, 1);
         buttons_grid.attach (pause_button, 1, 0, 1, 1);
 
-        append (label_grid);
+        prepend (label_grid);
         append (buttons_grid);
 
         cancel_button.clicked.connect (() => {
