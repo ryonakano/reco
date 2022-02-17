@@ -132,15 +132,23 @@ public class WelcomeView : Gtk.Box {
         destination_chooser_button.clicked.connect (() => {
             var filechooser = new Gtk.FileChooserNative (
                 _("Choose a default destination"), window, Gtk.FileChooserAction.SELECT_FOLDER,
-                _("Select"), _("Cancel")
+                _("Select"), null
             );
-            filechooser.show ();
+            try {
+                filechooser.set_current_folder (File.new_for_path (Application.settings.get_string ("destination")));
+            } catch (Error e) {
+                warning (e.message);
+            }
+
             filechooser.response.connect ((response_id) => {
                 if (response_id == Gtk.ResponseType.ACCEPT) {
-                    Application.settings.set_string ("destination", filechooser.get_current_folder ().get_path ());
-                    filechooser.destroy ();
+                    Application.settings.set_string ("destination", filechooser.get_file ().get_path ());
+                    destination_chooser_button.label = get_destination ();
                 }
+
+                filechooser.destroy ();
             });
+            filechooser.show ();
         });
 
         record_button.clicked.connect (() => {

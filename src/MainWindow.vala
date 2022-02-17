@@ -137,13 +137,14 @@ public class MainWindow : Gtk.ApplicationWindow {
             var tmp_file = File.new_for_path (tmp_full_path);
 
             //TRANSLATORS: %s represents a timestamp here
-            var final_file = File.new_for_path (Application.settings.get_string ("destination") + "/" +
-                                _("Recording from %s").printf (new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S"))
-                                + suffix);
+            string final_file_name = _("Recording from %s").printf (
+                                        new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S")
+                                    ) + suffix;
+            var final_dest = File.new_for_path (Application.settings.get_string ("destination"));
 
             if (Application.settings.get_boolean ("auto-save")) {
                 try {
-                    if (tmp_file.move (final_file, FileCopyFlags.OVERWRITE)) {
+                    if (tmp_file.move (final_dest.get_child (final_file_name), FileCopyFlags.OVERWRITE)) {
                         welcome_view.show_success_button ();
                     }
                 } catch (Error e) {
@@ -151,16 +152,15 @@ public class MainWindow : Gtk.ApplicationWindow {
                 }
             } else {
                 var filechooser = new Gtk.FileChooserNative (
-                    _("Save your recording"), this, Gtk.FileChooserAction.SAVE,
-                    _("Save"), _("Cancel")
+                    _("Save your recording"), this, Gtk.FileChooserAction.SAVE, null, null
                 );
+                filechooser.set_current_name (final_file_name);
                 try {
-                    filechooser.set_file (final_file);
+                    filechooser.set_current_folder (final_dest);
                 } catch (Error e) {
                     warning (e.message);
                 }
 
-                filechooser.show ();
                 filechooser.response.connect ((response_id) => {
                     if (response_id == Gtk.ResponseType.ACCEPT) {
                         try {
@@ -177,7 +177,10 @@ public class MainWindow : Gtk.ApplicationWindow {
                             warning (e.message);
                         }
                     }
+
+                    filechooser.destroy ();
                 });
+                filechooser.show ();
             }
         });
     }
