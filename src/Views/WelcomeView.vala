@@ -133,7 +133,9 @@ public class WelcomeView : Gtk.Box {
             var filechooser = new Gtk.FileChooserNative (
                 _("Choose a default destination"), window, Gtk.FileChooserAction.SELECT_FOLDER,
                 _("Select"), null
-            );
+            ) {
+                modal = true
+            };
             try {
                 filechooser.set_current_folder (File.new_for_path (Application.settings.get_string ("destination")));
             } catch (Error e) {

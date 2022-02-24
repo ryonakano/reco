@@ -153,7 +153,9 @@ public class MainWindow : Gtk.ApplicationWindow {
             } else {
                 var filechooser = new Gtk.FileChooserNative (
                     _("Save your recording"), this, Gtk.FileChooserAction.SAVE, null, null
-                );
+                ) {
+                    modal = true
+                };
                 filechooser.set_current_name (final_file_name);
                 try {
                     filechooser.set_current_folder (final_dest);
