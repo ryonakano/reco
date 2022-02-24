@@ -117,6 +117,7 @@ public class WelcomeView : Gtk.Box {
             height_request = 48
         };
         record_button.get_style_context ().add_class ("record-button");
+        ((Gtk.Image) record_button.child).icon_size = Gtk.IconSize.LARGE;
 
         prepend (settings_grid);
         append (record_button);

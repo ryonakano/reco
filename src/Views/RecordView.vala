@@ -67,6 +67,7 @@ public class RecordView : Gtk.Box {
             height_request = 48
         };
         stop_button.get_style_context ().add_class ("record-button");
+        ((Gtk.Image) stop_button.child).icon_size = Gtk.IconSize.LARGE;
 
         pause_button = new Gtk.Button () {
             icon_name = "media-playback-pause-symbolic",
