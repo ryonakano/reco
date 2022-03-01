@@ -119,7 +119,7 @@ public class WelcomeView : Gtk.Box {
         record_button.get_style_context ().add_class ("record-button");
         ((Gtk.Image) record_button.child).icon_size = Gtk.IconSize.LARGE;
 
-        prepend (settings_grid);
+        append (settings_grid);
         append (record_button);
 
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
