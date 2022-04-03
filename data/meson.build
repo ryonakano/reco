@@ -15,7 +15,7 @@ install_data(
 i18n.merge_file(
     input: app_nickname + '.desktop.in',
     output: meson.project_name() + '.desktop',
-    po_dir: meson.source_root() / 'po' / 'extra',
+    po_dir: meson.project_source_root() / 'po' / 'extra',
     type: 'desktop',
     install: true,
     install_dir: get_option('datadir') / 'applications'
@@ -24,7 +24,7 @@ i18n.merge_file(
 i18n.merge_file(
     input: app_nickname + '.appdata.xml.in',
     output: meson.project_name() + '.appdata.xml',
-    po_dir: meson.source_root() / 'po' / 'extra',
+    po_dir: meson.project_source_root() / 'po' / 'extra',
     install: true,
     install_dir: get_option('datadir') / 'metainfo'
 )
