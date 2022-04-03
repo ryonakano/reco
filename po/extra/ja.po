@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-01-11 19:48+0900\n"
+"PO-Revision-Date: 2022-04-03 16:41+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -91,11 +91,13 @@ msgstr "録音が正常に完了したことを示すマーク"
 
 #: data/reco.appdata.xml.in:44
 msgid "Check desktop environment on runtime"
-msgstr ""
+msgstr "実行時にデスクトップ環境を確認するように修正"
 
 #: data/reco.appdata.xml.in:45
 msgid "Show nicer message dialogs depending on the running desktop environment"
 msgstr ""
+"実行中のデスクトップ環境に応じたデザインのメッセージダイアログを表示するよう"
+"に修正"
 
 #: data/reco.appdata.xml.in:47 data/reco.appdata.xml.in:61
 #: data/reco.appdata.xml.in:86 data/reco.appdata.xml.in:101
@@ -104,7 +106,6 @@ msgid "Translation updates:"
 msgstr "翻訳の更新:"
 
 #: data/reco.appdata.xml.in:49
-#, fuzzy
 msgid "Update French translation (thanks to @NathanBnm)"
 msgstr "フランス語翻訳を更新 (貢献者: @NathanBnm)"
 
@@ -119,9 +120,8 @@ msgid "Update Dutch translation (thanks to @Vistaus)"
 msgstr "ドイツ語翻訳を更新 (貢献者: @Vistaus)"
 
 #: data/reco.appdata.xml.in:52
-#, fuzzy
 msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
-msgstr "ポルトガル語翻訳を追加 (貢献者: @hugok79)"
+msgstr "簡体字中国語翻訳を追加 (貢献者: @ShuiHuo)"
 
 #: data/reco.appdata.xml.in:58
 msgid "Reco is now available on Flathub too!"
