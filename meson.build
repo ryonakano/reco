@@ -2,7 +2,7 @@ project(
     'com.github.ryonakano.reco',
     'vala', 'c',
     version: '3.2.1',
-    meson_version: '>=0.49.0'
+    meson_version: '>=0.57.0'
 )
 
 app_nickname = 'reco'
@@ -36,6 +36,11 @@ asresources = gnome.compile_resources(
     c_name: 'as'
 )
 
+gnome.post_install(
+    glib_compile_schemas: true,
+    gtk_update_icon_cache: true
+)
+
 sources = files(
     'src' / 'Services' / 'PulseAudioManager.vala',
     'src' / 'Services' / 'Recorder.vala',
@@ -65,5 +70,3 @@ executable(
 
 subdir('data')
 subdir('po')
-
-meson.add_install_script('meson' / 'post_install.py')
