@@ -38,14 +38,18 @@
   <content_rating type="oars-1.1" />
 
   <releases>
-    <release version="3.2.2" date="2021-01-13" urgency="low">
+    <release version="3.2.2" date="2021-04-03" urgency="low">
       <description>
         <ul>
+          <li>Check desktop environment on runtime</li>
           <li>Show nicer message dialogs depending on the running desktop environment</li>
         </ul>
         <p>Translation updates:</p>
         <ul>
-          <li>Update French translation (by @NathanBnm)</li>
+          <li>Update French translation (thanks to @NathanBnm)</li>
+          <li>Update Portuguese translation (thanks to @hugok79)</li>
+          <li>Update Dutch translation (thanks to @Vistaus)</li>
+          <li>Add simplified Chinese translation (thanks to @ShuiHuo)</li>
         </ul>
       </description>
     </release>
