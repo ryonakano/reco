@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-14 12:21+0000\n"
+"POT-Creation-Date: 2022-04-03 16:37+0900\n"
 "PO-Revision-Date: 2022-01-11 12:30+0100\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: Français\n"
@@ -98,74 +98,84 @@ msgid "An indication that recording is successfully finished"
 msgstr "Une indication montrant que l'enregistrement est terminé avec succès"
 
 #: data/reco.appdata.xml.in:44
+msgid "Check desktop environment on runtime"
+msgstr ""
+
+#: data/reco.appdata.xml.in:45
 msgid "Show nicer message dialogs depending on the running desktop environment"
 msgstr ""
 
-#: data/reco.appdata.xml.in:46 data/reco.appdata.xml.in:57
-#: data/reco.appdata.xml.in:82 data/reco.appdata.xml.in:97
-#: data/reco.appdata.xml.in:113
+#: data/reco.appdata.xml.in:47 data/reco.appdata.xml.in:61
+#: data/reco.appdata.xml.in:86 data/reco.appdata.xml.in:101
+#: data/reco.appdata.xml.in:117
 msgid "Translation updates:"
 msgstr "Mise à jour des traductions :"
 
-#: data/reco.appdata.xml.in:48 data/reco.appdata.xml.in:203
-msgid "Update French translation (by @NathanBnm)"
+#: data/reco.appdata.xml.in:49
+#, fuzzy
+msgid "Update French translation (thanks to @NathanBnm)"
 msgstr "Mise à jour des traductions en français (par @NathanBnm)"
 
-#: data/reco.appdata.xml.in:54
+#: data/reco.appdata.xml.in:50 data/reco.appdata.xml.in:89
+#: data/reco.appdata.xml.in:120 data/reco.appdata.xml.in:129
+msgid "Update Portuguese translation (thanks to @hugok79)"
+msgstr "Mise à jour des traductions en portugais (grâce à @hugok79)"
+
+#: data/reco.appdata.xml.in:51 data/reco.appdata.xml.in:88
+#: data/reco.appdata.xml.in:138 data/reco.appdata.xml.in:178
+msgid "Update Dutch translation (thanks to @Vistaus)"
+msgstr "Mise à jour des traductions en néerlandais (grâce à @Vistaus)"
+
+#: data/reco.appdata.xml.in:52
+#, fuzzy
+msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
+msgstr "Ajout des traductions en portuguais (grâce à @hugok79)"
+
+#: data/reco.appdata.xml.in:58
 msgid "Reco is now available on Flathub too!"
 msgstr "Reco est désormais également disponible sur Flathub !"
 
-#: data/reco.appdata.xml.in:59 data/reco.appdata.xml.in:117
+#: data/reco.appdata.xml.in:63 data/reco.appdata.xml.in:121
 #, fuzzy
 msgid "Update Spanish translation (thanks to @Eldhrimer)"
 msgstr "Mise à jour des traductions en espagnol (grâce à @Eldhrimer)"
 
-#: data/reco.appdata.xml.in:60 data/reco.appdata.xml.in:86
-#: data/reco.appdata.xml.in:99
+#: data/reco.appdata.xml.in:64 data/reco.appdata.xml.in:90
+#: data/reco.appdata.xml.in:103
 msgid "Update Italian translation (thanks to @albanobattistella)"
 msgstr "Mise à jour des traductions en italien (grâce à @albanobattistella)"
 
-#: data/reco.appdata.xml.in:66
+#: data/reco.appdata.xml.in:70
 msgid "Let's celebrate the new year with the issue from the ancient fixed!"
 msgstr "Célebrons la nouvelle année avec la correction des anciens problèmes !"
 
-#: data/reco.appdata.xml.in:70
+#: data/reco.appdata.xml.in:74
 msgid ""
 "Replace AAC option with ALAC to prevent strange stereo files being generated"
 msgstr ""
 "Remplacement de l'option AAC par ALAC pour éviter la génération de fichiers "
 "stéréo étranges"
 
-#: data/reco.appdata.xml.in:76
+#: data/reco.appdata.xml.in:80
 msgid "The release for celebrating the 3rd anniversary of the app!"
 msgstr "Version anniversaire pour les trois ans de l'application !"
 
-#: data/reco.appdata.xml.in:80
+#: data/reco.appdata.xml.in:84
 msgid "Add new style switcher"
 msgstr "Ajout d'un nouveau bouton de sélection du thème"
 
-#: data/reco.appdata.xml.in:84 data/reco.appdata.xml.in:134
-#: data/reco.appdata.xml.in:174
-msgid "Update Dutch translation (thanks to @Vistaus)"
-msgstr "Mise à jour des traductions en néerlandais (grâce à @Vistaus)"
-
-#: data/reco.appdata.xml.in:85 data/reco.appdata.xml.in:116
-#: data/reco.appdata.xml.in:125
-msgid "Update Portuguese translation (thanks to @hugok79)"
-msgstr "Mise à jour des traductions en portugais (grâce à @hugok79)"
-
-#: data/reco.appdata.xml.in:87 data/reco.appdata.xml.in:100
-#: data/reco.appdata.xml.in:118 data/reco.appdata.xml.in:127
-#: data/reco.appdata.xml.in:154 data/reco.appdata.xml.in:163
-#: data/reco.appdata.xml.in:186 data/reco.appdata.xml.in:204
-#: data/reco.appdata.xml.in:215 data/reco.appdata.xml.in:252
-#: data/reco.appdata.xml.in:261 data/reco.appdata.xml.in:271
-#: data/reco.appdata.xml.in:293 data/reco.appdata.xml.in:305
-#: data/reco.appdata.xml.in:315
+#: data/reco.appdata.xml.in:91 data/reco.appdata.xml.in:104
+#: data/reco.appdata.xml.in:122 data/reco.appdata.xml.in:131
+#: data/reco.appdata.xml.in:158 data/reco.appdata.xml.in:167
+#: data/reco.appdata.xml.in:190 data/reco.appdata.xml.in:208
+#: data/reco.appdata.xml.in:219 data/reco.appdata.xml.in:256
+#: data/reco.appdata.xml.in:265 data/reco.appdata.xml.in:275
+#: data/reco.appdata.xml.in:297 data/reco.appdata.xml.in:309
+#: data/reco.appdata.xml.in:319
 msgid "Update Japanese translation"
 msgstr "Mise à jour des traductions en japonais"
 
-#: data/reco.appdata.xml.in:94
+#: data/reco.appdata.xml.in:98
 msgid ""
 "Use the user cache folder instead of the system temporary folder to save "
 "temporary recording files"
@@ -173,11 +183,11 @@ msgstr ""
 "Utilisation du dossier de cache utilisateur au lieu du dossier temporaire du "
 "système pour sauvegarder les fichiers d'enregistrement temporaires"
 
-#: data/reco.appdata.xml.in:95
+#: data/reco.appdata.xml.in:99
 msgid "Fix wrong OARS data"
 msgstr "Correction des données OARS erronées"
 
-#: data/reco.appdata.xml.in:107
+#: data/reco.appdata.xml.in:111
 msgid ""
 "Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
 "manifest"
@@ -185,12 +195,12 @@ msgstr ""
 "Publication de l'application dans le nouveau Centre d'Applications "
 "d'elementary OS avec le manifeste Flatpak"
 
-#: data/reco.appdata.xml.in:108
+#: data/reco.appdata.xml.in:112
 msgid "A completely rewrited and improved method to detect recording sources"
 msgstr ""
 "Une toute nouvelle méthode de détection des sources réécrite et améliorée"
 
-#: data/reco.appdata.xml.in:109
+#: data/reco.appdata.xml.in:113
 msgid ""
 "Redesign: Separate Delay and Duration settings from Recording section as "
 "Timer section and put it under Recording section"
@@ -198,26 +208,26 @@ msgstr ""
 "Reconception : Séparation des paramètres de délai et de durée de la section "
 "Enregistrement vers une nouvelle section Minuteur située juste en dessous"
 
-#: data/reco.appdata.xml.in:110
+#: data/reco.appdata.xml.in:114
 msgid "Make sure to show a dialog for any errors in recording"
 msgstr ""
 "Affichage d'une boîte de dialogue en cas d'erreur lors de l'enregistrement"
 
-#: data/reco.appdata.xml.in:111
+#: data/reco.appdata.xml.in:115
 msgid "Code refactoring"
 msgstr "Remaniement du code"
 
-#: data/reco.appdata.xml.in:115
+#: data/reco.appdata.xml.in:119
 msgid "Add Brazilian Portuguese translation (thanks to @mathessaricci)"
 msgstr "Ajout des traductions en portuguais (grâce à @mathessaricci)"
 
-#: data/reco.appdata.xml.in:126
+#: data/reco.appdata.xml.in:130
 msgid ""
 "Update Spanish translation and add Catalan translation (thanks to @fitojb)"
 msgstr ""
 "Mise à jour des traductions en espagnol et ajout du catalan (grâce à @fitojb)"
 
-#: data/reco.appdata.xml.in:135
+#: data/reco.appdata.xml.in:139
 msgid ""
 "Revert another change done in version 2.4.3 that potentially caused an error "
 "during the packaging process"
@@ -225,11 +235,11 @@ msgstr ""
 "Annulation d'une autre modification effectuée dans la version 2.4.3 qui "
 "pouvait potentiellement causer une erreur lors du processus d'empaquetage"
 
-#: data/reco.appdata.xml.in:136
+#: data/reco.appdata.xml.in:140
 msgid "Revive the change that had been reverted in version 2.4.4"
 msgstr "Rétablissement des modifications annulées dans la version 2.4.4"
 
-#: data/reco.appdata.xml.in:143
+#: data/reco.appdata.xml.in:147
 msgid ""
 "Revert changes done in version 2.4.3 that potentially caused an error during "
 "the packaging process"
@@ -237,11 +247,11 @@ msgstr ""
 "Annulation des modifications effectuées dans la version 2.4.3 qui pouvaient "
 "potentiellement causer une erreur lors du processus d'empaquetage"
 
-#: data/reco.appdata.xml.in:150
+#: data/reco.appdata.xml.in:154
 msgid "MainWindow: Readable copy for dialog messages"
 msgstr "Fenêtre principale : Copie lisible des boîte de dialogues de message"
 
-#: data/reco.appdata.xml.in:151
+#: data/reco.appdata.xml.in:155
 msgid ""
 "MainWindow: Add window title for the new Gala feature that shows windows "
 "titles in Multitasking view"
@@ -250,66 +260,66 @@ msgstr ""
 "fonctionnalité de Gala qui affiche le titre des fenêtres dans la vue "
 "multitâche"
 
-#: data/reco.appdata.xml.in:152
+#: data/reco.appdata.xml.in:156
 msgid "Add Italian translation (thanks to @albanobattistella)"
 msgstr "Ajout des traductions en italien (grâce à @albanobattistella)"
 
-#: data/reco.appdata.xml.in:153
+#: data/reco.appdata.xml.in:157
 msgid "Add Portuguese translation (thanks to @hugok79)"
 msgstr "Ajout des traductions en portuguais (grâce à @hugok79)"
 
-#: data/reco.appdata.xml.in:155
+#: data/reco.appdata.xml.in:159
 msgid "Clean code"
 msgstr "Nettoyage du code"
 
-#: data/reco.appdata.xml.in:162
+#: data/reco.appdata.xml.in:166
 msgid "Inhibit sleeping while recording"
 msgstr "Empêchement de la mise en veille lors de l'enregistrement"
 
-#: data/reco.appdata.xml.in:170
+#: data/reco.appdata.xml.in:174
 msgid ""
 "Make sure GSettings key \"length\" and \"delay\" take only natural numbers"
 msgstr ""
 "Nous nous sommes assurés que les clés GSettings « length » et « delay » "
 "n'acceptent que des nombres naturels"
 
-#: data/reco.appdata.xml.in:171
+#: data/reco.appdata.xml.in:175
 msgid "Follow API change of Gtk.FileChooser in GTK 4"
 msgstr ""
 "Prise en compte des modifications de l'API de Gtk.FileChooser dans GTK 4"
 
-#: data/reco.appdata.xml.in:172
+#: data/reco.appdata.xml.in:176
 msgid "Fix temporary recordings are not deleted on error"
 msgstr ""
 "Correction des enregistrements temporaires non supprimés en cas d'erreur"
 
-#: data/reco.appdata.xml.in:173
+#: data/reco.appdata.xml.in:177
 msgid "Fix some microphones are not recognized (thanks to @peteruithoven)"
 msgstr ""
 "Correction de la non-reconnaissance de certains micros (grâce à "
 "@peteruithoven)"
 
-#: data/reco.appdata.xml.in:175
+#: data/reco.appdata.xml.in:179
 msgid "Update Turkish translation (thanks to @safak45x)"
 msgstr "Mise à jour des traductions en turc (grâce à @safak45x)"
 
-#: data/reco.appdata.xml.in:182
+#: data/reco.appdata.xml.in:186
 msgid "Respect an elementary OS-wide dark preference"
 msgstr "Prise en compte du paramètre de thème d'elementary OS"
 
-#: data/reco.appdata.xml.in:183
+#: data/reco.appdata.xml.in:187
 msgid "Allow setting per-app dark style preference"
 msgstr "Ajout de la possibilité de définir le thème pour l'application"
 
-#: data/reco.appdata.xml.in:184
+#: data/reco.appdata.xml.in:188
 msgid "Allow choosing stereo or mono"
 msgstr "Ajout de la possibilité de sélectionner stéréo ou mono"
 
-#: data/reco.appdata.xml.in:185
+#: data/reco.appdata.xml.in:189
 msgid "Update Spanish translation (thanks to @CCaroV)"
 msgstr "Mise à jour des traductions en espagnol (grâce à @CCaroV)"
 
-#: data/reco.appdata.xml.in:187
+#: data/reco.appdata.xml.in:191
 msgid ""
 "Explicit gstreamer1.0-libav as a dependency to fix a potential crash when "
 "trying to record in AAC"
@@ -317,19 +327,23 @@ msgstr ""
 "Ajout de gstreamer1.0-libav en tant que dépendance pour corriger un "
 "potentiel plantage lors de l'enregistrement au format AAC"
 
-#: data/reco.appdata.xml.in:194
+#: data/reco.appdata.xml.in:198
 msgid "Add Turkish translation (by @safak45x)"
 msgstr "Ajout des traductions en turc (par @safak45x)"
 
-#: data/reco.appdata.xml.in:195
+#: data/reco.appdata.xml.in:199
 msgid "Add Russian translation (by @usmanovmax)"
 msgstr "Ajout des traductions en russe (par @usmanovmax)"
 
-#: data/reco.appdata.xml.in:202
+#: data/reco.appdata.xml.in:206
 msgid "Add Polish translation (by @michalzkosmosu)"
 msgstr "Ajout des traductions en polonais (par @michalzkosmosu)"
 
-#: data/reco.appdata.xml.in:211
+#: data/reco.appdata.xml.in:207
+msgid "Update French translation (by @NathanBnm)"
+msgstr "Mise à jour des traductions en français (par @NathanBnm)"
+
+#: data/reco.appdata.xml.in:215
 msgid ""
 "Fix the weird behavior of the countdown timer when pausing/canceling it (by "
 "andreasomaini)"
@@ -337,47 +351,47 @@ msgstr ""
 "Correction du comportement étrange du décompte lors de sa mise en pause/"
 "annulation (par andreasomaini)"
 
-#: data/reco.appdata.xml.in:212
+#: data/reco.appdata.xml.in:216
 msgid ""
 "Support recording sounds from both your microphone and PC at the same time"
 msgstr ""
 "Prise en charge de l'enregistrement du son à la fois à partir du micro et du "
 "PC au même moment"
 
-#: data/reco.appdata.xml.in:213
+#: data/reco.appdata.xml.in:217
 msgid "End the app safely if the encoder is not created successfully"
 msgstr ""
 "Fermeture de l'application sans problème dans le cas où l'encodeur n'est pas "
 "créé correctement"
 
-#: data/reco.appdata.xml.in:214
+#: data/reco.appdata.xml.in:218
 msgid ""
 "Update the app description in the readme and AppCenter to be more tantalizing"
 msgstr ""
 "Mise à jour de la description de l'application dans le fichier readme et "
 "dans le Centre d'Applications pour être plus attirante"
 
-#: data/reco.appdata.xml.in:216
+#: data/reco.appdata.xml.in:220
 msgid "Remove unnecessary field code that marks the app handleable files"
 msgstr ""
 "Suppression du code de champ inutile qui marque les fichiers gérables par "
 "l'application"
 
-#: data/reco.appdata.xml.in:223
+#: data/reco.appdata.xml.in:227
 msgid "Fix recording won't success when changing the file format"
 msgstr ""
 "Correction de l'enregisrement qui ne fonctionnait pas au changement de format"
 
-#: data/reco.appdata.xml.in:224
+#: data/reco.appdata.xml.in:228
 msgid "Add Spanish translation (by fitojb)"
 msgstr "Ajout des traductions en espagnol (par fitojb)"
 
-#: data/reco.appdata.xml.in:231
+#: data/reco.appdata.xml.in:235
 msgid "Getting/setting window positions gets more efficient"
 msgstr ""
 "Récupération/Sauvegarde de la position de la fenêtre de façon plus efficace"
 
-#: data/reco.appdata.xml.in:232
+#: data/reco.appdata.xml.in:236
 msgid ""
 "Fix the app does not resume the pause icon when you cancel recording while "
 "pausing it"
@@ -385,7 +399,7 @@ msgstr ""
 "Correction de l'application qui ne reprend pas après l'avoir mise en pause "
 "si l'enregistreùent est annulé en étant en pause"
 
-#: data/reco.appdata.xml.in:233
+#: data/reco.appdata.xml.in:237
 msgid ""
 "Fix the app shows the successful mark even if a recording is not saved "
 "correctly"
@@ -393,50 +407,50 @@ msgstr ""
 "Correction de l'application affichant l'icône de succès si un enregistrement "
 "n'a pas été correctement sauvegardé"
 
-#: data/reco.appdata.xml.in:234
+#: data/reco.appdata.xml.in:238
 msgid "Save and restore values typed into the spin buttons"
 msgstr ""
 "Sauvegarde et restoration des valeurs tapées dans les boutons numériques"
 
-#: data/reco.appdata.xml.in:241
+#: data/reco.appdata.xml.in:245
 msgid "Allow to cancel/pause countdown before recording"
 msgstr ""
 "Possibilité d'annuler/mettre en pause le décompte avant l'enregistrement"
 
-#: data/reco.appdata.xml.in:242
+#: data/reco.appdata.xml.in:246
 msgid "Save recordings when the app window is destroyed"
 msgstr ""
 "Sauvegarde des enregistrements lorsque la fenêtre de l'application est "
 "détruite"
 
-#: data/reco.appdata.xml.in:243
+#: data/reco.appdata.xml.in:247
 msgid "Fix the app freezes on closing an error dialog"
 msgstr ""
 "Correction du blocage de l'application lors de la fermeture des boîtes de "
 "dialogue d'erreur"
 
-#: data/reco.appdata.xml.in:250
+#: data/reco.appdata.xml.in:254
 msgid "Allow to record system sound"
 msgstr "Ajout de la possibilité d'enregistrer le son du système"
 
-#: data/reco.appdata.xml.in:251
+#: data/reco.appdata.xml.in:255
 msgid "Fix the timer does not stop in accordance with the recording"
 msgstr ""
 "Correction du minuteur qui ne s'arrêtait pas en même temps que "
 "l'enregistrement"
 
-#: data/reco.appdata.xml.in:259
+#: data/reco.appdata.xml.in:263
 msgid "Grammatically fixes in the app description (by imasaru)"
 msgstr ""
 "Corrections grammaticales dans la description de l'application (par imasaru)"
 
-#: data/reco.appdata.xml.in:260
+#: data/reco.appdata.xml.in:264
 msgid "Fix the localized screenshots don't appear to AppCenter"
 msgstr ""
 "Correction des captures d'écran pour chaque langue qui ne s'affichaient pas "
 "dans le Centre d'Applications"
 
-#: data/reco.appdata.xml.in:268
+#: data/reco.appdata.xml.in:272
 msgid ""
 "Provide localized screenshots to AppCenter (French, Japanese, Lithuanian and "
 "Dutch)"
@@ -444,21 +458,21 @@ msgstr ""
 "Captures d'écran spécifiques pour chaque langue (français, japonais, "
 "lithuanien et néerlandais)"
 
-#: data/reco.appdata.xml.in:269
+#: data/reco.appdata.xml.in:273
 msgid "Fix temporary recording files remain when quit the app while recording"
 msgstr ""
 "Correction des fichiers d'enregistrement temporaires qui restaient si "
 "l'application était fermée pendant l'enregistrement"
 
-#: data/reco.appdata.xml.in:270
+#: data/reco.appdata.xml.in:274
 msgid "Use upper case for WAV"
 msgstr "Utilisation des majuscules pour le format WAV"
 
-#: data/reco.appdata.xml.in:272
+#: data/reco.appdata.xml.in:276
 msgid "Add Dutch translation (by Vistaus)"
 msgstr "Ajout des traductions en néerlandais (par Vistaus)"
 
-#: data/reco.appdata.xml.in:279
+#: data/reco.appdata.xml.in:283
 msgid ""
 "Fix the app isn't listed in the \"Sound &amp; Video\" category in "
 "Applications Menu"
@@ -466,30 +480,30 @@ msgstr ""
 "Correction de l'application qui n'était pas listée dans la catégorie « Son "
 "et vidéo » dans le menu des applications"
 
-#: data/reco.appdata.xml.in:280
+#: data/reco.appdata.xml.in:284
 msgid "Add a shortcut key to toggle recording"
 msgstr "Ajout d'un raccourci clavier pour démarrer/arrêter l'enregistrement"
 
-#: data/reco.appdata.xml.in:281
+#: data/reco.appdata.xml.in:285
 msgid "Fix the name of \"Recordings\" folder is not created in system language"
 msgstr ""
 "Correction du nom du dossier « Enregistrements » qui n'était pas créé dans "
 "la langue du système"
 
-#: data/reco.appdata.xml.in:282
+#: data/reco.appdata.xml.in:286
 msgid "Notify success of recording with a check mark"
 msgstr "Notification de succès d'enregistrement avec une coche"
 
-#: data/reco.appdata.xml.in:283
+#: data/reco.appdata.xml.in:287
 msgid "Allow to cancel/pause recording"
 msgstr "Ajout de la possibilté d'annuler/mettre en pause l'enregistrement"
 
-#: data/reco.appdata.xml.in:284
+#: data/reco.appdata.xml.in:288
 #, fuzzy
 msgid "Update translations"
 msgstr "Mise à jour des traductions en japonais"
 
-#: data/reco.appdata.xml.in:291
+#: data/reco.appdata.xml.in:295
 msgid ""
 "Show a confirmation dialog when trying to quit the app if a recording is in "
 "progress"
@@ -497,64 +511,64 @@ msgstr ""
 "Affichage d'une boîte de dialogue de confirmation en cas de fermeture de "
 "l'application si un enregistrement est en cours"
 
-#: data/reco.appdata.xml.in:292
+#: data/reco.appdata.xml.in:296
 msgid "Add Lithuanian translation (by welaq)"
 msgstr "Ajout des traductions en lithuanien (par welaq)"
 
-#: data/reco.appdata.xml.in:300
+#: data/reco.appdata.xml.in:304
 msgid "Save and restore settings"
 msgstr "Sauvegarde et restoration des paramètres"
 
-#: data/reco.appdata.xml.in:301
+#: data/reco.appdata.xml.in:305
 msgid "Support both do-not-ask-where-to-save flow and ask-where-to-save flow"
 msgstr ""
 "Prise en charge des deux flux ne-pas-demander-où-sauvegarder et demander-où-"
 "sauvegarder"
 
-#: data/reco.appdata.xml.in:302
+#: data/reco.appdata.xml.in:306
 msgid "Organized UI"
 msgstr "Organisation de l'interface"
 
-#: data/reco.appdata.xml.in:303
+#: data/reco.appdata.xml.in:307
 msgid "Some small bug fixes"
 msgstr "Quelques corrections de bug"
 
-#: data/reco.appdata.xml.in:304
+#: data/reco.appdata.xml.in:308
 msgid "Add French translation (by NathanBnm)"
 msgstr "Ajout des traductions en français (par NathanBnm)"
 
-#: data/reco.appdata.xml.in:312
+#: data/reco.appdata.xml.in:316
 msgid "Allow to set recording length"
 msgstr "Ajout de la possibilité de définir la durée d'enregistrement"
 
-#: data/reco.appdata.xml.in:313
+#: data/reco.appdata.xml.in:317
 msgid "Fix the countdown is weird when recording more than twice"
 msgstr "Correction d'un comportement étrange lors d'enregistrements multiples"
 
-#: data/reco.appdata.xml.in:314
+#: data/reco.appdata.xml.in:318
 msgid "Localization improvement"
 msgstr "Amélioration des traductions"
 
-#: data/reco.appdata.xml.in:322
+#: data/reco.appdata.xml.in:326
 msgid "Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats"
 msgstr ""
 "Prise en charge de l'enregistrement aux formats AAC, FLAC, Ogg Vorbis, Opus "
 "et MP3"
 
-#: data/reco.appdata.xml.in:323
+#: data/reco.appdata.xml.in:327
 msgid "Show a notification after recorded successfully"
 msgstr ""
 "Affichage d'une notification lorsqu'un enregistrement est terminé avec succès"
 
-#: data/reco.appdata.xml.in:324
+#: data/reco.appdata.xml.in:328
 msgid "Add Japanese translation"
 msgstr "Ajout des traductions en japonais"
 
-#: data/reco.appdata.xml.in:331
+#: data/reco.appdata.xml.in:335
 msgid "Initial release"
 msgstr "Version initiale"
 
-#: data/reco.appdata.xml.in:337
+#: data/reco.appdata.xml.in:341
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 
@@ -562,10 +576,9 @@ msgstr "Ryo Nakano"
 msgid "Audio Recording App"
 msgstr "Aplication d'enregistrement audio"
 
-#: data/reco.desktop.in:8
-msgid "com.github.ryonakano.reco"
-msgstr "com.github.ryonakano.reco"
-
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Enregistrement;Audio;Son;Voix;"
+
+#~ msgid "com.github.ryonakano.reco"
+#~ msgstr "com.github.ryonakano.reco"
