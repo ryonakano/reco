@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018-2021 Ryo Nakano -->
+<!-- Copyright 2018-2022 Ryo Nakano -->
 <component type="desktop">
   <id>com.github.ryonakano.reco</id>
   <launchable type="desktop-id">com.github.ryonakano.reco.desktop</launchable>
@@ -38,14 +38,18 @@
   <content_rating type="oars-1.1" />
 
   <releases>
-    <release version="3.2.2" date="2021-01-13" urgency="low">
+    <release version="3.3.0" date="2021-04-04" urgency="medium">
       <description>
         <ul>
+          <li>Check desktop environment on runtime</li>
           <li>Show nicer message dialogs depending on the running desktop environment</li>
         </ul>
         <p>Translation updates:</p>
         <ul>
-          <li>Update French translation (by @NathanBnm)</li>
+          <li>Update French translation (thanks to @NathanBnm)</li>
+          <li>Update Portuguese translation (thanks to @hugok79)</li>
+          <li>Update Dutch translation (thanks to @Vistaus)</li>
+          <li>Add simplified Chinese translation (thanks to @ShuiHuo)</li>
         </ul>
       </description>
     </release>
