@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-01-04 21:10+0100\n"
+"PO-Revision-Date: 2022-04-05 19:20+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: ITALIAN <LL@li.org>\n"
 "Language: it\n"
@@ -94,11 +94,11 @@ msgstr "Un'indicazione che la registrazione è terminata con successo"
 
 #: data/reco.appdata.xml.in:44
 msgid "Check desktop environment on runtime"
-msgstr ""
+msgstr "Verifica l'ambiente desktop in fase di esecuzione"
 
 #: data/reco.appdata.xml.in:45
 msgid "Show nicer message dialogs depending on the running desktop environment"
-msgstr ""
+msgstr "Mostra finestre di dialogo dei messaggi più belle a seconda dell'ambiente desktop in esecuzione"
 
 #: data/reco.appdata.xml.in:47 data/reco.appdata.xml.in:61
 #: data/reco.appdata.xml.in:86 data/reco.appdata.xml.in:101
@@ -107,9 +107,8 @@ msgid "Translation updates:"
 msgstr "Aggiornamenti di traduzione:"
 
 #: data/reco.appdata.xml.in:49
-#, fuzzy
 msgid "Update French translation (thanks to @NathanBnm)"
-msgstr "Aggiornata traduzione francese (di @NathanBnm)"
+msgstr "Aggiornata traduzione francese (grazie a @NathanBnm)"
 
 #: data/reco.appdata.xml.in:50 data/reco.appdata.xml.in:89
 #: data/reco.appdata.xml.in:120 data/reco.appdata.xml.in:129
@@ -122,9 +121,8 @@ msgid "Update Dutch translation (thanks to @Vistaus)"
 msgstr "Aggiornata la traduzione olandese (grazie a @Vistaus)"
 
 #: data/reco.appdata.xml.in:52
-#, fuzzy
 msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
-msgstr "Aggiunta la traduzione portoghese (grazie a @hugok79)"
+msgstr "Aggiungi una traduzione cinese semplificata (grazie a @ShuiHuo)"
 
 #: data/reco.appdata.xml.in:58
 msgid "Reco is now available on Flathub too!"
