@@ -38,7 +38,7 @@
   <content_rating type="oars-1.1" />
 
   <releases>
-    <release version="3.3.0" date="2021-04-04" urgency="medium">
+    <release version="3.3.0" date="2022-04-04" urgency="medium">
       <description>
         <ul>
           <li>Check desktop environment on runtime</li>
@@ -53,7 +53,7 @@
         </ul>
       </description>
     </release>
-    <release version="3.2.1" date="2021-01-11" urgency="low">
+    <release version="3.2.1" date="2022-01-11" urgency="low">
       <description>
         <p>
           Reco is now available on Flathub too!
