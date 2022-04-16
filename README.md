@@ -76,7 +76,7 @@ Click the following graphs to get started:
 
 | Main: Texts in the app itself | Extra: Texts in the desktop entry and the software center |
 | --- | --- |
-| [![Translation status](https://hosted.weblate.org/widgets/rosp/-/reco-main/multi-auto.svg)](https://hosted.weblate.org/engage/rosp/) | [![Translation status](https://hosted.weblate.org/widgets/rosp/-/reco-extra/multi-auto.svg)](https://hosted.weblate.org/engage/rosp/) |
+| [![Translation status](https://hosted.weblate.org/widgets/rosp/-/reco-main/multi-auto.svg)](https://hosted.weblate.org/projects/rosp/reco-main) | [![Translation status](https://hosted.weblate.org/widgets/rosp/-/reco-extra/multi-auto.svg)](https://hosted.weblate.org/projects/rosp/reco-extra) |
 
 ## The Story Behind This App
 
