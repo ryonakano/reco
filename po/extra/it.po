@@ -98,7 +98,9 @@ msgstr "Verifica l'ambiente desktop in fase di esecuzione"
 
 #: data/reco.appdata.xml.in:45
 msgid "Show nicer message dialogs depending on the running desktop environment"
-msgstr "Mostra finestre di dialogo dei messaggi più belle a seconda dell'ambiente desktop in esecuzione"
+msgstr ""
+"Mostra finestre di dialogo dei messaggi più belle a seconda dell'ambiente "
+"desktop in esecuzione"
 
 #: data/reco.appdata.xml.in:47 data/reco.appdata.xml.in:61
 #: data/reco.appdata.xml.in:86 data/reco.appdata.xml.in:101
