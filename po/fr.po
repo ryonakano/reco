@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-04-17 02:57+0000\n"
+"PO-Revision-Date: 2022-04-19 03:07+0000\n"
 "Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/rosp/reco-main/fr/"
 ">\n"
@@ -163,7 +163,7 @@ msgstr "Sauvegardez votre enregistrement"
 
 #: src/MainWindow.vala:125
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 #: src/MainWindow.vala:125
 msgid "Cancel"
