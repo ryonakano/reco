@@ -3,18 +3,22 @@
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Nathan Bonnemains (@NathanBnm), 2022.
 #
+# J. Lavoie <j.lavoie@net-c.ca>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-01-11 12:30+0100\n"
-"Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
-"Language-Team: Français\n"
+"PO-Revision-Date: 2022-04-17 02:57+0000\n"
+"Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/rosp/reco-main/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
@@ -175,11 +179,11 @@ msgstr "Le message d'erreur suivant pourrait être utile :"
 
 #: src/StyleSwitcher.vala:24
 msgid "Style:"
-msgstr "Thème :"
+msgstr "Style :"
 
 #: src/StyleSwitcher.vala:30
 msgid "Light style"
-msgstr "Thème clair"
+msgstr "Style clair"
 
 #: src/StyleSwitcher.vala:33
 msgid "Light"
@@ -187,7 +191,7 @@ msgstr "Clair"
 
 #: src/StyleSwitcher.vala:37
 msgid "Dark style"
-msgstr "Thème sombre"
+msgstr "Style sombre"
 
 #: src/StyleSwitcher.vala:40
 msgid "Dark"
@@ -195,4 +199,4 @@ msgstr "Sombre"
 
 #: src/StyleSwitcher.vala:54
 msgid "Use the same style set in the system"
-msgstr "Utiliser le thème du système"
+msgstr "Utiliser le même ensemble de styles dans le système"
