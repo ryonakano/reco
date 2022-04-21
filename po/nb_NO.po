@@ -1,122 +1,112 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Moo, 2019.
-#
+# Allan Nordhøy <epost@anotheragency.no>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2019-02-18 14:35+0200\n"
-"Last-Translator: Moo\n"
-"Language-Team: \n"
-"Language: lt\n"
+"PO-Revision-Date: 2022-04-19 03:07+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/rosp/"
+"reco-main/nb_NO/>\n"
+"Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: src/Services/Recorder.vala:232
-#, fuzzy
 msgid "Recording is ongoing"
-msgstr "Įrašinėjimai"
+msgstr "Opptak pågår"
 
 #: src/Views/CountDownView.vala:37
-#, fuzzy
 msgid "Cancel the countdown"
-msgstr "Pradėti įrašinėjimą"
+msgstr "Avbryt nedtellingen"
 
 #: src/Views/CountDownView.vala:44 src/Views/CountDownView.vala:117
 #: src/Views/CountDownView.vala:139
-#, fuzzy
 msgid "Pause the countdown"
-msgstr "Pradėti įrašinėjimą"
+msgstr "Sett nedtellingen på pause"
 
 #: src/Views/CountDownView.vala:130
-#, fuzzy
 msgid "Resume the countdown"
-msgstr "Įrašinėjimas"
+msgstr "Fortsett nedtellingen"
 
 #: src/Views/RecordView.vala:53
-#, fuzzy
 msgid "Cancel recording"
-msgstr "Pradėti įrašinėjimą"
+msgstr "Avbryt opptak"
 
 #: src/Views/RecordView.vala:60
-#, fuzzy
 msgid "Finish recording"
-msgstr "Stabdyti įrašinėjimą"
+msgstr "Fullfør opptak"
 
 #: src/Views/RecordView.vala:69 src/Views/RecordView.vala:95
 #: src/Views/RecordView.vala:130 src/Views/RecordView.vala:142
-#, fuzzy
 msgid "Pause recording"
-msgstr "Pradėti įrašinėjimą"
+msgstr "Sett opptak på pause"
 
 #: src/Views/RecordView.vala:118
-#, fuzzy
 msgid "Resume recording"
-msgstr "Įrašinėjimas"
+msgstr "Fortsett opptak"
 
 #: src/Views/WelcomeView.vala:20
 msgid "Recording"
-msgstr "Įrašinėjimas"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:22
-#, fuzzy
 msgid "Record from:"
-msgstr "Įrašinėjimas iš %s"
+msgstr "Ta opp fra:"
 
 #: src/Views/WelcomeView.vala:28
 msgid "Microphone"
-msgstr ""
+msgstr "Mikrofon"
 
 #: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:57
 msgid "System"
-msgstr ""
+msgstr "Systemet"
 
 #: src/Views/WelcomeView.vala:30
 msgid "Both"
-msgstr ""
+msgstr "Begge"
 
 #: src/Views/WelcomeView.vala:32
 msgid "Channels:"
-msgstr ""
+msgstr "Kanaler:"
 
 #: src/Views/WelcomeView.vala:38
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: src/Views/WelcomeView.vala:39
 msgid "Stereo"
-msgstr ""
+msgstr "Stereo"
 
 #: src/Views/WelcomeView.vala:41
 msgid "Timer"
-msgstr ""
+msgstr "Tidsur"
 
 #: src/Views/WelcomeView.vala:43
 msgid "Delay in seconds:"
-msgstr "Delsa sekundėmis:"
+msgstr "Forsinkelse i sekunder:"
 
 #: src/Views/WelcomeView.vala:50
 msgid "Length in seconds:"
-msgstr "Trukmė sekundėmis:"
+msgstr "Lengde i sekunder:"
 
 #: src/Views/WelcomeView.vala:57
 msgid "Saving"
-msgstr "Išsaugojimas"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:59
 msgid "Format:"
-msgstr "Formatas:"
+msgstr "Format:"
 
 #: src/Views/WelcomeView.vala:66
 msgid "ALAC"
-msgstr ""
+msgstr "ALAC"
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -128,7 +118,7 @@ msgstr "MP3"
 
 #: src/Views/WelcomeView.vala:69
 msgid "Ogg Vorbis"
-msgstr "Ogg Vorbis"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:70
 msgid "Opus"
@@ -136,101 +126,75 @@ msgstr "Opus"
 
 #: src/Views/WelcomeView.vala:71
 msgid "WAV"
-msgstr ""
+msgstr "WAV"
 
 #: src/Views/WelcomeView.vala:73
 msgid "Automatically save files:"
-msgstr "Automatiškai išsaugoti failus:"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:82
 msgid "Choose a default destination"
-msgstr "Pasirinkite numatytąją vietą"
+msgstr "Velg et forvalgt mål"
 
 #: src/Views/WelcomeView.vala:113
 msgid "Start recording"
-msgstr "Pradėti įrašinėjimą"
+msgstr "Start opptak"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
 #: src/Views/WelcomeView.vala:146
 msgid "Recordings"
-msgstr "Įrašinėjimai"
+msgstr "Opptak"
 
 #: src/MainWindow.vala:49
 msgid "Preferences"
-msgstr ""
+msgstr "Innstillinger"
 
 #. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:106
 #, c-format
 msgid "Recording from %s"
-msgstr "Įrašinėjimas iš %s"
+msgstr "Tar opp fra %s"
 
 #: src/MainWindow.vala:124
 msgid "Save your recording"
-msgstr "Išsaugokite savo įrašinėjimą"
+msgstr "Lagre opptaket ditt"
 
 #: src/MainWindow.vala:125
 msgid "Save"
-msgstr "Išsaugoti"
+msgstr "Lagre"
 
 #: src/MainWindow.vala:125
 msgid "Cancel"
-msgstr "Atsisakyti"
+msgstr "Avbryt"
 
 #: src/MainWindow.vala:184 src/MainWindow.vala:202
 msgid "Unable to Complete Recording"
 msgstr ""
 
 #: src/MainWindow.vala:185 src/MainWindow.vala:203
-#, fuzzy
 msgid "The following error message may be helpful:"
-msgstr "Įrašanėjant, įvyko GStreamer klaida:"
+msgstr ""
 
 #: src/StyleSwitcher.vala:24
 msgid "Style:"
-msgstr ""
+msgstr "Stil:"
 
 #: src/StyleSwitcher.vala:30
 msgid "Light style"
-msgstr ""
+msgstr "Lys stil"
 
 #: src/StyleSwitcher.vala:33
 msgid "Light"
-msgstr ""
+msgstr "Lys"
 
 #: src/StyleSwitcher.vala:37
 msgid "Dark style"
-msgstr ""
+msgstr "Mørk stil"
 
 #: src/StyleSwitcher.vala:40
 msgid "Dark"
-msgstr ""
+msgstr "Mørk"
 
 #: src/StyleSwitcher.vala:54
 msgid "Use the same style set in the system"
-msgstr ""
-
-#, fuzzy
-#~ msgid "Reco"
-#~ msgstr "Įrašinėjimas"
-
-#~ msgid "AAC"
-#~ msgstr "AAC"
-
-#~ msgid "Unable to Create an Audio File"
-#~ msgstr "Nepavyko sukurti garso failą"
-
-#~ msgid "Are you sure you want to quit Reco?"
-#~ msgstr "Ar tikrai norite išeiti iš Reco?"
-
-#~ msgid "If you quit Reco, the recording in progress will end."
-#~ msgstr "Jeigu išeisite iš Reco, dabartinis įrašinėjimas bus užbaigtas."
-
-#~ msgid "Quit Reco"
-#~ msgstr "Išeiti iš Reco"
-
-#~ msgid "Wav"
-#~ msgstr "Wav"
-
-#~ msgid "Error: %s"
-#~ msgstr "Klaida: %s"
+msgstr "Bruk samme stil valgt i systemet"
