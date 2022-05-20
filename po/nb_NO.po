@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-04-19 03:07+0000\n"
+"PO-Revision-Date: 2022-05-21 19:19+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/rosp/"
 "reco-main/nb_NO/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
@@ -53,8 +53,9 @@ msgid "Resume recording"
 msgstr "Fortsett opptak"
 
 #: src/Views/WelcomeView.vala:20
+#, fuzzy
 msgid "Recording"
-msgstr ""
+msgstr "Opptak"
 
 #: src/Views/WelcomeView.vala:22
 msgid "Record from:"
@@ -97,8 +98,9 @@ msgid "Length in seconds:"
 msgstr "Lengde i sekunder:"
 
 #: src/Views/WelcomeView.vala:57
+#, fuzzy
 msgid "Saving"
-msgstr ""
+msgstr "Lagring"
 
 #: src/Views/WelcomeView.vala:59
 msgid "Format:"
@@ -118,7 +120,7 @@ msgstr "MP3"
 
 #: src/Views/WelcomeView.vala:69
 msgid "Ogg Vorbis"
-msgstr ""
+msgstr "Ogg Vorbis"
 
 #: src/Views/WelcomeView.vala:70
 msgid "Opus"
@@ -129,8 +131,9 @@ msgid "WAV"
 msgstr "WAV"
 
 #: src/Views/WelcomeView.vala:73
+#, fuzzy
 msgid "Automatically save files:"
-msgstr ""
+msgstr "Lagre filer automatisk:"
 
 #: src/Views/WelcomeView.vala:82
 msgid "Choose a default destination"
@@ -168,12 +171,13 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 #: src/MainWindow.vala:184 src/MainWindow.vala:202
+#, fuzzy
 msgid "Unable to Complete Recording"
-msgstr ""
+msgstr "Kunne ikke fullføre opptak"
 
 #: src/MainWindow.vala:185 src/MainWindow.vala:203
 msgid "The following error message may be helpful:"
-msgstr ""
+msgstr "Følgende feilmelding kan være nyttig:"
 
 #: src/StyleSwitcher.vala:24
 msgid "Style:"
