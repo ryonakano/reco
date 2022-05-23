@@ -2,19 +2,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
 # ALBANO BATTISTELLA <albano_battistella@hotmail.com>, 2021,2022.
-#
+# albanobattistella <albano_battistella@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-04-05 19:20+0100\n"
-"Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
-"Language-Team: ITALIAN <LL@li.org>\n"
+"PO-Revision-Date: 2022-05-24 21:17+0000\n"
+"Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco-extra/"
+"it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -137,7 +140,7 @@ msgstr "Aggiornata la traduzione spagnola (grazie a @Eldhrimer)"
 #: data/reco.appdata.xml.in:64 data/reco.appdata.xml.in:90
 #: data/reco.appdata.xml.in:103
 msgid "Update Italian translation (thanks to @albanobattistella)"
-msgstr "Aggiornato traduzione italiana (grazie a @albanobattistella)"
+msgstr "Aggiornata traduzione Italiana (grazie a @albanobattistella)"
 
 #: data/reco.appdata.xml.in:70
 msgid "Let's celebrate the new year with the issue from the ancient fixed!"
