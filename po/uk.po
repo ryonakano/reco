@@ -7,191 +7,195 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-05-24 21:17+0000\n"
+"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/rosp/reco-main/"
+"uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
-msgstr ""
+msgstr "Триває запис"
 
 #: src/Views/CountDownView.vala:37
 msgid "Cancel the countdown"
-msgstr ""
+msgstr "Скасувати зворотний відлік"
 
 #: src/Views/CountDownView.vala:44 src/Views/CountDownView.vala:117
 #: src/Views/CountDownView.vala:139
 msgid "Pause the countdown"
-msgstr ""
+msgstr "Призупинити зворотний відлік"
 
 #: src/Views/CountDownView.vala:130
 msgid "Resume the countdown"
-msgstr ""
+msgstr "Продовжити зворотний відлік"
 
 #: src/Views/RecordView.vala:53
 msgid "Cancel recording"
-msgstr ""
+msgstr "Скасувати запис"
 
 #: src/Views/RecordView.vala:60
 msgid "Finish recording"
-msgstr ""
+msgstr "Завершити запис"
 
 #: src/Views/RecordView.vala:69 src/Views/RecordView.vala:95
 #: src/Views/RecordView.vala:130 src/Views/RecordView.vala:142
 msgid "Pause recording"
-msgstr ""
+msgstr "Призупинити запис"
 
 #: src/Views/RecordView.vala:118
 msgid "Resume recording"
-msgstr ""
+msgstr "Продовжити запис"
 
 #: src/Views/WelcomeView.vala:20
 msgid "Recording"
-msgstr ""
+msgstr "Запис"
 
 #: src/Views/WelcomeView.vala:22
 msgid "Record from:"
-msgstr ""
+msgstr "Запис із:"
 
 #: src/Views/WelcomeView.vala:28
 msgid "Microphone"
-msgstr ""
+msgstr "Мікрофона"
 
 #: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:57
 msgid "System"
-msgstr ""
+msgstr "Системи"
 
 #: src/Views/WelcomeView.vala:30
 msgid "Both"
-msgstr ""
+msgstr "Обох"
 
 #: src/Views/WelcomeView.vala:32
 msgid "Channels:"
-msgstr ""
+msgstr "Канали:"
 
 #: src/Views/WelcomeView.vala:38
 msgid "Mono"
-msgstr ""
+msgstr "Моно"
 
 #: src/Views/WelcomeView.vala:39
 msgid "Stereo"
-msgstr ""
+msgstr "Стерео"
 
 #: src/Views/WelcomeView.vala:41
 msgid "Timer"
-msgstr ""
+msgstr "Таймер"
 
 #: src/Views/WelcomeView.vala:43
 msgid "Delay in seconds:"
-msgstr ""
+msgstr "Затримка в секундах:"
 
 #: src/Views/WelcomeView.vala:50
 msgid "Length in seconds:"
-msgstr ""
+msgstr "Тривалість у секундах:"
 
 #: src/Views/WelcomeView.vala:57
 msgid "Saving"
-msgstr ""
+msgstr "Збереження"
 
 #: src/Views/WelcomeView.vala:59
 msgid "Format:"
-msgstr ""
+msgstr "Формат:"
 
 #: src/Views/WelcomeView.vala:66
 msgid "ALAC"
-msgstr ""
+msgstr "ALAC"
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
-msgstr ""
+msgstr "FLAC"
 
 #: src/Views/WelcomeView.vala:68
 msgid "MP3"
-msgstr ""
+msgstr "MP3"
 
 #: src/Views/WelcomeView.vala:69
 msgid "Ogg Vorbis"
-msgstr ""
+msgstr "Ogg Vorbis"
 
 #: src/Views/WelcomeView.vala:70
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: src/Views/WelcomeView.vala:71
 msgid "WAV"
-msgstr ""
+msgstr "WAV"
 
 #: src/Views/WelcomeView.vala:73
 msgid "Automatically save files:"
-msgstr ""
+msgstr "Автозбереження файлів:"
 
 #: src/Views/WelcomeView.vala:82
 msgid "Choose a default destination"
-msgstr ""
+msgstr "Виберіть усталене місце"
 
 #: src/Views/WelcomeView.vala:113
 msgid "Start recording"
-msgstr ""
+msgstr "Почати запис"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
 #: src/Views/WelcomeView.vala:146
 msgid "Recordings"
-msgstr ""
+msgstr "Записи"
 
 #: src/MainWindow.vala:49
 msgid "Preferences"
-msgstr ""
+msgstr "Налаштування"
 
 #. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:106
 #, c-format
 msgid "Recording from %s"
-msgstr ""
+msgstr "Запис із %s"
 
 #: src/MainWindow.vala:124
 msgid "Save your recording"
-msgstr ""
+msgstr "Збережіть свій запис"
 
 #: src/MainWindow.vala:125
 msgid "Save"
-msgstr ""
+msgstr "Зберегти"
 
 #: src/MainWindow.vala:125
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #: src/MainWindow.vala:184 src/MainWindow.vala:202
 msgid "Unable to Complete Recording"
-msgstr ""
+msgstr "Не вдалося завершити запис"
 
 #: src/MainWindow.vala:185 src/MainWindow.vala:203
 msgid "The following error message may be helpful:"
-msgstr ""
+msgstr "Це повідомлення про помилку може бути корисним:"
 
 #: src/StyleSwitcher.vala:24
 msgid "Style:"
-msgstr ""
+msgstr "Стиль:"
 
 #: src/StyleSwitcher.vala:30
 msgid "Light style"
-msgstr ""
+msgstr "Світлий стиль"
 
 #: src/StyleSwitcher.vala:33
 msgid "Light"
-msgstr ""
+msgstr "Світлий"
 
 #: src/StyleSwitcher.vala:37
 msgid "Dark style"
-msgstr ""
+msgstr "Темний стиль"
 
 #: src/StyleSwitcher.vala:40
 msgid "Dark"
-msgstr ""
+msgstr "Темний"
 
 #: src/StyleSwitcher.vala:54
 msgid "Use the same style set in the system"
-msgstr ""
+msgstr "Використовувати набір стилів системи"
