@@ -2,21 +2,22 @@
 # Copyright (C) 2021 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2021.
-#
+# Maite Guix <maite.guix@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2021-05-25 06:13-0500\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2022-05-23 18:14+0000\n"
+"Last-Translator: Maite Guix <maite.guix@gmail.com>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/rosp/reco-main/"
+"ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.3\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
@@ -86,7 +87,7 @@ msgstr "Estereofònic"
 
 #: src/Views/WelcomeView.vala:41
 msgid "Timer"
-msgstr ""
+msgstr "Temporitzador"
 
 #: src/Views/WelcomeView.vala:43
 msgid "Delay in seconds:"
@@ -106,7 +107,7 @@ msgstr "Format:"
 
 #: src/Views/WelcomeView.vala:66
 msgid "ALAC"
-msgstr ""
+msgstr "ALAC"
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -161,7 +162,7 @@ msgstr "Deseu el vostre enregistrament"
 
 #: src/MainWindow.vala:125
 msgid "Save"
-msgstr "Desa"
+msgstr "Desar"
 
 #: src/MainWindow.vala:125
 msgid "Cancel"
@@ -177,27 +178,27 @@ msgstr "Aquest missatge d’error us pot ser útil:"
 
 #: src/StyleSwitcher.vala:24
 msgid "Style:"
-msgstr ""
+msgstr "Estil:"
 
 #: src/StyleSwitcher.vala:30
 msgid "Light style"
-msgstr ""
+msgstr "Estil lleuger"
 
 #: src/StyleSwitcher.vala:33
 msgid "Light"
-msgstr ""
+msgstr "Clar"
 
 #: src/StyleSwitcher.vala:37
 msgid "Dark style"
-msgstr ""
+msgstr "Estil fosc"
 
 #: src/StyleSwitcher.vala:40
 msgid "Dark"
-msgstr ""
+msgstr "Fosc"
 
 #: src/StyleSwitcher.vala:54
 msgid "Use the same style set in the system"
-msgstr ""
+msgstr "Utilitza el mateix estil establert al sistema"
 
 #~ msgid "Reco"
 #~ msgstr "Reco"
