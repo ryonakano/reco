@@ -38,6 +38,14 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="3.3.1" date="2022-06-18" urgency="low">
+      <description>
+        <ul>
+          <li>Update Flatpak runtime version</li>
+          <li>Update translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.3.0" date="2022-04-04" urgency="medium">
       <description>
         <ul>
