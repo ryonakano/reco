@@ -5,7 +5,7 @@
             "name": "GDB Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/builddir/com.github.ryonakano.konbucase",
+            "program": "${workspaceFolder}/builddir/com.github.ryonakano.reco",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
