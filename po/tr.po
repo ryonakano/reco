@@ -3,25 +3,26 @@
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 #
 # Safak Genisol (@safak45x), 2019, 2020.
+# Sabri Ünal <libreajans@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2020-09-25 09:40+0300\n"
-"Last-Translator: Safak <bjksafak45@gmail.com>\n"
-"Language-Team: Turkish\n"
-"Language: fr\n"
+"PO-Revision-Date: 2022-06-24 22:19+0000\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco-main/"
+"tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 #: src/Services/Recorder.vala:232
-#, fuzzy
 msgid "Recording is ongoing"
-msgstr "Kayıtlar"
+msgstr "Kayıt devam ediyor"
 
 #: src/Views/CountDownView.vala:37
 msgid "Cancel the countdown"
@@ -51,7 +52,7 @@ msgstr "Kaydı durdur"
 
 #: src/Views/RecordView.vala:118
 msgid "Resume recording"
-msgstr "Kaydı devam et"
+msgstr "Kaydı devam ettir"
 
 #: src/Views/WelcomeView.vala:20
 msgid "Recording"
@@ -67,11 +68,11 @@ msgstr "Mikrofon"
 
 #: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:57
 msgid "System"
-msgstr ""
+msgstr "Sistem"
 
 #: src/Views/WelcomeView.vala:30
 msgid "Both"
-msgstr "Her İkiside"
+msgstr "Her ikiside"
 
 #: src/Views/WelcomeView.vala:32
 msgid "Channels:"
@@ -87,15 +88,15 @@ msgstr "Stereo"
 
 #: src/Views/WelcomeView.vala:41
 msgid "Timer"
-msgstr ""
+msgstr "Zamanlayıcı"
 
 #: src/Views/WelcomeView.vala:43
 msgid "Delay in seconds:"
-msgstr "Saniye cinsinden gecikme :"
+msgstr "Saniye cinsinden gecikme:"
 
 #: src/Views/WelcomeView.vala:50
 msgid "Length in seconds:"
-msgstr "Saniye cinsinden uzunluk :"
+msgstr "Saniye cinsinden uzunluk:"
 
 #: src/Views/WelcomeView.vala:57
 msgid "Saving"
@@ -103,11 +104,11 @@ msgstr "Kaydedilen"
 
 #: src/Views/WelcomeView.vala:59
 msgid "Format:"
-msgstr "Format :"
+msgstr "Biçim:"
 
 #: src/Views/WelcomeView.vala:66
 msgid "ALAC"
-msgstr ""
+msgstr "ALAC"
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -131,7 +132,7 @@ msgstr "WAV"
 
 #: src/Views/WelcomeView.vala:73
 msgid "Automatically save files:"
-msgstr "Dosyaları otomatik olarak yedekle :"
+msgstr "Dosyaları kendiliğinden kaydet:"
 
 #: src/Views/WelcomeView.vala:82
 msgid "Choose a default destination"
@@ -139,7 +140,7 @@ msgstr "Varsayılan bir hedef seçin"
 
 #: src/Views/WelcomeView.vala:113
 msgid "Start recording"
-msgstr "Kayda Başla"
+msgstr "Kaydı başlat"
 
 #. TRANSLATORS: The name of the folder which recordings are saved
 #: src/Views/WelcomeView.vala:146
@@ -154,7 +155,7 @@ msgstr "Tercihler"
 #: src/MainWindow.vala:106
 #, c-format
 msgid "Recording from %s"
-msgstr "Kayıt yeri %s"
+msgstr "Kayıt tarihi %s"
 
 #: src/MainWindow.vala:124
 msgid "Save your recording"
@@ -166,42 +167,39 @@ msgstr "Kaydet"
 
 #: src/MainWindow.vala:125
 msgid "Cancel"
-msgstr "İptal"
+msgstr "İptal Et"
 
 #: src/MainWindow.vala:184 src/MainWindow.vala:202
 msgid "Unable to Complete Recording"
-msgstr ""
+msgstr "Kayıt Tamamlanamadı"
 
 #: src/MainWindow.vala:185 src/MainWindow.vala:203
-#, fuzzy
 msgid "The following error message may be helpful:"
-msgstr ""
-"Kayıt sırasında GStreamer hatası meydana geldi,aşağıdaki hata iletisi "
-"yararlı olabilir :"
+msgstr "Aşağıdaki hata iletisi yararlı olabilir:"
 
 #: src/StyleSwitcher.vala:24
 msgid "Style:"
-msgstr ""
+msgstr "Biçim:"
 
 #: src/StyleSwitcher.vala:30
 msgid "Light style"
-msgstr ""
+msgstr "Açık biçim"
 
 #: src/StyleSwitcher.vala:33
 msgid "Light"
-msgstr ""
+msgstr "Açık"
 
 #: src/StyleSwitcher.vala:37
 msgid "Dark style"
-msgstr ""
+msgstr "Koyu biçim"
 
 #: src/StyleSwitcher.vala:40
 msgid "Dark"
-msgstr ""
+msgstr "Koyu"
 
 #: src/StyleSwitcher.vala:54
 msgid "Use the same style set in the system"
-msgstr ""
+msgstr "Sistemle aynı biçim setini kullan"
 
 #, fuzzy
 #~ msgid "Reco"
