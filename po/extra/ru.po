@@ -1,21 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Ivan Eresko <ivan@programmer.net>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Sharigami <usmanovmax@protonmail.com>\n"
-"Language-Team: \n"
-"Language: \n"
+"PO-Revision-Date: 2022-07-12 01:48+0000\n"
+"Last-Translator: Ivan Eresko <ivan@programmer.net>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/rosp/reco-extra/"
+"ru/>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -41,26 +43,25 @@ msgid ""
 "would be useful when you record conversations with chat apps or stream "
 "videos on the Internet"
 msgstr ""
-"Запись звука при помощи микрофона и системы в одно и то же время. Это может "
-"быть полезно тогда, когда вы записываете разговоры с чата или записываете "
-"видеоролики в Интернет."
+"Запись звука при помощи микрофона и системы одновременно. Это может быть "
+"полезно тогда, когда вы записываете разговоры из чата или транслируете "
+"видеоролики в Интернет"
 
 #: data/reco.appdata.xml.in:17
-#, fuzzy
 msgid ""
 "Saving in some commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV"
 msgstr ""
-"Сохрание в самых привычных форматах. Reco поддерживает AAC, FLAC, MP3, Ogg "
-"Vorbis, Opus и WAV"
+"Сохрание в самых распространенных форматах. Reco поддерживает AAC, FLAC, "
+"MP3, Ogg Vorbis, Opus и WAV"
 
 #: data/reco.appdata.xml.in:18
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "the length of recording up to 600 seconds"
 msgstr ""
-"Запись по таймеру. Вы можете поставить задержку перед начало записи до 15 "
-"секундр и длительность записи до 600 секунд."
+"Запись по таймеру. Вы можете поставить задержку перед началом записи до 15 "
+"секунд и длительность записи до 600 секунд"
 
 #: data/reco.appdata.xml.in:19
 msgid ""
@@ -68,36 +69,31 @@ msgid ""
 "app saves recordings automatically or you choose a destination each time on "
 "saving them"
 msgstr ""
-"Автосохранение или всегда-спроси-куда-сохранить метод. Вы можете выбрать, "
-"хотите ли, чтобыприложение автоматически сохраняло запись, или вы будете "
-"решать место сохранение каждый раз, когдасохраняете их"
+"Автосохранение или показ диалога сохранения. Вы можете выбрать чтобы "
+"приложение автоматически сохраняло запись или открывать диалог сохранения "
+"записи каждый раз"
 
 #: data/reco.appdata.xml.in:20
-#, fuzzy
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
 "while recording, the recording is saved automatically or the file chooser "
 "dialog is shown depends on your saving setting"
 msgstr ""
-"Сохранение записи, когда вы выходите из приложения. Если вдруг вам "
-"необходимо выйти изприложения во время записи, то она, в зависимости от "
-"ваших настроек, будет сохранятьсяавтоматически или вы будете выбирать место "
-"сохранения"
+"Сохранение записи при выходе из приложения. Если вдруг вам необходимо выйти "
+"из приложения во время записи, то она, в зависимости от ваших настроек, "
+"будет сохранена автоматически или вы выберете место сохранения вручную"
 
 #: data/reco.appdata.xml.in:25
-#, fuzzy
 msgid "Welcome view; perform recording configuration"
-msgstr "Экран приветствия, позволяющий вам настроить конфигурацию записи"
+msgstr "Экран приветствия; позволяет вам задать настройки записи"
 
 #: data/reco.appdata.xml.in:29
-#, fuzzy
 msgid "Recording view"
-msgstr "Записываю экран"
+msgstr "Экран записи"
 
 #: data/reco.appdata.xml.in:33
-#, fuzzy
 msgid "An indication that recording is successfully finished"
-msgstr "Запись успешно закончена"
+msgstr "Индикатор успешного завершения записи"
 
 #: data/reco.appdata.xml.in:44
 msgid "Check desktop environment on runtime"
@@ -111,21 +107,21 @@ msgstr ""
 #: data/reco.appdata.xml.in:86 data/reco.appdata.xml.in:101
 #: data/reco.appdata.xml.in:117
 msgid "Translation updates:"
-msgstr ""
+msgstr "Обновления переводов:"
 
 #: data/reco.appdata.xml.in:49
 msgid "Update French translation (thanks to @NathanBnm)"
-msgstr ""
+msgstr "Обновлен французский перевод (спасибо @NathanBnm)"
 
 #: data/reco.appdata.xml.in:50 data/reco.appdata.xml.in:89
 #: data/reco.appdata.xml.in:120 data/reco.appdata.xml.in:129
 msgid "Update Portuguese translation (thanks to @hugok79)"
-msgstr ""
+msgstr "Обновлен португальский перевод (спасибо @hugok79)"
 
 #: data/reco.appdata.xml.in:51 data/reco.appdata.xml.in:88
 #: data/reco.appdata.xml.in:138 data/reco.appdata.xml.in:178
 msgid "Update Dutch translation (thanks to @Vistaus)"
-msgstr ""
+msgstr "Обновлен голландский перевод (спасибо @Vistaus)"
 
 #: data/reco.appdata.xml.in:52
 msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
@@ -137,12 +133,12 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:63 data/reco.appdata.xml.in:121
 msgid "Update Spanish translation (thanks to @Eldhrimer)"
-msgstr ""
+msgstr "Обновлен испанский перевод (спасибо @Eldhrimer)"
 
 #: data/reco.appdata.xml.in:64 data/reco.appdata.xml.in:90
 #: data/reco.appdata.xml.in:103
 msgid "Update Italian translation (thanks to @albanobattistella)"
-msgstr ""
+msgstr "Обновлен итальянский перевод (спасибо @albanobattistella)"
 
 #: data/reco.appdata.xml.in:70
 msgid "Let's celebrate the new year with the issue from the ancient fixed!"
@@ -170,7 +166,7 @@ msgstr ""
 #: data/reco.appdata.xml.in:297 data/reco.appdata.xml.in:309
 #: data/reco.appdata.xml.in:319
 msgid "Update Japanese translation"
-msgstr ""
+msgstr "Обновлен японский перевод"
 
 #: data/reco.appdata.xml.in:98
 msgid ""
@@ -180,7 +176,7 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:99
 msgid "Fix wrong OARS data"
-msgstr ""
+msgstr "Исправить неправильные OARS данные"
 
 #: data/reco.appdata.xml.in:111
 msgid ""
@@ -190,7 +186,7 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:112
 msgid "A completely rewrited and improved method to detect recording sources"
-msgstr ""
+msgstr "Полностью переписанный и улучшенный метод определения источников записи"
 
 #: data/reco.appdata.xml.in:113
 msgid ""
@@ -204,11 +200,11 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:115
 msgid "Code refactoring"
-msgstr ""
+msgstr "Рефакторинг кода"
 
 #: data/reco.appdata.xml.in:119
 msgid "Add Brazilian Portuguese translation (thanks to @mathessaricci)"
-msgstr ""
+msgstr "Добавлен бразильский перевод (спасибо @mathessaricci)"
 
 #: data/reco.appdata.xml.in:130
 msgid ""
@@ -247,7 +243,7 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:157
 msgid "Add Portuguese translation (thanks to @hugok79)"
-msgstr ""
+msgstr "Добавлен Португальский перевод (спасибо @hugok79)"
 
 #: data/reco.appdata.xml.in:159
 msgid "Clean code"
@@ -276,7 +272,7 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:179
 msgid "Update Turkish translation (thanks to @safak45x)"
-msgstr ""
+msgstr "Обновлен турецкий перевод (спасибо @safak45x)"
 
 #: data/reco.appdata.xml.in:186
 msgid "Respect an elementary OS-wide dark preference"
@@ -314,7 +310,7 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:207
 msgid "Update French translation (by @NathanBnm)"
-msgstr ""
+msgstr "Обновлен Французский перевод (@NathanBnm)"
 
 #: data/reco.appdata.xml.in:215
 msgid ""
@@ -346,7 +342,7 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:228
 msgid "Add Spanish translation (by fitojb)"
-msgstr ""
+msgstr "Добавлен испанский перевод(fitojb)"
 
 #: data/reco.appdata.xml.in:235
 msgid "Getting/setting window positions gets more efficient"
@@ -382,7 +378,7 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:254
 msgid "Allow to record system sound"
-msgstr ""
+msgstr "Разрешить запись системного звука"
 
 #: data/reco.appdata.xml.in:255
 msgid "Fix the timer does not stop in accordance with the recording"
@@ -390,7 +386,7 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:263
 msgid "Grammatically fixes in the app description (by imasaru)"
-msgstr ""
+msgstr "Исправлены грамматические ошибки в описании программы (imasaru)"
 
 #: data/reco.appdata.xml.in:264
 msgid "Fix the localized screenshots don't appear to AppCenter"
@@ -430,15 +426,15 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:286
 msgid "Notify success of recording with a check mark"
-msgstr ""
+msgstr "Уведомлять об успешном окончании записи с помощью галочки"
 
 #: data/reco.appdata.xml.in:287
 msgid "Allow to cancel/pause recording"
-msgstr ""
+msgstr "Разрешить отмену/паузу записи"
 
 #: data/reco.appdata.xml.in:288
 msgid "Update translations"
-msgstr ""
+msgstr "Обновления переводов"
 
 #: data/reco.appdata.xml.in:295
 msgid ""
@@ -448,11 +444,11 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:296
 msgid "Add Lithuanian translation (by welaq)"
-msgstr ""
+msgstr "Добавить Литовский перевод (welaq)"
 
 #: data/reco.appdata.xml.in:304
 msgid "Save and restore settings"
-msgstr ""
+msgstr "Сохранить и восстановить настройки"
 
 #: data/reco.appdata.xml.in:305
 msgid "Support both do-not-ask-where-to-save flow and ask-where-to-save flow"
@@ -460,7 +456,7 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:306
 msgid "Organized UI"
-msgstr ""
+msgstr "Улучшен UI"
 
 #: data/reco.appdata.xml.in:307
 msgid "Some small bug fixes"
@@ -468,11 +464,11 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:308
 msgid "Add French translation (by NathanBnm)"
-msgstr ""
+msgstr "Добавить Французский перевод (NathanBnm)"
 
 #: data/reco.appdata.xml.in:316
 msgid "Allow to set recording length"
-msgstr ""
+msgstr "Разрешить устанавливать длину записи"
 
 #: data/reco.appdata.xml.in:317
 msgid "Fix the countdown is weird when recording more than twice"
@@ -480,23 +476,23 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:318
 msgid "Localization improvement"
-msgstr ""
+msgstr "Улучшение локализаций"
 
 #: data/reco.appdata.xml.in:326
 msgid "Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats"
-msgstr ""
+msgstr "Поддерживается запись в форматы AAC, FLAC, Ogg Vorbis, Opus и MP3"
 
 #: data/reco.appdata.xml.in:327
 msgid "Show a notification after recorded successfully"
-msgstr ""
+msgstr "Показывать уведомление об успешном окончании записи"
 
 #: data/reco.appdata.xml.in:328
 msgid "Add Japanese translation"
-msgstr ""
+msgstr "Добавлен японский перевод"
 
 #: data/reco.appdata.xml.in:335
 msgid "Initial release"
-msgstr ""
+msgstr "Первый релиз"
 
 #: data/reco.appdata.xml.in:341
 msgid "Ryo Nakano"
