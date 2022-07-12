@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-07-12 01:48+0000\n"
+"PO-Revision-Date: 2022-07-13 03:17+0000\n"
 "Last-Translator: Ivan Eresko <ivan@programmer.net>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/rosp/reco-main/"
 "ru/>\n"
@@ -75,19 +75,19 @@ msgstr "Оба"
 
 #: src/Views/WelcomeView.vala:32
 msgid "Channels:"
-msgstr ""
+msgstr "Каналы:"
 
 #: src/Views/WelcomeView.vala:38
 msgid "Mono"
-msgstr ""
+msgstr "Моно"
 
 #: src/Views/WelcomeView.vala:39
 msgid "Stereo"
-msgstr ""
+msgstr "Стерео"
 
 #: src/Views/WelcomeView.vala:41
 msgid "Timer"
-msgstr ""
+msgstr "Таймер"
 
 #: src/Views/WelcomeView.vala:43
 msgid "Delay in seconds:"
@@ -107,7 +107,7 @@ msgstr "Формат:"
 
 #: src/Views/WelcomeView.vala:66
 msgid "ALAC"
-msgstr ""
+msgstr "ALAC"
 
 #: src/Views/WelcomeView.vala:67
 msgid "FLAC"
@@ -148,7 +148,7 @@ msgstr "Записи"
 
 #: src/MainWindow.vala:49
 msgid "Preferences"
-msgstr ""
+msgstr "Настройки"
 
 #. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:106
@@ -170,38 +170,35 @@ msgstr "Отменить"
 
 #: src/MainWindow.vala:184 src/MainWindow.vala:202
 msgid "Unable to Complete Recording"
-msgstr ""
+msgstr "Не удается завершить запись"
 
 #: src/MainWindow.vala:185 src/MainWindow.vala:203
-#, fuzzy
 msgid "The following error message may be helpful:"
-msgstr ""
-"Произошла ошибка \"GStreamer\" во время записи, следующее сообщение ошибки "
-"может быть полезным:"
+msgstr "Следующее сообщение об ошибке может оказаться полезным:"
 
 #: src/StyleSwitcher.vala:24
 msgid "Style:"
-msgstr ""
+msgstr "Стиль:"
 
 #: src/StyleSwitcher.vala:30
 msgid "Light style"
-msgstr ""
+msgstr "Светлый стиль"
 
 #: src/StyleSwitcher.vala:33
 msgid "Light"
-msgstr ""
+msgstr "Светлый"
 
 #: src/StyleSwitcher.vala:37
 msgid "Dark style"
-msgstr ""
+msgstr "Темный стиль"
 
 #: src/StyleSwitcher.vala:40
 msgid "Dark"
-msgstr ""
+msgstr "Темный"
 
 #: src/StyleSwitcher.vala:54
 msgid "Use the same style set in the system"
-msgstr ""
+msgstr "Использовать системные цвета"
 
 #, fuzzy
 #~ msgid "Reco"
