@@ -12,7 +12,10 @@ public class WelcomeView : Gtk.Box {
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 12,
             window: window,
-            margin: 6
+            margin_top: 6,
+            margin_bottom: 6,
+            margin_start: 6,
+            margin_end: 6
         );
     }
 
@@ -78,13 +81,27 @@ public class WelcomeView : Gtk.Box {
             halign = Gtk.Align.START
         };
 
-        var destination_chooser = new Gtk.FileChooserButton (
-            _("Choose a default destination"),
-            Gtk.FileChooserAction.SELECT_FOLDER
-        ) {
-            halign = Gtk.Align.START
+        var destination_chooser_icon = new Gtk.Image.from_icon_name ("folder");
+
+        var destination_chooser_label = new Gtk.Label (filechooser_get_display_path (get_destination ())) {
+            // Avoid the window get wider when a folder with a long directory name selected
+            max_width_chars = 15,
+            ellipsize = Pango.EllipsizeMode.MIDDLE
         };
-        destination_chooser.set_filename (get_destination ());
+
+        var destination_chooser_grid = new Gtk.Grid () {
+            tooltip_text = _("Choose a default destination"),
+            column_spacing = 6,
+            margin_top = 2,
+            margin_bottom = 2
+        };
+        destination_chooser_grid.attach (destination_chooser_icon, 0, 0);
+        destination_chooser_grid.attach (destination_chooser_label, 1, 0);
+
+        var destination_chooser_button = new Gtk.Button () {
+            halign = Gtk.Align.START,
+            child = destination_chooser_grid
+        };
 
         var settings_grid = new Gtk.Grid () {
             column_spacing = 6,
@@ -106,10 +123,10 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (format_combobox, 1, 7, 1, 1);
         settings_grid.attach (auto_save_label, 0, 8, 1, 1);
         settings_grid.attach (auto_save_switch, 1, 8, 1, 1);
-        settings_grid.attach (destination_chooser, 1, 9, 1, 1);
+        settings_grid.attach (destination_chooser_button, 1, 9, 1, 1);
 
         record_button = new Gtk.Button () {
-            image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND),
+            icon_name = "audio-input-microphone-symbolic",
             tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Start recording")),
             halign = Gtk.Align.CENTER,
             margin_top = 12,
@@ -117,9 +134,10 @@ public class WelcomeView : Gtk.Box {
             height_request = 48
         };
         record_button.get_style_context ().add_class ("record-button");
+        ((Gtk.Image) record_button.child).icon_size = Gtk.IconSize.LARGE;
 
-        pack_start (settings_grid, false, false);
-        pack_end (record_button, false, false);
+        append (settings_grid);
+        append (record_button);
 
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
@@ -127,10 +145,31 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channels", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("auto-save", auto_save_switch, "active", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("auto-save", destination_chooser, "sensitive", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("auto-save", destination_chooser_button, "sensitive", SettingsBindFlags.DEFAULT);
 
-        destination_chooser.file_set.connect (() => {
-            Application.settings.set_string ("destination", destination_chooser.get_filename ());
+        destination_chooser_button.clicked.connect (() => {
+            var filechooser = new Gtk.FileChooserNative (
+                _("Choose a default destination"), window, Gtk.FileChooserAction.SELECT_FOLDER,
+                _("Select"), null
+            ) {
+                modal = true
+            };
+            try {
+                filechooser.set_current_folder (File.new_for_path (Application.settings.get_string ("destination")));
+            } catch (Error e) {
+                warning (e.message);
+            }
+
+            filechooser.response.connect ((response_id) => {
+                if (response_id == Gtk.ResponseType.ACCEPT) {
+                    string new_path = filechooser.get_file ().get_path ();
+                    Application.settings.set_string ("destination", new_path);
+                    destination_chooser_label.label = filechooser_get_display_path (new_path);
+                }
+
+                filechooser.destroy ();
+            });
+            filechooser.show ();
         });
 
         record_button.clicked.connect (() => {
@@ -154,16 +193,21 @@ public class WelcomeView : Gtk.Box {
         return destination;
     }
 
+    private string filechooser_get_display_path (string path) {
+        string[] destination_splitted = path.split ("/");
+        return destination_splitted[destination_splitted.length - 1];
+    }
+
     public void show_success_button () {
         record_button.get_style_context ().add_class ("record-button-success");
-        record_button.image = new Gtk.Image.from_icon_name ("record-completed-symbolic", Gtk.IconSize.DND);
+        record_button.icon_name = "record-completed-symbolic";
         uint timeout_button_color = Timeout.add (3000, () => {
             record_button.get_style_context ().remove_class ("record-button-success");
             return false;
         });
         timeout_button_color = 0;
         uint timeout_button_icon = Timeout.add (3250, () => {
-            record_button.image = new Gtk.Image.from_icon_name ("audio-input-microphone-symbolic", Gtk.IconSize.DND);
+            record_button.icon_name = "audio-input-microphone-symbolic";
             return false;
         });
         timeout_button_icon = 0;

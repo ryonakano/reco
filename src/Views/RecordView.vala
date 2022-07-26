@@ -27,7 +27,10 @@ public class RecordView : Gtk.Box {
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 12,
             window: window,
-            margin: 6
+            margin_top: 6,
+            margin_bottom: 6,
+            margin_start: 6,
+            margin_end: 6
         );
     }
 
@@ -43,29 +46,31 @@ public class RecordView : Gtk.Box {
         var label_grid = new Gtk.Grid () {
             column_spacing = 6,
             row_spacing = 6,
-            halign = Gtk.Align.CENTER
+            halign = Gtk.Align.CENTER,
+            vexpand = true
         };
         label_grid.attach (time_label, 0, 1, 1, 1);
         label_grid.attach (remaining_time_label, 0, 2, 1, 1);
 
         var cancel_button = new Gtk.Button () {
-            image = new Gtk.Image.from_icon_name ("user-trash-symbolic", Gtk.IconSize.BUTTON),
+            icon_name = "user-trash-symbolic",
             tooltip_text = _("Cancel recording"),
             halign = Gtk.Align.START
         };
         cancel_button.get_style_context ().add_class ("buttons-without-border");
 
         stop_button = new Gtk.Button () {
-            image = new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", Gtk.IconSize.DND),
+            icon_name = "media-playback-stop-symbolic",
             tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Finish recording")),
             halign = Gtk.Align.CENTER,
             width_request = 48,
             height_request = 48
         };
         stop_button.get_style_context ().add_class ("record-button");
+        ((Gtk.Image) stop_button.child).icon_size = Gtk.IconSize.LARGE;
 
         pause_button = new Gtk.Button () {
-            image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON),
+            icon_name = "media-playback-pause-symbolic",
             tooltip_text = _("Pause recording"),
             halign = Gtk.Align.END
         };
@@ -81,17 +86,15 @@ public class RecordView : Gtk.Box {
         buttons_grid.attach (stop_button, 1, 0, 1, 1);
         buttons_grid.attach (pause_button, 2, 0, 1, 1);
 
-        pack_start (label_grid, false, false);
-        pack_end (buttons_grid, false, false);
+        append (label_grid);
+        append (buttons_grid);
 
         cancel_button.clicked.connect (() => {
             stop_count ();
 
             // If a user tries to cancel recording while pausing, resume recording once and reset the button icon
             if (!recorder.is_recording) {
-                pause_button.image = new Gtk.Image.from_icon_name (
-                    "media-playback-pause-symbolic", Gtk.IconSize.BUTTON
-                );
+                pause_button.icon_name = "media-playback-pause-symbolic";
                 pause_button.tooltip_text = _("Pause recording");
             }
 
@@ -112,9 +115,7 @@ public class RecordView : Gtk.Box {
                 stop_count ();
 
                 recorder.set_recording_state (Gst.State.PAUSED);
-                pause_button.image = new Gtk.Image.from_icon_name (
-                    "media-playback-start-symbolic", Gtk.IconSize.BUTTON
-                );
+                pause_button.icon_name = "media-playback-start-symbolic";
                 pause_button.tooltip_text = _("Resume recording");
             } else {
                 start_count ();
@@ -124,9 +125,7 @@ public class RecordView : Gtk.Box {
                 }
 
                 recorder.set_recording_state (Gst.State.PLAYING);
-                pause_button.image = new Gtk.Image.from_icon_name (
-                    "media-playback-pause-symbolic", Gtk.IconSize.BUTTON
-                );
+                pause_button.icon_name = "media-playback-pause-symbolic";
                 pause_button.tooltip_text = _("Pause recording");
             }
         });
@@ -138,7 +137,7 @@ public class RecordView : Gtk.Box {
         // If a user tries to stop recording while pausing, resume recording once and reset the button icon
         if (!recorder.is_recording) {
             recorder.set_recording_state (Gst.State.PLAYING);
-            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+            pause_button.icon_name = "media-playback-pause-symbolic";
             pause_button.tooltip_text = _("Pause recording");
         }
 
