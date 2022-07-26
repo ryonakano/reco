@@ -81,9 +81,22 @@ public class WelcomeView : Gtk.Box {
             halign = Gtk.Align.START
         };
 
+        var destination_chooser_icon = new Gtk.Image.from_icon_name ("folder");
+
+        var destination_chooser_label = new Gtk.Label (filechooser_get_display_path (get_destination ()));
+
+        var destination_chooser_grid = new Gtk.Grid () {
+            tooltip_text = _("Choose a default destination"),
+            column_spacing = 6,
+            margin_top = 3,
+            margin_bottom = 3
+        };
+        destination_chooser_grid.attach (destination_chooser_icon, 0, 0);
+        destination_chooser_grid.attach (destination_chooser_label, 1, 0);
+
         var destination_chooser_button = new Gtk.Button () {
             halign = Gtk.Align.START,
-            label = get_destination ()
+            child = destination_chooser_grid
         };
 
         var settings_grid = new Gtk.Grid () {
@@ -145,8 +158,9 @@ public class WelcomeView : Gtk.Box {
 
             filechooser.response.connect ((response_id) => {
                 if (response_id == Gtk.ResponseType.ACCEPT) {
-                    Application.settings.set_string ("destination", filechooser.get_file ().get_path ());
-                    destination_chooser_button.label = get_destination ();
+                    string new_path = filechooser.get_file ().get_path ();
+                    Application.settings.set_string ("destination", new_path);
+                    destination_chooser_label.label = filechooser_get_display_path (new_path);
                 }
 
                 filechooser.destroy ();
@@ -173,6 +187,11 @@ public class WelcomeView : Gtk.Box {
         }
 
         return destination;
+    }
+
+    private string filechooser_get_display_path (string path) {
+        string[] destination_splitted = path.split ("/");
+        return destination_splitted[destination_splitted.length - 1];
     }
 
     public void show_success_button () {
