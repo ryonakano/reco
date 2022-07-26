@@ -83,13 +83,17 @@ public class WelcomeView : Gtk.Box {
 
         var destination_chooser_icon = new Gtk.Image.from_icon_name ("folder");
 
-        var destination_chooser_label = new Gtk.Label (filechooser_get_display_path (get_destination ()));
+        var destination_chooser_label = new Gtk.Label (filechooser_get_display_path (get_destination ())) {
+            // Avoid the window get wider when a folder with a long directory name selected
+            max_width_chars = 15,
+            ellipsize = Pango.EllipsizeMode.MIDDLE
+        };
 
         var destination_chooser_grid = new Gtk.Grid () {
             tooltip_text = _("Choose a default destination"),
             column_spacing = 6,
-            margin_top = 3,
-            margin_bottom = 3
+            margin_top = 2,
+            margin_bottom = 2
         };
         destination_chooser_grid.attach (destination_chooser_icon, 0, 0);
         destination_chooser_grid.attach (destination_chooser_label, 1, 0);

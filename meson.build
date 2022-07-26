@@ -62,7 +62,8 @@ executable(
         dependency('gtk4'),
         dependency('gstreamer-1.0'),
         dependency('libpulse'),
-        dependency('libpulse-mainloop-glib')
+        dependency('libpulse-mainloop-glib'),
+        dependency('pango')
     ],
     install: true
 )
