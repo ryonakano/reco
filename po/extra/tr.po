@@ -3,20 +3,22 @@
 # This file is distributed under the same license as the extra package.
 #
 # Safak Genisol, 2020.
+# Sabri Ünal <libreajans@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2020-09-25 09:36+0300\n"
-"Last-Translator: Safak <bjksafak45@gmail.com>\n"
-"Language-Team: Turkish\n"
+"PO-Revision-Date: 2022-06-24 22:19+0000\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco-extra/"
+"tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -24,12 +26,13 @@ msgstr "Reco"
 
 #: data/reco.appdata.xml.in:9 data/reco.desktop.in:5
 msgid "Record talks to remember the contents later"
-msgstr "Sesleri kayıt altına al"
+msgstr "İçeriğini daha sonra hatırlamak için konuşmaları kaydedin"
 
 #: data/reco.appdata.xml.in:11
 msgid "An audio recording app that helps you recall things talked later."
 msgstr ""
-"Daha sonra konuşulan sesleri hatırlamanıza yardımcı olan ses kayıt uygulaması"
+"Konuşulanları daha sonra hatırlamanıza yardımcı olan bir ses kayıt "
+"uygulaması."
 
 #: data/reco.appdata.xml.in:14
 msgid "Features include:"
@@ -286,9 +289,8 @@ msgid "Fix some microphones are not recognized (thanks to @peteruithoven)"
 msgstr ""
 
 #: data/reco.appdata.xml.in:179
-#, fuzzy
 msgid "Update Turkish translation (thanks to @safak45x)"
-msgstr "Türkçe çeviri eklendi (@ safak45x)"
+msgstr "Türkçe çeviri güncellendi (@safak45x'e teşekkürler)"
 
 #: data/reco.appdata.xml.in:186
 msgid "Respect an elementary OS-wide dark preference"
@@ -340,7 +342,7 @@ msgstr ""
 msgid ""
 "Support recording sounds from both your microphone and PC at the same time"
 msgstr ""
-"Aynı anda hem mikrofonunuzdan hem de PC'nizden ses kaydetmeyi desteklendi."
+"Aynı anda hem mikrofonunuzdan hem de PC'nizden ses kaydetmeyi desteklendi"
 
 #: data/reco.appdata.xml.in:217
 msgid "End the app safely if the encoder is not created successfully"
@@ -456,7 +458,7 @@ msgstr "Kaydı değiştirmek için bir kısayol tuşu ekleyin"
 
 #: data/reco.appdata.xml.in:285
 msgid "Fix the name of \"Recordings\" folder is not created in system language"
-msgstr "\"Kayıtlar\" klasörünün adını  sistem dilinde oluşturulmadı düzeltildi"
+msgstr "\"Kayıtlar\" klasörü sistem dilinde oluşturulamadı hatası düzeltildi"
 
 #: data/reco.appdata.xml.in:286
 msgid "Notify success of recording with a check mark"
@@ -542,7 +544,7 @@ msgstr "Ses Kayıt Uygulaması"
 
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
-msgstr "Record;Audio;Sound;Voice;"
+msgstr "Kayıt;Ses;Konuşma;Kaydet;"
 
 #~ msgid "com.github.ryonakano.reco"
 #~ msgstr "com.github.ryonakano.reco"
