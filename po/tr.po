@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-06-24 22:19+0000\n"
+"PO-Revision-Date: 2022-08-11 22:19+0000\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco-main/"
 "tr/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
@@ -60,7 +60,7 @@ msgstr "Kayıt"
 
 #: src/Views/WelcomeView.vala:22
 msgid "Record from:"
-msgstr "Kayıt yeri :"
+msgstr "Kayıt kaynağı :"
 
 #: src/Views/WelcomeView.vala:28
 msgid "Microphone"
