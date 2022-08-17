@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-06-21 12:17+0000\n"
+"PO-Revision-Date: 2022-08-18 16:20+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/rosp/"
 "reco-extra/pt/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -34,7 +34,7 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:14
 msgid "Features include:"
-msgstr "As características incluem:"
+msgstr "As funcionalidades incluem:"
 
 #: data/reco.appdata.xml.in:16
 msgid ""
@@ -96,7 +96,7 @@ msgstr "Uma indicação de que a gravação foi concluída com sucesso"
 
 #: data/reco.appdata.xml.in:44
 msgid "Check desktop environment on runtime"
-msgstr ""
+msgstr "Verificar o ambiente de trabalho em tempo de execução"
 
 #: data/reco.appdata.xml.in:45
 msgid "Show nicer message dialogs depending on the running desktop environment"
@@ -111,9 +111,8 @@ msgid "Translation updates:"
 msgstr "Atualizações de tradução:"
 
 #: data/reco.appdata.xml.in:49
-#, fuzzy
 msgid "Update French translation (thanks to @NathanBnm)"
-msgstr "Tradução francesa adicionada (por @NathanBnm))"
+msgstr "Atualização da tradução francesa (obrigado a @NathanBnm)"
 
 #: data/reco.appdata.xml.in:50 data/reco.appdata.xml.in:89
 #: data/reco.appdata.xml.in:120 data/reco.appdata.xml.in:129
@@ -123,12 +122,11 @@ msgstr "Atualização da tradução portuguesa (obrigado a @hugok79)"
 #: data/reco.appdata.xml.in:51 data/reco.appdata.xml.in:88
 #: data/reco.appdata.xml.in:138 data/reco.appdata.xml.in:178
 msgid "Update Dutch translation (thanks to @Vistaus)"
-msgstr "Atualização da tradução holandesa (obrigado a @Vistaus)"
+msgstr "Atualização da tradução Neerlandesa (obrigado a @Vistaus)"
 
 #: data/reco.appdata.xml.in:52
-#, fuzzy
 msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
-msgstr "Tradução portuguesa adicionada (obrigado a @hugok79)"
+msgstr "Tradução de chinês simplificado adicionada (obrigado a @ShuiHuo)"
 
 #: data/reco.appdata.xml.in:58
 msgid "Reco is now available on Flathub too!"
@@ -439,7 +437,7 @@ msgid ""
 "Dutch)"
 msgstr ""
 "Fornece capturas de ecrã localizadas à Loja de Aplicações (francês, japonês, "
-"lituano e holandês)"
+"lituano e neerlandês)"
 
 #: data/reco.appdata.xml.in:273
 msgid "Fix temporary recording files remain when quit the app while recording"
@@ -453,7 +451,7 @@ msgstr "Usar letras maiúsculas para WAV"
 
 #: data/reco.appdata.xml.in:276
 msgid "Add Dutch translation (by Vistaus)"
-msgstr "Tradução holandesa adicionada (por Vistaus)"
+msgstr "Tradução do neerlandês adicionada (por Vistaus)"
 
 #: data/reco.appdata.xml.in:283
 msgid ""
