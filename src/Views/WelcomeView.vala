@@ -181,8 +181,7 @@ public class WelcomeView : Gtk.Box {
         string destination = Application.settings.get_string ("destination");
 
         if (destination == "") {
-            //TRANSLATORS: The name of the folder which recordings are saved
-            destination = Environment.get_home_dir () + "/%s".printf (_("Recordings"));
+            destination = Environment.get_user_special_dir (UserDirectory.VIDEOS);
             Application.settings.set_string ("destination", destination);
         }
 
