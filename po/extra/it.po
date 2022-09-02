@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-07-11 08:19+0000\n"
+"PO-Revision-Date: 2022-09-04 03:21+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco-extra/"
 "it/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -495,7 +495,7 @@ msgstr "Consente di annullare/mettere in pausa la registrazione"
 
 #: data/reco.appdata.xml.in:288
 msgid "Update translations"
-msgstr "Aggiornate traduzioni"
+msgstr "Aggiornate le traduzioni"
 
 #: data/reco.appdata.xml.in:295
 msgid ""
