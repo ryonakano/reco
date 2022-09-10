@@ -57,6 +57,10 @@ public class WelcomeView : Gtk.Box {
             halign = Gtk.Align.START
         };
 
+        var timer_size_group = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
+        timer_size_group.add_widget (delay_spin);
+        timer_size_group.add_widget (length_spin);
+
         var saving_header_label = new Granite.HeaderLabel (_("Saving"));
 
         var format_label = new Gtk.Label (_("Format:")) {
