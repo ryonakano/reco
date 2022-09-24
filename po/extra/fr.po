@@ -3,18 +3,22 @@
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Nathan Bonnemains (@NathanBnm), 2022.
 #
+# rene-coty <irenee.thirion@e.email>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-01-11 12:30+0100\n"
-"Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
-"Language-Team: Français\n"
+"PO-Revision-Date: 2022-09-25 10:22+0000\n"
+"Last-Translator: rene-coty <irenee.thirion@e.email>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/rosp/reco-extra/"
+"fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -100,6 +104,7 @@ msgstr "Une indication montrant que l'enregistrement est terminé avec succès"
 #: data/reco.appdata.xml.in:44
 msgid "Check desktop environment on runtime"
 msgstr ""
+"Vérification de l’environnement de bureau dans l’environnement d’exécution"
 
 #: data/reco.appdata.xml.in:45
 msgid "Show nicer message dialogs depending on the running desktop environment"
@@ -109,7 +114,7 @@ msgstr ""
 #: data/reco.appdata.xml.in:86 data/reco.appdata.xml.in:101
 #: data/reco.appdata.xml.in:117
 msgid "Translation updates:"
-msgstr "Mise à jour des traductions :"
+msgstr "Mise à jour des traductions :"
 
 #: data/reco.appdata.xml.in:49
 #, fuzzy
@@ -124,7 +129,7 @@ msgstr "Mise à jour des traductions en portugais (grâce à @hugok79)"
 #: data/reco.appdata.xml.in:51 data/reco.appdata.xml.in:88
 #: data/reco.appdata.xml.in:138 data/reco.appdata.xml.in:178
 msgid "Update Dutch translation (thanks to @Vistaus)"
-msgstr "Mise à jour des traductions en néerlandais (grâce à @Vistaus)"
+msgstr "Mise à jour de la traduction néerlandaise (grâce à @Vistaus)"
 
 #: data/reco.appdata.xml.in:52
 #, fuzzy
@@ -143,7 +148,7 @@ msgstr "Mise à jour des traductions en espagnol (grâce à @Eldhrimer)"
 #: data/reco.appdata.xml.in:64 data/reco.appdata.xml.in:90
 #: data/reco.appdata.xml.in:103
 msgid "Update Italian translation (thanks to @albanobattistella)"
-msgstr "Mise à jour des traductions en italien (grâce à @albanobattistella)"
+msgstr "Mise à jour des traductions italiennes (grâce à @albanobattistella)"
 
 #: data/reco.appdata.xml.in:70
 msgid "Let's celebrate the new year with the issue from the ancient fixed!"
@@ -173,7 +178,7 @@ msgstr "Ajout d'un nouveau bouton de sélection du thème"
 #: data/reco.appdata.xml.in:297 data/reco.appdata.xml.in:309
 #: data/reco.appdata.xml.in:319
 msgid "Update Japanese translation"
-msgstr "Mise à jour des traductions en japonais"
+msgstr "Mise à jour de la traduction japonaise"
 
 #: data/reco.appdata.xml.in:98
 msgid ""
@@ -192,8 +197,8 @@ msgid ""
 "Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
 "manifest"
 msgstr ""
-"Publication de l'application dans le nouveau Centre d'Applications "
-"d'elementary OS avec le manifeste Flatpak"
+"Publication de l’application sur le nouvel AppCenter dans elementary OS 6 "
+"avec le manifeste Flatpak"
 
 #: data/reco.appdata.xml.in:112
 msgid "A completely rewrited and improved method to detect recording sources"
@@ -305,11 +310,11 @@ msgstr "Mise à jour des traductions en turc (grâce à @safak45x)"
 
 #: data/reco.appdata.xml.in:186
 msgid "Respect an elementary OS-wide dark preference"
-msgstr "Prise en compte du paramètre de thème d'elementary OS"
+msgstr "Respect de la préférence du thème sombre d'elementary OS"
 
 #: data/reco.appdata.xml.in:187
 msgid "Allow setting per-app dark style preference"
-msgstr "Ajout de la possibilité de définir le thème pour l'application"
+msgstr "Possibilité de définir un thème sombre spécifique à l'application"
 
 #: data/reco.appdata.xml.in:188
 msgid "Allow choosing stereo or mono"
@@ -499,9 +504,8 @@ msgid "Allow to cancel/pause recording"
 msgstr "Ajout de la possibilté d'annuler/mettre en pause l'enregistrement"
 
 #: data/reco.appdata.xml.in:288
-#, fuzzy
 msgid "Update translations"
-msgstr "Mise à jour des traductions en japonais"
+msgstr "Mise à jour des traductions"
 
 #: data/reco.appdata.xml.in:295
 msgid ""
@@ -562,7 +566,7 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:328
 msgid "Add Japanese translation"
-msgstr "Ajout des traductions en japonais"
+msgstr "Ajout d’une traduction japonaise"
 
 #: data/reco.appdata.xml.in:335
 msgid "Initial release"
