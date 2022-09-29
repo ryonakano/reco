@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-08-18 16:20+0000\n"
+"PO-Revision-Date: 2022-09-30 16:19+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/rosp/"
 "reco-extra/pt/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -298,11 +298,11 @@ msgstr "Atualização da tradução turca (obrigado a @safak45x)"
 
 #: data/reco.appdata.xml.in:186
 msgid "Respect an elementary OS-wide dark preference"
-msgstr "Respeita a preferência geral escura por todo o elementary OS"
+msgstr "Respeitar a preferência do tema escuro no elementary OS"
 
 #: data/reco.appdata.xml.in:187
 msgid "Allow setting per-app dark style preference"
-msgstr "Permitir a definição de preferência de estilo escuro por aplicação"
+msgstr "Permite definir a preferência do estilo escuro por cada aplicação"
 
 #: data/reco.appdata.xml.in:188
 msgid "Allow choosing stereo or mono"
@@ -539,11 +539,11 @@ msgstr "Mostrar uma notificação depois de gravado com sucesso"
 
 #: data/reco.appdata.xml.in:328
 msgid "Add Japanese translation"
-msgstr "Tradução japonesa adicionada"
+msgstr "Tradução Japonesa adicionada"
 
 #: data/reco.appdata.xml.in:335
 msgid "Initial release"
-msgstr "Versão inicial"
+msgstr "Lançamento inicial"
 
 #: data/reco.appdata.xml.in:341
 msgid "Ryo Nakano"
