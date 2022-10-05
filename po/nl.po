@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-03 16:37+0900\n"
-"PO-Revision-Date: 2022-09-26 16:23+0000\n"
+"PO-Revision-Date: 2022-10-06 18:16+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-main/nl/>"
 "\n"
@@ -165,7 +165,7 @@ msgstr "Opslaan"
 
 #: src/MainWindow.vala:125
 msgid "Cancel"
-msgstr "Afbreken"
+msgstr "Annuleren"
 
 #: src/MainWindow.vala:184 src/MainWindow.vala:202
 msgid "Unable to Complete Recording"
