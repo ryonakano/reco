@@ -5,6 +5,9 @@
 
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
+
+    private Gtk.Switch auto_save_switch;
+    private Gtk.Label destination_chooser_label;
     private Gtk.Button record_button;
 
     public WelcomeView (MainWindow window) {
@@ -81,17 +84,18 @@ public class WelcomeView : Gtk.Box {
             halign = Gtk.Align.END
         };
 
-        var auto_save_switch = new Gtk.Switch () {
+        auto_save_switch = new Gtk.Switch () {
             halign = Gtk.Align.START
         };
 
         var destination_chooser_icon = new Gtk.Image.from_icon_name ("folder");
 
-        var destination_chooser_label = new Gtk.Label (filechooser_get_display_path (get_destination ())) {
+        destination_chooser_label = new Gtk.Label (null) {
             // Avoid the window get wider when a folder with a long directory name selected
             max_width_chars = 15,
             ellipsize = Pango.EllipsizeMode.MIDDLE
         };
+        get_destination ();
 
         var destination_chooser_grid = new Gtk.Grid () {
             tooltip_text = _("Choose a default destination"),
@@ -148,27 +152,46 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("source", source_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channels", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("auto-save", auto_save_switch, "active", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("auto-save", destination_chooser_button, "sensitive", SettingsBindFlags.DEFAULT);
 
-        destination_chooser_button.clicked.connect (() => {
-            var filechooser = new Gtk.FileChooserNative (
-                _("Choose a default destination"), window, Gtk.FileChooserAction.SELECT_FOLDER,
-                _("Select"), null
-            ) {
-                modal = true
-            };
-            try {
-                filechooser.set_current_folder (File.new_for_path (Application.settings.get_string ("destination")));
-            } catch (Error e) {
-                warning (e.message);
+        auto_save_switch.state_set.connect ((state) => {
+            if (state) {
+                var autosave_dest = Application.settings.get_string ("autosave-destination");
+                if (autosave_dest != Application.SETTINGS_NO_AUTOSAVE) {
+                    return false;
+                }
+
+                var filechooser = destination_chooser_new ();
+                filechooser.response.connect ((response_id) => {
+                    switch (response_id) {
+                        case Gtk.ResponseType.ACCEPT:
+                            string new_path = filechooser.get_file ().get_path ();
+                            set_destination (new_path);
+                            auto_save_switch.active = true;
+                            break;
+                        case Gtk.ResponseType.CANCEL:
+                            auto_save_switch.active = false;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    filechooser.destroy ();
+                });
+                filechooser.show ();
+            } else {
+                set_destination (Application.SETTINGS_NO_AUTOSAVE);
             }
 
+            return false;
+        });
+
+        destination_chooser_button.clicked.connect (() => {
+            var filechooser = destination_chooser_new ();
             filechooser.response.connect ((response_id) => {
                 if (response_id == Gtk.ResponseType.ACCEPT) {
                     string new_path = filechooser.get_file ().get_path ();
-                    Application.settings.set_string ("destination", new_path);
-                    destination_chooser_label.label = filechooser_get_display_path (new_path);
+                    set_destination (new_path);
+                    auto_save_switch.active = true;
                 }
 
                 filechooser.destroy ();
@@ -181,25 +204,49 @@ public class WelcomeView : Gtk.Box {
         });
     }
 
-    private string get_destination () {
-        string destination = Application.settings.get_string ("destination");
+    private void get_destination () {
+        string path = Application.settings.get_string ("autosave-destination");
+        destination_chooser_label.label = filechooser_get_display_path (path);
+        auto_save_switch.active = (path != Application.SETTINGS_NO_AUTOSAVE);
 
-        if (destination == "") {
-            //TRANSLATORS: The name of the folder which recordings are saved
-            destination = Environment.get_home_dir () + "/%s".printf (_("Recordings"));
-            Application.settings.set_string ("destination", destination);
+        var file = File.new_for_path (path);
+        if (!file.query_exists ()) {
+            DirUtils.create_with_parents (path, 0775);
         }
+    }
 
-        if (destination != null) {
-            DirUtils.create_with_parents (destination, 0775);
-        }
-
-        return destination;
+    private void set_destination (string path) {
+        Application.settings.set_string ("autosave-destination", path);
+        destination_chooser_label.label = filechooser_get_display_path (path);
     }
 
     private string filechooser_get_display_path (string path) {
+        if (path == Application.SETTINGS_NO_AUTOSAVE) {
+            return _("Select destionation…");
+        }
+
         string[] destination_splitted = path.split ("/");
         return destination_splitted[destination_splitted.length - 1];
+    }
+
+    private Gtk.FileChooserNative destination_chooser_new () {
+        var filechooser = new Gtk.FileChooserNative (
+            _("Choose a default destination"), window, Gtk.FileChooserAction.SELECT_FOLDER,
+            _("Select"), null
+        ) {
+            modal = true
+        };
+
+        var autosave_dest = Application.settings.get_string ("autosave-destination");
+        if (autosave_dest != Application.SETTINGS_NO_AUTOSAVE) {
+            try {
+                filechooser.set_current_folder (File.new_for_path (autosave_dest));
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+
+        return filechooser;
     }
 
     public void show_success_button () {

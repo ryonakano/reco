@@ -140,9 +140,10 @@ public class MainWindow : Gtk.ApplicationWindow {
             string final_file_name = _("Recording from %s").printf (
                                         new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S")
                                     ) + suffix;
-            var final_dest = File.new_for_path (Application.settings.get_string ("destination"));
 
-            if (Application.settings.get_boolean ("auto-save")) {
+            var autosave_dest = Application.settings.get_string ("autosave-destination");
+            if (autosave_dest != Application.SETTINGS_NO_AUTOSAVE) {
+                var final_dest = File.new_for_path (autosave_dest);
                 try {
                     if (tmp_file.move (final_dest.get_child (final_file_name), FileCopyFlags.OVERWRITE)) {
                         welcome_view.show_success_button ();
@@ -157,11 +158,6 @@ public class MainWindow : Gtk.ApplicationWindow {
                     modal = true
                 };
                 filechooser.set_current_name (final_file_name);
-                try {
-                    filechooser.set_current_folder (final_dest);
-                } catch (Error e) {
-                    warning (e.message);
-                }
 
                 filechooser.response.connect ((response_id) => {
                     if (response_id == Gtk.ResponseType.ACCEPT) {
