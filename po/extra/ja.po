@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-09 13:14+0900\n"
-"PO-Revision-Date: 2022-10-09 01:38+0000\n"
+"PO-Revision-Date: 2022-10-09 04:19+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-extra/"
 "ja/>\n"
@@ -102,7 +102,8 @@ msgstr "ユーザー許可時のみ、ディスクへのアクセス権限を取
 msgid ""
 "Fix no style button selected on non-Pantheon desktop environments when first "
 "launch"
-msgstr ""
+msgstr "Pantheon デスクトップ環境以外での初回起動時、どのスタイルボタンも選択されてい"
+"ない不具合を修正"
 
 #: data/reco.appdata.xml.in:47 data/reco.appdata.xml.in:55
 #: data/reco.appdata.xml.in:306
