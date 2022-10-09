@@ -222,6 +222,10 @@ public class RecordView : Gtk.Box {
         start_countdown ();
     }
 
+    public void clear_countdown () {
+        hide_timer_label (remaining_time_label);
+    }
+
     private void start_countdown () {
         // Show initial time
         show_timer_label (remaining_time_label, remain_minutes_10, remain_minutes_1, remain_seconds_10, remain_seconds_1);
@@ -268,5 +272,9 @@ public class RecordView : Gtk.Box {
 
     private void show_timer_label (Gtk.Label label, uint minutes_10, uint minutes_1, uint seconds_10, uint seconds_1) {
         label.label = "%u%u:%u%u".printf (minutes_10, minutes_1, seconds_10, seconds_1);
+    }
+
+    private void hide_timer_label (Gtk.Label label) {
+        label.label = null;
     }
 }
