@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-09 19:24+0900\n"
-"PO-Revision-Date: 2022-10-09 04:19+0000\n"
+"PO-Revision-Date: 2022-10-10 00:52+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-extra/"
 "ja/>\n"
@@ -100,7 +100,7 @@ msgstr "ユーザー許可時のみ、ディスクへのアクセス権限を取
 
 #: data/reco.appdata.xml.in:46
 msgid "Hide remaining time label when unnecessary"
-msgstr ""
+msgstr "必要のないときは、残り時間のラベルを非表示にするように修正"
 
 #: data/reco.appdata.xml.in:47
 msgid ""
