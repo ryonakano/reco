@@ -184,7 +184,7 @@ public class WelcomeView : Gtk.Box {
 
     private void get_destination () {
         string path = Application.settings.get_string ("autosave-destination");
-        destination_chooser_label.label = filechooser_get_display_path (path);
+        destination_chooser_label.label = destination_chooser_get_label (path);
         auto_save_switch.active = (path != Application.SETTINGS_NO_AUTOSAVE);
 
         var file = File.new_for_path (path);
@@ -195,10 +195,10 @@ public class WelcomeView : Gtk.Box {
 
     private void set_destination (string path) {
         Application.settings.set_string ("autosave-destination", path);
-        destination_chooser_label.label = filechooser_get_display_path (path);
+        destination_chooser_label.label = destination_chooser_get_label (path);
     }
 
-    private string filechooser_get_display_path (string path) {
+    private string destination_chooser_get_label (string path) {
         if (path == Application.SETTINGS_NO_AUTOSAVE) {
             return _("Select destionation…");
         }
