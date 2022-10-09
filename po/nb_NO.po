@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-03 16:37+0900\n"
+"POT-Creation-Date: 2022-10-09 10:15+0900\n"
 "PO-Revision-Date: 2022-05-21 19:19+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/rosp/"
@@ -22,183 +22,186 @@ msgstr ""
 msgid "Recording is ongoing"
 msgstr "Opptak pågår"
 
-#: src/Views/CountDownView.vala:37
+#: src/Views/CountDownView.vala:41
 msgid "Cancel the countdown"
 msgstr "Avbryt nedtellingen"
 
-#: src/Views/CountDownView.vala:44 src/Views/CountDownView.vala:117
-#: src/Views/CountDownView.vala:139
+#: src/Views/CountDownView.vala:48 src/Views/CountDownView.vala:121
+#: src/Views/CountDownView.vala:143
 msgid "Pause the countdown"
 msgstr "Sett nedtellingen på pause"
 
-#: src/Views/CountDownView.vala:130
+#: src/Views/CountDownView.vala:134
 msgid "Resume the countdown"
 msgstr "Fortsett nedtellingen"
 
-#: src/Views/RecordView.vala:53
+#: src/Views/RecordView.vala:57
 msgid "Cancel recording"
 msgstr "Avbryt opptak"
 
-#: src/Views/RecordView.vala:60
+#: src/Views/RecordView.vala:64
 msgid "Finish recording"
 msgstr "Fullfør opptak"
 
-#: src/Views/RecordView.vala:69 src/Views/RecordView.vala:95
-#: src/Views/RecordView.vala:130 src/Views/RecordView.vala:142
+#: src/Views/RecordView.vala:74 src/Views/RecordView.vala:98
+#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
 msgid "Pause recording"
 msgstr "Sett opptak på pause"
 
-#: src/Views/RecordView.vala:118
+#: src/Views/RecordView.vala:119
 msgid "Resume recording"
 msgstr "Fortsett opptak"
 
-#: src/Views/WelcomeView.vala:20
+#: src/Views/WelcomeView.vala:26
 #, fuzzy
 msgid "Recording"
 msgstr "Opptak"
 
-#: src/Views/WelcomeView.vala:22
+#: src/Views/WelcomeView.vala:28
 msgid "Record from:"
 msgstr "Ta opp fra:"
 
-#: src/Views/WelcomeView.vala:28
+#: src/Views/WelcomeView.vala:34
 msgid "Microphone"
 msgstr "Mikrofon"
 
-#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:57
+#: src/Views/WelcomeView.vala:35 src/StyleSwitcher.vala:41
 msgid "System"
 msgstr "Systemet"
 
-#: src/Views/WelcomeView.vala:30
+#: src/Views/WelcomeView.vala:36
 msgid "Both"
 msgstr "Begge"
 
-#: src/Views/WelcomeView.vala:32
+#: src/Views/WelcomeView.vala:38
 msgid "Channels:"
 msgstr "Kanaler:"
 
-#: src/Views/WelcomeView.vala:38
+#: src/Views/WelcomeView.vala:44
 msgid "Mono"
 msgstr "Mono"
 
-#: src/Views/WelcomeView.vala:39
+#: src/Views/WelcomeView.vala:45
 msgid "Stereo"
 msgstr "Stereo"
 
-#: src/Views/WelcomeView.vala:41
+#: src/Views/WelcomeView.vala:47
 msgid "Timer"
 msgstr "Tidsur"
 
-#: src/Views/WelcomeView.vala:43
+#: src/Views/WelcomeView.vala:49
 msgid "Delay in seconds:"
 msgstr "Forsinkelse i sekunder:"
 
-#: src/Views/WelcomeView.vala:50
+#: src/Views/WelcomeView.vala:56
 msgid "Length in seconds:"
 msgstr "Lengde i sekunder:"
 
-#: src/Views/WelcomeView.vala:57
+#: src/Views/WelcomeView.vala:67
 #, fuzzy
 msgid "Saving"
 msgstr "Lagring"
 
-#: src/Views/WelcomeView.vala:59
+#: src/Views/WelcomeView.vala:69
 msgid "Format:"
 msgstr "Format:"
 
-#: src/Views/WelcomeView.vala:66
+#: src/Views/WelcomeView.vala:76
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/Views/WelcomeView.vala:67
+#: src/Views/WelcomeView.vala:77
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:68
+#: src/Views/WelcomeView.vala:78
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:69
+#: src/Views/WelcomeView.vala:79
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:70
+#: src/Views/WelcomeView.vala:80
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:71
+#: src/Views/WelcomeView.vala:81
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:73
+#: src/Views/WelcomeView.vala:83
 #, fuzzy
 msgid "Automatically save files:"
 msgstr "Lagre filer automatisk:"
 
-#: src/Views/WelcomeView.vala:82
+#: src/Views/WelcomeView.vala:101 src/Views/WelcomeView.vala:212
 msgid "Choose a default destination"
 msgstr "Velg et forvalgt mål"
 
-#: src/Views/WelcomeView.vala:113
+#: src/Views/WelcomeView.vala:138
 msgid "Start recording"
 msgstr "Start opptak"
 
-#. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:146
-msgid "Recordings"
-msgstr "Opptak"
+#: src/Views/WelcomeView.vala:203
+#, fuzzy
+#| msgid "Choose a default destination"
+msgid "Select destionation…"
+msgstr "Velg et forvalgt mål"
 
-#: src/MainWindow.vala:49
+#: src/Views/WelcomeView.vala:213
+msgid "Select"
+msgstr ""
+
+#: src/MainWindow.vala:52
 msgid "Preferences"
 msgstr "Innstillinger"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:106
+#: src/MainWindow.vala:140
 #, c-format
 msgid "Recording from %s"
 msgstr "Tar opp fra %s"
 
-#: src/MainWindow.vala:124
+#: src/MainWindow.vala:156
 msgid "Save your recording"
 msgstr "Lagre opptaket ditt"
 
-#: src/MainWindow.vala:125
-msgid "Save"
-msgstr "Lagre"
-
-#: src/MainWindow.vala:125
-msgid "Cancel"
-msgstr "Avbryt"
-
-#: src/MainWindow.vala:184 src/MainWindow.vala:202
+#: src/MainWindow.vala:214 src/MainWindow.vala:232
 #, fuzzy
 msgid "Unable to Complete Recording"
 msgstr "Kunne ikke fullføre opptak"
 
-#: src/MainWindow.vala:185 src/MainWindow.vala:203
+#: src/MainWindow.vala:215 src/MainWindow.vala:233
 msgid "The following error message may be helpful:"
 msgstr "Følgende feilmelding kan være nyttig:"
 
-#: src/StyleSwitcher.vala:24
+#: src/StyleSwitcher.vala:26
 msgid "Style:"
 msgstr "Stil:"
 
-#: src/StyleSwitcher.vala:30
-msgid "Light style"
-msgstr "Lys stil"
-
-#: src/StyleSwitcher.vala:33
+#: src/StyleSwitcher.vala:32
 msgid "Light"
 msgstr "Lys"
 
-#: src/StyleSwitcher.vala:37
-msgid "Dark style"
-msgstr "Mørk stil"
-
-#: src/StyleSwitcher.vala:40
+#: src/StyleSwitcher.vala:35
 msgid "Dark"
 msgstr "Mørk"
 
-#: src/StyleSwitcher.vala:54
-msgid "Use the same style set in the system"
-msgstr "Bruk samme stil valgt i systemet"
+#~ msgid "Recordings"
+#~ msgstr "Opptak"
+
+#~ msgid "Save"
+#~ msgstr "Lagre"
+
+#~ msgid "Cancel"
+#~ msgstr "Avbryt"
+
+#~ msgid "Light style"
+#~ msgstr "Lys stil"
+
+#~ msgid "Dark style"
+#~ msgstr "Mørk stil"
+
+#~ msgid "Use the same style set in the system"
+#~ msgstr "Bruk samme stil valgt i systemet"

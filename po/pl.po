@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-03 16:37+0900\n"
+"POT-Creation-Date: 2022-10-09 10:15+0900\n"
 "PO-Revision-Date: 2019-11-18 14:08-0300\n"
 "Last-Translator:  Michał Nowakowski <nowakowski@offshore.rocks>\n"
 "Language-Team: none\n"
@@ -21,185 +21,179 @@ msgstr ""
 msgid "Recording is ongoing"
 msgstr "Nagrania"
 
-#: src/Views/CountDownView.vala:37
+#: src/Views/CountDownView.vala:41
 msgid "Cancel the countdown"
 msgstr "Anuluj odliczanie"
 
-#: src/Views/CountDownView.vala:44 src/Views/CountDownView.vala:117
-#: src/Views/CountDownView.vala:139
+#: src/Views/CountDownView.vala:48 src/Views/CountDownView.vala:121
+#: src/Views/CountDownView.vala:143
 msgid "Pause the countdown"
 msgstr "Wstrzymaj odliczanie"
 
-#: src/Views/CountDownView.vala:130
+#: src/Views/CountDownView.vala:134
 msgid "Resume the countdown"
 msgstr "Wznów odliczanie"
 
-#: src/Views/RecordView.vala:53
+#: src/Views/RecordView.vala:57
 msgid "Cancel recording"
 msgstr "Anuluj nagrywanie"
 
-#: src/Views/RecordView.vala:60
+#: src/Views/RecordView.vala:64
 msgid "Finish recording"
 msgstr "Zakończ nagrywanie"
 
-#: src/Views/RecordView.vala:69 src/Views/RecordView.vala:95
-#: src/Views/RecordView.vala:130 src/Views/RecordView.vala:142
+#: src/Views/RecordView.vala:74 src/Views/RecordView.vala:98
+#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
 msgid "Pause recording"
 msgstr "Wstrzymaj nagrywanie"
 
-#: src/Views/RecordView.vala:118
+#: src/Views/RecordView.vala:119
 msgid "Resume recording"
 msgstr "Wznów nagrywanie"
 
-#: src/Views/WelcomeView.vala:20
+#: src/Views/WelcomeView.vala:26
 msgid "Recording"
 msgstr "Nagrywanie"
 
-#: src/Views/WelcomeView.vala:22
+#: src/Views/WelcomeView.vala:28
 msgid "Record from:"
 msgstr "Nagrywaj z:"
 
-#: src/Views/WelcomeView.vala:28
+#: src/Views/WelcomeView.vala:34
 msgid "Microphone"
 msgstr "Mikrofonu"
 
-#: src/Views/WelcomeView.vala:29 src/StyleSwitcher.vala:57
+#: src/Views/WelcomeView.vala:35 src/StyleSwitcher.vala:41
 msgid "System"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:30
+#: src/Views/WelcomeView.vala:36
 msgid "Both"
 msgstr "Obu"
 
-#: src/Views/WelcomeView.vala:32
+#: src/Views/WelcomeView.vala:38
 msgid "Channels:"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:38
+#: src/Views/WelcomeView.vala:44
 msgid "Mono"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:39
+#: src/Views/WelcomeView.vala:45
 msgid "Stereo"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:41
+#: src/Views/WelcomeView.vala:47
 msgid "Timer"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:43
+#: src/Views/WelcomeView.vala:49
 msgid "Delay in seconds:"
 msgstr "Opóźnienie w sekundach:"
 
-#: src/Views/WelcomeView.vala:50
+#: src/Views/WelcomeView.vala:56
 msgid "Length in seconds:"
 msgstr "Długość w sekundach:"
 
-#: src/Views/WelcomeView.vala:57
+#: src/Views/WelcomeView.vala:67
 msgid "Saving"
 msgstr "Zapisywanie"
 
-#: src/Views/WelcomeView.vala:59
+#: src/Views/WelcomeView.vala:69
 msgid "Format:"
 msgstr "Format:"
 
-#: src/Views/WelcomeView.vala:66
+#: src/Views/WelcomeView.vala:76
 msgid "ALAC"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:67
+#: src/Views/WelcomeView.vala:77
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:68
+#: src/Views/WelcomeView.vala:78
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:69
+#: src/Views/WelcomeView.vala:79
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:70
+#: src/Views/WelcomeView.vala:80
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:71
+#: src/Views/WelcomeView.vala:81
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:73
+#: src/Views/WelcomeView.vala:83
 msgid "Automatically save files:"
 msgstr "Automatycznie zapisuj pliki:"
 
-#: src/Views/WelcomeView.vala:82
+#: src/Views/WelcomeView.vala:101 src/Views/WelcomeView.vala:212
 msgid "Choose a default destination"
 msgstr "Wybierz domyślne położenie"
 
-#: src/Views/WelcomeView.vala:113
+#: src/Views/WelcomeView.vala:138
 msgid "Start recording"
 msgstr "Zacznij nagrywanie"
 
-#. TRANSLATORS: The name of the folder which recordings are saved
-#: src/Views/WelcomeView.vala:146
-msgid "Recordings"
-msgstr "Nagrania"
+#: src/Views/WelcomeView.vala:203
+#, fuzzy
+#| msgid "Choose a default destination"
+msgid "Select destionation…"
+msgstr "Wybierz domyślne położenie"
 
-#: src/MainWindow.vala:49
+#: src/Views/WelcomeView.vala:213
+msgid "Select"
+msgstr ""
+
+#: src/MainWindow.vala:52
 msgid "Preferences"
 msgstr ""
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:106
+#: src/MainWindow.vala:140
 #, c-format
 msgid "Recording from %s"
 msgstr "Nagrywanie z %s"
 
-#: src/MainWindow.vala:124
+#: src/MainWindow.vala:156
 msgid "Save your recording"
 msgstr "Zapisz swoje nagrania"
 
-#: src/MainWindow.vala:125
-msgid "Save"
-msgstr "Zapisz"
-
-#: src/MainWindow.vala:125
-msgid "Cancel"
-msgstr "Anuluj"
-
-#: src/MainWindow.vala:184 src/MainWindow.vala:202
+#: src/MainWindow.vala:214 src/MainWindow.vala:232
 msgid "Unable to Complete Recording"
 msgstr ""
 
-#: src/MainWindow.vala:185 src/MainWindow.vala:203
+#: src/MainWindow.vala:215 src/MainWindow.vala:233
 #, fuzzy
 msgid "The following error message may be helpful:"
 msgstr ""
 "Błąd GStreamera wystąpił podczas nagrywania, pomocny może być następujący "
 "komunikat o błędzie:"
 
-#: src/StyleSwitcher.vala:24
+#: src/StyleSwitcher.vala:26
 msgid "Style:"
 msgstr ""
 
-#: src/StyleSwitcher.vala:30
-msgid "Light style"
-msgstr ""
-
-#: src/StyleSwitcher.vala:33
+#: src/StyleSwitcher.vala:32
 msgid "Light"
 msgstr ""
 
-#: src/StyleSwitcher.vala:37
-msgid "Dark style"
-msgstr ""
-
-#: src/StyleSwitcher.vala:40
+#: src/StyleSwitcher.vala:35
 msgid "Dark"
 msgstr ""
 
-#: src/StyleSwitcher.vala:54
-msgid "Use the same style set in the system"
-msgstr ""
+#~ msgid "Recordings"
+#~ msgstr "Nagrania"
+
+#~ msgid "Save"
+#~ msgstr "Zapisz"
+
+#~ msgid "Cancel"
+#~ msgstr "Anuluj"
 
 #, fuzzy
 #~ msgid "Reco"
