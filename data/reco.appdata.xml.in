@@ -38,6 +38,15 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="4.0.0" date="2022-10-09" urgency="high">
+      <description>
+        <ul>
+          <li>Migrate to GTK 4, the latest version of GTK</li>
+          <li>Get disk access permission only when the user allowed</li>
+          <li>Update translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.3.1" date="2022-06-18" urgency="low">
       <description>
         <ul>
