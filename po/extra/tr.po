@@ -4,13 +4,14 @@
 #
 # Safak Genisol, 2020.
 # Sabri Ünal <libreajans@gmail.com>, 2022.
+# Oğuz Ersen <oguz@ersen.moe>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-09 13:14+0900\n"
-"PO-Revision-Date: 2022-08-21 10:20+0000\n"
-"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"PO-Revision-Date: 2022-10-09 23:18+0000\n"
+"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco-extra/"
 "tr/>\n"
 "Language: tr\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -98,28 +99,28 @@ msgstr "Kaydın başarıyla tamamlandığına dair bir gösterge"
 
 #: data/reco.appdata.xml.in:44
 msgid "Migrate to GTK 4, the latest version of GTK"
-msgstr ""
+msgstr "GTK'nın en son sürümü olan GTK 4'e geçiş yapıldı"
 
 #: data/reco.appdata.xml.in:45
 msgid "Get disk access permission only when the user allowed"
-msgstr ""
+msgstr "Yalnızca kullanıcı izin verdiğinde disk erişim izni al"
 
 #: data/reco.appdata.xml.in:46
 msgid ""
 "Fix no style button selected on non-Pantheon desktop environments when first "
 "launch"
 msgstr ""
+"Pantheon dışındaki masaüstü ortamlarında ilk başlatıldığında seçili biçim "
+"düğmesinin olmaması düzeltildi"
 
 #: data/reco.appdata.xml.in:47 data/reco.appdata.xml.in:55
 #: data/reco.appdata.xml.in:306
 msgid "Update translations"
-msgstr "Çevirileri güncelleyin"
+msgstr "Çeviriler güncellendi"
 
 #: data/reco.appdata.xml.in:54
-#, fuzzy
-#| msgid "Update Japanese translation"
 msgid "Update Flatpak runtime version"
-msgstr "Japonca çeviriyi güncellendi"
+msgstr "Flatpak çalışma zamanı sürümü güncellendi"
 
 #: data/reco.appdata.xml.in:62
 msgid "Check desktop environment on runtime"
@@ -196,7 +197,7 @@ msgstr "Yeni stil değiştirici eklendi"
 #: data/reco.appdata.xml.in:315 data/reco.appdata.xml.in:327
 #: data/reco.appdata.xml.in:337
 msgid "Update Japanese translation"
-msgstr "Japonca çeviriyi güncellendi"
+msgstr "Japonca çeviri güncellendi"
 
 #: data/reco.appdata.xml.in:116
 msgid ""
@@ -286,11 +287,11 @@ msgstr ""
 
 #: data/reco.appdata.xml.in:174
 msgid "Add Italian translation (thanks to @albanobattistella)"
-msgstr "İtalyanca çeviri eklendi (@albanobattistella tarafından)"
+msgstr "İtalyanca çeviri eklendi (Teşekkürler @albanobattistella)"
 
 #: data/reco.appdata.xml.in:175
 msgid "Add Portuguese translation (thanks to @hugok79)"
-msgstr "Portekizce çeviri eklendi (@hugok79 tarafından)"
+msgstr "Portekizce çeviri eklendi (teşekkürler @hugok79)"
 
 #: data/reco.appdata.xml.in:177
 msgid "Clean code"
