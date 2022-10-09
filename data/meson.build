@@ -8,7 +8,7 @@ foreach i : icon_sizes
 endforeach
 
 install_data(
-    'icons' / 'record-completed-symbolic.svg',
+    'icons' / meson.project_name() + '.record-completed-symbolic.svg',
     install_dir: get_option('datadir') / 'icons' / 'hicolor' / 'symbolic' / 'apps'
 )
 
