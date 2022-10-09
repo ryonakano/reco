@@ -154,49 +154,27 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("channels", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
 
         auto_save_switch.state_set.connect ((state) => {
-            if (state) {
+            if (state == true) {
+                // Prevent the filechooser shown twice when enabling the autosaving
                 var autosave_dest = Application.settings.get_string ("autosave-destination");
                 if (autosave_dest != Application.SETTINGS_NO_AUTOSAVE) {
                     return false;
                 }
 
-                var filechooser = destination_chooser_new ();
-                filechooser.response.connect ((response_id) => {
-                    switch (response_id) {
-                        case Gtk.ResponseType.ACCEPT:
-                            string new_path = filechooser.get_file ().get_path ();
-                            set_destination (new_path);
-                            auto_save_switch.active = true;
-                            break;
-                        case Gtk.ResponseType.CANCEL:
-                            auto_save_switch.active = false;
-                            break;
-                        default:
-                            break;
-                    }
-
-                    filechooser.destroy ();
-                });
-                filechooser.show ();
-            } else {
-                set_destination (Application.SETTINGS_NO_AUTOSAVE);
+                // Let the user select the autosaving destination
+                var destination_chooser = destination_chooser_new ();
+                destination_chooser.show ();
+                return false;
             }
 
+            // Clear the current destination and disable autosaving
+            set_destination (Application.SETTINGS_NO_AUTOSAVE);
             return false;
         });
 
         destination_chooser_button.clicked.connect (() => {
-            var filechooser = destination_chooser_new ();
-            filechooser.response.connect ((response_id) => {
-                if (response_id == Gtk.ResponseType.ACCEPT) {
-                    string new_path = filechooser.get_file ().get_path ();
-                    set_destination (new_path);
-                    auto_save_switch.active = true;
-                }
-
-                filechooser.destroy ();
-            });
-            filechooser.show ();
+            var destination_chooser = destination_chooser_new ();
+            destination_chooser.show ();
         });
 
         record_button.clicked.connect (() => {
@@ -236,15 +214,32 @@ public class WelcomeView : Gtk.Box {
         ) {
             modal = true
         };
+        filechooser.response.connect ((response_id) => {
+            if (response_id == Gtk.ResponseType.ACCEPT) {
+                string new_path = filechooser.get_file ().get_path ();
+                set_destination (new_path);
+                auto_save_switch.active = true;
 
-        var autosave_dest = Application.settings.get_string ("autosave-destination");
-        if (autosave_dest != Application.SETTINGS_NO_AUTOSAVE) {
-            try {
-                filechooser.set_current_folder (File.new_for_path (autosave_dest));
-            } catch (Error e) {
-                warning (e.message);
+                filechooser.destroy ();
+                return;
             }
-        }
+
+            if (response_id == Gtk.ResponseType.CANCEL) {
+                // If the autosave switch was off previously, turn off the autosave switch
+                // because the user cancels setting the autosave destination
+                // If the autosave switch was on previously, then it means the user just cancels
+                // changing the destination
+                var autosave_dest = Application.settings.get_string ("autosave-destination");
+                if (autosave_dest == Application.SETTINGS_NO_AUTOSAVE) {
+                    auto_save_switch.active = false;
+                }
+
+                filechooser.destroy ();
+                return;
+            }
+
+            filechooser.destroy ();
+        });
 
         return filechooser;
     }
