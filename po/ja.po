@@ -1,21 +1,22 @@
 # Japanese translations for com.github.ryonakano.reco package.
 # Copyright (C) 2018 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2021.
-#
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-09 10:15+0900\n"
-"PO-Revision-Date: 2021-12-20 23:22+0900\n"
+"PO-Revision-Date: 2022-10-09 01:38+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: none\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-main/"
+"ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
@@ -140,14 +141,12 @@ msgid "Start recording"
 msgstr "録音を開始します"
 
 #: src/Views/WelcomeView.vala:203
-#, fuzzy
-#| msgid "Choose a default destination"
 msgid "Select destionation…"
-msgstr "デフォルトの保存先を選択"
+msgstr "保存先を選択…"
 
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
-msgstr ""
+msgstr "選択"
 
 #: src/MainWindow.vala:52
 msgid "Preferences"
