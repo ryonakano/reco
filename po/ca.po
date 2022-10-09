@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-09 13:14+0900\n"
+"POT-Creation-Date: 2022-10-09 19:24+0900\n"
 "PO-Revision-Date: 2022-05-23 18:14+0000\n"
 "Last-Translator: Maite Guix <maite.guix@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/rosp/reco-main/"
@@ -165,11 +165,11 @@ msgstr "Enregistrament de %s"
 msgid "Save your recording"
 msgstr "Deseu el vostre enregistrament"
 
-#: src/MainWindow.vala:214 src/MainWindow.vala:232
+#: src/MainWindow.vala:216 src/MainWindow.vala:234
 msgid "Unable to Complete Recording"
 msgstr "No s’ha pogut completar l’enregistrament"
 
-#: src/MainWindow.vala:215 src/MainWindow.vala:233
+#: src/MainWindow.vala:217 src/MainWindow.vala:235
 msgid "The following error message may be helpful:"
 msgstr "Aquest missatge d’error us pot ser útil:"
 

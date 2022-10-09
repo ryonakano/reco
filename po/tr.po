@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-09 13:14+0900\n"
+"POT-Creation-Date: 2022-10-09 19:24+0900\n"
 "PO-Revision-Date: 2022-10-09 23:18+0000\n"
 "Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco-main/"
@@ -165,11 +165,11 @@ msgstr "Kayıt tarihi %s"
 msgid "Save your recording"
 msgstr "Kaydı kaydedin"
 
-#: src/MainWindow.vala:214 src/MainWindow.vala:232
+#: src/MainWindow.vala:216 src/MainWindow.vala:234
 msgid "Unable to Complete Recording"
 msgstr "Kayıt Tamamlanamadı"
 
-#: src/MainWindow.vala:215 src/MainWindow.vala:233
+#: src/MainWindow.vala:217 src/MainWindow.vala:235
 msgid "The following error message may be helpful:"
 msgstr "Aşağıdaki hata iletisi yararlı olabilir:"
 

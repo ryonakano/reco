@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-09 13:14+0900\n"
+"POT-Creation-Date: 2022-10-09 19:24+0900\n"
 "PO-Revision-Date: 2022-04-05 19:15+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: ITALIAN <LL@li.org>\n"
@@ -162,11 +162,11 @@ msgstr "Registrazione da %s"
 msgid "Save your recording"
 msgstr "Salva registrazione"
 
-#: src/MainWindow.vala:214 src/MainWindow.vala:232
+#: src/MainWindow.vala:216 src/MainWindow.vala:234
 msgid "Unable to Complete Recording"
 msgstr "Impossibile completare la registrazione"
 
-#: src/MainWindow.vala:215 src/MainWindow.vala:233
+#: src/MainWindow.vala:217 src/MainWindow.vala:235
 msgid "The following error message may be helpful:"
 msgstr "Il seguente messaggio di errore può essere utile:"
 

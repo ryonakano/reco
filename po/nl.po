@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-09 13:14+0900\n"
+"POT-Creation-Date: 2022-10-09 19:24+0900\n"
 "PO-Revision-Date: 2022-10-06 18:16+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-main/nl/"
@@ -164,11 +164,11 @@ msgstr "Bezig met opnemen van %s"
 msgid "Save your recording"
 msgstr "Sla je opname op"
 
-#: src/MainWindow.vala:214 src/MainWindow.vala:232
+#: src/MainWindow.vala:216 src/MainWindow.vala:234
 msgid "Unable to Complete Recording"
 msgstr "De opname kan niet worden afgerond"
 
-#: src/MainWindow.vala:215 src/MainWindow.vala:233
+#: src/MainWindow.vala:217 src/MainWindow.vala:235
 msgid "The following error message may be helpful:"
 msgstr "Wellicht biedt de volgende foutmelding meer informatie:"
 

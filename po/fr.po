@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-09 13:14+0900\n"
+"POT-Creation-Date: 2022-10-09 19:24+0900\n"
 "PO-Revision-Date: 2022-04-19 03:07+0000\n"
 "Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/rosp/reco-main/fr/"
@@ -166,11 +166,11 @@ msgstr "En cours d'enregistrement depuis %s"
 msgid "Save your recording"
 msgstr "Sauvegardez votre enregistrement"
 
-#: src/MainWindow.vala:214 src/MainWindow.vala:232
+#: src/MainWindow.vala:216 src/MainWindow.vala:234
 msgid "Unable to Complete Recording"
 msgstr "Impossible de procéder à l'enregistrement"
 
-#: src/MainWindow.vala:215 src/MainWindow.vala:233
+#: src/MainWindow.vala:217 src/MainWindow.vala:235
 msgid "The following error message may be helpful:"
 msgstr "Le message d'erreur suivant pourrait être utile :"
 
