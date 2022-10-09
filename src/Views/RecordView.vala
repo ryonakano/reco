@@ -267,6 +267,6 @@ public class RecordView : Gtk.Box {
     }
 
     private void show_timer_label (Gtk.Label label, uint minutes_10, uint minutes_1, uint seconds_10, uint seconds_1) {
-        label.label = "%ld%ld:%ld%ld".printf (minutes_10, minutes_1, seconds_10, seconds_1);
+        label.label = "%u%u:%u%u".printf (minutes_10, minutes_1, seconds_10, seconds_1);
     }
 }
