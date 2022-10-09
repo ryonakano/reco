@@ -188,7 +188,7 @@ public class WelcomeView : Gtk.Box {
         auto_save_switch.active = (path != Application.SETTINGS_NO_AUTOSAVE);
 
         var file = File.new_for_path (path);
-        if (!file.query_exists ()) {
+        if (file.query_exists () == false) {
             DirUtils.create_with_parents (path, 0775);
         }
     }
