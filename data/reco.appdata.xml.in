@@ -43,6 +43,7 @@
         <ul>
           <li>Migrate to GTK 4, the latest version of GTK</li>
           <li>Get disk access permission only when the user allowed</li>
+          <li>Hide remaining time label when unnecessary</li>
           <li>Fix no style button selected on non-Pantheon desktop environments when first launch</li>
           <li>Update translations</li>
         </ul>
