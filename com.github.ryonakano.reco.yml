@@ -5,7 +5,6 @@ sdk: io.elementary.Sdk
 command: com.github.ryonakano.reco
 finish-args:
   - '--device=all'
-  - '--filesystem=home'
   - '--share=ipc'
   - '--socket=wayland'
   - '--socket=fallback-x11'
