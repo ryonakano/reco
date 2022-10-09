@@ -2,20 +2,21 @@
 # Copyright (C) 2018 THE extra'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
 # Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2022.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-09 10:15+0900\n"
-"PO-Revision-Date: 2022-04-03 16:41+0900\n"
+"PO-Revision-Date: 2022-10-09 01:38+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: none\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-extra/"
+"ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -91,11 +92,11 @@ msgstr "録音が正常に完了したことを示すマーク"
 
 #: data/reco.appdata.xml.in:44
 msgid "Migrate to GTK 4, the latest version of GTK"
-msgstr ""
+msgstr "GTK の最新バージョンである、GTK 4 に移行"
 
 #: data/reco.appdata.xml.in:45
 msgid "Get disk access permission only when the user allowed"
-msgstr ""
+msgstr "ユーザー許可時のみ、ディスクへのアクセス権限を取得するように修正"
 
 #: data/reco.appdata.xml.in:46 data/reco.appdata.xml.in:54
 #: data/reco.appdata.xml.in:305
@@ -103,10 +104,8 @@ msgid "Update translations"
 msgstr "翻訳を更新"
 
 #: data/reco.appdata.xml.in:53
-#, fuzzy
-#| msgid "Update Japanese translation"
 msgid "Update Flatpak runtime version"
-msgstr "日本語翻訳を更新"
+msgstr "Flatpak ランタイムのバージョンを更新"
 
 #: data/reco.appdata.xml.in:61
 msgid "Check desktop environment on runtime"
