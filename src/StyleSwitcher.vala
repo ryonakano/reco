@@ -74,6 +74,10 @@ public class StyleSwitcher : Gtk.Box {
     }
 
     private void construct_app_style () {
+        if (!Application.IS_ON_PANTHEON) {
+            Application.settings.set_boolean ("is-follow-system-style", false);
+        }
+
         if (Application.settings.get_boolean ("is-follow-system-style")) {
             set_app_style (granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK, true);
             system_style_button.active = true;

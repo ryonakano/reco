@@ -199,6 +199,8 @@ public class MainWindow : Gtk.ApplicationWindow {
             uint record_length = Application.settings.get_uint ("length");
             if (record_length != 0) {
                 record_view.init_countdown (record_length);
+            } else {
+                record_view.clear_countdown ();
             }
 
             record_view.init_count ();
