@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-09 19:24+0900\n"
-"PO-Revision-Date: 2022-09-25 10:22+0000\n"
+"PO-Revision-Date: 2022-10-11 15:21+0000\n"
 "Last-Translator: rene-coty <irenee.thirion@e.email>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/rosp/reco-extra/"
 "fr/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -103,21 +103,25 @@ msgstr "Une indication montrant que l'enregistrement est terminé avec succès"
 
 #: data/reco.appdata.xml.in:44
 msgid "Migrate to GTK 4, the latest version of GTK"
-msgstr ""
+msgstr "Migration vers GTK 4, la dernière version de GTK"
 
 #: data/reco.appdata.xml.in:45
 msgid "Get disk access permission only when the user allowed"
 msgstr ""
+"Obtention de la permission d’accès au disque uniquement quand l’utilisateur "
+"l’a autorisé"
 
 #: data/reco.appdata.xml.in:46
 msgid "Hide remaining time label when unnecessary"
-msgstr ""
+msgstr "Masquage de l’indicateur du temps restant si pas nécessaire"
 
 #: data/reco.appdata.xml.in:47
 msgid ""
 "Fix no style button selected on non-Pantheon desktop environments when first "
 "launch"
 msgstr ""
+"Correction du bouton sans style sélectionné sur les environnements de bureau "
+"non-Pantheon lors du premier lancement"
 
 #: data/reco.appdata.xml.in:48 data/reco.appdata.xml.in:56
 #: data/reco.appdata.xml.in:307
@@ -125,10 +129,8 @@ msgid "Update translations"
 msgstr "Mise à jour des traductions"
 
 #: data/reco.appdata.xml.in:55
-#, fuzzy
-#| msgid "Update Japanese translation"
 msgid "Update Flatpak runtime version"
-msgstr "Mise à jour de la traduction japonaise"
+msgstr "Mise à jour de l’environnement d’exécution Flatpak"
 
 #: data/reco.appdata.xml.in:63
 msgid "Check desktop environment on runtime"
@@ -138,6 +140,8 @@ msgstr ""
 #: data/reco.appdata.xml.in:64
 msgid "Show nicer message dialogs depending on the running desktop environment"
 msgstr ""
+"Affichage de boîtes de dialogue plus jolies selon l’environnement de bureau "
+"utilisé"
 
 #: data/reco.appdata.xml.in:66 data/reco.appdata.xml.in:80
 #: data/reco.appdata.xml.in:105 data/reco.appdata.xml.in:120
@@ -146,7 +150,6 @@ msgid "Translation updates:"
 msgstr "Mise à jour des traductions :"
 
 #: data/reco.appdata.xml.in:68
-#, fuzzy
 msgid "Update French translation (thanks to @NathanBnm)"
 msgstr "Mise à jour des traductions en français (par @NathanBnm)"
 
@@ -161,16 +164,14 @@ msgid "Update Dutch translation (thanks to @Vistaus)"
 msgstr "Mise à jour de la traduction néerlandaise (grâce à @Vistaus)"
 
 #: data/reco.appdata.xml.in:71
-#, fuzzy
 msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
-msgstr "Ajout des traductions en portuguais (grâce à @hugok79)"
+msgstr "Ajout des traductions en chinois simplifié (grâce à @ShuiHuo)"
 
 #: data/reco.appdata.xml.in:77
 msgid "Reco is now available on Flathub too!"
 msgstr "Reco est désormais également disponible sur Flathub !"
 
 #: data/reco.appdata.xml.in:82 data/reco.appdata.xml.in:140
-#, fuzzy
 msgid "Update Spanish translation (thanks to @Eldhrimer)"
 msgstr "Mise à jour des traductions en espagnol (grâce à @Eldhrimer)"
 
@@ -196,7 +197,7 @@ msgstr "Version anniversaire pour les trois ans de l'application !"
 
 #: data/reco.appdata.xml.in:103
 msgid "Add new style switcher"
-msgstr "Ajout d'un nouveau bouton de sélection du thème"
+msgstr "Ajout d’un nouveau bouton de sélection du thème"
 
 #: data/reco.appdata.xml.in:110 data/reco.appdata.xml.in:123
 #: data/reco.appdata.xml.in:141 data/reco.appdata.xml.in:150
