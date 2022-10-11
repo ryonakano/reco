@@ -3,5 +3,6 @@
   <gresource prefix="/com/github/ryonakano/reco">
     <file alias="Application.css">Application.css</file>
     <file alias="Extra.css">Extra.css</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="record-completed-symbolic.svg">icons/record-completed-symbolic.svg</file>
   </gresource>
 </gresources>

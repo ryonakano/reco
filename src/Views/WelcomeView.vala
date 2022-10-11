@@ -246,7 +246,7 @@ public class WelcomeView : Gtk.Box {
 
     public void show_success_button () {
         record_button.get_style_context ().add_class ("record-button-success");
-        record_button.icon_name = "com.github.ryonakano.reco.record-completed-symbolic";
+        record_button.icon_name = "record-completed-symbolic";
         uint timeout_button_color = Timeout.add (3000, () => {
             record_button.get_style_context ().remove_class ("record-button-success");
             return false;
