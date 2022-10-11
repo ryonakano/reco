@@ -362,7 +362,11 @@
   <url type="bugtracker">https://github.com/ryonakano/reco/issues</url>
   <url type="help">https://github.com/ryonakano/reco/discussions</url>
   <url type="translate">https://hosted.weblate.org/projects/rosp</url>
-  
+
+  <branding>
+    <color type="primary">#a10705</color>
+  </branding>
+
   <custom>
     <value key="x-appcenter-color-primary">#a10705</value>
     <value key="x-appcenter-color-primary-text">#ffffff</value>
