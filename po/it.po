@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-09 19:24+0900\n"
+"POT-Creation-Date: 2022-10-15 20:14+0900\n"
 "PO-Revision-Date: 2022-04-05 19:15+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: ITALIAN <LL@li.org>\n"
@@ -15,6 +15,44 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: src/MainWindow.vala:57
+msgid "Preferences"
+msgstr "Preferenze"
+
+#. TRANSLATORS: %s represents a timestamp here
+#: src/MainWindow.vala:145
+#, c-format
+msgid "Recording from %s"
+msgstr "Registrazione da %s"
+
+#: src/MainWindow.vala:161
+msgid "Save your recording"
+msgstr "Salva registrazione"
+
+#: src/MainWindow.vala:221 src/MainWindow.vala:239
+msgid "Unable to Complete Recording"
+msgstr "Impossibile completare la registrazione"
+
+#: src/MainWindow.vala:222 src/MainWindow.vala:240
+msgid "The following error message may be helpful:"
+msgstr "Il seguente messaggio di errore può essere utile:"
+
+#: src/StyleSwitcher.vala:26
+msgid "Style:"
+msgstr "Stile:"
+
+#: src/StyleSwitcher.vala:32
+msgid "Light"
+msgstr "Chiaro"
+
+#: src/StyleSwitcher.vala:35
+msgid "Dark"
+msgstr "Scuro"
+
+#: src/StyleSwitcher.vala:41 src/Views/WelcomeView.vala:35
+msgid "System"
+msgstr "Sistema"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
@@ -61,10 +99,6 @@ msgstr "Registra da:"
 #: src/Views/WelcomeView.vala:34
 msgid "Microphone"
 msgstr "Microfono"
-
-#: src/Views/WelcomeView.vala:35 src/StyleSwitcher.vala:41
-msgid "System"
-msgstr "Sistema"
 
 #: src/Views/WelcomeView.vala:36
 msgid "Both"
@@ -147,40 +181,6 @@ msgstr "Scegli una destinazione predefinita"
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
 msgstr ""
-
-#: src/MainWindow.vala:52
-msgid "Preferences"
-msgstr "Preferenze"
-
-#. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:140
-#, c-format
-msgid "Recording from %s"
-msgstr "Registrazione da %s"
-
-#: src/MainWindow.vala:156
-msgid "Save your recording"
-msgstr "Salva registrazione"
-
-#: src/MainWindow.vala:216 src/MainWindow.vala:234
-msgid "Unable to Complete Recording"
-msgstr "Impossibile completare la registrazione"
-
-#: src/MainWindow.vala:217 src/MainWindow.vala:235
-msgid "The following error message may be helpful:"
-msgstr "Il seguente messaggio di errore può essere utile:"
-
-#: src/StyleSwitcher.vala:26
-msgid "Style:"
-msgstr "Stile:"
-
-#: src/StyleSwitcher.vala:32
-msgid "Light"
-msgstr "Chiaro"
-
-#: src/StyleSwitcher.vala:35
-msgid "Dark"
-msgstr "Scuro"
 
 #~ msgid "Recordings"
 #~ msgstr "Registrazioni"

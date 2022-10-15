@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-09 19:24+0900\n"
+"POT-Creation-Date: 2022-10-15 20:14+0900\n"
 "PO-Revision-Date: 2022-10-09 23:18+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/rosp/reco-main/"
@@ -19,6 +19,44 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14.1\n"
+
+#: src/MainWindow.vala:57
+msgid "Preferences"
+msgstr "Параметры"
+
+#. TRANSLATORS: %s represents a timestamp here
+#: src/MainWindow.vala:145
+#, c-format
+msgid "Recording from %s"
+msgstr "Запись от %s"
+
+#: src/MainWindow.vala:161
+msgid "Save your recording"
+msgstr "Сохраните свою запись"
+
+#: src/MainWindow.vala:221 src/MainWindow.vala:239
+msgid "Unable to Complete Recording"
+msgstr "Не удаётся завершить запись"
+
+#: src/MainWindow.vala:222 src/MainWindow.vala:240
+msgid "The following error message may be helpful:"
+msgstr "Следующее сообщение об ошибке может оказаться полезным:"
+
+#: src/StyleSwitcher.vala:26
+msgid "Style:"
+msgstr "Стиль:"
+
+#: src/StyleSwitcher.vala:32
+msgid "Light"
+msgstr "Светлый"
+
+#: src/StyleSwitcher.vala:35
+msgid "Dark"
+msgstr "Тёмный"
+
+#: src/StyleSwitcher.vala:41 src/Views/WelcomeView.vala:35
+msgid "System"
+msgstr "Система"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
@@ -65,10 +103,6 @@ msgstr "Источник:"
 #: src/Views/WelcomeView.vala:34
 msgid "Microphone"
 msgstr "Микрофон"
-
-#: src/Views/WelcomeView.vala:35 src/StyleSwitcher.vala:41
-msgid "System"
-msgstr "Система"
 
 #: src/Views/WelcomeView.vala:36
 msgid "Both"
@@ -149,40 +183,6 @@ msgstr "Выбрать место назначения…"
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
 msgstr "Выбрать"
-
-#: src/MainWindow.vala:52
-msgid "Preferences"
-msgstr "Параметры"
-
-#. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:140
-#, c-format
-msgid "Recording from %s"
-msgstr "Запись от %s"
-
-#: src/MainWindow.vala:156
-msgid "Save your recording"
-msgstr "Сохраните свою запись"
-
-#: src/MainWindow.vala:216 src/MainWindow.vala:234
-msgid "Unable to Complete Recording"
-msgstr "Не удаётся завершить запись"
-
-#: src/MainWindow.vala:217 src/MainWindow.vala:235
-msgid "The following error message may be helpful:"
-msgstr "Следующее сообщение об ошибке может оказаться полезным:"
-
-#: src/StyleSwitcher.vala:26
-msgid "Style:"
-msgstr "Стиль:"
-
-#: src/StyleSwitcher.vala:32
-msgid "Light"
-msgstr "Светлый"
-
-#: src/StyleSwitcher.vala:35
-msgid "Dark"
-msgstr "Тёмный"
 
 #~ msgid "Recordings"
 #~ msgstr "Записи"

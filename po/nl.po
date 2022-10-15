@@ -6,17 +6,55 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-09 19:24+0900\n"
+"POT-Creation-Date: 2022-10-15 20:14+0900\n"
 "PO-Revision-Date: 2022-10-11 15:21+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-main/nl/>"
-"\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-main/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.15-dev\n"
+
+#: src/MainWindow.vala:57
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+#. TRANSLATORS: %s represents a timestamp here
+#: src/MainWindow.vala:145
+#, c-format
+msgid "Recording from %s"
+msgstr "Bezig met opnemen van %s"
+
+#: src/MainWindow.vala:161
+msgid "Save your recording"
+msgstr "Sla je opname op"
+
+#: src/MainWindow.vala:221 src/MainWindow.vala:239
+msgid "Unable to Complete Recording"
+msgstr "De opname kan niet worden afgerond"
+
+#: src/MainWindow.vala:222 src/MainWindow.vala:240
+msgid "The following error message may be helpful:"
+msgstr "Wellicht biedt de volgende foutmelding meer informatie:"
+
+#: src/StyleSwitcher.vala:26
+msgid "Style:"
+msgstr "Thema:"
+
+#: src/StyleSwitcher.vala:32
+msgid "Light"
+msgstr "Licht"
+
+#: src/StyleSwitcher.vala:35
+msgid "Dark"
+msgstr "Donker"
+
+#: src/StyleSwitcher.vala:41 src/Views/WelcomeView.vala:35
+msgid "System"
+msgstr "Systeemthema"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
@@ -63,10 +101,6 @@ msgstr "Opnemen van:"
 #: src/Views/WelcomeView.vala:34
 msgid "Microphone"
 msgstr "Microfoon"
-
-#: src/Views/WelcomeView.vala:35 src/StyleSwitcher.vala:41
-msgid "System"
-msgstr "Systeemthema"
 
 #: src/Views/WelcomeView.vala:36
 msgid "Both"
@@ -147,40 +181,6 @@ msgstr "Kies een opslaglocatie…"
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
 msgstr "Kiezen"
-
-#: src/MainWindow.vala:52
-msgid "Preferences"
-msgstr "Voorkeuren"
-
-#. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:140
-#, c-format
-msgid "Recording from %s"
-msgstr "Bezig met opnemen van %s"
-
-#: src/MainWindow.vala:156
-msgid "Save your recording"
-msgstr "Sla je opname op"
-
-#: src/MainWindow.vala:216 src/MainWindow.vala:234
-msgid "Unable to Complete Recording"
-msgstr "De opname kan niet worden afgerond"
-
-#: src/MainWindow.vala:217 src/MainWindow.vala:235
-msgid "The following error message may be helpful:"
-msgstr "Wellicht biedt de volgende foutmelding meer informatie:"
-
-#: src/StyleSwitcher.vala:26
-msgid "Style:"
-msgstr "Thema:"
-
-#: src/StyleSwitcher.vala:32
-msgid "Light"
-msgstr "Licht"
-
-#: src/StyleSwitcher.vala:35
-msgid "Dark"
-msgstr "Donker"
 
 #~ msgid "Recordings"
 #~ msgstr "Opnamen"

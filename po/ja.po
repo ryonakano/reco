@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-09 19:24+0900\n"
+"POT-Creation-Date: 2022-10-15 20:14+0900\n"
 "PO-Revision-Date: 2022-10-09 01:38+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-main/"
@@ -17,6 +17,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.14.1\n"
+
+#: src/MainWindow.vala:57
+msgid "Preferences"
+msgstr "設定"
+
+#. TRANSLATORS: %s represents a timestamp here
+#: src/MainWindow.vala:145
+#, c-format
+msgid "Recording from %s"
+msgstr "録音 %s"
+
+#: src/MainWindow.vala:161
+msgid "Save your recording"
+msgstr "録音したものを保存"
+
+#: src/MainWindow.vala:221 src/MainWindow.vala:239
+msgid "Unable to Complete Recording"
+msgstr "録音を完了できません"
+
+#: src/MainWindow.vala:222 src/MainWindow.vala:240
+msgid "The following error message may be helpful:"
+msgstr "以下のエラーメッセージが役に立つ可能性があります:"
+
+#: src/StyleSwitcher.vala:26
+msgid "Style:"
+msgstr "スタイル:"
+
+#: src/StyleSwitcher.vala:32
+msgid "Light"
+msgstr "ライト"
+
+#: src/StyleSwitcher.vala:35
+msgid "Dark"
+msgstr "ダーク"
+
+#: src/StyleSwitcher.vala:41 src/Views/WelcomeView.vala:35
+msgid "System"
+msgstr "システム"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
@@ -63,10 +101,6 @@ msgstr "録音ソース:"
 #: src/Views/WelcomeView.vala:34
 msgid "Microphone"
 msgstr "マイク"
-
-#: src/Views/WelcomeView.vala:35 src/StyleSwitcher.vala:41
-msgid "System"
-msgstr "システム"
 
 #: src/Views/WelcomeView.vala:36
 msgid "Both"
@@ -147,40 +181,6 @@ msgstr "保存先を選択…"
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
 msgstr "選択"
-
-#: src/MainWindow.vala:52
-msgid "Preferences"
-msgstr "設定"
-
-#. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:140
-#, c-format
-msgid "Recording from %s"
-msgstr "録音 %s"
-
-#: src/MainWindow.vala:156
-msgid "Save your recording"
-msgstr "録音したものを保存"
-
-#: src/MainWindow.vala:216 src/MainWindow.vala:234
-msgid "Unable to Complete Recording"
-msgstr "録音を完了できません"
-
-#: src/MainWindow.vala:217 src/MainWindow.vala:235
-msgid "The following error message may be helpful:"
-msgstr "以下のエラーメッセージが役に立つ可能性があります:"
-
-#: src/StyleSwitcher.vala:26
-msgid "Style:"
-msgstr "スタイル:"
-
-#: src/StyleSwitcher.vala:32
-msgid "Light"
-msgstr "ライト"
-
-#: src/StyleSwitcher.vala:35
-msgid "Dark"
-msgstr "ダーク"
 
 #~ msgid "Recordings"
 #~ msgstr "レコーディング"

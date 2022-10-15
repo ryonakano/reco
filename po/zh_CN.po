@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-09 19:24+0900\n"
+"POT-Creation-Date: 2022-10-15 20:14+0900\n"
 "PO-Revision-Date: 2022-02-08 20:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,6 +17,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/MainWindow.vala:57
+msgid "Preferences"
+msgstr "首选项"
+
+#. TRANSLATORS: %s represents a timestamp here
+#: src/MainWindow.vala:145
+#, c-format
+msgid "Recording from %s"
+msgstr "录音 %s"
+
+#: src/MainWindow.vala:161
+msgid "Save your recording"
+msgstr "保存录音"
+
+#: src/MainWindow.vala:221 src/MainWindow.vala:239
+msgid "Unable to Complete Recording"
+msgstr "无法完成录音"
+
+#: src/MainWindow.vala:222 src/MainWindow.vala:240
+msgid "The following error message may be helpful:"
+msgstr "下面的错误消息可能会有所帮助："
+
+#: src/StyleSwitcher.vala:26
+msgid "Style:"
+msgstr "样式："
+
+#: src/StyleSwitcher.vala:32
+msgid "Light"
+msgstr "亮"
+
+#: src/StyleSwitcher.vala:35
+msgid "Dark"
+msgstr "暗"
+
+#: src/StyleSwitcher.vala:41 src/Views/WelcomeView.vala:35
+msgid "System"
+msgstr "系统"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
@@ -63,10 +101,6 @@ msgstr "声音来源："
 #: src/Views/WelcomeView.vala:34
 msgid "Microphone"
 msgstr "麦克风"
-
-#: src/Views/WelcomeView.vala:35 src/StyleSwitcher.vala:41
-msgid "System"
-msgstr "系统"
 
 #: src/Views/WelcomeView.vala:36
 msgid "Both"
@@ -149,40 +183,6 @@ msgstr "选择默认目录"
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
 msgstr ""
-
-#: src/MainWindow.vala:52
-msgid "Preferences"
-msgstr "首选项"
-
-#. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:140
-#, c-format
-msgid "Recording from %s"
-msgstr "录音 %s"
-
-#: src/MainWindow.vala:156
-msgid "Save your recording"
-msgstr "保存录音"
-
-#: src/MainWindow.vala:216 src/MainWindow.vala:234
-msgid "Unable to Complete Recording"
-msgstr "无法完成录音"
-
-#: src/MainWindow.vala:217 src/MainWindow.vala:235
-msgid "The following error message may be helpful:"
-msgstr "下面的错误消息可能会有所帮助："
-
-#: src/StyleSwitcher.vala:26
-msgid "Style:"
-msgstr "样式："
-
-#: src/StyleSwitcher.vala:32
-msgid "Light"
-msgstr "亮"
-
-#: src/StyleSwitcher.vala:35
-msgid "Dark"
-msgstr "暗"
 
 #~ msgid "Recordings"
 #~ msgstr "录音"
