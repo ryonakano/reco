@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-15 20:37+0900\n"
-"PO-Revision-Date: 2022-10-09 01:38+0000\n"
+"PO-Revision-Date: 2022-10-15 12:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-main/"
 "ja/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: src/MainWindow.vala:57
 msgid "Preferences"
@@ -30,7 +30,7 @@ msgstr "録音 %s"
 
 #: src/MainWindow.vala:161
 msgid "Save your recording"
-msgstr "録音したものを保存"
+msgstr "録音内容を保存"
 
 #: src/MainWindow.vala:221 src/MainWindow.vala:239
 msgid "Unable to Complete Recording"
@@ -92,11 +92,11 @@ msgstr "録音を再開します"
 
 #: src/Views/WelcomeView.vala:26
 msgid "Source"
-msgstr ""
+msgstr "録音元"
 
 #: src/Views/WelcomeView.vala:28
 msgid "Record from:"
-msgstr "録音ソース:"
+msgstr "録音元:"
 
 #: src/Views/WelcomeView.vala:34
 msgid "Microphone"
