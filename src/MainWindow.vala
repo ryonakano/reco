@@ -154,7 +154,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                         welcome_view.show_success_button ();
                     }
                 } catch (Error e) {
-                    warning (e.message);
+                    show_error_dialog (e.message);
                 }
             } else {
                 var filechooser = new Gtk.FileChooserNative (
@@ -171,13 +171,13 @@ public class MainWindow : Gtk.ApplicationWindow {
                                 welcome_view.show_success_button ();
                             }
                         } catch (Error e) {
-                            warning (e.message);
+                            show_error_dialog (e.message);
                         }
                     } else {
                         try {
                             tmp_file.delete ();
                         } catch (Error e) {
-                            warning (e.message);
+                            show_error_dialog (e.message);
                         }
                     }
 
