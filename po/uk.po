@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-15 20:14+0900\n"
+"POT-Creation-Date: 2022-10-15 20:37+0900\n"
 "PO-Revision-Date: 2022-10-11 15:21+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/rosp/reco-main/"
@@ -92,8 +92,8 @@ msgid "Resume recording"
 msgstr "Продовжити запис"
 
 #: src/Views/WelcomeView.vala:26
-msgid "Recording"
-msgstr "Запис"
+msgid "Source"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:28
 msgid "Record from:"
@@ -182,6 +182,9 @@ msgstr "Вибрати місце призначення…"
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
 msgstr "Вибрати"
+
+#~ msgid "Recording"
+#~ msgstr "Запис"
 
 #~ msgid "Recordings"
 #~ msgstr "Записи"

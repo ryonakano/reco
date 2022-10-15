@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-15 20:14+0900\n"
+"POT-Creation-Date: 2022-10-15 20:37+0900\n"
 "PO-Revision-Date: 2022-04-23 17:09+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/rosp/reco-main/sk/"
@@ -92,8 +92,8 @@ msgid "Resume recording"
 msgstr "Znova spustiť nahrávanie"
 
 #: src/Views/WelcomeView.vala:26
-msgid "Recording"
-msgstr "Nahrávanie"
+msgid "Source"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:28
 msgid "Record from:"
@@ -184,6 +184,9 @@ msgstr "Vybrať predvolený cieľ"
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
 msgstr ""
+
+#~ msgid "Recording"
+#~ msgstr "Nahrávanie"
 
 #~ msgid "Recordings"
 #~ msgstr "Nahrávky"

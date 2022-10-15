@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-15 20:14+0900\n"
+"POT-Creation-Date: 2022-10-15 20:37+0900\n"
 "PO-Revision-Date: 2022-05-21 19:19+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/rosp/"
@@ -92,9 +92,8 @@ msgid "Resume recording"
 msgstr "Fortsett opptak"
 
 #: src/Views/WelcomeView.vala:26
-#, fuzzy
-msgid "Recording"
-msgstr "Opptak"
+msgid "Source"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:28
 msgid "Record from:"
@@ -187,6 +186,10 @@ msgstr "Velg et forvalgt mål"
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Recording"
+#~ msgstr "Opptak"
 
 #~ msgid "Recordings"
 #~ msgstr "Opptak"

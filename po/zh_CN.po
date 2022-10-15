@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-15 20:14+0900\n"
+"POT-Creation-Date: 2022-10-15 20:37+0900\n"
 "PO-Revision-Date: 2022-02-08 20:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -91,8 +91,8 @@ msgid "Resume recording"
 msgstr "恢复录音"
 
 #: src/Views/WelcomeView.vala:26
-msgid "Recording"
-msgstr "录音"
+msgid "Source"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:28
 msgid "Record from:"
@@ -183,6 +183,9 @@ msgstr "选择默认目录"
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
 msgstr ""
+
+#~ msgid "Recording"
+#~ msgstr "录音"
 
 #~ msgid "Recordings"
 #~ msgstr "录音"

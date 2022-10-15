@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-15 20:14+0900\n"
+"POT-Creation-Date: 2022-10-15 20:37+0900\n"
 "PO-Revision-Date: 2019-02-18 14:35+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -101,8 +101,8 @@ msgid "Resume recording"
 msgstr "Įrašinėjimas"
 
 #: src/Views/WelcomeView.vala:26
-msgid "Recording"
-msgstr "Įrašinėjimas"
+msgid "Source"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:28
 #, fuzzy
@@ -194,6 +194,9 @@ msgstr "Pasirinkite numatytąją vietą"
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
 msgstr ""
+
+#~ msgid "Recording"
+#~ msgstr "Įrašinėjimas"
 
 #~ msgid "Recordings"
 #~ msgstr "Įrašinėjimai"

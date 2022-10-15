@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-15 20:14+0900\n"
+"POT-Creation-Date: 2022-10-15 20:37+0900\n"
 "PO-Revision-Date: 2021-08-19 14:35+0900\n"
 "Last-Translator: Matheus Tessarini Ricci\n"
 "Language: pt_BR\n"
@@ -89,8 +89,8 @@ msgid "Resume recording"
 msgstr "Retomar gravação"
 
 #: src/Views/WelcomeView.vala:26
-msgid "Recording"
-msgstr "Gravando"
+msgid "Source"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:28
 msgid "Record from:"
@@ -181,6 +181,9 @@ msgstr "Escolher um destino predefinido"
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
 msgstr ""
+
+#~ msgid "Recording"
+#~ msgstr "Gravando"
 
 #~ msgid "Recordings"
 #~ msgstr "Gravações"
