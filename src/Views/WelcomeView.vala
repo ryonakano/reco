@@ -23,7 +23,7 @@ public class WelcomeView : Gtk.Box {
     }
 
     construct {
-        var recording_header_label = new Granite.HeaderLabel (_("Recording"));
+        var source_header_label = new Granite.HeaderLabel (_("Source"));
 
         var source_label = new Gtk.Label (_("Record from:")) {
             halign = Gtk.Align.END
@@ -116,7 +116,7 @@ public class WelcomeView : Gtk.Box {
             row_spacing = 6,
             halign = Gtk.Align.CENTER
         };
-        settings_grid.attach (recording_header_label, 0, 0, 1, 1);
+        settings_grid.attach (source_header_label, 0, 0, 1, 1);
         settings_grid.attach (source_label, 0, 1, 1, 1);
         settings_grid.attach (source_combobox, 1, 1, 1, 1);
         settings_grid.attach (channels_label, 0, 2, 1, 1);
