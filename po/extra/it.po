@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-15 20:14+0900\n"
-"PO-Revision-Date: 2022-09-04 03:21+0000\n"
+"PO-Revision-Date: 2022-10-17 12:56+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco-extra/"
 "it/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -97,21 +97,25 @@ msgstr "Un'indicazione che la registrazione è terminata con successo"
 
 #: data/reco.appdata.xml.in:44
 msgid "Migrate to GTK 4, the latest version of GTK"
-msgstr ""
+msgstr "Migrato a GTK 4, l'ultima versione di GTK"
 
 #: data/reco.appdata.xml.in:45
 msgid "Get disk access permission only when the user allowed"
 msgstr ""
+"Ottieni l'autorizzazione di accesso al disco solo quando l'utente è "
+"autorizzato"
 
 #: data/reco.appdata.xml.in:46
 msgid "Hide remaining time label when unnecessary"
-msgstr ""
+msgstr "Nascondi l'etichetta del tempo rimanente quando non necessario"
 
 #: data/reco.appdata.xml.in:47
 msgid ""
 "Fix no style button selected on non-Pantheon desktop environments when first "
 "launch"
 msgstr ""
+"Non corretto il pulsante di stile selezionato su ambienti desktop non "
+"Pantheon al primo avvio"
 
 #: data/reco.appdata.xml.in:48 data/reco.appdata.xml.in:56
 #: data/reco.appdata.xml.in:307
@@ -119,10 +123,8 @@ msgid "Update translations"
 msgstr "Aggiornate le traduzioni"
 
 #: data/reco.appdata.xml.in:55
-#, fuzzy
-#| msgid "Update Japanese translation"
 msgid "Update Flatpak runtime version"
-msgstr "Aggiornata la traduzione giapponese"
+msgstr "Aggiornato la versione runtime di Flatpak"
 
 #: data/reco.appdata.xml.in:63
 msgid "Check desktop environment on runtime"
