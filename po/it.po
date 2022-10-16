@@ -2,19 +2,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # ALBANO BATTISTELLA <albano_battistella@hotmail.com>, 2021,2022.
-#
+# albanobattistella <albano_battistella@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-15 20:37+0900\n"
-"PO-Revision-Date: 2022-04-05 19:15+0100\n"
-"Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
-"Language-Team: ITALIAN <LL@li.org>\n"
+"PO-Revision-Date: 2022-10-17 12:56+0000\n"
+"Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco-main/"
+"it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: src/MainWindow.vala:57
 msgid "Preferences"
@@ -90,7 +93,7 @@ msgstr "Riprendi la registrazione"
 
 #: src/Views/WelcomeView.vala:26
 msgid "Source"
-msgstr ""
+msgstr "Sorgente"
 
 #: src/Views/WelcomeView.vala:28
 msgid "Record from:"
@@ -173,14 +176,12 @@ msgid "Start recording"
 msgstr "Avvia registrazione"
 
 #: src/Views/WelcomeView.vala:203
-#, fuzzy
-#| msgid "Choose a default destination"
 msgid "Select destionation…"
-msgstr "Scegli una destinazione predefinita"
+msgstr "Seleziona destinazione…"
 
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
-msgstr ""
+msgstr "Seleziona"
 
 #~ msgid "Recording"
 #~ msgstr "Registrazione"
