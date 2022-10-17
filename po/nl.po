@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-15 20:37+0900\n"
-"PO-Revision-Date: 2022-10-11 15:21+0000\n"
+"PO-Revision-Date: 2022-10-17 12:56+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-main/nl/"
-">\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-main/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -92,7 +92,7 @@ msgstr "Opname hervatten"
 
 #: src/Views/WelcomeView.vala:26
 msgid "Source"
-msgstr ""
+msgstr "Bron"
 
 #: src/Views/WelcomeView.vala:28
 msgid "Record from:"
