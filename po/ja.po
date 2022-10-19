@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-19 21:19+0900\n"
-"PO-Revision-Date: 2022-10-15 12:07+0000\n"
+"PO-Revision-Date: 2022-10-20 18:06+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-main/"
 "ja/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: src/MainWindow.vala:57
 msgid "Preferences"
@@ -175,8 +175,6 @@ msgid "Start recording"
 msgstr "録音を開始します"
 
 #: src/Views/WelcomeView.vala:203
-#, fuzzy
-#| msgid "Select destionation…"
 msgid "Select destination…"
 msgstr "保存先を選択…"
 
