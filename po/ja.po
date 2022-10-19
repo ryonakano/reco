@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-15 20:37+0900\n"
+"POT-Creation-Date: 2022-10-19 21:19+0900\n"
 "PO-Revision-Date: 2022-10-15 12:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-main/"
@@ -175,7 +175,9 @@ msgid "Start recording"
 msgstr "録音を開始します"
 
 #: src/Views/WelcomeView.vala:203
-msgid "Select destionation…"
+#, fuzzy
+#| msgid "Select destionation…"
+msgid "Select destination…"
 msgstr "保存先を選択…"
 
 #: src/Views/WelcomeView.vala:213

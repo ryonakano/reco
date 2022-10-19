@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-15 20:37+0900\n"
+"POT-Creation-Date: 2022-10-19 21:19+0900\n"
 "PO-Revision-Date: 2022-10-17 12:56+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-main/nl/>"
-"\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-main/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -175,7 +175,9 @@ msgid "Start recording"
 msgstr "Opname starten"
 
 #: src/Views/WelcomeView.vala:203
-msgid "Select destionation…"
+#, fuzzy
+#| msgid "Select destionation…"
+msgid "Select destination…"
 msgstr "Kies een opslaglocatie…"
 
 #: src/Views/WelcomeView.vala:213

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-15 20:37+0900\n"
+"POT-Creation-Date: 2022-10-19 21:19+0900\n"
 "PO-Revision-Date: 2019-11-18 14:08-0300\n"
 "Last-Translator:  Michał Nowakowski <nowakowski@offshore.rocks>\n"
 "Language-Team: none\n"
@@ -179,7 +179,7 @@ msgstr "Zacznij nagrywanie"
 #: src/Views/WelcomeView.vala:203
 #, fuzzy
 #| msgid "Choose a default destination"
-msgid "Select destionation…"
+msgid "Select destination…"
 msgstr "Wybierz domyślne położenie"
 
 #: src/Views/WelcomeView.vala:213
