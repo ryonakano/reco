@@ -200,7 +200,7 @@ public class WelcomeView : Gtk.Box {
 
     private string destination_chooser_get_label (string path) {
         if (path == Application.SETTINGS_NO_AUTOSAVE) {
-            return _("Select destionation…");
+            return _("Select destination…");
         }
 
         string[] destination_splitted = path.split ("/");
