@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-15 20:14+0900\n"
-"PO-Revision-Date: 2022-09-30 16:19+0000\n"
+"PO-Revision-Date: 2022-10-19 12:19+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/rosp/reco-"
-"extra/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/rosp/"
+"reco-extra/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: data/reco.appdata.xml.in:8 data/reco.desktop.in:3
 msgid "Reco"
@@ -96,21 +96,24 @@ msgstr "Uma indicação de que a gravação foi concluída com sucesso"
 
 #: data/reco.appdata.xml.in:44
 msgid "Migrate to GTK 4, the latest version of GTK"
-msgstr ""
+msgstr "Migração para GTK 4, a última versão do GTK"
 
 #: data/reco.appdata.xml.in:45
 msgid "Get disk access permission only when the user allowed"
 msgstr ""
+"Obter permissão de acesso ao disco apenas quando o utilizador tiver permissão"
 
 #: data/reco.appdata.xml.in:46
 msgid "Hide remaining time label when unnecessary"
-msgstr ""
+msgstr "Ocultar a etiqueta do tempo restante quando desnecessário"
 
 #: data/reco.appdata.xml.in:47
 msgid ""
 "Fix no style button selected on non-Pantheon desktop environments when first "
 "launch"
 msgstr ""
+"Correção de \"nenhum botão de estilo selecionado\" em ambientes de trabalho "
+"não-Pantheon quando do primeiro lançamento"
 
 #: data/reco.appdata.xml.in:48 data/reco.appdata.xml.in:56
 #: data/reco.appdata.xml.in:307
@@ -118,10 +121,8 @@ msgid "Update translations"
 msgstr "Atualização de traduções"
 
 #: data/reco.appdata.xml.in:55
-#, fuzzy
-#| msgid "Update Japanese translation"
 msgid "Update Flatpak runtime version"
-msgstr "Tradução Japonesa atualizada"
+msgstr "Atualização da versão Flatpak runtime"
 
 #: data/reco.appdata.xml.in:63
 msgid "Check desktop environment on runtime"
