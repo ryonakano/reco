@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2018-2022 Ryo Nakano -->
-<component type="desktop">
+<component type="desktop-application">
   <id>com.github.ryonakano.reco</id>
   <launchable type="desktop-id">com.github.ryonakano.reco.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
+
   <name>Reco</name>
   <summary>Record talks to remember the contents later</summary>
   <description>
@@ -20,22 +21,43 @@
       <li>Saving recording when the app quits. Even if you happen to quit the app while recording, the recording is saved automatically or the file chooser dialog is shown depends on your saving setting</li>
     </ul>
   </description>
+
   <screenshots>
     <screenshot type="default">
       <caption>Welcome view; perform recording configuration</caption>
       <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/screenshots/pantheon/welcome-init-light.png</image>
     </screenshot>
+
     <screenshot>
       <caption>Recording view</caption>
       <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/screenshots/pantheon/recording-light.png</image>
     </screenshot>
+
     <screenshot>
       <caption>An indication that recording is successfully finished</caption>
       <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/screenshots/pantheon/welcome-success-light.png</image>
     </screenshot>
   </screenshots>
 
+  <branding>
+    <color type="primary">#a10705</color>
+    <color type="primary" schema_preference="light">#c6262e</color>
+    <color type="primary" schema_preference="dark">#ff8c82</color>
+  </branding>
+
   <content_rating type="oars-1.1" />
+
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </supports>
+
+  <url type="homepage">https://github.com/ryonakano/reco</url>
+  <url type="bugtracker">https://github.com/ryonakano/reco/issues</url>
+  <url type="help">https://github.com/ryonakano/reco/discussions</url>
+  <url type="translate">https://hosted.weblate.org/projects/rosp</url>
+
+  <developer_name>Ryo Nakano</developer_name>
 
   <releases>
     <release version="4.0.0" date="2022-10-10" urgency="high">
@@ -49,6 +71,7 @@
         </ul>
       </description>
     </release>
+
     <release version="3.3.1" date="2022-06-18" urgency="low">
       <description>
         <ul>
@@ -57,6 +80,7 @@
         </ul>
       </description>
     </release>
+
     <release version="3.3.0" date="2022-04-04" urgency="medium">
       <description>
         <ul>
@@ -72,6 +96,7 @@
         </ul>
       </description>
     </release>
+
     <release version="3.2.1" date="2022-01-11" urgency="low">
       <description>
         <p>
@@ -84,6 +109,7 @@
         </ul>
       </description>
     </release>
+
     <release version="3.2.0" date="2021-12-20" urgency="medium">
       <description>
         <p>
@@ -94,6 +120,7 @@
         </ul>
       </description>
     </release>
+
     <release version="3.1.0" date="2021-12-19" urgency="low">
       <description>
         <p>
@@ -111,6 +138,7 @@
         </ul>
       </description>
     </release>
+
     <release version="3.0.1" date="2021-10-07" urgency="high">
       <description>
         <ul>
@@ -124,6 +152,7 @@
         </ul>
       </description>
     </release>
+
     <release version="3.0.0" date="2021-10-06" urgency="high">
       <description>
         <ul>
@@ -142,6 +171,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.4.6" date="2021-06-11" urgency="low">
       <description>
         <ul>
@@ -151,6 +181,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.4.5" date="2021-04-13" urgency="low">
       <description>
         <ul>
@@ -160,6 +191,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.4.4" date="2021-04-13" urgency="low">
       <description>
         <ul>
@@ -167,6 +199,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.4.3" date="2021-04-13" urgency="low">
       <description>
         <ul>
@@ -179,6 +212,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.4.2" date="2021-01-03" urgency="low">
       <description>
         <ul>
@@ -187,6 +221,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.4.1" date="2020-10-31" urgency="low">
       <description>
         <ul>
@@ -199,6 +234,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.4.0" date="2020-07-02" urgency="medium">
       <description>
         <ul>
@@ -211,6 +247,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.3.2" date="2020-03-28" urgency="low">
       <description>
         <ul>
@@ -219,6 +256,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.3.1" date="2019-12-05">
       <description>
         <ul>
@@ -228,6 +266,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.3.0" date="2019-10-31">
       <description>
         <ul>
@@ -240,6 +279,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.2.1" date="2019-09-24">
       <description>
         <ul>
@@ -248,6 +288,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.2.0" date="2019-09-08">
       <description>
         <ul>
@@ -258,6 +299,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.1.0" date="2019-08-03">
       <description>
         <ul>
@@ -267,6 +309,7 @@
         </ul>
       </description>
     </release>
+
     <release version="2.0.0" date="2019-06-01">
       <description>
         <ul>
@@ -276,6 +319,7 @@
         </ul>
       </description>
     </release>
+
     <release version="1.1.2" date="2019-04-09">
       <description>
         <ul>
@@ -285,6 +329,7 @@
         </ul>
       </description>
     </release>
+
     <release version="1.1.1" date="2019-03-30">
       <description>
         <ul>
@@ -296,6 +341,7 @@
         </ul>
       </description>
     </release>
+
     <release version="1.1.0" date="2019-03-11">
       <description>
         <ul>
@@ -308,6 +354,7 @@
         </ul>
       </description>
     </release>
+
     <release version="1.0.3" date="2019-02-19">
       <description>
         <ul>
@@ -317,6 +364,7 @@
         </ul>
       </description>
     </release>
+
     <release version="1.0.2" date="2019-01-20">
       <description>
         <ul>
@@ -329,6 +377,7 @@
         </ul>
       </description>
     </release>
+
     <release version="1.0.1" date="2018-12-26">
       <description>
         <ul>
@@ -339,6 +388,7 @@
         </ul>
       </description>
     </release>
+
     <release version="1.0.0" date="2018-12-09">
       <description>
         <ul>
@@ -348,6 +398,7 @@
         </ul>
       </description>
     </release>
+
     <release version="0.1.0" date="2018-12-01">
       <description>
         <ul>
@@ -357,18 +408,4 @@
     </release>
   </releases>
 
-  <developer_name>Ryo Nakano</developer_name>
-  <url type="homepage">https://github.com/ryonakano/reco</url>
-  <url type="bugtracker">https://github.com/ryonakano/reco/issues</url>
-  <url type="help">https://github.com/ryonakano/reco/discussions</url>
-  <url type="translate">https://hosted.weblate.org/projects/rosp</url>
-
-  <branding>
-    <color type="primary">#a10705</color>
-  </branding>
-
-  <custom>
-    <value key="x-appcenter-color-primary">#a10705</value>
-    <value key="x-appcenter-color-primary-text">#ffffff</value>
-  </custom>
 </component>
