@@ -25,17 +25,17 @@
   <screenshots>
     <screenshot type="default">
       <caption>Welcome view; perform recording configuration</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/screenshots/pantheon/welcome-init-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/4.0.0/data/screenshots/pantheon/welcome-init-light.png</image>
     </screenshot>
 
     <screenshot>
       <caption>Recording view</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/screenshots/pantheon/recording-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/4.0.0/data/screenshots/pantheon/recording-light.png</image>
     </screenshot>
 
     <screenshot>
       <caption>An indication that recording is successfully finished</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/main/data/screenshots/pantheon/welcome-success-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/4.0.0/data/screenshots/pantheon/welcome-success-light.png</image>
     </screenshot>
   </screenshots>
 
