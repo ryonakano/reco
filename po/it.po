@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-18 22:55+0900\n"
-"PO-Revision-Date: 2022-10-17 12:56+0000\n"
+"PO-Revision-Date: 2022-11-21 12:47+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco-main/"
-"it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco-app/it/"
+">\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -176,8 +176,6 @@ msgid "Start recording"
 msgstr "Avvia registrazione"
 
 #: src/Views/WelcomeView.vala:203
-#, fuzzy
-#| msgid "Select destionation…"
 msgid "Select destination…"
 msgstr "Seleziona destinazione…"
 
