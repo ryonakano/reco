@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Heimen Stoffels <vistausss@fastmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-18 22:55+0900\n"
-"PO-Revision-Date: 2020-07-03 12:30+0200\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
-"Language-Team: Dutch <vistausss@outlook.com>\n"
-"Language: nl_NL\n"
+"PO-Revision-Date: 2022-11-23 18:48+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-metadata/"
+"nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: data/reco.metainfo.xml.in:9 data/reco.desktop.in:3
 msgid "Reco"
@@ -122,15 +122,12 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in:70 data/reco.metainfo.xml.in:79
 #: data/reco.metainfo.xml.in:353
-#, fuzzy
 msgid "Update translations"
-msgstr "Japanse vertaling bijgewerkt"
+msgstr "Bijgewerkt: vertalingen"
 
 #: data/reco.metainfo.xml.in:78
-#, fuzzy
-#| msgid "Update Japanese translation"
 msgid "Update Flatpak runtime version"
-msgstr "Japanse vertaling bijgewerkt"
+msgstr "Bijgewerkt: Flatpak-runtimeversie"
 
 #: data/reco.metainfo.xml.in:87
 msgid "Check desktop environment on runtime"
@@ -144,7 +141,7 @@ msgstr ""
 #: data/reco.metainfo.xml.in:132 data/reco.metainfo.xml.in:148
 #: data/reco.metainfo.xml.in:165
 msgid "Translation updates:"
-msgstr ""
+msgstr "Vertaalupdates:"
 
 #: data/reco.metainfo.xml.in:92
 #, fuzzy
@@ -209,7 +206,7 @@ msgstr ""
 #: data/reco.metainfo.xml.in:363 data/reco.metainfo.xml.in:376
 #: data/reco.metainfo.xml.in:387
 msgid "Update Japanese translation"
-msgstr "Japanse vertaling bijgewerkt"
+msgstr "Bijgewerkt: Japanse vertaling"
 
 #: data/reco.metainfo.xml.in:145
 msgid ""
@@ -219,7 +216,7 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in:146
 msgid "Fix wrong OARS data"
-msgstr ""
+msgstr "Opgelost: onjuiste OARS-gegevens"
 
 #: data/reco.metainfo.xml.in:159
 msgid ""
@@ -283,9 +280,8 @@ msgid ""
 msgstr ""
 
 #: data/reco.metainfo.xml.in:208
-#, fuzzy
 msgid "Add Italian translation (thanks to @albanobattistella)"
-msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+msgstr "Nieuw: Italiaanse vertaling (met dank aan @albanobattistella)"
 
 #: data/reco.metainfo.xml.in:209
 #, fuzzy
@@ -541,7 +537,7 @@ msgstr "Japanse vertaling bijgewerkt"
 
 #: data/reco.metainfo.xml.in:405
 msgid "Initial release"
-msgstr ""
+msgstr "Eerste versie"
 
 #: data/reco.desktop.in:4
 msgid "Audio Recording App"
