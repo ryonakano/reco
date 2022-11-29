@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-18 22:55+0900\n"
-"PO-Revision-Date: 2022-11-23 18:48+0000\n"
+"PO-Revision-Date: 2022-11-30 10:48+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-metadata/"
 "nl/>\n"
@@ -34,7 +34,7 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in:15
 msgid "Features include:"
-msgstr "Mogelijkheden:"
+msgstr "Kenmerken:"
 
 #: data/reco.metainfo.xml.in:17
 msgid ""
