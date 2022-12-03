@@ -64,7 +64,7 @@ executable(
     dependencies: [
         dependency('granite-7'),
         dependency('gtk4'),
-        dependency('gstreamer-1.0'),
+        dependency('gstreamer-1.0', version: '>= 1.20'),
         dependency('libpulse'),
         dependency('libpulse-mainloop-glib'),
         dependency('pango')

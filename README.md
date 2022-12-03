@@ -34,7 +34,7 @@ You'll need the following dependencies to build:
 
 * libgtk-4-dev
 * libgranite-7-dev
-* libgstreamer1.0-dev
+* libgstreamer1.0-dev (>= 1.20)
 * libpulse-dev
 * libpulse-mainloop-glib0
 * meson (>= 0.57.0)
@@ -42,7 +42,7 @@ You'll need the following dependencies to build:
 
 You'll need the following dependencies to run:
 
-* gstreamer1.0-libav
+* gstreamer1.0-libav (use the same version with libgstreamer1.0-dev)
 
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
 

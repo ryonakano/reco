@@ -141,8 +141,8 @@ public class Recorder : Object {
             case Source.BOTH:
                 var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
                 pipeline.add_many (mic_sound, sys_sound, mixer);
-                mic_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
-                sys_sound.get_static_pad ("src").link (mixer.get_request_pad ("sink_%u"));
+                mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
+                sys_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
                 mixer.link_many (caps_filter, encoder);
                 break;
             default:
@@ -151,7 +151,7 @@ public class Recorder : Object {
 
         if (muxer != null) {
             pipeline.add (muxer);
-            encoder.get_static_pad ("src").link (muxer.get_request_pad ("audio_%u"));
+            encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
             muxer.link (sink);
         } else {
             encoder.link (sink);
