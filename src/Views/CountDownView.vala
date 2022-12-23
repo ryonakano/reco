@@ -26,7 +26,7 @@ public class CountDownView : Gtk.Box {
 
     construct {
         delay_remaining_label = new Gtk.Label (null);
-        delay_remaining_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
+        delay_remaining_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
         var label_grid = new Gtk.Grid () {
             column_spacing = 6,
@@ -41,14 +41,14 @@ public class CountDownView : Gtk.Box {
             tooltip_text = _("Cancel the countdown"),
             halign = Gtk.Align.START
         };
-        cancel_button.get_style_context ().add_class ("buttons-without-border");
+        cancel_button.add_css_class ("buttons-without-border");
 
         pause_button = new Gtk.Button () {
             icon_name = "media-playback-pause-symbolic",
             tooltip_text = _("Pause the countdown"),
             halign = Gtk.Align.END
         };
-        pause_button.get_style_context ().add_class ("buttons-without-border");
+        pause_button.add_css_class ("buttons-without-border");
 
         var buttons_grid = new Gtk.Grid () {
             column_spacing = 30,
