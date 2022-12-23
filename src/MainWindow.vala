@@ -64,10 +64,8 @@ public class MainWindow : Gtk.ApplicationWindow {
         };
         headerbar.pack_end (preferences_button);
         set_titlebar (headerbar);
-
-        var headerbar_style_context = headerbar.get_style_context ();
-        headerbar_style_context.add_class (Granite.STYLE_CLASS_FLAT);
-        headerbar_style_context.add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
+        headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
+        headerbar.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
 
         welcome_view = new WelcomeView (this);
         countdown_view = new CountDownView (this);

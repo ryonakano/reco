@@ -38,10 +38,10 @@ public class RecordView : Gtk.Box {
         recorder = Recorder.get_default ();
 
         time_label = new Gtk.Label (null);
-        time_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
+        time_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
         remaining_time_label = new Gtk.Label (null);
-        remaining_time_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+        remaining_time_label.add_css_class (Granite.STYLE_CLASS_H3_LABEL);
 
         var label_grid = new Gtk.Grid () {
             column_spacing = 6,
@@ -57,7 +57,7 @@ public class RecordView : Gtk.Box {
             tooltip_text = _("Cancel recording"),
             halign = Gtk.Align.START
         };
-        cancel_button.get_style_context ().add_class ("buttons-without-border");
+        cancel_button.add_css_class ("buttons-without-border");
 
         stop_button = new Gtk.Button () {
             icon_name = "media-playback-stop-symbolic",
@@ -66,7 +66,7 @@ public class RecordView : Gtk.Box {
             width_request = 48,
             height_request = 48
         };
-        stop_button.get_style_context ().add_class ("record-button");
+        stop_button.add_css_class ("record-button");
         ((Gtk.Image) stop_button.child).icon_size = Gtk.IconSize.LARGE;
 
         pause_button = new Gtk.Button () {
@@ -74,7 +74,7 @@ public class RecordView : Gtk.Box {
             tooltip_text = _("Pause recording"),
             halign = Gtk.Align.END
         };
-        pause_button.get_style_context ().add_class ("buttons-without-border");
+        pause_button.add_css_class ("buttons-without-border");
 
         var buttons_grid = new Gtk.Grid () {
             column_spacing = 30,
