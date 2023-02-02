@@ -7,174 +7,177 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-18 22:55+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-02-03 04:22+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/rosp/reco-app/fi/"
+">\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: src/MainWindow.vala:57
 msgid "Preferences"
-msgstr ""
+msgstr "Asetukset"
 
 #. TRANSLATORS: %s represents a timestamp here
 #: src/MainWindow.vala:145
 #, c-format
 msgid "Recording from %s"
-msgstr ""
+msgstr "Äänitallenne %s"
 
 #: src/MainWindow.vala:161
 msgid "Save your recording"
-msgstr ""
+msgstr "Tallenna äänitallenteesi"
 
 #: src/MainWindow.vala:221 src/MainWindow.vala:239
 msgid "Unable to Complete Recording"
-msgstr ""
+msgstr "Äänitallenteen valmistelu ei onnistunut"
 
 #: src/MainWindow.vala:222 src/MainWindow.vala:240
 msgid "The following error message may be helpful:"
-msgstr ""
+msgstr "Seuraava virheviesti saattaa olla hyödyksi:"
 
 #: src/StyleSwitcher.vala:26
 msgid "Style:"
-msgstr ""
+msgstr "Tyyli:"
 
 #: src/StyleSwitcher.vala:32
 msgid "Light"
-msgstr ""
+msgstr "Vaalea"
 
 #: src/StyleSwitcher.vala:35
 msgid "Dark"
-msgstr ""
+msgstr "Tumma"
 
 #: src/StyleSwitcher.vala:41 src/Views/WelcomeView.vala:35
 msgid "System"
-msgstr ""
+msgstr "Järjestelmä"
 
 #: src/Services/Recorder.vala:232
 msgid "Recording is ongoing"
-msgstr ""
+msgstr "Äänitallennus on meneillään"
 
 #: src/Views/CountDownView.vala:41
 msgid "Cancel the countdown"
-msgstr ""
+msgstr "Peru laskenta"
 
 #: src/Views/CountDownView.vala:48 src/Views/CountDownView.vala:121
 #: src/Views/CountDownView.vala:143
 msgid "Pause the countdown"
-msgstr ""
+msgstr "Keskeytä laskenta"
 
 #: src/Views/CountDownView.vala:134
 msgid "Resume the countdown"
-msgstr ""
+msgstr "Jatka laskentaa"
 
 #: src/Views/RecordView.vala:57
 msgid "Cancel recording"
-msgstr ""
+msgstr "Peru äänitallenne"
 
 #: src/Views/RecordView.vala:64
 msgid "Finish recording"
-msgstr ""
+msgstr "Viimeistele äänitallenne"
 
 #: src/Views/RecordView.vala:74 src/Views/RecordView.vala:98
 #: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
 msgid "Pause recording"
-msgstr ""
+msgstr "Keskeytä äänitallenne"
 
 #: src/Views/RecordView.vala:119
 msgid "Resume recording"
-msgstr ""
+msgstr "Jatka äänitallennetta"
 
 #: src/Views/WelcomeView.vala:26
 msgid "Source"
-msgstr ""
+msgstr "Lähde"
 
 #: src/Views/WelcomeView.vala:28
 msgid "Record from:"
-msgstr ""
+msgstr "Tallennuslähde:"
 
 #: src/Views/WelcomeView.vala:34
 msgid "Microphone"
-msgstr ""
+msgstr "Mikrofoni"
 
 #: src/Views/WelcomeView.vala:36
 msgid "Both"
-msgstr ""
+msgstr "Molemmat"
 
 #: src/Views/WelcomeView.vala:38
 msgid "Channels:"
-msgstr ""
+msgstr "Kanavat:"
 
 #: src/Views/WelcomeView.vala:44
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: src/Views/WelcomeView.vala:45
 msgid "Stereo"
-msgstr ""
+msgstr "Stereo"
 
 #: src/Views/WelcomeView.vala:47
 msgid "Timer"
-msgstr ""
+msgstr "Ajastin"
 
 #: src/Views/WelcomeView.vala:49
 msgid "Delay in seconds:"
-msgstr ""
+msgstr "Viive sekunneissa:"
 
 #: src/Views/WelcomeView.vala:56
 msgid "Length in seconds:"
-msgstr ""
+msgstr "Kesto sekunneissa:"
 
 #: src/Views/WelcomeView.vala:67
 msgid "Saving"
-msgstr ""
+msgstr "Tallennus"
 
 #: src/Views/WelcomeView.vala:69
 msgid "Format:"
-msgstr ""
+msgstr "Muoto:"
 
 #: src/Views/WelcomeView.vala:76
 msgid "ALAC"
-msgstr ""
+msgstr "ALAC"
 
 #: src/Views/WelcomeView.vala:77
 msgid "FLAC"
-msgstr ""
+msgstr "FLAC"
 
 #: src/Views/WelcomeView.vala:78
 msgid "MP3"
-msgstr ""
+msgstr "MP3"
 
 #: src/Views/WelcomeView.vala:79
 msgid "Ogg Vorbis"
-msgstr ""
+msgstr "Ogg Vorbis"
 
 #: src/Views/WelcomeView.vala:80
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: src/Views/WelcomeView.vala:81
 msgid "WAV"
-msgstr ""
+msgstr "WAV"
 
 #: src/Views/WelcomeView.vala:83
 msgid "Automatically save files:"
-msgstr ""
+msgstr "Tallenna tiedostot automaattisesti:"
 
 #: src/Views/WelcomeView.vala:101 src/Views/WelcomeView.vala:212
 msgid "Choose a default destination"
-msgstr ""
+msgstr "Valitse oletussijainti"
 
 #: src/Views/WelcomeView.vala:138
 msgid "Start recording"
-msgstr ""
+msgstr "Aloita tallennus"
 
 #: src/Views/WelcomeView.vala:203
 msgid "Select destination…"
-msgstr ""
+msgstr "Valitse sijainti…"
 
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
-msgstr ""
+msgstr "Valitse"
