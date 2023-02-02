@@ -1,0 +1,180 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.ryonakano.reco package.
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.ryonakano.reco\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-18 22:55+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/MainWindow.vala:57
+msgid "Preferences"
+msgstr ""
+
+#. TRANSLATORS: %s represents a timestamp here
+#: src/MainWindow.vala:145
+#, c-format
+msgid "Recording from %s"
+msgstr ""
+
+#: src/MainWindow.vala:161
+msgid "Save your recording"
+msgstr ""
+
+#: src/MainWindow.vala:221 src/MainWindow.vala:239
+msgid "Unable to Complete Recording"
+msgstr ""
+
+#: src/MainWindow.vala:222 src/MainWindow.vala:240
+msgid "The following error message may be helpful:"
+msgstr ""
+
+#: src/StyleSwitcher.vala:26
+msgid "Style:"
+msgstr ""
+
+#: src/StyleSwitcher.vala:32
+msgid "Light"
+msgstr ""
+
+#: src/StyleSwitcher.vala:35
+msgid "Dark"
+msgstr ""
+
+#: src/StyleSwitcher.vala:41 src/Views/WelcomeView.vala:35
+msgid "System"
+msgstr ""
+
+#: src/Services/Recorder.vala:232
+msgid "Recording is ongoing"
+msgstr ""
+
+#: src/Views/CountDownView.vala:41
+msgid "Cancel the countdown"
+msgstr ""
+
+#: src/Views/CountDownView.vala:48 src/Views/CountDownView.vala:121
+#: src/Views/CountDownView.vala:143
+msgid "Pause the countdown"
+msgstr ""
+
+#: src/Views/CountDownView.vala:134
+msgid "Resume the countdown"
+msgstr ""
+
+#: src/Views/RecordView.vala:57
+msgid "Cancel recording"
+msgstr ""
+
+#: src/Views/RecordView.vala:64
+msgid "Finish recording"
+msgstr ""
+
+#: src/Views/RecordView.vala:74 src/Views/RecordView.vala:98
+#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
+msgid "Pause recording"
+msgstr ""
+
+#: src/Views/RecordView.vala:119
+msgid "Resume recording"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:26
+msgid "Source"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:28
+msgid "Record from:"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:34
+msgid "Microphone"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:36
+msgid "Both"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:38
+msgid "Channels:"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:44
+msgid "Mono"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:45
+msgid "Stereo"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:47
+msgid "Timer"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:49
+msgid "Delay in seconds:"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:56
+msgid "Length in seconds:"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:67
+msgid "Saving"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:69
+msgid "Format:"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:76
+msgid "ALAC"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:77
+msgid "FLAC"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:78
+msgid "MP3"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:79
+msgid "Ogg Vorbis"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:80
+msgid "Opus"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:81
+msgid "WAV"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:83
+msgid "Automatically save files:"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:101 src/Views/WelcomeView.vala:212
+msgid "Choose a default destination"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:138
+msgid "Start recording"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:203
+msgid "Select destination…"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:213
+msgid "Select"
+msgstr ""
