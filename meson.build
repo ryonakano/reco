@@ -20,10 +20,6 @@ add_project_arguments(
     language: 'vala'
 )
 
-if get_option('enable_debug')
-    add_project_arguments('--debug', language: 'vala')
-endif
-
 config_data = configuration_data()
 config_data.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())

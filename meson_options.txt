@@ -1,1 +1,0 @@
-option('enable_debug', type: 'boolean', value: 'false', description: 'Enable this when debugging in Visual Studio Code using GDB')
