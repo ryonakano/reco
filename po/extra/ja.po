@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-18 22:55+0900\n"
+"POT-Creation-Date: 2023-04-09 09:38+0000\n"
 "PO-Revision-Date: 2022-10-10 00:52+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-extra/"
@@ -18,23 +18,23 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.14.1\n"
 
-#: data/reco.metainfo.xml.in:9 data/reco.desktop.in:3
+#: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
 msgid "Reco"
 msgstr "Reco"
 
-#: data/reco.metainfo.xml.in:10 data/reco.desktop.in:5
+#: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
 msgid "Record talks to remember the contents later"
 msgstr "後で内容を思い出せるように会話を録音します"
 
-#: data/reco.metainfo.xml.in:12
+#: data/reco.metainfo.xml.in:13
 msgid "An audio recording app that helps you recall things talked later."
 msgstr "会話内容を後で思い出すのに役に立つ、オーディオ録音アプリです。"
 
-#: data/reco.metainfo.xml.in:15
+#: data/reco.metainfo.xml.in:16
 msgid "Features include:"
 msgstr "含まれる機能:"
 
-#: data/reco.metainfo.xml.in:17
+#: data/reco.metainfo.xml.in:18
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "would be useful when you record conversations with chat apps or stream "
@@ -43,7 +43,7 @@ msgstr ""
 "マイクとシステムの両方からの音を同時に録音できます。チャットアプリでの会話を"
 "録音したり、インターネットで動画配信をする際に便利です"
 
-#: data/reco.metainfo.xml.in:18
+#: data/reco.metainfo.xml.in:19
 msgid ""
 "Saving in some commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV"
@@ -51,7 +51,7 @@ msgstr ""
 "よく使用される形式で保存できます。ALAC・FLAC・MP3・Ogg Vorbis・Opus・WAV での"
 "保存に対応しています"
 
-#: data/reco.metainfo.xml.in:19
+#: data/reco.metainfo.xml.in:20
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "the length of recording up to 600 seconds"
@@ -59,7 +59,7 @@ msgstr ""
 "遅延しての録音に対応しています。録音前の遅延を最長 15 秒、録音の長さを最長"
 "600 秒に設定できます"
 
-#: data/reco.metainfo.xml.in:20
+#: data/reco.metainfo.xml.in:21
 msgid ""
 "Autosaving or always-ask-where-to-save workflow. You can select whether the "
 "app saves recordings automatically or you choose a destination each time on "
@@ -68,7 +68,7 @@ msgstr ""
 "自動保存か保存場所を毎回確認するかを設定できます。アプリが自動的に録音したも"
 "のを保存するか、保存するたびに保存先を指定するかを選択できます"
 
-#: data/reco.metainfo.xml.in:21
+#: data/reco.metainfo.xml.in:22
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
 "while recording, the recording is saved automatically or the file chooser "
@@ -78,35 +78,60 @@ msgstr ""
 "てしまっても、保存の設定に応じて、録音中のものは自動的に保存されるか、ファイ"
 "ル選択ダイアログが表示されます"
 
-#: data/reco.metainfo.xml.in:27
+#: data/reco.metainfo.xml.in:28
 msgid "Welcome view; perform recording configuration"
 msgstr "ようこそ画面では録音の設定をします"
 
-#: data/reco.metainfo.xml.in:32
+#: data/reco.metainfo.xml.in:33
 msgid "Recording view"
 msgstr "録音中の画面"
 
-#: data/reco.metainfo.xml.in:37
+#: data/reco.metainfo.xml.in:38
 msgid "An indication that recording is successfully finished"
 msgstr "録音が正常に完了したことを示すマーク"
 
-#: data/reco.metainfo.xml.in:60
+#: data/reco.metainfo.xml.in:61
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 
-#: data/reco.metainfo.xml.in:66
+#: data/reco.metainfo.xml.in:67
+msgid "Show important errors to users"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:68 data/reco.metainfo.xml.in:92
+msgid "Update Flatpak runtime version"
+msgstr "Flatpak ランタイムのバージョンを更新"
+
+#: data/reco.metainfo.xml.in:69
+msgid "Improve app metainfo"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:70
+msgid "Review label notation"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:71
+msgid "Improve the way to load custom icons"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:72 data/reco.metainfo.xml.in:84
+#: data/reco.metainfo.xml.in:93 data/reco.metainfo.xml.in:367
+msgid "Update translations"
+msgstr "翻訳を更新"
+
+#: data/reco.metainfo.xml.in:80
 msgid "Migrate to GTK 4, the latest version of GTK"
 msgstr "GTK の最新バージョンである、GTK 4 に移行"
 
-#: data/reco.metainfo.xml.in:67
+#: data/reco.metainfo.xml.in:81
 msgid "Get disk access permission only when the user allowed"
 msgstr "ユーザー許可時のみ、ディスクへのアクセス権限を取得するように修正"
 
-#: data/reco.metainfo.xml.in:68
+#: data/reco.metainfo.xml.in:82
 msgid "Hide remaining time label when unnecessary"
 msgstr "必要のないときは、残り時間のラベルを非表示にするように修正"
 
-#: data/reco.metainfo.xml.in:69
+#: data/reco.metainfo.xml.in:83
 msgid ""
 "Fix no style button selected on non-Pantheon desktop environments when first "
 "launch"
@@ -114,95 +139,86 @@ msgstr ""
 "Pantheon デスクトップ環境以外での初回起動時、どのスタイルボタンも選択されてい"
 "ない不具合を修正"
 
-#: data/reco.metainfo.xml.in:70 data/reco.metainfo.xml.in:79
-#: data/reco.metainfo.xml.in:353
-msgid "Update translations"
-msgstr "翻訳を更新"
-
-#: data/reco.metainfo.xml.in:78
-msgid "Update Flatpak runtime version"
-msgstr "Flatpak ランタイムのバージョンを更新"
-
-#: data/reco.metainfo.xml.in:87
+#: data/reco.metainfo.xml.in:101
 msgid "Check desktop environment on runtime"
 msgstr "実行時にデスクトップ環境を確認するように修正"
 
-#: data/reco.metainfo.xml.in:88
+#: data/reco.metainfo.xml.in:102
 msgid "Show nicer message dialogs depending on the running desktop environment"
 msgstr ""
 "実行中のデスクトップ環境に応じたデザインのメッセージダイアログを表示するよう"
 "に修正"
 
-#: data/reco.metainfo.xml.in:90 data/reco.metainfo.xml.in:105
-#: data/reco.metainfo.xml.in:132 data/reco.metainfo.xml.in:148
-#: data/reco.metainfo.xml.in:165
+#: data/reco.metainfo.xml.in:104 data/reco.metainfo.xml.in:119
+#: data/reco.metainfo.xml.in:146 data/reco.metainfo.xml.in:162
+#: data/reco.metainfo.xml.in:179
 msgid "Translation updates:"
 msgstr "翻訳の更新:"
 
-#: data/reco.metainfo.xml.in:92
+#: data/reco.metainfo.xml.in:106
 msgid "Update French translation (thanks to @NathanBnm)"
 msgstr "フランス語翻訳を更新 (貢献者: @NathanBnm)"
 
-#: data/reco.metainfo.xml.in:93 data/reco.metainfo.xml.in:135
-#: data/reco.metainfo.xml.in:168 data/reco.metainfo.xml.in:178
+#: data/reco.metainfo.xml.in:107 data/reco.metainfo.xml.in:149
+#: data/reco.metainfo.xml.in:182 data/reco.metainfo.xml.in:192
 msgid "Update Portuguese translation (thanks to @hugok79)"
 msgstr "ポルトガル語翻訳を更新 (貢献者: @hugok79)"
 
-#: data/reco.metainfo.xml.in:94 data/reco.metainfo.xml.in:134
-#: data/reco.metainfo.xml.in:188 data/reco.metainfo.xml.in:232
+#: data/reco.metainfo.xml.in:108 data/reco.metainfo.xml.in:148
+#: data/reco.metainfo.xml.in:202 data/reco.metainfo.xml.in:246
 msgid "Update Dutch translation (thanks to @Vistaus)"
 msgstr "ドイツ語翻訳を更新 (貢献者: @Vistaus)"
 
-#: data/reco.metainfo.xml.in:95
+#: data/reco.metainfo.xml.in:109
 msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
 msgstr "簡体字中国語翻訳を追加 (貢献者: @ShuiHuo)"
 
-#: data/reco.metainfo.xml.in:102
+#: data/reco.metainfo.xml.in:116
 msgid "Reco is now available on Flathub too!"
 msgstr "Reco が Flathub でも入手できるようになりました！"
 
-#: data/reco.metainfo.xml.in:107 data/reco.metainfo.xml.in:169
+#: data/reco.metainfo.xml.in:121 data/reco.metainfo.xml.in:183
 msgid "Update Spanish translation (thanks to @Eldhrimer)"
 msgstr "スペイン語翻訳を更新 (貢献者: @Eldhrimer)"
 
-#: data/reco.metainfo.xml.in:108 data/reco.metainfo.xml.in:136
-#: data/reco.metainfo.xml.in:150
+#: data/reco.metainfo.xml.in:122 data/reco.metainfo.xml.in:150
+#: data/reco.metainfo.xml.in:164
 msgid "Update Italian translation (thanks to @albanobattistella)"
 msgstr "イタリア語翻訳を更新 (貢献者: @albanobattistella)"
 
-#: data/reco.metainfo.xml.in:115
+#: data/reco.metainfo.xml.in:129
 msgid "Let's celebrate the new year with the issue from the ancient fixed!"
 msgstr ""
 "かなり前から存在していた不具合が修正されたバージョンにアップデートして、新年"
 "を迎えましょう！"
 
-#: data/reco.metainfo.xml.in:119
+#: data/reco.metainfo.xml.in:133
 msgid ""
 "Replace AAC option with ALAC to prevent strange stereo files being generated"
 msgstr ""
 "AAC 形式で保存するオプションを ALAC 形式に変更し、不自然なステレオファイルが"
 "生成される不具合を修正"
 
-#: data/reco.metainfo.xml.in:126
+#: data/reco.metainfo.xml.in:140
 msgid "The release for celebrating the 3rd anniversary of the app!"
 msgstr "アプリの3周年記念リリース！"
 
-#: data/reco.metainfo.xml.in:130
+#: data/reco.metainfo.xml.in:144
 msgid "Add new style switcher"
 msgstr "新しいスタイルスイッチャーを追加"
 
-#: data/reco.metainfo.xml.in:137 data/reco.metainfo.xml.in:151
-#: data/reco.metainfo.xml.in:170 data/reco.metainfo.xml.in:180
-#: data/reco.metainfo.xml.in:210 data/reco.metainfo.xml.in:220
-#: data/reco.metainfo.xml.in:245 data/reco.metainfo.xml.in:265
-#: data/reco.metainfo.xml.in:277 data/reco.metainfo.xml.in:318
-#: data/reco.metainfo.xml.in:328 data/reco.metainfo.xml.in:339
-#: data/reco.metainfo.xml.in:363 data/reco.metainfo.xml.in:376
-#: data/reco.metainfo.xml.in:387
+#: data/reco.metainfo.xml.in:151 data/reco.metainfo.xml.in:165
+#: data/reco.metainfo.xml.in:184 data/reco.metainfo.xml.in:194
+#: data/reco.metainfo.xml.in:224 data/reco.metainfo.xml.in:234
+#: data/reco.metainfo.xml.in:259 data/reco.metainfo.xml.in:279
+#: data/reco.metainfo.xml.in:291 data/reco.metainfo.xml.in:332
+#: data/reco.metainfo.xml.in:342 data/reco.metainfo.xml.in:353
+#: data/reco.metainfo.xml.in:377 data/reco.metainfo.xml.in:390
+#: data/reco.metainfo.xml.in:401
 msgid "Update Japanese translation"
 msgstr "日本語翻訳を更新"
 
-#: data/reco.metainfo.xml.in:145
+#: data/reco.metainfo.xml.in:159
 msgid ""
 "Use the user cache folder instead of the system temporary folder to save "
 "temporary recording files"
@@ -210,11 +226,11 @@ msgstr ""
 "一時録音ファイルの保存先を、システムの一時フォルダーからユーザーのキャッシュ"
 "フォルダーに変更"
 
-#: data/reco.metainfo.xml.in:146
+#: data/reco.metainfo.xml.in:160
 msgid "Fix wrong OARS data"
 msgstr "OARS データの間違いを修正"
 
-#: data/reco.metainfo.xml.in:159
+#: data/reco.metainfo.xml.in:173
 msgid ""
 "Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
 "manifest"
@@ -222,11 +238,11 @@ msgstr ""
 "Flatpak マニフェストを追加し、アプリを elementary OS 6 の新しい AppCenter に"
 "リリース"
 
-#: data/reco.metainfo.xml.in:160
+#: data/reco.metainfo.xml.in:174
 msgid "A completely rewrited and improved method to detect recording sources"
 msgstr "録音ソースの検出方法を根本的に書き直し、処理を改善"
 
-#: data/reco.metainfo.xml.in:161
+#: data/reco.metainfo.xml.in:175
 msgid ""
 "Redesign: Separate Delay and Duration settings from Recording section as "
 "Timer section and put it under Recording section"
@@ -234,24 +250,24 @@ msgstr ""
 "再設計: 遅延と録音時間の設定を“録音”セクションから分離し“タイマー”セクション"
 "として独立させ、“録音”セクションの下に配置"
 
-#: data/reco.metainfo.xml.in:162
+#: data/reco.metainfo.xml.in:176
 msgid "Make sure to show a dialog for any errors in recording"
 msgstr "録音中にエラーが発生した場合必ずエラーダイアログを表示するように修正"
 
-#: data/reco.metainfo.xml.in:163
+#: data/reco.metainfo.xml.in:177
 msgid "Code refactoring"
 msgstr "コードのリファクタリング"
 
-#: data/reco.metainfo.xml.in:167
+#: data/reco.metainfo.xml.in:181
 msgid "Add Brazilian Portuguese translation (thanks to @mathessaricci)"
 msgstr "ブラジルポルトガル語翻訳を追加 (貢献者: @mathessaricci)"
 
-#: data/reco.metainfo.xml.in:179
+#: data/reco.metainfo.xml.in:193
 msgid ""
 "Update Spanish translation and add Catalan translation (thanks to @fitojb)"
 msgstr "スペイン語翻訳を更新し、カタルーニャ語翻訳を追加 (貢献者: @fitojb)"
 
-#: data/reco.metainfo.xml.in:189
+#: data/reco.metainfo.xml.in:203
 msgid ""
 "Revert another change done in version 2.4.3 that potentially caused an error "
 "during the packaging process"
@@ -259,11 +275,11 @@ msgstr ""
 "パッケージングの過程で発生していたエラーの原因と思われる、バージョン 2.4.3 で"
 "行われた別の変更箇所を差し戻し"
 
-#: data/reco.metainfo.xml.in:190
+#: data/reco.metainfo.xml.in:204
 msgid "Revive the change that had been reverted in version 2.4.4"
 msgstr "バージョン 2.4.4 で差し戻された変更を復元"
 
-#: data/reco.metainfo.xml.in:198
+#: data/reco.metainfo.xml.in:212
 msgid ""
 "Revert changes done in version 2.4.3 that potentially caused an error during "
 "the packaging process"
@@ -271,12 +287,12 @@ msgstr ""
 "パッケージングの過程で発生していたエラーの原因と思われる、バージョン 2.4.3 で"
 "行われた変更箇所を差し戻し"
 
-#: data/reco.metainfo.xml.in:206
+#: data/reco.metainfo.xml.in:220
 msgid "MainWindow: Readable copy for dialog messages"
 msgstr ""
 "メインウィンドウ: ダイアログメッセージのテキストをわかりやすいものに変更"
 
-#: data/reco.metainfo.xml.in:207
+#: data/reco.metainfo.xml.in:221
 msgid ""
 "MainWindow: Add window title for the new Gala feature that shows windows "
 "titles in Multitasking view"
@@ -284,61 +300,61 @@ msgstr ""
 "メインウィンドウ: マルチタスク画面でウィンドウタイトルを表示する Gala の新機"
 "能に使われるウィンドウタイトルを追加"
 
-#: data/reco.metainfo.xml.in:208
+#: data/reco.metainfo.xml.in:222
 msgid "Add Italian translation (thanks to @albanobattistella)"
 msgstr "イタリア語翻訳を追加 (貢献者: @albanobattistella)"
 
-#: data/reco.metainfo.xml.in:209
+#: data/reco.metainfo.xml.in:223
 msgid "Add Portuguese translation (thanks to @hugok79)"
 msgstr "ポルトガル語翻訳を追加 (貢献者: @hugok79)"
 
-#: data/reco.metainfo.xml.in:211
+#: data/reco.metainfo.xml.in:225
 msgid "Clean code"
 msgstr "コードの整理"
 
-#: data/reco.metainfo.xml.in:219
+#: data/reco.metainfo.xml.in:233
 msgid "Inhibit sleeping while recording"
 msgstr "録音中はスリープしないように修正"
 
-#: data/reco.metainfo.xml.in:228
+#: data/reco.metainfo.xml.in:242
 msgid ""
 "Make sure GSettings key \"length\" and \"delay\" take only natural numbers"
 msgstr ""
 "\"length\"・\"delay\" の両 GSettings キーが必ず整数のみを取るように修正"
 
-#: data/reco.metainfo.xml.in:229
+#: data/reco.metainfo.xml.in:243
 msgid "Follow API change of Gtk.FileChooser in GTK 4"
 msgstr "GTK 4 での Gtk.FileChooser の API の変更に追従"
 
-#: data/reco.metainfo.xml.in:230
+#: data/reco.metainfo.xml.in:244
 msgid "Fix temporary recordings are not deleted on error"
 msgstr "エラー発生時に一時的な録音ファイルが削除されない不具合を修正"
 
-#: data/reco.metainfo.xml.in:231
+#: data/reco.metainfo.xml.in:245
 msgid "Fix some microphones are not recognized (thanks to @peteruithoven)"
 msgstr "マイクを認識しないことがある不具合を修正 (貢献者: @peteruithoven)"
 
-#: data/reco.metainfo.xml.in:233
+#: data/reco.metainfo.xml.in:247
 msgid "Update Turkish translation (thanks to @safak45x)"
 msgstr "トルコ語翻訳を更新 (貢献者: @safak45x)"
 
-#: data/reco.metainfo.xml.in:241
+#: data/reco.metainfo.xml.in:255
 msgid "Respect an elementary OS-wide dark preference"
 msgstr "elementary OS のダークスタイル設定を反映するように修正"
 
-#: data/reco.metainfo.xml.in:242
+#: data/reco.metainfo.xml.in:256
 msgid "Allow setting per-app dark style preference"
 msgstr "このアプリ内限定でダークスタイルを設定できる機能を追加"
 
-#: data/reco.metainfo.xml.in:243
+#: data/reco.metainfo.xml.in:257
 msgid "Allow choosing stereo or mono"
 msgstr "ステレオ・モノを選択できる機能を追加"
 
-#: data/reco.metainfo.xml.in:244
+#: data/reco.metainfo.xml.in:258
 msgid "Update Spanish translation (thanks to @CCaroV)"
 msgstr "スペイン語翻訳を更新 (貢献者: @CCaroV)"
 
-#: data/reco.metainfo.xml.in:246
+#: data/reco.metainfo.xml.in:260
 msgid ""
 "Explicit gstreamer1.0-libav as a dependency to fix a potential crash when "
 "trying to record in AAC"
@@ -346,23 +362,23 @@ msgstr ""
 "依存関係として gstreamer1.0-libav を明示することで、AAC 形式で録音しようとす"
 "るとクラッシュすることがある不具合を修正"
 
-#: data/reco.metainfo.xml.in:254
+#: data/reco.metainfo.xml.in:268
 msgid "Add Turkish translation (by @safak45x)"
 msgstr "トルコ語翻訳を追加 (貢献者: @safak45x)"
 
-#: data/reco.metainfo.xml.in:255
+#: data/reco.metainfo.xml.in:269
 msgid "Add Russian translation (by @usmanovmax)"
 msgstr "ロシア語翻訳を追加 (貢献者: @usmanovmax)"
 
-#: data/reco.metainfo.xml.in:263
+#: data/reco.metainfo.xml.in:277
 msgid "Add Polish translation (by @michalzkosmosu)"
 msgstr "ポーランド語翻訳を追加 (貢献者: @michalzkosmosu)"
 
-#: data/reco.metainfo.xml.in:264
+#: data/reco.metainfo.xml.in:278
 msgid "Update French translation (by @NathanBnm)"
 msgstr "フランス語翻訳を更新 (貢献者: @NathanBnm)"
 
-#: data/reco.metainfo.xml.in:273
+#: data/reco.metainfo.xml.in:287
 msgid ""
 "Fix the weird behavior of the countdown timer when pausing/canceling it (by "
 "andreasomaini)"
@@ -370,86 +386,86 @@ msgstr ""
 "カウントダウンタイマーを一時停止／キャンセルすると、タイマーの動作がおかしく"
 "なる不具合を修正 (貢献者: andreasomaini)"
 
-#: data/reco.metainfo.xml.in:274
+#: data/reco.metainfo.xml.in:288
 msgid ""
 "Support recording sounds from both your microphone and PC at the same time"
 msgstr "マイクからの音とと PC の内部音を同時に録音できる機能を追加"
 
-#: data/reco.metainfo.xml.in:275
+#: data/reco.metainfo.xml.in:289
 msgid "End the app safely if the encoder is not created successfully"
 msgstr ""
 "エンコーダーを正しく作成できなかった場合、安全にアプリを終了するように修正"
 
-#: data/reco.metainfo.xml.in:276
+#: data/reco.metainfo.xml.in:290
 msgid ""
 "Update the app description in the readme and AppCenter to be more tantalizing"
 msgstr ""
 "ユーザーの興味を惹くように、README と AppCenter に記載されているアプリの説明"
 "を更新"
 
-#: data/reco.metainfo.xml.in:278
+#: data/reco.metainfo.xml.in:292
 msgid "Remove unnecessary field code that marks the app handleable files"
 msgstr "ファイルを開けるアプリとしてマークされていたのを削除"
 
-#: data/reco.metainfo.xml.in:286
+#: data/reco.metainfo.xml.in:300
 msgid "Fix recording won't success when changing the file format"
 msgstr "ファイル形式を変更すると録音に失敗する不具合を修正"
 
-#: data/reco.metainfo.xml.in:287
+#: data/reco.metainfo.xml.in:301
 msgid "Add Spanish translation (by fitojb)"
 msgstr "スペイン語翻訳を追加 (貢献者: fitojb)"
 
-#: data/reco.metainfo.xml.in:295
+#: data/reco.metainfo.xml.in:309
 msgid "Getting/setting window positions gets more efficient"
 msgstr "ウィンドウ位置の取得と設定における処理の効率化"
 
-#: data/reco.metainfo.xml.in:296
+#: data/reco.metainfo.xml.in:310
 msgid ""
 "Fix the app does not resume the pause icon when you cancel recording while "
 "pausing it"
 msgstr ""
 "録音の一時停止中にキャンセルすると一時停止アイコンが元に戻らない不具合を修正"
 
-#: data/reco.metainfo.xml.in:297
+#: data/reco.metainfo.xml.in:311
 msgid ""
 "Fix the app shows the successful mark even if a recording is not saved "
 "correctly"
 msgstr "録音に失敗しても成功のチェックマークが表示される不具合を修正"
 
-#: data/reco.metainfo.xml.in:298
+#: data/reco.metainfo.xml.in:312
 msgid "Save and restore values typed into the spin buttons"
 msgstr "スピンボタンに直接入力された値を保存し復元するように修正"
 
-#: data/reco.metainfo.xml.in:306
+#: data/reco.metainfo.xml.in:320
 msgid "Allow to cancel/pause countdown before recording"
 msgstr "録音開始前にカウントダウンをキャンセル／一時停止できる機能を追加"
 
-#: data/reco.metainfo.xml.in:307
+#: data/reco.metainfo.xml.in:321
 msgid "Save recordings when the app window is destroyed"
 msgstr "アプリウィンドウが閉じられた時に録音を保存するように修正"
 
-#: data/reco.metainfo.xml.in:308
+#: data/reco.metainfo.xml.in:322
 msgid "Fix the app freezes on closing an error dialog"
 msgstr "エラーダイアログを閉じるとアプリがフリーズする不具合を修正"
 
-#: data/reco.metainfo.xml.in:316
+#: data/reco.metainfo.xml.in:330
 msgid "Allow to record system sound"
 msgstr "システム音を録音できる機能を追加"
 
-#: data/reco.metainfo.xml.in:317
+#: data/reco.metainfo.xml.in:331
 msgid "Fix the timer does not stop in accordance with the recording"
 msgstr "録音終了と同時にタイマーが停止しない不具合を修正"
 
-#: data/reco.metainfo.xml.in:326
+#: data/reco.metainfo.xml.in:340
 msgid "Grammatically fixes in the app description (by imasaru)"
 msgstr "アプリの説明の文法ミスを修正 (貢献者: imasaru)"
 
-#: data/reco.metainfo.xml.in:327
+#: data/reco.metainfo.xml.in:341
 msgid "Fix the localized screenshots don't appear to AppCenter"
 msgstr ""
 "AppCenter にローカライズされたスクリーンショットが表示されない不具合を修正"
 
-#: data/reco.metainfo.xml.in:336
+#: data/reco.metainfo.xml.in:350
 msgid ""
 "Provide localized screenshots to AppCenter (French, Japanese, Lithuanian and "
 "Dutch)"
@@ -457,19 +473,19 @@ msgstr ""
 "AppCenter にローカライズされたスクリーンショットが表示されるように変更 (フラ"
 "ンス語、日本語、リトアニア語、ドイツ語)"
 
-#: data/reco.metainfo.xml.in:337
+#: data/reco.metainfo.xml.in:351
 msgid "Fix temporary recording files remain when quit the app while recording"
 msgstr "録音中にアプリを終了すると、一時録音ファイルが削除されない不具合を修正"
 
-#: data/reco.metainfo.xml.in:338
+#: data/reco.metainfo.xml.in:352
 msgid "Use upper case for WAV"
 msgstr "WAV 形式の “WAV” を大文字で表記"
 
-#: data/reco.metainfo.xml.in:340
+#: data/reco.metainfo.xml.in:354
 msgid "Add Dutch translation (by Vistaus)"
 msgstr "ドイツ語翻訳を追加 (貢献者: Vistaus)"
 
-#: data/reco.metainfo.xml.in:348
+#: data/reco.metainfo.xml.in:362
 msgid ""
 "Fix the app isn't listed in the \"Sound &amp; Video\" category in "
 "Applications Menu"
@@ -477,78 +493,78 @@ msgstr ""
 "アプリケーションメニューの\"サウンドとビデオ\"のカテゴリーにアプリが表示され"
 "ない不具合を修正"
 
-#: data/reco.metainfo.xml.in:349
+#: data/reco.metainfo.xml.in:363
 msgid "Add a shortcut key to toggle recording"
 msgstr "録音開始と一時停止を切り替えられるショートカットを追加"
 
-#: data/reco.metainfo.xml.in:350
+#: data/reco.metainfo.xml.in:364
 msgid "Fix the name of \"Recordings\" folder is not created in system language"
 msgstr "\"レコーディング\"フォルダーの名前がシステム言語にならない不具合を修正"
 
-#: data/reco.metainfo.xml.in:351
+#: data/reco.metainfo.xml.in:365
 msgid "Notify success of recording with a check mark"
 msgstr "録音の完了をチェックマークでお知らせ"
 
-#: data/reco.metainfo.xml.in:352
+#: data/reco.metainfo.xml.in:366
 msgid "Allow to cancel/pause recording"
 msgstr "録音をキャンセル／一時停止できる機能を追加"
 
-#: data/reco.metainfo.xml.in:361
+#: data/reco.metainfo.xml.in:375
 msgid ""
 "Show a confirmation dialog when trying to quit the app if a recording is in "
 "progress"
 msgstr ""
 "録音中にアプリを終了しようとすると、確認ダイアログが表示されるように修正"
 
-#: data/reco.metainfo.xml.in:362
+#: data/reco.metainfo.xml.in:376
 msgid "Add Lithuanian translation (by welaq)"
 msgstr "リトアニア語翻訳を追加 (貢献者: welaq)"
 
-#: data/reco.metainfo.xml.in:371
+#: data/reco.metainfo.xml.in:385
 msgid "Save and restore settings"
 msgstr "設定を保存し復元するように修正"
 
-#: data/reco.metainfo.xml.in:372
+#: data/reco.metainfo.xml.in:386
 msgid "Support both do-not-ask-where-to-save flow and ask-where-to-save flow"
 msgstr "録音を自動的に保存するか、保存場所を毎回尋ねるか選べるように変更"
 
-#: data/reco.metainfo.xml.in:373
+#: data/reco.metainfo.xml.in:387
 msgid "Organized UI"
 msgstr "UI を整理"
 
-#: data/reco.metainfo.xml.in:374
+#: data/reco.metainfo.xml.in:388
 msgid "Some small bug fixes"
 msgstr "軽微なバグを修正"
 
-#: data/reco.metainfo.xml.in:375
+#: data/reco.metainfo.xml.in:389
 msgid "Add French translation (by NathanBnm)"
 msgstr "フランス語翻訳を追加 (貢献者: NathanBnm)"
 
-#: data/reco.metainfo.xml.in:384
+#: data/reco.metainfo.xml.in:398
 msgid "Allow to set recording length"
 msgstr "録音時間を設定する機能を追加"
 
-#: data/reco.metainfo.xml.in:385
+#: data/reco.metainfo.xml.in:399
 msgid "Fix the countdown is weird when recording more than twice"
 msgstr "録音を2回以上行うと、カウントダウンの挙動がおかしくなる不具合を修正"
 
-#: data/reco.metainfo.xml.in:386
+#: data/reco.metainfo.xml.in:400
 msgid "Localization improvement"
 msgstr "ローカライゼーションの改善"
 
-#: data/reco.metainfo.xml.in:395
+#: data/reco.metainfo.xml.in:409
 msgid "Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats"
 msgstr "AAC、FLAC、Ogg Vorbis、Opus、MP3 形式での録音に対応"
 
-#: data/reco.metainfo.xml.in:396
+#: data/reco.metainfo.xml.in:410
 msgid "Show a notification after recorded successfully"
 msgstr "録音完了時に通知を表示するように変更"
 
-#: data/reco.metainfo.xml.in:397
+#: data/reco.metainfo.xml.in:411
 msgid "Add Japanese translation"
 msgstr "日本語翻訳を追加"
 
-#: data/reco.metainfo.xml.in:405
+#: data/reco.metainfo.xml.in:419
 msgid "Initial release"
 msgstr "最初のリリース"
 
