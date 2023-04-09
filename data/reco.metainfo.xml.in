@@ -61,6 +61,17 @@
   <developer_name>Ryo Nakano</developer_name>
 
   <releases>
+    <release version="4.0.1" date="2023-04-16" urgency="low">
+      <description>
+        <ul>
+          <li>Update Flatpak runtime version</li>
+          <li>MainWindow: Show important errors to users</li>
+          <li>Improve the way to load custom icons</li>
+          <li>Update translations</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="4.0.0" date="2022-10-10" urgency="high">
       <description>
         <ul>
