@@ -1,22 +1,22 @@
 # Japanese translations for extra package.
 # Copyright (C) 2018 THE extra'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2022.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-09 09:38+0000\n"
-"PO-Revision-Date: 2022-10-10 00:52+0000\n"
+"PO-Revision-Date: 2023-04-11 23:51+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-extra/"
-"ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/"
+"reco-metadata/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
 msgid "Reco"
@@ -96,7 +96,7 @@ msgstr "Ryo Nakano"
 
 #: data/reco.metainfo.xml.in:67
 msgid "Show important errors to users"
-msgstr ""
+msgstr "重要なエラーをユーザーに表示するように修正"
 
 #: data/reco.metainfo.xml.in:68 data/reco.metainfo.xml.in:92
 msgid "Update Flatpak runtime version"
@@ -104,15 +104,15 @@ msgstr "Flatpak ランタイムのバージョンを更新"
 
 #: data/reco.metainfo.xml.in:69
 msgid "Improve app metainfo"
-msgstr ""
+msgstr "アプリのメタ情報を改善"
 
 #: data/reco.metainfo.xml.in:70
 msgid "Review label notation"
-msgstr ""
+msgstr "ラベルの表記を見直し"
 
 #: data/reco.metainfo.xml.in:71
 msgid "Improve the way to load custom icons"
-msgstr ""
+msgstr "カスタムアイコンの読み込み方法を改善"
 
 #: data/reco.metainfo.xml.in:72 data/reco.metainfo.xml.in:84
 #: data/reco.metainfo.xml.in:93 data/reco.metainfo.xml.in:367
