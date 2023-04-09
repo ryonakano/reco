@@ -64,8 +64,10 @@
     <release version="4.0.1" date="2023-04-16" urgency="low">
       <description>
         <ul>
+          <li>Show important errors to users</li>
           <li>Update Flatpak runtime version</li>
-          <li>MainWindow: Show important errors to users</li>
+          <li>Improve app metainfo</li>
+          <li>Review label notation</li>
           <li>Improve the way to load custom icons</li>
           <li>Update translations</li>
         </ul>
