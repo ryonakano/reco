@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-18 22:55+0900\n"
+"POT-Creation-Date: 2023-04-09 09:38+0000\n"
 "PO-Revision-Date: 2022-02-08 20:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -23,20 +23,20 @@ msgid "Preferences"
 msgstr "首选项"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:143
 #, c-format
 msgid "Recording from %s"
 msgstr "录音 %s"
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:159
 msgid "Save your recording"
 msgstr "保存录音"
 
-#: src/MainWindow.vala:221 src/MainWindow.vala:239
+#: src/MainWindow.vala:219 src/MainWindow.vala:237
 msgid "Unable to Complete Recording"
 msgstr "无法完成录音"
 
-#: src/MainWindow.vala:222 src/MainWindow.vala:240
+#: src/MainWindow.vala:220 src/MainWindow.vala:238
 msgid "The following error message may be helpful:"
 msgstr "下面的错误消息可能会有所帮助："
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-18 22:55+0900\n"
+"POT-Creation-Date: 2023-04-09 09:38+0000\n"
 "PO-Revision-Date: 2022-10-20 18:06+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/rosp/reco-"
@@ -23,20 +23,20 @@ msgid "Preferences"
 msgstr "Preferências"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:143
 #, c-format
 msgid "Recording from %s"
 msgstr "A gravar de %s"
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:159
 msgid "Save your recording"
 msgstr "Guardar a gravação"
 
-#: src/MainWindow.vala:221 src/MainWindow.vala:239
+#: src/MainWindow.vala:219 src/MainWindow.vala:237
 msgid "Unable to Complete Recording"
 msgstr "Não foi possível concluir a gravação"
 
-#: src/MainWindow.vala:222 src/MainWindow.vala:240
+#: src/MainWindow.vala:220 src/MainWindow.vala:238
 msgid "The following error message may be helpful:"
 msgstr "A seguinte mensagem de erro pode ser útil:"
 

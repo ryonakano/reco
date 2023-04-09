@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-18 22:55+0900\n"
+"POT-Creation-Date: 2023-04-09 09:38+0000\n"
 "PO-Revision-Date: 2022-04-23 17:09+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/rosp/reco-main/sk/"
@@ -24,20 +24,20 @@ msgid "Preferences"
 msgstr "Predvoľby"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:143
 #, c-format
 msgid "Recording from %s"
 msgstr "Nahráva sa od %s"
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:159
 msgid "Save your recording"
 msgstr "Uložiť nahrávku"
 
-#: src/MainWindow.vala:221 src/MainWindow.vala:239
+#: src/MainWindow.vala:219 src/MainWindow.vala:237
 msgid "Unable to Complete Recording"
 msgstr "Nepodarilo sa dokončiť nahrávanie"
 
-#: src/MainWindow.vala:222 src/MainWindow.vala:240
+#: src/MainWindow.vala:220 src/MainWindow.vala:238
 msgid "The following error message may be helpful:"
 msgstr "Nasledujúce chybové hlásenie môže byť užitočné:"
 

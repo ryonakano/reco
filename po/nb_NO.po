@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-18 22:55+0900\n"
+"POT-Creation-Date: 2023-04-09 09:38+0000\n"
 "PO-Revision-Date: 2022-05-21 19:19+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/rosp/"
@@ -23,21 +23,21 @@ msgid "Preferences"
 msgstr "Innstillinger"
 
 #. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:143
 #, c-format
 msgid "Recording from %s"
 msgstr "Tar opp fra %s"
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:159
 msgid "Save your recording"
 msgstr "Lagre opptaket ditt"
 
-#: src/MainWindow.vala:221 src/MainWindow.vala:239
+#: src/MainWindow.vala:219 src/MainWindow.vala:237
 #, fuzzy
 msgid "Unable to Complete Recording"
 msgstr "Kunne ikke fullføre opptak"
 
-#: src/MainWindow.vala:222 src/MainWindow.vala:240
+#: src/MainWindow.vala:220 src/MainWindow.vala:238
 msgid "The following error message may be helpful:"
 msgstr "Følgende feilmelding kan være nyttig:"
 
