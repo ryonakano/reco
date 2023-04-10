@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-09 09:38+0000\n"
-"PO-Revision-Date: 2023-04-09 09:39+0000\n"
+"PO-Revision-Date: 2023-04-11 23:51+0000\n"
 "Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/rosp/"
 "reco-metadata/pt_BR/>\n"
@@ -88,9 +88,8 @@ msgstr ""
 "gravação"
 
 #: data/reco.metainfo.xml.in:28
-#, fuzzy
 msgid "Welcome view; perform recording configuration"
-msgstr "Tela de boas-vindas que lhe permite definir a configuração da gravação"
+msgstr "Tela de boas-vindas; realizar configuração de gravação"
 
 #: data/reco.metainfo.xml.in:33
 msgid "Recording view"
@@ -106,13 +105,11 @@ msgstr "Ryo Nakano"
 
 #: data/reco.metainfo.xml.in:67
 msgid "Show important errors to users"
-msgstr ""
+msgstr "Mostrar erros importantes aos usuários"
 
 #: data/reco.metainfo.xml.in:68 data/reco.metainfo.xml.in:92
-#, fuzzy
-#| msgid "Update Japanese translation"
 msgid "Update Flatpak runtime version"
-msgstr "Atualização da tradução japonesa"
+msgstr "Atualização da versão Flatpak runtime"
 
 #: data/reco.metainfo.xml.in:69
 msgid "Improve app metainfo"
@@ -133,15 +130,16 @@ msgstr "Atualização de traduções"
 
 #: data/reco.metainfo.xml.in:80
 msgid "Migrate to GTK 4, the latest version of GTK"
-msgstr ""
+msgstr "Migração para GTK 4, a última versão do GTK"
 
 #: data/reco.metainfo.xml.in:81
 msgid "Get disk access permission only when the user allowed"
 msgstr ""
+"Obter permissão de acesso ao disco apenas quando o usuário tiver permissão"
 
 #: data/reco.metainfo.xml.in:82
 msgid "Hide remaining time label when unnecessary"
-msgstr ""
+msgstr "Ocultar a etiqueta do tempo restante quando desnecessário"
 
 #: data/reco.metainfo.xml.in:83
 msgid ""
@@ -156,12 +154,14 @@ msgstr ""
 #: data/reco.metainfo.xml.in:102
 msgid "Show nicer message dialogs depending on the running desktop environment"
 msgstr ""
+"Mostra diálogos de mensagens de melhor aparência, dependendo do ambiente "
+"gráfico em execução"
 
 #: data/reco.metainfo.xml.in:104 data/reco.metainfo.xml.in:119
 #: data/reco.metainfo.xml.in:146 data/reco.metainfo.xml.in:162
 #: data/reco.metainfo.xml.in:179
 msgid "Translation updates:"
-msgstr ""
+msgstr "Atualizações de tradução:"
 
 #: data/reco.metainfo.xml.in:106
 #, fuzzy
@@ -185,7 +185,7 @@ msgstr "Tradução portuguesa adicionada (obrigado a @hugok79)"
 
 #: data/reco.metainfo.xml.in:116
 msgid "Reco is now available on Flathub too!"
-msgstr ""
+msgstr "O Reco está agora disponível no Flathub também!"
 
 #: data/reco.metainfo.xml.in:121 data/reco.metainfo.xml.in:183
 #, fuzzy
