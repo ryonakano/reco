@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-09 09:38+0000\n"
-"PO-Revision-Date: 2023-04-11 23:51+0000\n"
+"PO-Revision-Date: 2023-04-13 05:51+0000\n"
 "Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/rosp/"
 "reco-metadata/pt_BR/>\n"
@@ -149,7 +149,7 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in:101
 msgid "Check desktop environment on runtime"
-msgstr ""
+msgstr "Verificar o ambiente de trabalho em tempo de execução"
 
 #: data/reco.metainfo.xml.in:102
 msgid "Show nicer message dialogs depending on the running desktop environment"
@@ -164,9 +164,8 @@ msgid "Translation updates:"
 msgstr "Atualizações de tradução:"
 
 #: data/reco.metainfo.xml.in:106
-#, fuzzy
 msgid "Update French translation (thanks to @NathanBnm)"
-msgstr "Tradução francesa adicionada (por @NathanBnm))"
+msgstr "Atualização da tradução francesa (obrigado a @NathanBnm)"
 
 #: data/reco.metainfo.xml.in:107 data/reco.metainfo.xml.in:149
 #: data/reco.metainfo.xml.in:182 data/reco.metainfo.xml.in:192
@@ -179,24 +178,21 @@ msgid "Update Dutch translation (thanks to @Vistaus)"
 msgstr "Atualização da tradução holandesa (obrigado a @Vistaus)"
 
 #: data/reco.metainfo.xml.in:109
-#, fuzzy
 msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
-msgstr "Tradução portuguesa adicionada (obrigado a @hugok79)"
+msgstr "Tradução de chinês simplificado adicionada (obrigado a @ShuiHuo)"
 
 #: data/reco.metainfo.xml.in:116
 msgid "Reco is now available on Flathub too!"
 msgstr "O Reco está agora disponível no Flathub também!"
 
 #: data/reco.metainfo.xml.in:121 data/reco.metainfo.xml.in:183
-#, fuzzy
 msgid "Update Spanish translation (thanks to @Eldhrimer)"
-msgstr "Atualização da tradução (obrigado a @CCaroV)"
+msgstr "Atualização da tradução espanhola (obrigado a @Eldhrimer)"
 
 #: data/reco.metainfo.xml.in:122 data/reco.metainfo.xml.in:150
 #: data/reco.metainfo.xml.in:164
-#, fuzzy
 msgid "Update Italian translation (thanks to @albanobattistella)"
-msgstr "Tradução italiana adicionada (obrigado a @albanobattistella)"
+msgstr "Atualização da tradução italiana (obrigado a @albanobattistella)"
 
 #: data/reco.metainfo.xml.in:129
 msgid "Let's celebrate the new year with the issue from the ancient fixed!"
@@ -261,9 +257,10 @@ msgid "Code refactoring"
 msgstr ""
 
 #: data/reco.metainfo.xml.in:181
-#, fuzzy
 msgid "Add Brazilian Portuguese translation (thanks to @mathessaricci)"
-msgstr "Tradução portuguesa adicionada (obrigado a @hugok79)"
+msgstr ""
+"Tradução portuguesa brasileira adicionada (obrigado a @mathessaricci, "
+"@fnogcps)"
 
 #: data/reco.metainfo.xml.in:193
 msgid ""
