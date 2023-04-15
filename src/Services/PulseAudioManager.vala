@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2022 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2018-2023 Ryo Nakano <ryonakaknock3@gmail.com>
  *
  * Code brought from elementary/switchboard-plug-sound, src/PulseAudioManager.vala, authored by Corentin Noël
  */
