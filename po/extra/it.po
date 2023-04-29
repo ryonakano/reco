@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-09 09:38+0000\n"
-"PO-Revision-Date: 2023-04-11 23:51+0000\n"
+"PO-Revision-Date: 2023-05-01 03:50+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/"
 "reco-metadata/it/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
 msgid "Reco"
@@ -101,7 +101,7 @@ msgstr "Ryo Nakano"
 
 #: data/reco.metainfo.xml.in:67
 msgid "Show important errors to users"
-msgstr ""
+msgstr "Mostra errori importanti agli utenti"
 
 #: data/reco.metainfo.xml.in:68 data/reco.metainfo.xml.in:92
 msgid "Update Flatpak runtime version"
@@ -109,15 +109,15 @@ msgstr "Aggiorna la versione runtime di Flatpak"
 
 #: data/reco.metainfo.xml.in:69
 msgid "Improve app metainfo"
-msgstr ""
+msgstr "Migliorate le metainformazioni dell'app"
 
 #: data/reco.metainfo.xml.in:70
 msgid "Review label notation"
-msgstr ""
+msgstr "Rivede la notazione dell'etichetta"
 
 #: data/reco.metainfo.xml.in:71
 msgid "Improve the way to load custom icons"
-msgstr ""
+msgstr "Migliora il modo di caricare le icone personalizzate"
 
 #: data/reco.metainfo.xml.in:72 data/reco.metainfo.xml.in:84
 #: data/reco.metainfo.xml.in:93 data/reco.metainfo.xml.in:367
