@@ -3,23 +3,23 @@
 # This file is distributed under the same license as the extra package.
 #
 # Safak Genisol, 2020.
-# Sabri Ünal <libreajans@gmail.com>, 2022.
+# Sabri Ünal <libreajans@gmail.com>, 2022, 2023.
 # Oğuz Ersen <oguz@ersen.moe>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-09 09:38+0000\n"
-"PO-Revision-Date: 2022-10-11 15:21+0000\n"
-"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco-extra/"
-"tr/>\n"
+"PO-Revision-Date: 2023-05-01 03:50+0000\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/"
+"reco-metadata/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
 msgid "Reco"
@@ -103,7 +103,7 @@ msgstr "Ryo Nakano"
 
 #: data/reco.metainfo.xml.in:67
 msgid "Show important errors to users"
-msgstr ""
+msgstr "Önemli hataları kullanıcılara göster"
 
 #: data/reco.metainfo.xml.in:68 data/reco.metainfo.xml.in:92
 msgid "Update Flatpak runtime version"
@@ -111,15 +111,15 @@ msgstr "Flatpak çalışma zamanı sürümü güncellendi"
 
 #: data/reco.metainfo.xml.in:69
 msgid "Improve app metainfo"
-msgstr ""
+msgstr "Uygulama üst bilgileri iyileştirildi"
 
 #: data/reco.metainfo.xml.in:70
 msgid "Review label notation"
-msgstr ""
+msgstr "Etiket gösterimi gözden geçirildi"
 
 #: data/reco.metainfo.xml.in:71
 msgid "Improve the way to load custom icons"
-msgstr ""
+msgstr "Özel simgeleri yükleme yöntemi iyileştirildi"
 
 #: data/reco.metainfo.xml.in:72 data/reco.metainfo.xml.in:84
 #: data/reco.metainfo.xml.in:93 data/reco.metainfo.xml.in:367
