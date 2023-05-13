@@ -43,12 +43,12 @@ public class Recorder : Object {
         string? muxer;
     }
     private FormatData[] format_data = {
-        { ".m4a",   "avenc_alac",   "mp4mux"    },  // FormatList.ALAC
-        { ".flac",  "flacenc",      null        },  // FormatList.FLAC
-        { ".mp3",   "lamemp3enc",   null        },  // FormatList.MP3
-        { ".ogg",   "vorbisenc",    "oggmux"    },  // FormatList.OGG
-        { ".opus",  "opusenc",      "oggmux"    },  // FormatList.OPUS
-        { ".wav",   "wavenc",       null        },  // FormatList.WAV
+        { ".m4a",   "avenc_alac",   "mp4mux"    },  // FormatList.ALAC                      // vala-lint=double-spaces
+        { ".flac",  "flacenc",      null        },  // FormatList.FLAC                      // vala-lint=double-spaces
+        { ".mp3",   "lamemp3enc",   null        },  // FormatList.MP3                       // vala-lint=double-spaces
+        { ".ogg",   "vorbisenc",    "oggmux"    },  // FormatList.OGG                       // vala-lint=double-spaces
+        { ".opus",  "opusenc",      "oggmux"    },  // FormatList.OPUS                      // vala-lint=double-spaces
+        { ".wav",   "wavenc",       null        },  // FormatList.WAV                       // vala-lint=double-spaces
     };
 
     private static Recorder _instance;
