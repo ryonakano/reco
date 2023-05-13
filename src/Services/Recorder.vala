@@ -12,8 +12,8 @@ public class Recorder : Object {
     public bool is_recording { get; private set; }
 
     private PulseAudioManager pam;
-    private string suffix;
     private string tmp_full_path;
+    private string suffix;
     private Gst.Pipeline pipeline;
     private uint inhibit_token = 0;
 
@@ -117,7 +117,9 @@ public class Recorder : Object {
             }
         }
 
-        string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string () + fmt_data.suffix;
+        suffix = fmt_data.suffix;
+
+        string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string () + suffix;
         tmp_full_path = Path.build_path (Path.DIR_SEPARATOR_S, Environment.get_user_cache_dir (), tmp_filename);
         sink.set ("location", tmp_full_path);
         debug ("temporary saving path: %s", tmp_full_path);
