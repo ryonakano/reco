@@ -151,7 +151,7 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("source", source_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("channels", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("channel", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
 
         auto_save_switch.state_set.connect ((state) => {
             if (state == true) {
