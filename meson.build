@@ -65,6 +65,7 @@ executable(
         dependency('libpulse-mainloop-glib'),
         dependency('pango')
     ],
+    link_args: ['-X', '-lm'],
     install: true
 )
 

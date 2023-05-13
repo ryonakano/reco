@@ -11,6 +11,21 @@ public class Recorder : Object {
 
     public bool is_recording { get; private set; }
 
+    public double current_peak {
+        get {
+            return _current_peak;
+        }
+        set {
+            double decibel = value;
+            if (decibel > 0) {
+                decibel = 0;
+            }
+
+            _current_peak = Math.pow (10, decibel / 20);
+        }
+    }
+    private double _current_peak = 0;
+
     private PulseAudioManager pam;
     private string suffix;
     private string tmp_full_path;
@@ -45,11 +60,14 @@ public class Recorder : Object {
     public void start_recording () throws Gst.ParseError {
         pipeline = new Gst.Pipeline ("pipeline");
         var sink = Gst.ElementFactory.make ("filesink", "sink");
+        var level = Gst.ElementFactory.make ("level", "level");
 
         if (pipeline == null) {
             throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer element \"pipeline\"");
         } else if (sink == null) {
             throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer element \"filesink\"");
+        } else if (level == null) {
+            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer element \"level\"");
         }
 
         Source source = (Source) Application.settings.get_enum ("source");
@@ -127,23 +145,25 @@ public class Recorder : Object {
                             "audio/x-raw", "channels", Type.INT,
                             (Channels) Application.settings.get_enum ("channels")
         ));
-        pipeline.add_many (caps_filter, encoder, sink);
+        pipeline.add_many (caps_filter, level, encoder, sink);
+
+        level.set ("post-messages", true);
 
         switch (source) {
             case Source.MIC:
                 pipeline.add_many (mic_sound);
-                mic_sound.link_many (caps_filter, encoder);
+                mic_sound.link_many (caps_filter, level, encoder);
                 break;
             case Source.SYSTEM:
                 pipeline.add_many (sys_sound);
-                sys_sound.link_many (caps_filter, encoder);
+                sys_sound.link_many (caps_filter, level, encoder);
                 break;
             case Source.BOTH:
                 var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
                 pipeline.add_many (mic_sound, sys_sound, mixer);
                 mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
                 sys_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
-                mixer.link_many (caps_filter, encoder);
+                mixer.link_many (caps_filter, level, encoder);
                 break;
             default:
                 assert_not_reached ();
@@ -178,6 +198,18 @@ public class Recorder : Object {
                 pipeline.dispose ();
 
                 save_file (tmp_full_path, suffix);
+                break;
+            case Gst.MessageType.ELEMENT:
+                unowned Gst.Structure? structure = msg.get_structure ();
+                if (structure == null || !structure.has_name ("level")) {
+                    break;
+                }
+
+                unowned var peak_arr = (GLib.ValueArray) structure.get_value ("peak").get_boxed ();
+                if (peak_arr != null) {
+                    current_peak = peak_arr.get_nth (0).get_double ();
+                }
+
                 break;
             default:
                 break;
