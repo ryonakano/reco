@@ -2,7 +2,9 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText: 2018-2023 Ryo Nakano <ryonakaknock3@gmail.com>
  *
- * GStreamer related codes are inspired from artemanufrij/screencast, src/MainWindow.vala
+ * GStreamer related codes are inspired from:
+ * * artemanufrij/screencast, src/MainWindow.vala
+ * * GNOME/gnome-sound-recorder (gnome-3-38), src/recorder.js
  */
 
 public class Recorder : Object {
@@ -11,6 +13,7 @@ public class Recorder : Object {
 
     public bool is_recording { get; private set; }
 
+    // current sound level, taking value from 0 to 1
     public double current_peak {
         get {
             return _current_peak;
@@ -151,8 +154,6 @@ public class Recorder : Object {
                             (ChannelID) Application.settings.get_enum ("channel")
         ));
         pipeline.add_many (caps_filter, level, encoder, sink);
-
-        level.set ("post-messages", true);
 
         switch (source) {
             case SourceID.MIC:
