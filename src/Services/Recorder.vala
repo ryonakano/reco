@@ -17,18 +17,13 @@ public class Recorder : Object {
     private Gst.Pipeline pipeline;
     private uint inhibit_token = 0;
 
-    private enum Source {
+    private enum SourceID {
         MIC,
         SYSTEM,
         BOTH
     }
 
-    private enum Channels {
-        MONO = 1,
-        STEREO = 2
-    }
-
-    private enum FormatList {
+    private enum FormatID {
         ALAC,
         FLAC,
         MP3,
@@ -37,18 +32,23 @@ public class Recorder : Object {
         WAV
     }
 
+    private enum ChannelID {
+        MONO = 1,
+        STEREO = 2
+    }
+
     private struct FormatData {
         string suffix;
         string encoder;
         string? muxer;
     }
     private FormatData[] format_data = {
-        { ".m4a",   "avenc_alac",   "mp4mux"    },  // FormatList.ALAC                      // vala-lint=double-spaces
-        { ".flac",  "flacenc",      null        },  // FormatList.FLAC                      // vala-lint=double-spaces
-        { ".mp3",   "lamemp3enc",   null        },  // FormatList.MP3                       // vala-lint=double-spaces
-        { ".ogg",   "vorbisenc",    "oggmux"    },  // FormatList.OGG                       // vala-lint=double-spaces
-        { ".opus",  "opusenc",      "oggmux"    },  // FormatList.OPUS                      // vala-lint=double-spaces
-        { ".wav",   "wavenc",       null        },  // FormatList.WAV                       // vala-lint=double-spaces
+        { ".m4a",   "avenc_alac",   "mp4mux"    },  // FormatID.ALAC                      // vala-lint=double-spaces
+        { ".flac",  "flacenc",      null        },  // FormatID.FLAC                      // vala-lint=double-spaces
+        { ".mp3",   "lamemp3enc",   null        },  // FormatID.MP3                       // vala-lint=double-spaces
+        { ".ogg",   "vorbisenc",    "oggmux"    },  // FormatID.OGG                       // vala-lint=double-spaces
+        { ".opus",  "opusenc",      "oggmux"    },  // FormatID.OPUS                      // vala-lint=double-spaces
+        { ".wav",   "wavenc",       null        },  // FormatID.WAV                       // vala-lint=double-spaces
     };
 
     private static Recorder _instance;
@@ -76,10 +76,10 @@ public class Recorder : Object {
             throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"filesink\"");
         }
 
-        Source source = (Source) Application.settings.get_enum ("source");
+        SourceID source = (SourceID) Application.settings.get_enum ("source");
 
         Gst.Element? sys_sound = null;
-        if (source != Source.MIC) {
+        if (source != SourceID.MIC) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"sys_sound\"");
@@ -91,7 +91,7 @@ public class Recorder : Object {
         }
 
         Gst.Element? mic_sound = null;
-        if (source != Source.SYSTEM) {
+        if (source != SourceID.SYSTEM) {
             mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
             if (mic_sound == null) {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"mic_sound\"");
@@ -101,7 +101,7 @@ public class Recorder : Object {
             debug ("sound source (microphone): \"%s\"", pam.default_source_name);
         }
 
-        FormatList file_format = (FormatList) Application.settings.get_enum ("format");
+        FormatID file_format = (FormatID) Application.settings.get_enum ("format");
         FormatData fmt_data = format_data[file_format];
 
         var encoder = Gst.ElementFactory.make (fmt_data.encoder, "encoder");
@@ -126,20 +126,20 @@ public class Recorder : Object {
         var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
         caps_filter.set ("caps", new Gst.Caps.simple (
                             "audio/x-raw", "channels", Type.INT,
-                            (Channels) Application.settings.get_enum ("channels")
+                            (ChannelID) Application.settings.get_enum ("channel")
         ));
         pipeline.add_many (caps_filter, encoder, sink);
 
         switch (source) {
-            case Source.MIC:
+            case SourceID.MIC:
                 pipeline.add_many (mic_sound);
                 mic_sound.link_many (caps_filter, encoder);
                 break;
-            case Source.SYSTEM:
+            case SourceID.SYSTEM:
                 pipeline.add_many (sys_sound);
                 sys_sound.link_many (caps_filter, encoder);
                 break;
-            case Source.BOTH:
+            case SourceID.BOTH:
                 var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
                 pipeline.add_many (mic_sound, sys_sound, mixer);
                 mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));

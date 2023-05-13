@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <enum id="sourcelist">
+  <enum id="source-id">
     <value value="0" nick="mic"/>
     <value value="1" nick="system"/>
     <value value="2" nick="both"/>
   </enum>
-  <enum id="formatlist">
+  <enum id="format-id">
     <value value="0" nick="alac"/>
     <value value="1" nick="flac"/>
     <value value="2" nick="mp3"/>
@@ -13,7 +13,7 @@
     <value value="4" nick="opus"/>
     <value value="5" nick="wav"/>
   </enum>
-  <enum id="channelslist">
+  <enum id="channel-id">
     <value value="1" nick="mono"/>
     <value value="2" nick="stereo"/>
   </enum>
@@ -27,17 +27,17 @@
       <default>0</default>
       <summary>Length in seconds</summary>
     </key>
-    <key name="source" enum="sourcelist">
+    <key name="source" enum="source-id">
       <default>'mic'</default>
       <summary>Recording source</summary>
     </key>
-    <key name="format" enum="formatlist">
+    <key name="format" enum="format-id">
       <default>'wav'</default>
       <summary>Format</summary>
     </key>
-    <key name="channels" enum="channelslist">
+    <key name="channel" enum="channel-id">
       <default>'stereo'</default>
-      <summary>Audio channels</summary>
+      <summary>Audio channel</summary>
     </key>
     <key name="auto-save" type="b">
       <default>true</default>
