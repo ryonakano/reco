@@ -28,6 +28,29 @@ public class Recorder : Object {
         STEREO = 2
     }
 
+    private enum FormatList {
+        ALAC,
+        FLAC,
+        MP3,
+        OGG,
+        OPUS,
+        WAV
+    }
+
+    private struct FormatData {
+        string suffix;
+        string encoder;
+        string? muxer;
+    }
+    private FormatData[] format_data = {
+        { ".m4a",   "avenc_alac",   "mp4mux"    },  // FormatList.ALAC
+        { ".flac",  "flacenc",      null        },  // FormatList.FLAC
+        { ".mp3",   "lamemp3enc",   null        },  // FormatList.MP3
+        { ".ogg",   "vorbisenc",    "oggmux"    },  // FormatList.OGG
+        { ".opus",  "opusenc",      "oggmux"    },  // FormatList.OPUS
+        { ".wav",   "wavenc",       null        },  // FormatList.WAV
+    };
+
     private static Recorder _instance;
     public static Recorder get_default () {
         if (_instance == null) {
@@ -44,12 +67,13 @@ public class Recorder : Object {
 
     public void start_recording () throws Gst.ParseError {
         pipeline = new Gst.Pipeline ("pipeline");
-        var sink = Gst.ElementFactory.make ("filesink", "sink");
-
         if (pipeline == null) {
-            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer element \"pipeline\"");
-        } else if (sink == null) {
-            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer element \"filesink\"");
+            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"pipeline\"");
+        }
+
+        var sink = Gst.ElementFactory.make ("filesink", "sink");
+        if (sink == null) {
+            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"filesink\"");
         }
 
         Source source = (Source) Application.settings.get_enum ("source");
@@ -58,68 +82,45 @@ public class Recorder : Object {
         if (source != Source.MIC) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
-                throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer pulsesrc element \"sys_sound\"");
+                throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"sys_sound\"");
             }
 
             string default_monitor = pam.default_sink_name + ".monitor";
             sys_sound.set ("device", default_monitor);
-            debug ("Set system sound source device to \"%s\"", default_monitor);
+            debug ("sound source (system): \"%s\"", default_monitor);
         }
 
         Gst.Element? mic_sound = null;
         if (source != Source.SYSTEM) {
             mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
             if (mic_sound == null) {
-                throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer pulsesrc element \"mic_sound\"");
+                throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"mic_sound\"");
             }
 
             mic_sound.set ("device", pam.default_source_name);
-            debug ("Set source microphone to \"%s\"", pam.default_source_name);
+            debug ("sound source (microphone): \"%s\"", pam.default_source_name);
         }
 
-        Gst.Element encoder;
-        Gst.Element? muxer = null;
+        FormatList file_format = (FormatList) Application.settings.get_enum ("format");
+        FormatData fmt_data = format_data[file_format];
 
-        string file_format = Application.settings.get_string ("format");
-        switch (file_format) {
-            case "alac":
-                encoder = Gst.ElementFactory.make ("avenc_alac", "encoder");
-                muxer = Gst.ElementFactory.make ("mp4mux", "muxer");
-                suffix = ".m4a";
-                break;
-            case "flac":
-                encoder = Gst.ElementFactory.make ("flacenc", "encoder");
-                suffix = ".flac";
-                break;
-            case "mp3":
-                encoder = Gst.ElementFactory.make ("lamemp3enc", "encoder");
-                suffix = ".mp3";
-                break;
-            case "ogg":
-                encoder = Gst.ElementFactory.make ("vorbisenc", "encoder");
-                muxer = Gst.ElementFactory.make ("oggmux", "muxer");
-                suffix = ".ogg";
-                break;
-            case "opus":
-                encoder = Gst.ElementFactory.make ("opusenc", "encoder");
-                muxer = Gst.ElementFactory.make ("oggmux", "muxer");
-                suffix = ".opus";
-                break;
-            case "wav":
-            default:
-                encoder = Gst.ElementFactory.make ("wavenc", "encoder");
-                suffix = ".wav";
-                break;
-        }
-
+        var encoder = Gst.ElementFactory.make (fmt_data.encoder, "encoder");
         if (encoder == null) {
-            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create the GStreamer element \"encoder\"");
+            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create encoder element \"%s\"", fmt_data.encoder);
         }
 
-        string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string ();
-        tmp_full_path = Environment.get_user_cache_dir () + "/%s%s".printf (tmp_filename, suffix);
+        Gst.Element? muxer = null;
+        if (fmt_data.muxer != null) {
+            muxer = Gst.ElementFactory.make (fmt_data.muxer, "muxer");
+            if (encoder == null) {
+                throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create muxer element \"%s\"", fmt_data.muxer);
+            }
+        }
+
+        string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string () + fmt_data.suffix;
+        tmp_full_path = Path.build_path (Path.DIR_SEPARATOR_S, Environment.get_user_cache_dir (), tmp_filename);
         sink.set ("location", tmp_full_path);
-        debug ("The recording is temporary stored at %s", tmp_full_path);
+        debug ("temporary saving path: %s", tmp_full_path);
 
         // Dual-channelization
         var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
