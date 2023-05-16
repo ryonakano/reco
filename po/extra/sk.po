@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-09 09:38+0000\n"
+"POT-Creation-Date: 2023-05-16 19:59+0900\n"
 "PO-Revision-Date: 2022-04-23 17:09+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/rosp/reco-extra/"
@@ -243,7 +243,10 @@ msgstr ""
 "manifestom"
 
 #: data/reco.metainfo.xml.in:174
-msgid "A completely rewrited and improved method to detect recording sources"
+#, fuzzy
+#| msgid ""
+#| "A completely rewrited and improved method to detect recording sources"
+msgid "A completely rewritten and improved method to detect recording sources"
 msgstr "Úplne prepísaná a vylepšená metóda zisťovania zdrojov nahrávania"
 
 #: data/reco.metainfo.xml.in:175

@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-09 09:38+0000\n"
+"POT-Creation-Date: 2023-05-16 19:59+0900\n"
 "PO-Revision-Date: 2023-04-11 23:51+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/"
-"reco-metadata/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-"
+"metadata/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -239,7 +239,10 @@ msgstr ""
 "リリース"
 
 #: data/reco.metainfo.xml.in:174
-msgid "A completely rewrited and improved method to detect recording sources"
+#, fuzzy
+#| msgid ""
+#| "A completely rewrited and improved method to detect recording sources"
+msgid "A completely rewritten and improved method to detect recording sources"
 msgstr "録音ソースの検出方法を根本的に書き直し、処理を改善"
 
 #: data/reco.metainfo.xml.in:175

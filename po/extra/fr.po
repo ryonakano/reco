@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-09 09:38+0000\n"
+"POT-Creation-Date: 2023-05-16 19:59+0900\n"
 "PO-Revision-Date: 2022-10-11 15:21+0000\n"
 "Last-Translator: rene-coty <irenee.thirion@e.email>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/rosp/reco-extra/"
@@ -251,7 +251,10 @@ msgstr ""
 "avec le manifeste Flatpak"
 
 #: data/reco.metainfo.xml.in:174
-msgid "A completely rewrited and improved method to detect recording sources"
+#, fuzzy
+#| msgid ""
+#| "A completely rewrited and improved method to detect recording sources"
+msgid "A completely rewritten and improved method to detect recording sources"
 msgstr ""
 "Une toute nouvelle méthode de détection des sources réécrite et améliorée"
 

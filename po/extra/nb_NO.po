@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-09 09:38+0000\n"
+"POT-Creation-Date: 2023-05-16 19:59+0900\n"
 "PO-Revision-Date: 2022-09-24 01:20+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/rosp/"
@@ -216,7 +216,7 @@ msgid ""
 msgstr ""
 
 #: data/reco.metainfo.xml.in:174
-msgid "A completely rewrited and improved method to detect recording sources"
+msgid "A completely rewritten and improved method to detect recording sources"
 msgstr ""
 
 #: data/reco.metainfo.xml.in:175

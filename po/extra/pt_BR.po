@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-09 09:38+0000\n"
+"POT-Creation-Date: 2023-05-16 19:59+0900\n"
 "PO-Revision-Date: 2023-04-13 05:51+0000\n"
 "Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/rosp/"
@@ -239,7 +239,7 @@ msgid ""
 msgstr ""
 
 #: data/reco.metainfo.xml.in:174
-msgid "A completely rewrited and improved method to detect recording sources"
+msgid "A completely rewritten and improved method to detect recording sources"
 msgstr ""
 
 #: data/reco.metainfo.xml.in:175
