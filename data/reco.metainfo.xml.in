@@ -171,7 +171,7 @@
       <description>
         <ul>
           <li>Publish the app to the new AppCenter on elementary OS 6 with the Flatpak manifest</li>
-          <li>A completely rewrited and improved method to detect recording sources</li>
+          <li>A completely rewritten and improved method to detect recording sources</li>
           <li>Redesign: Separate Delay and Duration settings from Recording section as Timer section and put it under Recording section</li>
           <li>Make sure to show a dialog for any errors in recording</li>
           <li>Code refactoring</li>
