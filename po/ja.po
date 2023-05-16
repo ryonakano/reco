@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-09 09:38+0000\n"
+"POT-Creation-Date: 2023-05-16 19:59+0900\n"
 "PO-Revision-Date: 2022-10-20 18:06+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-main/"
@@ -56,7 +56,7 @@ msgstr "ダーク"
 msgid "System"
 msgstr "システム"
 
-#: src/Services/Recorder.vala:232
+#: src/Services/Recorder.vala:235
 msgid "Recording is ongoing"
 msgstr "録音中です"
 
