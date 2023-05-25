@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-16 19:59+0900\n"
-"PO-Revision-Date: 2023-05-25 11:53+0000\n"
+"PO-Revision-Date: 2023-05-26 12:52+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/rosp/"
 "reco-metadata/sk/>\n"
@@ -114,11 +114,11 @@ msgstr "Zlepšenie metainformácií aplikácie"
 
 #: data/reco.metainfo.xml.in:70
 msgid "Review label notation"
-msgstr ""
+msgstr "Kontrola zápisu štítkov"
 
 #: data/reco.metainfo.xml.in:71
 msgid "Improve the way to load custom icons"
-msgstr ""
+msgstr "Zlepšenie spôsobu nahrávania vlastných ikon"
 
 #: data/reco.metainfo.xml.in:72 data/reco.metainfo.xml.in:84
 #: data/reco.metainfo.xml.in:93 data/reco.metainfo.xml.in:367
@@ -127,21 +127,24 @@ msgstr "Aktualizované preklady"
 
 #: data/reco.metainfo.xml.in:80
 msgid "Migrate to GTK 4, the latest version of GTK"
-msgstr ""
+msgstr "Migrácia na GTK 4, čo je najnovšia verzia GTK"
 
 #: data/reco.metainfo.xml.in:81
 msgid "Get disk access permission only when the user allowed"
 msgstr ""
+"Získať povolenie na prístup k disku len vtedy, keď to používateľ povolil"
 
 #: data/reco.metainfo.xml.in:82
 msgid "Hide remaining time label when unnecessary"
-msgstr ""
+msgstr "Skryť štítok zostávajúceho času, keď nie je potrebný"
 
 #: data/reco.metainfo.xml.in:83
 msgid ""
 "Fix no style button selected on non-Pantheon desktop environments when first "
 "launch"
 msgstr ""
+"Opraviť tlačidlo bez štýlu vybraté pri prvom spustení v ne-Pantheonových "
+"pracovných prostrediach"
 
 #: data/reco.metainfo.xml.in:101
 msgid "Check desktop environment on runtime"
@@ -188,7 +191,7 @@ msgstr "Aktualizácia prekladu do španielčiny (vďaka @Eldhrimer)"
 #: data/reco.metainfo.xml.in:122 data/reco.metainfo.xml.in:150
 #: data/reco.metainfo.xml.in:164
 msgid "Update Italian translation (thanks to @albanobattistella)"
-msgstr "Aktualizácia prekladu do taliančiny (vďaka @albanobattistella)"
+msgstr "Aktualizovaný preklad do taliančiny (vďaka @albanobattistella)"
 
 #: data/reco.metainfo.xml.in:129
 msgid "Let's celebrate the new year with the issue from the ancient fixed!"
@@ -241,9 +244,6 @@ msgstr ""
 "manifestom"
 
 #: data/reco.metainfo.xml.in:174
-#, fuzzy
-#| msgid ""
-#| "A completely rewrited and improved method to detect recording sources"
 msgid "A completely rewritten and improved method to detect recording sources"
 msgstr "Úplne prepísaná a vylepšená metóda zisťovania zdrojov nahrávania"
 
