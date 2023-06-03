@@ -22,36 +22,20 @@ public class StyleSwitcher : Gtk.Box {
 
     construct {
         gtk_settings = Gtk.Settings.get_default ();
+        granite_settings = Granite.Settings.get_default ();
 
         var style_label = new Gtk.Label (_("Style:")) {
             halign = Gtk.Align.START
         };
 
-        var buttons_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-
         light_style_button = new StyleButton ("display-brightness-symbolic", _("Light"));
-        buttons_box.append (light_style_button);
-
         dark_style_button = new StyleButton ("weather-clear-night-symbolic", _("Dark"), light_style_button);
+        system_style_button = new StyleButton ("emblem-system-symbolic", _("System"), light_style_button);
+
+        var buttons_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        buttons_box.append (light_style_button);
         buttons_box.append (dark_style_button);
-
-        if (Application.IS_ON_PANTHEON) {
-            granite_settings = Granite.Settings.get_default ();
-
-            system_style_button = new StyleButton ("emblem-system-symbolic", _("System"), light_style_button);
-            buttons_box.append (system_style_button);
-
-            granite_settings.notify["prefers-color-scheme"].connect (() => {
-                construct_app_style ();
-            });
-
-            system_style_button.toggled.connect (() => {
-                set_app_style (
-                    granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK,
-                    true
-                );
-            });
-        }
+        buttons_box.append (system_style_button);
 
         light_style_button.toggled.connect (() => {
             set_app_style (false, false);
@@ -59,6 +43,17 @@ public class StyleSwitcher : Gtk.Box {
 
         dark_style_button.toggled.connect (() => {
             set_app_style (true, false);
+        });
+
+        system_style_button.toggled.connect (() => {
+            set_app_style (
+                granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK,
+                true
+            );
+        });
+
+        granite_settings.notify["prefers-color-scheme"].connect (() => {
+            construct_app_style ();
         });
 
         construct_app_style ();
@@ -74,10 +69,6 @@ public class StyleSwitcher : Gtk.Box {
     }
 
     private void construct_app_style () {
-        if (!Application.IS_ON_PANTHEON) {
-            Application.settings.set_boolean ("is-follow-system-style", false);
-        }
-
         if (Application.settings.get_boolean ("is-follow-system-style")) {
             set_app_style (granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK, true);
             system_style_button.active = true;
