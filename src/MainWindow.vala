@@ -4,6 +4,15 @@
  */
 
 public class MainWindow : Gtk.ApplicationWindow {
+    private string error_dialog_title {
+        get;
+        default = _("Unable to Complete Recording");
+    }
+    private string error_dialog_detail {
+        get;
+        default = _("The following error message may be helpful:");
+    }
+
     private Recorder recorder;
 
     private WelcomeView welcome_view;
@@ -222,8 +231,8 @@ public class MainWindow : Gtk.ApplicationWindow {
     private void show_error_dialog (string error_message) {
         if (Application.IS_ON_PANTHEON) {
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                _("Unable to Complete Recording"),
-                _("The following error message may be helpful:"),
+                error_dialog_title,
+                error_dialog_detail,
                 "dialog-error", Gtk.ButtonsType.CLOSE
             ) {
                 transient_for = this,
@@ -237,18 +246,13 @@ public class MainWindow : Gtk.ApplicationWindow {
             });
             error_dialog.present ();
         } else {
-            var error_dialog = new Gtk.MessageDialog (
-                this, Gtk.DialogFlags.MODAL, Gtk.MessageType.ERROR, Gtk.ButtonsType.CLOSE, null
+            var error_dialog = new Gtk.AlertDialog (
+                error_dialog_title
             ) {
-                text = _("Unable to Complete Recording"),
-                secondary_text = _("The following error message may be helpful:") + "\n\n" + error_message
+                detail = error_dialog_detail + "\n\n" + error_message,
+                modal = true
             };
-            error_dialog.response.connect ((response_id) => {
-                if (response_id == Gtk.ResponseType.CLOSE) {
-                    error_dialog.destroy ();
-                }
-            });
-            error_dialog.present ();
+            error_dialog.show (this);
         }
 
         record_view.stop_count ();
