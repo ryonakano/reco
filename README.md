@@ -32,9 +32,9 @@ Community packages maintained by volunteers are also available on some distribut
 
 You'll need the following dependencies to build:
 
-* libgtk-4-dev
 * libgranite-7-dev
 * libgstreamer1.0-dev (>= 1.20)
+* libgtk-4-dev (>= 4.10)
 * libpulse-dev
 * libpulse-mainloop-glib0
 * meson (>= 0.57.0)

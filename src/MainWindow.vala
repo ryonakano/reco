@@ -25,6 +25,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
+        // TODO: Deprecated in Gtk 4.10, buit no alternative api is provided so leave it for now
         Gtk.StyleContext.add_provider_for_display (display,
                                                     cssprovider,
                                                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -32,6 +33,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         if (!Application.IS_ON_PANTHEON) {
             var extra_cssprovider = new Gtk.CssProvider ();
             extra_cssprovider.load_from_resource ("/com/github/ryonakano/reco/Extra.css");
+            // TODO: Deprecated in Gtk 4.10, buit no alternative api is provided so leave it for now
             Gtk.StyleContext.add_provider_for_display (display,
                                                         extra_cssprovider,
                                                         Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -155,33 +157,37 @@ public class MainWindow : Gtk.ApplicationWindow {
                     show_error_dialog (e.message);
                 }
             } else {
-                var filechooser = new Gtk.FileChooserNative (
-                    _("Save your recording"), this, Gtk.FileChooserAction.SAVE, null, null
-                ) {
-                    modal = true
+                var filechooser = new Gtk.FileDialog () {
+                    title = _("Save your recording"),
+                    accept_label = _("Save"),
+                    modal = true,
+                    initial_name = final_file_name
                 };
-                filechooser.set_current_name (final_file_name);
+                filechooser.save.begin (this, null, (obj, res) => {
+                    try {
+                        var file = filechooser.save.end (res);
+                        if (file == null) {
+                            return;
+                        }
 
-                filechooser.response.connect ((response_id) => {
-                    if (response_id == Gtk.ResponseType.ACCEPT) {
                         try {
-                            if (tmp_file.move (filechooser.get_file (), FileCopyFlags.OVERWRITE)) {
+                            if (tmp_file.move (file, FileCopyFlags.OVERWRITE)) {
                                 welcome_view.show_success_button ();
                             }
                         } catch (Error e) {
                             show_error_dialog (e.message);
                         }
-                    } else {
+                    } catch (Error e) {
+                        warning ("Failed to save recording: %s", e.message);
+
+                        // May be cancelled by user, so delete the tmp recording
                         try {
                             tmp_file.delete ();
                         } catch (Error e) {
                             show_error_dialog (e.message);
                         }
                     }
-
-                    filechooser.destroy ();
                 });
-                filechooser.show ();
             }
         });
     }
