@@ -10,6 +10,18 @@ public class WelcomeView : Gtk.Box {
     private Gtk.Label destination_chooser_label;
     private Gtk.Button record_button;
 
+    private class ComboBoxItem : Object {
+        public string id { get; construct; }
+        public string? label { get; construct; default = null; }
+
+        public ComboBoxItem (string id, string? label) {
+            Object (
+                id: id,
+                label: label
+            );
+        }
+    }
+
     public WelcomeView (MainWindow window) {
         Object (
             orientation: Gtk.Orientation.VERTICAL,
@@ -28,12 +40,19 @@ public class WelcomeView : Gtk.Box {
         var source_label = new Gtk.Label (_("Record from:")) {
             halign = Gtk.Align.END
         };
-        var source_combobox = new Gtk.ComboBoxText () {
-            halign = Gtk.Align.START
+
+        var source_liststore = new ListStore (typeof (ComboBoxItem));
+        source_liststore.append (new ComboBoxItem ("mic", _("Microphone")));
+        source_liststore.append (new ComboBoxItem ("system", _("System")));
+        source_liststore.append (new ComboBoxItem ("both", _("Both")));
+
+        var source_factory = new Gtk.SignalListItemFactory ();
+        source_factory.setup.connect (setup_cb);
+        source_factory.bind.connect (bind_cb);
+
+        var source_combobox = new Gtk.DropDown (source_liststore, null) {
+            factory = source_factory
         };
-        source_combobox.append ("mic", _("Microphone"));
-        source_combobox.append ("system", _("System"));
-        source_combobox.append ("both", _("Both"));
 
         var channels_label = new Gtk.Label (_("Channels:")) {
             halign = Gtk.Align.END
@@ -149,7 +168,38 @@ public class WelcomeView : Gtk.Box {
 
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("source", source_combobox, "active_id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind_with_mapping ("source", source_combobox, "selected", SettingsBindFlags.DEFAULT,
+            (value, variant, user_data) => {
+                var liststore = user_data as GLib.ListStore;
+                uint position;
+                var item = new ComboBoxItem (variant.get_string (), null);
+                bool ret = liststore.find_with_equal_func (item,
+                    (a, b) => {
+                        var _a = a as ComboBoxItem;
+                        var _b = b as ComboBoxItem;
+                        if (_a.id == _b.id) {
+                            return true;
+                        }
+
+                        return false;
+                    }, out position
+                );
+                if (!ret) {
+                    return false;
+                }
+
+                value.set_uint (position);
+                return true;
+            },
+            (value, expected_type, user_data) => {
+                uint pos = value.get_uint ();
+                var liststore = user_data as GLib.ListStore;
+                var item = liststore.get_item (pos) as ComboBoxItem;
+                return new Variant ("s", item.id);
+            },
+            source_liststore, null
+        );
+
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channel", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
 
@@ -257,5 +307,21 @@ public class WelcomeView : Gtk.Box {
         } else {
             window.show_record ();
         }
+    }
+
+    private void setup_cb (Object obj) {
+        var item = obj as Gtk.ListItem;
+
+        var label = new Gtk.Label ("") {
+            xalign = 0
+        };
+        item.child = label;
+    }
+
+    private void bind_cb (Object obj) {
+        var item = obj as Gtk.ListItem;
+        var label = item.child as Gtk.Label;
+
+        label.label = (item.item as ComboBoxItem).label;
     }
 }
