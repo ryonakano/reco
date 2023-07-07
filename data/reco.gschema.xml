@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <enum id="source-id">
-    <value value="0" nick="mic"/>
-    <value value="1" nick="system"/>
-    <value value="2" nick="both"/>
-  </enum>
-  <enum id="format-id">
-    <value value="0" nick="alac"/>
-    <value value="1" nick="flac"/>
-    <value value="2" nick="mp3"/>
-    <value value="3" nick="ogg"/>
-    <value value="4" nick="opus"/>
-    <value value="5" nick="wav"/>
-  </enum>
-  <enum id="channel-id">
-    <value value="1" nick="mono"/>
-    <value value="2" nick="stereo"/>
-  </enum>
-
   <schema path="/com/github/ryonakano/reco/" id="com.github.ryonakano.reco">
     <key name="delay" type="u">
       <default>0</default>
@@ -27,17 +9,23 @@
       <default>0</default>
       <summary>Length in seconds</summary>
     </key>
-    <key name="source" enum="source-id">
-      <default>'mic'</default>
+    <key name="source" type="u">
+      <range min="0" max="2"/>
+      <default>0</default>
       <summary>Recording source</summary>
+      <description>0: microphone, 1: system, 2: both</description>
     </key>
-    <key name="format" enum="format-id">
-      <default>'wav'</default>
+    <key name="format" type="u">
+      <range min="0" max="5"/>
+      <default>5</default>
       <summary>Format</summary>
+      <description>0: alac, 1: flac, 2: mp3, 3: ogg, 4: opus, 5: wav</description>
     </key>
-    <key name="channel" enum="channel-id">
-      <default>'stereo'</default>
+    <key name="channel" type="u">
+      <range min="1" max="2"/>
+      <default>2</default>
       <summary>Audio channel</summary>
+      <description>1: mono, 2: stereo</description>
     </key>
     <key name="auto-save" type="b">
       <default>true</default>

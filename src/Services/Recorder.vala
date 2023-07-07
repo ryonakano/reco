@@ -76,7 +76,7 @@ public class Recorder : Object {
             throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"filesink\"");
         }
 
-        SourceID source = (SourceID) Application.settings.get_enum ("source");
+        SourceID source = (SourceID) Application.settings.get_uint ("source");
 
         Gst.Element? sys_sound = null;
         if (source != SourceID.MIC) {
@@ -101,7 +101,7 @@ public class Recorder : Object {
             debug ("sound source (microphone): \"%s\"", pam.default_source_name);
         }
 
-        FormatID file_format = (FormatID) Application.settings.get_enum ("format");
+        FormatID file_format = (FormatID) Application.settings.get_uint ("format");
         FormatData fmt_data = format_data[file_format];
 
         var encoder = Gst.ElementFactory.make (fmt_data.encoder, "encoder");
@@ -128,7 +128,7 @@ public class Recorder : Object {
         var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
         caps_filter.set ("caps", new Gst.Caps.simple (
                             "audio/x-raw", "channels", Type.INT,
-                            (ChannelID) Application.settings.get_enum ("channel")
+                            (ChannelID) Application.settings.get_uint ("channel")
         ));
         pipeline.add_many (caps_filter, encoder, sink);
 
