@@ -139,7 +139,9 @@ public class MainWindow : Gtk.ApplicationWindow {
         recorder.save_file.connect ((tmp_full_path, suffix) => {
             var tmp_file = File.new_for_path (tmp_full_path);
 
-            //TRANSLATORS: %s represents a timestamp here
+            //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
+            //Suffix is automatically appended depending on the recording format.
+            //e.g. "Recording from 2018-11-10 23.42.36.wav"
             string final_file_name = _("Recording from %s").printf (
                                         new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S")
                                     ) + suffix;
