@@ -203,8 +203,7 @@ public class WelcomeView : Gtk.Box {
             return _("Select destination…");
         }
 
-        string[] destination_splitted = path.split ("/");
-        return destination_splitted[destination_splitted.length - 1];
+        return Path.get_basename (path);
     }
 
     private Gtk.FileChooserNative destination_chooser_new () {
