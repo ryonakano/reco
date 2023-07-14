@@ -94,8 +94,7 @@ public class RecordView : Gtk.Box {
 
             // If a user tries to cancel recording while pausing, resume recording once and reset the button icon
             if (!recorder.is_recording) {
-                pause_button.icon_name = "media-playback-pause-symbolic";
-                pause_button.tooltip_text = _("Pause recording");
+                pause_button_set_pause ();
             }
 
             recorder.cancel_recording ();
@@ -115,8 +114,7 @@ public class RecordView : Gtk.Box {
                 stop_count ();
 
                 recorder.set_recording_state (Gst.State.PAUSED);
-                pause_button.icon_name = "media-playback-start-symbolic";
-                pause_button.tooltip_text = _("Resume recording");
+                pause_button_set_resume ();
             } else {
                 start_count ();
 
@@ -125,8 +123,7 @@ public class RecordView : Gtk.Box {
                 }
 
                 recorder.set_recording_state (Gst.State.PLAYING);
-                pause_button.icon_name = "media-playback-pause-symbolic";
-                pause_button.tooltip_text = _("Pause recording");
+                pause_button_set_pause ();
             }
         });
     }
@@ -137,8 +134,7 @@ public class RecordView : Gtk.Box {
         // If a user tries to stop recording while pausing, resume recording once and reset the button icon
         if (!recorder.is_recording) {
             recorder.set_recording_state (Gst.State.PLAYING);
-            pause_button.icon_name = "media-playback-pause-symbolic";
-            pause_button.tooltip_text = _("Pause recording");
+            pause_button_set_pause ();
         }
 
         recorder.stop_recording ();
@@ -177,7 +173,7 @@ public class RecordView : Gtk.Box {
                 past_minutes_10++;
                 past_minutes_1 = past_seconds_10 = past_seconds_1 = 0;
             } else {
-                // The count turns from wx:yx to wx:y(z+1)
+                // The count turns from wx:yz to wx:y(z+1)
                 past_seconds_1++;
             }
 
@@ -188,13 +184,8 @@ public class RecordView : Gtk.Box {
     }
 
     public void stop_count () {
-        if (count != 0) {
-            count = 0;
-        }
-
-        if (countdown != 0) {
-            countdown = 0;
-        }
+        count = 0;
+        countdown = 0;
     }
 
     public void init_countdown (uint remaining_time) {
@@ -276,5 +267,15 @@ public class RecordView : Gtk.Box {
 
     private void hide_timer_label (Gtk.Label label) {
         label.label = null;
+    }
+
+    private void pause_button_set_pause () {
+        pause_button.icon_name = "media-playback-pause-symbolic";
+        pause_button.tooltip_text = _("Pause recording");
+    }
+
+    private void pause_button_set_resume () {
+        pause_button.icon_name = "media-playback-start-symbolic";
+        pause_button.tooltip_text = _("Resume recording");
     }
 }
