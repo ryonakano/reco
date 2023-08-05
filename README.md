@@ -44,16 +44,19 @@ You'll need the following dependencies to run:
 
 * gstreamer1.0-libav (use the same version with libgstreamer1.0-dev)
 
-Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
+Run `meson setup` to configure the build environment and run `ninja` to build
 
-    meson build --prefix=/usr
-    cd build
-    ninja
+```bash
+meson setup builddir --prefix=/usr
+ninja -C builddir
+```
 
 To install, use `ninja install`, then execute with `com.github.ryonakano.reco`
 
-    ninja install
-    com.github.ryonakano.reco
+```bash
+ninja install -C builddir
+com.github.ryonakano.reco
+```
 
 ## Contributing
 
