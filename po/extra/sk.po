@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the extra package.
 # Ryo Nakano <ryonakaknock3@gmail.com>, 2022.
 # JohnDumpling <john_dumpling@protonmail.com>, 2022, 2023.
+# Milan Šalka <salka.milan@googlemail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-16 19:59+0900\n"
-"PO-Revision-Date: 2023-05-26 12:52+0000\n"
-"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"PO-Revision-Date: 2023-08-10 09:49+0000\n"
+"Last-Translator: Milan Šalka <salka.milan@googlemail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/rosp/"
 "reco-metadata/sk/>\n"
 "Language: sk\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
 msgid "Reco"
@@ -106,7 +107,7 @@ msgstr "Zobrazovať používateľom dôležité chyby"
 
 #: data/reco.metainfo.xml.in:68 data/reco.metainfo.xml.in:92
 msgid "Update Flatpak runtime version"
-msgstr "Aktualizácia verzie behového prostredia Flatpak"
+msgstr "Aktualizovať verziu Flatpak runtime"
 
 #: data/reco.metainfo.xml.in:69
 msgid "Improve app metainfo"
