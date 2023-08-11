@@ -4,9 +4,6 @@
  */
 
 public class RecordView : Gtk.Box {
-    private const double PEEK_BAR_MIN = 0;
-    private const double PEEK_BAR_MAX = 10;
-
     public MainWindow window { get; construct; }
     private Recorder recorder;
 
@@ -55,20 +52,7 @@ public class RecordView : Gtk.Box {
         label_grid.attach (time_label, 0, 1, 1, 1);
         label_grid.attach (remaining_time_label, 0, 2, 1, 1);
 
-        var peak_bar = new Gtk.LevelBar.for_interval (PEEK_BAR_MIN, PEEK_BAR_MAX) {
-            mode = Gtk.LevelBarMode.DISCRETE,
-            orientation = Gtk.Orientation.VERTICAL,
-            inverted = true
-        };
-
-        var center_grid = new Gtk.Grid () {
-            column_spacing = 6,
-            row_spacing = 6,
-            halign = Gtk.Align.CENTER,
-            hexpand = true,
-            vexpand = true
-        };
-        center_grid.attach (peak_bar, 0, 0, 1, 1);
+        var levelbar = new LevelBar ();
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
@@ -105,7 +89,7 @@ public class RecordView : Gtk.Box {
         buttons_grid.attach (pause_button, 2, 0, 1, 1);
 
         append (label_grid);
-        append (center_grid);
+        append (levelbar);
         append (buttons_grid);
 
         cancel_button.clicked.connect (() => {
@@ -145,13 +129,6 @@ public class RecordView : Gtk.Box {
                 pause_button_set_pause ();
             }
         });
-
-        recorder.bind_property ("current-peak", peak_bar, "value", GLib.BindingFlags.SYNC_CREATE,
-                                (binding, src, ref target) => {
-                                    double set_val = ((double) src) * PEEK_BAR_MAX;
-                                    target.set_double (set_val);
-                                    return true;
-                                });
     }
 
     public async void trigger_stop_recording () {

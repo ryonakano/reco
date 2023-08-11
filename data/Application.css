@@ -18,3 +18,19 @@
     background: none;
     border: none;
 }
+
+levelbar block.low {
+    background-color: #9bdb4d;
+}
+
+levelbar block.middle {
+    background-color: #64baff;
+}
+
+levelbar block.high {
+    background-color: #f9c440;
+}
+
+levelbar block.full {
+    background-color: #c6262e;
+}

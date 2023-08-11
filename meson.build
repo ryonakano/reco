@@ -47,6 +47,7 @@ sources = files(
     'src' / 'Views' / 'CountDownView.vala',
     'src' / 'Views' / 'WelcomeView.vala',
     'src' / 'Views' / 'RecordView.vala',
+    'src' / 'Widgets' / 'LevelBar.vala',
     'src' / 'Application.vala',
     'src' / 'MainWindow.vala',
     'src' / 'StyleSwitcher.vala'

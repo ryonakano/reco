@@ -24,7 +24,12 @@ public class Recorder : Object {
                 decibel = 0;
             }
 
-            _current_peak = Math.pow (10, decibel / 20);
+            double p = Math.pow (10, decibel / 20);
+            if (p == _current_peak) {
+                return;
+            }
+
+            _current_peak = p;
         }
     }
     private double _current_peak = 0;
