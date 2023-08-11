@@ -216,9 +216,9 @@ public class Recorder : Object {
                     break;
                 }
 
-                unowned var peak_arr = (GLib.ValueArray) structure.get_value ("peak").get_boxed ();
+                unowned var peak_arr = (GLib.Array<GLib.Value>) structure.get_value ("peak").get_boxed ();
                 if (peak_arr != null) {
-                    current_peak = peak_arr.get_nth (0).get_double ();
+                    current_peak = peak_arr.index (0).get_double ();
                 }
 
                 break;
