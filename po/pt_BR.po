@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-09 09:38+0000\n"
+"POT-Creation-Date: 2023-05-16 19:59+0900\n"
 "PO-Revision-Date: 2023-04-09 09:39+0000\n"
 "Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/rosp/"
@@ -58,7 +58,7 @@ msgstr "Escuro"
 msgid "System"
 msgstr "Sistema"
 
-#: src/Services/Recorder.vala:232
+#: src/Services/Recorder.vala:235
 msgid "Recording is ongoing"
 msgstr "A gravação está em curso"
 

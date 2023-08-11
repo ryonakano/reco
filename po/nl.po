@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-09 09:38+0000\n"
+"POT-Creation-Date: 2023-05-16 19:59+0900\n"
 "PO-Revision-Date: 2023-03-19 14:40+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-app/nl/"
@@ -57,7 +57,7 @@ msgstr "Donker"
 msgid "System"
 msgstr "Systeem"
 
-#: src/Services/Recorder.vala:232
+#: src/Services/Recorder.vala:235
 msgid "Recording is ongoing"
 msgstr "Er wordt een opname gemaakt"
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-09 09:38+0000\n"
-"PO-Revision-Date: 2023-05-01 03:50+0000\n"
+"POT-Creation-Date: 2023-05-16 19:59+0900\n"
+"PO-Revision-Date: 2023-07-02 13:51+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/"
 "reco-metadata/it/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
 msgid "Reco"
@@ -105,7 +105,7 @@ msgstr "Mostra errori importanti agli utenti"
 
 #: data/reco.metainfo.xml.in:68 data/reco.metainfo.xml.in:92
 msgid "Update Flatpak runtime version"
-msgstr "Aggiorna la versione runtime di Flatpak"
+msgstr "Aggiornato la versione runtime di Flatpak"
 
 #: data/reco.metainfo.xml.in:69
 msgid "Improve app metainfo"
@@ -243,9 +243,9 @@ msgstr ""
 "Pubblictoa l'app nel nuovo AppCenter su elementary OS 6 con manifesto Flatpak"
 
 #: data/reco.metainfo.xml.in:174
-msgid "A completely rewrited and improved method to detect recording sources"
+msgid "A completely rewritten and improved method to detect recording sources"
 msgstr ""
-"Un metodo completamente riscritto e migliorato per rilevare le sorgenti di "
+"Un metodo completamente riscritto e migliorato per rilevare le fonti di "
 "registrazione"
 
 #: data/reco.metainfo.xml.in:175

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-09 09:38+0000\n"
+"POT-Creation-Date: 2023-05-16 19:59+0900\n"
 "PO-Revision-Date: 2023-02-03 04:22+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/rosp/reco-app/fi/"
@@ -56,7 +56,7 @@ msgstr "Tumma"
 msgid "System"
 msgstr "Järjestelmä"
 
-#: src/Services/Recorder.vala:232
+#: src/Services/Recorder.vala:235
 msgid "Recording is ongoing"
 msgstr "Äänitallennus on meneillään"
 
