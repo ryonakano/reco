@@ -18,7 +18,7 @@ public class LevelBar : Gtk.Box {
 
         var recorder = Recorder.get_default ();
 
-        serie = new LiveChart.Serie ("Peak", new LiveChart.Bar ());
+        serie = new LiveChart.Serie ("peak-value", new LiveChart.Bar ());
         serie.line.color = { 0.7f, 0.1f, 0.2f, 1.0f };
         serie.line.width = 1.0;
 

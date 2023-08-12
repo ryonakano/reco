@@ -26,6 +26,7 @@ public class Recorder : Object {
 
             double p = Math.pow (10, decibel / 20);
             if (p == _current_peak) {
+                // No need to renew value
                 return;
             }
 
@@ -212,7 +213,7 @@ public class Recorder : Object {
                 break;
             case Gst.MessageType.ELEMENT:
                 unowned Gst.Structure? structure = msg.get_structure ();
-                if (structure == null || !structure.has_name ("level")) {
+                if (!structure.has_name ("level")) {
                     break;
                 }
 
