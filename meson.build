@@ -64,6 +64,8 @@ executable(
         dependency('gstreamer-1.0', version: '>= 1.20'),
         dependency('libpulse'),
         dependency('libpulse-mainloop-glib'),
+        # TODO: Add limitation for GTK4 supported version
+        dependency('livechart'),
         dependency('pango')
     ],
     link_args: ['-X', '-lm'],

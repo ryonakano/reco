@@ -46,8 +46,7 @@ public class RecordView : Gtk.Box {
         var label_grid = new Gtk.Grid () {
             column_spacing = 6,
             row_spacing = 6,
-            halign = Gtk.Align.CENTER,
-            vexpand = true
+            halign = Gtk.Align.CENTER
         };
         label_grid.attach (time_label, 0, 1, 1, 1);
         label_grid.attach (remaining_time_label, 0, 2, 1, 1);
