@@ -4,7 +4,7 @@
  */
 
 public class LevelBar : Gtk.Box {
-    private const double PEAK_MAX = 100.0;
+    private const double PEAK_PERCENTAGE = 100.0;
 
     private LiveChart.Serie serie;
     private uint update_graph_timeout;
@@ -24,7 +24,7 @@ public class LevelBar : Gtk.Box {
 
         var config = new LiveChart.Config ();
         config.x_axis.tick_interval = 1;
-        config.y_axis.fixed_max = PEAK_MAX;
+        config.y_axis.fixed_max = PEAK_PERCENTAGE;
         config.padding = LiveChart.Padding () {
             smart = LiveChart.AutoPadding.NONE,
             top = 0,
@@ -50,7 +50,7 @@ public class LevelBar : Gtk.Box {
             if (recorder.is_recording) {
                 // Start updating the graph when recording started
                 update_graph_timeout = Timeout.add (100, () => {
-                    int current = (int) (recorder.current_peak * PEAK_MAX);
+                    int current = (int) (recorder.current_peak * PEAK_PERCENTAGE);
                     serie.add (current);
                     return GLib.Source.CONTINUE;
                 });
