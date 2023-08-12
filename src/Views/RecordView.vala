@@ -46,11 +46,12 @@ public class RecordView : Gtk.Box {
         var label_grid = new Gtk.Grid () {
             column_spacing = 6,
             row_spacing = 6,
-            halign = Gtk.Align.CENTER,
-            vexpand = true
+            halign = Gtk.Align.CENTER
         };
         label_grid.attach (time_label, 0, 1, 1, 1);
         label_grid.attach (remaining_time_label, 0, 2, 1, 1);
+
+        var levelbar = new LevelBar ();
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
@@ -87,6 +88,7 @@ public class RecordView : Gtk.Box {
         buttons_grid.attach (pause_button, 2, 0, 1, 1);
 
         append (label_grid);
+        append (levelbar);
         append (buttons_grid);
 
         cancel_button.clicked.connect (() => {
