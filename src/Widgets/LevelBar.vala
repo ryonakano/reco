@@ -60,6 +60,5 @@ public class LevelBar : Gtk.Box {
                 serie.clear ();
             }
         });
-
     }
 }
