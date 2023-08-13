@@ -70,9 +70,10 @@ public class LevelBar : Gtk.Box {
                     serie.line.color = { 0.7f, 0.1f, 0.2f, 1.0f };
 
                     if (timestamp == -1) {
-                        timestamp = GLib.get_real_time () / 1000;
-                        // Seek on the timeline
-                        config.time.current = GLib.get_real_time () / config.time.conv_us;
+                        // Seek to the current timestamp
+                        int64 now_msec = GLib.get_real_time () / 1000;
+                        timestamp = now_msec;
+                        config.time.current = now_msec;
                     }
 
                     update_graph_timeout = Timeout.add (REFRESH_USEC, () => {

@@ -12,15 +12,16 @@ public class Recorder : Object {
     public signal void save_file (string tmp_full_path, string suffix);
 
     public enum RecordingState {
-        STOPPED,
-        PAUSED,
-        RECORDING
+        STOPPED,                // Not recording
+        PAUSED,                 // Recording is paused
+        RECORDING               // Recording is ongoing
     }
 
+    // Convert from RecordingState to Gst.State
     private const Gst.State GST_STATE_TABLE[] = {
-        Gst.State.NULL,
-        Gst.State.PAUSED,
-        Gst.State.PLAYING
+        Gst.State.NULL,         // RecordingState.STOPPED
+        Gst.State.PAUSED,       // RecordingState.PAUSED
+        Gst.State.PLAYING       // RecordingState.RECORDING
     };
 
     public RecordingState state {
@@ -29,6 +30,7 @@ public class Recorder : Object {
         }
 
         set {
+            // Control actual recording to stop, start, or pause
             pipeline.set_state (GST_STATE_TABLE[value]);
             _state = value;
         }
