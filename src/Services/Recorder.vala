@@ -17,7 +17,7 @@ public class Recorder : Object {
         RECORDING
     }
 
-    private const Gst.State gst_state_table[] = {
+    private const Gst.State GST_STATE_TABLE[] = {
         Gst.State.NULL,
         Gst.State.PAUSED,
         Gst.State.PLAYING
@@ -29,7 +29,7 @@ public class Recorder : Object {
         }
 
         set {
-            pipeline.set_state (gst_state_table[value]);
+            pipeline.set_state (GST_STATE_TABLE[value]);
             _state = value;
         }
     }
