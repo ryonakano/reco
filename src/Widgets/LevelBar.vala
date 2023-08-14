@@ -7,9 +7,14 @@ public class LevelBar : Gtk.Box {
     private const double PEAK_PERCENTAGE = 100.0;
     private const int REFRESH_MSEC = 100;
 
+    // Colors from the elementary color palette: https://elementary.io/brand#color
+    private const string STRAWBERRY_500 = "#c6262e";
+    private const string BANANA_500 = "#f9c440";
+
     private LiveChart.Serie serie;
     private uint update_graph_timeout;
     private int64 timestamp = -1;
+    private Gdk.RGBA bar_color = Gdk.RGBA ();
 
     public LevelBar () {
     }
@@ -54,6 +59,7 @@ public class LevelBar : Gtk.Box {
                     if (update_graph_timeout != -1) {
                         GLib.Source.remove (update_graph_timeout);
                     }
+
                     timestamp = -1;
                     serie.clear ();
                     break;
@@ -62,12 +68,16 @@ public class LevelBar : Gtk.Box {
                     GLib.Source.remove (update_graph_timeout);
                     update_graph_timeout = -1;
                     chart.refresh_every (REFRESH_MSEC, 0.0);
-                    serie.line.color = { 0.97f, 0.76f, 0.25f, 1.0f };
+                    // Change the bar color to yellow
+                    bar_color.parse (BANANA_500);
+                    serie.line.color = bar_color;
                     break;
                 case Recorder.RecordingState.RECORDING:
                     // Start updating the graph when recording started
                     chart.refresh_every (REFRESH_MSEC, 1.0);
-                    serie.line.color = { 0.7f, 0.1f, 0.2f, 1.0f };
+                    // Change the bar color to red
+                    bar_color.parse (STRAWBERRY_500);
+                    serie.line.color = bar_color;
 
                     if (timestamp == -1) {
                         // Seek to the current timestamp
