@@ -89,7 +89,7 @@ public class MainWindow : Gtk.ApplicationWindow {
             if (Gdk.ModifierType.CONTROL_MASK in state) {
                 switch (keyval) {
                     case Gdk.Key.q:
-                        if (recorder.is_recording) {
+                        if (recorder.state != Recorder.RecordingState.STOPPED) {
                             var loop = new MainLoop ();
                             record_view.trigger_stop_recording.begin ((obj, res) => {
                                 loop.quit ();
@@ -121,7 +121,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         ((Gtk.Widget) this).add_controller (event_controller);
 
         close_request.connect ((event) => {
-            if (recorder.is_recording) {
+            if (recorder.state != Recorder.RecordingState.STOPPED) {
                 var loop = new MainLoop ();
                 record_view.trigger_stop_recording.begin ((obj, res) => {
                     loop.quit ();

@@ -11,7 +11,31 @@ public class Recorder : Object {
     public signal void throw_error (Error err, string debug);
     public signal void save_file (string tmp_full_path, string suffix);
 
-    public bool is_recording { get; private set; }
+    public enum RecordingState {
+        STOPPED,                // Not recording
+        PAUSED,                 // Recording is paused
+        RECORDING               // Recording is ongoing
+    }
+
+    // Convert from RecordingState to Gst.State
+    private const Gst.State GST_STATE_TABLE[] = {
+        Gst.State.NULL,         // RecordingState.STOPPED
+        Gst.State.PAUSED,       // RecordingState.PAUSED
+        Gst.State.PLAYING       // RecordingState.RECORDING
+    };
+
+    public RecordingState state {
+        get {
+            return _state;
+        }
+
+        set {
+            // Control actual recording to stop, start, or pause
+            pipeline.set_state (GST_STATE_TABLE[value]);
+            _state = value;
+        }
+    }
+    private RecordingState _state = RecordingState.STOPPED;
 
     // current sound level, taking value from 0 to 1
     public double current_peak {
@@ -190,7 +214,7 @@ public class Recorder : Object {
         }
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
-        set_recording_state (Gst.State.PLAYING);
+        state = RecordingState.RECORDING;
         inhibit_sleep ();
     }
 
@@ -206,7 +230,7 @@ public class Recorder : Object {
                 throw_error (err, debug);
                 break;
             case Gst.MessageType.EOS:
-                set_recording_state (Gst.State.NULL);
+                state = RecordingState.STOPPED;
                 pipeline.dispose ();
 
                 save_file (tmp_full_path, suffix);
@@ -236,7 +260,7 @@ public class Recorder : Object {
 
     public void cancel_recording () {
         uninhibit_sleep ();
-        set_recording_state (Gst.State.NULL);
+        state = RecordingState.STOPPED;
         pipeline.dispose ();
 
         // Remove canceled file in /tmp
@@ -250,22 +274,6 @@ public class Recorder : Object {
     public void stop_recording () {
         uninhibit_sleep ();
         pipeline.send_event (new Gst.Event.eos ());
-    }
-
-    public void set_recording_state (Gst.State state) {
-        pipeline.set_state (state);
-
-        switch (state) {
-            case Gst.State.PLAYING:
-                is_recording = true;
-                break;
-            case Gst.State.PAUSED:
-            case Gst.State.NULL:
-                is_recording = false;
-                break;
-            default:
-                assert_not_reached ();
-        }
     }
 
     private void inhibit_sleep () {

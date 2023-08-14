@@ -5,9 +5,16 @@
 
 public class LevelBar : Gtk.Box {
     private const double PEAK_PERCENTAGE = 100.0;
+    private const int REFRESH_MSEC = 100;
+
+    // Colors from the elementary color palette: https://elementary.io/brand#color
+    private const string STRAWBERRY_500 = "#c6262e";
+    private const string BANANA_500 = "#f9c440";
 
     private LiveChart.Serie serie;
     private uint update_graph_timeout;
+    private int64 timestamp = -1;
+    private Gdk.RGBA bar_color = Gdk.RGBA ();
 
     public LevelBar () {
     }
@@ -19,7 +26,6 @@ public class LevelBar : Gtk.Box {
         var recorder = Recorder.get_default ();
 
         serie = new LiveChart.Serie ("peak-value", new LiveChart.Bar ());
-        serie.line.color = { 0.7f, 0.1f, 0.2f, 1.0f };
         serie.line.width = 1.0;
 
         var config = new LiveChart.Config ();
@@ -46,18 +52,49 @@ public class LevelBar : Gtk.Box {
 
         append (chart);
 
-        recorder.notify["is-recording"].connect (() => {
-            if (recorder.is_recording) {
-                // Start updating the graph when recording started
-                update_graph_timeout = Timeout.add (100, () => {
-                    int current = (int) (recorder.current_peak * PEAK_PERCENTAGE);
-                    serie.add (current);
-                    return GLib.Source.CONTINUE;
-                });
-            } else {
-                // Stop updating the graph when recording stopped
-                GLib.Source.remove (update_graph_timeout);
-                serie.clear ();
+        recorder.notify["state"].connect (() => {
+            switch (recorder.state) {
+                case Recorder.RecordingState.STOPPED:
+                    // Stop updating the graph when recording stopped
+                    if (update_graph_timeout != -1) {
+                        GLib.Source.remove (update_graph_timeout);
+                    }
+
+                    timestamp = -1;
+                    serie.clear ();
+                    break;
+                case Recorder.RecordingState.PAUSED:
+                    // Stop refreshing the graph
+                    GLib.Source.remove (update_graph_timeout);
+                    update_graph_timeout = -1;
+                    chart.refresh_every (REFRESH_MSEC, 0.0);
+                    // Change the bar color to yellow
+                    bar_color.parse (BANANA_500);
+                    serie.line.color = bar_color;
+                    break;
+                case Recorder.RecordingState.RECORDING:
+                    // Start updating the graph when recording started
+                    chart.refresh_every (REFRESH_MSEC, 1.0);
+                    // Change the bar color to red
+                    bar_color.parse (STRAWBERRY_500);
+                    serie.line.color = bar_color;
+
+                    if (timestamp == -1) {
+                        // Seek to the current timestamp
+                        int64 now_msec = GLib.get_real_time () / 1000;
+                        timestamp = now_msec;
+                        config.time.current = now_msec;
+                    }
+
+                    update_graph_timeout = Timeout.add (REFRESH_MSEC, () => {
+                        int current = (int) (recorder.current_peak * PEAK_PERCENTAGE);
+                        serie.add_with_timestamp (current, timestamp);
+                        timestamp += REFRESH_MSEC;
+                        return GLib.Source.CONTINUE;
+                    });
+                    break;
+                default:
+                    assert_not_reached ();
             }
         });
     }
