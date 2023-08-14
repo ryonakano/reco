@@ -5,7 +5,7 @@
 
 public class LevelBar : Gtk.Box {
     private const double PEAK_PERCENTAGE = 100.0;
-    private const int REFRESH_USEC = 100;
+    private const int REFRESH_MSEC = 100;
 
     private LiveChart.Serie serie;
     private uint update_graph_timeout;
@@ -61,12 +61,12 @@ public class LevelBar : Gtk.Box {
                     // Stop refreshing the graph
                     GLib.Source.remove (update_graph_timeout);
                     update_graph_timeout = -1;
-                    chart.refresh_every (REFRESH_USEC, 0.0);
+                    chart.refresh_every (REFRESH_MSEC, 0.0);
                     serie.line.color = { 0.97f, 0.76f, 0.25f, 1.0f };
                     break;
                 case Recorder.RecordingState.RECORDING:
                     // Start updating the graph when recording started
-                    chart.refresh_every (REFRESH_USEC, 1.0);
+                    chart.refresh_every (REFRESH_MSEC, 1.0);
                     serie.line.color = { 0.7f, 0.1f, 0.2f, 1.0f };
 
                     if (timestamp == -1) {
@@ -76,10 +76,10 @@ public class LevelBar : Gtk.Box {
                         config.time.current = now_msec;
                     }
 
-                    update_graph_timeout = Timeout.add (REFRESH_USEC, () => {
+                    update_graph_timeout = Timeout.add (REFRESH_MSEC, () => {
                         int current = (int) (recorder.current_peak * PEAK_PERCENTAGE);
                         serie.add_with_timestamp (current, timestamp);
-                        timestamp += REFRESH_USEC;
+                        timestamp += REFRESH_MSEC;
                         return GLib.Source.CONTINUE;
                     });
                     break;
