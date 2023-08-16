@@ -47,6 +47,7 @@ sources = files(
     'src' / 'Views' / 'CountDownView.vala',
     'src' / 'Views' / 'WelcomeView.vala',
     'src' / 'Views' / 'RecordView.vala',
+    'src' / 'Widgets' / 'LevelBar.vala',
     'src' / 'Application.vala',
     'src' / 'MainWindow.vala',
     'src' / 'StyleSwitcher.vala'
@@ -63,8 +64,11 @@ executable(
         dependency('gtk4', version: '>= 4.10'),
         dependency('libpulse'),
         dependency('libpulse-mainloop-glib'),
+        # TODO: Add limitation for GTK4 supported version
+        dependency('livechart'),
         dependency('pango')
     ],
+    link_args: ['-X', '-lm'],
     install: true
 )
 

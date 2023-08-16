@@ -2,14 +2,62 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText: 2018-2023 Ryo Nakano <ryonakaknock3@gmail.com>
  *
- * GStreamer related codes are inspired from artemanufrij/screencast, src/MainWindow.vala
+ * GStreamer related codes are inspired from:
+ * * artemanufrij/screencast, src/MainWindow.vala
+ * * GNOME/gnome-sound-recorder (gnome-3-38), src/recorder.js
  */
 
 public class Recorder : Object {
     public signal void throw_error (Error err, string debug);
     public signal void save_file (string tmp_full_path, string suffix);
 
-    public bool is_recording { get; private set; }
+    public enum RecordingState {
+        STOPPED,                // Not recording
+        PAUSED,                 // Recording is paused
+        RECORDING               // Recording is ongoing
+    }
+
+    // Convert from RecordingState to Gst.State
+    private const Gst.State GST_STATE_TABLE[] = {
+        Gst.State.NULL,         // RecordingState.STOPPED
+        Gst.State.PAUSED,       // RecordingState.PAUSED
+        Gst.State.PLAYING       // RecordingState.RECORDING
+    };
+
+    public RecordingState state {
+        get {
+            return _state;
+        }
+
+        set {
+            // Control actual recording to stop, start, or pause
+            pipeline.set_state (GST_STATE_TABLE[value]);
+            _state = value;
+        }
+    }
+    private RecordingState _state = RecordingState.STOPPED;
+
+    // current sound level, taking value from 0 to 1
+    public double current_peak {
+        get {
+            return _current_peak;
+        }
+        set {
+            double decibel = value;
+            if (decibel > 0) {
+                decibel = 0;
+            }
+
+            double p = Math.pow (10, decibel / 20);
+            if (p == _current_peak) {
+                // No need to renew value
+                return;
+            }
+
+            _current_peak = p;
+        }
+    }
+    private double _current_peak = 0;
 
     private PulseAudioManager pam;
     private string tmp_full_path;
@@ -71,6 +119,11 @@ public class Recorder : Object {
             throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"pipeline\"");
         }
 
+        var level = Gst.ElementFactory.make ("level", "level");
+        if (level == null) {
+            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"level\"");
+        }
+
         var sink = Gst.ElementFactory.make ("filesink", "sink");
         if (sink == null) {
             throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"filesink\"");
@@ -130,23 +183,23 @@ public class Recorder : Object {
                             "audio/x-raw", "channels", Type.INT,
                             (ChannelID) Application.settings.get_uint ("channel")
         ));
-        pipeline.add_many (caps_filter, encoder, sink);
+        pipeline.add_many (caps_filter, level, encoder, sink);
 
         switch (source) {
             case SourceID.MIC:
                 pipeline.add_many (mic_sound);
-                mic_sound.link_many (caps_filter, encoder);
+                mic_sound.link_many (caps_filter, level, encoder);
                 break;
             case SourceID.SYSTEM:
                 pipeline.add_many (sys_sound);
-                sys_sound.link_many (caps_filter, encoder);
+                sys_sound.link_many (caps_filter, level, encoder);
                 break;
             case SourceID.BOTH:
                 var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
                 pipeline.add_many (mic_sound, sys_sound, mixer);
                 mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
                 sys_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
-                mixer.link_many (caps_filter, encoder);
+                mixer.link_many (caps_filter, level, encoder);
                 break;
             default:
                 assert_not_reached ();
@@ -161,7 +214,7 @@ public class Recorder : Object {
         }
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
-        set_recording_state (Gst.State.PLAYING);
+        state = RecordingState.RECORDING;
         inhibit_sleep ();
     }
 
@@ -177,10 +230,26 @@ public class Recorder : Object {
                 throw_error (err, debug);
                 break;
             case Gst.MessageType.EOS:
-                set_recording_state (Gst.State.NULL);
+                state = RecordingState.STOPPED;
                 pipeline.dispose ();
 
                 save_file (tmp_full_path, suffix);
+                break;
+            case Gst.MessageType.ELEMENT:
+                unowned Gst.Structure? structure = msg.get_structure ();
+                if (!structure.has_name ("level")) {
+                    break;
+                }
+
+                // FIXME: GLib.ValueArray is deprecated but used as an I/F structure in the GStreamer side:
+                // https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.5/subprojects/gst-plugins-good/gst/level/gstlevel.c#L579
+                // We would need a patch for GStreamer to replace ValueArray with Array
+                // when it's removed before GStreamer resolves
+                unowned var peak_arr = (GLib.ValueArray) structure.get_value ("peak").get_boxed ();
+                if (peak_arr != null) {
+                    current_peak = peak_arr.get_nth (0).get_double ();
+                }
+
                 break;
             default:
                 break;
@@ -191,7 +260,7 @@ public class Recorder : Object {
 
     public void cancel_recording () {
         uninhibit_sleep ();
-        set_recording_state (Gst.State.NULL);
+        state = RecordingState.STOPPED;
         pipeline.dispose ();
 
         // Remove canceled file in /tmp
@@ -205,22 +274,6 @@ public class Recorder : Object {
     public void stop_recording () {
         uninhibit_sleep ();
         pipeline.send_event (new Gst.Event.eos ());
-    }
-
-    public void set_recording_state (Gst.State state) {
-        pipeline.set_state (state);
-
-        switch (state) {
-            case Gst.State.PLAYING:
-                is_recording = true;
-                break;
-            case Gst.State.PAUSED:
-            case Gst.State.NULL:
-                is_recording = false;
-                break;
-            default:
-                assert_not_reached ();
-        }
     }
 
     private void inhibit_sleep () {

@@ -37,6 +37,7 @@ You'll need the following dependencies to build:
 * libgtk-4-dev (>= 4.10)
 * libpulse-dev
 * libpulse-mainloop-glib0
+* [livechart](https://github.com/lcallarec/live-chart) (commit `d364df43bd8336bf7ed461c57a28e97efa7115b1` or later)
 * meson (>= 0.57.0)
 * valac
 
@@ -44,16 +45,19 @@ You'll need the following dependencies to run:
 
 * gstreamer1.0-libav (use the same version with libgstreamer1.0-dev)
 
-Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
+Run `meson setup` to configure the build environment and run `ninja` to build
 
-    meson build --prefix=/usr
-    cd build
-    ninja
+```bash
+meson setup builddir --prefix=/usr
+ninja -C builddir
+```
 
 To install, use `ninja install`, then execute with `com.github.ryonakano.reco`
 
-    ninja install
-    com.github.ryonakano.reco
+```bash
+ninja install -C builddir
+com.github.ryonakano.reco
+```
 
 ## Contributing
 

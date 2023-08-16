@@ -46,11 +46,12 @@ public class RecordView : Gtk.Box {
         var label_grid = new Gtk.Grid () {
             column_spacing = 6,
             row_spacing = 6,
-            halign = Gtk.Align.CENTER,
-            vexpand = true
+            halign = Gtk.Align.CENTER
         };
         label_grid.attach (time_label, 0, 1, 1, 1);
         label_grid.attach (remaining_time_label, 0, 2, 1, 1);
+
+        var levelbar = new LevelBar ();
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
@@ -87,13 +88,14 @@ public class RecordView : Gtk.Box {
         buttons_grid.attach (pause_button, 2, 0, 1, 1);
 
         append (label_grid);
+        append (levelbar);
         append (buttons_grid);
 
         cancel_button.clicked.connect (() => {
             stop_count ();
 
             // If a user tries to cancel recording while pausing, resume recording once and reset the button icon
-            if (!recorder.is_recording) {
+            if (recorder.state != Recorder.RecordingState.RECORDING) {
                 pause_button_set_pause ();
             }
 
@@ -110,10 +112,10 @@ public class RecordView : Gtk.Box {
         });
 
         pause_button.clicked.connect (() => {
-            if (recorder.is_recording) {
+            if (recorder.state == Recorder.RecordingState.RECORDING) {
                 stop_count ();
 
-                recorder.set_recording_state (Gst.State.PAUSED);
+                recorder.state = Recorder.RecordingState.PAUSED;
                 pause_button_set_resume ();
             } else {
                 start_count ();
@@ -122,7 +124,7 @@ public class RecordView : Gtk.Box {
                     start_countdown ();
                 }
 
-                recorder.set_recording_state (Gst.State.PLAYING);
+                recorder.state = Recorder.RecordingState.RECORDING;
                 pause_button_set_pause ();
             }
         });
@@ -132,8 +134,8 @@ public class RecordView : Gtk.Box {
         stop_count ();
 
         // If a user tries to stop recording while pausing, resume recording once and reset the button icon
-        if (!recorder.is_recording) {
-            recorder.set_recording_state (Gst.State.PLAYING);
+        if (recorder.state != Recorder.RecordingState.RECORDING) {
+            recorder.state = Recorder.RecordingState.RECORDING;
             pause_button_set_pause ();
         }
 
@@ -156,7 +158,7 @@ public class RecordView : Gtk.Box {
     private void start_count () {
         count = Timeout.add (1000, () => {
             // If the user pressed "pause", do not count this second.
-            if (!recorder.is_recording) {
+            if (recorder.state != Recorder.RecordingState.RECORDING) {
                 return false;
             }
 
@@ -223,7 +225,7 @@ public class RecordView : Gtk.Box {
 
         countdown = Timeout.add (1000, () => {
             // If the user pressed "pause", do not count this second.
-            if (!recorder.is_recording) {
+            if (recorder.state != Recorder.RecordingState.RECORDING) {
                 return false;
             }
 
