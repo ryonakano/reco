@@ -59,7 +59,7 @@ executable(
     config_file,
     sources,
     dependencies: [
-        dependency('granite-7'),
+        dependency('granite-7', version: '>= 7.2.0'),
         dependency('gtk4'),
         dependency('gstreamer-1.0', version: '>= 1.20'),
         dependency('libpulse'),
