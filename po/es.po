@@ -2,21 +2,23 @@
 # Copyright (C) 2019 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2019.
-#
+# Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted.weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-16 19:59+0900\n"
-"PO-Revision-Date: 2021-12-27 02:10-0300\n"
-"Last-Translator: Eldhrimer <eldhrimer@pm.me>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2023-08-20 18:51+0000\n"
+"Last-Translator: Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted.weblate"
+".org>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/rosp/reco-app/es/"
+">\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: src/MainWindow.vala:57
 msgid "Preferences"
@@ -182,7 +184,7 @@ msgstr "Elija un destino predeterminado"
 
 #: src/Views/WelcomeView.vala:213
 msgid "Select"
-msgstr ""
+msgstr "Seleccionar"
 
 #~ msgid "Recording"
 #~ msgstr "Grabación"

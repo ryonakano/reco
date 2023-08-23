@@ -18,7 +18,6 @@ modules:
       # TODO: Replace with tarball when new release is published
       - type: git
         url: https://github.com/lcallarec/live-chart.git
-        branch: master
         commit: d364df43bd8336bf7ed461c57a28e97efa7115b1
   - name: gst-libav
     buildsystem: meson
