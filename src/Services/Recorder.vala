@@ -65,24 +65,110 @@ public class Recorder : Object {
     private Gst.Pipeline pipeline;
     private uint inhibit_token = 0;
 
-    private enum SourceID {
+    public enum SourceID {
         MIC,
         SYSTEM,
-        BOTH
+        BOTH;
+
+        public string to_string () {
+            switch (this) {
+                case SourceID.MIC:
+                    return "mic";
+                case SourceID.SYSTEM:
+                    return "system";
+                case SourceID.BOTH:
+                    return "both";
+                default:
+                    assert_not_reached ();
+            }
+        }
+
+        public static SourceID from_string (string value) {
+            switch (value) {
+                case "mic":
+                    return SourceID.MIC;
+                case "system":
+                    return SourceID.SYSTEM;
+                case "both":
+                    return SourceID.BOTH;
+                default:
+                    assert_not_reached ();
+            }
+        }
     }
 
-    private enum FormatID {
+    public enum FormatID {
         ALAC,
         FLAC,
         MP3,
         OGG,
         OPUS,
-        WAV
+        WAV;
+
+        public string to_string () {
+            switch (this) {
+                case FormatID.ALAC:
+                    return "alac";
+                case FormatID.FLAC:
+                    return "flac";
+                case FormatID.MP3:
+                    return "mp3";
+                case FormatID.OGG:
+                    return "ogg";
+                case FormatID.OPUS:
+                    return "opus";
+                case FormatID.WAV:
+                    return "wav";
+                default:
+                    assert_not_reached ();
+            }
+        }
+
+        public static FormatID from_string (string value) {
+            switch (value) {
+                case "alac":
+                    return FormatID.ALAC;
+                case "flac":
+                    return FormatID.FLAC;
+                case "mp3":
+                    return FormatID.MP3;
+                case "ogg":
+                    return FormatID.OGG;
+                case "opus":
+                    return FormatID.OPUS;
+                case "wav":
+                    return FormatID.WAV;
+                default:
+                    assert_not_reached ();
+            }
+        }
     }
 
-    private enum ChannelID {
+    public enum ChannelID {
         MONO = 1,
-        STEREO = 2
+        STEREO = 2;
+
+        public string to_string () {
+            switch (this) {
+                case ChannelID.MONO:
+                    return "mono";
+                case ChannelID.STEREO:
+                    return "stereo";
+                default:
+                    assert_not_reached ();
+            }
+        }
+
+        public static ChannelID from_string (string value) {
+            switch (value) {
+                case "mono":
+                    return ChannelID.MONO;
+                case "stereo":
+                    return ChannelID.STEREO;
+                default:
+                    assert_not_reached ();
+            }
+        }
     }
 
     private struct FormatData {
@@ -129,7 +215,7 @@ public class Recorder : Object {
             throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"filesink\"");
         }
 
-        SourceID source = (SourceID) Application.settings.get_uint ("source");
+        SourceID source = (SourceID) Application.settings.get_enum ("source");
 
         Gst.Element? sys_sound = null;
         if (source != SourceID.MIC) {
@@ -154,7 +240,7 @@ public class Recorder : Object {
             debug ("sound source (microphone): \"%s\"", pam.default_source_name);
         }
 
-        FormatID file_format = (FormatID) Application.settings.get_uint ("format");
+        FormatID file_format = (FormatID) Application.settings.get_enum ("format");
         FormatData fmt_data = format_data[file_format];
 
         var encoder = Gst.ElementFactory.make (fmt_data.encoder, "encoder");
@@ -181,7 +267,7 @@ public class Recorder : Object {
         var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
         caps_filter.set ("caps", new Gst.Caps.simple (
                             "audio/x-raw", "channels", Type.INT,
-                            (ChannelID) Application.settings.get_uint ("channel")
+                            (ChannelID) Application.settings.get_enum ("channel")
         ));
         pipeline.add_many (caps_filter, level, encoder, sink);
 

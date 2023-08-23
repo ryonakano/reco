@@ -154,16 +154,40 @@ public class WelcomeView : Gtk.Box {
 
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("source", source_combobox, "selected", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("format", format_combobox, "selected", SettingsBindFlags.DEFAULT);
-        // Convert between the number of channels (1-based) and combobox index (0-based)
-        Application.settings.bind_with_mapping ("channel", channels_combobox, "selected", SettingsBindFlags.DEFAULT,
+        // Convert between GSettings (string) and combobox index (uint)
+        Application.settings.bind_with_mapping ("source", source_combobox, "selected", SettingsBindFlags.DEFAULT,
             (value, variant, user_data) => {
-                value.set_uint (variant.get_uint32 () - 1);
+                var id = Recorder.SourceID.from_string (variant.get_string ());
+                value.set_uint (id);
                 return true;
             },
             (value, expected_type, user_data) => {
-                return new Variant ("u", value.get_uint () + 1);
+                return new Variant ("s", ((Recorder.SourceID) value.get_uint ()).to_string ());
+            },
+            null, null
+        );
+        // Convert between GSettings (string) and combobox index (uint)
+        Application.settings.bind_with_mapping ("format", format_combobox, "selected", SettingsBindFlags.DEFAULT,
+            (value, variant, user_data) => {
+                var id = Recorder.FormatID.from_string (variant.get_string ());
+                value.set_uint (id);
+                return true;
+            },
+            (value, expected_type, user_data) => {
+                return new Variant ("s", ((Recorder.FormatID) value.get_uint ()).to_string ());
+            },
+            null, null
+        );
+        // Convert between GSettings (string) and combobox index (uint)
+        // Also consider the differences between the number of channels (1-based) and combobox index (0-based)
+        Application.settings.bind_with_mapping ("channel", channels_combobox, "selected", SettingsBindFlags.DEFAULT,
+            (value, variant, user_data) => {
+                var id = Recorder.ChannelID.from_string (variant.get_string ());
+                value.set_uint (id - 1);
+                return true;
+            },
+            (value, expected_type, user_data) => {
+                return new Variant ("s", ((Recorder.ChannelID) (value.get_uint () + 1)).to_string ());
             },
             null, null
         );
