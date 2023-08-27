@@ -42,6 +42,7 @@ gnome.post_install(
 )
 
 sources = files(
+    'src' / 'Services' / 'Device.vala',
     'src' / 'Services' / 'PulseAudioManager.vala',
     'src' / 'Services' / 'Recorder.vala',
     'src' / 'Views' / 'CountDownView.vala',
@@ -66,7 +67,8 @@ executable(
         dependency('libpulse-mainloop-glib'),
         # TODO: Add limitation for GTK4 supported version
         dependency('livechart'),
-        dependency('pango')
+        dependency('pango'),
+        meson.get_compiler('vala').find_library('libpulse-ext', dirs: meson.project_source_root() / 'vapi'),
     ],
     link_args: ['-X', '-lm'],
     install: true

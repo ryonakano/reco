@@ -138,7 +138,7 @@ public class Recorder : Object {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"sys_sound\"");
             }
 
-            string default_monitor = pam.default_sink_name + ".monitor";
+            string default_monitor = pam.default_output.card_sink_name + ".monitor";
             sys_sound.set ("device", default_monitor);
             debug ("sound source (system): \"%s\"", default_monitor);
         }
@@ -150,8 +150,8 @@ public class Recorder : Object {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"mic_sound\"");
             }
 
-            mic_sound.set ("device", pam.default_source_name);
-            debug ("sound source (microphone): \"%s\"", pam.default_source_name);
+            mic_sound.set ("device", pam.default_input.card_source_name);
+            debug ("sound source (microphone): \"%s\"", pam.default_input.card_source_name);
         }
 
         FormatID file_format = (FormatID) Application.settings.get_enum ("format");
