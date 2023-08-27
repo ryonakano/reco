@@ -6,6 +6,7 @@
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
 
+    private Gtk.ComboBoxText mic_combobox;
     private Gtk.Switch auto_save_switch;
     private Gtk.Label destination_chooser_label;
     private Gtk.Button record_button;
@@ -34,6 +35,13 @@ public class WelcomeView : Gtk.Box {
         source_combobox.append ("mic", _("Microphone"));
         source_combobox.append ("system", _("System"));
         source_combobox.append ("both", _("Both"));
+
+        var mic_label = new Gtk.Label (_("Microphone to use:")) {
+            halign = Gtk.Align.END
+        };
+        mic_combobox = new Gtk.ComboBoxText () {
+            halign = Gtk.Align.START
+        };
 
         var channels_label = new Gtk.Label (_("Channels:")) {
             halign = Gtk.Align.END
@@ -119,19 +127,21 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (source_header_label, 0, 0, 1, 1);
         settings_grid.attach (source_label, 0, 1, 1, 1);
         settings_grid.attach (source_combobox, 1, 1, 1, 1);
-        settings_grid.attach (channels_label, 0, 2, 1, 1);
-        settings_grid.attach (channels_combobox, 1, 2, 1, 1);
-        settings_grid.attach (timer_header_label, 0, 3, 1, 1);
-        settings_grid.attach (delay_label, 0, 4, 1, 1);
-        settings_grid.attach (delay_spin, 1, 4, 1, 1);
-        settings_grid.attach (length_label, 0, 5, 1, 1);
-        settings_grid.attach (length_spin, 1, 5, 1, 1);
-        settings_grid.attach (saving_header_label, 0, 6, 1, 1);
-        settings_grid.attach (format_label, 0, 7, 1, 1);
-        settings_grid.attach (format_combobox, 1, 7, 1, 1);
-        settings_grid.attach (auto_save_label, 0, 8, 1, 1);
-        settings_grid.attach (auto_save_switch, 1, 8, 1, 1);
-        settings_grid.attach (destination_chooser_button, 1, 9, 1, 1);
+        settings_grid.attach (mic_label, 0, 2, 1, 1);
+        settings_grid.attach (mic_combobox, 1, 2, 1, 1);
+        settings_grid.attach (channels_label, 0, 3, 1, 1);
+        settings_grid.attach (channels_combobox, 1, 3, 1, 1);
+        settings_grid.attach (timer_header_label, 0, 4, 1, 1);
+        settings_grid.attach (delay_label, 0, 5, 1, 1);
+        settings_grid.attach (delay_spin, 1, 5, 1, 1);
+        settings_grid.attach (length_label, 0, 6, 1, 1);
+        settings_grid.attach (length_spin, 1, 6, 1, 1);
+        settings_grid.attach (saving_header_label, 0, 7, 1, 1);
+        settings_grid.attach (format_label, 0, 8, 1, 1);
+        settings_grid.attach (format_combobox, 1, 8, 1, 1);
+        settings_grid.attach (auto_save_label, 0, 9, 1, 1);
+        settings_grid.attach (auto_save_switch, 1, 9, 1, 1);
+        settings_grid.attach (destination_chooser_button, 1, 10, 1, 1);
 
         record_button = new Gtk.Button () {
             icon_name = "audio-input-microphone-symbolic",
@@ -152,6 +162,14 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("source", source_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channel", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
+        // Make mic_combobox insensitive if selected source is "system" and sensitive otherwise
+        source_combobox.bind_property ("active_id", mic_combobox, "sensitive", BindingFlags.DEFAULT,
+            (binding, from_value, ref to_value) => {
+                string active_id = (string) from_value;
+                to_value.set_boolean (active_id != "system");
+                return true;
+            }
+        );
 
         auto_save_switch.state_set.connect ((state) => {
             if (state == true) {
