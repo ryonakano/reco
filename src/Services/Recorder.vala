@@ -150,8 +150,14 @@ public class Recorder : Object {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"mic_sound\"");
             }
 
-            mic_sound.set ("device", pam.default_input.card_source_name);
-            debug ("sound source (microphone): \"%s\"", pam.default_input.card_source_name);
+            string mic_id = Application.settings.get_string ("microphone");
+            Device mic_device = pam.input_devices[mic_id];
+            if (mic_device == null) {
+                throw new Gst.ParseError.COULD_NOT_SET_PROPERTY ("Failed to set \"device\" property of pulsesrc element \"mic_sound\": Device \"%s\" not found", mic_id);
+            }
+
+            mic_sound.set ("device", mic_device.card_source_name);
+            debug ("sound source (microphone): \"%s\"", mic_device.card_source_name);
         }
 
         FormatID file_format = (FormatID) Application.settings.get_enum ("format");

@@ -160,6 +160,7 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("source", source_combobox, "active_id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("microphone", mic_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channel", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
         // Make mic_combobox insensitive if selected source is "system" and sensitive otherwise
@@ -170,6 +171,10 @@ public class WelcomeView : Gtk.Box {
                 return true;
             }
         );
+
+        mic_combobox.changed.connect (() => {
+            mic_combobox_ellipsize ();
+        });
 
         auto_save_switch.state_set.connect ((state) => {
             if (state == true) {
@@ -198,6 +203,9 @@ public class WelcomeView : Gtk.Box {
         record_button.clicked.connect (() => {
             trigger_recording ();
         });
+
+        PulseAudioManager.get_default ().connected.connect (update_mic_combobox);
+        PulseAudioManager.get_default ().source_ready.connect (update_mic_combobox);
     }
 
     private void get_destination () {
@@ -282,5 +290,42 @@ public class WelcomeView : Gtk.Box {
         } else {
             window.show_record ();
         }
+    }
+
+    private void update_mic_combobox () {
+        mic_combobox.remove_all ();
+
+        foreach (var entry in PulseAudioManager.get_default ().input_devices.entries) {
+            unowned var device = entry.value;
+
+            mic_combobox.append (entry.key, "%s - %s".printf (device.display_name, device.description));
+
+            device.removed.connect (() => {
+                // Remove the device from combobox only if it's in the combobox
+                bool is_device_in_combo = mic_combobox.set_active_id (entry.key);
+                if (is_device_in_combo) {
+                    mic_combobox.remove (mic_combobox.active);
+                }
+
+                mic_combobox.active = 0;
+            });
+        }
+
+        // Set the first item active if there is no active item
+        if (mic_combobox.active == -1) {
+            mic_combobox.active = 0;
+        }
+
+        mic_combobox_ellipsize ();
+    }
+
+    private void mic_combobox_ellipsize () {
+        // Ellipsize if device name is long; otherwise the app window get stretched
+        unowned Gtk.CellRendererText first_cell = mic_combobox.get_cells ().nth_data (0) as Gtk.CellRendererText;
+        first_cell.width = 150;
+        first_cell.ellipsize = Pango.EllipsizeMode.END;
+
+        // Show full device name as a tooltip in case it's ellipsized
+        mic_combobox.tooltip_text = mic_combobox.get_active_text ();
     }
 }

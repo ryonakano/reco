@@ -25,13 +25,15 @@ public class PulseAudioManager : GLib.Object {
         return pam;
     }
 
+    public signal void connected ();
+    public signal void source_ready ();
     public signal void new_device (Device dev);
 
     public PulseAudio.Context context { get; private set; }
     private PulseAudio.GLibMainLoop loop;
     private bool is_ready = false;
     private uint reconnect_timer_id = 0U;
-    private Gee.HashMap<string, Device> input_devices;
+    public Gee.HashMap<string, Device> input_devices { get; private set; }
     private Gee.HashMap<string, Device> output_devices;
     public Device default_output { get; private set; }
     public Device default_input { get; private set; }
@@ -279,6 +281,8 @@ public class PulseAudioManager : GLib.Object {
         if (context.connect (null, PulseAudio.Context.Flags.NOFAIL, null) < 0) {
             warning ("pa_context_connect () failed: %s\n", PulseAudio.strerror (context.errno ()));
         }
+
+        connected ();
     }
 
     private void context_state_callback (PulseAudio.Context c) {
@@ -488,6 +492,8 @@ public class PulseAudioManager : GLib.Object {
                 }
             }
         }
+
+        source_ready ();
     }
 
     private void sink_info_callback (PulseAudio.Context c, PulseAudio.SinkInfo? sink, int eol) {
