@@ -26,8 +26,8 @@ modules:
     sources:
       - type: archive
         # we need to use the same version with gstreamer
-        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.20.5.tar.xz
-        sha256: b152e3cc49d014899f53c39d8a6224a44e1399b4cf76aa5f9a903fdf9793c3cc
+        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.20.6.tar.xz
+        sha256: 7d619a030542a4a5a11e0302742a3d9b05f8e5cfc453025683a0379bc50aa013
   - name: reco
     buildsystem: meson
     sources:
