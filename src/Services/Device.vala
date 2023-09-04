@@ -56,39 +56,6 @@ public class Device : GLib.Object {
         profiles = new Gee.ArrayList<string> ();
     }
 
-    public string get_nice_form_factor () {
-        switch (form_factor) {
-            case "internal":
-                return _("Built-in");
-            case "speaker":
-                return _("Speaker");
-            case "handset":
-                return _("Handset");
-            case "tv":
-                return _("TV");
-            case "webcam":
-                return _("Webcam");
-            case "microphone":
-                return _("Microphone");
-            case "headset":
-                return _("Headset");
-            case "headphone":
-                return _("Headphone");
-            case "hands-free":
-                return _("Hands-Free");
-            case "car":
-                return _("Car");
-            case "hifi":
-                return _("HiFi");
-            case "computer":
-                return _("Computer");
-            case "portable":
-                return _("Portable");
-            default:
-                return input? _("Input") : _("Output");
-        }
-    }
-
     public string? get_matching_profile (Device? other_device) {
         if (other_device != null) {
             foreach (var profile in profiles) {
