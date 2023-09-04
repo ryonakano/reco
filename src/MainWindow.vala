@@ -4,8 +4,8 @@
  */
 
 public class MainWindow : Gtk.ApplicationWindow {
-    private const string title_text = N_("Unable to Complete Recording");
-    private const string detail_text = N_("The following error message may be helpful:");
+    private const string TITLE_TEXT = N_("Unable to Complete Recording");
+    private const string DETAIL_TEXT = N_("The following error message may be helpful:");
 
     private Recorder recorder;
 
@@ -206,8 +206,8 @@ public class MainWindow : Gtk.ApplicationWindow {
     private void show_error_dialog (string error_message) {
         if (Application.IS_ON_PANTHEON) {
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                _(title_text),
-                _(detail_text),
+                _(TITLE_TEXT),
+                _(DETAIL_TEXT),
                 "dialog-error", Gtk.ButtonsType.CLOSE
             ) {
                 transient_for = this,
@@ -222,9 +222,9 @@ public class MainWindow : Gtk.ApplicationWindow {
             error_dialog.present ();
         } else {
             var error_dialog = new Gtk.AlertDialog (
-                _(title_text)
+                _(TITLE_TEXT)
             ) {
-                detail = _(detail_text) + "\n\n" + error_message,
+                detail = _(DETAIL_TEXT) + "\n\n" + error_message,
                 modal = true
             };
             error_dialog.show (this);
