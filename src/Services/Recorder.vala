@@ -59,7 +59,6 @@ public class Recorder : Object {
     }
     private double _current_peak = 0;
 
-    private PulseAudioManager pam;
     private string tmp_full_path;
     private string suffix;
     private Gst.Pipeline pipeline;
@@ -109,8 +108,6 @@ public class Recorder : Object {
     }
 
     private Recorder () {
-        pam = PulseAudioManager.get_default ();
-        pam.start ();
     }
 
     public void start_recording () throws Gst.ParseError {
@@ -133,25 +130,25 @@ public class Recorder : Object {
 
         Gst.Element? sys_sound = null;
         if (source != SourceID.MIC) {
-            sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
+            Gst.Device monitor = DeviceManager.get_default ().monitors.get (0);
+            sys_sound = monitor.create_element ("sys_sound");
             if (sys_sound == null) {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"sys_sound\"");
             }
 
-            string default_monitor = pam.default_sink_name + ".monitor";
-            sys_sound.set ("device", default_monitor);
-            debug ("sound source (system): \"%s\"", default_monitor);
+            debug ("sound source (system): \"%s\"", monitor.display_name);
         }
 
         Gst.Element? mic_sound = null;
         if (source != SourceID.SYSTEM) {
-            mic_sound = Gst.ElementFactory.make ("pulsesrc", "mic_sound");
+            int microphone_number = Application.settings.get_int ("microphone");
+            Gst.Device microphone = DeviceManager.get_default ().microphones.get (microphone_number);
+            mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"mic_sound\"");
             }
 
-            mic_sound.set ("device", pam.default_source_name);
-            debug ("sound source (microphone): \"%s\"", pam.default_source_name);
+            debug ("sound source (microphone): \"%s\"", microphone.display_name);
         }
 
         FormatID file_format = (FormatID) Application.settings.get_enum ("format");
