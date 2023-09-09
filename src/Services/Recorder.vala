@@ -5,11 +5,16 @@
  * GStreamer related codes are inspired from:
  * * artemanufrij/screencast, src/MainWindow.vala
  * * GNOME/gnome-sound-recorder (gnome-3-38), src/recorder.js
+ * * GStreamer/gst-plugins-base, tools/gst-device-monitor.c
  */
 
 public class Recorder : Object {
     public signal void throw_error (Error err, string debug);
     public signal void save_file (string tmp_full_path, string suffix);
+
+    private const string IGNORED_PROPNAMES[] = {
+        "name", "parent", "direction", "template", "caps"
+    };
 
     public enum RecordingState {
         STOPPED,                // Not recording
@@ -130,19 +135,24 @@ public class Recorder : Object {
 
         Gst.Element? sys_sound = null;
         if (source != SourceID.MIC) {
-            Gst.Device monitor = DeviceManager.get_default ().monitors.get (0);
-            sys_sound = monitor.create_element ("sys_sound");
+            sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"sys_sound\"");
             }
 
-            debug ("sound source (system): \"%s\"", monitor.display_name);
+            string? monitor_name = get_default_monitor_name ();
+            if (monitor_name == null) {
+                throw new Gst.ParseError.COULD_NOT_SET_PROPERTY ("Failed to set \"device\" property of element \"sys_sound\": monitor not found");
+            }
+
+            sys_sound.set ("device", monitor_name);
+            debug ("sound source (system): \"%s\"", monitor_name);
         }
 
         Gst.Element? mic_sound = null;
         if (source != SourceID.SYSTEM) {
             int microphone_number = Application.settings.get_int ("microphone");
-            Gst.Device microphone = DeviceManager.get_default ().microphones.get (microphone_number);
+            Gst.Device microphone = DeviceManager.get_default ().sources.get (microphone_number);
             mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"mic_sound\"");
@@ -291,5 +301,62 @@ public class Recorder : Object {
             ((Gtk.Application) GLib.Application.get_default ()).uninhibit (inhibit_token);
             inhibit_token = 0;
         }
+    }
+
+    // Get the name of the default monitor device from the default sink name
+    private string? get_default_monitor_name () {
+        Gst.Device? default_sink = DeviceManager.get_default ().default_sink;
+        if (default_sink == null) {
+            warning ("default_sink is null");
+            return null;
+        }
+
+        Gst.Element? element = default_sink.create_element (null);
+        if (element == null) {
+            warning ("element is null");
+            return null;
+        }
+
+        Gst.ElementFactory? factory = element.get_factory ();
+        if (factory == null) {
+            warning ("factory is null");
+            return null;
+        }
+
+        Gst.Element? pureelement = factory.create (null);
+        if (pureelement == null) {
+            warning ("pureelement is null");
+            return null;
+        }
+
+        // Get paramspecs and show non-default properties
+        (unowned ParamSpec)[] properties = element.get_class ().list_properties ();
+        foreach (var property in properties) {
+            // Skip some properties
+            if ((property.flags & ParamFlags.READWRITE) != ParamFlags.READWRITE) {
+                continue;
+            }
+
+            if (property.name in IGNORED_PROPNAMES) {
+                continue;
+            }
+
+            var value = Value (property.value_type);
+            var pvalue = Value (property.value_type);
+
+            element.get_property (property.name, ref value);
+            pureelement.get_property (property.name, ref pvalue);
+            if (Gst.Value.compare (value, pvalue) != Gst.VALUE_EQUAL) {
+                string? valuestr = Gst.Value.serialize (value);
+                if (valuestr == null) {
+                    warning ("Could not serialize property %s: %s", element.name, property.name);
+                    continue;
+                }
+
+                return valuestr + ".monitor";
+            }
+        }
+
+        return null;
     }
 }
