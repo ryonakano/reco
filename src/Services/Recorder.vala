@@ -142,7 +142,9 @@ public class Recorder : Object {
 
             string? monitor_name = get_default_monitor_name ();
             if (monitor_name == null) {
-                throw new Gst.ParseError.COULD_NOT_SET_PROPERTY ("Failed to set \"device\" property of element \"sys_sound\": monitor not found");
+                throw new Gst.ParseError.COULD_NOT_SET_PROPERTY (
+                    "Failed to set \"device\" property of element \"sys_sound\": get_default_monitor_name () failed"
+                );
             }
 
             sys_sound.set ("device", monitor_name);
@@ -342,10 +344,11 @@ public class Recorder : Object {
             }
 
             var value = Value (property.value_type);
-            var pvalue = Value (property.value_type);
-
             element.get_property (property.name, ref value);
+
+            var pvalue = Value (property.value_type);
             pureelement.get_property (property.name, ref pvalue);
+
             if (Gst.Value.compare (value, pvalue) != Gst.VALUE_EQUAL) {
                 string? valuestr = Gst.Value.serialize (value);
                 if (valuestr == null) {
