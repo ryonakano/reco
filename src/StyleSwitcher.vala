@@ -2,7 +2,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText: 2022-2023 Ryo Nakano <ryonakaknock3@gmail.com>
  * 
- * Some code inspired from elementary/switchboard-plug-pantheon-shell, src/Views/Appearance.vala
+ * Some code inspired from:
+ * * https://github.com/elementary/switchboard-plug-pantheon-shell/blob/6.1.0/src/Views/Appearance.vala
  */
 
 public class StyleSwitcher : Gtk.Box {

@@ -3,9 +3,9 @@
  * SPDX-FileCopyrightText: 2018-2023 Ryo Nakano <ryonakaknock3@gmail.com>
  *
  * GStreamer related codes are inspired from:
- * * artemanufrij/screencast, src/MainWindow.vala
- * * GNOME/gnome-sound-recorder (gnome-3-38), src/recorder.js
- * * GStreamer/gst-plugins-base, tools/gst-device-monitor.c
+ * * https://github.com/artemanufrij/screencast/blob/1.0.0/src/MainWindow.vala
+ * * https://gitlab.gnome.org/World/vocalis/-/blob/3.38.1/src/recorder.js
+ * * https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.6/subprojects/gst-plugins-base/tools/gst-device-monitor.c
  */
 
 public class Recorder : Object {
