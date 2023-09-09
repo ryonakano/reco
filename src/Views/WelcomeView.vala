@@ -164,7 +164,7 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channel", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
         // Make mic_combobox insensitive if selected source is "system" and sensitive otherwise
-        source_combobox.bind_property ("active_id", mic_combobox, "sensitive", BindingFlags.DEFAULT,
+        source_combobox.bind_property ("active_id", mic_combobox, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE,
             (binding, from_value, ref to_value) => {
                 string active_id = (string) from_value;
                 to_value.set_boolean (active_id != "system");
