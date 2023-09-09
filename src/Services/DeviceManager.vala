@@ -1,6 +1,6 @@
 /*
- * Copyright 2018-2023 Ryo Nakano
  * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2018-2023 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 public class DeviceManager : Object {
@@ -71,22 +71,26 @@ public class DeviceManager : Object {
             }
 
             if (device.has_classes ("Source")) {
-                if (!sources.contains (device)) {
-                    debug ("Source detected: \"%s\"", device.display_name);
-                    sources.add (device);
+                if (sources.contains (device)) {
+                    continue;
+                }
 
-                    if (properties.get_boolean ("is-default", out is_default) && is_default) {
-                        default_source = device;
-                    }
+                debug ("Source detected: \"%s\"", device.display_name);
+                sources.add (device);
+
+                if (properties.get_boolean ("is-default", out is_default) && is_default) {
+                    default_source = device;
                 }
             } else if (device.has_classes ("Sink")) {
-                if (!sinks.contains (device)) {
-                    debug ("Sink detected: \"%s\"", device.display_name);
-                    sinks.add (device);
+                if (sinks.contains (device)) {
+                    continue;
+                }
 
-                    if (properties.get_boolean ("is-default", out is_default) && is_default) {
-                        default_sink = device;
-                    }
+                debug ("Sink detected: \"%s\"", device.display_name);
+                sinks.add (device);
+
+                if (properties.get_boolean ("is-default", out is_default) && is_default) {
+                    default_sink = device;
                 }
             } else {
                 // Shouldn't reach here

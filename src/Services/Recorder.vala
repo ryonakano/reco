@@ -140,7 +140,8 @@ public class Recorder : Object {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"sys_sound\"");
             }
 
-            string? monitor_name = get_default_monitor_name ();
+            Gst.Device? default_sink = DeviceManager.get_default ().default_sink;
+            string? monitor_name = get_default_monitor_name (default_sink);
             if (monitor_name == null) {
                 throw new Gst.ParseError.COULD_NOT_SET_PROPERTY (
                     "Failed to set \"device\" property of element \"sys_sound\": get_default_monitor_name () failed"
@@ -148,7 +149,7 @@ public class Recorder : Object {
             }
 
             sys_sound.set ("device", monitor_name);
-            debug ("sound source (system): \"%s\"", monitor_name);
+            debug ("sound source (system): \"Monitor of %s\"", default_sink.display_name);
         }
 
         Gst.Element? mic_sound = null;
@@ -306,8 +307,7 @@ public class Recorder : Object {
     }
 
     // Get the name of the default monitor device from the default sink name
-    private string? get_default_monitor_name () {
-        Gst.Device? default_sink = DeviceManager.get_default ().default_sink;
+    private string? get_default_monitor_name (Gst.Device? default_sink) {
         if (default_sink == null) {
             warning ("default_sink is null");
             return null;
