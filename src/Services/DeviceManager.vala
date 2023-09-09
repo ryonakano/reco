@@ -38,14 +38,13 @@ public class DeviceManager : Object {
 
             return Source.CONTINUE;
         });
-        monitor.add_filter ("Source/Audio", new Gst.Caps.empty_simple ("audio/x-raw"));
-        monitor.add_filter ("Sink/Audio", new Gst.Caps.empty_simple ("audio/x-raw"));
+
+        var caps = new Gst.Caps.empty_simple ("audio/x-raw");
+        monitor.add_filter ("Source/Audio", caps);
+        monitor.add_filter ("Sink/Audio", caps);
 
         sources = new Gee.ArrayList<Gst.Device> ();
         sinks = new Gee.ArrayList<Gst.Device> ();
-        default_source = null;
-        default_sink = null;
-        update_devices ();
 
         monitor.start ();
     }
@@ -60,6 +59,9 @@ public class DeviceManager : Object {
         if (sinks.size > 0) {
             sinks.clear ();
         }
+
+        default_source = null;
+        default_sink = null;
 
         foreach (var device in monitor.get_devices ()) {
             Gst.Structure properties = device.properties;
@@ -87,6 +89,7 @@ public class DeviceManager : Object {
                     }
                 }
             } else {
+                // Shouldn't reach here
                 // NOP
             }
         }

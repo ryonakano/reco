@@ -36,7 +36,7 @@ public class WelcomeView : Gtk.Box {
         source_combobox.append ("system", _("System"));
         source_combobox.append ("both", _("Both"));
 
-        var mic_label = new Gtk.Label (_("Microphone to use:")) {
+        var mic_label = new Gtk.Label (_("Microphone:")) {
             halign = Gtk.Align.END
         };
         mic_combobox = new Gtk.ComboBoxText () {
@@ -166,7 +166,7 @@ public class WelcomeView : Gtk.Box {
         // Make mic_combobox insensitive if selected source is "system" and sensitive otherwise
         source_combobox.bind_property ("active_id", mic_combobox, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE,
             (binding, from_value, ref to_value) => {
-                string active_id = (string) from_value;
+                var active_id = (string) from_value;
                 to_value.set_boolean (active_id != "system");
                 return true;
             }
@@ -294,9 +294,8 @@ public class WelcomeView : Gtk.Box {
     private void update_mic_combobox () {
         mic_combobox.remove_all ();
 
-        for (int i = 0; i < DeviceManager.get_default ().sources.size; i++) {
-            Gst.Device device = DeviceManager.get_default ().sources.get (i);
-            mic_combobox.append (i.to_string (), device.display_name);
+        foreach (Gst.Device device in DeviceManager.get_default ().sources) {
+            mic_combobox.append (null, device.display_name);
         }
 
         // Set the first item active if there is no active item
