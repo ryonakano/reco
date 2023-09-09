@@ -15,11 +15,6 @@ add_project_arguments(
     language: 'c'
 )
 
-add_project_arguments(
-    ['--vapidir', meson.current_source_dir() / 'vapi'],
-    language: 'vala'
-)
-
 config_data = configuration_data()
 config_data.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
@@ -42,7 +37,7 @@ gnome.post_install(
 )
 
 sources = files(
-    'src' / 'Services' / 'PulseAudioManager.vala',
+    'src' / 'Services' / 'DeviceManager.vala',
     'src' / 'Services' / 'Recorder.vala',
     'src' / 'Views' / 'CountDownView.vala',
     'src' / 'Views' / 'WelcomeView.vala',
@@ -59,11 +54,10 @@ executable(
     config_file,
     sources,
     dependencies: [
+        dependency('gee-0.8'),
         dependency('granite-7'),
         dependency('gstreamer-1.0', version: '>= 1.20'),
         dependency('gtk4', version: '>= 4.10'),
-        dependency('libpulse'),
-        dependency('libpulse-mainloop-glib'),
         # TODO: Add limitation for GTK4 supported version
         dependency('livechart'),
         dependency('pango')

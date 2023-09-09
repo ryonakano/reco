@@ -6,6 +6,7 @@
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
 
+    private Gtk.ComboBoxText mic_combobox;
     private Gtk.Switch auto_save_switch;
     private Gtk.Label destination_chooser_label;
     private Gtk.Button record_button;
@@ -34,6 +35,13 @@ public class WelcomeView : Gtk.Box {
             _("System"),
             _("Both")
         }) {
+            halign = Gtk.Align.START
+        };
+
+        var mic_label = new Gtk.Label (_("Microphone:")) {
+            halign = Gtk.Align.END
+        };
+        mic_combobox = new Gtk.ComboBoxText () {
             halign = Gtk.Align.START
         };
 
@@ -124,19 +132,21 @@ public class WelcomeView : Gtk.Box {
         settings_grid.attach (source_header_label, 0, 0, 1, 1);
         settings_grid.attach (source_label, 0, 1, 1, 1);
         settings_grid.attach (source_combobox, 1, 1, 1, 1);
-        settings_grid.attach (channels_label, 0, 2, 1, 1);
-        settings_grid.attach (channels_combobox, 1, 2, 1, 1);
-        settings_grid.attach (timer_header_label, 0, 3, 1, 1);
-        settings_grid.attach (delay_label, 0, 4, 1, 1);
-        settings_grid.attach (delay_spin, 1, 4, 1, 1);
-        settings_grid.attach (length_label, 0, 5, 1, 1);
-        settings_grid.attach (length_spin, 1, 5, 1, 1);
-        settings_grid.attach (saving_header_label, 0, 6, 1, 1);
-        settings_grid.attach (format_label, 0, 7, 1, 1);
-        settings_grid.attach (format_combobox, 1, 7, 1, 1);
-        settings_grid.attach (auto_save_label, 0, 8, 1, 1);
-        settings_grid.attach (auto_save_switch, 1, 8, 1, 1);
-        settings_grid.attach (destination_chooser_button, 1, 9, 1, 1);
+        settings_grid.attach (mic_label, 0, 2, 1, 1);
+        settings_grid.attach (mic_combobox, 1, 2, 1, 1);
+        settings_grid.attach (channels_label, 0, 3, 1, 1);
+        settings_grid.attach (channels_combobox, 1, 3, 1, 1);
+        settings_grid.attach (timer_header_label, 0, 4, 1, 1);
+        settings_grid.attach (delay_label, 0, 5, 1, 1);
+        settings_grid.attach (delay_spin, 1, 5, 1, 1);
+        settings_grid.attach (length_label, 0, 6, 1, 1);
+        settings_grid.attach (length_spin, 1, 6, 1, 1);
+        settings_grid.attach (saving_header_label, 0, 7, 1, 1);
+        settings_grid.attach (format_label, 0, 8, 1, 1);
+        settings_grid.attach (format_combobox, 1, 8, 1, 1);
+        settings_grid.attach (auto_save_label, 0, 9, 1, 1);
+        settings_grid.attach (auto_save_switch, 1, 9, 1, 1);
+        settings_grid.attach (destination_chooser_button, 1, 10, 1, 1);
 
         record_button = new Gtk.Button () {
             icon_name = "audio-input-microphone-symbolic",
@@ -166,6 +176,7 @@ public class WelcomeView : Gtk.Box {
             },
             null, null
         );
+        Application.settings.bind ("microphone", mic_combobox, "active", SettingsBindFlags.DEFAULT);
         // Convert between GSettings (string) and combobox index (uint)
         Application.settings.bind_with_mapping ("format", format_combobox, "selected", SettingsBindFlags.DEFAULT,
             (value, variant, user_data) => {
@@ -191,6 +202,19 @@ public class WelcomeView : Gtk.Box {
             },
             null, null
         );
+        // Make mic_combobox insensitive if selected source is "system" and sensitive otherwise
+        source_combobox.bind_property ("active_id", mic_combobox, "sensitive",
+            BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE,
+            (binding, from_value, ref to_value) => {
+                var active_id = (string) from_value;
+                to_value.set_boolean (active_id != "system");
+                return true;
+            }
+        );
+
+        mic_combobox.changed.connect (() => {
+            mic_combobox_ellipsize ();
+        });
 
         auto_save_switch.state_set.connect ((state) => {
             if (state == true) {
@@ -217,6 +241,8 @@ public class WelcomeView : Gtk.Box {
         record_button.clicked.connect (() => {
             trigger_recording ();
         });
+
+        DeviceManager.get_default ().device_updated.connect (update_mic_combobox);
     }
 
     private void get_destination () {
@@ -295,5 +321,30 @@ public class WelcomeView : Gtk.Box {
         } else {
             window.show_record ();
         }
+    }
+
+    private void update_mic_combobox () {
+        mic_combobox.remove_all ();
+
+        foreach (Gst.Device device in DeviceManager.get_default ().sources) {
+            mic_combobox.append (null, device.display_name);
+        }
+
+        // Set the first item active if there is no active item
+        if (mic_combobox.active == -1) {
+            mic_combobox.active = 0;
+        }
+
+        mic_combobox_ellipsize ();
+    }
+
+    private void mic_combobox_ellipsize () {
+        // Ellipsize if device name is long; otherwise the app window get stretched
+        unowned Gtk.CellRendererText first_cell = mic_combobox.get_cells ().nth_data (0) as Gtk.CellRendererText;
+        first_cell.width = 150;
+        first_cell.ellipsize = Pango.EllipsizeMode.END;
+
+        // Show full device name as a tooltip in case it's ellipsized
+        mic_combobox.tooltip_text = mic_combobox.get_active_text ();
     }
 }
