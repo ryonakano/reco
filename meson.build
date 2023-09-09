@@ -54,6 +54,7 @@ executable(
     config_file,
     sources,
     dependencies: [
+        dependency('gee-0.8'),
         dependency('granite-7'),
         dependency('gtk4'),
         dependency('gstreamer-1.0', version: '>= 1.20'),
