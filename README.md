@@ -35,8 +35,6 @@ You'll need the following dependencies to build:
 * libgtk-4-dev
 * libgranite-7-dev
 * libgstreamer1.0-dev (>= 1.20)
-* libpulse-dev
-* libpulse-mainloop-glib0
 * [livechart](https://github.com/lcallarec/live-chart) (commit `d364df43bd8336bf7ed461c57a28e97efa7115b1` or later)
 * meson (>= 0.57.0)
 * valac

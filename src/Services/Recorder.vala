@@ -137,7 +137,7 @@ public class Recorder : Object {
         if (source != SourceID.MIC) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
-                throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"sys_sound\"");
+                throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"sys_sound\"");
             }
 
             string? monitor_name = get_default_monitor_name ();
@@ -155,7 +155,7 @@ public class Recorder : Object {
             Gst.Device microphone = DeviceManager.get_default ().sources.get (microphone_number);
             mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
-                throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create pulsesrc element \"mic_sound\"");
+                throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"mic_sound\"");
             }
 
             debug ("sound source (microphone): \"%s\"", microphone.display_name);
