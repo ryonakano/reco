@@ -154,8 +154,8 @@ public class Recorder : Object {
 
         Gst.Element? mic_sound = null;
         if (source != SourceID.SYSTEM) {
-            int microphone_number = Application.settings.get_int ("microphone");
-            Gst.Device microphone = DeviceManager.get_default ().sources.get (microphone_number);
+            int index = DeviceManager.get_default ().selected_source_index;
+            Gst.Device microphone = DeviceManager.get_default ().sources[index];
             mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"mic_sound\"");
