@@ -19,6 +19,7 @@ modules:
       - type: git
         url: https://github.com/lcallarec/live-chart.git
         commit: d364df43bd8336bf7ed461c57a28e97efa7115b1
+
   - name: gst-libav
     buildsystem: meson
     config_opts:
@@ -28,6 +29,15 @@ modules:
         # we need to use the same version with gstreamer
         url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.20.6.tar.xz
         sha256: 7d619a030542a4a5a11e0302742a3d9b05f8e5cfc453025683a0379bc50aa013
+
+  - name: ryokucha
+    buildsystem: meson
+    sources:
+      # TODO: Replace with tarball when new release is published
+      - type: git
+        url: https://github.com/ryonakano/ryokucha.git
+        commit: b2846dfdaa9683dc712009f508fa08613cb62c46
+
   - name: reco
     buildsystem: meson
     sources:

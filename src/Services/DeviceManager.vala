@@ -12,7 +12,7 @@ public class DeviceManager : Object {
     public Gst.Device? default_source { get; private set; }
     public Gst.Device? default_sink { get; private set; }
 
-    public int selected_source_index { get; set; }
+    public uint selected_source_index { get; set; }
 
     private static DeviceManager? _instance = null;
     public static DeviceManager get_default () {

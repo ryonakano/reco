@@ -154,7 +154,7 @@ public class Recorder : Object {
 
         Gst.Element? mic_sound = null;
         if (source != SourceID.SYSTEM) {
-            int index = DeviceManager.get_default ().selected_source_index;
+            var index = (int) DeviceManager.get_default ().selected_source_index;
             Gst.Device microphone = DeviceManager.get_default ().sources[index];
             mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
