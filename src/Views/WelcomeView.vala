@@ -6,7 +6,7 @@
 public class WelcomeView : Gtk.Box {
     public MainWindow window { get; construct; }
 
-    private Gtk.ComboBoxText mic_combobox;
+    private Ryokucha.DropDownText mic_combobox;
     private Gtk.Switch auto_save_switch;
     private Gtk.Label destination_chooser_label;
     private Gtk.Button record_button;
@@ -29,32 +29,31 @@ public class WelcomeView : Gtk.Box {
         var source_label = new Gtk.Label (_("Record from:")) {
             halign = Gtk.Align.END
         };
-
-        var source_combobox = new Gtk.DropDown.from_strings ({
-            _("Microphone"),
-            _("System"),
-            _("Both")
-        }) {
+        var source_combobox = new Ryokucha.DropDownText () {
             halign = Gtk.Align.START
         };
+        source_combobox.append ("mic", _("Microphone"));
+        source_combobox.append ("system", _("System"));
+        source_combobox.append ("both", _("Both"));
 
         var mic_label = new Gtk.Label (_("Microphone:")) {
             halign = Gtk.Align.END
         };
-        mic_combobox = new Gtk.ComboBoxText () {
-            halign = Gtk.Align.START
+        mic_combobox = new Ryokucha.DropDownText () {
+            halign = Gtk.Align.START,
+            // Ellipsize if device name is long; otherwise the app window get stretched
+            max_width_chars = 20,
+            ellipsize = Pango.EllipsizeMode.END
         };
 
         var channels_label = new Gtk.Label (_("Channels:")) {
             halign = Gtk.Align.END
         };
-
-        var channels_combobox = new Gtk.DropDown.from_strings ({
-            _("Mono"),
-            _("Stereo")
-        }) {
+        var channels_combobox = new Ryokucha.DropDownText () {
             halign = Gtk.Align.START
         };
+        channels_combobox.append ("mono", _("Mono"));
+        channels_combobox.append ("stereo", _("Stereo"));
 
         var timer_header_label = new Granite.HeaderLabel (_("Timer"));
 
@@ -82,16 +81,15 @@ public class WelcomeView : Gtk.Box {
             halign = Gtk.Align.END
         };
 
-        var format_combobox = new Gtk.DropDown.from_strings ({
-            _("ALAC"),
-            _("FLAC"),
-            _("MP3"),
-            _("Ogg Vorbis"),
-            _("Opus"),
-            _("WAV"),
-        }) {
+        var format_combobox = new Ryokucha.DropDownText () {
             halign = Gtk.Align.START
         };
+        format_combobox.append ("alac", _("ALAC"));
+        format_combobox.append ("flac", _("FLAC"));
+        format_combobox.append ("mp3", _("MP3"));
+        format_combobox.append ("ogg", _("Ogg Vorbis"));
+        format_combobox.append ("opus", _("Opus"));
+        format_combobox.append ("wav", _("WAV"));
 
         var auto_save_label = new Gtk.Label (_("Automatically save files:")) {
             halign = Gtk.Align.END
@@ -164,46 +162,11 @@ public class WelcomeView : Gtk.Box {
 
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
-        // Convert between GSettings (string) and combobox index (uint)
-        Application.settings.bind_with_mapping ("source", source_combobox, "selected", SettingsBindFlags.DEFAULT,
-            (value, variant, user_data) => {
-                var id = Recorder.SourceID.from_string (variant.get_string ());
-                value.set_uint (id);
-                return true;
-            },
-            (value, expected_type, user_data) => {
-                return new Variant ("s", ((Recorder.SourceID) value.get_uint ()).to_string ());
-            },
-            null, null
-        );
-        Application.settings.bind ("microphone", mic_combobox, "active", SettingsBindFlags.DEFAULT);
-        // Convert between GSettings (string) and combobox index (uint)
-        Application.settings.bind_with_mapping ("format", format_combobox, "selected", SettingsBindFlags.DEFAULT,
-            (value, variant, user_data) => {
-                var id = Recorder.FormatID.from_string (variant.get_string ());
-                value.set_uint (id);
-                return true;
-            },
-            (value, expected_type, user_data) => {
-                return new Variant ("s", ((Recorder.FormatID) value.get_uint ()).to_string ());
-            },
-            null, null
-        );
-        // Convert between GSettings (string) and combobox index (uint)
-        // Also consider the differences between the number of channels (1-based) and combobox index (0-based)
-        Application.settings.bind_with_mapping ("channel", channels_combobox, "selected", SettingsBindFlags.DEFAULT,
-            (value, variant, user_data) => {
-                var id = Recorder.ChannelID.from_string (variant.get_string ());
-                value.set_uint (id - 1);
-                return true;
-            },
-            (value, expected_type, user_data) => {
-                return new Variant ("s", ((Recorder.ChannelID) (value.get_uint () + 1)).to_string ());
-            },
-            null, null
-        );
+        Application.settings.bind ("source", source_combobox, "active-id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("format", format_combobox, "active-id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("channel", channels_combobox, "active-id", SettingsBindFlags.DEFAULT);
         // Make mic_combobox insensitive if selected source is "system" and sensitive otherwise
-        source_combobox.bind_property ("active_id", mic_combobox, "sensitive",
+        source_combobox.bind_property ("active-id", mic_combobox, "sensitive",
             BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE,
             (binding, from_value, ref to_value) => {
                 var active_id = (string) from_value;
@@ -211,9 +174,12 @@ public class WelcomeView : Gtk.Box {
                 return true;
             }
         );
+        mic_combobox.dropdown.bind_property ("selected", DeviceManager.get_default (), "selected-source-index",
+            BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
+        );
 
         mic_combobox.changed.connect (() => {
-            mic_combobox_ellipsize ();
+            update_mic_combobox_tooltip ();
         });
 
         auto_save_switch.state_set.connect ((state) => {
@@ -330,20 +296,10 @@ public class WelcomeView : Gtk.Box {
             mic_combobox.append (null, device.display_name);
         }
 
-        // Set the first item active if there is no active item
-        if (mic_combobox.active == -1) {
-            mic_combobox.active = 0;
-        }
-
-        mic_combobox_ellipsize ();
+        update_mic_combobox_tooltip ();
     }
 
-    private void mic_combobox_ellipsize () {
-        // Ellipsize if device name is long; otherwise the app window get stretched
-        unowned Gtk.CellRendererText first_cell = mic_combobox.get_cells ().nth_data (0) as Gtk.CellRendererText;
-        first_cell.width = 150;
-        first_cell.ellipsize = Pango.EllipsizeMode.END;
-
+    private void update_mic_combobox_tooltip () {
         // Show full device name as a tooltip in case it's ellipsized
         mic_combobox.tooltip_text = mic_combobox.get_active_text ();
     }

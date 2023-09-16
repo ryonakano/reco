@@ -60,6 +60,7 @@ executable(
         dependency('gtk4', version: '>= 4.10'),
         # TODO: Add limitation for GTK4 supported version
         dependency('livechart'),
+        dependency('ryokucha'),
         dependency('pango')
     ],
     link_args: ['-X', '-lm'],
