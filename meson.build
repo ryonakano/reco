@@ -36,6 +36,14 @@ gnome.post_install(
     gtk_update_icon_cache: true
 )
 
+dependencies = [
+    dependency('gee-0.8'),
+    dependency('granite-7'),
+    dependency('gstreamer-1.0', version: '>= 1.20'),
+    dependency('gtk4', version: '>= 4.10'),
+    dependency('pango')
+]
+
 sources = files(
     'src' / 'Services' / 'DeviceManager.vala',
     'src' / 'Services' / 'Recorder.vala',
@@ -48,21 +56,26 @@ sources = files(
     'src' / 'StyleSwitcher.vala'
 )
 
+if get_option('use_submodule')
+    livechart_subproject = subproject('live-chart')
+    livechart_deps = livechart_subproject.get_variable('livechart_static_dep')
+    dependencies += livechart_deps
+
+    ryokucha_subproject = subproject('ryokucha')
+    ryokucha_deps = ryokucha_subproject.get_variable('libryokucha')
+    dependencies += ryokucha_deps
+else
+    # TODO: Add limitation for GTK4 supported version
+    dependencies += dependency('livechart')
+    dependencies += dependency('ryokucha')
+endif
+
 executable(
     meson.project_name(),
     asresources,
     config_file,
     sources,
-    dependencies: [
-        dependency('gee-0.8'),
-        dependency('granite-7'),
-        dependency('gstreamer-1.0', version: '>= 1.20'),
-        dependency('gtk4', version: '>= 4.10'),
-        # TODO: Add limitation for GTK4 supported version
-        dependency('livechart'),
-        dependency('ryokucha'),
-        dependency('pango')
-    ],
+    dependencies: dependencies,
     link_args: ['-X', '-lm'],
     install: true
 )
