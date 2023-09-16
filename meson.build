@@ -60,6 +60,7 @@ executable(
         dependency('gstreamer-1.0', version: '>= 1.20'),
         # TODO: Add limitation for GTK4 supported version
         dependency('livechart'),
+        dependency('ryokucha'),
         dependency('pango')
     ],
     link_args: ['-X', '-lm'],
