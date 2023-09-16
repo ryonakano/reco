@@ -160,7 +160,6 @@ public class WelcomeView : Gtk.Box {
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("source", source_combobox, "active_id", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("microphone", mic_combobox, "active", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active_id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channel", channels_combobox, "active_id", SettingsBindFlags.DEFAULT);
         // Make mic_combobox insensitive if selected source is "system" and sensitive otherwise
@@ -171,6 +170,9 @@ public class WelcomeView : Gtk.Box {
                 to_value.set_boolean (active_id != "system");
                 return true;
             }
+        );
+        mic_combobox.bind_property ("active", DeviceManager.get_default (), "selected-source-index",
+            BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
         );
 
         mic_combobox.changed.connect (() => {
