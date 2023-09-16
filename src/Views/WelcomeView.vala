@@ -41,6 +41,7 @@ public class WelcomeView : Gtk.Box {
         };
         mic_combobox = new Ryokucha.DropDownText () {
             halign = Gtk.Align.START,
+            // Ellipsize if device name is long; otherwise the app window get stretched
             max_width_chars = 20,
             ellipsize = Pango.EllipsizeMode.END
         };
