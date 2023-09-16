@@ -69,110 +69,24 @@ public class Recorder : Object {
     private Gst.Pipeline pipeline;
     private uint inhibit_token = 0;
 
-    public enum SourceID {
+    private enum SourceID {
         MIC,
         SYSTEM,
-        BOTH;
-
-        public string to_string () {
-            switch (this) {
-                case SourceID.MIC:
-                    return "mic";
-                case SourceID.SYSTEM:
-                    return "system";
-                case SourceID.BOTH:
-                    return "both";
-                default:
-                    assert_not_reached ();
-            }
-        }
-
-        public static SourceID from_string (string value) {
-            switch (value) {
-                case "mic":
-                    return SourceID.MIC;
-                case "system":
-                    return SourceID.SYSTEM;
-                case "both":
-                    return SourceID.BOTH;
-                default:
-                    assert_not_reached ();
-            }
-        }
+        BOTH
     }
 
-    public enum FormatID {
+    private enum FormatID {
         ALAC,
         FLAC,
         MP3,
         OGG,
         OPUS,
-        WAV;
-
-        public string to_string () {
-            switch (this) {
-                case FormatID.ALAC:
-                    return "alac";
-                case FormatID.FLAC:
-                    return "flac";
-                case FormatID.MP3:
-                    return "mp3";
-                case FormatID.OGG:
-                    return "ogg";
-                case FormatID.OPUS:
-                    return "opus";
-                case FormatID.WAV:
-                    return "wav";
-                default:
-                    assert_not_reached ();
-            }
-        }
-
-        public static FormatID from_string (string value) {
-            switch (value) {
-                case "alac":
-                    return FormatID.ALAC;
-                case "flac":
-                    return FormatID.FLAC;
-                case "mp3":
-                    return FormatID.MP3;
-                case "ogg":
-                    return FormatID.OGG;
-                case "opus":
-                    return FormatID.OPUS;
-                case "wav":
-                    return FormatID.WAV;
-                default:
-                    assert_not_reached ();
-            }
-        }
+        WAV
     }
 
-    public enum ChannelID {
+    private enum ChannelID {
         MONO = 1,
-        STEREO = 2;
-
-        public string to_string () {
-            switch (this) {
-                case ChannelID.MONO:
-                    return "mono";
-                case ChannelID.STEREO:
-                    return "stereo";
-                default:
-                    assert_not_reached ();
-            }
-        }
-
-        public static ChannelID from_string (string value) {
-            switch (value) {
-                case "mono":
-                    return ChannelID.MONO;
-                case "stereo":
-                    return ChannelID.STEREO;
-                default:
-                    assert_not_reached ();
-            }
-        }
+        STEREO = 2
     }
 
     private struct FormatData {
