@@ -1,1 +1,1 @@
-option('use_submodule', type: 'boolean', value: 'true', description: 'Whether to build using git submodule')
+option('use_submodule', type: 'boolean', value: true, description: 'Whether to build using git submodule')
