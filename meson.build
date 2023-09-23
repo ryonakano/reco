@@ -76,7 +76,7 @@ executable(
     config_file,
     sources,
     dependencies: dependencies,
-    link_args: ['-X', '-lm'],
+    link_args: ['-lm'],
     install: true
 )
 
