@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # ALBANO BATTISTELLA <albano_battistella@hotmail.com>, 2021,2022.
-# albanobattistella <albano_battistella@hotmail.com>, 2022.
+# albanobattistella <albano_battistella@hotmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-03 22:17+0900\n"
-"PO-Revision-Date: 2022-11-21 12:47+0000\n"
+"PO-Revision-Date: 2023-10-08 04:09+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco-app/it/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: src/MainWindow.vala:38
 msgid "Preferences"
@@ -109,10 +109,8 @@ msgid "Both"
 msgstr "Entrambi"
 
 #: src/Views/WelcomeView.vala:39
-#, fuzzy
-#| msgid "Microphone"
 msgid "Microphone:"
-msgstr "Microfono"
+msgstr "Microfono:"
 
 #: src/Views/WelcomeView.vala:49
 msgid "Channels:"
