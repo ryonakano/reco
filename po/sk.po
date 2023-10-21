@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Ryo Nakano <ryonakaknock3@gmail.com>, 2022.
 # JohnDumpling <john_dumpling@protonmail.com>, 2022, 2023.
+# Milan Šalka <salka.milan@googlemail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 19:59+0900\n"
-"PO-Revision-Date: 2023-05-25 11:53+0000\n"
-"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"POT-Creation-Date: 2023-10-03 22:17+0900\n"
+"PO-Revision-Date: 2023-10-05 21:11+0000\n"
+"Last-Translator: Milan Šalka <salka.milan@googlemail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/rosp/reco-app/sk/>"
 "\n"
 "Language: sk\n"
@@ -17,31 +18,33 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
-#: src/MainWindow.vala:57
+#: src/MainWindow.vala:38
 msgid "Preferences"
 msgstr "Predvoľby"
 
-#. TRANSLATORS: %s represents a timestamp here
-#: src/MainWindow.vala:143
+#. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
+#. Suffix is automatically appended depending on the recording format.
+#. e.g. "Recording from 2018-11-10 23.42.36.wav"
+#: src/MainWindow.vala:126
 #, c-format
 msgid "Recording from %s"
 msgstr "Nahráva sa od %s"
 
-#: src/MainWindow.vala:159
+#: src/MainWindow.vala:142
 msgid "Save your recording"
 msgstr "Uložiť nahrávku"
 
-#: src/MainWindow.vala:219 src/MainWindow.vala:237
+#: src/MainWindow.vala:202 src/MainWindow.vala:220
 msgid "Unable to Complete Recording"
 msgstr "Nepodarilo sa dokončiť nahrávanie"
 
-#: src/MainWindow.vala:220 src/MainWindow.vala:238
+#: src/MainWindow.vala:203 src/MainWindow.vala:221
 msgid "The following error message may be helpful:"
 msgstr "Nasledujúce chybové hlásenie môže byť užitočné:"
 
-#: src/StyleSwitcher.vala:26
+#: src/StyleSwitcher.vala:28
 msgid "Style:"
 msgstr "Štýl:"
 
@@ -49,15 +52,15 @@ msgstr "Štýl:"
 msgid "Light"
 msgstr "Svetlý"
 
-#: src/StyleSwitcher.vala:35
+#: src/StyleSwitcher.vala:33
 msgid "Dark"
 msgstr "Tmavý"
 
-#: src/StyleSwitcher.vala:41 src/Views/WelcomeView.vala:35
+#: src/StyleSwitcher.vala:34 src/Views/WelcomeView.vala:36
 msgid "System"
 msgstr "Systém"
 
-#: src/Services/Recorder.vala:235
+#: src/Services/Recorder.vala:298
 msgid "Recording is ongoing"
 msgstr "Prebieha nahrávanie"
 
@@ -74,112 +77,115 @@ msgstr "Pozastaviť odpočítavanie"
 msgid "Resume the countdown"
 msgstr "Znova spustiť odpočítavanie"
 
-#: src/Views/RecordView.vala:57
+#: src/Views/RecordView.vala:58
 msgid "Cancel recording"
 msgstr "Zrušiť nahrávanie"
 
-#: src/Views/RecordView.vala:64
+#: src/Views/RecordView.vala:65
 msgid "Finish recording"
 msgstr "Dokončiť nahrávanie"
 
-#: src/Views/RecordView.vala:74 src/Views/RecordView.vala:98
-#: src/Views/RecordView.vala:129 src/Views/RecordView.vala:141
+#: src/Views/RecordView.vala:75 src/Views/RecordView.vala:276
 msgid "Pause recording"
 msgstr "Pozastaviť nahrávanie"
 
-#: src/Views/RecordView.vala:119
+#: src/Views/RecordView.vala:281
 msgid "Resume recording"
 msgstr "Znova spustiť nahrávanie"
 
-#: src/Views/WelcomeView.vala:26
+#: src/Views/WelcomeView.vala:27
 msgid "Source"
 msgstr "Zdroj"
 
-#: src/Views/WelcomeView.vala:28
+#: src/Views/WelcomeView.vala:29
 msgid "Record from:"
 msgstr "Nahrávať z:"
 
-#: src/Views/WelcomeView.vala:34
+#: src/Views/WelcomeView.vala:35
 msgid "Microphone"
 msgstr "Mikrofón"
 
-#: src/Views/WelcomeView.vala:36
+#: src/Views/WelcomeView.vala:37
 msgid "Both"
 msgstr "Obidva"
 
-#: src/Views/WelcomeView.vala:38
+#: src/Views/WelcomeView.vala:39
+msgid "Microphone:"
+msgstr "Mikrofón:"
+
+#: src/Views/WelcomeView.vala:49
 msgid "Channels:"
 msgstr "Kanály:"
 
-#: src/Views/WelcomeView.vala:44
+#: src/Views/WelcomeView.vala:55
 msgid "Mono"
 msgstr "Mono"
 
-#: src/Views/WelcomeView.vala:45
+#: src/Views/WelcomeView.vala:56
 msgid "Stereo"
 msgstr "Stereo"
 
-#: src/Views/WelcomeView.vala:47
+#: src/Views/WelcomeView.vala:58
 msgid "Timer"
 msgstr "Časovač"
 
-#: src/Views/WelcomeView.vala:49
+#: src/Views/WelcomeView.vala:60
 msgid "Delay in seconds:"
 msgstr "Oneskorenie v sekundách:"
 
-#: src/Views/WelcomeView.vala:56
+#: src/Views/WelcomeView.vala:67
 msgid "Length in seconds:"
 msgstr "Dĺžka v sekundách:"
 
-#: src/Views/WelcomeView.vala:67
+#: src/Views/WelcomeView.vala:78
 msgid "Saving"
 msgstr "Ukladanie"
 
-#: src/Views/WelcomeView.vala:69
+#: src/Views/WelcomeView.vala:80
 msgid "Format:"
 msgstr "Formát:"
 
-#: src/Views/WelcomeView.vala:76
+#: src/Views/WelcomeView.vala:87
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/Views/WelcomeView.vala:77
+#: src/Views/WelcomeView.vala:88
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:78
+#: src/Views/WelcomeView.vala:89
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:79
+#: src/Views/WelcomeView.vala:90
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:80
+#: src/Views/WelcomeView.vala:91
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:81
+#: src/Views/WelcomeView.vala:92
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:83
+#: src/Views/WelcomeView.vala:94
 msgid "Automatically save files:"
 msgstr "Automaticky ukladať súbory:"
 
-#: src/Views/WelcomeView.vala:101 src/Views/WelcomeView.vala:212
+#: src/Views/WelcomeView.vala:112 src/Views/WelcomeView.vala:242
 msgid "Choose a default destination"
 msgstr "Vybrať predvolený cieľ"
 
-#: src/Views/WelcomeView.vala:138
+#: src/Views/WelcomeView.vala:151
 msgid "Start recording"
 msgstr "Spustiť nahrávanie"
 
-#: src/Views/WelcomeView.vala:203
+#: src/Views/WelcomeView.vala:234
 msgid "Select destination…"
 msgstr "Vyberte cieľ…"
 
-#: src/Views/WelcomeView.vala:213
+#: src/Views/WelcomeView.vala:243
 msgid "Select"
 msgstr "Vybrať"
 

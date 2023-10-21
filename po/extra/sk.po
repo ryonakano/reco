@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 19:59+0900\n"
+"POT-Creation-Date: 2023-10-03 22:17+0900\n"
 "PO-Revision-Date: 2023-08-10 09:49+0000\n"
 "Last-Translator: Milan Šalka <salka.milan@googlemail.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/rosp/"
-"reco-metadata/sk/>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/rosp/reco-"
+"metadata/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,495 +101,6 @@ msgstr "Indikácia, že sa nahrávanie úspešne dokončilo"
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 
-#: data/reco.metainfo.xml.in:67
-msgid "Show important errors to users"
-msgstr "Zobrazovať používateľom dôležité chyby"
-
-#: data/reco.metainfo.xml.in:68 data/reco.metainfo.xml.in:92
-msgid "Update Flatpak runtime version"
-msgstr "Aktualizovať verziu Flatpak runtime"
-
-#: data/reco.metainfo.xml.in:69
-msgid "Improve app metainfo"
-msgstr "Zlepšenie metainformácií aplikácie"
-
-#: data/reco.metainfo.xml.in:70
-msgid "Review label notation"
-msgstr "Kontrola zápisu štítkov"
-
-#: data/reco.metainfo.xml.in:71
-msgid "Improve the way to load custom icons"
-msgstr "Zlepšenie spôsobu nahrávania vlastných ikon"
-
-#: data/reco.metainfo.xml.in:72 data/reco.metainfo.xml.in:84
-#: data/reco.metainfo.xml.in:93 data/reco.metainfo.xml.in:367
-msgid "Update translations"
-msgstr "Aktualizované preklady"
-
-#: data/reco.metainfo.xml.in:80
-msgid "Migrate to GTK 4, the latest version of GTK"
-msgstr "Migrácia na GTK 4, čo je najnovšia verzia GTK"
-
-#: data/reco.metainfo.xml.in:81
-msgid "Get disk access permission only when the user allowed"
-msgstr ""
-"Získať povolenie na prístup k disku len vtedy, keď to používateľ povolil"
-
-#: data/reco.metainfo.xml.in:82
-msgid "Hide remaining time label when unnecessary"
-msgstr "Skryť štítok zostávajúceho času, keď nie je potrebný"
-
-#: data/reco.metainfo.xml.in:83
-msgid ""
-"Fix no style button selected on non-Pantheon desktop environments when first "
-"launch"
-msgstr ""
-"Opraviť tlačidlo bez štýlu vybraté pri prvom spustení v ne-Pantheonových "
-"pracovných prostrediach"
-
-#: data/reco.metainfo.xml.in:101
-msgid "Check desktop environment on runtime"
-msgstr "Zistiť pracovné prostredie pri spustení aplikácie"
-
-#: data/reco.metainfo.xml.in:102
-msgid "Show nicer message dialogs depending on the running desktop environment"
-msgstr ""
-"Zobrazovať krajšie dialógy so správami podľa používaného pracovného "
-"prostredia"
-
-#: data/reco.metainfo.xml.in:104 data/reco.metainfo.xml.in:119
-#: data/reco.metainfo.xml.in:146 data/reco.metainfo.xml.in:162
-#: data/reco.metainfo.xml.in:179
-msgid "Translation updates:"
-msgstr "Aktualizácie prekladov:"
-
-#: data/reco.metainfo.xml.in:106
-msgid "Update French translation (thanks to @NathanBnm)"
-msgstr "Aktualizácia prekladu do francúzštiny (vďaka @NathanBnm)"
-
-#: data/reco.metainfo.xml.in:107 data/reco.metainfo.xml.in:149
-#: data/reco.metainfo.xml.in:182 data/reco.metainfo.xml.in:192
-msgid "Update Portuguese translation (thanks to @hugok79)"
-msgstr "Aktualizácia prekladu do portugalčiny (vďaka @hugok79)"
-
-#: data/reco.metainfo.xml.in:108 data/reco.metainfo.xml.in:148
-#: data/reco.metainfo.xml.in:202 data/reco.metainfo.xml.in:246
-msgid "Update Dutch translation (thanks to @Vistaus)"
-msgstr "Aktualizácia prekladu do holandčiny (vďaka @Vistaus)"
-
-#: data/reco.metainfo.xml.in:109
-msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
-msgstr "Pridaný preklad do zjednodušenej čínštiny (vďaka @ShuiHuo)"
-
-#: data/reco.metainfo.xml.in:116
-msgid "Reco is now available on Flathub too!"
-msgstr "Reco je po novo dostupný už aj na Flathube!"
-
-#: data/reco.metainfo.xml.in:121 data/reco.metainfo.xml.in:183
-msgid "Update Spanish translation (thanks to @Eldhrimer)"
-msgstr "Aktualizácia prekladu do španielčiny (vďaka @Eldhrimer)"
-
-#: data/reco.metainfo.xml.in:122 data/reco.metainfo.xml.in:150
-#: data/reco.metainfo.xml.in:164
-msgid "Update Italian translation (thanks to @albanobattistella)"
-msgstr "Aktualizovaný preklad do taliančiny (vďaka @albanobattistella)"
-
-#: data/reco.metainfo.xml.in:129
-msgid "Let's celebrate the new year with the issue from the ancient fixed!"
-msgstr "Oslávme nový rok s opravou prastarej chyby!"
-
-#: data/reco.metainfo.xml.in:133
-msgid ""
-"Replace AAC option with ALAC to prevent strange stereo files being generated"
-msgstr ""
-"Nahradenie možnosti AAC s ALAC, aby sa zabránilo vytváraniu zvláštnych "
-"stereo súborov"
-
-#: data/reco.metainfo.xml.in:140
-msgid "The release for celebrating the 3rd anniversary of the app!"
-msgstr "Vydanie na oslavu 3. výročia aplikácie!"
-
-#: data/reco.metainfo.xml.in:144
-msgid "Add new style switcher"
-msgstr "Pridaný nový prepínač štýlov"
-
-#: data/reco.metainfo.xml.in:151 data/reco.metainfo.xml.in:165
-#: data/reco.metainfo.xml.in:184 data/reco.metainfo.xml.in:194
-#: data/reco.metainfo.xml.in:224 data/reco.metainfo.xml.in:234
-#: data/reco.metainfo.xml.in:259 data/reco.metainfo.xml.in:279
-#: data/reco.metainfo.xml.in:291 data/reco.metainfo.xml.in:332
-#: data/reco.metainfo.xml.in:342 data/reco.metainfo.xml.in:353
-#: data/reco.metainfo.xml.in:377 data/reco.metainfo.xml.in:390
-#: data/reco.metainfo.xml.in:401
-msgid "Update Japanese translation"
-msgstr "Aktualizácia prekladu do japončiny"
-
-#: data/reco.metainfo.xml.in:159
-msgid ""
-"Use the user cache folder instead of the system temporary folder to save "
-"temporary recording files"
-msgstr ""
-"Používať používateľský cache priečinok namiesto systémového dočasného "
-"priečinka na ukladanie dočasných súborov nahrávok"
-
-#: data/reco.metainfo.xml.in:160
-msgid "Fix wrong OARS data"
-msgstr "Opravené nesprávne OARS údaje"
-
-#: data/reco.metainfo.xml.in:173
-msgid ""
-"Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
-"manifest"
-msgstr ""
-"Uverejnenie aplikácie do nového AppCentra na elementary OS 6 s Flatpak "
-"manifestom"
-
-#: data/reco.metainfo.xml.in:174
-msgid "A completely rewritten and improved method to detect recording sources"
-msgstr "Úplne prepísaná a vylepšená metóda zisťovania zdrojov nahrávania"
-
-#: data/reco.metainfo.xml.in:175
-msgid ""
-"Redesign: Separate Delay and Duration settings from Recording section as "
-"Timer section and put it under Recording section"
-msgstr ""
-"Nový vzhľad: Oddeliť nastavenia oneskorenia a trvania z časti pre nahrávanie "
-"ako súčasť časovača a umiestniť ich pod časť pre nahrávanie"
-
-#: data/reco.metainfo.xml.in:176
-msgid "Make sure to show a dialog for any errors in recording"
-msgstr ""
-"Uistiť sa, že sa zobrazí dialóg pri zistení akejkoľvek chyby s nahrávaním"
-
-#: data/reco.metainfo.xml.in:177
-msgid "Code refactoring"
-msgstr "Reštrukturalizácia kódu"
-
-#: data/reco.metainfo.xml.in:181
-msgid "Add Brazilian Portuguese translation (thanks to @mathessaricci)"
-msgstr "Pridaný preklad do brazílskej portugalčiny (vďaka @mathessaricci)"
-
-#: data/reco.metainfo.xml.in:193
-msgid ""
-"Update Spanish translation and add Catalan translation (thanks to @fitojb)"
-msgstr ""
-"Aktualizácia prekladu do španielčiny a pridaný preklad do katalánčiny (vďaka "
-"@fitojb)"
-
-#: data/reco.metainfo.xml.in:203
-msgid ""
-"Revert another change done in version 2.4.3 that potentially caused an error "
-"during the packaging process"
-msgstr ""
-"Vrátenie ďalšej zmeny vykonanej vo verzii 2.4.3, ktorá potenciálne "
-"spôsobovala chybu počas procesu balenia"
-
-#: data/reco.metainfo.xml.in:204
-msgid "Revive the change that had been reverted in version 2.4.4"
-msgstr "Obnovenie zmeny, ktorá bola vrátená vo verzii 2.4.4"
-
-#: data/reco.metainfo.xml.in:212
-msgid ""
-"Revert changes done in version 2.4.3 that potentially caused an error during "
-"the packaging process"
-msgstr ""
-"Vrátenie zmien vykonaných vo verzii 2.4.3, ktorá potenciálne spôsobovali "
-"chybu počas procesu balenia"
-
-#: data/reco.metainfo.xml.in:220
-msgid "MainWindow: Readable copy for dialog messages"
-msgstr "Hlavné okno: Čitateľná kópia dialógových správ"
-
-#: data/reco.metainfo.xml.in:221
-msgid ""
-"MainWindow: Add window title for the new Gala feature that shows windows "
-"titles in Multitasking view"
-msgstr ""
-"Hlavné okno: Pridaný názov okna pre novú funkciu Gala, ktorá zobrazuje názvy "
-"okien v Zobrazení úloh"
-
-#: data/reco.metainfo.xml.in:222
-msgid "Add Italian translation (thanks to @albanobattistella)"
-msgstr "Pridaný preklad do taliančiny (vďaka @albanobattistella)"
-
-#: data/reco.metainfo.xml.in:223
-msgid "Add Portuguese translation (thanks to @hugok79)"
-msgstr "Pridaný preklad do portugalčiny (vďaka @hugok79)"
-
-#: data/reco.metainfo.xml.in:225
-msgid "Clean code"
-msgstr "Upratanie kódu"
-
-#: data/reco.metainfo.xml.in:233
-msgid "Inhibit sleeping while recording"
-msgstr "Zabránenie uspania počas nahrávania"
-
-#: data/reco.metainfo.xml.in:242
-msgid ""
-"Make sure GSettings key \"length\" and \"delay\" take only natural numbers"
-msgstr ""
-"Zaistené, že GSettings kľúč „length“ a „delay“ prijíma iba prirodzené čísla"
-
-#: data/reco.metainfo.xml.in:243
-msgid "Follow API change of Gtk.FileChooser in GTK 4"
-msgstr "Nasledovať zmenu API pre Gtk.FileChooser v GTK 4"
-
-#: data/reco.metainfo.xml.in:244
-msgid "Fix temporary recordings are not deleted on error"
-msgstr ""
-"Oprava problému, keď sa dočasné nahrávky nevymazávali pri výskyte chyby"
-
-#: data/reco.metainfo.xml.in:245
-msgid "Fix some microphones are not recognized (thanks to @peteruithoven)"
-msgstr ""
-"Oprava problému, keď sa nerozpoznali niektoré mikrofóny (vďaka "
-"@peteruithoven)"
-
-#: data/reco.metainfo.xml.in:247
-msgid "Update Turkish translation (thanks to @safak45x)"
-msgstr "Aktualizácia prekladu do turečtiny (vďaka @safak45x)"
-
-#: data/reco.metainfo.xml.in:255
-msgid "Respect an elementary OS-wide dark preference"
-msgstr "Rešpektovať globálnu preferenciu tmavého štýlu v elementary OS"
-
-#: data/reco.metainfo.xml.in:256
-msgid "Allow setting per-app dark style preference"
-msgstr ""
-"Umožnenie zmeny predvoľby tmavého štýlu v aplikácii nezávisle od systémového "
-"nastavenia"
-
-#: data/reco.metainfo.xml.in:257
-msgid "Allow choosing stereo or mono"
-msgstr "Umožnenie výberu stereo alebo mono"
-
-#: data/reco.metainfo.xml.in:258
-msgid "Update Spanish translation (thanks to @CCaroV)"
-msgstr "Aktualizácia prekladu do španielčiny (vďaka @CCaroV)"
-
-#: data/reco.metainfo.xml.in:260
-msgid ""
-"Explicit gstreamer1.0-libav as a dependency to fix a potential crash when "
-"trying to record in AAC"
-msgstr ""
-"Zrozumiteľne vyjadriť gstreamer 1.0-libav ako závislosť pre opravu "
-"potenciálneho pádu pri pokuse o nahrávanie vo formáte AAC"
-
-#: data/reco.metainfo.xml.in:268
-msgid "Add Turkish translation (by @safak45x)"
-msgstr "Pridaný preklad do turečtiny (od @safak45x)"
-
-#: data/reco.metainfo.xml.in:269
-msgid "Add Russian translation (by @usmanovmax)"
-msgstr "Pridaný preklad do ruštiny (od @usmanovmax)"
-
-#: data/reco.metainfo.xml.in:277
-msgid "Add Polish translation (by @michalzkosmosu)"
-msgstr "Pridaný preklad do poľštiny (od @michalzkosmosu)"
-
-#: data/reco.metainfo.xml.in:278
-msgid "Update French translation (by @NathanBnm)"
-msgstr "Aktualizácia prekladu do francúzštiny (od @NathanBnm)"
-
-#: data/reco.metainfo.xml.in:287
-msgid ""
-"Fix the weird behavior of the countdown timer when pausing/canceling it (by "
-"andreasomaini)"
-msgstr ""
-"Oprava divného správania časovača odpočítavania pri pozastavení alebo "
-"zrušení (od andreasomaini)"
-
-#: data/reco.metainfo.xml.in:288
-msgid ""
-"Support recording sounds from both your microphone and PC at the same time"
-msgstr "Podpora nahrávania zvukov z mikrofónu aj počítača zároveň"
-
-#: data/reco.metainfo.xml.in:289
-msgid "End the app safely if the encoder is not created successfully"
-msgstr "Bezpečne ukončiť aplikáciu, ak sa kódovač nevytvorí správne"
-
-#: data/reco.metainfo.xml.in:290
-msgid ""
-"Update the app description in the readme and AppCenter to be more tantalizing"
-msgstr ""
-"Aktualizácia popisu aplikácie v súbore readme a v AppCentre, aby bol "
-"zaujímavejší"
-
-#: data/reco.metainfo.xml.in:292
-msgid "Remove unnecessary field code that marks the app handleable files"
-msgstr ""
-"Odstránenie nepotrebného kódu políčka, ktoré označuje použiteľné typy súborov"
-
-#: data/reco.metainfo.xml.in:300
-msgid "Fix recording won't success when changing the file format"
-msgstr "Oprava neúspešného nahrávania pri zmene formátu súboru"
-
-#: data/reco.metainfo.xml.in:301
-msgid "Add Spanish translation (by fitojb)"
-msgstr "Pridaný preklad do španielčiny (od fitojb)"
-
-#: data/reco.metainfo.xml.in:309
-msgid "Getting/setting window positions gets more efficient"
-msgstr "Získavanie/nastavovanie pozície okna je efektívnejšie"
-
-#: data/reco.metainfo.xml.in:310
-msgid ""
-"Fix the app does not resume the pause icon when you cancel recording while "
-"pausing it"
-msgstr ""
-"Oprava problému, keď aplikácia nezobrazí znova ikonku pozastavenia, keď "
-"zrušíte nahrávanie počas pozastavenia"
-
-#: data/reco.metainfo.xml.in:311
-msgid ""
-"Fix the app shows the successful mark even if a recording is not saved "
-"correctly"
-msgstr ""
-"Oprava problému, keď aplikácia zobrazila ikonku úspešného dokončenia napriek "
-"tomu, že sa nahrávka nesprávne uložila"
-
-#: data/reco.metainfo.xml.in:312
-msgid "Save and restore values typed into the spin buttons"
-msgstr "Uložiť a obnoviť hodnoty napísané do otočných tlačidiel"
-
-#: data/reco.metainfo.xml.in:320
-msgid "Allow to cancel/pause countdown before recording"
-msgstr "Umožnenie zrušenia/pozastavenia odpočítavania pred nahrávaním"
-
-#: data/reco.metainfo.xml.in:321
-msgid "Save recordings when the app window is destroyed"
-msgstr "Ukladať nahrávky, keď sa aplikácia nečakane ukončí"
-
-#: data/reco.metainfo.xml.in:322
-msgid "Fix the app freezes on closing an error dialog"
-msgstr "Oprava chyby, keď aplikácia zamrzla po zatvorení chybového dialógu"
-
-#: data/reco.metainfo.xml.in:330
-msgid "Allow to record system sound"
-msgstr "Umožnenie nahrávania systémových zvukov"
-
-#: data/reco.metainfo.xml.in:331
-msgid "Fix the timer does not stop in accordance with the recording"
-msgstr "Oprava chyby, keď časovač nezastaví v súlade s nahrávaním"
-
-#: data/reco.metainfo.xml.in:340
-msgid "Grammatically fixes in the app description (by imasaru)"
-msgstr "Opravy gramatiky v popise aplikácie (od imasaru)"
-
-#: data/reco.metainfo.xml.in:341
-msgid "Fix the localized screenshots don't appear to AppCenter"
-msgstr ""
-"Oprava chyby, keď sa lokalizované snímky obrazovky nezobrazili v AppCentre"
-
-#: data/reco.metainfo.xml.in:350
-msgid ""
-"Provide localized screenshots to AppCenter (French, Japanese, Lithuanian and "
-"Dutch)"
-msgstr ""
-"Poskytnutie lokalizovaných snímkov obrazovky do AppCentra (francúzske, "
-"japonské, litovské a holandské)"
-
-#: data/reco.metainfo.xml.in:351
-msgid "Fix temporary recording files remain when quit the app while recording"
-msgstr ""
-"Oprava problému, keď boli dočasné súbory ponechané po zatvorení aplikácie "
-"počas nahrávania"
-
-#: data/reco.metainfo.xml.in:352
-msgid "Use upper case for WAV"
-msgstr "Použiť veľké písmená pre WAV"
-
-#: data/reco.metainfo.xml.in:354
-msgid "Add Dutch translation (by Vistaus)"
-msgstr "Pridaný preklad do holandčiny (od Vistaus)"
-
-#: data/reco.metainfo.xml.in:362
-msgid ""
-"Fix the app isn't listed in the \"Sound &amp; Video\" category in "
-"Applications Menu"
-msgstr ""
-"Oprava chyby, keď sa aplikácia nezobrazila v kategórii „Zvuk a video“ v Menu "
-"aplikácií"
-
-#: data/reco.metainfo.xml.in:363
-msgid "Add a shortcut key to toggle recording"
-msgstr "Pridaná klávesová skratka na spustenie/ukončenie nahrávania"
-
-#: data/reco.metainfo.xml.in:364
-msgid "Fix the name of \"Recordings\" folder is not created in system language"
-msgstr ""
-"Oprava chyby, keď sa priečinok „Nahrávky“ nevytvoril v systémovom jazyku"
-
-#: data/reco.metainfo.xml.in:365
-msgid "Notify success of recording with a check mark"
-msgstr "Oznámiť úspešné nahrávanie symbolom zelenej fajky"
-
-#: data/reco.metainfo.xml.in:366
-msgid "Allow to cancel/pause recording"
-msgstr "Umožnenie zrušenia/pozastavenia nahrávania"
-
-#: data/reco.metainfo.xml.in:375
-msgid ""
-"Show a confirmation dialog when trying to quit the app if a recording is in "
-"progress"
-msgstr ""
-"Zobraziť dialóg potvrdenia pri pokuse ukončiť aplikáciu počas prebiehajúceho "
-"nahrávania"
-
-#: data/reco.metainfo.xml.in:376
-msgid "Add Lithuanian translation (by welaq)"
-msgstr "Pridaný preklad do litovčiny (od welaq)"
-
-#: data/reco.metainfo.xml.in:385
-msgid "Save and restore settings"
-msgstr "Uložiť a obnoviť nastavenia"
-
-#: data/reco.metainfo.xml.in:386
-msgid "Support both do-not-ask-where-to-save flow and ask-where-to-save flow"
-msgstr ""
-"Podpora pracovných postupov „nepýtať sa, kam ukladať“ a „pýtať sa, kam "
-"ukladať“"
-
-#: data/reco.metainfo.xml.in:387
-msgid "Organized UI"
-msgstr "Organizácia používateľského rozhrania"
-
-#: data/reco.metainfo.xml.in:388
-msgid "Some small bug fixes"
-msgstr "Malé opravy chýb"
-
-#: data/reco.metainfo.xml.in:389
-msgid "Add French translation (by NathanBnm)"
-msgstr "Pridaný preklad do francúzštiny (od NathanBnm)"
-
-#: data/reco.metainfo.xml.in:398
-msgid "Allow to set recording length"
-msgstr "Umožnenie nastavenia dĺžky nahrávania"
-
-#: data/reco.metainfo.xml.in:399
-msgid "Fix the countdown is weird when recording more than twice"
-msgstr "Oprava divného správania odpočítavania pri opakovanom nahrávaní"
-
-#: data/reco.metainfo.xml.in:400
-msgid "Localization improvement"
-msgstr "Zlepšenia lokalizácie"
-
-#: data/reco.metainfo.xml.in:409
-msgid "Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats"
-msgstr "Podpora nahrávania vo formátoch AAC, FLAC, Ogg Vorbis, Opus a MP3"
-
-#: data/reco.metainfo.xml.in:410
-msgid "Show a notification after recorded successfully"
-msgstr "Zobraziť oznámenie po úspešnom dokončení nahrávania"
-
-#: data/reco.metainfo.xml.in:411
-msgid "Add Japanese translation"
-msgstr "Pridaný preklad do japončiny"
-
-#: data/reco.metainfo.xml.in:419
-msgid "Initial release"
-msgstr "Prvé vydanie"
-
 #: data/reco.desktop.in:4
 msgid "Audio Recording App"
 msgstr "Aplikácia na nahrávanie zvuku"
@@ -597,3 +108,390 @@ msgstr "Aplikácia na nahrávanie zvuku"
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Nahrávať;Nahrať;Nahrávanie;Zvuk;Hlas;"
+
+#~ msgid "Show important errors to users"
+#~ msgstr "Zobrazovať používateľom dôležité chyby"
+
+#~ msgid "Update Flatpak runtime version"
+#~ msgstr "Aktualizovať verziu Flatpak runtime"
+
+#~ msgid "Improve app metainfo"
+#~ msgstr "Zlepšenie metainformácií aplikácie"
+
+#~ msgid "Review label notation"
+#~ msgstr "Kontrola zápisu štítkov"
+
+#~ msgid "Improve the way to load custom icons"
+#~ msgstr "Zlepšenie spôsobu nahrávania vlastných ikon"
+
+#~ msgid "Update translations"
+#~ msgstr "Aktualizované preklady"
+
+#~ msgid "Migrate to GTK 4, the latest version of GTK"
+#~ msgstr "Migrácia na GTK 4, čo je najnovšia verzia GTK"
+
+#~ msgid "Get disk access permission only when the user allowed"
+#~ msgstr ""
+#~ "Získať povolenie na prístup k disku len vtedy, keď to používateľ povolil"
+
+#~ msgid "Hide remaining time label when unnecessary"
+#~ msgstr "Skryť štítok zostávajúceho času, keď nie je potrebný"
+
+#~ msgid ""
+#~ "Fix no style button selected on non-Pantheon desktop environments when "
+#~ "first launch"
+#~ msgstr ""
+#~ "Opraviť tlačidlo bez štýlu vybraté pri prvom spustení v ne-Pantheonových "
+#~ "pracovných prostrediach"
+
+#~ msgid "Check desktop environment on runtime"
+#~ msgstr "Zistiť pracovné prostredie pri spustení aplikácie"
+
+#~ msgid ""
+#~ "Show nicer message dialogs depending on the running desktop environment"
+#~ msgstr ""
+#~ "Zobrazovať krajšie dialógy so správami podľa používaného pracovného "
+#~ "prostredia"
+
+#~ msgid "Translation updates:"
+#~ msgstr "Aktualizácie prekladov:"
+
+#~ msgid "Update French translation (thanks to @NathanBnm)"
+#~ msgstr "Aktualizácia prekladu do francúzštiny (vďaka @NathanBnm)"
+
+#~ msgid "Update Portuguese translation (thanks to @hugok79)"
+#~ msgstr "Aktualizácia prekladu do portugalčiny (vďaka @hugok79)"
+
+#~ msgid "Update Dutch translation (thanks to @Vistaus)"
+#~ msgstr "Aktualizácia prekladu do holandčiny (vďaka @Vistaus)"
+
+#~ msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
+#~ msgstr "Pridaný preklad do zjednodušenej čínštiny (vďaka @ShuiHuo)"
+
+#~ msgid "Reco is now available on Flathub too!"
+#~ msgstr "Reco je po novo dostupný už aj na Flathube!"
+
+#~ msgid "Update Spanish translation (thanks to @Eldhrimer)"
+#~ msgstr "Aktualizácia prekladu do španielčiny (vďaka @Eldhrimer)"
+
+#~ msgid "Update Italian translation (thanks to @albanobattistella)"
+#~ msgstr "Aktualizovaný preklad do taliančiny (vďaka @albanobattistella)"
+
+#~ msgid "Let's celebrate the new year with the issue from the ancient fixed!"
+#~ msgstr "Oslávme nový rok s opravou prastarej chyby!"
+
+#~ msgid ""
+#~ "Replace AAC option with ALAC to prevent strange stereo files being "
+#~ "generated"
+#~ msgstr ""
+#~ "Nahradenie možnosti AAC s ALAC, aby sa zabránilo vytváraniu zvláštnych "
+#~ "stereo súborov"
+
+#~ msgid "The release for celebrating the 3rd anniversary of the app!"
+#~ msgstr "Vydanie na oslavu 3. výročia aplikácie!"
+
+#~ msgid "Add new style switcher"
+#~ msgstr "Pridaný nový prepínač štýlov"
+
+#~ msgid "Update Japanese translation"
+#~ msgstr "Aktualizácia prekladu do japončiny"
+
+#~ msgid ""
+#~ "Use the user cache folder instead of the system temporary folder to save "
+#~ "temporary recording files"
+#~ msgstr ""
+#~ "Používať používateľský cache priečinok namiesto systémového dočasného "
+#~ "priečinka na ukladanie dočasných súborov nahrávok"
+
+#~ msgid "Fix wrong OARS data"
+#~ msgstr "Opravené nesprávne OARS údaje"
+
+#~ msgid ""
+#~ "Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
+#~ "manifest"
+#~ msgstr ""
+#~ "Uverejnenie aplikácie do nového AppCentra na elementary OS 6 s Flatpak "
+#~ "manifestom"
+
+#~ msgid ""
+#~ "A completely rewritten and improved method to detect recording sources"
+#~ msgstr "Úplne prepísaná a vylepšená metóda zisťovania zdrojov nahrávania"
+
+#~ msgid ""
+#~ "Redesign: Separate Delay and Duration settings from Recording section as "
+#~ "Timer section and put it under Recording section"
+#~ msgstr ""
+#~ "Nový vzhľad: Oddeliť nastavenia oneskorenia a trvania z časti pre "
+#~ "nahrávanie ako súčasť časovača a umiestniť ich pod časť pre nahrávanie"
+
+#~ msgid "Make sure to show a dialog for any errors in recording"
+#~ msgstr ""
+#~ "Uistiť sa, že sa zobrazí dialóg pri zistení akejkoľvek chyby s nahrávaním"
+
+#~ msgid "Code refactoring"
+#~ msgstr "Reštrukturalizácia kódu"
+
+#~ msgid "Add Brazilian Portuguese translation (thanks to @mathessaricci)"
+#~ msgstr "Pridaný preklad do brazílskej portugalčiny (vďaka @mathessaricci)"
+
+#~ msgid ""
+#~ "Update Spanish translation and add Catalan translation (thanks to @fitojb)"
+#~ msgstr ""
+#~ "Aktualizácia prekladu do španielčiny a pridaný preklad do katalánčiny "
+#~ "(vďaka @fitojb)"
+
+#~ msgid ""
+#~ "Revert another change done in version 2.4.3 that potentially caused an "
+#~ "error during the packaging process"
+#~ msgstr ""
+#~ "Vrátenie ďalšej zmeny vykonanej vo verzii 2.4.3, ktorá potenciálne "
+#~ "spôsobovala chybu počas procesu balenia"
+
+#~ msgid "Revive the change that had been reverted in version 2.4.4"
+#~ msgstr "Obnovenie zmeny, ktorá bola vrátená vo verzii 2.4.4"
+
+#~ msgid ""
+#~ "Revert changes done in version 2.4.3 that potentially caused an error "
+#~ "during the packaging process"
+#~ msgstr ""
+#~ "Vrátenie zmien vykonaných vo verzii 2.4.3, ktorá potenciálne spôsobovali "
+#~ "chybu počas procesu balenia"
+
+#~ msgid "MainWindow: Readable copy for dialog messages"
+#~ msgstr "Hlavné okno: Čitateľná kópia dialógových správ"
+
+#~ msgid ""
+#~ "MainWindow: Add window title for the new Gala feature that shows windows "
+#~ "titles in Multitasking view"
+#~ msgstr ""
+#~ "Hlavné okno: Pridaný názov okna pre novú funkciu Gala, ktorá zobrazuje "
+#~ "názvy okien v Zobrazení úloh"
+
+#~ msgid "Add Italian translation (thanks to @albanobattistella)"
+#~ msgstr "Pridaný preklad do taliančiny (vďaka @albanobattistella)"
+
+#~ msgid "Add Portuguese translation (thanks to @hugok79)"
+#~ msgstr "Pridaný preklad do portugalčiny (vďaka @hugok79)"
+
+#~ msgid "Clean code"
+#~ msgstr "Upratanie kódu"
+
+#~ msgid "Inhibit sleeping while recording"
+#~ msgstr "Zabránenie uspania počas nahrávania"
+
+#~ msgid ""
+#~ "Make sure GSettings key \"length\" and \"delay\" take only natural numbers"
+#~ msgstr ""
+#~ "Zaistené, že GSettings kľúč „length“ a „delay“ prijíma iba prirodzené "
+#~ "čísla"
+
+#~ msgid "Follow API change of Gtk.FileChooser in GTK 4"
+#~ msgstr "Nasledovať zmenu API pre Gtk.FileChooser v GTK 4"
+
+#~ msgid "Fix temporary recordings are not deleted on error"
+#~ msgstr ""
+#~ "Oprava problému, keď sa dočasné nahrávky nevymazávali pri výskyte chyby"
+
+#~ msgid "Fix some microphones are not recognized (thanks to @peteruithoven)"
+#~ msgstr ""
+#~ "Oprava problému, keď sa nerozpoznali niektoré mikrofóny (vďaka "
+#~ "@peteruithoven)"
+
+#~ msgid "Update Turkish translation (thanks to @safak45x)"
+#~ msgstr "Aktualizácia prekladu do turečtiny (vďaka @safak45x)"
+
+#~ msgid "Respect an elementary OS-wide dark preference"
+#~ msgstr "Rešpektovať globálnu preferenciu tmavého štýlu v elementary OS"
+
+#~ msgid "Allow setting per-app dark style preference"
+#~ msgstr ""
+#~ "Umožnenie zmeny predvoľby tmavého štýlu v aplikácii nezávisle od "
+#~ "systémového nastavenia"
+
+#~ msgid "Allow choosing stereo or mono"
+#~ msgstr "Umožnenie výberu stereo alebo mono"
+
+#~ msgid "Update Spanish translation (thanks to @CCaroV)"
+#~ msgstr "Aktualizácia prekladu do španielčiny (vďaka @CCaroV)"
+
+#~ msgid ""
+#~ "Explicit gstreamer1.0-libav as a dependency to fix a potential crash when "
+#~ "trying to record in AAC"
+#~ msgstr ""
+#~ "Zrozumiteľne vyjadriť gstreamer 1.0-libav ako závislosť pre opravu "
+#~ "potenciálneho pádu pri pokuse o nahrávanie vo formáte AAC"
+
+#~ msgid "Add Turkish translation (by @safak45x)"
+#~ msgstr "Pridaný preklad do turečtiny (od @safak45x)"
+
+#~ msgid "Add Russian translation (by @usmanovmax)"
+#~ msgstr "Pridaný preklad do ruštiny (od @usmanovmax)"
+
+#~ msgid "Add Polish translation (by @michalzkosmosu)"
+#~ msgstr "Pridaný preklad do poľštiny (od @michalzkosmosu)"
+
+#~ msgid "Update French translation (by @NathanBnm)"
+#~ msgstr "Aktualizácia prekladu do francúzštiny (od @NathanBnm)"
+
+#~ msgid ""
+#~ "Fix the weird behavior of the countdown timer when pausing/canceling it "
+#~ "(by andreasomaini)"
+#~ msgstr ""
+#~ "Oprava divného správania časovača odpočítavania pri pozastavení alebo "
+#~ "zrušení (od andreasomaini)"
+
+#~ msgid ""
+#~ "Support recording sounds from both your microphone and PC at the same time"
+#~ msgstr "Podpora nahrávania zvukov z mikrofónu aj počítača zároveň"
+
+#~ msgid "End the app safely if the encoder is not created successfully"
+#~ msgstr "Bezpečne ukončiť aplikáciu, ak sa kódovač nevytvorí správne"
+
+#~ msgid ""
+#~ "Update the app description in the readme and AppCenter to be more "
+#~ "tantalizing"
+#~ msgstr ""
+#~ "Aktualizácia popisu aplikácie v súbore readme a v AppCentre, aby bol "
+#~ "zaujímavejší"
+
+#~ msgid "Remove unnecessary field code that marks the app handleable files"
+#~ msgstr ""
+#~ "Odstránenie nepotrebného kódu políčka, ktoré označuje použiteľné typy "
+#~ "súborov"
+
+#~ msgid "Fix recording won't success when changing the file format"
+#~ msgstr "Oprava neúspešného nahrávania pri zmene formátu súboru"
+
+#~ msgid "Add Spanish translation (by fitojb)"
+#~ msgstr "Pridaný preklad do španielčiny (od fitojb)"
+
+#~ msgid "Getting/setting window positions gets more efficient"
+#~ msgstr "Získavanie/nastavovanie pozície okna je efektívnejšie"
+
+#~ msgid ""
+#~ "Fix the app does not resume the pause icon when you cancel recording "
+#~ "while pausing it"
+#~ msgstr ""
+#~ "Oprava problému, keď aplikácia nezobrazí znova ikonku pozastavenia, keď "
+#~ "zrušíte nahrávanie počas pozastavenia"
+
+#~ msgid ""
+#~ "Fix the app shows the successful mark even if a recording is not saved "
+#~ "correctly"
+#~ msgstr ""
+#~ "Oprava problému, keď aplikácia zobrazila ikonku úspešného dokončenia "
+#~ "napriek tomu, že sa nahrávka nesprávne uložila"
+
+#~ msgid "Save and restore values typed into the spin buttons"
+#~ msgstr "Uložiť a obnoviť hodnoty napísané do otočných tlačidiel"
+
+#~ msgid "Allow to cancel/pause countdown before recording"
+#~ msgstr "Umožnenie zrušenia/pozastavenia odpočítavania pred nahrávaním"
+
+#~ msgid "Save recordings when the app window is destroyed"
+#~ msgstr "Ukladať nahrávky, keď sa aplikácia nečakane ukončí"
+
+#~ msgid "Fix the app freezes on closing an error dialog"
+#~ msgstr "Oprava chyby, keď aplikácia zamrzla po zatvorení chybového dialógu"
+
+#~ msgid "Allow to record system sound"
+#~ msgstr "Umožnenie nahrávania systémových zvukov"
+
+#~ msgid "Fix the timer does not stop in accordance with the recording"
+#~ msgstr "Oprava chyby, keď časovač nezastaví v súlade s nahrávaním"
+
+#~ msgid "Grammatically fixes in the app description (by imasaru)"
+#~ msgstr "Opravy gramatiky v popise aplikácie (od imasaru)"
+
+#~ msgid "Fix the localized screenshots don't appear to AppCenter"
+#~ msgstr ""
+#~ "Oprava chyby, keď sa lokalizované snímky obrazovky nezobrazili v AppCentre"
+
+#~ msgid ""
+#~ "Provide localized screenshots to AppCenter (French, Japanese, Lithuanian "
+#~ "and Dutch)"
+#~ msgstr ""
+#~ "Poskytnutie lokalizovaných snímkov obrazovky do AppCentra (francúzske, "
+#~ "japonské, litovské a holandské)"
+
+#~ msgid ""
+#~ "Fix temporary recording files remain when quit the app while recording"
+#~ msgstr ""
+#~ "Oprava problému, keď boli dočasné súbory ponechané po zatvorení aplikácie "
+#~ "počas nahrávania"
+
+#~ msgid "Use upper case for WAV"
+#~ msgstr "Použiť veľké písmená pre WAV"
+
+#~ msgid "Add Dutch translation (by Vistaus)"
+#~ msgstr "Pridaný preklad do holandčiny (od Vistaus)"
+
+#~ msgid ""
+#~ "Fix the app isn't listed in the \"Sound &amp; Video\" category in "
+#~ "Applications Menu"
+#~ msgstr ""
+#~ "Oprava chyby, keď sa aplikácia nezobrazila v kategórii „Zvuk a video“ v "
+#~ "Menu aplikácií"
+
+#~ msgid "Add a shortcut key to toggle recording"
+#~ msgstr "Pridaná klávesová skratka na spustenie/ukončenie nahrávania"
+
+#~ msgid ""
+#~ "Fix the name of \"Recordings\" folder is not created in system language"
+#~ msgstr ""
+#~ "Oprava chyby, keď sa priečinok „Nahrávky“ nevytvoril v systémovom jazyku"
+
+#~ msgid "Notify success of recording with a check mark"
+#~ msgstr "Oznámiť úspešné nahrávanie symbolom zelenej fajky"
+
+#~ msgid "Allow to cancel/pause recording"
+#~ msgstr "Umožnenie zrušenia/pozastavenia nahrávania"
+
+#~ msgid ""
+#~ "Show a confirmation dialog when trying to quit the app if a recording is "
+#~ "in progress"
+#~ msgstr ""
+#~ "Zobraziť dialóg potvrdenia pri pokuse ukončiť aplikáciu počas "
+#~ "prebiehajúceho nahrávania"
+
+#~ msgid "Add Lithuanian translation (by welaq)"
+#~ msgstr "Pridaný preklad do litovčiny (od welaq)"
+
+#~ msgid "Save and restore settings"
+#~ msgstr "Uložiť a obnoviť nastavenia"
+
+#~ msgid ""
+#~ "Support both do-not-ask-where-to-save flow and ask-where-to-save flow"
+#~ msgstr ""
+#~ "Podpora pracovných postupov „nepýtať sa, kam ukladať“ a „pýtať sa, kam "
+#~ "ukladať“"
+
+#~ msgid "Organized UI"
+#~ msgstr "Organizácia používateľského rozhrania"
+
+#~ msgid "Some small bug fixes"
+#~ msgstr "Malé opravy chýb"
+
+#~ msgid "Add French translation (by NathanBnm)"
+#~ msgstr "Pridaný preklad do francúzštiny (od NathanBnm)"
+
+#~ msgid "Allow to set recording length"
+#~ msgstr "Umožnenie nastavenia dĺžky nahrávania"
+
+#~ msgid "Fix the countdown is weird when recording more than twice"
+#~ msgstr "Oprava divného správania odpočítavania pri opakovanom nahrávaní"
+
+#~ msgid "Localization improvement"
+#~ msgstr "Zlepšenia lokalizácie"
+
+#~ msgid "Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats"
+#~ msgstr "Podpora nahrávania vo formátoch AAC, FLAC, Ogg Vorbis, Opus a MP3"
+
+#~ msgid "Show a notification after recorded successfully"
+#~ msgstr "Zobraziť oznámenie po úspešnom dokončení nahrávania"
+
+#~ msgid "Add Japanese translation"
+#~ msgstr "Pridaný preklad do japončiny"
+
+#~ msgid "Initial release"
+#~ msgstr "Prvé vydanie"

@@ -79,9 +79,9 @@ We accept translations of this project through [Weblate](https://weblate.org/). 
 
 Click the following graphs to get started:
 
-| Main: Texts in the app itself | Extra: Texts in the desktop entry and the software center |
+| App: Texts in the app itself | Metainfo: Texts in the desktop entry and the software center |
 | --- | --- |
-| [![Translation status](https://hosted.weblate.org/widgets/rosp/-/reco-main/multi-auto.svg)](https://hosted.weblate.org/projects/rosp/reco-main) | [![Translation status](https://hosted.weblate.org/widgets/rosp/-/reco-extra/multi-auto.svg)](https://hosted.weblate.org/projects/rosp/reco-extra) |
+| [![Translation status](https://hosted.weblate.org/widgets/rosp/-/reco-app/multi-auto.svg)](https://hosted.weblate.org/projects/rosp/reco-app) | [![Translation status](https://hosted.weblate.org/widgets/rosp/-/reco-metainfo/multi-auto.svg)](https://hosted.weblate.org/projects/rosp/reco-metainfo) |
 
 ## The Story Behind This App
 

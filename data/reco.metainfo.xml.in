@@ -62,7 +62,7 @@
 
   <releases>
     <release version="4.0.1" date="2023-04-15" urgency="low">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Show important errors to users</li>
           <li>Update Flatpak runtime version</li>
@@ -75,7 +75,7 @@
     </release>
 
     <release version="4.0.0" date="2022-10-10" urgency="high">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Migrate to GTK 4, the latest version of GTK</li>
           <li>Get disk access permission only when the user allowed</li>
@@ -87,7 +87,7 @@
     </release>
 
     <release version="3.3.1" date="2022-06-18" urgency="low">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Update Flatpak runtime version</li>
           <li>Update translations</li>
@@ -96,7 +96,7 @@
     </release>
 
     <release version="3.3.0" date="2022-04-04" urgency="medium">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Check desktop environment on runtime</li>
           <li>Show nicer message dialogs depending on the running desktop environment</li>
@@ -112,7 +112,7 @@
     </release>
 
     <release version="3.2.1" date="2022-01-11" urgency="low">
-      <description>
+      <description translatable="no">
         <p>
           Reco is now available on Flathub too!
         </p>
@@ -125,7 +125,7 @@
     </release>
 
     <release version="3.2.0" date="2021-12-20" urgency="medium">
-      <description>
+      <description translatable="no">
         <p>
           Let's celebrate the new year with the issue from the ancient fixed!
         </p>
@@ -136,7 +136,7 @@
     </release>
 
     <release version="3.1.0" date="2021-12-19" urgency="low">
-      <description>
+      <description translatable="no">
         <p>
           The release for celebrating the 3rd anniversary of the app!
         </p>
@@ -154,7 +154,7 @@
     </release>
 
     <release version="3.0.1" date="2021-10-07" urgency="high">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Use the user cache folder instead of the system temporary folder to save temporary recording files</li>
           <li>Fix wrong OARS data</li>
@@ -168,7 +168,7 @@
     </release>
 
     <release version="3.0.0" date="2021-10-06" urgency="high">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Publish the app to the new AppCenter on elementary OS 6 with the Flatpak manifest</li>
           <li>A completely rewritten and improved method to detect recording sources</li>
@@ -187,7 +187,7 @@
     </release>
 
     <release version="2.4.6" date="2021-06-11" urgency="low">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Update Portuguese translation (thanks to @hugok79)</li>
           <li>Update Spanish translation and add Catalan translation (thanks to @fitojb)</li>
@@ -197,7 +197,7 @@
     </release>
 
     <release version="2.4.5" date="2021-04-13" urgency="low">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Update Dutch translation (thanks to @Vistaus)</li>
           <li>Revert another change done in version 2.4.3 that potentially caused an error during the packaging process</li>
@@ -207,7 +207,7 @@
     </release>
 
     <release version="2.4.4" date="2021-04-13" urgency="low">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Revert changes done in version 2.4.3 that potentially caused an error during the packaging process</li>
         </ul>
@@ -215,7 +215,7 @@
     </release>
 
     <release version="2.4.3" date="2021-04-13" urgency="low">
-      <description>
+      <description translatable="no">
         <ul>
           <li>MainWindow: Readable copy for dialog messages</li>
           <li>MainWindow: Add window title for the new Gala feature that shows windows titles in Multitasking view</li>
@@ -228,7 +228,7 @@
     </release>
 
     <release version="2.4.2" date="2021-01-03" urgency="low">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Inhibit sleeping while recording</li>
           <li>Update Japanese translation</li>
@@ -237,7 +237,7 @@
     </release>
 
     <release version="2.4.1" date="2020-10-31" urgency="low">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Make sure GSettings key "length" and "delay" take only natural numbers</li>
           <li>Follow API change of Gtk.FileChooser in GTK 4</li>
@@ -250,7 +250,7 @@
     </release>
 
     <release version="2.4.0" date="2020-07-02" urgency="medium">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Respect an elementary OS-wide dark preference</li>
           <li>Allow setting per-app dark style preference</li>
@@ -263,7 +263,7 @@
     </release>
 
     <release version="2.3.2" date="2020-03-28" urgency="low">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Add Turkish translation (by @safak45x)</li>
           <li>Add Russian translation (by @usmanovmax)</li>
@@ -272,7 +272,7 @@
     </release>
 
     <release version="2.3.1" date="2019-12-05">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Add Polish translation (by @michalzkosmosu)</li>
           <li>Update French translation (by @NathanBnm)</li>
@@ -282,7 +282,7 @@
     </release>
 
     <release version="2.3.0" date="2019-10-31">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Fix the weird behavior of the countdown timer when pausing/canceling it (by andreasomaini)</li>
           <li>Support recording sounds from both your microphone and PC at the same time</li>
@@ -295,7 +295,7 @@
     </release>
 
     <release version="2.2.1" date="2019-09-24">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Fix recording won't success when changing the file format</li>
           <li>Add Spanish translation (by fitojb)</li>
@@ -304,7 +304,7 @@
     </release>
 
     <release version="2.2.0" date="2019-09-08">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Getting/setting window positions gets more efficient</li>
           <li>Fix the app does not resume the pause icon when you cancel recording while pausing it</li>
@@ -315,7 +315,7 @@
     </release>
 
     <release version="2.1.0" date="2019-08-03">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Allow to cancel/pause countdown before recording</li>
           <li>Save recordings when the app window is destroyed</li>
@@ -325,7 +325,7 @@
     </release>
 
     <release version="2.0.0" date="2019-06-01">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Allow to record system sound</li>
           <li>Fix the timer does not stop in accordance with the recording</li>
@@ -335,7 +335,7 @@
     </release>
 
     <release version="1.1.2" date="2019-04-09">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Grammatically fixes in the app description (by imasaru)</li>
           <li>Fix the localized screenshots don't appear to AppCenter</li>
@@ -345,7 +345,7 @@
     </release>
 
     <release version="1.1.1" date="2019-03-30">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Provide localized screenshots to AppCenter (French, Japanese, Lithuanian and Dutch)</li>
           <li>Fix temporary recording files remain when quit the app while recording</li>
@@ -357,7 +357,7 @@
     </release>
 
     <release version="1.1.0" date="2019-03-11">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Fix the app isn't listed in the "Sound &amp; Video" category in Applications Menu</li>
           <li>Add a shortcut key to toggle recording</li>
@@ -370,7 +370,7 @@
     </release>
 
     <release version="1.0.3" date="2019-02-19">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Show a confirmation dialog when trying to quit the app if a recording is in progress</li>
           <li>Add Lithuanian translation (by welaq)</li>
@@ -380,7 +380,7 @@
     </release>
 
     <release version="1.0.2" date="2019-01-20">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Save and restore settings</li>
           <li>Support both do-not-ask-where-to-save flow and ask-where-to-save flow</li>
@@ -393,7 +393,7 @@
     </release>
 
     <release version="1.0.1" date="2018-12-26">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Allow to set recording length</li>
           <li>Fix the countdown is weird when recording more than twice</li>
@@ -404,7 +404,7 @@
     </release>
 
     <release version="1.0.0" date="2018-12-09">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats</li>
           <li>Show a notification after recorded successfully</li>
@@ -414,7 +414,7 @@
     </release>
 
     <release version="0.1.0" date="2018-12-01">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Initial release</li>
         </ul>
