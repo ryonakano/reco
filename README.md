@@ -35,7 +35,7 @@ You'll need the following dependencies to build:
 * libgee-0.8-dev
 * libgranite-7-dev
 * libgstreamer1.0-dev (>= 1.20)
-* libgtk-4-dev
+* libgtk-4-dev (>= 4.10)
 * [libryokucha](https://github.com/ryonakano/ryokucha)
     * automatically downloaded on build
 * [livechart](https://github.com/lcallarec/live-chart) (commit `d364df43bd8336bf7ed461c57a28e97efa7115b1` or later)

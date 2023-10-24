@@ -191,8 +191,7 @@ public class WelcomeView : Gtk.Box {
                 }
 
                 // Let the user select the autosaving destination
-                var destination_chooser = destination_chooser_new ();
-                destination_chooser.show ();
+                show_destination_chooser ();
                 return false;
             }
 
@@ -202,8 +201,7 @@ public class WelcomeView : Gtk.Box {
         });
 
         destination_chooser_button.clicked.connect (() => {
-            var destination_chooser = destination_chooser_new ();
-            destination_chooser.show ();
+            show_destination_chooser ();
         });
 
         record_button.clicked.connect (() => {
@@ -237,24 +235,25 @@ public class WelcomeView : Gtk.Box {
         return Path.get_basename (path);
     }
 
-    private Gtk.FileChooserNative destination_chooser_new () {
-        var filechooser = new Gtk.FileChooserNative (
-            _("Choose a default destination"), window, Gtk.FileChooserAction.SELECT_FOLDER,
-            _("Select"), null
-        ) {
+    private void show_destination_chooser () {
+        var filechooser = new Gtk.FileDialog () {
+            title = _("Choose a default destination"),
+            accept_label = _("Select"),
             modal = true
         };
-        filechooser.response.connect ((response_id) => {
-            if (response_id == Gtk.ResponseType.ACCEPT) {
-                string new_path = filechooser.get_file ().get_path ();
+        filechooser.select_folder.begin (window, null, (obj, res) => {
+            try {
+                var file = filechooser.select_folder.end (res);
+                if (file == null) {
+                    return;
+                }
+
+                string new_path = file.get_path ();
                 set_destination (new_path);
                 auto_save_switch.active = true;
+            } catch (Error e) {
+                warning ("Failed to select folder: %s", e.message);
 
-                filechooser.destroy ();
-                return;
-            }
-
-            if (response_id == Gtk.ResponseType.CANCEL) {
                 // If the autosave switch was off previously, turn off the autosave switch
                 // because the user cancels setting the autosave destination
                 // If the autosave switch was on previously, then it means the user just cancels
@@ -263,15 +262,8 @@ public class WelcomeView : Gtk.Box {
                 if (autosave_dest == Application.SETTINGS_NO_AUTOSAVE) {
                     auto_save_switch.active = false;
                 }
-
-                filechooser.destroy ();
-                return;
             }
-
-            filechooser.destroy ();
         });
-
-        return filechooser;
     }
 
     public void show_success_button () {

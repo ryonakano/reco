@@ -39,8 +39,8 @@ gnome.post_install(
 dependencies = [
     dependency('gee-0.8'),
     dependency('granite-7'),
-    dependency('gtk4'),
     dependency('gstreamer-1.0', version: '>= 1.20'),
+    dependency('gtk4', version: '>= 4.10'),
     dependency('pango')
 ]
 
