@@ -109,12 +109,10 @@ public class RecordView : Gtk.Box {
         pause_button.clicked.connect (() => {
             if (recorder.state == Recorder.RecordingState.RECORDING) {
                 stop_count ();
-
                 recorder.state = Recorder.RecordingState.PAUSED;
                 pause_button_set_resume ();
             } else {
                 start_count ();
-
                 recorder.state = Recorder.RecordingState.RECORDING;
                 pause_button_set_pause ();
             }
@@ -135,6 +133,18 @@ public class RecordView : Gtk.Box {
     }
 
     public void init_count () {
+        /*
+         * This is how we count time:
+         *
+         * start_time                          end_time
+         *    ||<---------record_length--------->||
+         *    ||          (if specified)         ||
+         *    \/                                 \/
+         * 09:45:12    09:45:13    9:45:14 ... 9:50:12
+         *    /\
+         *    ||
+         * tick_time --> +1 per sec
+         */
         start_time = new DateTime.now ();
         tick_time = start_time;
 
@@ -159,13 +169,17 @@ public class RecordView : Gtk.Box {
                 return false;
             }
 
+            // Increment the elapsed time
             tick_time = tick_time.add (TimeSpan.SECOND);
 
+            // Show the updated elapsed time
             show_timer_label (time_label, start_time, tick_time);
+            // If start_time and end_time differs that means recording length being specified
             if (start_time.compare (end_time) != 0) {
                 show_timer_label (remaining_time_label, tick_time, end_time);
             }
 
+            // We consumed all of recording length so stop recording
             if (tick_time.compare (end_time) == 0) {
                 var loop = new MainLoop ();
                 trigger_stop_recording.begin ((obj, res) => {
@@ -183,6 +197,10 @@ public class RecordView : Gtk.Box {
         count = 0;
     }
 
+    /*
+     * DateTime does not have "subtract()", so calcurate the difference between start and end
+     * and add it to 00:00
+     */
     private void show_timer_label (Gtk.Label label, DateTime start, DateTime end) {
         TimeSpan diff = end.difference (start);
 
