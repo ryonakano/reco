@@ -158,11 +158,9 @@ public class RecordView : Gtk.Box {
         } else {
             hide_timer_label (remaining_time_label);
         }
-
-        start_count ();
     }
 
-    private void start_count () {
+    public void start_count () {
         count = Timeout.add (1000, () => {
             // If the user pressed "pause", do not count this second.
             if (recorder.state != Recorder.RecordingState.RECORDING) {
