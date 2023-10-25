@@ -188,19 +188,14 @@ public class MainWindow : Gtk.ApplicationWindow {
     public void show_record () {
         try {
             recorder.start_recording ();
-
-            uint record_length = Application.settings.get_uint ("length");
-            if (record_length != 0) {
-                record_view.init_countdown (record_length);
-            } else {
-                record_view.clear_countdown ();
-            }
-
-            record_view.init_count ();
-            stack.visible_child_name = "record";
         } catch (Gst.ParseError e) {
             show_error_dialog (e.message);
+            return;
         }
+
+        record_view.init_count ();
+        record_view.start_count ();
+        stack.visible_child_name = "record";
     }
 
     private void show_error_dialog (string error_message) {

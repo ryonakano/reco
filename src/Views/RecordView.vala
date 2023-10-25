@@ -11,16 +11,13 @@ public class RecordView : Gtk.Box {
     private Gtk.Label remaining_time_label;
     private Gtk.Button stop_button;
     private Gtk.Button pause_button;
+
     private uint count;
-    private uint countdown;
-    private uint past_minutes_10;
-    private uint past_minutes_1;
-    private uint past_seconds_10;
-    private uint past_seconds_1;
-    private uint remain_minutes_10;
-    private uint remain_minutes_1;
-    private uint remain_seconds_10;
-    private uint remain_seconds_1;
+    private DateTime start_time;
+    private DateTime end_time;
+    private DateTime tick_time;
+
+    private bool is_length_set;
 
     public RecordView (MainWindow window) {
         Object (
@@ -114,16 +111,10 @@ public class RecordView : Gtk.Box {
         pause_button.clicked.connect (() => {
             if (recorder.state == Recorder.RecordingState.RECORDING) {
                 stop_count ();
-
                 recorder.state = Recorder.RecordingState.PAUSED;
                 pause_button_set_resume ();
             } else {
                 start_count ();
-
-                if (Application.settings.get_uint ("length") != 0) {
-                    start_countdown ();
-                }
-
                 recorder.state = Recorder.RecordingState.RECORDING;
                 pause_button_set_pause ();
             }
@@ -144,113 +135,54 @@ public class RecordView : Gtk.Box {
     }
 
     public void init_count () {
-        past_minutes_10 = 0;
-        past_minutes_1 = 0;
-        past_seconds_10 = 0;
-        past_seconds_1 = 0;
+        /*
+         * This is how we count time:
+         *
+         * start_time                          end_time
+         *    ||<---------record_length--------->||
+         *    ||          (if specified)         ||
+         *    \/                                 \/
+         * 09:45:12    09:45:13    9:45:14 ... 9:50:12
+         *    /\
+         *    ||
+         * tick_time --> +1 per sec
+         */
+        start_time = new DateTime.now ();
+        tick_time = start_time;
+
+        uint record_length = Application.settings.get_uint ("length");
+        end_time = start_time.add_seconds (record_length);
+        // If start_time and end_time differs that means recording length being specified
+        is_length_set = (start_time.compare (end_time) != 0);
 
         // Show initial time (00:00)
-        show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
-
-        start_count ();
+        show_timer_label (time_label, start_time, tick_time);
+        if (start_time.compare (end_time) != 0) {
+            show_timer_label (remaining_time_label, tick_time, end_time);
+        } else {
+            hide_timer_label (remaining_time_label);
+        }
     }
 
-    private void start_count () {
+    public void start_count () {
         count = Timeout.add (1000, () => {
             // If the user pressed "pause", do not count this second.
             if (recorder.state != Recorder.RecordingState.RECORDING) {
                 return false;
             }
 
-            if (past_seconds_10 < 5 && past_seconds_1 == 9) {
-                // The count turns from wx:y9 to wx:(y+1)0
-                past_seconds_10++;
-                past_seconds_1 = 0;
-            } else if (past_minutes_1 < 9 && past_seconds_10 == 5 && past_seconds_1 == 9) {
-                // The count turns from wx:59 to w(x+1):00
-                past_minutes_1++;
-                past_seconds_1 = past_seconds_10 = 0;
-            } else if (past_minutes_1 == 9 && past_seconds_10 == 5 && past_seconds_1 == 9) {
-                // The count turns from w9:59 to (w+1)0:00
-                past_minutes_10++;
-                past_minutes_1 = past_seconds_10 = past_seconds_1 = 0;
-            } else {
-                // The count turns from wx:yz to wx:y(z+1)
-                past_seconds_1++;
+            // Increment the elapsed time
+            tick_time = tick_time.add (TimeSpan.SECOND);
+
+            // Show the updated elapsed time
+            show_timer_label (time_label, start_time, tick_time);
+            // Show recording length
+            if (is_length_set) {
+                show_timer_label (remaining_time_label, tick_time, end_time);
             }
 
-            show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
-
-            return true;
-        });
-    }
-
-    public void stop_count () {
-        count = 0;
-        countdown = 0;
-    }
-
-    public void init_countdown (uint remaining_time) {
-        uint remain_minutes = remaining_time / 60;
-        if (remain_minutes < 10) {
-            remain_minutes_10 = 0;
-            remain_minutes_1 = remain_minutes;
-        } else {
-            remain_minutes_10 = remain_minutes / 10;
-            remain_minutes_1 = remain_minutes % 10;
-        }
-
-        uint remain_seconds = remaining_time % 60;
-        if (remain_seconds < 10) {
-            remain_seconds_10 = 0;
-            remain_seconds_1 = remain_seconds;
-        } else {
-            remain_seconds_10 = remain_seconds / 10;
-            remain_seconds_1 = remain_seconds % 10;
-        }
-
-        // Show initial time (00:00)
-        show_timer_label (time_label, past_minutes_10, past_minutes_1, past_seconds_10, past_seconds_1);
-
-        start_countdown ();
-    }
-
-    public void clear_countdown () {
-        hide_timer_label (remaining_time_label);
-    }
-
-    private void start_countdown () {
-        // Show initial time
-        show_timer_label (remaining_time_label, remain_minutes_10, remain_minutes_1, remain_seconds_10, remain_seconds_1);
-
-        countdown = Timeout.add (1000, () => {
-            // If the user pressed "pause", do not count this second.
-            if (recorder.state != Recorder.RecordingState.RECORDING) {
-                return false;
-            }
-
-            if (remain_minutes_1 == 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) {
-                // The count turns from w0:00 to (w-1)9:59
-                remain_minutes_10--;
-                remain_minutes_1 = remain_seconds_1 = 9;
-                remain_seconds_10 = 5;
-            } else if (remain_minutes_1 > 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) {
-                // The count turns from wx:00 to w(x-1):59
-                remain_minutes_1--;
-                remain_seconds_10 = 5;
-                remain_seconds_1 = 9;
-            } else if (remain_seconds_10 > 0 && remain_seconds_1 == 0) {
-                // The count turns from wx:y0 to wx:(y-1)9
-                remain_seconds_10--;
-                remain_seconds_1 = 9;
-            } else {
-                // The count turns from wx:yz to wx:y(z-1)
-                remain_seconds_1--;
-            }
-
-            show_timer_label (remaining_time_label, remain_minutes_10, remain_minutes_1, remain_seconds_10, remain_seconds_1);
-
-            if (remain_minutes_10 == 0 && remain_minutes_1 == 0 && remain_seconds_10 == 0 && remain_seconds_1 == 0) {
+            // We consumed all of recording length so stop recording
+            if (tick_time.compare (end_time) == 0) {
                 var loop = new MainLoop ();
                 trigger_stop_recording.begin ((obj, res) => {
                     loop.quit ();
@@ -263,8 +195,21 @@ public class RecordView : Gtk.Box {
         });
     }
 
-    private void show_timer_label (Gtk.Label label, uint minutes_10, uint minutes_1, uint seconds_10, uint seconds_1) {
-        label.label = "%u%u:%u%u".printf (minutes_10, minutes_1, seconds_10, seconds_1);
+    public void stop_count () {
+        count = 0;
+    }
+
+    /*
+     * DateTime does not have "subtract()", so calcurate the difference between start and end
+     * and add it to 00:00
+     */
+    private void show_timer_label (Gtk.Label label, DateTime start, DateTime end) {
+        TimeSpan diff = end.difference (start);
+
+        var disp_time = new DateTime.local (start.get_year (), start.get_month (),
+                                            start.get_day_of_month (), 0, 0, 0.0);
+        disp_time = disp_time.add (diff);
+        label.label = disp_time.format ("%M:%S");
     }
 
     private void hide_timer_label (Gtk.Label label) {
