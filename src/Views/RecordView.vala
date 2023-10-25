@@ -17,6 +17,8 @@ public class RecordView : Gtk.Box {
     private DateTime end_time;
     private DateTime tick_time;
 
+    private bool is_length_set;
+
     public RecordView (MainWindow window) {
         Object (
             orientation: Gtk.Orientation.VERTICAL,
@@ -150,6 +152,8 @@ public class RecordView : Gtk.Box {
 
         uint record_length = Application.settings.get_uint ("length");
         end_time = start_time.add_seconds (record_length);
+        // If start_time and end_time differs that means recording length being specified
+        is_length_set = (start_time.compare (end_time) != 0);
 
         // Show initial time (00:00)
         show_timer_label (time_label, start_time, tick_time);
@@ -172,8 +176,8 @@ public class RecordView : Gtk.Box {
 
             // Show the updated elapsed time
             show_timer_label (time_label, start_time, tick_time);
-            // If start_time and end_time differs that means recording length being specified
-            if (start_time.compare (end_time) != 0) {
+            // Show recording length
+            if (is_length_set) {
                 show_timer_label (remaining_time_label, tick_time, end_time);
             }
 
