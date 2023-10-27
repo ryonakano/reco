@@ -5,9 +5,10 @@
 
 public class CountDownView : Gtk.Box {
     public MainWindow window { get; construct; }
+
     private Gtk.Label delay_remaining_label;
     private Gtk.Button pause_button;
-    private uint paused_time;
+
     private uint delay_remaining_time;
     private uint countdown;
     private bool is_paused;
@@ -44,8 +45,6 @@ public class CountDownView : Gtk.Box {
         cancel_button.add_css_class ("buttons-without-border");
 
         pause_button = new Gtk.Button () {
-            icon_name = "media-playback-pause-symbolic",
-            tooltip_text = _("Pause the countdown"),
             halign = Gtk.Align.END
         };
         pause_button.add_css_class ("buttons-without-border");
@@ -63,22 +62,26 @@ public class CountDownView : Gtk.Box {
         append (buttons_grid);
 
         cancel_button.clicked.connect (() => {
-            paused_time = 0;
-            cancel_countdown ();
+            stop_countdown ();
+            window.show_welcome ();
         });
 
         pause_button.clicked.connect (() => {
-            pause_countdown ();
+            toggle_countdown ();
         });
+    }
+
+    public void init_countdown () {
+        delay_remaining_time = Application.settings.get_uint ("delay");
+
+        // Show initial delay_remaining_time
+        delay_remaining_label.label = "%u".printf (delay_remaining_time);
+
+        pause_button_set_pause ();
     }
 
     public void start_countdown () {
         is_paused = false;
-        delay_remaining_time = init_delay_remaining_time ();
-
-        // Show initial delay_remaining_time
-        delay_remaining_label.label = delay_remaining_time.to_string ();
-
         // Decrease delay_remaining_time per seconds
         countdown = Timeout.add (1000, () => {
             // If the user pressed "pause", do not count this second.
@@ -87,15 +90,14 @@ public class CountDownView : Gtk.Box {
             }
 
             delay_remaining_time--;
-            paused_time = delay_remaining_time;
 
             // Show the decreased delay_remaining_time
-            delay_remaining_label.label = delay_remaining_time.to_string ();
+            delay_remaining_label.label = "%u".printf (delay_remaining_time);
 
             // Start recording when delay_remaining_time turns 0
             if (delay_remaining_time == 0) {
+                stop_countdown ();
                 window.show_record ();
-                delay_remaining_label.label = null;
                 return false;
             }
 
@@ -103,48 +105,31 @@ public class CountDownView : Gtk.Box {
         });
     }
 
-    private void cancel_countdown () {
-        // Immediately stop the countdown Timeout
-        if (!is_paused) {
-            Source.remove (countdown);
-        }
-
+    public void stop_countdown () {
         is_paused = true;
-
         if (countdown != 0) {
+            Source.remove (countdown);
             countdown = 0;
-            delay_remaining_time = init_delay_remaining_time ();
-            delay_remaining_label.label = null;
         }
+    }
 
+    private void toggle_countdown () {
+        if (!is_paused) {
+            stop_countdown ();
+            pause_button_set_resume ();
+        } else {
+            start_countdown ();
+            pause_button_set_pause ();
+        }
+    }
+
+    private void pause_button_set_pause () {
         pause_button.icon_name = "media-playback-pause-symbolic";
         pause_button.tooltip_text = _("Pause the countdown");
-
-        window.show_welcome ();
     }
 
-    private void pause_countdown () {
-        if (!is_paused) {
-            // Immediately stop the countdown Timeout - This avoids unnecessary callback
-            Source.remove (countdown);
-
-            is_paused = true;
-
-            pause_button.icon_name = "media-playback-start-symbolic";
-            pause_button.tooltip_text = _("Resume the countdown");
-        } else {
-            is_paused = false;
-
-            if (paused_time != 0) {
-                start_countdown ();
-            }
-
-            pause_button.icon_name = "media-playback-pause-symbolic";
-            pause_button.tooltip_text = _("Pause the countdown");
-        }
-    }
-
-    private uint init_delay_remaining_time () {
-        return paused_time != 0 ? paused_time : Application.settings.get_uint ("delay");
+    private void pause_button_set_resume () {
+        pause_button.icon_name = "media-playback-start-symbolic";
+        pause_button.tooltip_text = _("Resume the countdown");
     }
 }

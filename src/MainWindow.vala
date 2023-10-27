@@ -182,6 +182,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     public void show_countdown () {
         stack.visible_child_name = "count";
+        countdown_view.init_countdown ();
         countdown_view.start_countdown ();
     }
 
