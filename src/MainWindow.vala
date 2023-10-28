@@ -68,7 +68,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         child = stack;
         show_welcome ();
 
-        welcome_view.start_recording.connect (start_recording);
+        welcome_view.start_recording.connect (trigger_start_recording);
 
         countdown_view.countdown_cancelled.connect (show_welcome);
         countdown_view.countdown_ended.connect (show_record);
@@ -105,7 +105,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                     case Gdk.Key.R:
                         if (Gdk.ModifierType.SHIFT_MASK in state) {
                             if (stack.visible_child == welcome_view) {
-                                start_recording ();
+                                trigger_start_recording ();
                             } else if (stack.visible_child == record_view) {
                                 var loop = new MainLoop ();
                                 record_view.trigger_stop_recording.begin ((obj, res) => {
@@ -218,7 +218,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         stack.visible_child = record_view;
     }
 
-    private void start_recording () {
+    private void trigger_start_recording () {
         if (Application.settings.get_uint ("delay") != 0) {
             show_countdown ();
         } else {
