@@ -4,8 +4,8 @@
  */
 
 public class CountDownView : Gtk.Box {
-    public signal void cancelled ();
-    public signal void ended ();
+    public signal void countdown_cancelled ();
+    public signal void countdown_ended ();
 
     private Gtk.Label delay_remaining_label;
     private Gtk.Button pause_button;
@@ -63,7 +63,7 @@ public class CountDownView : Gtk.Box {
 
         cancel_button.clicked.connect (() => {
             stop_countdown ();
-            cancelled ();
+            countdown_cancelled ();
         });
 
         pause_button.clicked.connect (() => {
@@ -97,7 +97,7 @@ public class CountDownView : Gtk.Box {
             // Start recording when delay_remaining_time turns 0
             if (delay_remaining_time == 0) {
                 stop_countdown ();
-                ended ();
+                countdown_ended ();
                 return false;
             }
 

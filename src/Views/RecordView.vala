@@ -4,8 +4,8 @@
  */
 
 public class RecordView : Gtk.Box {
-    public signal void cancelled ();
-    public signal void ended ();
+    public signal void cancel_recording ();
+    public signal void stop_recording ();
 
     private Recorder recorder;
 
@@ -89,12 +89,12 @@ public class RecordView : Gtk.Box {
 
         cancel_button.clicked.connect (() => {
             stop_count ();
-            cancelled ();
+            cancel_recording ();
         });
 
         stop_button.clicked.connect (() => {
             var loop = new MainLoop ();
-            stop_recording.begin ((obj, res) => {
+            trigger_stop_recording.begin ((obj, res) => {
                 loop.quit ();
             });
             loop.run ();
@@ -113,9 +113,9 @@ public class RecordView : Gtk.Box {
         });
     }
 
-    public async void stop_recording () {
+    public async void trigger_stop_recording () {
         stop_count ();
-        ended ();
+        stop_recording ();
     }
 
     public void init_count () {
@@ -170,7 +170,7 @@ public class RecordView : Gtk.Box {
             // We consumed all of recording length so stop recording
             if (tick_time.compare (end_time) == 0) {
                 var loop = new MainLoop ();
-                stop_recording.begin ((obj, res) => {
+                trigger_stop_recording.begin ((obj, res) => {
                     loop.quit ();
                 });
                 loop.run ();

@@ -70,14 +70,14 @@ public class MainWindow : Gtk.ApplicationWindow {
 
         welcome_view.start_recording.connect (start_recording);
 
-        countdown_view.cancelled.connect (show_welcome);
-        countdown_view.ended.connect (show_record);
+        countdown_view.countdown_cancelled.connect (show_welcome);
+        countdown_view.countdown_ended.connect (show_record);
 
-        record_view.cancelled.connect (() => {
+        record_view.cancel_recording.connect (() => {
             recorder.cancel_recording ();
             show_welcome ();
         });
-        record_view.ended.connect (() => {
+        record_view.stop_recording.connect (() => {
             // If a user tries to stop recording while pausing, resume recording once and reset the button icon
             if (recorder.state != Recorder.RecordingState.RECORDING) {
                 recorder.state = Recorder.RecordingState.RECORDING;
@@ -94,7 +94,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                     case Gdk.Key.q:
                         if (recorder.state != Recorder.RecordingState.STOPPED) {
                             var loop = new MainLoop ();
-                            record_view.stop_recording.begin ((obj, res) => {
+                            record_view.trigger_stop_recording.begin ((obj, res) => {
                                 loop.quit ();
                             });
                             loop.run ();
@@ -108,7 +108,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                                 start_recording ();
                             } else if (stack.visible_child == record_view) {
                                 var loop = new MainLoop ();
-                                record_view.stop_recording.begin ((obj, res) => {
+                                record_view.trigger_stop_recording.begin ((obj, res) => {
                                     loop.quit ();
                                 });
                                 loop.run ();
@@ -126,7 +126,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         close_request.connect ((event) => {
             if (recorder.state != Recorder.RecordingState.STOPPED) {
                 var loop = new MainLoop ();
-                record_view.stop_recording.begin ((obj, res) => {
+                record_view.trigger_stop_recording.begin ((obj, res) => {
                     loop.quit ();
                 });
                 loop.run ();
