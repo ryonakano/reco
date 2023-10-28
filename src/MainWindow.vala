@@ -61,9 +61,9 @@ public class MainWindow : Gtk.ApplicationWindow {
             margin_start = 6,
             margin_end = 6
         };
-        stack.add_named (welcome_view, "welcome");
-        stack.add_named (countdown_view, "count");
-        stack.add_named (record_view, "record");
+        stack.add_child (welcome_view);
+        stack.add_child (countdown_view);
+        stack.add_child (record_view);
 
         child = stack;
         show_welcome ();
@@ -85,9 +85,9 @@ public class MainWindow : Gtk.ApplicationWindow {
                         return true;
                     case Gdk.Key.R:
                         if (Gdk.ModifierType.SHIFT_MASK in state) {
-                            if (stack.visible_child_name == "welcome") {
+                            if (stack.visible_child == welcome_view) {
                                 welcome_view.trigger_recording ();
-                            } else if (stack.visible_child_name == "record") {
+                            } else if (stack.visible_child == record_view) {
                                 var loop = new MainLoop ();
                                 record_view.trigger_stop_recording.begin ((obj, res) => {
                                     loop.quit ();
@@ -177,11 +177,11 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     public void show_welcome () {
-        stack.visible_child_name = "welcome";
+        stack.visible_child = welcome_view;
     }
 
     public void show_countdown () {
-        stack.visible_child_name = "count";
+        stack.visible_child = countdown_view;
         countdown_view.init_countdown ();
         countdown_view.start_countdown ();
     }
@@ -196,7 +196,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
         record_view.init_count ();
         record_view.start_count ();
-        stack.visible_child_name = "record";
+        stack.visible_child = record_view;
     }
 
     private void show_error_dialog (string error_message) {
