@@ -4,7 +4,9 @@
  */
 
 public class RecordView : Gtk.Box {
-    public MainWindow window { get; construct; }
+    public signal void cancelled ();
+    public signal void ended ();
+
     private Recorder recorder;
 
     private Gtk.Label time_label;
@@ -19,11 +21,10 @@ public class RecordView : Gtk.Box {
 
     private bool is_length_set;
 
-    public RecordView (MainWindow window) {
+    public RecordView () {
         Object (
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 12,
-            window: window,
             margin_top: 6,
             margin_bottom: 6,
             margin_start: 6,
@@ -88,14 +89,12 @@ public class RecordView : Gtk.Box {
 
         cancel_button.clicked.connect (() => {
             stop_count ();
-
-            recorder.cancel_recording ();
-            window.show_welcome ();
+            cancelled ();
         });
 
         stop_button.clicked.connect (() => {
             var loop = new MainLoop ();
-            trigger_stop_recording.begin ((obj, res) => {
+            stop_recording.begin ((obj, res) => {
                 loop.quit ();
             });
             loop.run ();
@@ -114,16 +113,9 @@ public class RecordView : Gtk.Box {
         });
     }
 
-    public async void trigger_stop_recording () {
+    public async void stop_recording () {
         stop_count ();
-
-        // If a user tries to stop recording while pausing, resume recording once and reset the button icon
-        if (recorder.state != Recorder.RecordingState.RECORDING) {
-            recorder.state = Recorder.RecordingState.RECORDING;
-        }
-
-        recorder.stop_recording ();
-        window.show_welcome ();
+        ended ();
     }
 
     public void init_count () {
@@ -178,7 +170,7 @@ public class RecordView : Gtk.Box {
             // We consumed all of recording length so stop recording
             if (tick_time.compare (end_time) == 0) {
                 var loop = new MainLoop ();
-                trigger_stop_recording.begin ((obj, res) => {
+                stop_recording.begin ((obj, res) => {
                     loop.quit ();
                 });
                 loop.run ();

@@ -51,9 +51,9 @@ public class MainWindow : Gtk.ApplicationWindow {
         headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
         headerbar.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
 
-        welcome_view = new WelcomeView (this);
-        countdown_view = new CountDownView (this);
-        record_view = new RecordView (this);
+        welcome_view = new WelcomeView ();
+        countdown_view = new CountDownView ();
+        record_view = new RecordView ();
 
         stack = new Gtk.Stack () {
             margin_top = 6,
@@ -68,6 +68,25 @@ public class MainWindow : Gtk.ApplicationWindow {
         child = stack;
         show_welcome ();
 
+        welcome_view.start_recording.connect (start_recording);
+
+        countdown_view.cancelled.connect (show_welcome);
+        countdown_view.ended.connect (show_record);
+
+        record_view.cancelled.connect (() => {
+            recorder.cancel_recording ();
+            show_welcome ();
+        });
+        record_view.ended.connect (() => {
+            // If a user tries to stop recording while pausing, resume recording once and reset the button icon
+            if (recorder.state != Recorder.RecordingState.RECORDING) {
+                recorder.state = Recorder.RecordingState.RECORDING;
+            }
+
+            recorder.stop_recording ();
+            show_welcome ();
+        });
+
         var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {
             if (Gdk.ModifierType.CONTROL_MASK in state) {
@@ -75,7 +94,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                     case Gdk.Key.q:
                         if (recorder.state != Recorder.RecordingState.STOPPED) {
                             var loop = new MainLoop ();
-                            record_view.trigger_stop_recording.begin ((obj, res) => {
+                            record_view.stop_recording.begin ((obj, res) => {
                                 loop.quit ();
                             });
                             loop.run ();
@@ -86,10 +105,10 @@ public class MainWindow : Gtk.ApplicationWindow {
                     case Gdk.Key.R:
                         if (Gdk.ModifierType.SHIFT_MASK in state) {
                             if (stack.visible_child == welcome_view) {
-                                welcome_view.trigger_recording ();
+                                start_recording ();
                             } else if (stack.visible_child == record_view) {
                                 var loop = new MainLoop ();
-                                record_view.trigger_stop_recording.begin ((obj, res) => {
+                                record_view.stop_recording.begin ((obj, res) => {
                                     loop.quit ();
                                 });
                                 loop.run ();
@@ -107,7 +126,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         close_request.connect ((event) => {
             if (recorder.state != Recorder.RecordingState.STOPPED) {
                 var loop = new MainLoop ();
-                record_view.trigger_stop_recording.begin ((obj, res) => {
+                record_view.stop_recording.begin ((obj, res) => {
                     loop.quit ();
                 });
                 loop.run ();
@@ -176,17 +195,17 @@ public class MainWindow : Gtk.ApplicationWindow {
         });
     }
 
-    public void show_welcome () {
+    private void show_welcome () {
         stack.visible_child = welcome_view;
     }
 
-    public void show_countdown () {
+    private void show_countdown () {
         stack.visible_child = countdown_view;
         countdown_view.init_countdown ();
         countdown_view.start_countdown ();
     }
 
-    public void show_record () {
+    private void show_record () {
         try {
             recorder.start_recording ();
         } catch (Gst.ParseError e) {
@@ -197,6 +216,14 @@ public class MainWindow : Gtk.ApplicationWindow {
         record_view.init_count ();
         record_view.start_count ();
         stack.visible_child = record_view;
+    }
+
+    private void start_recording () {
+        if (Application.settings.get_uint ("delay") != 0) {
+            show_countdown ();
+        } else {
+            show_record ();
+        }
     }
 
     private void show_error_dialog (string error_message) {
