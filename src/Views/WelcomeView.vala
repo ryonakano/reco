@@ -4,18 +4,17 @@
  */
 
 public class WelcomeView : Gtk.Box {
-    public MainWindow window { get; construct; }
+    public signal void start_recording ();
 
     private Ryokucha.DropDownText mic_combobox;
     private Gtk.Switch auto_save_switch;
     private Gtk.Label destination_chooser_label;
     private Gtk.Button record_button;
 
-    public WelcomeView (MainWindow window) {
+    public WelcomeView () {
         Object (
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 12,
-            window: window,
             margin_top: 6,
             margin_bottom: 6,
             margin_start: 6,
@@ -205,7 +204,7 @@ public class WelcomeView : Gtk.Box {
         });
 
         record_button.clicked.connect (() => {
-            trigger_recording ();
+            start_recording ();
         });
 
         DeviceManager.get_default ().device_updated.connect (update_mic_combobox);
@@ -241,29 +240,31 @@ public class WelcomeView : Gtk.Box {
             accept_label = _("Select"),
             modal = true
         };
-        filechooser.select_folder.begin (window, null, (obj, res) => {
-            try {
-                var file = filechooser.select_folder.end (res);
-                if (file == null) {
-                    return;
-                }
+        filechooser.select_folder.begin (((Gtk.Application) GLib.Application.get_default ()).active_window, null,
+            (obj, res) => {
+                try {
+                    var file = filechooser.select_folder.end (res);
+                    if (file == null) {
+                        return;
+                    }
 
-                string new_path = file.get_path ();
-                set_destination (new_path);
-                auto_save_switch.active = true;
-            } catch (Error e) {
-                warning ("Failed to select folder: %s", e.message);
+                    string new_path = file.get_path ();
+                    set_destination (new_path);
+                    auto_save_switch.active = true;
+                } catch (Error e) {
+                    warning ("Failed to select folder: %s", e.message);
 
-                // If the autosave switch was off previously, turn off the autosave switch
-                // because the user cancels setting the autosave destination
-                // If the autosave switch was on previously, then it means the user just cancels
-                // changing the destination
-                var autosave_dest = Application.settings.get_string ("autosave-destination");
-                if (autosave_dest == Application.SETTINGS_NO_AUTOSAVE) {
-                    auto_save_switch.active = false;
+                    // If the autosave switch was off previously, turn off the autosave switch
+                    // because the user cancels setting the autosave destination
+                    // If the autosave switch was on previously, then it means the user just cancels
+                    // changing the destination
+                    var autosave_dest = Application.settings.get_string ("autosave-destination");
+                    if (autosave_dest == Application.SETTINGS_NO_AUTOSAVE) {
+                        auto_save_switch.active = false;
+                    }
                 }
             }
-        });
+        );
     }
 
     public void show_success_button () {
@@ -279,14 +280,6 @@ public class WelcomeView : Gtk.Box {
             return false;
         });
         timeout_button_icon = 0;
-    }
-
-    public void trigger_recording () {
-        if (Application.settings.get_uint ("delay") != 0) {
-            window.show_countdown ();
-        } else {
-            window.show_record ();
-        }
     }
 
     private void update_mic_combobox () {

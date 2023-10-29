@@ -4,7 +4,9 @@
  */
 
 public class RecordView : Gtk.Box {
-    public MainWindow window { get; construct; }
+    public signal void cancel_recording ();
+    public signal void stop_recording ();
+
     private Recorder recorder;
 
     private Gtk.Label time_label;
@@ -19,11 +21,10 @@ public class RecordView : Gtk.Box {
 
     private bool is_length_set;
 
-    public RecordView (MainWindow window) {
+    public RecordView () {
         Object (
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 12,
-            window: window,
             margin_top: 6,
             margin_bottom: 6,
             margin_start: 6,
@@ -88,9 +89,7 @@ public class RecordView : Gtk.Box {
 
         cancel_button.clicked.connect (() => {
             stop_count ();
-
-            recorder.cancel_recording ();
-            window.show_welcome ();
+            cancel_recording ();
         });
 
         stop_button.clicked.connect (() => {
@@ -116,14 +115,7 @@ public class RecordView : Gtk.Box {
 
     public async void trigger_stop_recording () {
         stop_count ();
-
-        // If a user tries to stop recording while pausing, resume recording once and reset the button icon
-        if (recorder.state != Recorder.RecordingState.RECORDING) {
-            recorder.state = Recorder.RecordingState.RECORDING;
-        }
-
-        recorder.stop_recording ();
-        window.show_welcome ();
+        stop_recording ();
     }
 
     public void init_count () {
