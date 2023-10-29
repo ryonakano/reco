@@ -73,10 +73,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         countdown_view.countdown_cancelled.connect (show_welcome);
         countdown_view.countdown_ended.connect (show_record);
 
-        record_view.cancel_recording.connect (() => {
-            recorder.cancel_recording ();
-            show_welcome ();
-        });
+        record_view.cancel_recording.connect (cancel_warpper);
         record_view.stop_recording.connect (stop_wrapper);
 
         var event_controller = new Gtk.EventControllerKey ();
@@ -225,6 +222,11 @@ public class MainWindow : Gtk.ApplicationWindow {
         }
 
         recorder.stop_recording ();
+        show_welcome ();
+    }
+
+    private void cancel_warpper () {
+        recorder.cancel_recording ();
         show_welcome ();
     }
 
