@@ -68,7 +68,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         child = stack;
         show_welcome ();
 
-        welcome_view.start_recording.connect (trigger_start_recording);
+        welcome_view.start_recording.connect (start_wrapper);
 
         countdown_view.countdown_cancelled.connect (show_welcome);
         countdown_view.countdown_ended.connect (show_record);
@@ -77,15 +77,7 @@ public class MainWindow : Gtk.ApplicationWindow {
             recorder.cancel_recording ();
             show_welcome ();
         });
-        record_view.stop_recording.connect (() => {
-            // If a user tries to stop recording while pausing, resume recording once and reset the button icon
-            if (recorder.state != Recorder.RecordingState.RECORDING) {
-                recorder.state = Recorder.RecordingState.RECORDING;
-            }
-
-            recorder.stop_recording ();
-            show_welcome ();
-        });
+        record_view.stop_recording.connect (stop_wrapper);
 
         var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {
@@ -105,7 +97,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                     case Gdk.Key.R:
                         if (Gdk.ModifierType.SHIFT_MASK in state) {
                             if (stack.visible_child == welcome_view) {
-                                trigger_start_recording ();
+                                start_wrapper ();
                             } else if (stack.visible_child == record_view) {
                                 var loop = new MainLoop ();
                                 record_view.trigger_stop_recording.begin ((obj, res) => {
@@ -200,9 +192,9 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     private void show_countdown () {
-        stack.visible_child = countdown_view;
         countdown_view.init_countdown ();
         countdown_view.start_countdown ();
+        stack.visible_child = countdown_view;
     }
 
     private void show_record () {
@@ -218,12 +210,22 @@ public class MainWindow : Gtk.ApplicationWindow {
         stack.visible_child = record_view;
     }
 
-    private void trigger_start_recording () {
+    private void start_wrapper () {
         if (Application.settings.get_uint ("delay") != 0) {
             show_countdown ();
         } else {
             show_record ();
         }
+    }
+
+    private void stop_wrapper () {
+        // If a user tries to stop recording while pausing, resume recording once and reset the button icon
+        if (recorder.state != Recorder.RecordingState.RECORDING) {
+            recorder.state = Recorder.RecordingState.RECORDING;
+        }
+
+        recorder.stop_recording ();
+        show_welcome ();
     }
 
     private void show_error_dialog (string error_message) {
