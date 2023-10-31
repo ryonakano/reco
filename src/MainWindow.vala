@@ -8,6 +8,7 @@ public class MainWindow : Gtk.ApplicationWindow {
     private const string DETAIL_TEXT = N_("The following error message may be helpful:");
 
     private Recorder recorder;
+    private bool destroy_on_save;
 
     private WelcomeView welcome_view;
     private CountDownView countdown_view;
@@ -74,21 +75,21 @@ public class MainWindow : Gtk.ApplicationWindow {
         countdown_view.countdown_ended.connect (show_record);
 
         record_view.cancel_recording.connect (cancel_warpper);
-        record_view.stop_recording.connect (stop_wrapper);
+        record_view.stop_recording.connect (() => { stop_wrapper (); });
 
         var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {
             if (Gdk.ModifierType.CONTROL_MASK in state) {
                 switch (keyval) {
                     case Gdk.Key.q:
+                        // Stop the recording if recording is in progress
+                        // The window is destroyed in the save callback
                         if (recorder.state != Recorder.RecordingState.STOPPED) {
-                            var loop = new MainLoop ();
-                            record_view.trigger_stop_recording.begin ((obj, res) => {
-                                loop.quit ();
-                            });
-                            loop.run ();
+                            stop_wrapper (true);
+                            return Gdk.EVENT_STOP;
                         }
 
+                        // Otherwise destroy the window
                         destroy ();
                         return Gdk.EVENT_STOP;
                     default:
@@ -101,15 +102,15 @@ public class MainWindow : Gtk.ApplicationWindow {
         ((Gtk.Widget) this).add_controller (event_controller);
 
         close_request.connect ((event) => {
+            // Stop the recording if recording is in progress
+            // The window is destroyed in the save callback
             if (recorder.state != Recorder.RecordingState.STOPPED) {
-                var loop = new MainLoop ();
-                record_view.trigger_stop_recording.begin ((obj, res) => {
-                    loop.quit ();
-                });
-                loop.run ();
+                stop_wrapper (true);
+                return Gdk.EVENT_STOP;
             }
 
-            return false;
+            // Otherwise we don't block the window destroyed
+            return Gdk.EVENT_PROPAGATE;
         });
 
         recorder.throw_error.connect ((err, debug) => {
@@ -135,6 +136,10 @@ public class MainWindow : Gtk.ApplicationWindow {
                     }
                 } catch (Error e) {
                     show_error_dialog (e.message);
+                }
+
+                if (destroy_on_save) {
+                    destroy ();
                 }
             } else {
                 var filechooser = new Gtk.FileDialog () {
@@ -166,6 +171,10 @@ public class MainWindow : Gtk.ApplicationWindow {
                         } catch (Error e) {
                             show_error_dialog (e.message);
                         }
+                    }
+
+                    if (destroy_on_save) {
+                        destroy ();
                     }
                 });
             }
@@ -203,7 +212,9 @@ public class MainWindow : Gtk.ApplicationWindow {
         }
     }
 
-    private void stop_wrapper () {
+    private void stop_wrapper (bool destroy_flag = false) {
+        destroy_on_save = destroy_flag;
+
         // If a user tries to stop recording while pausing, resume recording once and reset the button icon
         if (recorder.state != Recorder.RecordingState.RECORDING) {
             recorder.state = Recorder.RecordingState.RECORDING;
