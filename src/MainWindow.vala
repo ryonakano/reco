@@ -90,25 +90,13 @@ public class MainWindow : Gtk.ApplicationWindow {
                         }
 
                         destroy ();
-                        return true;
-                    case Gdk.Key.R:
-                        if (Gdk.ModifierType.SHIFT_MASK in state) {
-                            if (stack.visible_child == welcome_view) {
-                                start_wrapper ();
-                            } else if (stack.visible_child == record_view) {
-                                var loop = new MainLoop ();
-                                record_view.trigger_stop_recording.begin ((obj, res) => {
-                                    loop.quit ();
-                                });
-                                loop.run ();
-                            }
-                        }
-
-                        return true;
+                        return Gdk.EVENT_STOP;
+                    default:
+                        break;
                 }
             }
 
-            return false;
+            return Gdk.EVENT_PROPAGATE;
         });
         ((Gtk.Widget) this).add_controller (event_controller);
 

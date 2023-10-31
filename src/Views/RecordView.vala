@@ -87,6 +87,30 @@ public class RecordView : Gtk.Box {
         append (levelbar);
         append (buttons_grid);
 
+        var event_controller = new Gtk.EventControllerKey ();
+        event_controller.key_pressed.connect ((keyval, keycode, state) => {
+            if (Gdk.ModifierType.CONTROL_MASK in state) {
+                switch (keyval) {
+                    case Gdk.Key.R:
+                        if (Gdk.ModifierType.SHIFT_MASK in state) {
+                            var loop = new MainLoop ();
+                            trigger_stop_recording.begin ((obj, res) => {
+                                loop.quit ();
+                            });
+                            loop.run ();
+                            return Gdk.EVENT_STOP;
+                        }
+
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            return Gdk.EVENT_PROPAGATE;
+        });
+        ((Gtk.Widget) this).add_controller (event_controller);
+
         cancel_button.clicked.connect (() => {
             stop_count ();
             cancel_recording ();

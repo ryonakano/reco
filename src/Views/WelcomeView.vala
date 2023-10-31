@@ -177,6 +177,26 @@ public class WelcomeView : Gtk.Box {
             BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
         );
 
+        var event_controller = new Gtk.EventControllerKey ();
+        event_controller.key_pressed.connect ((keyval, keycode, state) => {
+            if (Gdk.ModifierType.CONTROL_MASK in state) {
+                switch (keyval) {
+                    case Gdk.Key.R:
+                        if (Gdk.ModifierType.SHIFT_MASK in state) {
+                            start_recording ();
+                            return Gdk.EVENT_STOP;
+                        }
+
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            return Gdk.EVENT_PROPAGATE;
+        });
+        ((Gtk.Widget) this).add_controller (event_controller);
+
         mic_combobox.changed.connect (() => {
             update_mic_combobox_tooltip ();
         });
