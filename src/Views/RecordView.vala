@@ -93,11 +93,7 @@ public class RecordView : Gtk.Box {
                 switch (keyval) {
                     case Gdk.Key.R:
                         if (Gdk.ModifierType.SHIFT_MASK in state) {
-                            var loop = new MainLoop ();
-                            trigger_stop_recording.begin ((obj, res) => {
-                                loop.quit ();
-                            });
-                            loop.run ();
+                            trigger_stop_recording ();
                             return Gdk.EVENT_STOP;
                         }
 
@@ -117,11 +113,7 @@ public class RecordView : Gtk.Box {
         });
 
         stop_button.clicked.connect (() => {
-            var loop = new MainLoop ();
-            trigger_stop_recording.begin ((obj, res) => {
-                loop.quit ();
-            });
-            loop.run ();
+            trigger_stop_recording ();
         });
 
         pause_button.clicked.connect (() => {
@@ -137,7 +129,7 @@ public class RecordView : Gtk.Box {
         });
     }
 
-    public async void trigger_stop_recording () {
+    private void trigger_stop_recording () {
         stop_count ();
         stop_recording ();
     }
@@ -193,11 +185,7 @@ public class RecordView : Gtk.Box {
 
             // We consumed all of recording length so stop recording
             if (tick_time.compare (end_time) == 0) {
-                var loop = new MainLoop ();
-                trigger_stop_recording.begin ((obj, res) => {
-                    loop.quit ();
-                });
-                loop.run ();
+                trigger_stop_recording ();
                 return false;
             }
 
