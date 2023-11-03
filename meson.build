@@ -46,8 +46,8 @@ dependencies = [
 
 sources = files(
     'src' / 'Services' / 'AbstractTimer.vala',
-    'src' / 'Services' / 'CountUpTimer.vala',
     'src' / 'Services' / 'CountDownTimer.vala',
+    'src' / 'Services' / 'CountUpTimer.vala',
     'src' / 'Services' / 'DeviceManager.vala',
     'src' / 'Services' / 'Recorder.vala',
     'src' / 'Views' / 'CountDownView.vala',

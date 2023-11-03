@@ -31,11 +31,16 @@ public abstract class AbstractTimer : Object {
     }
 
     public bool seek (TimeSpan offset_sec) {
-        time_usec += offset_sec * TimeSpan.SECOND;
+        time_usec += offset_sec * 1000 * 1000;
         return true;
     }
 
     public bool start () {
+        // Already started
+        if (timeout_remove_flag == Source.CONTINUE) {
+            return true;
+        }
+
         timeout_remove_flag = Source.CONTINUE;
         timeout = Timeout.add (INTERVAL_MSEC, on_timeout_cb);
         return true;
