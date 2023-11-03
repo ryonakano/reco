@@ -14,10 +14,14 @@ public abstract class AbstractTimer : Object {
             return time_usec > 0;
         }
     }
+    /**
+     * Function executed when ${@link AbstractTimer.to_string} is called.
+     */
     public ToStringFunc? to_string_func = null;
 
     private const uint INTERVAL_MSEC = 1000;
 
+    // The time this timer holds
     protected TimeSpan time_usec;
     private uint timeout;
     private bool timeout_remove_flag;
@@ -25,16 +29,29 @@ public abstract class AbstractTimer : Object {
     protected AbstractTimer () {
     }
 
+    /**
+     * Initialize the timer.
+     * @return true when succeeded, false otherwise.
+     */
     public bool init () {
         time_usec = 0;
         return true;
     }
 
+    /**
+     * Set the time when the timer started.
+     * @param offset_sec time to add to this timer.
+     * @return true when succeeded, false otherwise.
+     */
     public bool seek (TimeSpan offset_sec) {
         time_usec += offset_sec * 1000 * 1000;
         return true;
     }
 
+    /**
+     * Start the timer.
+     * @return true when succeeded, false otherwise.
+     */
     public bool start () {
         // Already started
         if (timeout_remove_flag == Source.CONTINUE) {
@@ -46,10 +63,17 @@ public abstract class AbstractTimer : Object {
         return true;
     }
 
+    /**
+     * Stop the timer.
+     */
     public void stop () {
         timeout_remove_flag = Source.REMOVE;
     }
 
+    /**
+     * Show the current time.<<BR>>
+     * Note that you must set {@link AbstractTimer.to_string_func}.
+     */
     public string to_string () {
         assert (to_string_func != null);
         return to_string_func (time_usec);
