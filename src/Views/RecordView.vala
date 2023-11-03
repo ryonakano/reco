@@ -173,7 +173,7 @@ public class RecordView : Gtk.Box {
 
     public void start_count () {
         uptimer.start ();
-        if (downtimer.seeked) {
+        if (downtimer.is_seeked) {
             downtimer.start ();
         }
     }
