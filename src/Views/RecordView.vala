@@ -14,7 +14,8 @@ public class RecordView : Gtk.Box {
     private Gtk.Button stop_button;
     private Gtk.Button pause_button;
 
-    private Timer timer;
+    private CountUpTimer uptimer;
+    private CountDownTimer downtimer;
     private uint count;
     private DateTime start_time;
     private DateTime end_time;
@@ -128,6 +129,19 @@ public class RecordView : Gtk.Box {
                 pause_button_set_pause ();
             }
         });
+
+        uptimer = new CountUpTimer ();
+        uptimer.ticked.connect (() => {
+            debug ("uptimer: %s", uptimer.to_string ());
+        });
+
+        downtimer = new CountDownTimer ();
+        downtimer.ticked.connect (() => {
+            debug ("downtimer: %s", downtimer.to_string ());
+        });
+        downtimer.ended.connect (() => {
+            trigger_stop_recording ();
+        });
     }
 
     private void trigger_stop_recording () {
@@ -136,11 +150,13 @@ public class RecordView : Gtk.Box {
     }
 
     public void init_count () {
-        timer = new Timer ();
-        timer.ticked.connect (() => {
-            debug ("%s", timer.to_string ());
-        });
-        timer.init ();
+        uptimer.init ();
+        downtimer.init ();
+
+        uint record_length = Application.settings.get_uint ("length");
+        if (record_length > 0) {
+            downtimer.seek (record_length);
+        }
 
         /*
          * This is how we count time:
@@ -157,7 +173,6 @@ public class RecordView : Gtk.Box {
         start_time = new DateTime.now ();
         tick_time = start_time;
 
-        uint record_length = Application.settings.get_uint ("length");
         end_time = start_time.add_seconds (record_length);
         // If start_time and end_time differs that means recording length being specified
         is_length_set = (start_time.compare (end_time) != 0);
@@ -174,7 +189,10 @@ public class RecordView : Gtk.Box {
     }
 
     public void start_count () {
-        timer.start ();
+        uptimer.start ();
+        if (downtimer.seeked) {
+            downtimer.start ();
+        }
         count = Timeout.add (1000, () => {
             // If the user pressed "pause", do not count this second.
             if (recorder.state != Recorder.RecordingState.RECORDING) {
@@ -202,7 +220,8 @@ public class RecordView : Gtk.Box {
     }
 
     public void stop_count () {
-        timer.stop ();
+        uptimer.stop ();
+        downtimer.stop ();
         count = 0;
     }
 
