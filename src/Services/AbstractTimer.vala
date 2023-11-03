@@ -19,7 +19,6 @@ public abstract class AbstractTimer : Object {
     private uint timeout;
     private bool timeout_remove_flag;
 
-    public abstract string to_string ();
     public abstract bool on_timeout ();
 
     protected AbstractTimer () {
@@ -39,6 +38,20 @@ public abstract class AbstractTimer : Object {
 
     public void stop () {
         timeout_remove_flag = Source.REMOVE;
+    }
+
+    public string to_string () {
+        TimeSpan remain = time_usec;
+        var time = AbstractTimer.Time ();
+
+        time.hours = remain / TimeSpan.HOUR;
+        remain %= TimeSpan.HOUR;
+        time.minutes = remain / TimeSpan.MINUTE;
+        remain %= TimeSpan.MINUTE;
+        time.seconds = remain / TimeSpan.SECOND;
+
+        return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT + ":%02" + int64.FORMAT)
+            .printf (time.hours, time.minutes, time.seconds);
     }
 
     private bool on_timeout_cb () {
