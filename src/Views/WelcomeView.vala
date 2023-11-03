@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2023 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class WelcomeView : Gtk.Box {
+public class WelcomeView : AbstractView {
     public signal void start_recording ();
 
     private Ryokucha.DropDownText mic_combobox;
@@ -12,14 +12,6 @@ public class WelcomeView : Gtk.Box {
     private Gtk.Button record_button;
 
     public WelcomeView () {
-        Object (
-            orientation: Gtk.Orientation.VERTICAL,
-            spacing: 12,
-            margin_top: 6,
-            margin_bottom: 6,
-            margin_start: 6,
-            margin_end: 6
-        );
     }
 
     construct {

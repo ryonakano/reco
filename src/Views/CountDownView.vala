@@ -3,29 +3,24 @@
  * SPDX-FileCopyrightText: 2018-2023 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class CountDownView : Gtk.Box {
+public class CountDownView : AbstractView {
     public signal void countdown_cancelled ();
     public signal void countdown_ended ();
 
     private Gtk.Label delay_remaining_label;
     private Gtk.Button pause_button;
 
-    private uint delay_remaining_time;
-    private uint countdown;
     private bool is_paused;
+    private CountDownTimer delaytimer;
 
     public CountDownView () {
-        Object (
-            orientation: Gtk.Orientation.VERTICAL,
-            spacing: 12,
-            margin_top: 6,
-            margin_bottom: 6,
-            margin_start: 6,
-            margin_end: 6
-        );
     }
 
     construct {
+        delaytimer = new CountDownTimer () {
+            to_string_func = delaytimer_strfunc
+        };
+
         delay_remaining_label = new Gtk.Label (null);
         delay_remaining_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
@@ -61,66 +56,57 @@ public class CountDownView : Gtk.Box {
         append (label_grid);
         append (buttons_grid);
 
+        delaytimer.ticked.connect (() => {
+            delay_remaining_label.label = delaytimer.to_string ();
+        });
+        delaytimer.ended.connect (() => {
+            stop_countdown ();
+            countdown_ended ();
+        });
+
         cancel_button.clicked.connect (() => {
             stop_countdown ();
             countdown_cancelled ();
         });
 
         pause_button.clicked.connect (() => {
-            toggle_countdown ();
+            if (!is_paused) {
+                stop_countdown ();
+                pause_button_set_resume ();
+            } else {
+                start_countdown ();
+                pause_button_set_pause ();
+            }
         });
     }
 
     public void init_countdown () {
-        delay_remaining_time = Application.settings.get_uint ("delay");
+        delaytimer.init ();
 
-        // Show initial delay_remaining_time
-        delay_remaining_label.label = "%u".printf (delay_remaining_time);
+        uint delay_length = Application.settings.get_uint ("delay");
+        delaytimer.seek (delay_length);
+        delay_remaining_label.label = delaytimer.to_string ();
 
         pause_button_set_pause ();
     }
 
     public void start_countdown () {
         is_paused = false;
-        // Decrease delay_remaining_time per seconds
-        countdown = Timeout.add (1000, () => {
-            // If the user pressed "pause", do not count this second.
-            if (is_paused) {
-                return false;
-            }
-
-            delay_remaining_time--;
-
-            // Show the decreased delay_remaining_time
-            delay_remaining_label.label = "%u".printf (delay_remaining_time);
-
-            // Start recording when delay_remaining_time turns 0
-            if (delay_remaining_time == 0) {
-                stop_countdown ();
-                countdown_ended ();
-                return false;
-            }
-
-            return true;
-        });
+        delaytimer.start ();
     }
 
     public void stop_countdown () {
         is_paused = true;
-        if (countdown != 0) {
-            Source.remove (countdown);
-            countdown = 0;
-        }
+        delaytimer.stop ();
     }
 
-    private void toggle_countdown () {
-        if (!is_paused) {
-            stop_countdown ();
-            pause_button_set_resume ();
-        } else {
-            start_countdown ();
-            pause_button_set_pause ();
-        }
+    private string delaytimer_strfunc (TimeSpan time_usec) {
+        TimeSpan remain = time_usec;
+        var time = TimerTime ();
+
+        time.seconds = remain / TimeSpan.SECOND;
+
+        return ("%" + int64.FORMAT).printf (time.seconds);
     }
 
     private void pause_button_set_pause () {

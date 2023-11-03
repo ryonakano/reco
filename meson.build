@@ -50,6 +50,7 @@ sources = files(
     'src' / 'Services' / 'CountUpTimer.vala',
     'src' / 'Services' / 'DeviceManager.vala',
     'src' / 'Services' / 'Recorder.vala',
+    'src' / 'Views' / 'AbstractView.vala',
     'src' / 'Views' / 'CountDownView.vala',
     'src' / 'Views' / 'WelcomeView.vala',
     'src' / 'Views' / 'RecordView.vala',

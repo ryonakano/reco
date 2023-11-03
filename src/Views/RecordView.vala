@@ -3,16 +3,10 @@
  * SPDX-FileCopyrightText: 2018-2023 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class RecordView : Gtk.Box {
+public class RecordView : AbstractView {
     public signal void cancel_recording ();
     public signal void stop_recording ();
     public signal void toggle_recording (bool is_recording);
-
-    private struct TimerTime {
-        TimeSpan hours;
-        TimeSpan minutes;
-        TimeSpan seconds;
-    }
 
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
@@ -24,14 +18,6 @@ public class RecordView : Gtk.Box {
     private CountDownTimer downtimer;
 
     public RecordView () {
-        Object (
-            orientation: Gtk.Orientation.VERTICAL,
-            spacing: 12,
-            margin_top: 6,
-            margin_bottom: 6,
-            margin_start: 6,
-            margin_end: 6
-        );
     }
 
     construct {
@@ -137,11 +123,9 @@ public class RecordView : Gtk.Box {
 
         pause_button.clicked.connect (() => {
             if (is_recording) {
-                is_recording = false;
                 stop_count ();
                 pause_button_set_resume ();
             } else {
-                is_recording = true;
                 start_count ();
                 pause_button_set_pause ();
             }
