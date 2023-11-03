@@ -47,6 +47,7 @@ dependencies = [
 sources = files(
     'src' / 'Services' / 'DeviceManager.vala',
     'src' / 'Services' / 'Recorder.vala',
+    'src' / 'Services' / 'Timer.vala',
     'src' / 'Views' / 'CountDownView.vala',
     'src' / 'Views' / 'WelcomeView.vala',
     'src' / 'Views' / 'RecordView.vala',

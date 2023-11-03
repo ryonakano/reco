@@ -14,6 +14,7 @@ public class RecordView : Gtk.Box {
     private Gtk.Button stop_button;
     private Gtk.Button pause_button;
 
+    private Timer timer;
     private uint count;
     private DateTime start_time;
     private DateTime end_time;
@@ -135,6 +136,12 @@ public class RecordView : Gtk.Box {
     }
 
     public void init_count () {
+        timer = new Timer ();
+        timer.ticked.connect (() => {
+            debug ("%s", timer.to_string ());
+        });
+        timer.init ();
+
         /*
          * This is how we count time:
          *
@@ -167,6 +174,7 @@ public class RecordView : Gtk.Box {
     }
 
     public void start_count () {
+        timer.start ();
         count = Timeout.add (1000, () => {
             // If the user pressed "pause", do not count this second.
             if (recorder.state != Recorder.RecordingState.RECORDING) {
@@ -194,6 +202,7 @@ public class RecordView : Gtk.Box {
     }
 
     public void stop_count () {
+        timer.stop ();
         count = 0;
     }
 
