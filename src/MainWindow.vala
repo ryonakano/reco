@@ -76,6 +76,9 @@ public class MainWindow : Gtk.ApplicationWindow {
 
         record_view.cancel_recording.connect (cancel_warpper);
         record_view.stop_recording.connect (() => { stop_wrapper (); });
+        record_view.toggle_recording.connect ((is_recording) => {
+            recorder.state = is_recording ? Recorder.RecordingState.RECORDING : Recorder.RecordingState.PAUSED;
+        });
 
         var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {

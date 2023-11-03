@@ -6,6 +6,7 @@
 public class RecordView : Gtk.Box {
     public signal void cancel_recording ();
     public signal void stop_recording ();
+    public signal void toggle_recording (bool is_recording);
 
     private struct TimerTime {
         TimeSpan hours;
@@ -13,13 +14,12 @@ public class RecordView : Gtk.Box {
         TimeSpan seconds;
     }
 
-    private Recorder recorder;
-
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
     private Gtk.Button stop_button;
     private Gtk.Button pause_button;
 
+    private bool is_recording;
     private CountUpTimer uptimer;
     private CountDownTimer downtimer;
 
@@ -35,7 +35,13 @@ public class RecordView : Gtk.Box {
     }
 
     construct {
-        recorder = Recorder.get_default ();
+        uptimer = new CountUpTimer () {
+            to_string_func = uptimer_strfunc
+        };
+
+        downtimer = new CountDownTimer () {
+            to_string_func = downtimer_strfunc
+        };
 
         time_label = new Gtk.Label (null);
         time_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
@@ -109,6 +115,17 @@ public class RecordView : Gtk.Box {
         });
         ((Gtk.Widget) this).add_controller (event_controller);
 
+        uptimer.ticked.connect (() => {
+            time_label.label = uptimer.to_string ();
+        });
+
+        downtimer.ticked.connect (() => {
+            remaining_time_label.label = downtimer.to_string ();
+        });
+        downtimer.ended.connect (() => {
+            trigger_stop_recording ();
+        });
+
         cancel_button.clicked.connect (() => {
             stop_count ();
             cancel_recording ();
@@ -119,32 +136,17 @@ public class RecordView : Gtk.Box {
         });
 
         pause_button.clicked.connect (() => {
-            if (recorder.state == Recorder.RecordingState.RECORDING) {
+            if (is_recording) {
+                is_recording = false;
                 stop_count ();
-                recorder.state = Recorder.RecordingState.PAUSED;
                 pause_button_set_resume ();
             } else {
+                is_recording = true;
                 start_count ();
-                recorder.state = Recorder.RecordingState.RECORDING;
                 pause_button_set_pause ();
             }
-        });
 
-        uptimer = new CountUpTimer () {
-            to_string_func = uptimer_strfunc
-        };
-        uptimer.ticked.connect (() => {
-            time_label.label = uptimer.to_string ();
-        });
-
-        downtimer = new CountDownTimer () {
-            to_string_func = downtimer_strfunc
-        };
-        downtimer.ticked.connect (() => {
-            remaining_time_label.label = downtimer.to_string ();
-        });
-        downtimer.ended.connect (() => {
-            trigger_stop_recording ();
+            toggle_recording (is_recording);
         });
     }
 
@@ -172,6 +174,7 @@ public class RecordView : Gtk.Box {
     }
 
     public void start_count () {
+        is_recording = true;
         uptimer.start ();
         if (downtimer.is_seeked) {
             downtimer.start ();
@@ -179,6 +182,7 @@ public class RecordView : Gtk.Box {
     }
 
     public void stop_count () {
+        is_recording = false;
         uptimer.stop ();
         downtimer.stop ();
     }
