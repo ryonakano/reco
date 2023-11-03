@@ -7,6 +7,12 @@ public class RecordView : Gtk.Box {
     public signal void cancel_recording ();
     public signal void stop_recording ();
 
+    private struct TimerTime {
+        TimeSpan hours;
+        TimeSpan minutes;
+        TimeSpan seconds;
+    }
+
     private Recorder recorder;
 
     private Gtk.Label time_label;
@@ -124,12 +130,16 @@ public class RecordView : Gtk.Box {
             }
         });
 
-        uptimer = new CountUpTimer ();
+        uptimer = new CountUpTimer () {
+            to_string_func = uptimer_strfunc
+        };
         uptimer.ticked.connect (() => {
             time_label.label = uptimer.to_string ();
         });
 
-        downtimer = new CountDownTimer ();
+        downtimer = new CountDownTimer () {
+            to_string_func = downtimer_strfunc
+        };
         downtimer.ticked.connect (() => {
             remaining_time_label.label = downtimer.to_string ();
         });
@@ -171,6 +181,31 @@ public class RecordView : Gtk.Box {
     public void stop_count () {
         uptimer.stop ();
         downtimer.stop ();
+    }
+
+    private string uptimer_strfunc (TimeSpan time_usec) {
+        TimeSpan remain = time_usec;
+        var time = TimerTime ();
+
+        time.hours = remain / TimeSpan.HOUR;
+        remain %= TimeSpan.HOUR;
+        time.minutes = remain / TimeSpan.MINUTE;
+        remain %= TimeSpan.MINUTE;
+        time.seconds = remain / TimeSpan.SECOND;
+
+        return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT + ":%02" + int64.FORMAT)
+            .printf (time.hours, time.minutes, time.seconds);
+    }
+
+    private string downtimer_strfunc (TimeSpan time_usec) {
+        TimeSpan remain = time_usec;
+        var time = TimerTime ();
+
+        time.minutes = remain / TimeSpan.MINUTE;
+        remain %= TimeSpan.MINUTE;
+        time.seconds = remain / TimeSpan.SECOND;
+
+        return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT).printf (time.minutes, time.seconds);
     }
 
     private void pause_button_set_pause () {

@@ -15,11 +15,6 @@ public class CountDownTimer : AbstractTimer {
     public CountDownTimer () {
     }
 
-    public bool seek (TimeSpan offset_sec) {
-        time_usec += offset_sec * TimeSpan.SECOND;
-        return true;
-    }
-
     public override bool on_timeout () {
         time_usec -= TimeSpan.SECOND;
         if (time_usec <= 0) {
