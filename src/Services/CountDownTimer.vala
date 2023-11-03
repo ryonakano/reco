@@ -6,12 +6,6 @@
 public class CountDownTimer : AbstractTimer {
     public signal void ended ();
 
-    public bool seeked {
-        get {
-            return time_usec != 0;
-        }
-    }
-
     public CountDownTimer () {
     }
 

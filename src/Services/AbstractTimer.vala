@@ -9,6 +9,11 @@ public abstract class AbstractTimer : Object {
     public delegate string ToStringFunc (TimeSpan time);
     public abstract bool on_timeout ();
 
+    public bool seeked {
+        get {
+            return time_usec > 0;
+        }
+    }
     public ToStringFunc? to_string_func = null;
 
     private const uint INTERVAL_MSEC = 1000;

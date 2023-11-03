@@ -155,9 +155,9 @@ public class RecordView : Gtk.Box {
 
     public void init_count () {
         uptimer.init ();
-        time_label.label = uptimer.to_string ();
-
         downtimer.init ();
+
+        time_label.label = uptimer.to_string ();
 
         uint record_length = Application.settings.get_uint ("length");
         if (record_length > 0) {
