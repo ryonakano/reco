@@ -16,12 +16,6 @@ public class RecordView : Gtk.Box {
 
     private CountUpTimer uptimer;
     private CountDownTimer downtimer;
-    private uint count;
-    private DateTime start_time;
-    private DateTime end_time;
-    private DateTime tick_time;
-
-    private bool is_length_set;
 
     public RecordView () {
         Object (
@@ -132,12 +126,12 @@ public class RecordView : Gtk.Box {
 
         uptimer = new CountUpTimer ();
         uptimer.ticked.connect (() => {
-            debug ("uptimer: %s", uptimer.to_string ());
+            time_label.label = uptimer.to_string ();
         });
 
         downtimer = new CountDownTimer ();
         downtimer.ticked.connect (() => {
-            debug ("downtimer: %s", downtimer.to_string ());
+            remaining_time_label.label = downtimer.to_string ();
         });
         downtimer.ended.connect (() => {
             trigger_stop_recording ();
@@ -151,38 +145,17 @@ public class RecordView : Gtk.Box {
 
     public void init_count () {
         uptimer.init ();
+        time_label.label = uptimer.to_string ();
+
         downtimer.init ();
 
         uint record_length = Application.settings.get_uint ("length");
         if (record_length > 0) {
             downtimer.seek (record_length);
-        }
-
-        /*
-         * This is how we count time:
-         *
-         * start_time                          end_time
-         *    ||<---------record_length--------->||
-         *    ||          (if specified)         ||
-         *    \/                                 \/
-         * 09:45:12    09:45:13    9:45:14 ... 9:50:12
-         *    /\
-         *    ||
-         * tick_time --> +1 per sec
-         */
-        start_time = new DateTime.now ();
-        tick_time = start_time;
-
-        end_time = start_time.add_seconds (record_length);
-        // If start_time and end_time differs that means recording length being specified
-        is_length_set = (start_time.compare (end_time) != 0);
-
-        // Show initial time (00:00)
-        show_timer_label (time_label, start_time, tick_time);
-        if (start_time.compare (end_time) != 0) {
-            show_timer_label (remaining_time_label, tick_time, end_time);
+            remaining_time_label.label = downtimer.to_string ();
         } else {
-            hide_timer_label (remaining_time_label);
+            // Hide the label
+            remaining_time_label.label = null;
         }
 
         pause_button_set_pause ();
@@ -193,53 +166,11 @@ public class RecordView : Gtk.Box {
         if (downtimer.seeked) {
             downtimer.start ();
         }
-        count = Timeout.add (1000, () => {
-            // If the user pressed "pause", do not count this second.
-            if (recorder.state != Recorder.RecordingState.RECORDING) {
-                return false;
-            }
-
-            // Increment the elapsed time
-            tick_time = tick_time.add (TimeSpan.SECOND);
-
-            // Show the updated elapsed time
-            show_timer_label (time_label, start_time, tick_time);
-            // Show recording length
-            if (is_length_set) {
-                show_timer_label (remaining_time_label, tick_time, end_time);
-            }
-
-            // We consumed all of recording length so stop recording
-            if (tick_time.compare (end_time) == 0) {
-                trigger_stop_recording ();
-                return false;
-            }
-
-            return true;
-        });
     }
 
     public void stop_count () {
         uptimer.stop ();
         downtimer.stop ();
-        count = 0;
-    }
-
-    /*
-     * DateTime does not have "subtract()", so calcurate the difference between start and end
-     * and add it to 00:00
-     */
-    private void show_timer_label (Gtk.Label label, DateTime start, DateTime end) {
-        TimeSpan diff = end.difference (start);
-
-        var disp_time = new DateTime.local (start.get_year (), start.get_month (),
-                                            start.get_day_of_month (), 0, 0, 0.0);
-        disp_time = disp_time.add (diff);
-        label.label = disp_time.format ("%M:%S");
-    }
-
-    private void hide_timer_label (Gtk.Label label) {
-        label.label = null;
     }
 
     private void pause_button_set_pause () {
