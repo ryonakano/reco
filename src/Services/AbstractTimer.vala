@@ -31,36 +31,30 @@ public abstract class AbstractTimer : Object {
 
     /**
      * Initialize the timer.
-     * @return true when succeeded, false otherwise.
      */
-    public bool init () {
+    public void init () {
         time_usec = 0;
-        return true;
     }
 
     /**
      * Set the time when the timer started.
      * @param offset_sec time to add to this timer.
-     * @return true when succeeded, false otherwise.
      */
-    public bool seek (TimeSpan offset_sec) {
+    public void seek (TimeSpan offset_sec) {
         time_usec += offset_sec * 1000 * 1000;
-        return true;
     }
 
     /**
      * Start the timer.
-     * @return true when succeeded, false otherwise.
      */
-    public bool start () {
+    public void start () {
         // Already started
         if (timeout_remove_flag == Source.CONTINUE) {
-            return true;
+            return;
         }
 
         timeout_remove_flag = Source.CONTINUE;
         timeout = Timeout.add (INTERVAL_MSEC, on_timeout_cb);
-        return true;
     }
 
     /**
@@ -73,6 +67,7 @@ public abstract class AbstractTimer : Object {
     /**
      * Show the current time.<<BR>>
      * Note that you must set {@link AbstractTimer.to_string_func}.
+     * @return Current time represented in string.
      */
     public string to_string () {
         assert (to_string_func != null);
