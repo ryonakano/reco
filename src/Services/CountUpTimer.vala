@@ -7,7 +7,7 @@ public class CountUpTimer : AbstractTimer {
     public CountUpTimer () {
     }
 
-    public override bool on_timeout () {
+    protected override bool on_timeout () {
         time_usec += TimeSpan.SECOND;
         return Source.CONTINUE;
     }

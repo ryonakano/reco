@@ -9,7 +9,7 @@ public class CountDownTimer : AbstractTimer {
     public CountDownTimer () {
     }
 
-    public override bool on_timeout () {
+    protected override bool on_timeout () {
         time_usec -= TimeSpan.SECOND;
         if (time_usec <= 0) {
             ended ();

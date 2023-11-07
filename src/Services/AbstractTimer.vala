@@ -7,7 +7,7 @@ public abstract class AbstractTimer : Object {
     public signal void ticked ();
 
     public delegate string ToStringFunc (TimeSpan time);
-    public abstract bool on_timeout ();
+    protected abstract bool on_timeout ();
 
     public bool is_seeked {
         get {
