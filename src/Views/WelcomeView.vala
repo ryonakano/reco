@@ -195,7 +195,7 @@ public class WelcomeView : AbstractView {
         ((Gtk.Widget) this).add_controller (event_controller);
 
         source_combobox.changed.connect (() => {
-            update_record_button ();
+            record_button.sensitive = get_record_button_sensitivity ();
         });
         mic_combobox.changed.connect (() => {
             update_mic_combobox_tooltip ();
@@ -228,8 +228,9 @@ public class WelcomeView : AbstractView {
         });
 
         device_manager.device_updated.connect (() => {
-            update_record_button ();
+            record_button.sensitive = get_record_button_sensitivity ();
             update_mic_combobox ();
+            update_mic_combobox_tooltip ();
         });
     }
 
@@ -305,18 +306,14 @@ public class WelcomeView : AbstractView {
         timeout_button_icon = 0;
     }
 
-    private void update_record_button () {
+    private bool get_record_button_sensitivity () {
         switch (source_combobox.active_id) {
             case "mic":
-                record_button.sensitive = (device_manager.sources.size > 0);
-                break;
+                return (device_manager.sources.size > 0);
             case "system":
-                record_button.sensitive = (device_manager.sinks.size > 0);
-                break;
+                return (device_manager.sinks.size > 0);
             case "both":
-                record_button.sensitive = (device_manager.sources.size > 0) &&
-                    (device_manager.sinks.size > 0);
-                break;
+                return (device_manager.sources.size > 0) && (device_manager.sinks.size > 0);
             default:
                 assert_not_reached ();
         }
@@ -328,8 +325,6 @@ public class WelcomeView : AbstractView {
         foreach (Gst.Device device in device_manager.sources) {
             mic_combobox.append (null, device.display_name);
         }
-
-        update_mic_combobox_tooltip ();
     }
 
     private void update_mic_combobox_tooltip () {
