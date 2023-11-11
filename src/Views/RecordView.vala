@@ -50,7 +50,7 @@ public class RecordView : AbstractView {
             tooltip_text = _("Cancel recording"),
             halign = Gtk.Align.START
         };
-        cancel_button.add_css_class ("buttons-without-border");
+        cancel_button.add_css_class ("borderless-button");
 
         stop_button = new Gtk.Button () {
             icon_name = "media-playback-stop-symbolic",
@@ -65,7 +65,7 @@ public class RecordView : AbstractView {
         pause_button = new Gtk.Button () {
             halign = Gtk.Align.END
         };
-        pause_button.add_css_class ("buttons-without-border");
+        pause_button.add_css_class ("borderless-button");
 
         var buttons_grid = new Gtk.Grid () {
             column_spacing = 30,
