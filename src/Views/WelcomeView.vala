@@ -230,7 +230,6 @@ public class WelcomeView : AbstractView {
         device_manager.device_updated.connect (() => {
             record_button.sensitive = get_record_button_sensitivity ();
             update_mic_combobox ();
-            update_mic_combobox_tooltip ();
         });
     }
 
@@ -325,6 +324,8 @@ public class WelcomeView : AbstractView {
         foreach (Gst.Device device in device_manager.sources) {
             mic_combobox.append (null, device.display_name);
         }
+
+        update_mic_combobox_tooltip ();
     }
 
     private void update_mic_combobox_tooltip () {
