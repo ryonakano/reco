@@ -6,6 +6,7 @@
 public class WelcomeView : AbstractView {
     public signal void start_recording ();
 
+    private DeviceManager device_manager;
     private Ryokucha.DropDownText mic_combobox;
     private Gtk.Switch auto_save_switch;
     private Gtk.Label destination_chooser_label;
@@ -15,6 +16,8 @@ public class WelcomeView : AbstractView {
     }
 
     construct {
+        device_manager = DeviceManager.get_default ();
+
         var source_header_label = new Granite.HeaderLabel (_("Source"));
 
         var source_label = new Gtk.Label (_("Record from:")) {
@@ -165,7 +168,7 @@ public class WelcomeView : AbstractView {
                 return true;
             }
         );
-        mic_combobox.dropdown.bind_property ("selected", DeviceManager.get_default (), "selected-source-index",
+        mic_combobox.dropdown.bind_property ("selected", device_manager, "selected-source-index",
             BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
         );
 
@@ -219,7 +222,7 @@ public class WelcomeView : AbstractView {
             start_recording ();
         });
 
-        DeviceManager.get_default ().device_updated.connect (update_mic_combobox);
+        device_manager.device_updated.connect (update_mic_combobox);
     }
 
     private void get_destination () {
@@ -297,7 +300,7 @@ public class WelcomeView : AbstractView {
     private void update_mic_combobox () {
         mic_combobox.remove_all ();
 
-        foreach (Gst.Device device in DeviceManager.get_default ().sources) {
+        foreach (Gst.Device device in device_manager.sources) {
             mic_combobox.append (null, device.display_name);
         }
 
