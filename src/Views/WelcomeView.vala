@@ -6,6 +6,7 @@
 public class WelcomeView : AbstractView {
     public signal void start_recording ();
 
+    private Ryokucha.DropDownText source_combobox;
     private Ryokucha.DropDownText mic_combobox;
     private Gtk.Switch auto_save_switch;
     private Gtk.Label destination_chooser_label;
@@ -20,7 +21,7 @@ public class WelcomeView : AbstractView {
         var source_label = new Gtk.Label (_("Record from:")) {
             halign = Gtk.Align.END
         };
-        var source_combobox = new Ryokucha.DropDownText () {
+        source_combobox = new Ryokucha.DropDownText () {
             halign = Gtk.Align.START
         };
         source_combobox.append ("mic", _("Microphone"));
@@ -189,6 +190,9 @@ public class WelcomeView : AbstractView {
         });
         ((Gtk.Widget) this).add_controller (event_controller);
 
+        source_combobox.changed.connect (() => {
+            update_record_button ();
+        });
         mic_combobox.changed.connect (() => {
             update_mic_combobox_tooltip ();
         });
@@ -219,7 +223,10 @@ public class WelcomeView : AbstractView {
             start_recording ();
         });
 
-        DeviceManager.get_default ().device_updated.connect (update_mic_combobox);
+        DeviceManager.get_default ().device_updated.connect (() => {
+            update_record_button ();
+            update_mic_combobox ();
+        });
     }
 
     private void get_destination () {
@@ -292,6 +299,23 @@ public class WelcomeView : AbstractView {
             return false;
         });
         timeout_button_icon = 0;
+    }
+
+    private void update_record_button () {
+        switch (source_combobox.active_id) {
+            case "mic":
+                record_button.sensitive = (DeviceManager.get_default ().sources.size > 0);
+                break;
+            case "system":
+                record_button.sensitive = (DeviceManager.get_default ().sinks.size > 0);
+                break;
+            case "both":
+                record_button.sensitive = (DeviceManager.get_default ().sources.size > 0) &&
+                    (DeviceManager.get_default ().sinks.size > 0);
+                break;
+            default:
+                assert_not_reached ();
+        }
     }
 
     private void update_mic_combobox () {
