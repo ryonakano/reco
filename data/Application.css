@@ -5,6 +5,9 @@
     color: #fafafa;
     transition: all 1s 0s ease;
 }
+.record-button:disabled {
+    opacity: 0.4;
+}
 
 .record-button-success {
     background: linear-gradient(#68b723, #3a9104);
