@@ -17,7 +17,7 @@
     transition: all 1s 0s ease;
 }
 
-.buttons-without-border {
+.borderless-button {
     background: none;
     border: none;
 }
