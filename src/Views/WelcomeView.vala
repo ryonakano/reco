@@ -180,7 +180,12 @@ public class WelcomeView : AbstractView {
                 switch (keyval) {
                     case Gdk.Key.R:
                         if (Gdk.ModifierType.SHIFT_MASK in state) {
-                            start_recording ();
+                            // Only start recording when recording source is connected
+                            bool is_connected = get_is_source_connected ();
+                            if (is_connected) {
+                                start_recording ();
+                            }
+
                             return Gdk.EVENT_STOP;
                         }
 
@@ -195,7 +200,7 @@ public class WelcomeView : AbstractView {
         ((Gtk.Widget) this).add_controller (event_controller);
 
         source_combobox.changed.connect (() => {
-            record_button.sensitive = get_record_button_sensitivity ();
+            record_button.sensitive = get_is_source_connected ();
         });
         mic_combobox.changed.connect (() => {
             update_mic_combobox_tooltip ();
@@ -228,7 +233,7 @@ public class WelcomeView : AbstractView {
         });
 
         device_manager.device_updated.connect (() => {
-            record_button.sensitive = get_record_button_sensitivity ();
+            record_button.sensitive = get_is_source_connected ();
             update_mic_combobox ();
             update_mic_combobox_tooltip ();
         });
@@ -306,7 +311,7 @@ public class WelcomeView : AbstractView {
         timeout_button_icon = 0;
     }
 
-    private bool get_record_button_sensitivity () {
+    private bool get_is_source_connected () {
         switch (source_combobox.active_id) {
             case "mic":
                 return (device_manager.sources.size > 0);
