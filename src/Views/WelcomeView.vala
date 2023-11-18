@@ -180,6 +180,8 @@ public class WelcomeView : AbstractView {
                 switch (keyval) {
                     case Gdk.Key.R:
                         if (Gdk.ModifierType.SHIFT_MASK in state) {
+                            debug ("Key pressed: Ctrl + Shift + R");
+
                             // Only start recording when recording source is connected
                             bool is_connected = get_is_source_connected ();
                             if (is_connected) {
@@ -207,7 +209,9 @@ public class WelcomeView : AbstractView {
         });
 
         auto_save_switch.state_set.connect ((state) => {
-            if (state == true) {
+            debug ("auto_save_switch.state_set: state(%s)", state.to_string ());
+
+            if (state) {
                 // Prevent the filechooser shown twice when enabling the autosaving
                 var autosave_dest = Application.settings.get_string ("autosave-destination");
                 if (autosave_dest != Application.SETTINGS_NO_AUTOSAVE) {
@@ -225,14 +229,17 @@ public class WelcomeView : AbstractView {
         });
 
         destination_chooser_button.clicked.connect (() => {
+            debug ("destination_chooser_button.clicked");
             show_destination_chooser ();
         });
 
         record_button.clicked.connect (() => {
+            debug ("record_button.clicked");
             start_recording ();
         });
 
         device_manager.device_updated.connect (() => {
+            debug ("device_manager.device_updated");
             record_button.sensitive = get_is_source_connected ();
             update_mic_combobox ();
         });
@@ -244,7 +251,7 @@ public class WelcomeView : AbstractView {
         auto_save_switch.active = (path != Application.SETTINGS_NO_AUTOSAVE);
 
         var file = File.new_for_path (path);
-        if (file.query_exists () == false) {
+        if (!file.query_exists ()) {
             DirUtils.create_with_parents (path, 0775);
         }
     }
