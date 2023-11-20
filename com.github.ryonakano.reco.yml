@@ -1,6 +1,6 @@
 app-id: com.github.ryonakano.reco
 runtime: io.elementary.Platform
-runtime-version: '7.2'
+runtime-version: '7.3'
 sdk: io.elementary.Sdk
 command: com.github.ryonakano.reco
 finish-args:
@@ -26,9 +26,9 @@ modules:
       - '-Ddoc=disabled'
     sources:
       - type: archive
-        # we need to use the same version with gstreamer
-        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.20.6.tar.xz
-        sha256: 7d619a030542a4a5a11e0302742a3d9b05f8e5cfc453025683a0379bc50aa013
+        # we need to use the same version with gstreamer included in the sdk
+        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.5.tar.xz
+        sha256: 8583f0c1f4fcb01eed11fa1e3c21126543a8bd739ed4fc1db31f756a5ab01d9a
 
   - name: ryokucha
     buildsystem: meson
