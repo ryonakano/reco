@@ -87,7 +87,6 @@ public class RecordView : AbstractView {
                 switch (keyval) {
                     case Gdk.Key.R:
                         if (Gdk.ModifierType.SHIFT_MASK in state) {
-                            debug ("Key pressed: Ctrl + Shift + R");
                             trigger_stop_recording ();
                             return Gdk.EVENT_STOP;
                         }
@@ -114,19 +113,15 @@ public class RecordView : AbstractView {
         });
 
         cancel_button.clicked.connect (() => {
-            debug ("cancel_button.clicked");
             stop_count ();
             cancel_recording ();
         });
 
         stop_button.clicked.connect (() => {
-            debug ("stop_button.clicked");
             trigger_stop_recording ();
         });
 
         pause_button.clicked.connect (() => {
-            debug ("pause_button.clicked: is_recording(%s)", is_recording.to_string ());
-
             if (is_recording) {
                 stop_count ();
                 pause_button_set_resume ();

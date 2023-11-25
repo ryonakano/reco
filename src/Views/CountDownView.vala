@@ -65,14 +65,11 @@ public class CountDownView : AbstractView {
         });
 
         cancel_button.clicked.connect (() => {
-            debug ("cancel_button.clicked");
             stop_countdown ();
             countdown_cancelled ();
         });
 
         pause_button.clicked.connect (() => {
-            debug ("pause_button.clicked: is_paused(%s)", is_paused.to_string ());
-
             if (!is_paused) {
                 stop_countdown ();
                 pause_button_set_resume ();

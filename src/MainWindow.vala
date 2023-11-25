@@ -69,27 +69,14 @@ public class MainWindow : Gtk.ApplicationWindow {
         child = stack;
         show_welcome ();
 
-        welcome_view.start_recording.connect (() => {
-            debug ("welcome_view.start_recording");
-            start_wrapper ();
-        });
+        welcome_view.start_recording.connect (start_wrapper);
 
-        countdown_view.countdown_cancelled.connect (() => {
-            debug ("countdown_view.countdown_cancelled");
-            show_welcome ();
-        });
-        countdown_view.countdown_ended.connect (() => {
-            debug ("countdown_view.countdown_ended");
-            show_record ();
-        });
+        countdown_view.countdown_cancelled.connect (show_welcome);
+        countdown_view.countdown_ended.connect (show_record);
 
-        record_view.cancel_recording.connect (() => {
-            debug ("record_view.cancel_recording");
-            cancel_warpper ();
-        });
+        record_view.cancel_recording.connect (cancel_warpper);
         record_view.stop_recording.connect (() => {
-            debug ("record_view.stop_recording");
-            stop_wrapper ();
+            stop_wrapper (false);
         });
         record_view.toggle_recording.connect ((is_recording) => {
             debug ("record_view.toggle_recording: is_recording(%s)", is_recording.to_string ());
@@ -101,12 +88,9 @@ public class MainWindow : Gtk.ApplicationWindow {
             if (Gdk.ModifierType.CONTROL_MASK in state) {
                 switch (keyval) {
                     case Gdk.Key.q:
-                        debug ("Key pressed: Ctrl + Q");
-
                         // Stop the recording if recording is in progress
                         // The window is destroyed in the save callback
                         if (recorder.state != Recorder.RecordingState.STOPPED) {
-                            debug ("Stopping the ongoing recording…");
                             stop_wrapper (true);
                             return Gdk.EVENT_STOP;
                         }
@@ -124,12 +108,9 @@ public class MainWindow : Gtk.ApplicationWindow {
         ((Gtk.Widget) this).add_controller (event_controller);
 
         close_request.connect ((event) => {
-            debug ("close_request");
-
             // Stop the recording if recording is in progress
             // The window is destroyed in the save callback
             if (recorder.state != Recorder.RecordingState.STOPPED) {
-                debug ("Stopping the ongoing recording…");
                 stop_wrapper (true);
                 return Gdk.EVENT_STOP;
             }
@@ -138,9 +119,8 @@ public class MainWindow : Gtk.ApplicationWindow {
             return Gdk.EVENT_PROPAGATE;
         });
 
-        recorder.throw_error.connect ((err, debug_message) => {
-            debug ("recorder.throw_error: err.message(%s), debug_message(%s)", err.message, debug_message);
-            show_error_dialog ("%s\n%s".printf (err.message, debug_message));
+        recorder.throw_error.connect ((err, debug) => {
+            show_error_dialog ("%s\n%s".printf (err.message, debug));
         });
 
         recorder.save_file.connect ((tmp_full_path, suffix) => {
@@ -157,8 +137,6 @@ public class MainWindow : Gtk.ApplicationWindow {
 
             var autosave_dest = Application.settings.get_string ("autosave-destination");
             if (autosave_dest != Application.SETTINGS_NO_AUTOSAVE) {
-                debug ("autosave_dest: %s", autosave_dest);
-
                 var dest = File.new_for_path (autosave_dest).get_child (final_file_name);
                 try {
                     if (tmp_file.move (dest, FileCopyFlags.OVERWRITE)) {
@@ -170,12 +148,9 @@ public class MainWindow : Gtk.ApplicationWindow {
                 }
 
                 if (destroy_on_save) {
-                    debug ("destroy flag is on, exiting…");
                     destroy ();
                 }
             } else {
-                debug ("autosave is disabled, showing saving dialog…");
-
                 var save_dialog = new Gtk.FileDialog () {
                     title = _("Save your recording"),
                     accept_label = _("Save"),
@@ -217,7 +192,6 @@ public class MainWindow : Gtk.ApplicationWindow {
                     }
 
                     if (destroy_on_save) {
-                        debug ("destroy flag is on, exiting…");
                         destroy ();
                     }
                 });
@@ -226,20 +200,16 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     private void show_welcome () {
-        debug ("show_welcome");
         stack.visible_child = welcome_view;
     }
 
     private void show_countdown () {
-        debug ("show_countdown");
         countdown_view.init_countdown ();
         countdown_view.start_countdown ();
         stack.visible_child = countdown_view;
     }
 
     private void show_record () {
-        debug ("show_record");
-
         try {
             recorder.start_recording ();
         } catch (Gst.ParseError e) {
@@ -255,8 +225,6 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     private void start_wrapper () {
         uint delay = Application.settings.get_uint ("delay");
-        debug ("start_wrapper: delay(%u)", delay);
-
         if (delay != 0) {
             show_countdown ();
         } else {
