@@ -4,9 +4,6 @@
  */
 
 public class MainWindow : Gtk.ApplicationWindow {
-    private const string TITLE_TEXT = N_("Unable to Complete Recording");
-    private const string DETAIL_TEXT = N_("The following error message may be helpful:");
-
     private Recorder recorder;
     private bool destroy_on_save;
 
@@ -79,7 +76,6 @@ public class MainWindow : Gtk.ApplicationWindow {
             stop_wrapper (false);
         });
         record_view.toggle_recording.connect ((is_recording) => {
-            debug ("record_view.toggle_recording: is_recording(%s)", is_recording.to_string ());
             recorder.state = is_recording ? Recorder.RecordingState.RECORDING : Recorder.RecordingState.PAUSED;
         });
 
@@ -120,13 +116,17 @@ public class MainWindow : Gtk.ApplicationWindow {
         });
 
         recorder.throw_error.connect ((err, debug) => {
-            show_error_dialog ("%s\n%s".printf (err.message, debug));
+            show_error_dialog (
+                _("Error while recording"),
+                _("There was an error while recording."),
+                "%s\n%s".printf (err.message, debug)
+            );
         });
 
-        recorder.save_file.connect ((tmp_full_path, suffix) => {
-            debug ("recorder.save_file: tmp_full_path(%s), suffix(%s)", tmp_full_path, suffix);
+        recorder.save_file.connect ((tmp_path, suffix) => {
+            debug ("recorder.save_file: tmp_path(%s), suffix(%s)", tmp_path, suffix);
 
-            var tmp_file = File.new_for_path (tmp_full_path);
+            var tmp_file = File.new_for_path (tmp_path);
 
             //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
             //Suffix is automatically appended depending on the recording format.
@@ -143,8 +143,12 @@ public class MainWindow : Gtk.ApplicationWindow {
                         welcome_view.show_success_button ();
                     }
                 } catch (Error e) {
-                    warning ("Failed to GLib.File.move: destination(%s): %s", dest.get_path (), e.message);
-                    show_error_dialog (e.message);
+                    show_error_dialog (
+                        _("Failed to save recording"),
+                        _("There was an error while moving file to the designated location."),
+                        e.message
+                    );
+                    recorder.remove_tmp_recording ();
                 }
 
                 if (destroy_on_save) {
@@ -165,12 +169,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                         warning ("Failed to Gtk.FileDialog.save: %s", e.message);
 
                         // May be cancelled by user, so delete the tmp recording
-                        try {
-                            tmp_file.delete ();
-                        } catch (Error e) {
-                            // Just failed to remove tmp file so letting user know through error dialog is not required
-                            warning (e.message);
-                        }
+                        recorder.remove_tmp_recording ();
 
                         return;
                     }
@@ -180,15 +179,12 @@ public class MainWindow : Gtk.ApplicationWindow {
                             welcome_view.show_success_button ();
                         }
                     } catch (Error e) {
-                        warning ("Failed to GLib.File.move: destination(%s): %s", dest.get_path (), e.message);
-                        show_error_dialog (e.message);
-
-                        try {
-                            tmp_file.delete ();
-                        } catch (Error e) {
-                            // Just failed to remove tmp file so letting user know through error dialog is not required
-                            warning (e.message);
-                        }
+                        show_error_dialog (
+                            _("Failed to save recording"),
+                            _("There was an error while moving recording to the designated location."),
+                            e.message
+                        );
+                        recorder.remove_tmp_recording ();
                     }
 
                     if (destroy_on_save) {
@@ -213,8 +209,11 @@ public class MainWindow : Gtk.ApplicationWindow {
         try {
             recorder.start_recording ();
         } catch (Gst.ParseError e) {
-            warning ("Failed to recorder.start_recording: %s", e.message);
-            show_error_dialog (e.message);
+            show_error_dialog (
+                _("Failed to start recording"),
+                _("There was an error while starting recording."),
+                e.message
+            );
             return;
         }
 
@@ -233,8 +232,6 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     private void stop_wrapper (bool destroy_flag = false) {
-        debug ("stop_wrapper: destroy_flag(%s)", destroy_flag.to_string ());
-
         destroy_on_save = destroy_flag;
 
         // If a user tries to stop recording while pausing, resume recording once and reset the button icon
@@ -251,11 +248,11 @@ public class MainWindow : Gtk.ApplicationWindow {
         show_welcome ();
     }
 
-    private void show_error_dialog (string error_message) {
+    private void show_error_dialog (string primary_text, string secondary_text, string error_message) {
         if (Application.IS_ON_PANTHEON) {
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                _(TITLE_TEXT),
-                _(DETAIL_TEXT),
+                primary_text,
+                secondary_text,
                 "dialog-error", Gtk.ButtonsType.CLOSE
             ) {
                 transient_for = this,
@@ -270,9 +267,9 @@ public class MainWindow : Gtk.ApplicationWindow {
             error_dialog.present ();
         } else {
             var error_dialog = new Gtk.AlertDialog (
-                _(TITLE_TEXT)
+                primary_text
             ) {
-                detail = _(DETAIL_TEXT) + "\n\n" + error_message,
+                detail = secondary_text + "\n\n" + error_message,
                 modal = true
             };
             error_dialog.show (this);
