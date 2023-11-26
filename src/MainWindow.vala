@@ -181,7 +181,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                     } catch (Error e) {
                         show_error_dialog (
                             _("Failed to save recording"),
-                            _("There was an error while moving recording to the designated location."),
+                            _("There was an error while moving file to the designated location."),
                             e.message
                         );
                         recorder.remove_tmp_recording ();
