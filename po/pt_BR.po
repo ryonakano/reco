@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-03 22:17+0900\n"
+"POT-Creation-Date: 2023-11-26 17:33+0900\n"
 "PO-Revision-Date: 2023-04-09 09:39+0000\n"
 "Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/rosp/"
@@ -20,29 +20,55 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.17-dev\n"
 
-#: src/MainWindow.vala:38
+#: src/MainWindow.vala:39
 msgid "Preferences"
 msgstr "Preferências"
+
+#: src/MainWindow.vala:120
+#, fuzzy
+#| msgid "Pause recording"
+msgid "Error while recording"
+msgstr "Pausar gravação"
+
+#: src/MainWindow.vala:121
+msgid "There was an error while recording."
+msgstr ""
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
 #. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:126
+#: src/MainWindow.vala:134
 #, c-format
 msgid "Recording from %s"
 msgstr "Gravando de %s"
 
-#: src/MainWindow.vala:142
+#: src/MainWindow.vala:147 src/MainWindow.vala:183
+#, fuzzy
+#| msgid "Pause recording"
+msgid "Failed to save recording"
+msgstr "Pausar gravação"
+
+#: src/MainWindow.vala:148 src/MainWindow.vala:184
+msgid "There was an error while moving file to the designated location."
+msgstr ""
+
+#: src/MainWindow.vala:159
 msgid "Save your recording"
 msgstr "Salvar a gravação"
 
-#: src/MainWindow.vala:202 src/MainWindow.vala:220
-msgid "Unable to Complete Recording"
-msgstr "Não foi possível concluir a gravação"
+#: src/MainWindow.vala:160
+msgid "Save"
+msgstr "Salvar"
 
-#: src/MainWindow.vala:203 src/MainWindow.vala:221
-msgid "The following error message may be helpful:"
-msgstr "A seguinte mensagem de erro pode ser útil:"
+#: src/MainWindow.vala:213
+#, fuzzy
+#| msgid "Start recording"
+msgid "Failed to start recording"
+msgstr "Iniciar gravação"
+
+#: src/MainWindow.vala:214
+msgid "There was an error while starting recording."
+msgstr ""
 
 #: src/StyleSwitcher.vala:28
 msgid "Style:"
@@ -56,149 +82,151 @@ msgstr "Claro"
 msgid "Dark"
 msgstr "Escuro"
 
-#: src/StyleSwitcher.vala:34 src/Views/WelcomeView.vala:36
+#: src/StyleSwitcher.vala:34 src/Views/WelcomeView.vala:32
 msgid "System"
 msgstr "Sistema"
 
-#: src/Services/Recorder.vala:298
+#: src/Services/Recorder.vala:307
 msgid "Recording is ongoing"
 msgstr "A gravação está em curso"
 
-#: src/Views/CountDownView.vala:41
+#: src/Views/CountDownView.vala:37
 msgid "Cancel the countdown"
 msgstr "Cancelar a contagem regressiva"
 
-#: src/Views/CountDownView.vala:48 src/Views/CountDownView.vala:121
-#: src/Views/CountDownView.vala:143
+#: src/Views/CountDownView.vala:114
 msgid "Pause the countdown"
 msgstr "Pausar contagem regressiva"
 
-#: src/Views/CountDownView.vala:134
+#: src/Views/CountDownView.vala:119
 msgid "Resume the countdown"
 msgstr "Retomar a contagem regressiva"
 
-#: src/Views/RecordView.vala:58
+#: src/Views/RecordView.vala:50
 msgid "Cancel recording"
 msgstr "Cancelar gravação"
 
-#: src/Views/RecordView.vala:65
+#: src/Views/RecordView.vala:57
 msgid "Finish recording"
 msgstr "Terminar gravação"
 
-#: src/Views/RecordView.vala:75 src/Views/RecordView.vala:276
+#: src/Views/RecordView.vala:201
 msgid "Pause recording"
 msgstr "Pausar gravação"
 
-#: src/Views/RecordView.vala:281
+#: src/Views/RecordView.vala:206
 msgid "Resume recording"
 msgstr "Retomar gravação"
 
-#: src/Views/WelcomeView.vala:27
+#: src/Views/WelcomeView.vala:23
 msgid "Source"
 msgstr "Fonte"
 
-#: src/Views/WelcomeView.vala:29
+#: src/Views/WelcomeView.vala:25
 msgid "Record from:"
 msgstr "Gravar de:"
 
-#: src/Views/WelcomeView.vala:35
+#: src/Views/WelcomeView.vala:31
 msgid "Microphone"
 msgstr "Microfone"
 
-#: src/Views/WelcomeView.vala:37
+#: src/Views/WelcomeView.vala:33
 msgid "Both"
 msgstr "Ambos"
 
-#: src/Views/WelcomeView.vala:39
+#: src/Views/WelcomeView.vala:35
 #, fuzzy
 #| msgid "Microphone"
 msgid "Microphone:"
 msgstr "Microfone"
 
-#: src/Views/WelcomeView.vala:49
+#: src/Views/WelcomeView.vala:45
 msgid "Channels:"
 msgstr "Canais:"
 
-#: src/Views/WelcomeView.vala:55
+#: src/Views/WelcomeView.vala:51
 msgid "Mono"
 msgstr "Mono"
 
-#: src/Views/WelcomeView.vala:56
+#: src/Views/WelcomeView.vala:52
 msgid "Stereo"
 msgstr "Estéreo"
 
-#: src/Views/WelcomeView.vala:58
+#: src/Views/WelcomeView.vala:54
 msgid "Timer"
 msgstr "Temporizador"
 
-#: src/Views/WelcomeView.vala:60
+#: src/Views/WelcomeView.vala:56
 msgid "Delay in seconds:"
 msgstr "Atraso em segundos:"
 
-#: src/Views/WelcomeView.vala:67
+#: src/Views/WelcomeView.vala:63
 msgid "Length in seconds:"
 msgstr "Duração em segundos:"
 
-#: src/Views/WelcomeView.vala:78
+#: src/Views/WelcomeView.vala:74
 msgid "Saving"
 msgstr "A guardar"
 
-#: src/Views/WelcomeView.vala:80
+#: src/Views/WelcomeView.vala:76
 msgid "Format:"
 msgstr "Formato:"
 
-#: src/Views/WelcomeView.vala:87
+#: src/Views/WelcomeView.vala:83
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/Views/WelcomeView.vala:88
+#: src/Views/WelcomeView.vala:84
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:89
+#: src/Views/WelcomeView.vala:85
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:90
+#: src/Views/WelcomeView.vala:86
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:91
+#: src/Views/WelcomeView.vala:87
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:92
+#: src/Views/WelcomeView.vala:88
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:94
+#: src/Views/WelcomeView.vala:90
 msgid "Automatically save files:"
 msgstr "Salvar arquivos automaticamente:"
 
-#: src/Views/WelcomeView.vala:112 src/Views/WelcomeView.vala:242
+#: src/Views/WelcomeView.vala:108 src/Views/WelcomeView.vala:265
 msgid "Choose a default destination"
 msgstr "Escolher um destino predefinido"
 
-#: src/Views/WelcomeView.vala:151
+#: src/Views/WelcomeView.vala:147
 msgid "Start recording"
 msgstr "Iniciar gravação"
 
-#: src/Views/WelcomeView.vala:234
+#: src/Views/WelcomeView.vala:257
 msgid "Select destination…"
 msgstr "Selecionar destino…"
 
-#: src/Views/WelcomeView.vala:243
+#: src/Views/WelcomeView.vala:266
 msgid "Select"
 msgstr "Selecionar"
+
+#~ msgid "Unable to Complete Recording"
+#~ msgstr "Não foi possível concluir a gravação"
+
+#~ msgid "The following error message may be helpful:"
+#~ msgstr "A seguinte mensagem de erro pode ser útil:"
 
 #~ msgid "Recording"
 #~ msgstr "Gravando"
 
 #~ msgid "Recordings"
 #~ msgstr "Gravações"
-
-#~ msgid "Save"
-#~ msgstr "Salvar"
 
 #~ msgid "Cancel"
 #~ msgstr "Cancelar"

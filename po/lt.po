@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-03 22:17+0900\n"
+"POT-Creation-Date: 2023-11-26 17:33+0900\n"
 "PO-Revision-Date: 2019-02-18 14:35+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -19,30 +19,53 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/MainWindow.vala:38
+#: src/MainWindow.vala:39
 msgid "Preferences"
+msgstr ""
+
+#: src/MainWindow.vala:120
+#, fuzzy
+msgid "Error while recording"
+msgstr "Pradėti įrašinėjimą"
+
+#: src/MainWindow.vala:121
+msgid "There was an error while recording."
 msgstr ""
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
 #. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:126
+#: src/MainWindow.vala:134
 #, c-format
 msgid "Recording from %s"
 msgstr "Įrašinėjimas iš %s"
 
-#: src/MainWindow.vala:142
+#: src/MainWindow.vala:147 src/MainWindow.vala:183
+#, fuzzy
+msgid "Failed to save recording"
+msgstr "Pradėti įrašinėjimą"
+
+#: src/MainWindow.vala:148 src/MainWindow.vala:184
+msgid "There was an error while moving file to the designated location."
+msgstr ""
+
+#: src/MainWindow.vala:159
 msgid "Save your recording"
 msgstr "Išsaugokite savo įrašinėjimą"
 
-#: src/MainWindow.vala:202 src/MainWindow.vala:220
-msgid "Unable to Complete Recording"
-msgstr ""
+#: src/MainWindow.vala:160
+msgid "Save"
+msgstr "Išsaugoti"
 
-#: src/MainWindow.vala:203 src/MainWindow.vala:221
+#: src/MainWindow.vala:213
 #, fuzzy
-msgid "The following error message may be helpful:"
-msgstr "Įrašanėjant, įvyko GStreamer klaida:"
+#| msgid "Start recording"
+msgid "Failed to start recording"
+msgstr "Pradėti įrašinėjimą"
+
+#: src/MainWindow.vala:214
+msgid "There was an error while starting recording."
+msgstr ""
 
 #: src/StyleSwitcher.vala:28
 msgid "Style:"
@@ -56,158 +79,158 @@ msgstr ""
 msgid "Dark"
 msgstr ""
 
-#: src/StyleSwitcher.vala:34 src/Views/WelcomeView.vala:36
+#: src/StyleSwitcher.vala:34 src/Views/WelcomeView.vala:32
 msgid "System"
 msgstr ""
 
-#: src/Services/Recorder.vala:298
+#: src/Services/Recorder.vala:307
 #, fuzzy
 msgid "Recording is ongoing"
 msgstr "Įrašinėjimai"
 
-#: src/Views/CountDownView.vala:41
+#: src/Views/CountDownView.vala:37
 #, fuzzy
 msgid "Cancel the countdown"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/Views/CountDownView.vala:48 src/Views/CountDownView.vala:121
-#: src/Views/CountDownView.vala:143
+#: src/Views/CountDownView.vala:114
 #, fuzzy
 msgid "Pause the countdown"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/Views/CountDownView.vala:134
+#: src/Views/CountDownView.vala:119
 #, fuzzy
 msgid "Resume the countdown"
 msgstr "Įrašinėjimas"
 
-#: src/Views/RecordView.vala:58
+#: src/Views/RecordView.vala:50
 #, fuzzy
 msgid "Cancel recording"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/Views/RecordView.vala:65
+#: src/Views/RecordView.vala:57
 #, fuzzy
 msgid "Finish recording"
 msgstr "Stabdyti įrašinėjimą"
 
-#: src/Views/RecordView.vala:75 src/Views/RecordView.vala:276
+#: src/Views/RecordView.vala:201
 #, fuzzy
 msgid "Pause recording"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/Views/RecordView.vala:281
+#: src/Views/RecordView.vala:206
 #, fuzzy
 msgid "Resume recording"
 msgstr "Įrašinėjimas"
 
-#: src/Views/WelcomeView.vala:27
+#: src/Views/WelcomeView.vala:23
 msgid "Source"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:29
+#: src/Views/WelcomeView.vala:25
 #, fuzzy
 msgid "Record from:"
 msgstr "Įrašinėjimas iš %s"
 
-#: src/Views/WelcomeView.vala:35
+#: src/Views/WelcomeView.vala:31
 msgid "Microphone"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:37
+#: src/Views/WelcomeView.vala:33
 msgid "Both"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:39
+#: src/Views/WelcomeView.vala:35
 msgid "Microphone:"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:49
+#: src/Views/WelcomeView.vala:45
 msgid "Channels:"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:55
+#: src/Views/WelcomeView.vala:51
 msgid "Mono"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:56
+#: src/Views/WelcomeView.vala:52
 msgid "Stereo"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:58
+#: src/Views/WelcomeView.vala:54
 msgid "Timer"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:60
+#: src/Views/WelcomeView.vala:56
 msgid "Delay in seconds:"
 msgstr "Delsa sekundėmis:"
 
-#: src/Views/WelcomeView.vala:67
+#: src/Views/WelcomeView.vala:63
 msgid "Length in seconds:"
 msgstr "Trukmė sekundėmis:"
 
-#: src/Views/WelcomeView.vala:78
+#: src/Views/WelcomeView.vala:74
 msgid "Saving"
 msgstr "Išsaugojimas"
 
-#: src/Views/WelcomeView.vala:80
+#: src/Views/WelcomeView.vala:76
 msgid "Format:"
 msgstr "Formatas:"
 
-#: src/Views/WelcomeView.vala:87
+#: src/Views/WelcomeView.vala:83
 msgid "ALAC"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:88
+#: src/Views/WelcomeView.vala:84
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:89
+#: src/Views/WelcomeView.vala:85
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:90
+#: src/Views/WelcomeView.vala:86
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:91
+#: src/Views/WelcomeView.vala:87
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:92
+#: src/Views/WelcomeView.vala:88
 msgid "WAV"
 msgstr ""
 
-#: src/Views/WelcomeView.vala:94
+#: src/Views/WelcomeView.vala:90
 msgid "Automatically save files:"
 msgstr "Automatiškai išsaugoti failus:"
 
-#: src/Views/WelcomeView.vala:112 src/Views/WelcomeView.vala:242
+#: src/Views/WelcomeView.vala:108 src/Views/WelcomeView.vala:265
 msgid "Choose a default destination"
 msgstr "Pasirinkite numatytąją vietą"
 
-#: src/Views/WelcomeView.vala:151
+#: src/Views/WelcomeView.vala:147
 msgid "Start recording"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/Views/WelcomeView.vala:234
+#: src/Views/WelcomeView.vala:257
 #, fuzzy
 #| msgid "Choose a default destination"
 msgid "Select destination…"
 msgstr "Pasirinkite numatytąją vietą"
 
-#: src/Views/WelcomeView.vala:243
+#: src/Views/WelcomeView.vala:266
 msgid "Select"
 msgstr ""
+
+#, fuzzy
+#~ msgid "The following error message may be helpful:"
+#~ msgstr "Įrašanėjant, įvyko GStreamer klaida:"
 
 #~ msgid "Recording"
 #~ msgstr "Įrašinėjimas"
 
 #~ msgid "Recordings"
 #~ msgstr "Įrašinėjimai"
-
-#~ msgid "Save"
-#~ msgstr "Išsaugoti"
 
 #~ msgid "Cancel"
 #~ msgstr "Atsisakyti"
