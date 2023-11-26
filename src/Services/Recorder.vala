@@ -10,7 +10,7 @@
 
 public class Recorder : Object {
     public signal void throw_error (Error err, string debug);
-    public signal void save_file (string tmp_full_path, string suffix);
+    public signal void save_file (string tmp_path, string suffix);
 
     private const string IGNORED_PROPNAMES[] = {
         "name", "parent", "direction", "template", "caps"
@@ -64,7 +64,7 @@ public class Recorder : Object {
     }
     private double _current_peak = 0;
 
-    private string tmp_full_path;
+    private string tmp_path;
     private string suffix;
     private Gst.Pipeline pipeline;
     private uint inhibit_token = 0;
@@ -183,9 +183,9 @@ public class Recorder : Object {
         suffix = fmt_data.suffix;
 
         string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string () + suffix;
-        tmp_full_path = Path.build_path (Path.DIR_SEPARATOR_S, Environment.get_user_cache_dir (), tmp_filename);
-        sink.set ("location", tmp_full_path);
-        debug ("temporary saving path: %s", tmp_full_path);
+        tmp_path = Path.build_path (Path.DIR_SEPARATOR_S, Environment.get_user_cache_dir (), tmp_filename);
+        sink.set ("location", tmp_path);
+        debug ("temporary saving path: %s", tmp_path);
 
         // Dual-channelization
         var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
@@ -243,7 +243,7 @@ public class Recorder : Object {
                 state = RecordingState.STOPPED;
                 pipeline.dispose ();
 
-                save_file (tmp_full_path, suffix);
+                save_file (tmp_path, suffix);
                 break;
             case Gst.MessageType.ELEMENT:
                 unowned Gst.Structure? structure = msg.get_structure ();
@@ -273,10 +273,19 @@ public class Recorder : Object {
         state = RecordingState.STOPPED;
         pipeline.dispose ();
 
-        // Remove canceled file in /tmp
+        remove_tmp_recording ();
+    }
+
+    public void remove_tmp_recording () {
+        var tmp_file = File.new_for_path (tmp_path);
+        if (!tmp_file.query_exists ()) {
+            return;
+        }
+
         try {
-            File.new_for_path (tmp_full_path).delete ();
+            tmp_file.delete ();
         } catch (Error e) {
+            // Just failed to remove tmp file so letting user know through error dialog is not necessary
             warning (e.message);
         }
     }

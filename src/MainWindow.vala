@@ -4,9 +4,6 @@
  */
 
 public class MainWindow : Gtk.ApplicationWindow {
-    private const string TITLE_TEXT = N_("Unable to Complete Recording");
-    private const string DETAIL_TEXT = N_("The following error message may be helpful:");
-
     private Recorder recorder;
     private bool destroy_on_save;
 
@@ -75,7 +72,9 @@ public class MainWindow : Gtk.ApplicationWindow {
         countdown_view.countdown_ended.connect (show_record);
 
         record_view.cancel_recording.connect (cancel_warpper);
-        record_view.stop_recording.connect (() => { stop_wrapper (); });
+        record_view.stop_recording.connect (() => {
+            stop_wrapper (false);
+        });
         record_view.toggle_recording.connect ((is_recording) => {
             recorder.state = is_recording ? Recorder.RecordingState.RECORDING : Recorder.RecordingState.PAUSED;
         });
@@ -117,11 +116,17 @@ public class MainWindow : Gtk.ApplicationWindow {
         });
 
         recorder.throw_error.connect ((err, debug) => {
-            show_error_dialog ("%s\n%s".printf (err.message, debug));
+            show_error_dialog (
+                _("Error while recording"),
+                _("There was an error while recording."),
+                "%s\n%s".printf (err.message, debug)
+            );
         });
 
-        recorder.save_file.connect ((tmp_full_path, suffix) => {
-            var tmp_file = File.new_for_path (tmp_full_path);
+        recorder.save_file.connect ((tmp_path, suffix) => {
+            debug ("recorder.save_file: tmp_path(%s), suffix(%s)", tmp_path, suffix);
+
+            var tmp_file = File.new_for_path (tmp_path);
 
             //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
             //Suffix is automatically appended depending on the recording format.
@@ -132,48 +137,54 @@ public class MainWindow : Gtk.ApplicationWindow {
 
             var autosave_dest = Application.settings.get_string ("autosave-destination");
             if (autosave_dest != Application.SETTINGS_NO_AUTOSAVE) {
-                var final_dest = File.new_for_path (autosave_dest);
+                var dest = File.new_for_path (autosave_dest).get_child (final_file_name);
                 try {
-                    if (tmp_file.move (final_dest.get_child (final_file_name), FileCopyFlags.OVERWRITE)) {
+                    if (tmp_file.move (dest, FileCopyFlags.OVERWRITE)) {
                         welcome_view.show_success_button ();
                     }
                 } catch (Error e) {
-                    show_error_dialog (e.message);
+                    show_error_dialog (
+                        _("Failed to save recording"),
+                        _("There was an error while moving file to the designated location."),
+                        e.message
+                    );
+                    recorder.remove_tmp_recording ();
                 }
 
                 if (destroy_on_save) {
                     destroy ();
                 }
             } else {
-                var filechooser = new Gtk.FileDialog () {
+                var save_dialog = new Gtk.FileDialog () {
                     title = _("Save your recording"),
                     accept_label = _("Save"),
                     modal = true,
                     initial_name = final_file_name
                 };
-                filechooser.save.begin (this, null, (obj, res) => {
+                save_dialog.save.begin (this, null, (obj, res) => {
+                    File dest;
                     try {
-                        var file = filechooser.save.end (res);
-                        if (file == null) {
-                            return;
-                        }
-
-                        try {
-                            if (tmp_file.move (file, FileCopyFlags.OVERWRITE)) {
-                                welcome_view.show_success_button ();
-                            }
-                        } catch (Error e) {
-                            show_error_dialog (e.message);
-                        }
+                        dest = save_dialog.save.end (res);
                     } catch (Error e) {
-                        warning ("Failed to save recording: %s", e.message);
+                        warning ("Failed to Gtk.FileDialog.save: %s", e.message);
 
                         // May be cancelled by user, so delete the tmp recording
-                        try {
-                            tmp_file.delete ();
-                        } catch (Error e) {
-                            show_error_dialog (e.message);
+                        recorder.remove_tmp_recording ();
+
+                        return;
+                    }
+
+                    try {
+                        if (tmp_file.move (dest, FileCopyFlags.OVERWRITE)) {
+                            welcome_view.show_success_button ();
                         }
+                    } catch (Error e) {
+                        show_error_dialog (
+                            _("Failed to save recording"),
+                            _("There was an error while moving file to the designated location."),
+                            e.message
+                        );
+                        recorder.remove_tmp_recording ();
                     }
 
                     if (destroy_on_save) {
@@ -198,7 +209,11 @@ public class MainWindow : Gtk.ApplicationWindow {
         try {
             recorder.start_recording ();
         } catch (Gst.ParseError e) {
-            show_error_dialog (e.message);
+            show_error_dialog (
+                _("Failed to start recording"),
+                _("There was an error while starting recording."),
+                e.message
+            );
             return;
         }
 
@@ -208,7 +223,8 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     private void start_wrapper () {
-        if (Application.settings.get_uint ("delay") != 0) {
+        uint delay = Application.settings.get_uint ("delay");
+        if (delay != 0) {
             show_countdown ();
         } else {
             show_record ();
@@ -232,11 +248,11 @@ public class MainWindow : Gtk.ApplicationWindow {
         show_welcome ();
     }
 
-    private void show_error_dialog (string error_message) {
+    private void show_error_dialog (string primary_text, string secondary_text, string error_message) {
         if (Application.IS_ON_PANTHEON) {
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                _(TITLE_TEXT),
-                _(DETAIL_TEXT),
+                primary_text,
+                secondary_text,
                 "dialog-error", Gtk.ButtonsType.CLOSE
             ) {
                 transient_for = this,
@@ -251,9 +267,9 @@ public class MainWindow : Gtk.ApplicationWindow {
             error_dialog.present ();
         } else {
             var error_dialog = new Gtk.AlertDialog (
-                _(TITLE_TEXT)
+                primary_text
             ) {
-                detail = _(DETAIL_TEXT) + "\n\n" + error_message,
+                detail = secondary_text + "\n\n" + error_message,
                 modal = true
             };
             error_dialog.show (this);

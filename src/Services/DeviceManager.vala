@@ -82,6 +82,7 @@ public class DeviceManager : Object {
 
                 if (properties.get_boolean ("is-default", out is_default) && is_default) {
                     default_source = device;
+                    debug ("Default source: \"%s\"", default_source.display_name);
                 }
             } else if (device.has_classes ("Sink")) {
                 if (sinks.contains (device)) {
@@ -93,10 +94,10 @@ public class DeviceManager : Object {
 
                 if (properties.get_boolean ("is-default", out is_default) && is_default) {
                     default_sink = device;
+                    debug ("Default sink: \"%s\"", default_sink.display_name);
                 }
             } else {
-                // Shouldn't reach here
-                // NOP
+                assert_not_reached ();
             }
         }
 

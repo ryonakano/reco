@@ -207,7 +207,7 @@ public class WelcomeView : AbstractView {
         });
 
         auto_save_switch.state_set.connect ((state) => {
-            if (state == true) {
+            if (state) {
                 // Prevent the filechooser shown twice when enabling the autosaving
                 var autosave_dest = Application.settings.get_string ("autosave-destination");
                 if (autosave_dest != Application.SETTINGS_NO_AUTOSAVE) {
@@ -224,9 +224,7 @@ public class WelcomeView : AbstractView {
             return false;
         });
 
-        destination_chooser_button.clicked.connect (() => {
-            show_destination_chooser ();
-        });
+        destination_chooser_button.clicked.connect (show_destination_chooser);
 
         record_button.clicked.connect (() => {
             start_recording ();
@@ -244,7 +242,7 @@ public class WelcomeView : AbstractView {
         auto_save_switch.active = (path != Application.SETTINGS_NO_AUTOSAVE);
 
         var file = File.new_for_path (path);
-        if (file.query_exists () == false) {
+        if (!file.query_exists ()) {
             DirUtils.create_with_parents (path, 0775);
         }
     }
