@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018-2023 Ryo Nakano -->
+<!-- Copyright 2018-2024 Ryo Nakano -->
 <component type="desktop-application">
   <id>com.github.ryonakano.reco</id>
   <launchable type="desktop-id">com.github.ryonakano.reco.desktop</launchable>
