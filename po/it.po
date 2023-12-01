@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-26 17:33+0900\n"
-"PO-Revision-Date: 2023-10-08 04:09+0000\n"
+"PO-Revision-Date: 2023-12-02 21:03+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco-app/it/"
 ">\n"
@@ -17,21 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: src/MainWindow.vala:39
 msgid "Preferences"
 msgstr "Preferenze"
 
 #: src/MainWindow.vala:120
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Error while recording"
-msgstr "Metti in pausa la registrazione"
+msgstr "Errore durante la registrazione"
 
 #: src/MainWindow.vala:121
 msgid "There was an error while recording."
-msgstr ""
+msgstr "Si è verificato un errore durante la registrazione."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
@@ -42,14 +40,14 @@ msgid "Recording from %s"
 msgstr "Registrazione da %s"
 
 #: src/MainWindow.vala:147 src/MainWindow.vala:183
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Failed to save recording"
-msgstr "Metti in pausa la registrazione"
+msgstr "Impossibile salvare la registrazione"
 
 #: src/MainWindow.vala:148 src/MainWindow.vala:184
 msgid "There was an error while moving file to the designated location."
 msgstr ""
+"Si è verificato un errore durante lo spostamento del file nella posizione "
+"designata."
 
 #: src/MainWindow.vala:159
 msgid "Save your recording"
@@ -60,14 +58,12 @@ msgid "Save"
 msgstr "Salva"
 
 #: src/MainWindow.vala:213
-#, fuzzy
-#| msgid "Start recording"
 msgid "Failed to start recording"
-msgstr "Avvia registrazione"
+msgstr "Impossibile avviare la registrazione"
 
 #: src/MainWindow.vala:214
 msgid "There was an error while starting recording."
-msgstr ""
+msgstr "Si è verificato un errore durante l'avvio della registrazione."
 
 #: src/StyleSwitcher.vala:28
 msgid "Style:"
