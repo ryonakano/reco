@@ -26,17 +26,17 @@
   <screenshots>
     <screenshot type="default">
       <caption>Welcome view; perform recording configuration</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/4.0.1/data/screenshots/pantheon/welcome-init-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.0/data/screenshots/pantheon/welcome-init-light.png</image>
     </screenshot>
 
     <screenshot>
       <caption>Recording view</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/4.0.1/data/screenshots/pantheon/recording-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.0/data/screenshots/pantheon/recording-light.png</image>
     </screenshot>
 
     <screenshot>
       <caption>An indication that recording is successfully finished</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/4.0.1/data/screenshots/pantheon/welcome-success-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.0/data/screenshots/pantheon/welcome-success-light.png</image>
     </screenshot>
   </screenshots>
 
@@ -61,6 +61,34 @@
   <developer_name>Ryo Nakano</developer_name>
 
   <releases>
+    <release version="5.0.0" date="2023-12-01" urgency="high">
+      <description translatable="no">
+        <p>
+          5th anniversary release!
+        </p>
+        <p>
+          Improvements:
+        </p>
+        <ul>
+          <li>Add ability to choose which device to record from</li>
+          <li>Show a graph depending on the volume to indicate recording is in progress (big thanks to @lcallarec for the live-chart library!)</li>
+          <li>Support recording over an hour</li>
+          <li>System-synced color preference now available on any platforms other than Pantheon</li>
+          <li>Flatpak: Update platform version</li>
+          <li>Improve debug logs and error messages</li>
+          <li>Update translations</li>
+          <li>Code refactoring</li>
+        </ul>
+        <p>
+          Fixes:
+        </p>
+        <ul>
+          <li>Fix Ctrl+Q quits the app without saving</li>
+          <li>Prevent user from recording when no microphone is connected</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="4.0.1" date="2023-04-15" urgency="low">
       <description translatable="no">
         <ul>
