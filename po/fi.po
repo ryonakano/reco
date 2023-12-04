@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-26 17:33+0900\n"
-"PO-Revision-Date: 2023-02-03 04:22+0000\n"
+"PO-Revision-Date: 2023-12-05 00:46+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/rosp/reco-app/fi/"
 ">\n"
@@ -16,21 +16,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: src/MainWindow.vala:39
 msgid "Preferences"
 msgstr "Asetukset"
 
 #: src/MainWindow.vala:120
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Error while recording"
-msgstr "Keskeytä äänitallenne"
+msgstr "Virhe tallentaessa ääntä"
 
 #: src/MainWindow.vala:121
 msgid "There was an error while recording."
-msgstr ""
+msgstr "Ääntä tallentaessa tapahtui virhe."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
@@ -41,10 +39,8 @@ msgid "Recording from %s"
 msgstr "Äänitallenne %s"
 
 #: src/MainWindow.vala:147 src/MainWindow.vala:183
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Failed to save recording"
-msgstr "Keskeytä äänitallenne"
+msgstr "Äänitallenteen tallentaminen epäonnistui"
 
 #: src/MainWindow.vala:148 src/MainWindow.vala:184
 msgid "There was an error while moving file to the designated location."
@@ -56,13 +52,11 @@ msgstr "Tallenna äänitallenteesi"
 
 #: src/MainWindow.vala:160
 msgid "Save"
-msgstr ""
+msgstr "Tallenna"
 
 #: src/MainWindow.vala:213
-#, fuzzy
-#| msgid "Start recording"
 msgid "Failed to start recording"
-msgstr "Aloita tallennus"
+msgstr "Äänitallentamisen aloittaminen epäonnistui"
 
 #: src/MainWindow.vala:214
 msgid "There was an error while starting recording."
@@ -133,10 +127,8 @@ msgid "Both"
 msgstr "Molemmat"
 
 #: src/Views/WelcomeView.vala:35
-#, fuzzy
-#| msgid "Microphone"
 msgid "Microphone:"
-msgstr "Mikrofoni"
+msgstr "Mikrofoni:"
 
 #: src/Views/WelcomeView.vala:45
 msgid "Channels:"
