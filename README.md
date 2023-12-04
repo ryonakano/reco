@@ -2,7 +2,7 @@
 
 Reco is a simple audio recording app that helps you recall things talked later.
 
-![Screenshot](data/screenshots/pantheon/welcome-init-light.png)
+![Welcome view](data/screenshots/pantheon/welcome-init-light.png) ![Recording view](data/screenshots/pantheon/recording-light.png)
 
 Features include:
 
