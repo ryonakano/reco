@@ -4,13 +4,14 @@
 # Matheus Tessarini Ricci, 2021.
 #
 # Felipe Nogueira <contato.fnog@gmail.com>, 2023.
+# Tiago Lucas Flach <tiagolucas9830@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-26 17:33+0900\n"
-"PO-Revision-Date: 2023-04-09 09:39+0000\n"
-"Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
+"PO-Revision-Date: 2023-12-05 00:46+0000\n"
+"Last-Translator: Tiago Lucas Flach <tiagolucas9830@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/rosp/"
 "reco-app/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -18,21 +19,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: src/MainWindow.vala:39
 msgid "Preferences"
 msgstr "Preferências"
 
 #: src/MainWindow.vala:120
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Error while recording"
-msgstr "Pausar gravação"
+msgstr "Erro durante a gravação"
 
 #: src/MainWindow.vala:121
 msgid "There was an error while recording."
-msgstr ""
+msgstr "Ocorreu um erro durante a gravação."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
@@ -43,14 +42,12 @@ msgid "Recording from %s"
 msgstr "Gravando de %s"
 
 #: src/MainWindow.vala:147 src/MainWindow.vala:183
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Failed to save recording"
-msgstr "Pausar gravação"
+msgstr "Falha ao salvar a gravação"
 
 #: src/MainWindow.vala:148 src/MainWindow.vala:184
 msgid "There was an error while moving file to the designated location."
-msgstr ""
+msgstr "Ocorreu um erro ao mover o arquivo para o local designado."
 
 #: src/MainWindow.vala:159
 msgid "Save your recording"
@@ -61,14 +58,12 @@ msgid "Save"
 msgstr "Salvar"
 
 #: src/MainWindow.vala:213
-#, fuzzy
-#| msgid "Start recording"
 msgid "Failed to start recording"
-msgstr "Iniciar gravação"
+msgstr "Falha ao iniciar a gravação"
 
 #: src/MainWindow.vala:214
 msgid "There was an error while starting recording."
-msgstr ""
+msgstr "Ocorreu um erro ao iniciar a gravação."
 
 #: src/StyleSwitcher.vala:28
 msgid "Style:"
@@ -135,10 +130,8 @@ msgid "Both"
 msgstr "Ambos"
 
 #: src/Views/WelcomeView.vala:35
-#, fuzzy
-#| msgid "Microphone"
 msgid "Microphone:"
-msgstr "Microfone"
+msgstr "Microfone:"
 
 #: src/Views/WelcomeView.vala:45
 msgid "Channels:"
