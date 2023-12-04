@@ -7,13 +7,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-26 17:33+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-12-05 00:46+0000\n"
+"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
+"Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/"
+"reco-metainfo/oc/>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
 msgid "Reco"
@@ -21,15 +24,17 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
 msgid "Record talks to remember the contents later"
-msgstr ""
+msgstr "Enregistratz de discussions per vos remembrar lo contengut mai tard"
 
 #: data/reco.metainfo.xml.in:13
 msgid "An audio recording app that helps you recall things talked later."
 msgstr ""
+"Una aplicacion d'enregistrament àudio per nos ajudar a vos rapelar las "
+"causas que discutiguèretz."
 
 #: data/reco.metainfo.xml.in:16
 msgid "Features include:"
-msgstr ""
+msgstr "Foncionalitats inclusas :"
 
 #: data/reco.metainfo.xml.in:18
 msgid ""
