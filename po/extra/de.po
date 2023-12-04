@@ -7,13 +7,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-26 17:33+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-12-05 00:46+0000\n"
+"Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/rosp/"
+"reco-metainfo/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
 msgid "Reco"
@@ -22,14 +25,17 @@ msgstr ""
 #: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
 msgid "Record talks to remember the contents later"
 msgstr ""
+"Zeichnen Sie Vorträge auf, um sich später an die Inhalte erinnern zu können"
 
 #: data/reco.metainfo.xml.in:13
 msgid "An audio recording app that helps you recall things talked later."
 msgstr ""
+"Eine Audio-Aufnahmeanwendung, die es Ihnen erleichtert, sich an Vorträge zu "
+"erinnern."
 
 #: data/reco.metainfo.xml.in:16
 msgid "Features include:"
-msgstr ""
+msgstr "Funktionen (u. a.):"
 
 #: data/reco.metainfo.xml.in:18
 msgid ""
@@ -37,18 +43,25 @@ msgid ""
 "would be useful when you record conversations with chat apps or stream "
 "videos on the Internet"
 msgstr ""
+"Nimmt gleichzeitig Audio von Ihrem Mikrofon und System auf. Das ist "
+"besonders nützlich, wenn Sie Konversationen in Chat-Anwendungen oder "
+"Videostreams im Internet aufzeichnen"
 
 #: data/reco.metainfo.xml.in:19
 msgid ""
 "Saving in some commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV"
 msgstr ""
+"Speichern in einigen gebräuchlichen Formaten. Die Anwendung unterstützt "
+"ALAC, FLAC, MP3, Ogg Vorbis, Opus und WAV"
 
 #: data/reco.metainfo.xml.in:20
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "the length of recording up to 600 seconds"
 msgstr ""
+"Begrenzte Aufnahme. Sie können eine Verzögerung (bis zu 15 Sekunden) vor der "
+"Aufnahme einstellen, sowie eine Aufnahmedauer von bis zu 600 Sekunden"
 
 #: data/reco.metainfo.xml.in:21
 msgid ""
@@ -56,6 +69,9 @@ msgid ""
 "app saves recordings automatically or you choose a destination each time on "
 "saving them"
 msgstr ""
+"Automatisches Speichern oder immer fragen, wo gespeichert werden soll. Sie "
+"können wählen, ob die Anwendung Aufnahmen automatisch speichern soll, oder "
+"ob Sie jedes Mal einen Speicherort festlegen möchten"
 
 #: data/reco.metainfo.xml.in:22
 msgid ""
@@ -63,27 +79,31 @@ msgid ""
 "while recording, the recording is saved automatically or the file chooser "
 "dialog is shown depends on your saving setting"
 msgstr ""
+"Bei Beenden der Anwendung Aufnahmen speichern. Selbst wenn Sie mitten in "
+"einer Aufnahme die Anwendung beenden, wird die Aufnahme entweder automatisch "
+"gespeichert, oder es öffnet sich der Dateiauswahl-Dialog - Je nach "
+"Einstellung"
 
 #: data/reco.metainfo.xml.in:28
 msgid "Welcome view; perform recording configuration"
-msgstr ""
+msgstr "Willkommensansicht; Wählen Sie Ihre Aufnahmeeinstellungen"
 
 #: data/reco.metainfo.xml.in:33
 msgid "Recording view"
-msgstr ""
+msgstr "Aufnahmeansicht"
 
 #: data/reco.metainfo.xml.in:38
 msgid "An indication that recording is successfully finished"
-msgstr ""
+msgstr "Eine Indikation, dass die Aufnahme erfolgreich beendet wurde"
 
 #: data/reco.metainfo.xml.in:61
 msgid "Ryo Nakano"
-msgstr ""
+msgstr "Ryo Nakano"
 
 #: data/reco.desktop.in:4
 msgid "Audio Recording App"
-msgstr ""
+msgstr "Audio-Aufnahme-App"
 
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
-msgstr ""
+msgstr "Record;Aufnahme;Audio;Sound;Ton;Voice;Stimme;"
