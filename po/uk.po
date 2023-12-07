@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-26 17:33+0900\n"
-"PO-Revision-Date: 2023-12-07 17:04+0000\n"
+"PO-Revision-Date: 2023-12-08 20:03+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/rosp/reco-app/"
 "uk/>\n"
@@ -30,7 +30,7 @@ msgstr "Помилка запису"
 
 #: src/MainWindow.vala:121
 msgid "There was an error while recording."
-msgstr ""
+msgstr "Сталася помилка під час запису."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
@@ -41,14 +41,12 @@ msgid "Recording from %s"
 msgstr "Запис із %s"
 
 #: src/MainWindow.vala:147 src/MainWindow.vala:183
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Failed to save recording"
-msgstr "Призупинити запис"
+msgstr "Не вдалося зберегти запис"
 
 #: src/MainWindow.vala:148 src/MainWindow.vala:184
 msgid "There was an error while moving file to the designated location."
-msgstr ""
+msgstr "Виникла помилка під час переміщення файлу у вказане місце."
 
 #: src/MainWindow.vala:159
 msgid "Save your recording"
@@ -59,14 +57,12 @@ msgid "Save"
 msgstr "Зберегти"
 
 #: src/MainWindow.vala:213
-#, fuzzy
-#| msgid "Start recording"
 msgid "Failed to start recording"
-msgstr "Почати запис"
+msgstr "Не вдалося розпочати запис"
 
 #: src/MainWindow.vala:214
 msgid "There was an error while starting recording."
-msgstr ""
+msgstr "Виникла помилка під час початку запису."
 
 #: src/StyleSwitcher.vala:28
 msgid "Style:"
