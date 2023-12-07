@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-26 17:33+0900\n"
-"PO-Revision-Date: 2023-12-05 00:46+0000\n"
+"PO-Revision-Date: 2023-12-08 20:04+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/rosp/reco-app/fi/"
 ">\n"
@@ -60,7 +60,7 @@ msgstr "Äänitallentamisen aloittaminen epäonnistui"
 
 #: src/MainWindow.vala:214
 msgid "There was an error while starting recording."
-msgstr ""
+msgstr "Äänitallenteen aloittaminen epäonnistui."
 
 #: src/StyleSwitcher.vala:28
 msgid "Style:"
