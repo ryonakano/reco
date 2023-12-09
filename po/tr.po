@@ -4,14 +4,14 @@
 #
 # Safak Genisol (@safak45x), 2019, 2020.
 # Sabri Ünal <libreajans@gmail.com>, 2022, 2023.
-# Oğuz Ersen <oguz@ersen.moe>, 2022.
+# Oğuz Ersen <oguz@ersen.moe>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-26 17:33+0900\n"
-"PO-Revision-Date: 2023-08-21 01:54+0000\n"
-"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"PO-Revision-Date: 2023-12-10 12:05+0000\n"
+"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco-app/tr/"
 ">\n"
 "Language: tr\n"
@@ -19,21 +19,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: src/MainWindow.vala:39
 msgid "Preferences"
 msgstr "Tercihler"
 
 #: src/MainWindow.vala:120
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Error while recording"
-msgstr "Kaydı durdur"
+msgstr "Kayıt sırasında hata"
 
 #: src/MainWindow.vala:121
 msgid "There was an error while recording."
-msgstr ""
+msgstr "Kayıt sırasında bir hata oluştu."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
@@ -44,14 +42,12 @@ msgid "Recording from %s"
 msgstr "Kayıt tarihi %s"
 
 #: src/MainWindow.vala:147 src/MainWindow.vala:183
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Failed to save recording"
-msgstr "Kaydı durdur"
+msgstr "Kayıt kaydedilemedi"
 
 #: src/MainWindow.vala:148 src/MainWindow.vala:184
 msgid "There was an error while moving file to the designated location."
-msgstr ""
+msgstr "Dosya belirlenen konuma taşınırken bir hata oluştu."
 
 #: src/MainWindow.vala:159
 msgid "Save your recording"
@@ -62,14 +58,12 @@ msgid "Save"
 msgstr "Kaydet"
 
 #: src/MainWindow.vala:213
-#, fuzzy
-#| msgid "Start recording"
 msgid "Failed to start recording"
-msgstr "Kaydı başlat"
+msgstr "Kayıt başlatılamadı"
 
 #: src/MainWindow.vala:214
 msgid "There was an error while starting recording."
-msgstr ""
+msgstr "Kayıt başlatılırken bir hata oluştu."
 
 #: src/StyleSwitcher.vala:28
 msgid "Style:"
@@ -136,10 +130,8 @@ msgid "Both"
 msgstr "Her ikiside"
 
 #: src/Views/WelcomeView.vala:35
-#, fuzzy
-#| msgid "Microphone"
 msgid "Microphone:"
-msgstr "Mikrofon"
+msgstr "Mikrofon:"
 
 #: src/Views/WelcomeView.vala:45
 msgid "Channels:"
