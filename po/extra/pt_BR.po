@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-26 17:33+0900\n"
+"POT-Creation-Date: 2023-12-14 13:47+0000\n"
 "PO-Revision-Date: 2023-04-13 05:51+0000\n"
 "Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/rosp/"
@@ -24,15 +24,13 @@ msgstr ""
 msgid "Reco"
 msgstr "Reco"
 
-#: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
-msgid "Record talks to remember the contents later"
-msgstr "Gravar conversas para recordar o conteúdo mais tarde"
+#: data/reco.metainfo.xml.in:11
+msgid "Focus on recording"
+msgstr ""
 
 #: data/reco.metainfo.xml.in:13
-msgid "An audio recording app that helps you recall things talked later."
+msgid "Reco is an audio recorder focused on recording."
 msgstr ""
-"Um aplicativo de gravação áudio que o ajuda a recordar as coisas faladas "
-"mais tarde."
 
 #: data/reco.metainfo.xml.in:16
 msgid "Features include:"
@@ -79,8 +77,8 @@ msgstr ""
 #, fuzzy
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
-"while recording, the recording is saved automatically or the file chooser "
-"dialog is shown depends on your saving setting"
+"while recording, the recording is either saved automatically, or the file "
+"chooser dialog is shown - depending on your saving setting"
 msgstr ""
 "Salvar a gravação quando a aplicação deixa de funcionar. Mesmo que saia da "
 "aplicação durante a gravação, a gravação é guardada automaticamente ou é "
@@ -107,9 +105,18 @@ msgstr "Ryo Nakano"
 msgid "Audio Recording App"
 msgstr "Aplicativo de Gravador de Áudio"
 
+#: data/reco.desktop.in:5
+msgid "Record talks to remember the contents later"
+msgstr "Gravar conversas para recordar o conteúdo mais tarde"
+
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Gravar;Áudio;Som;Voz;"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Um aplicativo de gravação áudio que o ajuda a recordar as coisas faladas "
+#~ "mais tarde."
 
 #~ msgid "Show important errors to users"
 #~ msgstr "Mostrar erros importantes aos usuários"

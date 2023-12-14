@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-26 17:33+0900\n"
+"POT-Creation-Date: 2023-12-14 13:47+0000\n"
 "PO-Revision-Date: 2023-05-18 20:49+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-"
@@ -22,13 +22,13 @@ msgstr ""
 msgid "Reco"
 msgstr "Reco"
 
-#: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
-msgid "Record talks to remember the contents later"
-msgstr "後で内容を思い出せるように会話を録音します"
+#: data/reco.metainfo.xml.in:11
+msgid "Focus on recording"
+msgstr ""
 
 #: data/reco.metainfo.xml.in:13
-msgid "An audio recording app that helps you recall things talked later."
-msgstr "会話内容を後で思い出すのに役に立つ、オーディオ録音アプリです。"
+msgid "Reco is an audio recorder focused on recording."
+msgstr ""
 
 #: data/reco.metainfo.xml.in:16
 msgid "Features include:"
@@ -69,10 +69,15 @@ msgstr ""
 "のを保存するか、保存するたびに保存先を指定するかを選択できます"
 
 #: data/reco.metainfo.xml.in:22
+#, fuzzy
+#| msgid ""
+#| "Saving recording when the app quits. Even if you happen to quit the app "
+#| "while recording, the recording is saved automatically or the file chooser "
+#| "dialog is shown depends on your saving setting"
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
-"while recording, the recording is saved automatically or the file chooser "
-"dialog is shown depends on your saving setting"
+"while recording, the recording is either saved automatically, or the file "
+"chooser dialog is shown - depending on your saving setting"
 msgstr ""
 "録音中のものはアプリが終了する際に保存されます。録音中に誤ってアプリを終了し"
 "てしまっても、保存の設定に応じて、録音中のものは自動的に保存されるか、ファイ"
@@ -98,9 +103,16 @@ msgstr "Ryo Nakano"
 msgid "Audio Recording App"
 msgstr "オーディオ録音アプリ"
 
+#: data/reco.desktop.in:5
+msgid "Record talks to remember the contents later"
+msgstr "後で内容を思い出せるように会話を録音します"
+
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Record;Audio;Sound;Voice;録音;オーディオ;サウンド;ボイス;"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr "会話内容を後で思い出すのに役に立つ、オーディオ録音アプリです。"
 
 #~ msgid "Show important errors to users"
 #~ msgstr "重要なエラーをユーザーに表示するように修正"

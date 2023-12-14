@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-26 17:33+0900\n"
+"POT-Creation-Date: 2023-12-14 13:47+0000\n"
 "PO-Revision-Date: 2023-12-05 00:46+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
-"Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/"
-"reco-metainfo/oc/>\n"
+"Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/reco-"
+"metainfo/oc/>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,15 +22,13 @@ msgstr ""
 msgid "Reco"
 msgstr ""
 
-#: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
-msgid "Record talks to remember the contents later"
-msgstr "Enregistratz de discussions per vos remembrar lo contengut mai tard"
+#: data/reco.metainfo.xml.in:11
+msgid "Focus on recording"
+msgstr ""
 
 #: data/reco.metainfo.xml.in:13
-msgid "An audio recording app that helps you recall things talked later."
+msgid "Reco is an audio recorder focused on recording."
 msgstr ""
-"Una aplicacion d'enregistrament àudio per nos ajudar a vos rapelar las "
-"causas que discutiguèretz."
 
 #: data/reco.metainfo.xml.in:16
 msgid "Features include:"
@@ -65,8 +63,8 @@ msgstr ""
 #: data/reco.metainfo.xml.in:22
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
-"while recording, the recording is saved automatically or the file chooser "
-"dialog is shown depends on your saving setting"
+"while recording, the recording is either saved automatically, or the file "
+"chooser dialog is shown - depending on your saving setting"
 msgstr ""
 
 #: data/reco.metainfo.xml.in:28
@@ -89,6 +87,15 @@ msgstr ""
 msgid "Audio Recording App"
 msgstr ""
 
+#: data/reco.desktop.in:5
+msgid "Record talks to remember the contents later"
+msgstr "Enregistratz de discussions per vos remembrar lo contengut mai tard"
+
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr ""
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Una aplicacion d'enregistrament àudio per nos ajudar a vos rapelar las "
+#~ "causas que discutiguèretz."

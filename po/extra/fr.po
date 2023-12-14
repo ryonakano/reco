@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-26 17:33+0900\n"
+"POT-Creation-Date: 2023-12-14 13:47+0000\n"
 "PO-Revision-Date: 2022-10-11 15:21+0000\n"
 "Last-Translator: rene-coty <irenee.thirion@e.email>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/rosp/reco-extra/"
@@ -24,15 +24,13 @@ msgstr ""
 msgid "Reco"
 msgstr "Reco"
 
-#: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
-msgid "Record talks to remember the contents later"
-msgstr "Enregistrez des discussions pour vous en rappeler le contenu plus tard"
+#: data/reco.metainfo.xml.in:11
+msgid "Focus on recording"
+msgstr ""
 
 #: data/reco.metainfo.xml.in:13
-msgid "An audio recording app that helps you recall things talked later."
+msgid "Reco is an audio recorder focused on recording."
 msgstr ""
-"Une application d'enregistrement audio qui vous aide à vous rappeler des "
-"choses dont vous avez parlé."
 
 #: data/reco.metainfo.xml.in:16
 msgid "Features include:"
@@ -77,10 +75,15 @@ msgstr ""
 "préferez sélectionner un emplacement de destination à chaque sauvegarde"
 
 #: data/reco.metainfo.xml.in:22
+#, fuzzy
+#| msgid ""
+#| "Saving recording when the app quits. Even if you happen to quit the app "
+#| "while recording, the recording is saved automatically or the file chooser "
+#| "dialog is shown depends on your saving setting"
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
-"while recording, the recording is saved automatically or the file chooser "
-"dialog is shown depends on your saving setting"
+"while recording, the recording is either saved automatically, or the file "
+"chooser dialog is shown - depending on your saving setting"
 msgstr ""
 "Sauvegarde de l'enregistrement à la fermeture de l'application. Même si vous "
 "fermez l'application pendant l'enregistrement, l'enregistrement est "
@@ -109,9 +112,18 @@ msgstr "Ryo Nakano"
 msgid "Audio Recording App"
 msgstr "Aplication d'enregistrement audio"
 
+#: data/reco.desktop.in:5
+msgid "Record talks to remember the contents later"
+msgstr "Enregistrez des discussions pour vous en rappeler le contenu plus tard"
+
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Enregistrement;Audio;Son;Voix;"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Une application d'enregistrement audio qui vous aide à vous rappeler des "
+#~ "choses dont vous avez parlé."
 
 #~ msgid "Update Flatpak runtime version"
 #~ msgstr "Mise à jour de l’environnement d’exécution Flatpak"

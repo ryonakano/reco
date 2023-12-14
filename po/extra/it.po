@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-26 17:33+0900\n"
+"POT-Creation-Date: 2023-12-14 13:47+0000\n"
 "PO-Revision-Date: 2023-07-02 13:51+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco-"
@@ -23,14 +23,13 @@ msgstr ""
 msgid "Reco"
 msgstr "Reco"
 
-#: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
-msgid "Record talks to remember the contents later"
-msgstr "Registra i discorsi per ricordare i contenuti in seguito"
+#: data/reco.metainfo.xml.in:11
+msgid "Focus on recording"
+msgstr ""
 
 #: data/reco.metainfo.xml.in:13
-msgid "An audio recording app that helps you recall things talked later."
+msgid "Reco is an audio recorder focused on recording."
 msgstr ""
-"Un'app di registrazione audio che ti aiuta a ricordare le cose discusse."
 
 #: data/reco.metainfo.xml.in:16
 msgid "Features include:"
@@ -73,10 +72,15 @@ msgstr ""
 "oppure scegli una destinazione ogni volta dove salvarli"
 
 #: data/reco.metainfo.xml.in:22
+#, fuzzy
+#| msgid ""
+#| "Saving recording when the app quits. Even if you happen to quit the app "
+#| "while recording, the recording is saved automatically or the file chooser "
+#| "dialog is shown depends on your saving setting"
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
-"while recording, the recording is saved automatically or the file chooser "
-"dialog is shown depends on your saving setting"
+"while recording, the recording is either saved automatically, or the file "
+"chooser dialog is shown - depending on your saving setting"
 msgstr ""
 "Salva la registrazione quando l'app si chiude. Anche se ti capita di "
 "chiudere l'app durante la registrazione, la registrazione viene salvata "
@@ -103,9 +107,17 @@ msgstr "Ryo Nakano"
 msgid "Audio Recording App"
 msgstr "App di registrazione audio"
 
+#: data/reco.desktop.in:5
+msgid "Record talks to remember the contents later"
+msgstr "Registra i discorsi per ricordare i contenuti in seguito"
+
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Registra;Audio;Suono;Voce;"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Un'app di registrazione audio che ti aiuta a ricordare le cose discusse."
 
 #~ msgid "Show important errors to users"
 #~ msgstr "Mostra errori importanti agli utenti"
