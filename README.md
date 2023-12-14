@@ -1,6 +1,6 @@
 # Reco
 
-Reco is a simple audio recording app that helps you recall things talked later.
+Reco is an audio recorder focused on recording.
 
 ![Welcome view](data/screenshots/pantheon/welcome-init-light.png) ![Recording view](data/screenshots/pantheon/recording-light.png)
 
@@ -10,7 +10,7 @@ Features include:
 * **Saving in some commonly used formats.** It supports ALAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV
 * **Timed recording.** You can set a delay before recording up to 15 seconds, and the length of recording up to 600 seconds
 * **Autosaving or always-ask-where-to-save workflow.** You can select whether the app saves recordings automatically or you choose a destination each time on saving them
-* **Saving recording when the app quits.** Even if you happen to quit the app while recording, the recording is either saved automatically, or a FileChooserDialog is shown - depending on your saving setting
+* **Saving recording when the app quits.** Even if you happen to quit the app while recording, the recording is either saved automatically, or the file chooser dialog is shown - depending on your saving setting
 
 ## Installation
 

@@ -8,10 +8,10 @@
   <project_license>GPL-3.0+</project_license>
 
   <name>Reco</name>
-  <summary>Record talks to remember the contents later</summary>
+  <summary>Focus on recording</summary>
   <description>
     <p>
-      An audio recording app that helps you recall things talked later.
+      Reco is an audio recorder focused on recording.
     </p>
     <p>Features include:</p>
     <ul>
