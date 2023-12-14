@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-26 17:33+0900\n"
+"POT-Creation-Date: 2023-12-14 13:47+0000\n"
 "PO-Revision-Date: 2023-03-19 14:40+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-metadata/"
@@ -23,15 +23,15 @@ msgstr ""
 msgid "Reco"
 msgstr "Reco"
 
-#: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
-msgid "Record talks to remember the contents later"
-msgstr "Neem gesprekken op om ze later terug te luisteren"
+#: data/reco.metainfo.xml.in:11
+#, fuzzy
+#| msgid "Timed recording"
+msgid "Focus on recording"
+msgstr "Opname met tijdslimiet"
 
 #: data/reco.metainfo.xml.in:13
-msgid "An audio recording app that helps you recall things talked later."
+msgid "Reco is an audio recorder focused on recording."
 msgstr ""
-"Een audio-opnametoepassing die je helpt om op een later moment gesprekken "
-"terug te luisteren."
 
 #: data/reco.metainfo.xml.in:16
 msgid "Features include:"
@@ -77,8 +77,8 @@ msgstr ""
 #, fuzzy
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
-"while recording, the recording is saved automatically or the file chooser "
-"dialog is shown depends on your saving setting"
+"while recording, the recording is either saved automatically, or the file "
+"chooser dialog is shown - depending on your saving setting"
 msgstr ""
 "De opname wordt opgeslagen als je Reco afsluit, zélfs als je afsluit tijdens "
 "een opname. Dit gebeurt ofwel automatisch, ofwel handmatig, afhankelijk van "
@@ -107,9 +107,18 @@ msgstr "Ryo Nakano"
 msgid "Audio Recording App"
 msgstr "Audio-opnametoepassing"
 
+#: data/reco.desktop.in:5
+msgid "Record talks to remember the contents later"
+msgstr "Neem gesprekken op om ze later terug te luisteren"
+
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Opname;Audio;Geluid;Stem;"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Een audio-opnametoepassing die je helpt om op een later moment gesprekken "
+#~ "terug te luisteren."
 
 #~ msgid "Update Flatpak runtime version"
 #~ msgstr "Bijgewerkt: Flatpak-runtimeversie"
@@ -222,6 +231,3 @@ msgstr "Opname;Audio;Geluid;Stem;"
 #, fuzzy
 #~ msgid "Streaming videos on the Internet"
 #~ msgstr "je video's wilt streamen naar het internet"
-
-#~ msgid "Timed recording"
-#~ msgstr "Opname met tijdslimiet"

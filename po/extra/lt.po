@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-26 17:33+0900\n"
+"POT-Creation-Date: 2023-12-14 13:47+0000\n"
 "PO-Revision-Date: 2019-02-18 14:43+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -23,15 +23,15 @@ msgstr ""
 msgid "Reco"
 msgstr "Reco"
 
-#: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
-msgid "Record talks to remember the contents later"
-msgstr "Įrašinėti pokalbius, siekiant vėliau prisiminti jų turinį"
+#: data/reco.metainfo.xml.in:11
+#, fuzzy
+#| msgid "Timed recording"
+msgid "Focus on recording"
+msgstr "Nustatytos trukmės įrašinėjimas"
 
 #: data/reco.metainfo.xml.in:13
-msgid "An audio recording app that helps you recall things talked later."
+msgid "Reco is an audio recorder focused on recording."
 msgstr ""
-"Garso rašytuvo programa, kuri vėliau padeda prisiminti anksčiau kalbėtus "
-"dalykus."
 
 #: data/reco.metainfo.xml.in:16
 msgid "Features include:"
@@ -67,8 +67,8 @@ msgstr ""
 #: data/reco.metainfo.xml.in:22
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
-"while recording, the recording is saved automatically or the file chooser "
-"dialog is shown depends on your saving setting"
+"while recording, the recording is either saved automatically, or the file "
+"chooser dialog is shown - depending on your saving setting"
 msgstr ""
 
 #: data/reco.metainfo.xml.in:28
@@ -92,9 +92,18 @@ msgstr "Ryo Nakano"
 msgid "Audio Recording App"
 msgstr "Garso rašytuvo programa"
 
+#: data/reco.desktop.in:5
+msgid "Record talks to remember the contents later"
+msgstr "Įrašinėti pokalbius, siekiant vėliau prisiminti jų turinį"
+
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Įrašinėti;Įrašyti;Rašytuvas;Audio;Garsas;Balsas;"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Garso rašytuvo programa, kuri vėliau padeda prisiminti anksčiau kalbėtus "
+#~ "dalykus."
 
 #~ msgid "com.github.ryonakano.reco"
 #~ msgstr "com.github.ryonakano.reco"
@@ -114,6 +123,3 @@ msgstr "Įrašinėti;Įrašyti;Rašytuvas;Audio;Garsas;Balsas;"
 #, fuzzy
 #~ msgid "Streaming videos on the Internet"
 #~ msgstr "norite transliuoti vaizdo įrašus internetu"
-
-#~ msgid "Timed recording"
-#~ msgstr "Nustatytos trukmės įrašinėjimas"

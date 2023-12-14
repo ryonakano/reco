@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-26 17:33+0900\n"
+"POT-Creation-Date: 2023-12-14 13:47+0000\n"
 "PO-Revision-Date: 2022-10-19 12:19+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/rosp/reco-"
@@ -22,15 +22,13 @@ msgstr ""
 msgid "Reco"
 msgstr "Reco"
 
-#: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
-msgid "Record talks to remember the contents later"
-msgstr "Gravar conversas para recordar o conteúdo mais tarde"
+#: data/reco.metainfo.xml.in:11
+msgid "Focus on recording"
+msgstr ""
 
 #: data/reco.metainfo.xml.in:13
-msgid "An audio recording app that helps you recall things talked later."
+msgid "Reco is an audio recorder focused on recording."
 msgstr ""
-"Uma aplicação de gravação áudio que o ajuda a recordar as coisas faladas "
-"mais tarde."
 
 #: data/reco.metainfo.xml.in:16
 msgid "Features include:"
@@ -73,10 +71,15 @@ msgstr ""
 "ou se escolhe um destino cada vez que as guarda"
 
 #: data/reco.metainfo.xml.in:22
+#, fuzzy
+#| msgid ""
+#| "Saving recording when the app quits. Even if you happen to quit the app "
+#| "while recording, the recording is saved automatically or the file chooser "
+#| "dialog is shown depends on your saving setting"
 msgid ""
 "Saving recording when the app quits. Even if you happen to quit the app "
-"while recording, the recording is saved automatically or the file chooser "
-"dialog is shown depends on your saving setting"
+"while recording, the recording is either saved automatically, or the file "
+"chooser dialog is shown - depending on your saving setting"
 msgstr ""
 "Guardar a gravação quando a aplicação termina. Mesmo que saia da aplicação "
 "durante a gravação, a gravação é guardada automaticamente ou é mostrada uma "
@@ -102,9 +105,18 @@ msgstr "Ryo Nakano"
 msgid "Audio Recording App"
 msgstr "Aplicação de gravação áudio"
 
+#: data/reco.desktop.in:5
+msgid "Record talks to remember the contents later"
+msgstr "Gravar conversas para recordar o conteúdo mais tarde"
+
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Gravar;Áudio;Som;Voz;"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Uma aplicação de gravação áudio que o ajuda a recordar as coisas faladas "
+#~ "mais tarde."
 
 #~ msgid "Update Flatpak runtime version"
 #~ msgstr "Atualização da versão Flatpak runtime"
