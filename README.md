@@ -11,7 +11,7 @@ Features include:
 * **Recording sounds from both your microphone and system at the same time.** This is be useful for when you need to record calls or stream videos on the Internet.
 * **Saving in many commonly used formats.** It supports ALAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV.
 * **Timed recording.** You can set a delay before recording up to 15 seconds, and set the length of recording up to 600 seconds.
-* **Autosaving or always-ask-where-to-save workflow.** You can select whether the app saves recordings into a directory automatically or manually.
+* **Choosing where to save recordings.** You can select whether the app saves recordings into a directory of your choosing automatically or manually.
 * **Saving recordings when the app quits.** Even if you happen to quit the app while recording, the recording is either saved automatically, or the file chooser dialog is shown - depending on your preferences.
 
 ## Installation
