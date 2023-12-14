@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Reco
 GenericName=Audio Recording App
-Comment=Record talks to remember the contents later
+Comment=Focus on recording
 Categories=Audio;AudioVideo;Utility;Recorder;
 Exec=com.github.ryonakano.reco
 Icon=com.github.ryonakano.reco
