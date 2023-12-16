@@ -1,8 +1,8 @@
 # Reco
 
-Reco is a fully-featured audio recorder.
+Reco is an audio recorder focused on being concise and simple to use.
 
-You can use it to record and remember spoken words, system audio, improvized melodies, and anything else you can do with a microphone or speaker.
+You can use it to record and remember spoken words, system audio, improvized melodies, and anything else you can do with a microphone, speaker, or both.
 
 ![Welcome view](data/screenshots/pantheon/welcome-init-light.png) ![Recording view](data/screenshots/pantheon/recording-light.png)
 
