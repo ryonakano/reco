@@ -8,7 +8,7 @@ You can use it to record and remember spoken words, system audio, improvized mel
 
 Features include:
 
-* **Recording sounds from both your microphone and system at the same time.** This is be useful for when you need to record calls or stream videos on the Internet.
+* **Recording sounds from both your microphone and system at the same time.** This is useful for recording calls or streaming videos on the Internet.
 * **Saving in many commonly used formats.** It supports ALAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV.
 * **Timed recording.** You can set a delay before recording up to 15 seconds, and set the length of recording up to 600 seconds.
 * **Choosing where to save recordings.** You can select whether the app saves recordings into a directory of your choosing automatically or manually.
