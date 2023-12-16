@@ -1,16 +1,18 @@
 # Reco
 
-Reco is an audio recorder focused on recording.
+Reco is an audio recorder focused on being concise and simple to use.
+
+You can use it to record and remember spoken words, system audio, improvized melodies, and anything else you can do with a microphone, speaker, or both.
 
 ![Welcome view](data/screenshots/pantheon/welcome-init-light.png) ![Recording view](data/screenshots/pantheon/recording-light.png)
 
 Features include:
 
-* **Recording sounds from both your microphone and system at the same time.** This would be useful when you record conversations with chat apps or stream videos on the Internet
-* **Saving in some commonly used formats.** It supports ALAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV
-* **Timed recording.** You can set a delay before recording up to 15 seconds, and the length of recording up to 600 seconds
-* **Autosaving or always-ask-where-to-save workflow.** You can select whether the app saves recordings automatically or you choose a destination each time on saving them
-* **Saving recording when the app quits.** Even if you happen to quit the app while recording, the recording is either saved automatically, or the file chooser dialog is shown - depending on your saving setting
+* **Recording sounds from both your microphone and system at the same time.** This is useful for recording calls or streaming videos on the Internet.
+* **Saving in many commonly used formats.** It supports ALAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV.
+* **Timed recording.** You can set a delay before recording up to 15 seconds, and set the length of recording up to 600 seconds.
+* **Choosing where to save recordings.** You can select whether the app saves recordings into a directory of your choosing automatically or manually.
+* **Saving recordings when the app quits.** Even if you happen to quit the app while recording, the recording is either saved automatically, or the file chooser dialog is shown - depending on your preferences.
 
 ## Installation
 
@@ -67,7 +69,7 @@ There are many ways you can contribute, even if you don't know how to code.
 
 ### Reporting Bugs or Suggesting Improvements
 
-Simply [create a new issue](https://github.com/ryonakano/reco/issues/new) describing your problem and how to reproduce or your suggestion. If you are not used to do, [this section](https://docs.elementary.io/contributor-guide/feedback/reporting-issues) is for you.
+Simply [create a new issue](https://github.com/ryonakano/reco/issues/new) describing your problem and how to reproduce or your suggestion. If you are not used to it, [this section](https://docs.elementary.io/contributor-guide/feedback/reporting-issues) is for you.
 
 ### Writing Some Code
 
@@ -85,6 +87,6 @@ Click the following graphs to get started:
 
 ## The Story Behind This App
 
-This app is originally designed and released for elementary OS.
+This app was originally designed and released for elementary OS.
 
 One day, I had to take minutes for a meeting in my department with my elementary laptop. The discussion was so fast-paced, though, that I couldn't listen and write down everything in the minutes. When I got home, I searched for a sound recorder app. I found some non-elementary apps like GNOME Sound Recorder, but there were none for elementary OS. Thus, I decided to create one designed for elementary OS.
