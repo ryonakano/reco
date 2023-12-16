@@ -20,7 +20,7 @@
       <li>Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV.</li>
       <li>Timed recording. You can set a delay before recording up to 15 seconds, and set the length of recording up to 600 seconds.</li>
       <li>Choosing where to save recordings. You can select whether the app saves recordings into a directory of your choosing automatically or manually.</li>
-      <li>Saving recording when the app quits. Even if you happen to quit the app while recording, the recording is either saved automatically, or the file chooser dialog is shown - depending on your preferences.</li>
+      <li>Saving recordings when the app quits. Even if you happen to quit the app while recording, the recording is either saved automatically, or the file chooser dialog is shown - depending on your preferences.</li>
     </ul>
   </description>
 
