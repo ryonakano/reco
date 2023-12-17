@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-14 13:47+0000\n"
+"POT-Creation-Date: 2023-12-17 02:38+0000\n"
 "PO-Revision-Date: 2023-07-02 13:51+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco-"
@@ -23,83 +23,105 @@ msgstr ""
 msgid "Reco"
 msgstr "Reco"
 
-#: data/reco.metainfo.xml.in:11
+#: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
 msgid "Focus on recording"
 msgstr ""
 
 #: data/reco.metainfo.xml.in:13
-msgid "Reco is an audio recorder focused on recording."
+msgid "Reco is an audio recorder focused on being concise and simple to use."
 msgstr ""
 
 #: data/reco.metainfo.xml.in:16
+msgid ""
+"You can use it to record and remember spoken words, system audio, improvized "
+"melodies, and anything else you can do with a microphone, speaker, or both."
+msgstr ""
+
+#: data/reco.metainfo.xml.in:17
 msgid "Features include:"
 msgstr "Le caratteristiche includono:"
 
-#: data/reco.metainfo.xml.in:18
+#: data/reco.metainfo.xml.in:19
+#, fuzzy
+#| msgid ""
+#| "Recording sounds from both your microphone and system at the same time. "
+#| "This would be useful when you record conversations with chat apps or "
+#| "stream videos on the Internet"
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
-"would be useful when you record conversations with chat apps or stream "
-"videos on the Internet"
+"is useful for recording calls or streaming videos on the Internet."
 msgstr ""
 "Registrazione simultanea di suoni dal microfono e dal sistema. Questo "
 "sarebbe utile quando registri conversazioni con app di chat o in streaming "
 "video su Internet"
 
-#: data/reco.metainfo.xml.in:19
+#: data/reco.metainfo.xml.in:20
+#, fuzzy
+#| msgid ""
+#| "Saving in some commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
+#| "Vorbis, Opus, and WAV"
 msgid ""
-"Saving in some commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
-"Vorbis, Opus, and WAV"
+"Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus, and WAV."
 msgstr ""
 "Salva in alcuni formati di uso comune. Supporta ALAC, FLAC, MP3, Ogg Vorbis, "
 "Opus e WAV"
 
-#: data/reco.metainfo.xml.in:20
+#: data/reco.metainfo.xml.in:21
+#, fuzzy
+#| msgid ""
+#| "Timed recording. You can set a delay before recording up to 15 seconds, "
+#| "and the length of recording up to 600 seconds"
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
-"the length of recording up to 600 seconds"
+"set the length of recording up to 600 seconds."
 msgstr ""
 "Registrazione a tempo. Puoi impostare un ritardo prima della registrazione "
 "fino a 15 secondi, e la durata della registrazione fino a 600 secondi"
 
-#: data/reco.metainfo.xml.in:21
+#: data/reco.metainfo.xml.in:22
+#, fuzzy
+#| msgid ""
+#| "Autosaving or always-ask-where-to-save workflow. You can select whether "
+#| "the app saves recordings automatically or you choose a destination each "
+#| "time on saving them"
 msgid ""
-"Autosaving or always-ask-where-to-save workflow. You can select whether the "
-"app saves recordings automatically or you choose a destination each time on "
-"saving them"
+"Choosing where to save recordings. You can select whether the app saves "
+"recordings into a directory of your choosing automatically or manually."
 msgstr ""
 "Flusso di lavoro con salvataggio automatico o chied sempre dove salvare. "
 "Puoi selezionare se vuoi che l'app salva automaticamente le registrazioni "
 "oppure scegli una destinazione ogni volta dove salvarli"
 
-#: data/reco.metainfo.xml.in:22
+#: data/reco.metainfo.xml.in:23
 #, fuzzy
 #| msgid ""
 #| "Saving recording when the app quits. Even if you happen to quit the app "
 #| "while recording, the recording is saved automatically or the file chooser "
 #| "dialog is shown depends on your saving setting"
 msgid ""
-"Saving recording when the app quits. Even if you happen to quit the app "
+"Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
-"chooser dialog is shown - depending on your saving setting"
+"chooser dialog is shown - depending on your preferences."
 msgstr ""
 "Salva la registrazione quando l'app si chiude. Anche se ti capita di "
 "chiudere l'app durante la registrazione, la registrazione viene salvata "
 "automaticamente o la finestra di selezione file di dialogo viene "
 "visualizzata in base alle impostazioni di salvataggio"
 
-#: data/reco.metainfo.xml.in:28
+#: data/reco.metainfo.xml.in:29
 msgid "Welcome view; perform recording configuration"
 msgstr "Vista di benvenuto; eseguire la configurazione della registrazione"
 
-#: data/reco.metainfo.xml.in:33
+#: data/reco.metainfo.xml.in:34
 msgid "Recording view"
 msgstr "Vista di registrazione"
 
-#: data/reco.metainfo.xml.in:38
+#: data/reco.metainfo.xml.in:39
 msgid "An indication that recording is successfully finished"
 msgstr "Un'indicazione che la registrazione è terminata con successo"
 
-#: data/reco.metainfo.xml.in:61
+#: data/reco.metainfo.xml.in:62
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 
@@ -107,13 +129,12 @@ msgstr "Ryo Nakano"
 msgid "Audio Recording App"
 msgstr "App di registrazione audio"
 
-#: data/reco.desktop.in:5
-msgid "Record talks to remember the contents later"
-msgstr "Registra i discorsi per ricordare i contenuti in seguito"
-
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Registra;Audio;Suono;Voce;"
+
+#~ msgid "Record talks to remember the contents later"
+#~ msgstr "Registra i discorsi per ricordare i contenuti in seguito"
 
 #~ msgid "An audio recording app that helps you recall things talked later."
 #~ msgstr ""
