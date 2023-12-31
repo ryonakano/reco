@@ -202,9 +202,6 @@ public class WelcomeView : AbstractView {
         source_combobox.changed.connect (() => {
             record_button.sensitive = get_is_source_connected ();
         });
-        mic_combobox.changed.connect (() => {
-            update_mic_combobox_tooltip ();
-        });
 
         auto_save_switch.state_set.connect ((state) => {
             if (state) {
@@ -327,12 +324,5 @@ public class WelcomeView : AbstractView {
         foreach (Gst.Device device in device_manager.sources) {
             mic_combobox.append (null, device.display_name);
         }
-
-        update_mic_combobox_tooltip ();
-    }
-
-    private void update_mic_combobox_tooltip () {
-        // Show full device name as a tooltip in case it's ellipsized
-        mic_combobox.tooltip_text = mic_combobox.get_active_text ();
     }
 }
