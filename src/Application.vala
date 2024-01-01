@@ -52,15 +52,6 @@ public class Application : Gtk.Application {
                                                    cssprovider,
                                                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        if (!Application.IS_ON_PANTHEON) {
-            var extra_cssprovider = new Gtk.CssProvider ();
-            extra_cssprovider.load_from_resource ("/com/github/ryonakano/reco/Extra.css");
-            // TODO: Deprecated in Gtk 4.10, buit no alternative api is provided so leave it for now
-            Gtk.StyleContext.add_provider_for_display (display,
-                                                       extra_cssprovider,
-                                                       Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        }
-
         // Load GResource for our custom icons
         var icon_theme = Gtk.IconTheme.get_for_display (display);
         icon_theme.add_resource_path ("/com/github/ryonakano/reco");
