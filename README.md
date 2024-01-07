@@ -40,7 +40,7 @@ You'll need the following dependencies to build:
 * libgtk-4-dev (>= 4.10)
 * [libryokucha](https://github.com/ryonakano/ryokucha)
     * automatically downloaded on build
-* [livechart](https://github.com/lcallarec/live-chart) (commit `d364df43bd8336bf7ed461c57a28e97efa7115b1` or later)
+* [livechart](https://github.com/lcallarec/live-chart) (>= 1.10.0)
     * automatically downloaded on build
 * meson (>= 0.57.0)
 * valac

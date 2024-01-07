@@ -15,10 +15,9 @@ modules:
   - name: live-chart
     buildsystem: meson
     sources:
-      # TODO: Replace with tarball when new release is published
-      - type: git
-        url: https://github.com/lcallarec/live-chart.git
-        commit: d364df43bd8336bf7ed461c57a28e97efa7115b1
+      - type: archive
+        url: https://github.com/lcallarec/live-chart/archive/refs/tags/1.10.0.tar.gz
+        sha256: 3f54c7569cc2a4711b5689038055aefc4321636f3e6dd4945e4be204bc9d4843
 
   - name: gst-libav
     buildsystem: meson
