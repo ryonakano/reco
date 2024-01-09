@@ -69,8 +69,7 @@ if get_option('use_submodule')
     ryokucha_deps = ryokucha_subproject.get_variable('libryokucha')
     dependencies += ryokucha_deps
 else
-    # TODO: Add limitation for GTK4 supported version
-    dependencies += dependency('livechart')
+    dependencies += dependency('livechart', version: '>= 1.10.0')
     dependencies += dependency('ryokucha')
 endif
 
