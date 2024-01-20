@@ -7,13 +7,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-17 02:38+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-01-21 12:01+0000\n"
+"Last-Translator: ViBE <vibe@protonmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/rosp/"
+"reco-metainfo/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
 msgid "Reco"
@@ -25,35 +28,41 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
-msgstr ""
+msgstr "A Reco egy egyszerű és könnyen kezelhető hangrögzítő alkalmazás."
 
 #: data/reco.metainfo.xml.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
+"Használható beszélgetések, rendszerhang, dallamok rögzítésére legyen szó "
+"bemeneti vagy kimeneti eszközökről."
 
 #: data/reco.metainfo.xml.in:17
 msgid "Features include:"
-msgstr ""
+msgstr "Funkciók:"
 
 #: data/reco.metainfo.xml.in:19
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
+"Rendszer és bemeneti eszközök hangjának rögzítése egyaránt akár azonos "
+"időben. Ez hasznos lehet hívások vagy élő adások felvétele során."
 
 #: data/reco.metainfo.xml.in:20
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
+"Tárolás megannyi formátumban. Támogatott formátumok: ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus és WAV."
 
 #: data/reco.metainfo.xml.in:21
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
-msgstr ""
+msgstr "Felvétel időzítése. Beállítható a felvétel hossza és késleltetése."
 
 #: data/reco.metainfo.xml.in:22
 msgid ""
@@ -67,6 +76,9 @@ msgid ""
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
+"Felvétel mentése az alkalmazás bezárásakor. Még akkor is, ha felvétel közben "
+"kilép az alkalmazásból, a felvétel automatikusan mentésre kerül, vagy "
+"megjelenik a párbeszédpanel."
 
 #: data/reco.metainfo.xml.in:29
 msgid "Welcome view; perform recording configuration"
@@ -82,12 +94,12 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in:62
 msgid "Ryo Nakano"
-msgstr ""
+msgstr "Ryo Nakano"
 
 #: data/reco.desktop.in:4
 msgid "Audio Recording App"
-msgstr ""
+msgstr "Hangrögzítő alkalmazás"
 
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
-msgstr ""
+msgstr "Felvétel;Rögzítés;Zene;Hang;"
