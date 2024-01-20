@@ -186,7 +186,7 @@ public class Recorder : Object {
         Gst.Element? muxer = null;
         if (fmt_data.muxer != null) {
             muxer = Gst.ElementFactory.make (fmt_data.muxer, "muxer");
-            if (encoder == null) {
+            if (muxer == null) {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create muxer element \"%s\"", fmt_data.muxer);
             }
         }
@@ -200,10 +200,15 @@ public class Recorder : Object {
 
         // Dual-channelization
         var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
+        if (caps_filter == null) {
+            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"capsfilter\"");
+        }
+
         caps_filter.set ("caps", new Gst.Caps.simple (
                             "audio/x-raw", "channels", Type.INT,
                             (ChannelID) Application.settings.get_enum ("channel")
         ));
+
         pipeline.add_many (caps_filter, encoder);
         mixer.link_many (caps_filter, level, encoder);
 
