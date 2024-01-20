@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# ViBE <vibe@protonmail.com>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-17 02:38+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
+msgid "Reco"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
+msgid "Focus on recording"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:13
+msgid "Reco is an audio recorder focused on being concise and simple to use."
+msgstr ""
+
+#: data/reco.metainfo.xml.in:16
+msgid ""
+"You can use it to record and remember spoken words, system audio, improvized "
+"melodies, and anything else you can do with a microphone, speaker, or both."
+msgstr ""
+
+#: data/reco.metainfo.xml.in:17
+msgid "Features include:"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:19
+msgid ""
+"Recording sounds from both your microphone and system at the same time. This "
+"is useful for recording calls or streaming videos on the Internet."
+msgstr ""
+
+#: data/reco.metainfo.xml.in:20
+msgid ""
+"Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus, and WAV."
+msgstr ""
+
+#: data/reco.metainfo.xml.in:21
+msgid ""
+"Timed recording. You can set a delay before recording up to 15 seconds, and "
+"set the length of recording up to 600 seconds."
+msgstr ""
+
+#: data/reco.metainfo.xml.in:22
+msgid ""
+"Choosing where to save recordings. You can select whether the app saves "
+"recordings into a directory of your choosing automatically or manually."
+msgstr ""
+
+#: data/reco.metainfo.xml.in:23
+msgid ""
+"Saving recordings when the app quits. Even if you happen to quit the app "
+"while recording, the recording is either saved automatically, or the file "
+"chooser dialog is shown - depending on your preferences."
+msgstr ""
+
+#: data/reco.metainfo.xml.in:29
+msgid "Welcome view; perform recording configuration"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:34
+msgid "Recording view"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:39
+msgid "An indication that recording is successfully finished"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:62
+msgid "Ryo Nakano"
+msgstr ""
+
+#: data/reco.desktop.in:4
+msgid "Audio Recording App"
+msgstr ""
+
+#: data/reco.desktop.in:11
+msgid "Record;Audio;Sound;Voice;"
+msgstr ""
