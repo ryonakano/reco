@@ -89,6 +89,8 @@ public class LevelBar : Gtk.Box {
                     update_graph_timeout = Timeout.add (REFRESH_MSEC, () => {
                         int current = (int) (recorder.current_peak * PEAK_PERCENTAGE);
                         serie.add_with_timestamp (current, timestamp);
+                        // Keep last bar on the right of the graph area
+                        config.time.current = timestamp;
                         timestamp += REFRESH_MSEC;
                         return GLib.Source.CONTINUE;
                     });
