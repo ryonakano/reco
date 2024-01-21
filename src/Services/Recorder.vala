@@ -175,7 +175,7 @@ public class Recorder : Object {
         Gst.Element? muxer = null;
         if (fmt_data.muxer != null) {
             muxer = Gst.ElementFactory.make (fmt_data.muxer, "muxer");
-            if (encoder == null) {
+            if (muxer == null) {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create muxer element \"%s\"", fmt_data.muxer);
             }
         }
@@ -189,6 +189,10 @@ public class Recorder : Object {
 
         // Dual-channelization
         var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
+        if (caps_filter == null) {
+            throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"capsfilter\"");
+        }
+
         caps_filter.set ("caps", new Gst.Caps.simple (
                             "audio/x-raw", "channels", Type.INT,
                             (ChannelID) Application.settings.get_enum ("channel")
@@ -206,6 +210,10 @@ public class Recorder : Object {
                 break;
             case SourceID.BOTH:
                 var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
+                if (mixer == null) {
+                    throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"audiomixer\"");
+                }
+
                 pipeline.add_many (mic_sound, sys_sound, mixer);
                 mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
                 sys_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
