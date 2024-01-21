@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Ivan Eresko <ivan@programmer.net>, 2022.
-# lenemter <lenemter@gmail.com>, 2022, 2023.
+# lenemter <lenemter@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-26 17:33+0900\n"
-"PO-Revision-Date: 2023-10-06 21:10+0000\n"
+"PO-Revision-Date: 2024-01-21 12:01+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/rosp/reco-app/ru/"
 ">\n"
@@ -18,21 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: src/MainWindow.vala:39
 msgid "Preferences"
 msgstr "Параметры"
 
 #: src/MainWindow.vala:120
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Error while recording"
-msgstr "Приостановить запись"
+msgstr "Ошибка при записи"
 
 #: src/MainWindow.vala:121
 msgid "There was an error while recording."
-msgstr ""
+msgstr "Произошла ошибка во время записи."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
@@ -43,14 +41,12 @@ msgid "Recording from %s"
 msgstr "Запись от %s"
 
 #: src/MainWindow.vala:147 src/MainWindow.vala:183
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Failed to save recording"
-msgstr "Приостановить запись"
+msgstr "Не удалось сохранить запись"
 
 #: src/MainWindow.vala:148 src/MainWindow.vala:184
 msgid "There was an error while moving file to the designated location."
-msgstr ""
+msgstr "Произошла ошибка во время создания файла в нужной локации."
 
 #: src/MainWindow.vala:159
 msgid "Save your recording"
@@ -61,14 +57,12 @@ msgid "Save"
 msgstr "Сохранить"
 
 #: src/MainWindow.vala:213
-#, fuzzy
-#| msgid "Start recording"
 msgid "Failed to start recording"
-msgstr "Начать запись"
+msgstr "Не удалось начать запись"
 
 #: src/MainWindow.vala:214
 msgid "There was an error while starting recording."
-msgstr ""
+msgstr "Произошла ошибка во время начала запаси."
 
 #: src/StyleSwitcher.vala:28
 msgid "Style:"
