@@ -65,25 +65,15 @@ com.github.ryonakano.reco
 
 ## Contributing
 
-There are many ways you can contribute, even if you don't know how to code.
+Please refer to [the contribution guideline](.github/CONTRIBUTING.md) if you would like to:
 
-### Reporting Bugs or Suggesting Improvements
+- submit bug reports / feature requests
+- propose coding changes
+- translate the project
 
-Simply [create a new issue](https://github.com/ryonakano/reco/issues/new) describing your problem and how to reproduce or your suggestion. If you are not used to it, [this section](https://docs.elementary.io/contributor-guide/feedback/reporting-issues) is for you.
+## Get Support
 
-### Writing Some Code
-
-We follow [the coding style of elementary OS](https://docs.elementary.io/develop/writing-apps/code-style) and [its Human Interface Guidelines](https://docs.elementary.io/hig/). Try to respect them.
-
-### Translation
-
-We accept translations of this project through [Weblate](https://weblate.org/). We would appreciate it if you would join our translation work!
-
-Click the following graphs to get started:
-
-| App: Texts in the app itself | Metainfo: Texts in the desktop entry and the software center |
-| --- | --- |
-| [![Translation status](https://hosted.weblate.org/widgets/rosp/-/reco-app/multi-auto.svg)](https://hosted.weblate.org/projects/rosp/reco-app) | [![Translation status](https://hosted.weblate.org/widgets/rosp/-/reco-metainfo/multi-auto.svg)](https://hosted.weblate.org/projects/rosp/reco-metainfo) |
+Need help in use of the app? Refer to [the discussions page](https://github.com/ryonakano/reco/discussions) to search for existing discussions or [start a new discussion](https://github.com/ryonakano/reco/discussions/new/choose) if none is relevant.
 
 ## The Story Behind This App
 
