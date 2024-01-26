@@ -1,36 +1,34 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Allan Nordhøy <epost@anotheragency.no>, 2022.
+# Allan Nordhøy <epost@anotheragency.no>, 2022, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-26 17:33+0900\n"
-"PO-Revision-Date: 2022-05-21 19:19+0000\n"
+"PO-Revision-Date: 2024-01-27 13:01+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/rosp/"
-"reco-main/nb_NO/>\n"
+"reco-app/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: src/MainWindow.vala:39
 msgid "Preferences"
 msgstr "Innstillinger"
 
 #: src/MainWindow.vala:120
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Error while recording"
-msgstr "Sett opptak på pause"
+msgstr "Feil under opptak"
 
 #: src/MainWindow.vala:121
 msgid "There was an error while recording."
-msgstr ""
+msgstr "En feil inntraff under opptak."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
@@ -44,11 +42,12 @@ msgstr "Tar opp fra %s"
 #, fuzzy
 #| msgid "Pause recording"
 msgid "Failed to save recording"
-msgstr "Sett opptak på pause"
+msgstr "Kunne ikke lagre opptak"
 
 #: src/MainWindow.vala:148 src/MainWindow.vala:184
+#, fuzzy
 msgid "There was an error while moving file to the designated location."
-msgstr ""
+msgstr "Kunne ikke flytte fil til angitt mål."
 
 #: src/MainWindow.vala:159
 msgid "Save your recording"
@@ -62,15 +61,15 @@ msgstr "Lagre"
 #, fuzzy
 #| msgid "Start recording"
 msgid "Failed to start recording"
-msgstr "Start opptak"
+msgstr "Kunne ikke starte opptak"
 
 #: src/MainWindow.vala:214
 msgid "There was an error while starting recording."
-msgstr ""
+msgstr "En feil inntraff under oppstart av opptak."
 
 #: src/StyleSwitcher.vala:28
 msgid "Style:"
-msgstr "Stil:"
+msgstr "Drakt"
 
 #: src/StyleSwitcher.vala:32
 msgid "Light"
@@ -82,7 +81,7 @@ msgstr "Mørk"
 
 #: src/StyleSwitcher.vala:34 src/Views/WelcomeView.vala:32
 msgid "System"
-msgstr "Systemet"
+msgstr "System"
 
 #: src/Services/Recorder.vala:307
 msgid "Recording is ongoing"
@@ -118,7 +117,7 @@ msgstr "Fortsett opptak"
 
 #: src/Views/WelcomeView.vala:23
 msgid "Source"
-msgstr ""
+msgstr "Kilde"
 
 #: src/Views/WelcomeView.vala:25
 msgid "Record from:"
@@ -209,14 +208,12 @@ msgid "Start recording"
 msgstr "Start opptak"
 
 #: src/Views/WelcomeView.vala:257
-#, fuzzy
-#| msgid "Choose a default destination"
 msgid "Select destination…"
-msgstr "Velg et forvalgt mål"
+msgstr "Velg mål …"
 
 #: src/Views/WelcomeView.vala:266
 msgid "Select"
-msgstr ""
+msgstr "Velg"
 
 #, fuzzy
 #~ msgid "Unable to Complete Recording"
