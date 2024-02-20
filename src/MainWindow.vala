@@ -133,7 +133,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                                     ) + suffix;
 
             var autosave_dest = Application.settings.get_string ("autosave-destination");
-            if (autosave_dest != Application.SETTINGS_NO_AUTOSAVE) {
+            if (autosave_dest != Define.AUTOSAVE_DISABLED) {
                 var dest = File.new_for_path (autosave_dest).get_child (final_file_name);
                 try {
                     if (tmp_file.move (dest, FileCopyFlags.OVERWRITE)) {

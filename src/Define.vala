@@ -5,6 +5,11 @@
 
 namespace Define {
     /**
+     * Represent that auto-saving is disabled (not preferred).
+     */
+    public const string AUTOSAVE_DISABLED = "";
+
+    /**
      * Constants for the "style" enum in the gschema.
      */
     namespace Style {
