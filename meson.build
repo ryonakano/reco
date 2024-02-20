@@ -56,8 +56,9 @@ sources = files(
     'src' / 'Views' / 'RecordView.vala',
     'src' / 'Widgets' / 'LevelBar.vala',
     'src' / 'Application.vala',
+    'src' / 'Define.vala',
     'src' / 'MainWindow.vala',
-    'src' / 'StyleSwitcher.vala'
+    'src' / 'StyleManager.vala'
 )
 
 if get_option('use_submodule')

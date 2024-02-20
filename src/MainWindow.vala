@@ -23,28 +23,25 @@ public class MainWindow : Gtk.ApplicationWindow {
     construct {
         recorder = Recorder.get_default ();
 
-        var preferences_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6) {
-            margin_top = 12,
-            margin_bottom = 12,
-            margin_start = 12,
-            margin_end = 12
-        };
-        preferences_box.append (new StyleSwitcher ());
+        var style_submenu = new Menu ();
+        style_submenu.append (_("Light"), "app.color-scheme(%d)".printf (StyleManager.ColorScheme.FORCE_LIGHT));
+        style_submenu.append (_("Dark"), "app.color-scheme(%d)".printf (StyleManager.ColorScheme.FORCE_DARK));
+        style_submenu.append (_("System"), "app.color-scheme(%d)".printf (StyleManager.ColorScheme.DEFAULT));
 
-        var preferences_popover = new Gtk.Popover () {
-            child = preferences_box
-        };
+        var menu = new Menu ();
+        menu.append_submenu (_("Style"), style_submenu);
 
-        var preferences_button = new Gtk.MenuButton () {
-            tooltip_text = _("Preferences"),
+        var menu_button = new Gtk.MenuButton () {
+            tooltip_text = _("Main Menu"),
             icon_name = "open-menu",
-            popover = preferences_popover
+            menu_model = menu,
+            primary = true
         };
 
         var headerbar = new Gtk.HeaderBar () {
             title_widget = new Gtk.Label ("")
         };
-        headerbar.pack_end (preferences_button);
+        headerbar.pack_end (menu_button);
         set_titlebar (headerbar);
         headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
         headerbar.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
