@@ -84,7 +84,9 @@ public class DeviceManager : Object {
                     default_source = device;
                     debug ("Default source: \"%s\"", default_source.display_name);
                 }
-            } else if (device.has_classes ("Sink")) {
+            }
+
+            if (device.has_classes ("Sink")) {
                 if (sinks.contains (device)) {
                     continue;
                 }
@@ -96,8 +98,6 @@ public class DeviceManager : Object {
                     default_sink = device;
                     debug ("Default sink: \"%s\"", default_sink.display_name);
                 }
-            } else {
-                assert_not_reached ();
             }
         }
 
