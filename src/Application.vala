@@ -18,8 +18,9 @@ public class Application : Gtk.Application {
         }
     }
 
-    private MainWindow window;
     public static Settings settings { get; private set; }
+
+    private MainWindow window;
     private StyleManager style_manager;
 
     public Application () {
