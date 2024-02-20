@@ -33,7 +33,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
         var menu_button = new Gtk.MenuButton () {
             tooltip_text = _("Main Menu"),
-            icon_name = "open-menu-symbolic",
+            icon_name = "open-menu",
             menu_model = menu,
             primary = true
         };
