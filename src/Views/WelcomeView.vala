@@ -207,7 +207,7 @@ public class WelcomeView : AbstractView {
             if (state) {
                 // Prevent the filechooser shown twice when enabling the autosaving
                 var autosave_dest = Application.settings.get_string ("autosave-destination");
-                if (autosave_dest != Application.SETTINGS_NO_AUTOSAVE) {
+                if (autosave_dest != Define.AUTOSAVE_DISABLED) {
                     return false;
                 }
 
@@ -217,7 +217,7 @@ public class WelcomeView : AbstractView {
             }
 
             // Clear the current destination and disable autosaving
-            set_destination (Application.SETTINGS_NO_AUTOSAVE);
+            set_destination (Define.AUTOSAVE_DISABLED);
             return false;
         });
 
@@ -236,7 +236,7 @@ public class WelcomeView : AbstractView {
     private void get_destination () {
         string path = Application.settings.get_string ("autosave-destination");
         destination_chooser_label.label = destination_chooser_get_label (path);
-        auto_save_switch.active = (path != Application.SETTINGS_NO_AUTOSAVE);
+        auto_save_switch.active = (path != Define.AUTOSAVE_DISABLED);
 
         var file = File.new_for_path (path);
         if (!file.query_exists ()) {
@@ -250,7 +250,7 @@ public class WelcomeView : AbstractView {
     }
 
     private string destination_chooser_get_label (string path) {
-        if (path == Application.SETTINGS_NO_AUTOSAVE) {
+        if (path == Define.AUTOSAVE_DISABLED) {
             return _("Select destination…");
         }
 
@@ -282,7 +282,7 @@ public class WelcomeView : AbstractView {
                     // If the autosave switch was on previously, then it means the user just cancels
                     // changing the destination
                     var autosave_dest = Application.settings.get_string ("autosave-destination");
-                    if (autosave_dest == Application.SETTINGS_NO_AUTOSAVE) {
+                    if (autosave_dest == Define.AUTOSAVE_DISABLED) {
                         auto_save_switch.active = false;
                     }
                 }

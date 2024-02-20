@@ -10,14 +10,6 @@ public class Application : Gtk.Application {
         }
     }
 
-    // The blank value of the "autosave-destination" key in the app's GSettings means that
-    // the auto-saving is disabled.
-    public static string SETTINGS_NO_AUTOSAVE {
-        get {
-            return "";
-        }
-    }
-
     public static Settings settings { get; private set; }
 
     private MainWindow window;
