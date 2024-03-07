@@ -31,7 +31,7 @@ jobs:
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
           bundle: reco.flatpak
-          manifest-path: com.github.ryonakano.reco.yml
+          manifest-path: elementary/com.github.ryonakano.reco.yml
           run-tests: true
           repository-name: appcenter
           repository-url: https://flatpak.elementary.io/repo.flatpakrepo

@@ -1,0 +1,68 @@
+From b2fa535df382e3017bfb67168e96674289abd76f Mon Sep 17 00:00:00 2001
+From: Ryo Nakano <ryonakaknock3@gmail.com>
+Date: Fri, 1 Mar 2024 23:48:23 +0900
+Subject: [PATCH] meson: Disable styles
+
+---
+ lib/Init.vala   | 6 ++++++
+ lib/meson.build | 2 --
+ 2 files changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/lib/Init.vala b/lib/Init.vala
+index e8e4ca3e..d9982f56 100644
+--- a/lib/Init.vala
++++ b/lib/Init.vala
+@@ -5,7 +5,9 @@
+ 
+ namespace Granite {
+     private static bool initialized = false;
++#if 0
+     private static Gtk.CssProvider? base_provider = null;
++#endif
+     private static Gtk.CssProvider? app_provider = null;
+ 
+     /*
+@@ -35,10 +37,12 @@ namespace Granite {
+     }
+ 
+     private static void register_display (Gdk.Display display) {
++#if 0
+         if (base_provider == null) {
+             base_provider = new Gtk.CssProvider ();
+             base_provider.load_from_resource ("/io/elementary/granite/Granite.css");
+         }
++#endif
+ 
+         if (app_provider == null) {
+             var base_path = Application.get_default ().resource_base_path;
+@@ -50,7 +54,9 @@ namespace Granite {
+             }
+         }
+ 
++#if 0
+         Gtk.StyleContext.add_provider_for_display (display, base_provider, Gtk.STYLE_PROVIDER_PRIORITY_THEME);
++#endif
+ 
+         if (app_provider != null) {
+             Gtk.StyleContext.add_provider_for_display (display, app_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+diff --git a/lib/meson.build b/lib/meson.build
+index 25d4a133..2fa37ce0 100644
+--- a/lib/meson.build
++++ b/lib/meson.build
+@@ -1,5 +1,4 @@
+ subdir('Icons')
+-subdir('Styles')
+ 
+ libgranite_sources = files(
+     'DateTime.vala',
+@@ -63,7 +62,6 @@ libgranite = library(
+ 
+     libgranite_sources,
+     icons_resource,
+-    stylesheet_resource,
+     config_vala,
+ 
+     dependencies: [
+-- 
+2.44.0
+

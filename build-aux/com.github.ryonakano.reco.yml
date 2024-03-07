@@ -1,10 +1,16 @@
 app-id: com.github.ryonakano.reco
-runtime: io.elementary.Platform
-runtime-version: '7.3'
-sdk: io.elementary.Sdk
+runtime: org.gnome.Platform
+runtime-version: '45'
+sdk: org.gnome.Sdk
 command: com.github.ryonakano.reco
 finish-args:
   - '--device=all'
+  # A workaround for the issue of xdg-desktop-portal-gnome that the selected folder in the file chooser is not set as writable.
+  # See:
+  # https://gitlab.gnome.org/GNOME/xdg-desktop-portal-gnome/-/issues/41
+  # https://github.com/ryonakano/reco/issues/175#issuecomment-1848263345
+  # TODO: Remove when famous distribution versions that uses GNOME < 44 reach EOL
+  - '--filesystem=home'
   - '--share=ipc'
   - '--socket=wayland'
   - '--socket=fallback-x11'
@@ -29,6 +35,23 @@ modules:
         url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.5.tar.xz
         sha256: 8583f0c1f4fcb01eed11fa1e3c21126543a8bd739ed4fc1db31f756a5ab01d9a
 
+  - name: granite
+    buildsystem: meson
+    cleanup:
+      - '/share/applications'
+      - '/share/metainfo'
+      - '/share/icons'
+    sources:
+      - type: archive
+        url: https://github.com/elementary/granite/archive/refs/tags/7.4.0.tar.gz
+        sha256: 594fe6670940bf2e5d094c73071025d77efab9c5b147a6f64134fe10d370e40e
+      - type: patch
+        # Granite bundles stylesheets for some widgets and that requires addional dependencies, sassc.
+        # However, these stylesheets don't seem to be applied unless the host system uses elementary stylesheet.
+        # We don't expect elementary OS users install the app from Flathub, so disable building stylesheet
+        # to lessen number of dependencies and package size.
+        path: 0001-meson-Disable-styles.patch
+
   - name: ryokucha
     buildsystem: meson
     sources:
@@ -42,4 +65,4 @@ modules:
       - '-Duse_submodule=false'
     sources:
       - type: dir
-        path: .
+        path: ../
