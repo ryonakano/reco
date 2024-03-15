@@ -21,7 +21,7 @@ Click the button to get Reco on AppCenter if you're on elementary OS:
 
 You can install Reco from Flathub if you're on another distribution:
 
-[<img src="https://flathub.org/assets/badges/flathub-badge-en.svg" width="160" alt="Download on Flathub">](https://flathub.org/apps/details/com.github.ryonakano.reco)
+[<img src="https://flathub.org/assets/badges/flathub-badge-en.svg" width="160" alt="Download on Flathub">](https://flathub.org/apps/com.github.ryonakano.reco)
 
 ### From Community Packages
 Community packages maintained by volunteers are also available on some distributions:
