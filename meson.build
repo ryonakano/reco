@@ -5,8 +5,6 @@ project(
     meson_version: '>=0.57.0'
 )
 
-app_nickname = 'reco'
-
 gnome = import('gnome')
 i18n = import('i18n')
 
@@ -26,7 +24,7 @@ config_file = configure_file(
 
 asresources = gnome.compile_resources(
     'as-resources',
-    'data' / app_nickname + '.gresource.xml',
+    'data' / 'reco.gresource.xml',
     source_dir: 'data',
     c_name: 'as'
 )
