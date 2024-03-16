@@ -79,6 +79,7 @@ namespace Model {
         private string suffix;
         private Gst.Pipeline pipeline;
         private uint inhibit_token = 0;
+        private const uint64 NSEC = 1000000000;
 
         private enum SourceID {
             MIC,
@@ -223,6 +224,7 @@ namespace Model {
                         throw new RecorderError.CREATE_ERROR ("Failed to create element \"audiomixer\"");
                     }
 
+                    mixer.set_property ("latency", 1 * NSEC);
                     pipeline.add_many (mic_sound, sys_sound, mixer);
                     mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
                     sys_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
