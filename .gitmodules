@@ -1,6 +1,0 @@
-[submodule "subprojects/ryokucha"]
-	path = subprojects/ryokucha
-	url = https://github.com/ryonakano/ryokucha
-[submodule "subprojects/live-chart"]
-	path = subprojects/live-chart
-	url = https://github.com/lcallarec/live-chart
