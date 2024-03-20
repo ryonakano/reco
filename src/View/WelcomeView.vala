@@ -6,7 +6,7 @@
 public class View.WelcomeView : AbstractView {
     public signal void start_recording ();
 
-    private Manager.DeviceManager device_manager;
+    private unowned Manager.DeviceManager device_manager;
 
     private Ryokucha.DropDownText source_combobox;
     private Ryokucha.DropDownText mic_combobox;
