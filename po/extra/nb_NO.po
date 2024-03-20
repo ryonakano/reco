@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
 # Allan Nordhøy <epost@anotheragency.no>, 2022, 2024.
+# Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-17 02:38+0000\n"
-"PO-Revision-Date: 2024-01-27 13:01+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2024-03-20 22:51+0000\n"
+"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/rosp/"
 "reco-metainfo/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -16,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
 msgid "Reco"
-msgstr ""
+msgstr "Reco"
 
 #: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
 msgid "Focus on recording"
