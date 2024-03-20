@@ -205,11 +205,11 @@ public class MainWindow : Gtk.ApplicationWindow {
     private void show_record () {
         try {
             recorder.start_recording ();
-        } catch (Gst.ParseError e) {
+        } catch (Model.RecorderError err) {
             show_error_dialog (
                 _("Failed to start recording"),
                 _("There was an error while starting recording."),
-                e.message
+                err.message
             );
             return;
         }
