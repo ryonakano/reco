@@ -21,8 +21,8 @@ public class Manager.StyleManager : Object {
     }
     private static StyleManager instance = null;
 
-    private Gtk.Settings gtk_settings;
-    private Granite.Settings granite_settings;
+    private unowned Gtk.Settings gtk_settings;
+    private unowned Granite.Settings granite_settings;
 
     private StyleManager () {
     }

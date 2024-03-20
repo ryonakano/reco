@@ -15,7 +15,7 @@ public class Manager.DeviceManager : Object {
     public uint selected_source_index { get; set; }
 
     private static DeviceManager? _instance = null;
-    public static DeviceManager get_default () {
+    public static unowned DeviceManager get_default () {
         if (_instance == null) {
             _instance = new DeviceManager ();
         }
