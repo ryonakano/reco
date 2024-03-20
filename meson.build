@@ -43,20 +43,20 @@ dependencies = [
 ]
 
 sources = files(
-    'src' / 'Services' / 'AbstractTimer.vala',
-    'src' / 'Services' / 'CountDownTimer.vala',
-    'src' / 'Services' / 'CountUpTimer.vala',
-    'src' / 'Services' / 'DeviceManager.vala',
-    'src' / 'Services' / 'Recorder.vala',
-    'src' / 'Views' / 'AbstractView.vala',
-    'src' / 'Views' / 'CountDownView.vala',
-    'src' / 'Views' / 'WelcomeView.vala',
-    'src' / 'Views' / 'RecordView.vala',
-    'src' / 'Widgets' / 'LevelBar.vala',
     'src' / 'Application.vala',
     'src' / 'Define.vala',
     'src' / 'MainWindow.vala',
-    'src' / 'StyleManager.vala'
+    'src' / 'Manager' / 'DeviceManager.vala',
+    'src' / 'Manager' / 'StyleManager.vala',
+    'src' / 'Model' / 'Recorder.vala',
+    'src' / 'Model' / 'Timer' / 'AbstractTimer.vala',
+    'src' / 'Model' / 'Timer' / 'CountDownTimer.vala',
+    'src' / 'Model' / 'Timer' / 'CountUpTimer.vala',
+    'src' / 'View' / 'AbstractView.vala',
+    'src' / 'View' / 'CountDownView.vala',
+    'src' / 'View' / 'WelcomeView.vala',
+    'src' / 'View' / 'RecordView.vala',
+    'src' / 'Widget' / 'LevelBar.vala',
 )
 
 if get_option('use_submodule')

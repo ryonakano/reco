@@ -1,5 +1,5 @@
 src/MainWindow.vala
-src/Services/Recorder.vala
-src/Views/CountDownView.vala
-src/Views/RecordView.vala
-src/Views/WelcomeView.vala
+src/Model/Recorder.vala
+src/View/CountDownView.vala
+src/View/RecordView.vala
+src/View/WelcomeView.vala
