@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public abstract class AbstractTimer : Object {
+public abstract class Model.Timer.AbstractTimer : Object {
     public signal void ticked ();
 
     public delegate string ToStringFunc (TimeSpan time);

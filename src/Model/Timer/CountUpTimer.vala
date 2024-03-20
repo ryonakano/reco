@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class CountUpTimer : AbstractTimer {
+public class Model.Timer.CountUpTimer : AbstractTimer {
     public CountUpTimer () {
     }
 

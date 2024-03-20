@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public abstract class AbstractView : Gtk.Box {
+public abstract class View.AbstractView : Gtk.Box {
     protected struct TimerTime {
         TimeSpan hours;
         TimeSpan minutes;

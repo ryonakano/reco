@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class DeviceManager : Object {
+public class Manager.DeviceManager : Object {
     public signal void device_updated ();
 
     public Gee.ArrayList<Gst.Device> sources { get; private set; }

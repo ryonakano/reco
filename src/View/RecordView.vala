@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class RecordView : AbstractView {
+public class View.RecordView : AbstractView {
     public signal void cancel_recording ();
     public signal void stop_recording ();
     public signal void toggle_recording (bool is_recording);
@@ -14,18 +14,18 @@ public class RecordView : AbstractView {
     private Gtk.Button pause_button;
 
     private bool is_recording;
-    private CountUpTimer uptimer;
-    private CountDownTimer downtimer;
+    private Model.Timer.CountUpTimer uptimer;
+    private Model.Timer.CountDownTimer downtimer;
 
     public RecordView () {
     }
 
     construct {
-        uptimer = new CountUpTimer () {
+        uptimer = new Model.Timer.CountUpTimer () {
             to_string_func = uptimer_strfunc
         };
 
-        downtimer = new CountDownTimer () {
+        downtimer = new Model.Timer.CountDownTimer () {
             to_string_func = downtimer_strfunc
         };
 
@@ -43,7 +43,7 @@ public class RecordView : AbstractView {
         label_grid.attach (time_label, 0, 1, 1, 1);
         label_grid.attach (remaining_time_label, 0, 2, 1, 1);
 
-        var levelbar = new LevelBar ();
+        var levelbar = new Widget.LevelBar ();
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",

@@ -3,10 +3,10 @@
  * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class WelcomeView : AbstractView {
+public class View.WelcomeView : AbstractView {
     public signal void start_recording ();
 
-    private DeviceManager device_manager;
+    private Manager.DeviceManager device_manager;
 
     private Ryokucha.DropDownText source_combobox;
     private Ryokucha.DropDownText mic_combobox;
@@ -18,7 +18,7 @@ public class WelcomeView : AbstractView {
     }
 
     construct {
-        device_manager = DeviceManager.get_default ();
+        device_manager = Manager.DeviceManager.get_default ();
 
         var source_header_label = new Granite.HeaderLabel (_("Source"));
 

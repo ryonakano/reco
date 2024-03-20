@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2023-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class LevelBar : Gtk.Box {
+public class Widget.LevelBar : Gtk.Box {
     private const double PEAK_PERCENTAGE = 100.0;
     private const int REFRESH_MSEC = 100;
 
@@ -23,7 +23,7 @@ public class LevelBar : Gtk.Box {
         orientation = Gtk.Orientation.VERTICAL;
         spacing = 0;
 
-        var recorder = Recorder.get_default ();
+        var recorder = Model.Recorder.get_default ();
 
         serie = new LiveChart.Serie ("peak-value", new LiveChart.Bar ());
         serie.line.width = 1.0;
@@ -54,7 +54,7 @@ public class LevelBar : Gtk.Box {
 
         recorder.notify["state"].connect (() => {
             switch (recorder.state) {
-                case Recorder.RecordingState.STOPPED:
+                case Model.Recorder.RecordingState.STOPPED:
                     // Stop updating the graph when recording stopped
                     if (update_graph_timeout != -1) {
                         GLib.Source.remove (update_graph_timeout);
@@ -63,7 +63,7 @@ public class LevelBar : Gtk.Box {
                     timestamp = -1;
                     serie.clear ();
                     break;
-                case Recorder.RecordingState.PAUSED:
+                case Model.Recorder.RecordingState.PAUSED:
                     // Stop refreshing the graph
                     GLib.Source.remove (update_graph_timeout);
                     update_graph_timeout = -1;
@@ -72,7 +72,7 @@ public class LevelBar : Gtk.Box {
                     bar_color.parse (BANANA_500);
                     serie.line.color = bar_color;
                     break;
-                case Recorder.RecordingState.RECORDING:
+                case Model.Recorder.RecordingState.RECORDING:
                     // Start updating the graph when recording started
                     chart.refresh_every (REFRESH_MSEC, 1.0);
                     // Change the bar color to red

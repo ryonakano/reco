@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class StyleManager : Object {
+public class Manager.StyleManager : Object {
     public enum ColorScheme {
         DEFAULT,
         FORCE_LIGHT,

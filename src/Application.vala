@@ -13,7 +13,7 @@ public class Application : Gtk.Application {
     public static Settings settings { get; private set; }
 
     private MainWindow window;
-    private StyleManager style_manager;
+    private Manager.StyleManager style_manager;
 
     public Application () {
         Object (
@@ -33,11 +33,11 @@ public class Application : Gtk.Application {
             return false;
         }
 
-        var val = (StyleManager.ColorScheme) variant.get_int32 ();
+        var val = (Manager.StyleManager.ColorScheme) variant.get_int32 ();
         switch (val) {
-            case StyleManager.ColorScheme.DEFAULT:
-            case StyleManager.ColorScheme.FORCE_LIGHT:
-            case StyleManager.ColorScheme.FORCE_DARK:
+            case Manager.StyleManager.ColorScheme.DEFAULT:
+            case Manager.StyleManager.ColorScheme.FORCE_LIGHT:
+            case Manager.StyleManager.ColorScheme.FORCE_DARK:
                 to_value.set_enum (val);
                 break;
             default:
@@ -49,11 +49,11 @@ public class Application : Gtk.Application {
     }
 
     private bool style_action_transform_from_cb (Binding binding, Value from_value, ref Value to_value) {
-        var val = (StyleManager.ColorScheme) from_value;
+        var val = (Manager.StyleManager.ColorScheme) from_value;
         switch (val) {
-            case StyleManager.ColorScheme.DEFAULT:
-            case StyleManager.ColorScheme.FORCE_LIGHT:
-            case StyleManager.ColorScheme.FORCE_DARK:
+            case Manager.StyleManager.ColorScheme.DEFAULT:
+            case Manager.StyleManager.ColorScheme.FORCE_LIGHT:
+            case Manager.StyleManager.ColorScheme.FORCE_DARK:
                 to_value.set_variant (new Variant.int32 (val));
                 break;
             default:
@@ -65,17 +65,17 @@ public class Application : Gtk.Application {
     }
 
     private static bool color_scheme_get_mapping_cb (Value value, Variant variant, void* user_data) {
-        // Convert from the "style" enum defined in the gschema to StyleManager.ColorScheme
+        // Convert from the "style" enum defined in the gschema to Manager.StyleManager.ColorScheme
         var val = variant.get_string ();
         switch (val) {
             case Define.Style.DEFAULT:
-                value.set_enum (StyleManager.ColorScheme.DEFAULT);
+                value.set_enum (Manager.StyleManager.ColorScheme.DEFAULT);
                 break;
             case Define.Style.LIGHT:
-                value.set_enum (StyleManager.ColorScheme.FORCE_LIGHT);
+                value.set_enum (Manager.StyleManager.ColorScheme.FORCE_LIGHT);
                 break;
             case Define.Style.DARK:
-                value.set_enum (StyleManager.ColorScheme.FORCE_DARK);
+                value.set_enum (Manager.StyleManager.ColorScheme.FORCE_DARK);
                 break;
             default:
                 warning ("color_scheme_get_mapping_cb: Invalid style: %s", val);
@@ -88,20 +88,20 @@ public class Application : Gtk.Application {
     private static Variant color_scheme_set_mapping_cb (Value value, VariantType expected_type, void* user_data) {
         string color_scheme;
 
-        // Convert from StyleManager.ColorScheme to the "style" enum defined in the gschema
-        var val = (StyleManager.ColorScheme) value;
+        // Convert from Manager.StyleManager.ColorScheme to the "style" enum defined in the gschema
+        var val = (Manager.StyleManager.ColorScheme) value;
         switch (val) {
-            case StyleManager.ColorScheme.DEFAULT:
+            case Manager.StyleManager.ColorScheme.DEFAULT:
                 color_scheme = Define.Style.DEFAULT;
                 break;
-            case StyleManager.ColorScheme.FORCE_LIGHT:
+            case Manager.StyleManager.ColorScheme.FORCE_LIGHT:
                 color_scheme = Define.Style.LIGHT;
                 break;
-            case StyleManager.ColorScheme.FORCE_DARK:
+            case Manager.StyleManager.ColorScheme.FORCE_DARK:
                 color_scheme = Define.Style.DARK;
                 break;
             default:
-                warning ("color_scheme_set_mapping_cb: Invalid StyleManager.ColorScheme: %d", val);
+                warning ("color_scheme_set_mapping_cb: Invalid Manager.StyleManager.ColorScheme: %d", val);
                 // fallback to default
                 color_scheme = Define.Style.DEFAULT;
                 break;
@@ -111,10 +111,10 @@ public class Application : Gtk.Application {
     }
 
     private void setup_style () {
-        style_manager = StyleManager.get_default ();
+        style_manager = Manager.StyleManager.get_default ();
 
         var style_action = new SimpleAction.stateful (
-            "color-scheme", VariantType.INT32, new Variant.int32 (StyleManager.ColorScheme.DEFAULT)
+            "color-scheme", VariantType.INT32, new Variant.int32 (Manager.StyleManager.ColorScheme.DEFAULT)
         );
         style_action.bind_property ("state", style_manager, "color-scheme",
                                     BindingFlags.BIDIRECTIONAL | BindingFlags.SYNC_CREATE,

@@ -8,7 +8,7 @@
  * * https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.6/subprojects/gst-plugins-base/tools/gst-device-monitor.c
  */
 
-public class Recorder : Object {
+public class Model.Recorder : Object {
     public signal void throw_error (Error err, string debug);
     public signal void save_file (string tmp_path, string suffix);
 
@@ -140,7 +140,7 @@ public class Recorder : Object {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"sys_sound\"");
             }
 
-            Gst.Device? default_sink = DeviceManager.get_default ().default_sink;
+            Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
             string? monitor_name = get_default_monitor_name (default_sink);
             if (monitor_name == null) {
                 throw new Gst.ParseError.COULD_NOT_SET_PROPERTY (
@@ -154,8 +154,8 @@ public class Recorder : Object {
 
         Gst.Element? mic_sound = null;
         if (source != SourceID.SYSTEM) {
-            var index = (int) DeviceManager.get_default ().selected_source_index;
-            Gst.Device microphone = DeviceManager.get_default ().sources[index];
+            var index = (int) Manager.DeviceManager.get_default ().selected_source_index;
+            Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
             mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
                 throw new Gst.ParseError.NO_SUCH_ELEMENT ("Failed to create element \"mic_sound\"");

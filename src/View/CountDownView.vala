@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class CountDownView : AbstractView {
+public class View.CountDownView : AbstractView {
     public signal void countdown_cancelled ();
     public signal void countdown_ended ();
 
@@ -11,13 +11,13 @@ public class CountDownView : AbstractView {
     private Gtk.Button pause_button;
 
     private bool is_paused;
-    private CountDownTimer delaytimer;
+    private Model.Timer.CountDownTimer delaytimer;
 
     public CountDownView () {
     }
 
     construct {
-        delaytimer = new CountDownTimer () {
+        delaytimer = new Model.Timer.CountDownTimer () {
             to_string_func = delaytimer_strfunc
         };
 
