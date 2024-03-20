@@ -4,7 +4,7 @@
  */
 
 public class MainWindow : Gtk.ApplicationWindow {
-    private Model.Recorder recorder;
+    private unowned Model.Recorder recorder;
     private bool destroy_on_save;
 
     private View.WelcomeView welcome_view;

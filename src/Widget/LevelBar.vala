@@ -23,7 +23,7 @@ public class Widget.LevelBar : Gtk.Box {
         orientation = Gtk.Orientation.VERTICAL;
         spacing = 0;
 
-        var recorder = Model.Recorder.get_default ();
+        unowned var recorder = Model.Recorder.get_default ();
 
         serie = new LiveChart.Serie ("peak-value", new LiveChart.Bar ());
         serie.line.width = 1.0;

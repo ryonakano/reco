@@ -104,7 +104,7 @@ public class Model.Recorder : Object {
     };
 
     private static Recorder _instance;
-    public static Recorder get_default () {
+    public static unowned Recorder get_default () {
         if (_instance == null) {
             _instance = new Recorder ();
         }

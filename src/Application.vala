@@ -13,7 +13,7 @@ public class Application : Gtk.Application {
     public static Settings settings { get; private set; }
 
     private MainWindow window;
-    private Manager.StyleManager style_manager;
+    private unowned Manager.StyleManager style_manager;
 
     public Application () {
         Object (
@@ -136,7 +136,7 @@ public class Application : Gtk.Application {
         Intl.textdomain (GETTEXT_PACKAGE);
 
         // Load and setup styles
-        var display = Gdk.Display.get_default ();
+        unowned var display = Gdk.Display.get_default ();
 
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
