@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class CountDownTimer : AbstractTimer {
+public class Model.Timer.CountDownTimer : AbstractTimer {
     public signal void ended ();
 
     public CountDownTimer () {

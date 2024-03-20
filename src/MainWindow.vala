@@ -4,12 +4,12 @@
  */
 
 public class MainWindow : Gtk.ApplicationWindow {
-    private Recorder recorder;
+    private Model.Recorder recorder;
     private bool destroy_on_save;
 
-    private WelcomeView welcome_view;
-    private CountDownView countdown_view;
-    private RecordView record_view;
+    private View.WelcomeView welcome_view;
+    private View.CountDownView countdown_view;
+    private View.RecordView record_view;
     private Gtk.Stack stack;
 
     public MainWindow (Application app) {
@@ -21,12 +21,12 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     construct {
-        recorder = Recorder.get_default ();
+        recorder = Model.Recorder.get_default ();
 
         var style_submenu = new Menu ();
-        style_submenu.append (_("Light"), "app.color-scheme(%d)".printf (StyleManager.ColorScheme.FORCE_LIGHT));
-        style_submenu.append (_("Dark"), "app.color-scheme(%d)".printf (StyleManager.ColorScheme.FORCE_DARK));
-        style_submenu.append (_("System"), "app.color-scheme(%d)".printf (StyleManager.ColorScheme.DEFAULT));
+        style_submenu.append (_("Light"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.FORCE_LIGHT));
+        style_submenu.append (_("Dark"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.FORCE_DARK));
+        style_submenu.append (_("System"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.DEFAULT));
 
         var menu = new Menu ();
         menu.append_submenu (_("Style"), style_submenu);
@@ -46,9 +46,9 @@ public class MainWindow : Gtk.ApplicationWindow {
         headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
         headerbar.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
 
-        welcome_view = new WelcomeView ();
-        countdown_view = new CountDownView ();
-        record_view = new RecordView ();
+        welcome_view = new View.WelcomeView ();
+        countdown_view = new View.CountDownView ();
+        record_view = new View.RecordView ();
 
         stack = new Gtk.Stack () {
             margin_top = 6,
@@ -73,7 +73,7 @@ public class MainWindow : Gtk.ApplicationWindow {
             stop_wrapper (false);
         });
         record_view.toggle_recording.connect ((is_recording) => {
-            recorder.state = is_recording ? Recorder.RecordingState.RECORDING : Recorder.RecordingState.PAUSED;
+            recorder.state = is_recording ? Model.Recorder.RecordingState.RECORDING : Model.Recorder.RecordingState.PAUSED;
         });
 
         var event_controller = new Gtk.EventControllerKey ();
@@ -83,7 +83,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                     case Gdk.Key.q:
                         // Stop the recording if recording is in progress
                         // The window is destroyed in the save callback
-                        if (recorder.state != Recorder.RecordingState.STOPPED) {
+                        if (recorder.state != Model.Recorder.RecordingState.STOPPED) {
                             stop_wrapper (true);
                             return Gdk.EVENT_STOP;
                         }
@@ -103,7 +103,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         close_request.connect ((event) => {
             // Stop the recording if recording is in progress
             // The window is destroyed in the save callback
-            if (recorder.state != Recorder.RecordingState.STOPPED) {
+            if (recorder.state != Model.Recorder.RecordingState.STOPPED) {
                 stop_wrapper (true);
                 return Gdk.EVENT_STOP;
             }
@@ -232,8 +232,8 @@ public class MainWindow : Gtk.ApplicationWindow {
         destroy_on_save = destroy_flag;
 
         // If a user tries to stop recording while pausing, resume recording once and reset the button icon
-        if (recorder.state != Recorder.RecordingState.RECORDING) {
-            recorder.state = Recorder.RecordingState.RECORDING;
+        if (recorder.state != Model.Recorder.RecordingState.RECORDING) {
+            recorder.state = Model.Recorder.RecordingState.RECORDING;
         }
 
         recorder.stop_recording ();
