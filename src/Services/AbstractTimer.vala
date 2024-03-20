@@ -14,17 +14,18 @@ public abstract class AbstractTimer : Object {
             return time_usec > 0;
         }
     }
+
     /**
      * Function executed when ${@link AbstractTimer.to_string} is called.
      */
     public ToStringFunc? to_string_func = null;
 
     private const uint INTERVAL_MSEC = 1000;
+    private const uint TIMER_NOT_STARTED = -1;
 
     // The time this timer holds
     protected TimeSpan time_usec;
-    private uint timeout;
-    private bool timeout_remove_flag;
+    private uint timeout = TIMER_NOT_STARTED;
 
     protected AbstractTimer () {
     }
@@ -49,11 +50,10 @@ public abstract class AbstractTimer : Object {
      */
     public void start () {
         // Already started
-        if (timeout_remove_flag == Source.CONTINUE) {
+        if (timeout != TIMER_NOT_STARTED) {
             return;
         }
 
-        timeout_remove_flag = Source.CONTINUE;
         timeout = Timeout.add (INTERVAL_MSEC, on_timeout_cb);
     }
 
@@ -61,7 +61,13 @@ public abstract class AbstractTimer : Object {
      * Stop the timer.
      */
     public void stop () {
-        timeout_remove_flag = Source.REMOVE;
+        // Not started
+        if (timeout == TIMER_NOT_STARTED) {
+            return;
+        }
+
+        Source.remove (timeout);
+        timeout = TIMER_NOT_STARTED;
     }
 
     /**
@@ -75,11 +81,7 @@ public abstract class AbstractTimer : Object {
     }
 
     private bool on_timeout_cb () {
-        if (timeout_remove_flag == Source.REMOVE) {
-            return timeout_remove_flag;
-        }
-
-        timeout_remove_flag = on_timeout ();
+        bool timeout_remove_flag = on_timeout ();
 
         ticked ();
         return timeout_remove_flag;
