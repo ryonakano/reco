@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-17 02:38+0000\n"
+"POT-Creation-Date: 2024-03-23 06:32+0000\n"
 "PO-Revision-Date: 2023-08-21 01:54+0000\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco-"
@@ -20,10 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.0-dev\n"
-
-#: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
 
 #: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
 msgid "Focus on recording"
@@ -122,9 +118,9 @@ msgstr "Kayıt görünümü"
 msgid "An indication that recording is successfully finished"
 msgstr "Kaydın başarıyla tamamlandığına dair bir gösterge"
 
-#: data/reco.metainfo.xml.in:62
-msgid "Ryo Nakano"
-msgstr "Ryo Nakano"
+#: data/reco.desktop.in:3
+msgid "Reco"
+msgstr "Reco"
 
 #: data/reco.desktop.in:4
 msgid "Audio Recording App"
@@ -133,6 +129,9 @@ msgstr "Ses Kayıt Uygulaması"
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Kayıt;Ses;Konuşma;Kaydet;"
+
+#~ msgid "Ryo Nakano"
+#~ msgstr "Ryo Nakano"
 
 #~ msgid "Record talks to remember the contents later"
 #~ msgstr "İçeriğini daha sonra hatırlamak için konuşmaları kaydedin"

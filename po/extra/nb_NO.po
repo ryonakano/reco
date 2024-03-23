@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-17 02:38+0000\n"
+"POT-Creation-Date: 2024-03-23 06:32+0000\n"
 "PO-Revision-Date: 2024-03-20 22:51+0000\n"
 "Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/rosp/"
@@ -18,10 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.5-dev\n"
-
-#: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
 
 #: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
 msgid "Focus on recording"
@@ -99,9 +95,9 @@ msgstr "Opptaksvisning"
 msgid "An indication that recording is successfully finished"
 msgstr "En indikasjon på at opptaket har blitt fullført"
 
-#: data/reco.metainfo.xml.in:62
-msgid "Ryo Nakano"
-msgstr "Ryo Nakano"
+#: data/reco.desktop.in:3
+msgid "Reco"
+msgstr "Reco"
 
 #: data/reco.desktop.in:4
 msgid "Audio Recording App"
@@ -110,6 +106,9 @@ msgstr "Lydopptaksprogram"
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Opptak;lyd;musikk;innspilling;stemme;"
+
+#~ msgid "Ryo Nakano"
+#~ msgstr "Ryo Nakano"
 
 #~ msgid "Initial release"
 #~ msgstr "Opprinnelig utgave"
