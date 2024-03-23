@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-17 02:38+0000\n"
+"POT-Creation-Date: 2024-03-23 06:24+0000\n"
 "PO-Revision-Date: 2019-02-18 14:43+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -88,7 +88,8 @@ msgstr "Garso rašytuvo programa"
 msgid "An indication that recording is successfully finished"
 msgstr ""
 
-#: data/reco.metainfo.xml.in:62
+#. developer_name has deprecated since AppStream 1.0
+#: data/reco.metainfo.xml.in:63
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 

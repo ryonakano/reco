@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco (extra)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-17 02:38+0000\n"
+"POT-Creation-Date: 2024-03-23 06:24+0000\n"
 "PO-Revision-Date: 2022-10-11 15:21+0000\n"
 "Last-Translator: rene-coty <irenee.thirion@e.email>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/rosp/reco-extra/"
@@ -126,7 +126,8 @@ msgstr "Écran d'enregistrement"
 msgid "An indication that recording is successfully finished"
 msgstr "Une indication montrant que l'enregistrement est terminé avec succès"
 
-#: data/reco.metainfo.xml.in:62
+#. developer_name has deprecated since AppStream 1.0
+#: data/reco.metainfo.xml.in:63
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 

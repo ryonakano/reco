@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-17 02:38+0000\n"
+"POT-Creation-Date: 2024-03-23 06:24+0000\n"
 "PO-Revision-Date: 2023-08-21 01:54+0000\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco-"
@@ -122,7 +122,8 @@ msgstr "Kayıt görünümü"
 msgid "An indication that recording is successfully finished"
 msgstr "Kaydın başarıyla tamamlandığına dair bir gösterge"
 
-#: data/reco.metainfo.xml.in:62
+#. developer_name has deprecated since AppStream 1.0
+#: data/reco.metainfo.xml.in:63
 msgid "Ryo Nakano"
 msgstr "Ryo Nakano"
 
