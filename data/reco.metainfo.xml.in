@@ -59,7 +59,11 @@
   <url type="help">https://github.com/ryonakano/reco/discussions</url>
   <url type="translate">https://hosted.weblate.org/projects/rosp</url>
 
+  <!-- developer_name has deprecated since AppStream 1.0 -->
   <developer_name>Ryo Nakano</developer_name>
+  <developer id="com.github.ryonakano">
+    <name>Ryo Nakano</name>
+  </developer>
 
   <releases>
     <release version="5.0.0" date="2023-12-01" urgency="high">
