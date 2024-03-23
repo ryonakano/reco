@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-23 06:24+0000\n"
+"POT-Creation-Date: 2024-03-23 06:32+0000\n"
 "PO-Revision-Date: 2023-04-13 05:51+0000\n"
 "Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/rosp/"
@@ -19,10 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.17-dev\n"
-
-#: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
 
 #: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
 msgid "Focus on recording"
@@ -115,10 +111,9 @@ msgstr "Visualização de gravação"
 msgid "An indication that recording is successfully finished"
 msgstr "Uma indicação de que a gravação foi concluída com sucesso"
 
-#. developer_name has deprecated since AppStream 1.0
-#: data/reco.metainfo.xml.in:63
-msgid "Ryo Nakano"
-msgstr "Ryo Nakano"
+#: data/reco.desktop.in:3
+msgid "Reco"
+msgstr "Reco"
 
 #: data/reco.desktop.in:4
 msgid "Audio Recording App"
@@ -127,6 +122,9 @@ msgstr "Aplicativo de Gravador de Áudio"
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Gravar;Áudio;Som;Voz;"
+
+#~ msgid "Ryo Nakano"
+#~ msgstr "Ryo Nakano"
 
 #~ msgid "Record talks to remember the contents later"
 #~ msgstr "Gravar conversas para recordar o conteúdo mais tarde"

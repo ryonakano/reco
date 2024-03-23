@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-23 06:24+0000\n"
+"POT-Creation-Date: 2024-03-23 06:32+0000\n"
 "PO-Revision-Date: 2023-12-19 15:11+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco-"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.3\n"
-
-#: data/reco.metainfo.xml.in:10 data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
 
 #: data/reco.metainfo.xml.in:11 data/reco.desktop.in:5
 msgid "Focus on recording"
@@ -97,10 +93,9 @@ msgstr "録音中の画面"
 msgid "An indication that recording is successfully finished"
 msgstr "録音が正常に完了したことを示すマーク"
 
-#. developer_name has deprecated since AppStream 1.0
-#: data/reco.metainfo.xml.in:63
-msgid "Ryo Nakano"
-msgstr "Ryo Nakano"
+#: data/reco.desktop.in:3
+msgid "Reco"
+msgstr "Reco"
 
 #: data/reco.desktop.in:4
 msgid "Audio Recording App"
@@ -109,6 +104,9 @@ msgstr "オーディオ録音アプリ"
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Record;Audio;Sound;Voice;録音;オーディオ;サウンド;ボイス;"
+
+#~ msgid "Ryo Nakano"
+#~ msgstr "Ryo Nakano"
 
 #~ msgid "Record talks to remember the contents later"
 #~ msgstr "後で内容を思い出せるように会話を録音します"
