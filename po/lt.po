@@ -1,14 +1,13 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Lithuanian translations for com.github.ryonakano.reco package.
+# Copyright (C) 2018 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Moo, 2019.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-29 23:28+0900\n"
-"PO-Revision-Date: 2019-02-18 14:35+0200\n"
+"POT-Creation-Date: 2024-03-29 23:45+0900\n"
+"PO-Revision-Date: 2019-02-18 14:43+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -20,23 +19,21 @@ msgstr ""
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: data/reco.desktop.in:3
-#, fuzzy
 msgid "Reco"
-msgstr "Įrašinėjimas"
+msgstr "Reco"
 
 #: data/reco.desktop.in:4
-#, fuzzy
 msgid "Audio Recording App"
-msgstr "Įrašinėjimas"
+msgstr "Garso rašytuvo programa"
 
 #: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
 #, fuzzy
 msgid "Focus on recording"
-msgstr "Pradėti įrašinėjimą"
+msgstr "Nustatytos trukmės įrašinėjimas"
 
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
-msgstr ""
+msgstr "Įrašinėti;Įrašyti;Rašytuvas;Audio;Garsas;Balsas;"
 
 #: data/reco.metainfo.xml.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
@@ -50,7 +47,7 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in:17
 msgid "Features include:"
-msgstr ""
+msgstr "Ypatybės:"
 
 #: data/reco.metainfo.xml.in:19
 msgid ""
@@ -59,10 +56,11 @@ msgid ""
 msgstr ""
 
 #: data/reco.metainfo.xml.in:20
+#, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
-msgstr ""
+msgstr "Prieinami formatai: AAC, FLAC, MP3, Ogg Vorbis, Opus ir WAV"
 
 #: data/reco.metainfo.xml.in:21
 msgid ""
@@ -90,7 +88,7 @@ msgstr ""
 #: data/reco.metainfo.xml.in:34
 #, fuzzy
 msgid "Recording view"
-msgstr "Įrašinėjimas"
+msgstr "Garso rašytuvo programa"
 
 #: data/reco.metainfo.xml.in:39
 msgid "An indication that recording is successfully finished"
@@ -327,3 +325,33 @@ msgstr ""
 
 #~ msgid "Error: %s"
 #~ msgstr "Klaida: %s"
+
+#~ msgid "Ryo Nakano"
+#~ msgstr "Ryo Nakano"
+
+#~ msgid "Record talks to remember the contents later"
+#~ msgstr "Įrašinėti pokalbius, siekiant vėliau prisiminti jų turinį"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Garso rašytuvo programa, kuri vėliau padeda prisiminti anksčiau kalbėtus "
+#~ "dalykus."
+
+#~ msgid "com.github.ryonakano.reco"
+#~ msgstr "com.github.ryonakano.reco"
+
+#, fuzzy
+#~ msgid "Useful for:"
+#~ msgstr "Naudinga, kuomet:"
+
+#, fuzzy
+#~ msgid "Joining meetings and taking minutes later"
+#~ msgstr "dalyvaujate diskusijoje ir vėliau ją aptarinėjate"
+
+#, fuzzy
+#~ msgid "Recording conversations with a friend or lover"
+#~ msgstr "norite įrašyti pokalbį su draugais ar mylimu žmogumi"
+
+#, fuzzy
+#~ msgid "Streaming videos on the Internet"
+#~ msgstr "norite transliuoti vaizdo įrašus internetu"
