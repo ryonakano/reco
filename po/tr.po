@@ -1,7 +1,6 @@
 # Turkish translations for com.github.ryonakano.reco package.
-# Copyright (C) 2019 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
+# Copyright (C) 2018 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-#
 # Safak Genisol (@safak45x), 2019, 2020.
 # Sabri Ünal <libreajans@gmail.com>, 2022, 2023.
 # Oğuz Ersen <oguz@ersen.moe>, 2022, 2023.
@@ -9,36 +8,32 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-29 23:28+0900\n"
+"POT-Creation-Date: 2024-03-29 23:40+0900\n"
 "PO-Revision-Date: 2023-12-10 12:05+0000\n"
-"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco-app/tr/"
-">\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"Language-Team: \n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.3-dev\n"
 
 #: data/reco.desktop.in:3
-#, fuzzy
 msgid "Reco"
-msgstr "Kayıt"
+msgstr "Reco"
 
 #: data/reco.desktop.in:4
-#, fuzzy
 msgid "Audio Recording App"
-msgstr "Kayıt"
+msgstr "Ses Kayıt Uygulaması"
 
 #: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
-#, fuzzy
 msgid "Focus on recording"
-msgstr "Kaydı durdur"
+msgstr ""
 
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
-msgstr ""
+msgstr "Kayıt;Ses;Konuşma;Kaydet;"
 
 #: data/reco.metainfo.xml.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
@@ -52,51 +47,68 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in:17
 msgid "Features include:"
-msgstr ""
+msgstr "Özellikler:"
 
 #: data/reco.metainfo.xml.in:19
+#, fuzzy
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
+"Hem mikrofonunuzdan hem de sisteminizden gelen sesleri aynı anda kaydedin. "
+"Bu, sohbet uygulamalarıyla konuşmaları kaydettiğinizde veya internette video "
+"akışı yaptığınızda yararlı olacaktır"
 
 #: data/reco.metainfo.xml.in:20
+#, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
+"Yaygın olarak kullanılan bazı formatlarda kaydetme. ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus ve WAV'ı destekler"
 
 #: data/reco.metainfo.xml.in:21
+#, fuzzy
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
+"Zamanlanmış kayıt. Kayıttan önce 15 saniyeye kadar gecikme ve 600 saniyeye "
+"kadar kayıt uzunluğu ayarlayabilirsiniz"
 
 #: data/reco.metainfo.xml.in:22
+#, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
+"Otomatik kaydetme veya her zaman nereye kaydedileceğini sor iş akışı. "
+"Uygulamanın kayıtları otomatik olarak kaydetmesini veya kaydederken her "
+"seferinde bir hedef seçmenizi ayarlayabilirsiniz"
 
 #: data/reco.metainfo.xml.in:23
+#, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
+"Uygulamadan çıkıldığında kaydı kaydetme. Kayıt sırasında uygulamadan "
+"çıksanız bile, kayıt otomatik olarak kaydedilir veya kaydetme ayarınıza "
+"bağlı olarak dosya seçici iletişim kutusu gösterilir"
 
 #: data/reco.metainfo.xml.in:29
 msgid "Welcome view; perform recording configuration"
-msgstr ""
+msgstr "Hoş geldiniz görünümü; kayıt yapılandırması gerçekleştir"
 
 #: data/reco.metainfo.xml.in:34
-#, fuzzy
 msgid "Recording view"
-msgstr "Kayıt"
+msgstr "Kayıt görünümü"
 
 #: data/reco.metainfo.xml.in:39
 msgid "An indication that recording is successfully finished"
-msgstr ""
+msgstr "Kaydın başarıyla tamamlandığına dair bir gösterge"
 
 #: src/MainWindow.vala:27
 msgid "Light"
@@ -332,3 +344,405 @@ msgstr "Seç"
 
 #~ msgid "Unable to Create an Audio File"
 #~ msgstr "Ses Dosyası Oluşturulamıyor"
+
+#~ msgid "Ryo Nakano"
+#~ msgstr "Ryo Nakano"
+
+#~ msgid "Record talks to remember the contents later"
+#~ msgstr "İçeriğini daha sonra hatırlamak için konuşmaları kaydedin"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Konuşulanları daha sonra hatırlamanıza yardımcı olan bir ses kayıt "
+#~ "uygulaması."
+
+#~ msgid "Show important errors to users"
+#~ msgstr "Önemli hataları kullanıcılara göster"
+
+#~ msgid "Update Flatpak runtime version"
+#~ msgstr "Flatpak çalışma zamanı sürümü güncellendi"
+
+#~ msgid "Improve app metainfo"
+#~ msgstr "Uygulama üst bilgileri iyileştirildi"
+
+#~ msgid "Review label notation"
+#~ msgstr "Etiket gösterimi gözden geçirildi"
+
+#~ msgid "Improve the way to load custom icons"
+#~ msgstr "Özel simgeleri yükleme yöntemi iyileştirildi"
+
+#~ msgid "Update translations"
+#~ msgstr "Çeviriler güncellendi"
+
+#~ msgid "Migrate to GTK 4, the latest version of GTK"
+#~ msgstr "GTK'nın en son sürümü olan GTK 4'e geçiş yapıldı"
+
+#~ msgid "Get disk access permission only when the user allowed"
+#~ msgstr "Yalnızca kullanıcı izin verdiğinde disk erişim izni al"
+
+#~ msgid "Hide remaining time label when unnecessary"
+#~ msgstr "Gereksiz olduğunda kalan süre etiketini gizle"
+
+#~ msgid ""
+#~ "Fix no style button selected on non-Pantheon desktop environments when "
+#~ "first launch"
+#~ msgstr ""
+#~ "Pantheon dışındaki masaüstü ortamlarında ilk başlatıldığında seçili biçim "
+#~ "düğmesinin olmaması düzeltildi"
+
+#~ msgid "Check desktop environment on runtime"
+#~ msgstr "Çalışma zamanında masaüstü ortamını kontrol et"
+
+#~ msgid ""
+#~ "Show nicer message dialogs depending on the running desktop environment"
+#~ msgstr ""
+#~ "Çalışan masaüstü ortamına bağlı olarak daha güzel mesaj iletişim kutuları "
+#~ "göster"
+
+#~ msgid "Translation updates:"
+#~ msgstr "Çeviri güncellemeleri:"
+
+#~ msgid "Update French translation (thanks to @NathanBnm)"
+#~ msgstr "Fransızca çeviri güncellendi (teşekkürler @NathanBnm)"
+
+#~ msgid "Update Portuguese translation (thanks to @hugok79)"
+#~ msgstr "Portekizce çeviri güncellendi (@hugok79 tarafından)"
+
+#~ msgid "Update Dutch translation (thanks to @Vistaus)"
+#~ msgstr "Hollandaca çeviri güncellendi (@Vistaus tarafından)"
+
+#~ msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
+#~ msgstr "Basitleştirilmiş Çince çeviri eklendi (@ShuiHuo tarafından)"
+
+#~ msgid "Reco is now available on Flathub too!"
+#~ msgstr "Reco artık Flathub'da mevcut!"
+
+#~ msgid "Update Spanish translation (thanks to @Eldhrimer)"
+#~ msgstr "İspanyolca çeviriyi güncellendi (@Eldhrimer tarafından)"
+
+#~ msgid "Update Italian translation (thanks to @albanobattistella)"
+#~ msgstr "İtalyanca çeviri güncellendi (@albanobattistella tarafından)"
+
+#~ msgid "Let's celebrate the new year with the issue from the ancient fixed!"
+#~ msgstr "Yeni yılı eski düzeltilmiş sorunla kutlayalım!"
+
+#~ msgid ""
+#~ "Replace AAC option with ALAC to prevent strange stereo files being "
+#~ "generated"
+#~ msgstr ""
+#~ "Garip stereo dosyaların oluşturulmasını önlemek için AAC seçeneği ALAC "
+#~ "ile değiştirildi"
+
+#~ msgid "The release for celebrating the 3rd anniversary of the app!"
+#~ msgstr "Uygulamanın 3. yıldönümünü kutlamak için sürüm!"
+
+#~ msgid "Add new style switcher"
+#~ msgstr "Yeni stil değiştirici eklendi"
+
+#~ msgid "Update Japanese translation"
+#~ msgstr "Japonca çeviri güncellendi"
+
+#~ msgid ""
+#~ "Use the user cache folder instead of the system temporary folder to save "
+#~ "temporary recording files"
+#~ msgstr ""
+#~ "Geçici kayıt dosyalarını kaydetmek için sistem geçici klasörü yerine "
+#~ "kullanıcı önbellek klasörünü kullan"
+
+#~ msgid "Fix wrong OARS data"
+#~ msgstr "Yanlış OARS verileri düzeltildi"
+
+#~ msgid ""
+#~ "Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
+#~ "manifest"
+#~ msgstr ""
+#~ "Uygulama Flatpak manifestosu ile elementary OS 6'daki yeni AppCenter'da "
+#~ "yayınlandı"
+
+#~ msgid ""
+#~ "A completely rewritten and improved method to detect recording sources"
+#~ msgstr ""
+#~ "Kayıt kaynaklarını tespit etmek için tamamen yeniden yazılmış ve "
+#~ "geliştirilmiş bir yöntem"
+
+#~ msgid ""
+#~ "Redesign: Separate Delay and Duration settings from Recording section as "
+#~ "Timer section and put it under Recording section"
+#~ msgstr ""
+#~ "Yeniden tasarım: Gecikme ve Süre ayarları Kayıt bölümünden Zamanlayıcı "
+#~ "bölümü olarak ayrıldı ve Kayıt bölümünün altına yerleştirildi"
+
+#~ msgid "Make sure to show a dialog for any errors in recording"
+#~ msgstr ""
+#~ "Kayıttaki herhangi bir hata için iletişim kutusu gösterdiğinizden emin "
+#~ "olundu"
+
+#~ msgid "Code refactoring"
+#~ msgstr "Kod yeniden düzenleme"
+
+#~ msgid "Add Brazilian Portuguese translation (thanks to @mathessaricci)"
+#~ msgstr "Brezilya Portekizcesi çevirisi eklendi (Teşekkürler @mathessaricci)"
+
+#~ msgid ""
+#~ "Update Spanish translation and add Catalan translation (thanks to @fitojb)"
+#~ msgstr ""
+#~ "İspanyolca çeviri güncellendi ve Katalanca çeviri eklendi (@fitojb "
+#~ "tarafından)"
+
+#~ msgid ""
+#~ "Revert another change done in version 2.4.3 that potentially caused an "
+#~ "error during the packaging process"
+#~ msgstr ""
+#~ "Paketleme işlemi sırasında potansiyel olarak bir hataya neden olan 2.4.3 "
+#~ "sürümünde yapılan başka bir değişikliğik geri alındı"
+
+#~ msgid "Revive the change that had been reverted in version 2.4.4"
+#~ msgstr "Sürüm 2.4.4'te geri alınan değişiklik yeniden uygulandı"
+
+#~ msgid ""
+#~ "Revert changes done in version 2.4.3 that potentially caused an error "
+#~ "during the packaging process"
+#~ msgstr ""
+#~ "Paketleme işlemi sırasında hataya neden olabilecek 2.4.3 sürümünde "
+#~ "yapılan değişiklikler geri alındı"
+
+#~ msgid "MainWindow: Readable copy for dialog messages"
+#~ msgstr "MainWindow: İletişim kutusu iletileri için okunabilir kopya"
+
+#~ msgid ""
+#~ "MainWindow: Add window title for the new Gala feature that shows windows "
+#~ "titles in Multitasking view"
+#~ msgstr ""
+#~ "MainWindow: Çoklu görev görünümünde pencere başlıklarını gösteren yeni "
+#~ "Gala özelliği için pencere başlığı eklendi"
+
+#~ msgid "Add Italian translation (thanks to @albanobattistella)"
+#~ msgstr "İtalyanca çeviri eklendi (Teşekkürler @albanobattistella)"
+
+#~ msgid "Add Portuguese translation (thanks to @hugok79)"
+#~ msgstr "Portekizce çeviri eklendi (teşekkürler @hugok79)"
+
+#~ msgid "Clean code"
+#~ msgstr "Temiz kod"
+
+#~ msgid "Inhibit sleeping while recording"
+#~ msgstr "Kayıt sırasında uyumayı engelleme"
+
+#~ msgid ""
+#~ "Make sure GSettings key \"length\" and \"delay\" take only natural numbers"
+#~ msgstr ""
+#~ "GSettings \"length\" ve \"delay\" anahtarlarının yalnızca doğal sayılar "
+#~ "aldığından emin olundu"
+
+#~ msgid "Follow API change of Gtk.FileChooser in GTK 4"
+#~ msgstr "GTK 4'teki Gtk.FileChooser API değişikliğini takip et"
+
+#~ msgid "Fix temporary recordings are not deleted on error"
+#~ msgstr "Geçici kayıtların hata üzerine silinmemesini düzelt"
+
+#~ msgid "Fix some microphones are not recognized (thanks to @peteruithoven)"
+#~ msgstr ""
+#~ "Bazı mikrofonların tanınmaması düzeltildi (@peteruithoven'a teşekkürler)"
+
+#~ msgid "Update Turkish translation (thanks to @safak45x)"
+#~ msgstr "Türkçe çeviri güncellendi (@safak45x'e teşekkürler)"
+
+#~ msgid "Respect an elementary OS-wide dark preference"
+#~ msgstr "İşletim sistemi genelinde karanlık tercihine uyar"
+
+#~ msgid "Allow setting per-app dark style preference"
+#~ msgstr "Uygulama başına koyu stil tercihini ayarlamaya izin verir"
+
+#~ msgid "Allow choosing stereo or mono"
+#~ msgstr "Stereo veya mono seçmeye izin verir"
+
+#~ msgid "Update Spanish translation (thanks to @CCaroV)"
+#~ msgstr "İspanyolca çeviriyi güncellendi (@CCaroV)"
+
+#~ msgid ""
+#~ "Explicit gstreamer1.0-libav as a dependency to fix a potential crash when "
+#~ "trying to record in AAC"
+#~ msgstr ""
+#~ "ACC ile kayıt yapmaya çalışırken gmstreamer1.0-libav hatası düzetildi"
+
+#~ msgid "Add Turkish translation (by @safak45x)"
+#~ msgstr "Türkçe çeviri eklendi (@ safak45x)"
+
+#~ msgid "Add Russian translation (by @usmanovmax)"
+#~ msgstr "Rusça çeviri eklendi (@usmanovmax)"
+
+#~ msgid "Add Polish translation (by @michalzkosmosu)"
+#~ msgstr "Lehçe çeviri eklendi (@michalzkosmosu)"
+
+#~ msgid "Update French translation (by @NathanBnm)"
+#~ msgstr "Fransızca çeviri güncellendi (@NathanBnm tarafından)"
+
+#~ msgid ""
+#~ "Fix the weird behavior of the countdown timer when pausing/canceling it "
+#~ "(by andreasomaini)"
+#~ msgstr ""
+#~ "Geri sayım zamanlayıcısını duraklatırken / iptal ederken ortaya çıkan "
+#~ "tuhaf davranışını düzeltin (andreasomaini)"
+
+#~ msgid ""
+#~ "Support recording sounds from both your microphone and PC at the same time"
+#~ msgstr ""
+#~ "Aynı anda hem mikrofonunuzdan hem de PC'nizden ses kaydetmeyi desteklendi"
+
+#~ msgid "End the app safely if the encoder is not created successfully"
+#~ msgstr "Kodlayıcı başarıyla oluşturulmadıysa uygulamayı güvenle sonlandırın"
+
+#~ msgid ""
+#~ "Update the app description in the readme and AppCenter to be more "
+#~ "tantalizing"
+#~ msgstr ""
+#~ "Benioku ve AppCenter'daki uygulama açıklamasını daha çekici hale getirmek "
+#~ "için güncellendi"
+
+#~ msgid "Remove unnecessary field code that marks the app handleable files"
+#~ msgstr ""
+#~ "Uygulamanın işlenebilir dosyalarını işaretleyen gereksiz alan kodu "
+#~ "kaldırıldı"
+
+#~ msgid "Fix recording won't success when changing the file format"
+#~ msgstr "Dosya biçimini değiştirirken kaydı bozan hata düzeltidi"
+
+#~ msgid "Add Spanish translation (by fitojb)"
+#~ msgstr "İspanyolca çeviri eklendi (fitojb)"
+
+#~ msgid "Getting/setting window positions gets more efficient"
+#~ msgstr "Pencere konumlarını alma / ayarlama daha verimli hale geldi"
+
+#~ msgid ""
+#~ "Fix the app does not resume the pause icon when you cancel recording "
+#~ "while pausing it"
+#~ msgstr ""
+#~ "işlem sırasında kaydı iptal ettiğinizde uygulama duraklatma simgesini "
+#~ "devam ettirmiyoronu duraklatmak düzeltildi"
+
+#~ msgid ""
+#~ "Fix the app shows the successful mark even if a recording is not saved "
+#~ "correctly"
+#~ msgstr ""
+#~ "uygulama bir kayıt kaydedilmemiş olsa bile başarılı işaretini "
+#~ "gösterirdoğru şekilde düzeltildi"
+
+#~ msgid "Save and restore values typed into the spin buttons"
+#~ msgstr ""
+#~ "Değer değiştirme düğmelerine yazılan değerleri kaydedin ve geri yükleyin"
+
+#~ msgid "Allow to cancel/pause countdown before recording"
+#~ msgstr "Kayıttan önce geri sayımı iptal etmeye / duraklatmaya izin verin"
+
+#~ msgid "Save recordings when the app window is destroyed"
+#~ msgstr "Uygulama penceresi yok edildiğinde kayıtları kaydedin"
+
+#~ msgid "Fix the app freezes on closing an error dialog"
+#~ msgstr ""
+#~ "Hata iletişim kutusu kapatıldığında uygulamanın donmasını düzeltildi"
+
+#~ msgid "Allow to record system sound"
+#~ msgstr "Sistem sesini kaydetmeye izin ver"
+
+#~ msgid "Fix the timer does not stop in accordance with the recording"
+#~ msgstr "Zamanlayıcı, kayda göre durmuyordu düzeltildi"
+
+#~ msgid "Grammatically fixes in the app description (by imasaru)"
+#~ msgstr "Uygulama açıklamasında dilbilgisel olarak düzeltmeler (imasaru)"
+
+#~ msgid "Fix the localized screenshots don't appear to AppCenter"
+#~ msgstr ""
+#~ "Yerelleştirilmiş ekran görüntülerinin AppCenter'da görünmemesini "
+#~ "düzeltildi"
+
+#~ msgid ""
+#~ "Provide localized screenshots to AppCenter (French, Japanese, Lithuanian "
+#~ "and Dutch)"
+#~ msgstr ""
+#~ "AppCenter'a yerelleştirilmiş ekran görüntüleri sağlayın (Fransızca, "
+#~ "Japonca, Litvanyaca veFlemenkçe)"
+
+#~ msgid ""
+#~ "Fix temporary recording files remain when quit the app while recording"
+#~ msgstr ""
+#~ "Kayıt sırasında uygulamadan çıkıldığında geçici kayıt dosyalarının "
+#~ "kalmasını düzeltildi"
+
+#~ msgid "Use upper case for WAV"
+#~ msgstr "WAV için büyük harf kullanın"
+
+#~ msgid "Add Dutch translation (by Vistaus)"
+#~ msgstr "Hollandaca çeviri eklendi (Vistaus)"
+
+#~ msgid ""
+#~ "Fix the app isn't listed in the \"Sound &amp; Video\" category in "
+#~ "Applications Menu"
+#~ msgstr ""
+#~ "Uygulamanın \"Ses ve Video\" kategorisinde listelenmediğini "
+#~ "düzeltinUygulamalar Menüsü"
+
+#~ msgid "Add a shortcut key to toggle recording"
+#~ msgstr "Kaydı değiştirmek için bir kısayol tuşu ekleyin"
+
+#~ msgid ""
+#~ "Fix the name of \"Recordings\" folder is not created in system language"
+#~ msgstr ""
+#~ "\"Kayıtlar\" klasörü sistem dilinde oluşturulamadı hatası düzeltildi"
+
+#~ msgid "Notify success of recording with a check mark"
+#~ msgstr "Kaydın başarılı olduğunu bir onay işaretiyle bildirin"
+
+#~ msgid "Allow to cancel/pause recording"
+#~ msgstr "Kaydı iptal etmeye / duraklatmaya izin ver"
+
+#~ msgid ""
+#~ "Show a confirmation dialog when trying to quit the app if a recording is "
+#~ "in progress"
+#~ msgstr ""
+#~ "Kayıt varsa uygulamadan çıkmaya çalışırken bir onay iletişim kutusu "
+#~ "gösterilerleme"
+
+#~ msgid "Add Lithuanian translation (by welaq)"
+#~ msgstr "Litvanca çeviriyi eklendi (welaq)"
+
+#~ msgid "Save and restore settings"
+#~ msgstr "Ayarları kaydedin ve geri yükleyin"
+
+#~ msgid ""
+#~ "Support both do-not-ask-where-to-save flow and ask-where-to-save flow"
+#~ msgstr ""
+#~ "Hem nereden tasarruf edileceğini sorma akışını hem de nereden tasarruf "
+#~ "edileceğini sorma akışını destekleyin"
+
+#~ msgid "Organized UI"
+#~ msgstr "Organize UI"
+
+#~ msgid "Some small bug fixes"
+#~ msgstr "Bazı küçük hata düzeltmeleri"
+
+#~ msgid "Add French translation (by NathanBnm)"
+#~ msgstr "Fransızca çeviri eklendi (NathanBnm)"
+
+#~ msgid "Allow to set recording length"
+#~ msgstr "Kayıt uzunluğunu ayarlamayası eklendi"
+
+#~ msgid "Fix the countdown is weird when recording more than twice"
+#~ msgstr "İkiden fazla kayıt yaparken geri sayımın hatası düzeltildi"
+
+#~ msgid "Localization improvement"
+#~ msgstr "Yerelleştirme iyileştirmesi"
+
+#~ msgid "Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats"
+#~ msgstr "AAC, FLAC, Ogg Vorbis, Opus ve MP3 formatlarıyla kayıt desteği"
+
+#~ msgid "Show a notification after recorded successfully"
+#~ msgstr "Başarıyla kaydettikten sonra bir bildirim göster"
+
+#~ msgid "Add Japanese translation"
+#~ msgstr "Japonca çeviri eklendi"
+
+#~ msgid "Initial release"
+#~ msgstr "İlk sürüm"
+
+#~ msgid "com.github.ryonakano.reco"
+#~ msgstr "com.github.ryonakano.reco"
