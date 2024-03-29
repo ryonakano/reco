@@ -6,11 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-29 23:28+0900\n"
+"POT-Creation-Date: 2024-03-29 23:52+0900\n"
 "PO-Revision-Date: 2022-10-20 18:06+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/rosp/reco-"
-"main/pt/>\n"
+"Language-Team: \n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,18 +22,16 @@ msgid "Reco"
 msgstr "Reco"
 
 #: data/reco.desktop.in:4
-#, fuzzy
 msgid "Audio Recording App"
-msgstr "A gravar"
+msgstr "Aplicação de gravação áudio"
 
 #: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
-#, fuzzy
 msgid "Focus on recording"
-msgstr "Pausar a gravação"
+msgstr ""
 
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
-msgstr ""
+msgstr "Gravar;Áudio;Som;Voz;"
 
 #: data/reco.metainfo.xml.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
@@ -48,51 +45,68 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in:17
 msgid "Features include:"
-msgstr ""
+msgstr "As funcionalidades incluem:"
 
 #: data/reco.metainfo.xml.in:19
+#, fuzzy
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
+"Gravação de sons tanto do seu microfone como do sistema ao mesmo tempo. Isto "
+"será útil quando se grava conversas com aplicações de chat ou transmissões "
+"de vídeos na Internet"
 
 #: data/reco.metainfo.xml.in:20
+#, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
+"A gravar em alguns formatos normalmente utilizados. Suporta ALAC, FLAC, MP3, "
+"Ogg Vorbis, Opus e WAV"
 
 #: data/reco.metainfo.xml.in:21
+#, fuzzy
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
+"Gravação cronometrada. Pode definir um atraso antes da gravação até 15 "
+"segundos e a duração da gravação até 600 segundos"
 
 #: data/reco.metainfo.xml.in:22
+#, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
+"Guardar automaticamente ou perguntar sempre onde guardar o fluxo de "
+"trabalho. Pode selecionar se a aplicação guarda as gravações automaticamente "
+"ou se escolhe um destino cada vez que as guarda"
 
 #: data/reco.metainfo.xml.in:23
+#, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
+"Guardar a gravação quando a aplicação termina. Mesmo que saia da aplicação "
+"durante a gravação, a gravação é guardada automaticamente ou é mostrada uma "
+"Janela de escolha de ficheiros dependendo da sua definição de gravação"
 
 #: data/reco.metainfo.xml.in:29
 msgid "Welcome view; perform recording configuration"
-msgstr ""
+msgstr "Vista de boas-vindas; realiza configuração de gravação"
 
 #: data/reco.metainfo.xml.in:34
-#, fuzzy
 msgid "Recording view"
-msgstr "A gravar"
+msgstr "Visualização de gravação"
 
 #: data/reco.metainfo.xml.in:39
 msgid "An indication that recording is successfully finished"
-msgstr ""
+msgstr "Uma indicação de que a gravação foi concluída com sucesso"
 
 #: src/MainWindow.vala:27
 msgid "Light"
@@ -328,3 +342,405 @@ msgstr "Selecionar"
 
 #~ msgid "Computer"
 #~ msgstr "Computador"
+
+#~ msgid "Ryo Nakano"
+#~ msgstr "Ryo Nakano"
+
+#~ msgid "Record talks to remember the contents later"
+#~ msgstr "Gravar conversas para recordar o conteúdo mais tarde"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Uma aplicação de gravação áudio que o ajuda a recordar as coisas faladas "
+#~ "mais tarde."
+
+#~ msgid "Update Flatpak runtime version"
+#~ msgstr "Atualização da versão Flatpak runtime"
+
+#~ msgid "Update translations"
+#~ msgstr "Atualização de traduções"
+
+#~ msgid "Migrate to GTK 4, the latest version of GTK"
+#~ msgstr "Migração para GTK 4, a última versão do GTK"
+
+#~ msgid "Get disk access permission only when the user allowed"
+#~ msgstr ""
+#~ "Obter permissão de acesso ao disco apenas quando o utilizador tiver "
+#~ "permissão"
+
+#~ msgid "Hide remaining time label when unnecessary"
+#~ msgstr "Ocultar a etiqueta do tempo restante quando desnecessário"
+
+#~ msgid ""
+#~ "Fix no style button selected on non-Pantheon desktop environments when "
+#~ "first launch"
+#~ msgstr ""
+#~ "Correção de \"nenhum botão de estilo selecionado\" em ambientes de "
+#~ "trabalho não-Pantheon quando do primeiro lançamento"
+
+#~ msgid "Check desktop environment on runtime"
+#~ msgstr "Verificar o ambiente de trabalho em tempo de execução"
+
+#~ msgid ""
+#~ "Show nicer message dialogs depending on the running desktop environment"
+#~ msgstr ""
+#~ "Mostra diálogos de mensagens de melhor aparência, dependendo do ambiente "
+#~ "gráfico em execução"
+
+#~ msgid "Translation updates:"
+#~ msgstr "Atualizações de tradução:"
+
+#~ msgid "Update French translation (thanks to @NathanBnm)"
+#~ msgstr "Atualização da tradução francesa (obrigado a @NathanBnm)"
+
+#~ msgid "Update Portuguese translation (thanks to @hugok79)"
+#~ msgstr "Atualização da tradução portuguesa (obrigado a @hugok79)"
+
+#~ msgid "Update Dutch translation (thanks to @Vistaus)"
+#~ msgstr "Atualização da tradução Neerlandesa (obrigado a @Vistaus)"
+
+#~ msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
+#~ msgstr "Tradução de chinês simplificado adicionada (obrigado a @ShuiHuo)"
+
+#~ msgid "Reco is now available on Flathub too!"
+#~ msgstr "O Reco está agora disponível no Flathub também!"
+
+#~ msgid "Update Spanish translation (thanks to @Eldhrimer)"
+#~ msgstr "Atualização da tradução espanhola (obrigado a @Eldhrimer)"
+
+#~ msgid "Update Italian translation (thanks to @albanobattistella)"
+#~ msgstr "Atualização da tradução italiana (obrigado a @albanobattistella)"
+
+#~ msgid "Let's celebrate the new year with the issue from the ancient fixed!"
+#~ msgstr "Celebremos o novo ano com o problema do antigo corrigido!"
+
+#~ msgid ""
+#~ "Replace AAC option with ALAC to prevent strange stereo files being "
+#~ "generated"
+#~ msgstr ""
+#~ "Substitui a opção AAC por ALAC para evitar a geração de ficheiros estéreo "
+#~ "estranhos"
+
+#~ msgid "The release for celebrating the 3rd anniversary of the app!"
+#~ msgstr "O lançamento para comemorar o 3º aniversário da aplicação!"
+
+#~ msgid "Add new style switcher"
+#~ msgstr "Adiciona novo alternador de estilo"
+
+#~ msgid "Update Japanese translation"
+#~ msgstr "Tradução Japonesa atualizada"
+
+#~ msgid ""
+#~ "Use the user cache folder instead of the system temporary folder to save "
+#~ "temporary recording files"
+#~ msgstr ""
+#~ "Utiliza a pasta de cache do utilizador em vez da pasta temporária do "
+#~ "sistema para guardar ficheiros de gravação temporários"
+
+#~ msgid "Fix wrong OARS data"
+#~ msgstr "Correção de dados OARS incorretos"
+
+#~ msgid ""
+#~ "Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
+#~ "manifest"
+#~ msgstr ""
+#~ "Publica a aplicação para o novo Centro de Aplicações no elementary OS 6 "
+#~ "com o manifesto Flatpak"
+
+#, fuzzy
+#~| msgid ""
+#~| "A completely rewrited and improved method to detect recording sources"
+#~ msgid ""
+#~ "A completely rewritten and improved method to detect recording sources"
+#~ msgstr ""
+#~ "Um método totalmente reescrito e melhorado para detetar fontes de gravação"
+
+#~ msgid ""
+#~ "Redesign: Separate Delay and Duration settings from Recording section as "
+#~ "Timer section and put it under Recording section"
+#~ msgstr ""
+#~ "Redesenhado: Separa as definições de Atraso e Duração da secção de "
+#~ "Gravação como secção Temporizador e coloca-as na secção de Gravação"
+
+#~ msgid "Make sure to show a dialog for any errors in recording"
+#~ msgstr ""
+#~ "Certifica-se de mostrar uma mensagem para quaisquer erros na gravação"
+
+#~ msgid "Code refactoring"
+#~ msgstr "Refatoração de código"
+
+#~ msgid "Add Brazilian Portuguese translation (thanks to @mathessaricci)"
+#~ msgstr ""
+#~ "Tradução do português do brasil adicionada (obrigado a @mathessaricci)"
+
+#~ msgid ""
+#~ "Update Spanish translation and add Catalan translation (thanks to @fitojb)"
+#~ msgstr ""
+#~ "Atualização da tradução espanhola e tradução catalã adicionada (obrigado "
+#~ "a @fitojb)"
+
+#~ msgid ""
+#~ "Revert another change done in version 2.4.3 that potentially caused an "
+#~ "error during the packaging process"
+#~ msgstr ""
+#~ "Reverter outra alteração feita na versão 2.4.3 que potencialmente causou "
+#~ "um erro durante o processo de empacotamento"
+
+#~ msgid "Revive the change that had been reverted in version 2.4.4"
+#~ msgstr "Recuperar a mudança que tinha sido revertida na versão 2.4.4"
+
+#~ msgid ""
+#~ "Revert changes done in version 2.4.3 that potentially caused an error "
+#~ "during the packaging process"
+#~ msgstr ""
+#~ "Reverter as alterações feitas na versão 2.4.3 que potencialmente causaram "
+#~ "um erro durante o processo de empacotamento"
+
+#~ msgid "MainWindow: Readable copy for dialog messages"
+#~ msgstr "MainWindow: Cópia legível para mensagens de janela de diálogo"
+
+#~ msgid ""
+#~ "MainWindow: Add window title for the new Gala feature that shows windows "
+#~ "titles in Multitasking view"
+#~ msgstr ""
+#~ "MainWindow: Adição do título da janela para o nova funcionalidade Gala "
+#~ "que mostra títulos das janelas na exibição do Multitarefas"
+
+#~ msgid "Add Italian translation (thanks to @albanobattistella)"
+#~ msgstr "Tradução italiana adicionada (obrigado a @albanobattistella)"
+
+#~ msgid "Add Portuguese translation (thanks to @hugok79)"
+#~ msgstr "Tradução portuguesa adicionada (obrigado a @hugok79)"
+
+#~ msgid "Clean code"
+#~ msgstr "Limpeza de código"
+
+#~ msgid "Inhibit sleeping while recording"
+#~ msgstr "Inibir a suspensão durante a gravação"
+
+#~ msgid ""
+#~ "Make sure GSettings key \"length\" and \"delay\" take only natural numbers"
+#~ msgstr ""
+#~ "Certifique-se de que as teclas GSettings \"duração\" e \"atraso\" levam "
+#~ "apenas números naturais"
+
+#~ msgid "Follow API change of Gtk.FileChooser in GTK 4"
+#~ msgstr "Segue a alteração de API de Gtk.FileChooser no GTK 4"
+
+#~ msgid "Fix temporary recordings are not deleted on error"
+#~ msgstr "As gravações temporárias corrigidas não são eliminadas por erro"
+
+#~ msgid "Fix some microphones are not recognized (thanks to @peteruithoven)"
+#~ msgstr ""
+#~ "Corrige alguns microfones de não serem reconhecidos (obrigado a "
+#~ "@peteruithoven)"
+
+#~ msgid "Update Turkish translation (thanks to @safak45x)"
+#~ msgstr "Atualização da tradução turca (obrigado a @safak45x)"
+
+#~ msgid "Respect an elementary OS-wide dark preference"
+#~ msgstr "Respeitar a preferência do tema escuro no elementary OS"
+
+#~ msgid "Allow setting per-app dark style preference"
+#~ msgstr "Permite definir a preferência do estilo escuro por cada aplicação"
+
+#~ msgid "Allow choosing stereo or mono"
+#~ msgstr "Permitir a escolha de estéreo ou mono"
+
+#~ msgid "Update Spanish translation (thanks to @CCaroV)"
+#~ msgstr "Atualização da tradução (obrigado a @CCaroV)"
+
+#~ msgid ""
+#~ "Explicit gstreamer1.0-libav as a dependency to fix a potential crash when "
+#~ "trying to record in AAC"
+#~ msgstr ""
+#~ "Gstreamer1.0-libav explícito como uma dependência para corrigir uma "
+#~ "potencial falha ao tentar gravar em AAC"
+
+#~ msgid "Add Turkish translation (by @safak45x)"
+#~ msgstr "Tradução turca adicionada (por @safak45x)"
+
+#~ msgid "Add Russian translation (by @usmanovmax)"
+#~ msgstr "Tradução russa adicionada (por @usmanovmax)"
+
+#~ msgid "Add Polish translation (by @michalzkosmosu)"
+#~ msgstr "Tradução polaca adicionada (por @michalzkosmosu)"
+
+#~ msgid "Update French translation (by @NathanBnm)"
+#~ msgstr "Tradução francesa adicionada (por @NathanBnm))"
+
+#~ msgid ""
+#~ "Fix the weird behavior of the countdown timer when pausing/canceling it "
+#~ "(by andreasomaini)"
+#~ msgstr ""
+#~ "Corrige o comportamento estranho do temporizador de contagem decrescente "
+#~ "ao pausá-lo/cancelá-lo (por andreasomaini)"
+
+#~ msgid ""
+#~ "Support recording sounds from both your microphone and PC at the same time"
+#~ msgstr ""
+#~ "Suporta a gravação de sons tanto do seu microfone como do PC ao mesmo "
+#~ "tempo"
+
+#~ msgid "End the app safely if the encoder is not created successfully"
+#~ msgstr ""
+#~ "Terminar a aplicação em segurança se o codificador não for criado com "
+#~ "sucesso"
+
+#~ msgid ""
+#~ "Update the app description in the readme and AppCenter to be more "
+#~ "tantalizing"
+#~ msgstr ""
+#~ "Atualiza a descrição da aplicação no leia-me e na Loja de Aplicações para "
+#~ "ser mais tentador"
+
+#~ msgid "Remove unnecessary field code that marks the app handleable files"
+#~ msgstr ""
+#~ "Remove o código de campo desnecessário que marca os ficheiros que podem "
+#~ "ser manipulados"
+
+#~ msgid "Fix recording won't success when changing the file format"
+#~ msgstr ""
+#~ "Corrige a gravação de não será bem sucedida quando se altera o formato do "
+#~ "ficheiro"
+
+#~ msgid "Add Spanish translation (by fitojb)"
+#~ msgstr "Tradução espanhola adicionada (por fitojb)"
+
+#~ msgid "Getting/setting window positions gets more efficient"
+#~ msgstr "Obter/definir posições de janela torna-se mais eficiente"
+
+#~ msgid ""
+#~ "Fix the app does not resume the pause icon when you cancel recording "
+#~ "while pausing it"
+#~ msgstr ""
+#~ "Corrige a aplicação de não retomar o ícone de pausa quando se cancela a "
+#~ "gravação enquanto se faz uma pausa"
+
+#~ msgid ""
+#~ "Fix the app shows the successful mark even if a recording is not saved "
+#~ "correctly"
+#~ msgstr ""
+#~ "Corrige a aplicação de mostrar a marca de sucesso mesmo que uma gravação "
+#~ "não seja guardada corretamente"
+
+#~ msgid "Save and restore values typed into the spin buttons"
+#~ msgstr "Guardar e restaurar valores introduzidos nos botões de rotação"
+
+#~ msgid "Allow to cancel/pause countdown before recording"
+#~ msgstr "Permitir cancelar/pausar a contagem decrescente antes da gravação"
+
+#~ msgid "Save recordings when the app window is destroyed"
+#~ msgstr "Guardar gravações quando a janela da aplicação é destruída"
+
+#~ msgid "Fix the app freezes on closing an error dialog"
+#~ msgstr "Corrige o bloqueio da aplicação ao fechar um janela de erro"
+
+#~ msgid "Allow to record system sound"
+#~ msgstr "Permitir a gravação do som do sistema"
+
+#~ msgid "Fix the timer does not stop in accordance with the recording"
+#~ msgstr "Corrige o temporizador de não parar em conformidade com a gravação"
+
+#~ msgid "Grammatically fixes in the app description (by imasaru)"
+#~ msgstr ""
+#~ "Correção de erros gramaticais na descrição da aplicação (por imasaru)"
+
+#~ msgid "Fix the localized screenshots don't appear to AppCenter"
+#~ msgstr ""
+#~ "Corrige as capturas de ecrã localizadas de não aparecem na Loja de "
+#~ "Aplicações"
+
+#~ msgid ""
+#~ "Provide localized screenshots to AppCenter (French, Japanese, Lithuanian "
+#~ "and Dutch)"
+#~ msgstr ""
+#~ "Fornece capturas de ecrã localizadas à Loja de Aplicações (francês, "
+#~ "japonês, lituano e neerlandês)"
+
+#~ msgid ""
+#~ "Fix temporary recording files remain when quit the app while recording"
+#~ msgstr ""
+#~ "Corrige ficheiros de gravação temporários que permanecem ao sair da "
+#~ "aplicação durante a gravação"
+
+#~ msgid "Use upper case for WAV"
+#~ msgstr "Usar letras maiúsculas para WAV"
+
+#~ msgid "Add Dutch translation (by Vistaus)"
+#~ msgstr "Tradução do neerlandês adicionada (por Vistaus)"
+
+#~ msgid ""
+#~ "Fix the app isn't listed in the \"Sound &amp; Video\" category in "
+#~ "Applications Menu"
+#~ msgstr ""
+#~ "Corrige a aplicação de não estar listada na categoria \"Som e Vídeo\" no "
+#~ "Menu de Aplicações"
+
+#~ msgid "Add a shortcut key to toggle recording"
+#~ msgstr "Adiciona uma tecla de atalho para alternar a gravação"
+
+#~ msgid ""
+#~ "Fix the name of \"Recordings\" folder is not created in system language"
+#~ msgstr ""
+#~ "Corrige o nome da pasta \"Gravações\" de não ser criado no idioma do "
+#~ "sistema"
+
+#~ msgid "Notify success of recording with a check mark"
+#~ msgstr "Notificar o sucesso da gravação com uma marca de verificação"
+
+#~ msgid "Allow to cancel/pause recording"
+#~ msgstr "Permitir cancelar/pausar a gravação"
+
+#~ msgid ""
+#~ "Show a confirmation dialog when trying to quit the app if a recording is "
+#~ "in progress"
+#~ msgstr ""
+#~ "Mostrar uma janela de confirmação ao tentar sair da aplicação se uma "
+#~ "gravação estiver em curso"
+
+#~ msgid "Add Lithuanian translation (by welaq)"
+#~ msgstr "Tradução lituana adicionada (por welaq)"
+
+#~ msgid "Save and restore settings"
+#~ msgstr "Guardar e restaurar definições"
+
+#~ msgid ""
+#~ "Support both do-not-ask-where-to-save flow and ask-where-to-save flow"
+#~ msgstr ""
+#~ "Suporta tanto o fluxo de não-perguntar-onde-guardar como o fluxo de "
+#~ "perguntar-onde-guardar"
+
+#~ msgid "Organized UI"
+#~ msgstr "Interface organizada"
+
+#~ msgid "Some small bug fixes"
+#~ msgstr "Pequenas correções de erros"
+
+#~ msgid "Add French translation (by NathanBnm)"
+#~ msgstr "Tradução francesa adicionada (por NathanBnm)"
+
+#~ msgid "Allow to set recording length"
+#~ msgstr "Permitir definir a duração de gravação"
+
+#~ msgid "Fix the countdown is weird when recording more than twice"
+#~ msgstr ""
+#~ "Corrige a contagem decrescente estranha quando se grava mais de duas vezes"
+
+#~ msgid "Localization improvement"
+#~ msgstr "Melhoria da localização"
+
+#~ msgid "Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats"
+#~ msgstr "Suporte a gravação de AAC, FLAC, Ogg Vorbis, Opus e formatos MP3"
+
+#~ msgid "Show a notification after recorded successfully"
+#~ msgstr "Mostrar uma notificação depois de gravado com sucesso"
+
+#~ msgid "Add Japanese translation"
+#~ msgstr "Tradução Japonesa adicionada"
+
+#~ msgid "Initial release"
+#~ msgstr "Lançamento inicial"
+
+#~ msgid "com.github.ryonakano.reco"
+#~ msgstr "com.github.ryonakano.reco"
