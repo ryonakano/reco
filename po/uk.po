@@ -1,81 +1,91 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Ukrainian translations for com.github.ryonakano.reco package.
+# Copyright (C) 2018 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Ihor Hordiichuk <igor_ck@outlook.com>, 2022, 2023.
 # Dan <denqwerta@gmail.com>, 2022.
+# Artem <artem@molotov.work>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-29 23:28+0900\n"
-"PO-Revision-Date: 2023-12-08 20:03+0000\n"
+"POT-Creation-Date: 2024-03-29 23:59+0900\n"
+"PO-Revision-Date: 2023-12-19 15:11+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/rosp/reco-app/"
-"uk/>\n"
+"Language-Team: \n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.3\n"
 
 #: data/reco.desktop.in:3
-#, fuzzy
 msgid "Reco"
-msgstr "Запис"
+msgstr "Reco"
 
 #: data/reco.desktop.in:4
-#, fuzzy
 msgid "Audio Recording App"
-msgstr "Запис"
+msgstr "Застосунок запису звуку"
 
 #: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
-#, fuzzy
 msgid "Focus on recording"
-msgstr "Призупинити запис"
+msgstr "Зосереджений на записі"
 
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
-msgstr ""
+msgstr "Запис;Аудіо;Звук;Голос;Record;Audio;Sound;Voice;"
 
 #: data/reco.metainfo.xml.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
 msgstr ""
+"Reco — це звукозаписувач, зосереджений на лаконічності та простоті "
+"користування."
 
 #: data/reco.metainfo.xml.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
+"Ви можете використовувати його для запису і запам'ятовування вимовлених "
+"слів, системного звуку, імпровізованих мелодій і всього іншого, що можна "
+"зробити за допомогою мікрофона, динаміка або і того, і іншого."
 
 #: data/reco.metainfo.xml.in:17
 msgid "Features include:"
-msgstr ""
+msgstr "До особливостей належать:"
 
 #: data/reco.metainfo.xml.in:19
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
+"Запис звуків як з мікрофона, так і з системи одночасно. Це корисно для "
+"запису викликів або трансляцій відео з інтернету."
 
 #: data/reco.metainfo.xml.in:20
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
+"Збереження в багатьох часто використовуваних форматах. Він підтримує ALAC, "
+"FLAC, MP3, Ogg Vorbis, Opus і WAV."
 
 #: data/reco.metainfo.xml.in:21
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
+"Запланований запис. Ви можете вказати затримку перед записом до 15 секунд, а "
+"тривалість запису — до 600 секунд."
 
 #: data/reco.metainfo.xml.in:22
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
+"Вибір місця для збереження записів. Ви можете вибрати, чи буде застосунок "
+"зберігати записи в обрану вами директорію автоматично або вручну."
 
 #: data/reco.metainfo.xml.in:23
 msgid ""
@@ -83,19 +93,21 @@ msgid ""
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
+"Збереження записів після завершення роботи застосунку. Навіть якщо ви "
+"закриєте застосунок під час запису, його буде збережено або автоматично або "
+"з'явиться вікно вибору файлів, залежно від ваших налаштувань."
 
 #: data/reco.metainfo.xml.in:29
 msgid "Welcome view; perform recording configuration"
-msgstr ""
+msgstr "Вітання; виконати налаштування запису"
 
 #: data/reco.metainfo.xml.in:34
-#, fuzzy
 msgid "Recording view"
-msgstr "Запис"
+msgstr "Перегляд запису"
 
 #: data/reco.metainfo.xml.in:39
 msgid "An indication that recording is successfully finished"
-msgstr ""
+msgstr "Показник того, що запис успішно завершено"
 
 #: src/MainWindow.vala:27
 msgid "Light"
@@ -309,3 +321,407 @@ msgstr "Вибрати"
 
 #~ msgid "Use the same style set in the system"
 #~ msgstr "Використовувати набір стилів системи"
+
+#~ msgid "Ryo Nakano"
+#~ msgstr "Ryo Nakano"
+
+#~ msgid "Record talks to remember the contents later"
+#~ msgstr "Записуйте розмови, щоб запам’ятати їхній зміст на майбутнє"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Застосунок звукозапису, який допоможе вам згадати речі, про які "
+#~ "говорилося."
+
+#~ msgid "Show important errors to users"
+#~ msgstr "Показ важливих помилок користувачам"
+
+#~ msgid "Update Flatpak runtime version"
+#~ msgstr "Оновлення версії середовища виконання Flatpak"
+
+#~ msgid "Improve app metainfo"
+#~ msgstr "Удосконалено метадані застосунку"
+
+#~ msgid "Review label notation"
+#~ msgstr "Розгляд мітки нотації"
+
+#~ msgid "Improve the way to load custom icons"
+#~ msgstr "Удосконалено спосіб завантаження користувацьких піктограм"
+
+#~ msgid "Update translations"
+#~ msgstr "Оновлені переклади"
+
+#~ msgid "Migrate to GTK 4, the latest version of GTK"
+#~ msgstr "Перехід на GTK 4, найновішу версію GTK"
+
+#~ msgid "Get disk access permission only when the user allowed"
+#~ msgstr ""
+#~ "Отримання дозволу на доступ до диска лише тоді, коли користувач дозволив"
+
+#~ msgid "Hide remaining time label when unnecessary"
+#~ msgstr "Приховування мітки часу, що залишився, коли це непотрібно"
+
+#~ msgid ""
+#~ "Fix no style button selected on non-Pantheon desktop environments when "
+#~ "first launch"
+#~ msgstr ""
+#~ "Виправлено відсутність кнопки вибору стилю у стільничних середовищах, "
+#~ "інших ніж Pantheon, під час першого запуску"
+
+#~ msgid "Check desktop environment on runtime"
+#~ msgstr "Перевірка стільничного середовища під час роботи"
+
+#~ msgid ""
+#~ "Show nicer message dialogs depending on the running desktop environment"
+#~ msgstr ""
+#~ "Показ кращих діалогових вікон повідомлень залежно від стільничного "
+#~ "середовища"
+
+#~ msgid "Translation updates:"
+#~ msgstr "Оновлення перекладів:"
+
+#~ msgid "Update French translation (thanks to @NathanBnm)"
+#~ msgstr "Оновлення перекладу французькою мовою (завдяки @NathanBnm)"
+
+#~ msgid "Update Portuguese translation (thanks to @hugok79)"
+#~ msgstr "Оновлення перекладу португальською мовою (завдяки @hugok79)"
+
+#~ msgid "Update Dutch translation (thanks to @Vistaus)"
+#~ msgstr "Оновлення перекладу голландською мовою (завдяки @Vistaus)"
+
+#~ msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
+#~ msgstr "Додано переклад спрощеною китайською мовою (спасибі @ShuiHuo)"
+
+#~ msgid "Reco is now available on Flathub too!"
+#~ msgstr "Reco тепер доступний і на Flathub!"
+
+#~ msgid "Update Spanish translation (thanks to @Eldhrimer)"
+#~ msgstr "Оновлення перекладу іспанською мовою (завдяки @Eldhrimer)"
+
+#~ msgid "Update Italian translation (thanks to @albanobattistella)"
+#~ msgstr "Оновлення перекладу італійською мовою (завдяки @albanobattistella)"
+
+#~ msgid "Let's celebrate the new year with the issue from the ancient fixed!"
+#~ msgstr "Зустрічаємо Новий рік виправленням давніх проблем!"
+
+#~ msgid ""
+#~ "Replace AAC option with ALAC to prevent strange stereo files being "
+#~ "generated"
+#~ msgstr ""
+#~ "Заміна опції AAC на ALAC, щоб запобігти створенню дивних стереофайлів"
+
+#~ msgid "The release for celebrating the 3rd anniversary of the app!"
+#~ msgstr "Випуск до святкування 3-ї річниці застосунку!"
+
+#~ msgid "Add new style switcher"
+#~ msgstr "Доданий новий перемикач стилів"
+
+#~ msgid "Update Japanese translation"
+#~ msgstr "Оновлення перекладу японською мовою"
+
+#~ msgid ""
+#~ "Use the user cache folder instead of the system temporary folder to save "
+#~ "temporary recording files"
+#~ msgstr ""
+#~ "Використання теки кешу користувача замість системної тимчасової теки, щоб "
+#~ "зберегти тимчасові файли запису"
+
+#~ msgid "Fix wrong OARS data"
+#~ msgstr "Виправлені неправильні дані OARS"
+
+#~ msgid ""
+#~ "Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
+#~ "manifest"
+#~ msgstr ""
+#~ "Застосунок публіковано у новому центрі застосунків у elementary OS 6 з "
+#~ "маніфестом Flatpak"
+
+#~ msgid ""
+#~ "A completely rewritten and improved method to detect recording sources"
+#~ msgstr "Повністю переписано й удосконалено метод виявлення джерел запису"
+
+#~ msgid ""
+#~ "Redesign: Separate Delay and Duration settings from Recording section as "
+#~ "Timer section and put it under Recording section"
+#~ msgstr ""
+#~ "Редизайн: Виокремлено налаштування затримки та тривалості з розділу "
+#~ "Запис, у розділ Таймер, та додано його в розділ Запис"
+
+#~ msgid "Make sure to show a dialog for any errors in recording"
+#~ msgstr ""
+#~ "Обов'язковий показ діалогового вікна для будь-яких помилок під час запису"
+
+#~ msgid "Code refactoring"
+#~ msgstr "Рефакторинг коду"
+
+#~ msgid "Add Brazilian Portuguese translation (thanks to @mathessaricci)"
+#~ msgstr ""
+#~ "Додано переклад португальською (Бразилія) мовою (завдяки @mathessaricci)"
+
+#~ msgid ""
+#~ "Update Spanish translation and add Catalan translation (thanks to @fitojb)"
+#~ msgstr ""
+#~ "Оновлено переклад іспанською і додано переклад каталонською мовою "
+#~ "(завдяки @fitojb)"
+
+#~ msgid ""
+#~ "Revert another change done in version 2.4.3 that potentially caused an "
+#~ "error during the packaging process"
+#~ msgstr ""
+#~ "Повернено іншу зміну, внесену у версії 2.4.3, яка потенційно спричиняла "
+#~ "помилку під час процесу створення пакунка"
+
+#~ msgid "Revive the change that had been reverted in version 2.4.4"
+#~ msgstr "Відновлено зміни, які були скасовані у версії 2.4.4"
+
+#~ msgid ""
+#~ "Revert changes done in version 2.4.3 that potentially caused an error "
+#~ "during the packaging process"
+#~ msgstr ""
+#~ "Повернено зміни, внесені у версії 2.4.3, які потенційно спричиняли "
+#~ "помилку під час процесу створення пакунка"
+
+#~ msgid "MainWindow: Readable copy for dialog messages"
+#~ msgstr "MainWindow: Читабельна копія для повідомлень діалогових вікон"
+
+#~ msgid ""
+#~ "MainWindow: Add window title for the new Gala feature that shows windows "
+#~ "titles in Multitasking view"
+#~ msgstr ""
+#~ "MainWindow: додано назву вікна для нової функції Gala, яка показує "
+#~ "заголовки вікон у багатозадачному поданні"
+
+#~ msgid "Add Italian translation (thanks to @albanobattistella)"
+#~ msgstr "Додано переклад італійською мовою (спасибі @albanobattistella)"
+
+#~ msgid "Add Portuguese translation (thanks to @hugok79)"
+#~ msgstr "Додано переклад португальською мовою (спасибі @hugok79)"
+
+#~ msgid "Clean code"
+#~ msgstr "Очищено код"
+
+#~ msgid "Inhibit sleeping while recording"
+#~ msgstr "Блокування переходу в режим сну під час запису"
+
+#~ msgid ""
+#~ "Make sure GSettings key \"length\" and \"delay\" take only natural numbers"
+#~ msgstr ""
+#~ "Ключі GSettings key «length» and «delay» відтепер приймають лише "
+#~ "натуральні числа"
+
+#~ msgid "Follow API change of Gtk.FileChooser in GTK 4"
+#~ msgstr "Дотримання змін Gtk.FileChooser у GTK 4"
+
+#~ msgid "Fix temporary recordings are not deleted on error"
+#~ msgstr "Виправлено помилки, через яку тимчасові записи не видалялись"
+
+#~ msgid "Fix some microphones are not recognized (thanks to @peteruithoven)"
+#~ msgstr ""
+#~ "Виправлено помилку, через яку деякі мікрофони не розпізнаються (спасибі "
+#~ "@peteruithoven)"
+
+#~ msgid "Update Turkish translation (thanks to @safak45x)"
+#~ msgstr "Оновлено переклад турецькою мовою (спасибі @safak45x)"
+
+#~ msgid "Respect an elementary OS-wide dark preference"
+#~ msgstr "Дотримання налаштувань темного стилю elementary OS"
+
+#~ msgid "Allow setting per-app dark style preference"
+#~ msgstr ""
+#~ "Уможливлено налаштування темного стилю для кожного застосунку окремо"
+
+#~ msgid "Allow choosing stereo or mono"
+#~ msgstr "Дозволено вибрати стерео або моно"
+
+#~ msgid "Update Spanish translation (thanks to @CCaroV)"
+#~ msgstr "Оновлено переклад іспанською мовою (дякую @CCaroV)"
+
+#~ msgid ""
+#~ "Explicit gstreamer1.0-libav as a dependency to fix a potential crash when "
+#~ "trying to record in AAC"
+#~ msgstr ""
+#~ "Явне вираження gstreamer1.0-libav як залежності для виправлення "
+#~ "потенційного збою при спробі запису в AAC"
+
+#~ msgid "Add Turkish translation (by @safak45x)"
+#~ msgstr "Додано переклад турецькою мовою (від @safak45x)"
+
+#~ msgid "Add Russian translation (by @usmanovmax)"
+#~ msgstr "Додано переклад російською мовою (від @usmanovmax)"
+
+#~ msgid "Add Polish translation (by @michalzkosmosu)"
+#~ msgstr "Додати переклад польською мовою (від @michalzkosmosu)"
+
+#~ msgid "Update French translation (by @NathanBnm)"
+#~ msgstr "Оновлено переклад французькою мовою (від @NathanBnm)"
+
+#~ msgid ""
+#~ "Fix the weird behavior of the countdown timer when pausing/canceling it "
+#~ "(by andreasomaini)"
+#~ msgstr ""
+#~ "Виправлено дивну поведінку таймера зворотного відліку під час "
+#~ "призупинення/скасування (від andreasomaini)"
+
+#~ msgid ""
+#~ "Support recording sounds from both your microphone and PC at the same time"
+#~ msgstr "Підтримка запису звуків як з мікрофона, так і з ПК одночасно"
+
+#~ msgid "End the app safely if the encoder is not created successfully"
+#~ msgstr ""
+#~ "Безпечне завершення роботи застосунку, якщо кодувальник не створений "
+#~ "успішно"
+
+#~ msgid ""
+#~ "Update the app description in the readme and AppCenter to be more "
+#~ "tantalizing"
+#~ msgstr ""
+#~ "Оновлено опис застосунку в readme та центрі застосунків, щоб він був менш "
+#~ "провокаційним"
+
+#~ msgid "Remove unnecessary field code that marks the app handleable files"
+#~ msgstr ""
+#~ "Прибрано непотрібний код поля, який позначає файли застосунку, які можна "
+#~ "обробляти"
+
+#~ msgid "Fix recording won't success when changing the file format"
+#~ msgstr ""
+#~ "Виправлення проблеми, внаслідок якої не вдавалося записати звук за зміни "
+#~ "формату файлу"
+
+#~ msgid "Add Spanish translation (by fitojb)"
+#~ msgstr "Додати переклад іспанською мовою (по fitojb)"
+
+#~ msgid "Getting/setting window positions gets more efficient"
+#~ msgstr "Отримання/налаштування позицій вікна стало ефективнішим"
+
+#~ msgid ""
+#~ "Fix the app does not resume the pause icon when you cancel recording "
+#~ "while pausing it"
+#~ msgstr ""
+#~ "Виправлена проблема, через яку застосунок не відновлював піктограму "
+#~ "паузи, коли ви скасовували запис під час призупинення"
+
+#~ msgid ""
+#~ "Fix the app shows the successful mark even if a recording is not saved "
+#~ "correctly"
+#~ msgstr ""
+#~ "Виправлено проблему, через яку застосунок вказував на вдалий запис, "
+#~ "навіть якщо його збережено неправильно"
+
+#~ msgid "Save and restore values typed into the spin buttons"
+#~ msgstr "Зберігайте та відновлюйте значення, введені на кнопках обертання"
+
+#~ msgid "Allow to cancel/pause countdown before recording"
+#~ msgstr "Уможливлено скасувати/призупинити зворотний відлік перед записом"
+
+#~ msgid "Save recordings when the app window is destroyed"
+#~ msgstr "Збереження записів під час збою вікна застосунку"
+
+#~ msgid "Fix the app freezes on closing an error dialog"
+#~ msgstr ""
+#~ "Виправлення зависання застосунку під час закриття діалогового вікна "
+#~ "помилки"
+
+#~ msgid "Allow to record system sound"
+#~ msgstr "Уможливлено запис системних звуків"
+
+#~ msgid "Fix the timer does not stop in accordance with the recording"
+#~ msgstr ""
+#~ "Виправлення помилки, коли таймер не зупиняється відповідно до запису"
+
+#~ msgid "Grammatically fixes in the app description (by imasaru)"
+#~ msgstr "Граматичні виправлення в описі застосунку (від imasaru)"
+
+#~ msgid "Fix the localized screenshots don't appear to AppCenter"
+#~ msgstr ""
+#~ "Виправлення локалізованих знімків екрана, які не показувалися у центрі "
+#~ "застосунків"
+
+#~ msgid ""
+#~ "Provide localized screenshots to AppCenter (French, Japanese, Lithuanian "
+#~ "and Dutch)"
+#~ msgstr ""
+#~ "Надано локалізовані знімки екрана для центру застосунків (французькою, "
+#~ "японською, литовською та нідерландською)"
+
+#~ msgid ""
+#~ "Fix temporary recording files remain when quit the app while recording"
+#~ msgstr ""
+#~ "Виправлення тимчасових файлів записування, які залишалися після виходу з "
+#~ "застосунку під час запису"
+
+#~ msgid "Use upper case for WAV"
+#~ msgstr "Використовується верхній регістр для WAV"
+
+#~ msgid "Add Dutch translation (by Vistaus)"
+#~ msgstr "Додати переклад нідерландською мовою (від Vistaus)"
+
+#~ msgid ""
+#~ "Fix the app isn't listed in the \"Sound &amp; Video\" category in "
+#~ "Applications Menu"
+#~ msgstr ""
+#~ "Виправлено проблеми, через яку застосунок не вказувався в категорії «Звук "
+#~ "і відео» в меню застосунків"
+
+#~ msgid "Add a shortcut key to toggle recording"
+#~ msgstr "Додано комбінацію клавіш, щоб перемкнути запис"
+
+#~ msgid ""
+#~ "Fix the name of \"Recordings\" folder is not created in system language"
+#~ msgstr ""
+#~ "Виправлено проблему, через яку назва теки «Записи» не створювалася "
+#~ "системною мовою"
+
+#~ msgid "Notify success of recording with a check mark"
+#~ msgstr "Сповіщення про успішність запису з галочкою"
+
+#~ msgid "Allow to cancel/pause recording"
+#~ msgstr "Уможливлено скасувати/призупинити запис"
+
+#~ msgid ""
+#~ "Show a confirmation dialog when trying to quit the app if a recording is "
+#~ "in progress"
+#~ msgstr ""
+#~ "Показ діалогового вікна підтвердження під час спроби вийти з застосунку, "
+#~ "якщо триває запис"
+
+#~ msgid "Add Lithuanian translation (by welaq)"
+#~ msgstr "Додати переклад литовською мовою (від welaq)"
+
+#~ msgid "Save and restore settings"
+#~ msgstr "Збереження та відновлення налаштувань"
+
+#~ msgid ""
+#~ "Support both do-not-ask-where-to-save flow and ask-where-to-save flow"
+#~ msgstr ""
+#~ "Підтримка не-запитувати-де-зберегти потік і запитувати-де-зберегти потік"
+
+#~ msgid "Organized UI"
+#~ msgstr "Упорядковано інтерфейс"
+
+#~ msgid "Some small bug fixes"
+#~ msgstr "Деякі незначні виправлення помилок"
+
+#~ msgid "Add French translation (by NathanBnm)"
+#~ msgstr "Додати переклад французькою (від NathanBnm)"
+
+#~ msgid "Allow to set recording length"
+#~ msgstr "Уможливлено вказати тривалість запису"
+
+#~ msgid "Fix the countdown is weird when recording more than twice"
+#~ msgstr "Виправлено дивний відлік, коли записувати більше ніж двічі"
+
+#~ msgid "Localization improvement"
+#~ msgstr "Покращення локалізації"
+
+#~ msgid "Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats"
+#~ msgstr "Підтримка запису у форматах AAC, FLAC, Ogg Vorbis, Opus і MP3"
+
+#~ msgid "Show a notification after recorded successfully"
+#~ msgstr "Показ сповіщення після успішного запису"
+
+#~ msgid "Add Japanese translation"
+#~ msgstr "Доданий переклад японською мовою"
+
+#~ msgid "Initial release"
+#~ msgstr "Початковий випуск"
