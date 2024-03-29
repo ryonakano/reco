@@ -1,5 +1,5 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Dutch translations for com.github.ryonakano.reco package.
+# Copyright (C) 2018 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Heimen Stoffels <vistausss@fastmail.com>, 2022.
 # Philip Goto <philip.goto@gmail.com>, 2023.
@@ -7,11 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-29 23:28+0900\n"
+"POT-Creation-Date: 2024-03-29 23:48+0900\n"
 "PO-Revision-Date: 2023-03-19 14:40+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco-app/nl/"
-">\n"
+"Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,18 +23,17 @@ msgid "Reco"
 msgstr "Reco"
 
 #: data/reco.desktop.in:4
-#, fuzzy
 msgid "Audio Recording App"
-msgstr "Opname"
+msgstr "Audio-opnametoepassing"
 
 #: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
 #, fuzzy
 msgid "Focus on recording"
-msgstr "Opname pauzeren"
+msgstr "Opname met tijdslimiet"
 
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
-msgstr ""
+msgstr "Opname;Audio;Geluid;Stem;"
 
 #: data/reco.metainfo.xml.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
@@ -49,51 +47,70 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in:17
 msgid "Features include:"
-msgstr ""
+msgstr "Kenmerken:"
 
 #: data/reco.metainfo.xml.in:19
+#, fuzzy
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
+"Neem tegelijkertijd audio op van je microfoon en computer. Dit kan handig "
+"zijn als je gesprekken van chattoepassingen of videostreams wilt opnemen."
 
 #: data/reco.metainfo.xml.in:20
+#, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
+"Reco ondersteunt de gebruikelijke formaten: AAC, FLAC, MP3, Ogg Vorbis, Opus "
+"en WAV"
 
 #: data/reco.metainfo.xml.in:21
+#, fuzzy
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
+"Tijdsopname. Je kunt instellen dat de opname met max. 15 seconden vertraging "
+"moet beginnen en de duur van de opname max. 600 seconden moet duren."
 
 #: data/reco.metainfo.xml.in:22
+#, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
+"Automatisch opslaan of altijd zelf een locatie kiezen. Je kunt aangeven of "
+"Reco opnames automatisch moet opslaan of dat je na elke opname wordt "
+"gevraagd een locatie te kiezen."
 
 #: data/reco.metainfo.xml.in:23
+#, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
+"De opname wordt opgeslagen als je Reco afsluit, zélfs als je afsluit tijdens "
+"een opname. Dit gebeurt ofwel automatisch, ofwel handmatig, afhankelijk van "
+"je opslaginstellingen."
 
 #: data/reco.metainfo.xml.in:29
+#, fuzzy
 msgid "Welcome view; perform recording configuration"
-msgstr ""
+msgstr "Introductiescherm waarop je de opname-instellingen kunt regelen"
 
 #: data/reco.metainfo.xml.in:34
 #, fuzzy
 msgid "Recording view"
-msgstr "Opname"
+msgstr "Opnamescherm"
 
 #: data/reco.metainfo.xml.in:39
+#, fuzzy
 msgid "An indication that recording is successfully finished"
-msgstr ""
+msgstr "Opname is afgerond"
 
 #: src/MainWindow.vala:27
 msgid "Light"
@@ -342,3 +359,126 @@ msgstr "Kiezen"
 
 #~ msgid "Quit Reco"
 #~ msgstr "Reco afsluiten"
+
+#~ msgid "Ryo Nakano"
+#~ msgstr "Ryo Nakano"
+
+#~ msgid "Record talks to remember the contents later"
+#~ msgstr "Neem gesprekken op om ze later terug te luisteren"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Een audio-opnametoepassing die je helpt om op een later moment gesprekken "
+#~ "terug te luisteren."
+
+#~ msgid "Update Flatpak runtime version"
+#~ msgstr "Bijgewerkt: Flatpak-runtimeversie"
+
+#~ msgid "Update translations"
+#~ msgstr "Vertalingen bijgewerkt"
+
+#~ msgid "Translation updates:"
+#~ msgstr "Vertaalupdates:"
+
+#, fuzzy
+#~ msgid "Update French translation (thanks to @NathanBnm)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#, fuzzy
+#~ msgid "Update Portuguese translation (thanks to @hugok79)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#, fuzzy
+#~ msgid "Update Dutch translation (thanks to @Vistaus)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#, fuzzy
+#~ msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#, fuzzy
+#~ msgid "Update Spanish translation (thanks to @Eldhrimer)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#, fuzzy
+#~ msgid "Update Italian translation (thanks to @albanobattistella)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#~ msgid "Update Japanese translation"
+#~ msgstr "Bijgewerkt: Japanse vertaling"
+
+#~ msgid "Fix wrong OARS data"
+#~ msgstr "Opgelost: onjuiste OARS-gegevens"
+
+#, fuzzy
+#~ msgid "Add Brazilian Portuguese translation (thanks to @mathessaricci)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#, fuzzy
+#~ msgid ""
+#~ "Update Spanish translation and add Catalan translation (thanks to @fitojb)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#~ msgid "Add Italian translation (thanks to @albanobattistella)"
+#~ msgstr "Nieuw: Italiaanse vertaling (met dank aan @albanobattistella)"
+
+#, fuzzy
+#~ msgid "Add Portuguese translation (thanks to @hugok79)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#, fuzzy
+#~ msgid "Update Turkish translation (thanks to @safak45x)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#~ msgid "Respect an elementary OS-wide dark preference"
+#~ msgstr "Ondersteuning voor elementary OS' donkere thema"
+
+#~ msgid "Allow setting per-app dark style preference"
+#~ msgstr "Ondersteuning voor donker thema per toepassing"
+
+#~ msgid "Allow choosing stereo or mono"
+#~ msgstr "Altijd keuze tussen stereo of mono"
+
+#~ msgid "Update Spanish translation (thanks to @CCaroV)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#~ msgid ""
+#~ "Explicit gstreamer1.0-libav as a dependency to fix a potential crash when "
+#~ "trying to record in AAC"
+#~ msgstr ""
+#~ "gstreamer1.0-libav is voortaan een verplichte afhankelijkheid om te "
+#~ "voorkomen dat Reco crasht tijdens het opnemen in AAC-formaat"
+
+#, fuzzy
+#~ msgid "Update French translation (by @NathanBnm)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#, fuzzy
+#~ msgid "Add Spanish translation (by fitojb)"
+#~ msgstr "Spaanse vertaling bijgewerkt, met dank aan @CCaroV"
+
+#, fuzzy
+#~ msgid "Add Japanese translation"
+#~ msgstr "Japanse vertaling bijgewerkt"
+
+#~ msgid "Initial release"
+#~ msgstr "Eerste versie"
+
+#~ msgid "com.github.ryonakano.reco"
+#~ msgstr "com.github.ryonakano.reco"
+
+#, fuzzy
+#~ msgid "Useful for:"
+#~ msgstr "Handig als:"
+
+#, fuzzy
+#~ msgid "Joining meetings and taking minutes later"
+#~ msgstr "je deelneemt aan een discussie en later notulen wilt opmaken"
+
+#, fuzzy
+#~ msgid "Recording conversations with a friend or lover"
+#~ msgstr "je een gesprek wilt opnemen tussen jou en je vrienden of partner"
+
+#, fuzzy
+#~ msgid "Streaming videos on the Internet"
+#~ msgstr "je video's wilt streamen naar het internet"
