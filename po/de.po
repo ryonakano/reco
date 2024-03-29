@@ -1,39 +1,38 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# German translations for com.github.ryonakano.reco package.
+# Copyright (C) 2018 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Philipp Kiemle <philipp.kiemle@gmail.com>, 2023.
+# Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-29 23:28+0900\n"
-"PO-Revision-Date: 2023-12-05 00:46+0000\n"
-"Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/rosp/reco-app/de/"
-">\n"
+"POT-Creation-Date: 2024-03-29 23:30+0900\n"
+"PO-Revision-Date: 2024-03-22 04:01+0000\n"
+"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
+"Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/reco.desktop.in:3
 msgid "Reco"
-msgstr ""
+msgstr "Reco"
 
 #: data/reco.desktop.in:4
 msgid "Audio Recording App"
-msgstr ""
+msgstr "Audio-Aufnahme-App"
 
 #: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
-#, fuzzy
 msgid "Focus on recording"
-msgstr "Aufnahme pausieren"
+msgstr ""
 
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
-msgstr ""
+msgstr "Record;Aufnahme;Audio;Sound;Ton;Voice;Stimme;"
 
 #: data/reco.metainfo.xml.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
@@ -47,51 +46,69 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in:17
 msgid "Features include:"
-msgstr ""
+msgstr "Funktionen (u. a.):"
 
 #: data/reco.metainfo.xml.in:19
+#, fuzzy
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
+"Nimmt gleichzeitig Audio von Ihrem Mikrofon und System auf. Das ist "
+"besonders nützlich, wenn Sie Konversationen in Chat-Anwendungen oder "
+"Videostreams im Internet aufzeichnen"
 
 #: data/reco.metainfo.xml.in:20
+#, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
+"Speichern in einigen gebräuchlichen Formaten. Die Anwendung unterstützt "
+"ALAC, FLAC, MP3, Ogg Vorbis, Opus und WAV"
 
 #: data/reco.metainfo.xml.in:21
+#, fuzzy
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
+"Begrenzte Aufnahme. Sie können eine Verzögerung (bis zu 15 Sekunden) vor der "
+"Aufnahme einstellen, sowie eine Aufnahmedauer von bis zu 600 Sekunden"
 
 #: data/reco.metainfo.xml.in:22
+#, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
+"Automatisches Speichern oder immer fragen, wo gespeichert werden soll. Sie "
+"können wählen, ob die Anwendung Aufnahmen automatisch speichern soll, oder "
+"ob Sie jedes Mal einen Speicherort festlegen möchten"
 
 #: data/reco.metainfo.xml.in:23
+#, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
+"Bei Beenden der Anwendung Aufnahmen speichern. Selbst wenn Sie mitten in "
+"einer Aufnahme die Anwendung beenden, wird die Aufnahme entweder automatisch "
+"gespeichert, oder es öffnet sich der Dateiauswahl-Dialog - Je nach "
+"Einstellung"
 
 #: data/reco.metainfo.xml.in:29
 msgid "Welcome view; perform recording configuration"
-msgstr ""
+msgstr "Willkommensansicht; Wählen Sie Ihre Aufnahmeeinstellungen"
 
 #: data/reco.metainfo.xml.in:34
-#, fuzzy
 msgid "Recording view"
-msgstr "Aufnahme läuft"
+msgstr "Aufnahmeansicht"
 
 #: data/reco.metainfo.xml.in:39
 msgid "An indication that recording is successfully finished"
-msgstr ""
+msgstr "Eine Indikation, dass die Aufnahme erfolgreich beendet wurde"
 
 #: src/MainWindow.vala:27
 msgid "Light"
@@ -285,3 +302,16 @@ msgstr "Auswählen"
 
 #~ msgid "Preferences"
 #~ msgstr "Einstellungen"
+
+#~ msgid "Ryo Nakano"
+#~ msgstr "Ryo Nakano"
+
+#~ msgid "Record talks to remember the contents later"
+#~ msgstr ""
+#~ "Zeichnen Sie Vorträge auf, um sich später an die Inhalte erinnern zu "
+#~ "können"
+
+#~ msgid "An audio recording app that helps you recall things talked later."
+#~ msgstr ""
+#~ "Eine Audio-Aufnahmeanwendung, die es Ihnen erleichtert, sich an Vorträge "
+#~ "zu erinnern."
