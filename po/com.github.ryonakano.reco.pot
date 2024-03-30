@@ -1,5 +1,5 @@
-# LANGUAGE translations for com.github.ryonakano.reco.
-# Copyright (C) 2018-2024 Ryo Nakano
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-30 00:01+0900\n"
+"POT-Creation-Date: 2024-03-30 09:22+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
