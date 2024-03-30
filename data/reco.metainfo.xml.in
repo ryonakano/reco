@@ -57,6 +57,7 @@
   <url type="homepage">https://github.com/ryonakano/reco</url>
   <url type="bugtracker">https://github.com/ryonakano/reco/issues</url>
   <url type="help">https://github.com/ryonakano/reco/discussions</url>
+  <url type="vcs-browser">https://github.com/ryonakano/reco</url>
   <url type="translate">https://hosted.weblate.org/projects/rosp</url>
 
   <!-- developer_name has deprecated since AppStream 1.0 -->
