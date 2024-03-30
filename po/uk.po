@@ -1,5 +1,5 @@
-# Ukrainian translations for com.github.ryonakano.reco package.
-# Copyright (C) 2018 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
+# Ukrainian translations for com.github.ryonakano.reco.
+# Copyright (C) 2018-2024 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Ihor Hordiichuk <igor_ck@outlook.com>, 2022, 2023.
 # Dan <denqwerta@gmail.com>, 2022.

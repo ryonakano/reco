@@ -1,5 +1,5 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Persian translations for com.github.ryonakano.reco.
+# Copyright (C) 2018-2024 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Hossein Aghaie <hossein.a97@gmail.com>, 2023.
 msgid ""
@@ -9,8 +9,7 @@ msgstr ""
 "POT-Creation-Date: 2024-03-30 00:01+0900\n"
 "PO-Revision-Date: 2023-09-10 12:53+0000\n"
 "Last-Translator: Hossein Aghaie <hossein.a97@gmail.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/rosp/reco-app/fa/"
-">\n"
+"Language-Team: \n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

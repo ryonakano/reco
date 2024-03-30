@@ -1,5 +1,5 @@
-# Portuguese (Brazil) translations for com.github.ryonakano.reco package.
-# Copyright (C) 2018 THE com.github.ryonakano.reco'S COPYRIGHT HOLDER
+# Portuguese (Brazil) translations for com.github.ryonakano.reco.
+# Copyright (C) 2018-2024 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Matheus Tessarini Ricci, 2021.
 # Felipe Nogueira <contato.fnog@gmail.com>, 2023.

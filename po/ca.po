@@ -1,5 +1,5 @@
-# Catalan translations for Reco.
-# Copyright (C) 2021 THE PACKAGE'S COPYRIGHT HOLDER
+# Catalan translations for com.github.ryonakano.reco.
+# Copyright (C) 2018-2024 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2021.
 # Maite Guix <maite.guix@gmail.com>, 2022.
@@ -10,8 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2024-03-30 00:01+0900\n"
 "PO-Revision-Date: 2022-10-20 18:06+0000\n"
 "Last-Translator: Maite Guix <maite.guix@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/rosp/reco-main/"
-"ca/>\n"
+"Language-Team: \n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
