@@ -1,255 +1,300 @@
-# ITALIAN TRANSLATION FOR RECO.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Italian translations for com.github.ryonakano.reco.
+# Copyright (C) 2018-2024 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# ALBANO BATTISTELLA <albano_battistella@hotmail.com>, 2021,2022.
-# albanobattistella <albano_battistella@hotmail.com>, 2022, 2023.
+# albanobattistella <albano_battistella@hotmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-26 17:33+0900\n"
-"PO-Revision-Date: 2023-12-02 21:03+0000\n"
+"POT-Creation-Date: 2024-03-30 09:22+0900\n"
+"PO-Revision-Date: 2023-12-25 22:10+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco-app/it/"
-">\n"
+"Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
-#: src/MainWindow.vala:39
-msgid "Preferences"
-msgstr "Preferenze"
+#: data/reco.desktop.in:3
+msgid "Reco"
+msgstr "Reco"
 
-#: src/MainWindow.vala:120
+#: data/reco.desktop.in:4
+msgid "Audio Recording App"
+msgstr "App di registrazione audio"
+
+#: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
+msgid "Focus on recording"
+msgstr "Concentrati sulla registrazione"
+
+#: data/reco.desktop.in:11
+msgid "Record;Audio;Sound;Voice;"
+msgstr "Registra;Audio;Suono;Voce;"
+
+#: data/reco.metainfo.xml.in:13
+msgid "Reco is an audio recorder focused on being concise and simple to use."
+msgstr ""
+"Reco è un registratore audio focalizzato sull'essere conciso e semplice da "
+"usare."
+
+#: data/reco.metainfo.xml.in:16
+msgid ""
+"You can use it to record and remember spoken words, system audio, improvized "
+"melodies, and anything else you can do with a microphone, speaker, or both."
+msgstr ""
+"Puoi usarlo per registrare e ricordare parole pronunciate, audio di sistema, "
+"melodie improvvisate e qualsiasi altra cosa tu possa fare con un microfono, "
+"un altoparlante o entrambi."
+
+#: data/reco.metainfo.xml.in:17
+msgid "Features include:"
+msgstr "Le caratteristiche includono:"
+
+#: data/reco.metainfo.xml.in:19
+msgid ""
+"Recording sounds from both your microphone and system at the same time. This "
+"is useful for recording calls or streaming videos on the Internet."
+msgstr ""
+"Registra i suoni dal microfono e dal sistema contemporaneamente. Ciò è utile "
+"per registrare chiamate o riprodurre video in streaming su Internet."
+
+#: data/reco.metainfo.xml.in:20
+msgid ""
+"Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus, and WAV."
+msgstr ""
+"Salvataggio in molti formati di uso comune. Supporta ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus e WAV."
+
+#: data/reco.metainfo.xml.in:21
+msgid ""
+"Timed recording. You can set a delay before recording up to 15 seconds, and "
+"set the length of recording up to 600 seconds."
+msgstr ""
+"Registrazione temporizzata. È possibile impostare un ritardo prima della "
+"registrazione fino a 15 secondi e impostare la durata della registrazione "
+"fino a 600 secondi."
+
+#: data/reco.metainfo.xml.in:22
+msgid ""
+"Choosing where to save recordings. You can select whether the app saves "
+"recordings into a directory of your choosing automatically or manually."
+msgstr ""
+"Scegliere dove salvare le registrazioni. Puoi selezionare se l'app salvi le "
+"registrazioni in una directory di tua scelta automaticamente o manualmente."
+
+#: data/reco.metainfo.xml.in:23
+msgid ""
+"Saving recordings when the app quits. Even if you happen to quit the app "
+"while recording, the recording is either saved automatically, or the file "
+"chooser dialog is shown - depending on your preferences."
+msgstr ""
+"Salvataggio delle registrazioni alla chiusura dell'app. Anche se esci "
+"dall'app durante la registrazione, la registrazione verrà salvata "
+"automaticamente oppure verrà visualizzata la finestra di dialogo di "
+"selezione file, a seconda delle tue preferenze."
+
+#: data/reco.metainfo.xml.in:29
+msgid "Welcome view; perform recording configuration"
+msgstr "Vista di benvenuto; eseguire la configurazione della registrazione"
+
+#: data/reco.metainfo.xml.in:34
+msgid "Recording view"
+msgstr "Vista di registrazione"
+
+#: data/reco.metainfo.xml.in:39
+msgid "An indication that recording is successfully finished"
+msgstr "Un'indicazione che la registrazione è terminata con successo"
+
+#: src/MainWindow.vala:27
+msgid "Light"
+msgstr "Chiaro"
+
+#: src/MainWindow.vala:28
+msgid "Dark"
+msgstr "Scuro"
+
+#: src/MainWindow.vala:29 src/View/WelcomeView.vala:32
+msgid "System"
+msgstr "Sistema"
+
+#: src/MainWindow.vala:32
+#, fuzzy
+msgid "Style"
+msgstr "Stile:"
+
+#: src/MainWindow.vala:35
+msgid "Main Menu"
+msgstr ""
+
+#: src/MainWindow.vala:117
 msgid "Error while recording"
 msgstr "Errore durante la registrazione"
 
-#: src/MainWindow.vala:121
+#: src/MainWindow.vala:118
 msgid "There was an error while recording."
 msgstr "Si è verificato un errore durante la registrazione."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
 #. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:134
+#: src/MainWindow.vala:131
 #, c-format
 msgid "Recording from %s"
 msgstr "Registrazione da %s"
 
-#: src/MainWindow.vala:147 src/MainWindow.vala:183
+#: src/MainWindow.vala:144 src/MainWindow.vala:180
 msgid "Failed to save recording"
 msgstr "Impossibile salvare la registrazione"
 
-#: src/MainWindow.vala:148 src/MainWindow.vala:184
+#: src/MainWindow.vala:145 src/MainWindow.vala:181
 msgid "There was an error while moving file to the designated location."
 msgstr ""
 "Si è verificato un errore durante lo spostamento del file nella posizione "
 "designata."
 
-#: src/MainWindow.vala:159
+#: src/MainWindow.vala:156
 msgid "Save your recording"
 msgstr "Salva registrazione"
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:157
 msgid "Save"
 msgstr "Salva"
 
-#: src/MainWindow.vala:213
+#: src/MainWindow.vala:210
 msgid "Failed to start recording"
 msgstr "Impossibile avviare la registrazione"
 
-#: src/MainWindow.vala:214
+#: src/MainWindow.vala:211
 msgid "There was an error while starting recording."
 msgstr "Si è verificato un errore durante l'avvio della registrazione."
 
-#: src/StyleSwitcher.vala:28
-msgid "Style:"
-msgstr "Stile:"
-
-#: src/StyleSwitcher.vala:32
-msgid "Light"
-msgstr "Chiaro"
-
-#: src/StyleSwitcher.vala:33
-msgid "Dark"
-msgstr "Scuro"
-
-#: src/StyleSwitcher.vala:34 src/Views/WelcomeView.vala:32
-msgid "System"
-msgstr "Sistema"
-
-#: src/Services/Recorder.vala:307
+#: src/Model/Recorder.vala:324
 msgid "Recording is ongoing"
 msgstr "La registrazione è in corso"
 
-#: src/Views/CountDownView.vala:37
+#: src/View/CountDownView.vala:37
 msgid "Cancel the countdown"
 msgstr "Annulla il conto alla rovescia"
 
-#: src/Views/CountDownView.vala:114
+#: src/View/CountDownView.vala:114
 msgid "Pause the countdown"
 msgstr "Metti in pausa il conto alla rovescia"
 
-#: src/Views/CountDownView.vala:119
+#: src/View/CountDownView.vala:119
 msgid "Resume the countdown"
 msgstr "Riprendi il conto alla rovescia"
 
-#: src/Views/RecordView.vala:50
+#: src/View/RecordView.vala:50
 msgid "Cancel recording"
 msgstr "Annulla la registrazione"
 
-#: src/Views/RecordView.vala:57
+#: src/View/RecordView.vala:57
 msgid "Finish recording"
 msgstr "Termina registrazione"
 
-#: src/Views/RecordView.vala:201
+#: src/View/RecordView.vala:201
 msgid "Pause recording"
 msgstr "Metti in pausa la registrazione"
 
-#: src/Views/RecordView.vala:206
+#: src/View/RecordView.vala:206
 msgid "Resume recording"
 msgstr "Riprendi la registrazione"
 
-#: src/Views/WelcomeView.vala:23
+#: src/View/WelcomeView.vala:23
 msgid "Source"
 msgstr "Sorgente"
 
-#: src/Views/WelcomeView.vala:25
+#: src/View/WelcomeView.vala:25
 msgid "Record from:"
 msgstr "Registra da:"
 
-#: src/Views/WelcomeView.vala:31
+#: src/View/WelcomeView.vala:31
 msgid "Microphone"
 msgstr "Microfono"
 
-#: src/Views/WelcomeView.vala:33
+#: src/View/WelcomeView.vala:33
 msgid "Both"
 msgstr "Entrambi"
 
-#: src/Views/WelcomeView.vala:35
+#: src/View/WelcomeView.vala:35
 msgid "Microphone:"
 msgstr "Microfono:"
 
-#: src/Views/WelcomeView.vala:45
+#: src/View/WelcomeView.vala:45
 msgid "Channels:"
 msgstr "Canali:"
 
-#: src/Views/WelcomeView.vala:51
+#: src/View/WelcomeView.vala:51
 msgid "Mono"
 msgstr "Mono"
 
-#: src/Views/WelcomeView.vala:52
+#: src/View/WelcomeView.vala:52
 msgid "Stereo"
 msgstr "Stereo"
 
-#: src/Views/WelcomeView.vala:54
+#: src/View/WelcomeView.vala:54
 msgid "Timer"
 msgstr "Timer"
 
-#: src/Views/WelcomeView.vala:56
+#: src/View/WelcomeView.vala:56
 msgid "Delay in seconds:"
 msgstr "Ritardo in secondi:"
 
-#: src/Views/WelcomeView.vala:63
+#: src/View/WelcomeView.vala:63
 msgid "Length in seconds:"
 msgstr "Durata in secondi:"
 
-#: src/Views/WelcomeView.vala:74
+#: src/View/WelcomeView.vala:74
 msgid "Saving"
 msgstr "Salvataggio"
 
-#: src/Views/WelcomeView.vala:76
+#: src/View/WelcomeView.vala:76
 msgid "Format:"
 msgstr "Formato:"
 
-#: src/Views/WelcomeView.vala:83
+#: src/View/WelcomeView.vala:83
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/Views/WelcomeView.vala:84
+#: src/View/WelcomeView.vala:84
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/Views/WelcomeView.vala:85
+#: src/View/WelcomeView.vala:85
 msgid "MP3"
 msgstr "MP3"
 
-#: src/Views/WelcomeView.vala:86
+#: src/View/WelcomeView.vala:86
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/Views/WelcomeView.vala:87
+#: src/View/WelcomeView.vala:87
 msgid "Opus"
 msgstr "Opus"
 
-#: src/Views/WelcomeView.vala:88
+#: src/View/WelcomeView.vala:88
 msgid "WAV"
 msgstr "WAV"
 
-#: src/Views/WelcomeView.vala:90
+#: src/View/WelcomeView.vala:90
 msgid "Automatically save files:"
 msgstr "Salva automaticamente i file:"
 
-#: src/Views/WelcomeView.vala:108 src/Views/WelcomeView.vala:265
+#: src/View/WelcomeView.vala:108 src/View/WelcomeView.vala:262
 msgid "Choose a default destination"
 msgstr "Scegli una destinazione predefinita"
 
-#: src/Views/WelcomeView.vala:147
+#: src/View/WelcomeView.vala:147
 msgid "Start recording"
 msgstr "Avvia registrazione"
 
-#: src/Views/WelcomeView.vala:257
+#: src/View/WelcomeView.vala:254
 msgid "Select destination…"
 msgstr "Seleziona destinazione…"
 
-#: src/Views/WelcomeView.vala:266
+#: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Seleziona"
-
-#~ msgid "Unable to Complete Recording"
-#~ msgstr "Impossibile completare la registrazione"
-
-#~ msgid "The following error message may be helpful:"
-#~ msgstr "Il seguente messaggio di errore può essere utile:"
-
-#~ msgid "Recording"
-#~ msgstr "Registrazione"
-
-#~ msgid "Recordings"
-#~ msgstr "Registrazioni"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancella"
-
-#~ msgid "Light style"
-#~ msgstr "Stile chiaro"
-
-#~ msgid "Dark style"
-#~ msgstr "Stile scuro"
-
-#~ msgid "Use the same style set in the system"
-#~ msgstr "Usa lo stesso stile impostato nel sistema"
-
-#~ msgid "Reco"
-#~ msgstr "Reco"
-
-#~ msgid "AAC"
-#~ msgstr "AAC"
-
-#~ msgid "Light background"
-#~ msgstr "Sfondo chiaro"
-
-#~ msgid "Dark background"
-#~ msgstr "Sfondo scuro"
-
-#~ msgid "Follow system style:"
-#~ msgstr "Segui lo stile del sistema:"
-
-#~ msgid "Microphone to use:"
-#~ msgstr "Microfono da usare:"
-
-#~ msgid "Computer"
-#~ msgstr "Computer"
