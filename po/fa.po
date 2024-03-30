@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.5-dev\n"
 
-#: data/reco.desktop.in:3
+#: data/reco.desktop.in:3 data/reco.metainfo.xml.in:10
 msgid "Reco"
 msgstr "Reco"
 
