@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.5-dev\n"
 
-#: data/reco.desktop.in:3
+#: data/reco.desktop.in:3 data/reco.metainfo.xml.in:10
 msgid "Reco"
 msgstr "Reco"
 
@@ -169,7 +169,7 @@ msgstr "Error al iniciar la grabación"
 msgid "There was an error while starting recording."
 msgstr "Se ha producido un error al iniciar la grabación."
 
-#: src/Model/Recorder.vala:330
+#: src/Model/Recorder.vala:330 src/Model/Recorder.vala:324
 msgid "Recording is ongoing"
 msgstr "Grabación en curso"
 
@@ -296,3 +296,501 @@ msgstr "Seleccionar el destino…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Seleccionar"
+
+#. developer_name has deprecated since AppStream 1.0
+#: data/reco.metainfo.xml.in:64
+msgid "Ryo Nakano"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:72
+msgid "5th anniversary release!"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:75
+msgid "Improvements:"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:79
+msgid "Add ability to choose which device to record from"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:80
+msgid ""
+"Show a graph depending on the volume to indicate recording is in progress "
+"(big thanks to @lcallarec for the live-chart library!)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:81
+msgid "Support recording over an hour"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:82
+msgid ""
+"System-synced color preference now available on any platforms other than "
+"Pantheon"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:83
+msgid "Flatpak: Update platform version"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:84
+msgid "Improve debug logs and error messages"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:85 data/reco.metainfo.xml.in:106
+#: data/reco.metainfo.xml.in:118 data/reco.metainfo.xml.in:127
+#: data/reco.metainfo.xml.in:401
+msgid "Update translations"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:86 data/reco.metainfo.xml.in:211
+#, fuzzy
+msgid "Code refactoring"
+msgstr "Pausar grabación"
+
+#: data/reco.metainfo.xml.in:88
+msgid "Fixes:"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:92
+msgid "Fix Ctrl+Q quits the app without saving"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:93
+msgid "Prevent user from recording when no microphone is connected"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:101
+msgid "Show important errors to users"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:102 data/reco.metainfo.xml.in:126
+msgid "Update Flatpak runtime version"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:103
+msgid "Improve app metainfo"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:104
+msgid "Review label notation"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:105
+msgid "Improve the way to load custom icons"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:114
+msgid "Migrate to GTK 4, the latest version of GTK"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:115
+msgid "Get disk access permission only when the user allowed"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:116
+msgid "Hide remaining time label when unnecessary"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:117
+msgid ""
+"Fix no style button selected on non-Pantheon desktop environments when first "
+"launch"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:135
+msgid "Check desktop environment on runtime"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:136
+msgid "Show nicer message dialogs depending on the running desktop environment"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:138 data/reco.metainfo.xml.in:153
+#: data/reco.metainfo.xml.in:180 data/reco.metainfo.xml.in:196
+#: data/reco.metainfo.xml.in:213
+msgid "Translation updates:"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:140
+msgid "Update French translation (thanks to @NathanBnm)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:141 data/reco.metainfo.xml.in:183
+#: data/reco.metainfo.xml.in:216 data/reco.metainfo.xml.in:226
+msgid "Update Portuguese translation (thanks to @hugok79)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:142 data/reco.metainfo.xml.in:182
+#: data/reco.metainfo.xml.in:236 data/reco.metainfo.xml.in:280
+msgid "Update Dutch translation (thanks to @Vistaus)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:143
+msgid "Add simplified Chinese translation (thanks to @ShuiHuo)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:150
+msgid "Reco is now available on Flathub too!"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:155 data/reco.metainfo.xml.in:217
+msgid "Update Spanish translation (thanks to @Eldhrimer)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:156 data/reco.metainfo.xml.in:184
+#: data/reco.metainfo.xml.in:198
+msgid "Update Italian translation (thanks to @albanobattistella)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:163
+msgid "Let's celebrate the new year with the issue from the ancient fixed!"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:167
+msgid ""
+"Replace AAC option with ALAC to prevent strange stereo files being generated"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:174
+msgid "The release for celebrating the 3rd anniversary of the app!"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:178
+msgid "Add new style switcher"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:185 data/reco.metainfo.xml.in:199
+#: data/reco.metainfo.xml.in:218 data/reco.metainfo.xml.in:228
+#: data/reco.metainfo.xml.in:258 data/reco.metainfo.xml.in:268
+#: data/reco.metainfo.xml.in:293 data/reco.metainfo.xml.in:313
+#: data/reco.metainfo.xml.in:325 data/reco.metainfo.xml.in:366
+#: data/reco.metainfo.xml.in:376 data/reco.metainfo.xml.in:387
+#: data/reco.metainfo.xml.in:411 data/reco.metainfo.xml.in:424
+#: data/reco.metainfo.xml.in:435
+msgid "Update Japanese translation"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:193
+msgid ""
+"Use the user cache folder instead of the system temporary folder to save "
+"temporary recording files"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:194
+msgid "Fix wrong OARS data"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:207
+msgid ""
+"Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
+"manifest"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:208
+msgid "A completely rewritten and improved method to detect recording sources"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:209
+msgid ""
+"Redesign: Separate Delay and Duration settings from Recording section as "
+"Timer section and put it under Recording section"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:210
+#, fuzzy
+msgid "Make sure to show a dialog for any errors in recording"
+msgstr "Se ha producido un error durante la grabación."
+
+#: data/reco.metainfo.xml.in:215
+msgid "Add Brazilian Portuguese translation (thanks to @mathessaricci)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:227
+msgid ""
+"Update Spanish translation and add Catalan translation (thanks to @fitojb)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:237
+msgid ""
+"Revert another change done in version 2.4.3 that potentially caused an error "
+"during the packaging process"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:238
+msgid "Revive the change that had been reverted in version 2.4.4"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:246
+msgid ""
+"Revert changes done in version 2.4.3 that potentially caused an error during "
+"the packaging process"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:254
+msgid "MainWindow: Readable copy for dialog messages"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:255
+msgid ""
+"MainWindow: Add window title for the new Gala feature that shows windows "
+"titles in Multitasking view"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:256
+msgid "Add Italian translation (thanks to @albanobattistella)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:257
+msgid "Add Portuguese translation (thanks to @hugok79)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:259
+msgid "Clean code"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:267
+#, fuzzy
+msgid "Inhibit sleeping while recording"
+msgstr "Error durante la grabación"
+
+#: data/reco.metainfo.xml.in:276
+msgid ""
+"Make sure GSettings key \"length\" and \"delay\" take only natural numbers"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:277
+msgid "Follow API change of Gtk.FileChooser in GTK 4"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:278
+msgid "Fix temporary recordings are not deleted on error"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:279
+msgid "Fix some microphones are not recognized (thanks to @peteruithoven)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:281
+msgid "Update Turkish translation (thanks to @safak45x)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:289
+msgid "Respect an elementary OS-wide dark preference"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:290
+msgid "Allow setting per-app dark style preference"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:291
+msgid "Allow choosing stereo or mono"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:292
+msgid "Update Spanish translation (thanks to @CCaroV)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:294
+msgid ""
+"Explicit gstreamer1.0-libav as a dependency to fix a potential crash when "
+"trying to record in AAC"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:302
+msgid "Add Turkish translation (by @safak45x)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:303
+msgid "Add Russian translation (by @usmanovmax)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:311
+msgid "Add Polish translation (by @michalzkosmosu)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:312
+msgid "Update French translation (by @NathanBnm)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:321
+msgid ""
+"Fix the weird behavior of the countdown timer when pausing/canceling it (by "
+"andreasomaini)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:322
+msgid ""
+"Support recording sounds from both your microphone and PC at the same time"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:323
+msgid "End the app safely if the encoder is not created successfully"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:324
+msgid ""
+"Update the app description in the readme and AppCenter to be more tantalizing"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:326
+msgid "Remove unnecessary field code that marks the app handleable files"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:334
+msgid "Fix recording won't success when changing the file format"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:335
+msgid "Add Spanish translation (by fitojb)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:343
+msgid "Getting/setting window positions gets more efficient"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:344
+msgid ""
+"Fix the app does not resume the pause icon when you cancel recording while "
+"pausing it"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:345
+msgid ""
+"Fix the app shows the successful mark even if a recording is not saved "
+"correctly"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:346
+msgid "Save and restore values typed into the spin buttons"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:354
+msgid "Allow to cancel/pause countdown before recording"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:355
+msgid "Save recordings when the app window is destroyed"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:356
+msgid "Fix the app freezes on closing an error dialog"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:364
+msgid "Allow to record system sound"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:365
+msgid "Fix the timer does not stop in accordance with the recording"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:374
+msgid "Grammatically fixes in the app description (by imasaru)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:375
+msgid "Fix the localized screenshots don't appear to AppCenter"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:384
+msgid ""
+"Provide localized screenshots to AppCenter (French, Japanese, Lithuanian and "
+"Dutch)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:385
+msgid "Fix temporary recording files remain when quit the app while recording"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:386
+msgid "Use upper case for WAV"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:388
+msgid "Add Dutch translation (by Vistaus)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:396
+msgid ""
+"Fix the app isn't listed in the \"Sound &amp; Video\" category in "
+"Applications Menu"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:397
+msgid "Add a shortcut key to toggle recording"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:398
+msgid "Fix the name of \"Recordings\" folder is not created in system language"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:399
+msgid "Notify success of recording with a check mark"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:400
+#, fuzzy
+msgid "Allow to cancel/pause recording"
+msgstr "Cancelar grabación"
+
+#: data/reco.metainfo.xml.in:409
+msgid ""
+"Show a confirmation dialog when trying to quit the app if a recording is in "
+"progress"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:410
+msgid "Add Lithuanian translation (by welaq)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:419
+msgid "Save and restore settings"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:420
+msgid "Support both do-not-ask-where-to-save flow and ask-where-to-save flow"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:421
+msgid "Organized UI"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:422
+msgid "Some small bug fixes"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:423
+msgid "Add French translation (by NathanBnm)"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:432
+#, fuzzy
+msgid "Allow to set recording length"
+msgstr "Error al guardar la grabación"
+
+#: data/reco.metainfo.xml.in:433
+msgid "Fix the countdown is weird when recording more than twice"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:434
+msgid "Localization improvement"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:443
+msgid "Support recording with AAC, FLAC, Ogg Vorbis, Opus and MP3 formats"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:444
+#, fuzzy
+msgid "Show a notification after recorded successfully"
+msgstr "Una indicación de que la grabación se ha completado con éxito"
+
+#: data/reco.metainfo.xml.in:445
+msgid "Add Japanese translation"
+msgstr ""
+
+#: data/reco.metainfo.xml.in:453
+msgid "Initial release"
+msgstr ""
