@@ -300,34 +300,3 @@ msgstr "Velg mål …"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Velg"
-
-#~ msgid "Preferences"
-#~ msgstr "Innstillinger"
-
-#, fuzzy
-#~ msgid "Unable to Complete Recording"
-#~ msgstr "Kunne ikke fullføre opptak"
-
-#~ msgid "The following error message may be helpful:"
-#~ msgstr "Følgende feilmelding kan være nyttig:"
-
-#~ msgid "Recordings"
-#~ msgstr "Opptak"
-
-#~ msgid "Cancel"
-#~ msgstr "Avbryt"
-
-#~ msgid "Light style"
-#~ msgstr "Lys stil"
-
-#~ msgid "Dark style"
-#~ msgstr "Mørk stil"
-
-#~ msgid "Use the same style set in the system"
-#~ msgstr "Bruk samme stil valgt i systemet"
-
-#~ msgid "Ryo Nakano"
-#~ msgstr "Ryo Nakano"
-
-#~ msgid "Initial release"
-#~ msgstr "Opprinnelig utgave"

@@ -284,12 +284,3 @@ msgstr "انتخاب مقصد…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "انتخاب کنید"
-
-#~ msgid "Preferences"
-#~ msgstr "تنظیمات"
-
-#~ msgid "Unable to Complete Recording"
-#~ msgstr "امکان تکمیل ضبط وجود ندارد"
-
-#~ msgid "The following error message may be helpful:"
-#~ msgstr "پیام خطای زیر ممکن است مفید باشد:"

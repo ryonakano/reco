@@ -286,27 +286,3 @@ msgstr "选择默认目录"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr ""
-
-#~ msgid "Preferences"
-#~ msgstr "首选项"
-
-#~ msgid "Unable to Complete Recording"
-#~ msgstr "无法完成录音"
-
-#~ msgid "The following error message may be helpful:"
-#~ msgstr "下面的错误消息可能会有所帮助："
-
-#~ msgid "Recordings"
-#~ msgstr "录音"
-
-#~ msgid "Cancel"
-#~ msgstr "取消"
-
-#~ msgid "Light style"
-#~ msgstr "亮色样式"
-
-#~ msgid "Dark style"
-#~ msgstr "暗色样式"
-
-#~ msgid "Use the same style set in the system"
-#~ msgstr "与系统一致的样式"

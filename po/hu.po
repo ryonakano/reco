@@ -288,9 +288,3 @@ msgstr "Könyvtár kiválasztása…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Kiválasztás"
-
-#~ msgid "Preferences"
-#~ msgstr "Beállítások"
-
-#~ msgid "Ryo Nakano"
-#~ msgstr "Ryo Nakano"

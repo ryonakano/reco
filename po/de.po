@@ -299,19 +299,3 @@ msgstr "Ziel auswählen …"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Auswählen"
-
-#~ msgid "Preferences"
-#~ msgstr "Einstellungen"
-
-#~ msgid "Ryo Nakano"
-#~ msgstr "Ryo Nakano"
-
-#~ msgid "Record talks to remember the contents later"
-#~ msgstr ""
-#~ "Zeichnen Sie Vorträge auf, um sich später an die Inhalte erinnern zu "
-#~ "können"
-
-#~ msgid "An audio recording app that helps you recall things talked later."
-#~ msgstr ""
-#~ "Eine Audio-Aufnahmeanwendung, die es Ihnen erleichtert, sich an Vorträge "
-#~ "zu erinnern."

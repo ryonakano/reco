@@ -280,12 +280,3 @@ msgstr "Valitse sijainti…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Valitse"
-
-#~ msgid "Preferences"
-#~ msgstr "Asetukset"
-
-#~ msgid "Unable to Complete Recording"
-#~ msgstr "Äänitallenteen valmistelu ei onnistunut"
-
-#~ msgid "The following error message may be helpful:"
-#~ msgstr "Seuraava virheviesti saattaa olla hyödyksi:"
