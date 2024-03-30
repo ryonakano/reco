@@ -3,21 +3,21 @@
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2019.
 # Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted.weblate.org>, 2023.
-# gallegonovato <fran-carro@hotmail.es>, 2023.
+# gallegonovato <fran-carro@hotmail.es>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-30 09:22+0900\n"
-"PO-Revision-Date: 2023-12-20 19:09+0000\n"
+"PO-Revision-Date: 2024-03-31 14:01+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
-"Language-Team: \n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/rosp/reco/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/reco.desktop.in:3
 msgid "Reco"
@@ -122,13 +122,12 @@ msgid "System"
 msgstr "Sistema"
 
 #: src/MainWindow.vala:32
-#, fuzzy
 msgid "Style"
-msgstr "Estilo:"
+msgstr "Estilo"
 
 #: src/MainWindow.vala:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Menú principal"
 
 #: src/MainWindow.vala:117
 msgid "Error while recording"
