@@ -43,8 +43,8 @@
 
   <branding>
     <color type="primary">#a10705</color>
-    <color type="primary" schema_preference="light">#c6262e</color>
-    <color type="primary" schema_preference="dark">#ff8c82</color>
+    <color type="primary" scheme_preference="light">#c6262e</color>
+    <color type="primary" scheme_preference="dark">#ff8c82</color>
   </branding>
 
   <content_rating type="oars-1.1" />
