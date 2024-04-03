@@ -51,6 +51,10 @@ public class Manager.DeviceManager : Object {
         monitor.start ();
     }
 
+    ~DeviceManager () {
+        monitor.stop ();
+    }
+
     private void update_devices () {
         bool is_default;
 
