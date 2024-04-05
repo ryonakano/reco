@@ -3,7 +3,8 @@ Reco is an audio recorder focused on being concise and simple to use.
 
 You can use it to record and remember spoken words, system audio, improvized melodies, and anything else you can do with a microphone, speaker, or both.
 
-![Welcome view](data/screenshots/pantheon/welcome-init-light.png) ![Recording view](data/screenshots/pantheon/recording-light.png)
+![Welcome view in the light mode](data/screenshots/pantheon/welcome-init-light.png#gh-light-mode-only) ![Recording view in the light mode](data/screenshots/pantheon/recording-light.png#gh-light-mode-only)
+![Welcome view in the dark mode](data/screenshots/pantheon/welcome-init-dark.png#gh-dark-mode-only) ![Recording view in the dark mode](data/screenshots/pantheon/recording-dark.png#gh-dark-mode-only)
 
 Features include:
 
