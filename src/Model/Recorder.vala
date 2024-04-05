@@ -79,6 +79,7 @@ namespace Model {
         private string suffix;
         private Gst.Pipeline pipeline;
         private uint inhibit_token = 0;
+        private const uint64 NSEC = 1000000000;
 
         private enum SourceID {
             MIC,
@@ -222,6 +223,11 @@ namespace Model {
                     if (mixer == null) {
                         throw new RecorderError.CREATE_ERROR ("Failed to create element \"audiomixer\"");
                     }
+
+                    // Prevent audio from stuttering after some time, by setting the latency to other than 0.
+                    // This issue happens once audiomixer begins to be late and drop buffers.
+                    // See https://github.com/SeaDve/Kooha/issues/218#issuecomment-1948123954
+                    mixer.set_property ("latency", 1 * NSEC);
 
                     pipeline.add_many (mic_sound, sys_sound, mixer);
                     mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
