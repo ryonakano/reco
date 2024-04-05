@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-30 09:22+0900\n"
+"POT-Creation-Date: 2024-04-05 21:12+0900\n"
 "PO-Revision-Date: 2023-12-19 15:11+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: \n"
@@ -170,7 +170,7 @@ msgstr "Не вдалося розпочати запис"
 msgid "There was an error while starting recording."
 msgstr "Виникла помилка під час початку запису."
 
-#: src/Model/Recorder.vala:324
+#: src/Model/Recorder.vala:330
 msgid "Recording is ongoing"
 msgstr "Триває запис"
 
