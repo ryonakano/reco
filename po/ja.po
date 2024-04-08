@@ -1,21 +1,21 @@
 # Japanese translations for com.github.ryonakano.reco.
 # Copyright (C) 2018-2024 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2023.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-30 09:22+0900\n"
-"PO-Revision-Date: 2023-12-19 15:11+0000\n"
+"POT-Creation-Date: 2024-04-05 21:12+0900\n"
+"PO-Revision-Date: 2024-03-30 02:26+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/reco.desktop.in:3
 msgid "Reco"
@@ -117,13 +117,12 @@ msgid "System"
 msgstr "システム"
 
 #: src/MainWindow.vala:32
-#, fuzzy
 msgid "Style"
-msgstr "スタイル:"
+msgstr "スタイル"
 
 #: src/MainWindow.vala:35
 msgid "Main Menu"
-msgstr ""
+msgstr "メインメニュー"
 
 #: src/MainWindow.vala:117
 msgid "Error while recording"
@@ -165,7 +164,7 @@ msgstr "録音を開始できませんでした"
 msgid "There was an error while starting recording."
 msgstr "録音開始中にエラーが発生しました。"
 
-#: src/Model/Recorder.vala:324
+#: src/Model/Recorder.vala:330
 msgid "Recording is ongoing"
 msgstr "録音中です"
 

@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-30 09:22+0900\n"
-"PO-Revision-Date: 2024-03-20 22:51+0000\n"
-"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2024-04-05 21:12+0900\n"
+"PO-Revision-Date: 2024-04-03 14:42+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/rosp/"
+"reco/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -125,7 +126,7 @@ msgstr "Drakt"
 
 #: src/MainWindow.vala:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Hovedmeny"
 
 #: src/MainWindow.vala:117
 msgid "Error while recording"
@@ -170,7 +171,7 @@ msgstr "Kunne ikke starte opptak"
 msgid "There was an error while starting recording."
 msgstr "En feil inntraff under oppstart av opptak."
 
-#: src/Model/Recorder.vala:324
+#: src/Model/Recorder.vala:330
 msgid "Recording is ongoing"
 msgstr "Opptak pågår"
 

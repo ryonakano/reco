@@ -4,20 +4,21 @@
 # Safak Genisol (@safak45x), 2019, 2020.
 # Sabri Ünal <libreajans@gmail.com>, 2022, 2023.
 # Oğuz Ersen <oguz@ersen.moe>, 2022, 2023.
+# Sabri Ünal <yakushabb@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-30 09:22+0900\n"
-"PO-Revision-Date: 2023-12-10 12:05+0000\n"
-"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2024-04-05 21:12+0900\n"
+"PO-Revision-Date: 2024-04-05 23:53+0000\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/reco.desktop.in:3
 msgid "Reco"
@@ -29,7 +30,7 @@ msgstr "Ses Kayıt Uygulaması"
 
 #: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
 msgid "Focus on recording"
-msgstr ""
+msgstr "Kayda odaklan"
 
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
@@ -37,66 +38,63 @@ msgstr "Kayıt;Ses;Konuşma;Kaydet;"
 
 #: data/reco.metainfo.xml.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
-msgstr ""
+msgstr "Reco, basit ve kullanımı kolay bir ses kaydedicidir."
 
 #: data/reco.metainfo.xml.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
+"Konuşulan kelimeleri, sistem sesini, doğaçlama melodileri, bir mikrofon yada "
+"hopörlür ile yapabileceğiniz her şeyi kaydetmek ve hatırlamak için "
+"kullanabilirsiniz."
 
 #: data/reco.metainfo.xml.in:17
 msgid "Features include:"
 msgstr "Özellikler:"
 
 #: data/reco.metainfo.xml.in:19
-#, fuzzy
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
 "Hem mikrofonunuzdan hem de sisteminizden gelen sesleri aynı anda kaydedin. "
-"Bu, sohbet uygulamalarıyla konuşmaları kaydettiğinizde veya internette video "
-"akışı yaptığınızda yararlı olacaktır"
+"Bu, aramaları kaydetmek ya da internette video akışı yapmak için "
+"kullanışlıdır."
 
 #: data/reco.metainfo.xml.in:20
-#, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
-"Yaygın olarak kullanılan bazı formatlarda kaydetme. ALAC, FLAC, MP3, Ogg "
-"Vorbis, Opus ve WAV'ı destekler"
+"Yaygın olarak kullanılan pek çok biçimde kaydetme. ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus ve WAV'ı destekler."
 
 #: data/reco.metainfo.xml.in:21
-#, fuzzy
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
 "Zamanlanmış kayıt. Kayıttan önce 15 saniyeye kadar gecikme ve 600 saniyeye "
-"kadar kayıt uzunluğu ayarlayabilirsiniz"
+"kadar kayıt uzunluğu ayarlayabilirsiniz."
 
 #: data/reco.metainfo.xml.in:22
-#, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
-"Otomatik kaydetme veya her zaman nereye kaydedileceğini sor iş akışı. "
-"Uygulamanın kayıtları otomatik olarak kaydetmesini veya kaydederken her "
-"seferinde bir hedef seçmenizi ayarlayabilirsiniz"
+"Kayıtların nereye kaydedileceğini seçme. Uygulamanın kayıtları kendiliğinden "
+"ya da elle seçtiğiniz bir dizine kaydedilme durumunu seçebilirsiniz."
 
 #: data/reco.metainfo.xml.in:23
-#, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
 "Uygulamadan çıkıldığında kaydı kaydetme. Kayıt sırasında uygulamadan "
-"çıksanız bile, kayıt otomatik olarak kaydedilir veya kaydetme ayarınıza "
-"bağlı olarak dosya seçici iletişim kutusu gösterilir"
+"çıksanız bile, kayıt kendiliğinden kaydedilir ya da tercihlerinize bağlı "
+"olarak dosya seçici iletişim kutusu gösterilir."
 
 #: data/reco.metainfo.xml.in:29
 msgid "Welcome view; perform recording configuration"
@@ -123,13 +121,12 @@ msgid "System"
 msgstr "Sistem"
 
 #: src/MainWindow.vala:32
-#, fuzzy
 msgid "Style"
-msgstr "Biçem:"
+msgstr "Biçem"
 
 #: src/MainWindow.vala:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Ana Menü"
 
 #: src/MainWindow.vala:117
 msgid "Error while recording"
@@ -171,7 +168,7 @@ msgstr "Kayıt başlatılamadı"
 msgid "There was an error while starting recording."
 msgstr "Kayıt başlatılırken bir hata oluştu."
 
-#: src/Model/Recorder.vala:324
+#: src/Model/Recorder.vala:330
 msgid "Recording is ongoing"
 msgstr "Kayıt devam ediyor"
 

@@ -2,24 +2,25 @@
 # Copyright (C) 2018-2024 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Hossein Aghaie <hossein.a97@gmail.com>, 2023.
+# Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-30 09:22+0900\n"
-"PO-Revision-Date: 2023-09-10 12:53+0000\n"
-"Last-Translator: Hossein Aghaie <hossein.a97@gmail.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2024-04-05 21:12+0900\n"
+"PO-Revision-Date: 2024-03-30 02:26+0000\n"
+"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/rosp/reco/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/reco.desktop.in:3
 msgid "Reco"
-msgstr ""
+msgstr "Reco"
 
 #: data/reco.desktop.in:4
 msgid "Audio Recording App"
@@ -156,7 +157,7 @@ msgstr "شروع به ضبط کنید"
 msgid "There was an error while starting recording."
 msgstr ""
 
-#: src/Model/Recorder.vala:324
+#: src/Model/Recorder.vala:330
 msgid "Recording is ongoing"
 msgstr "ضبط در حال انجام است"
 

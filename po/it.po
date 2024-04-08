@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-30 09:22+0900\n"
+"POT-Creation-Date: 2024-04-05 21:12+0900\n"
 "PO-Revision-Date: 2023-12-25 22:10+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: \n"
@@ -171,7 +171,7 @@ msgstr "Impossibile avviare la registrazione"
 msgid "There was an error while starting recording."
 msgstr "Si è verificato un errore durante l'avvio della registrazione."
 
-#: src/Model/Recorder.vala:324
+#: src/Model/Recorder.vala:330
 msgid "Recording is ongoing"
 msgstr "La registrazione è in corso"
 
