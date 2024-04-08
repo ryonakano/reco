@@ -280,28 +280,3 @@ msgstr "Seleccionar una destinacion…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Seleccionar"
-
-#, fuzzy
-#~| msgid "Pause recording"
-#~ msgid "Code refactoring"
-#~ msgstr "Pausar l'enregistrament"
-
-#, fuzzy
-#~| msgid "There was an error while recording."
-#~ msgid "Make sure to show a dialog for any errors in recording"
-#~ msgstr "Una error se's producha pendent l'enregistrament."
-
-#, fuzzy
-#~| msgid "Error while recording"
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "Error pendent l’enregistrament"
-
-#, fuzzy
-#~| msgid "Cancel recording"
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "Anullar l'enregistrament"
-
-#, fuzzy
-#~| msgid "Failed to save recording"
-#~ msgid "Allow to set recording length"
-#~ msgstr "Fracàs de l'enregistrament del fichièr"

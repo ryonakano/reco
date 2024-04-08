@@ -299,33 +299,3 @@ msgstr "Wybierz domyślne położenie…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Wybierz"
-
-#, fuzzy
-#~| msgid "Pause recording"
-#~ msgid "Code refactoring"
-#~ msgstr "Wstrzymaj nagrywanie"
-
-#, fuzzy
-#~| msgid "There was an error while recording."
-#~ msgid "Make sure to show a dialog for any errors in recording"
-#~ msgstr "Wystąpił błąd podczas nagrywania."
-
-#, fuzzy
-#~| msgid "Error while recording"
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "Błąd przy nagrywaniu"
-
-#, fuzzy
-#~| msgid "Cancel recording"
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "Anuluj nagrywanie"
-
-#, fuzzy
-#~| msgid "Failed to save recording"
-#~ msgid "Allow to set recording length"
-#~ msgstr "Nie udało się zapisać nagrania"
-
-#, fuzzy
-#~| msgid "An indication that recording is successfully finished"
-#~ msgid "Show a notification after recorded successfully"
-#~ msgstr "Wiadomość, że nagrywanie zostało pomyślnie zakończone"

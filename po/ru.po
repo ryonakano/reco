@@ -294,33 +294,3 @@ msgstr "Выбрать место назначения…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Выбрать"
-
-#, fuzzy
-#~| msgid "Pause recording"
-#~ msgid "Code refactoring"
-#~ msgstr "Приостановить запись"
-
-#, fuzzy
-#~| msgid "There was an error while recording."
-#~ msgid "Make sure to show a dialog for any errors in recording"
-#~ msgstr "Произошла ошибка во время записи."
-
-#, fuzzy
-#~| msgid "Error while recording"
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "Ошибка при записи"
-
-#, fuzzy
-#~| msgid "Cancel recording"
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "Отменить запись"
-
-#, fuzzy
-#~| msgid "Failed to save recording"
-#~ msgid "Allow to set recording length"
-#~ msgstr "Не удалось сохранить запись"
-
-#, fuzzy
-#~| msgid "An indication that recording is successfully finished"
-#~ msgid "Show a notification after recorded successfully"
-#~ msgstr "Индикатор успешного завершения записи"

@@ -307,27 +307,3 @@ msgstr "Sélectionner une destination…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Sélectionner"
-
-#, fuzzy
-#~| msgid "Pause recording"
-#~ msgid "Code refactoring"
-#~ msgstr "Mettre en pause l'enregistrement"
-
-#, fuzzy
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "Mettre en pause l'enregistrement"
-
-#, fuzzy
-#~| msgid "Cancel recording"
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "Annuler l'enregistrement"
-
-#, fuzzy
-#~ msgid "Allow to set recording length"
-#~ msgstr "Mettre en pause l'enregistrement"
-
-#, fuzzy
-#~| msgid "An indication that recording is successfully finished"
-#~ msgid "Show a notification after recorded successfully"
-#~ msgstr ""
-#~ "Une indication montrant que l'enregistrement est terminé avec succès"

@@ -285,21 +285,3 @@ msgstr "انتخاب مقصد…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "انتخاب کنید"
-
-#, fuzzy
-#~| msgid "Pause recording"
-#~ msgid "Code refactoring"
-#~ msgstr "مکث ضبط"
-
-#, fuzzy
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "مکث ضبط"
-
-#, fuzzy
-#~| msgid "Cancel recording"
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "ضبط را لغو کنید"
-
-#, fuzzy
-#~ msgid "Allow to set recording length"
-#~ msgstr "مکث ضبط"

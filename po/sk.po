@@ -296,33 +296,3 @@ msgstr "Vyberte cieľ…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Vybrať"
-
-#, fuzzy
-#~| msgid "Pause recording"
-#~ msgid "Code refactoring"
-#~ msgstr "Pozastaviť nahrávanie"
-
-#, fuzzy
-#~| msgid "There was an error while recording."
-#~ msgid "Make sure to show a dialog for any errors in recording"
-#~ msgstr "Nahrávanie došlo k chybe."
-
-#, fuzzy
-#~| msgid "Error while recording"
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "Chyba pri nahrávaní"
-
-#, fuzzy
-#~| msgid "Cancel recording"
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "Zrušiť nahrávanie"
-
-#, fuzzy
-#~| msgid "Failed to save recording"
-#~ msgid "Allow to set recording length"
-#~ msgstr "Zneužívanie záznamu"
-
-#, fuzzy
-#~| msgid "An indication that recording is successfully finished"
-#~ msgid "Show a notification after recorded successfully"
-#~ msgstr "Indikácia, že sa nahrávanie úspešne dokončilo"

@@ -288,28 +288,3 @@ msgstr "Könyvtár kiválasztása…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Kiválasztás"
-
-#, fuzzy
-#~| msgid "Pause recording"
-#~ msgid "Code refactoring"
-#~ msgstr "Felvétel szüneteltetése"
-
-#, fuzzy
-#~| msgid "There was an error while recording."
-#~ msgid "Make sure to show a dialog for any errors in recording"
-#~ msgstr "A felvétel készítése során hiba történt."
-
-#, fuzzy
-#~| msgid "Error while recording"
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "Nem sikerült a felvétel"
-
-#, fuzzy
-#~| msgid "Cancel recording"
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "Felvétel megszakítása"
-
-#, fuzzy
-#~| msgid "Failed to save recording"
-#~ msgid "Allow to set recording length"
-#~ msgstr "Mentés sikertelen"

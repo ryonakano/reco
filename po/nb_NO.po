@@ -301,32 +301,3 @@ msgstr "Velg mål …"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Velg"
-
-#, fuzzy
-#~| msgid "Pause recording"
-#~ msgid "Code refactoring"
-#~ msgstr "Sett opptak på pause"
-
-#, fuzzy
-#~| msgid "There was an error while recording."
-#~ msgid "Make sure to show a dialog for any errors in recording"
-#~ msgstr "En feil inntraff under opptak."
-
-#, fuzzy
-#~| msgid "Error while recording"
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "Feil under opptak"
-
-#, fuzzy
-#~| msgid "Cancel recording"
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "Avbryt opptak"
-
-#, fuzzy
-#~ msgid "Allow to set recording length"
-#~ msgstr "Kunne ikke lagre opptak"
-
-#, fuzzy
-#~| msgid "An indication that recording is successfully finished"
-#~ msgid "Show a notification after recorded successfully"
-#~ msgstr "En indikasjon på at opptaket har blitt fullført"

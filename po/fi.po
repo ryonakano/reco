@@ -281,28 +281,3 @@ msgstr "Valitse sijainti…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Valitse"
-
-#, fuzzy
-#~| msgid "Pause recording"
-#~ msgid "Code refactoring"
-#~ msgstr "Keskeytä äänitallenne"
-
-#, fuzzy
-#~| msgid "There was an error while recording."
-#~ msgid "Make sure to show a dialog for any errors in recording"
-#~ msgstr "Ääntä tallentaessa tapahtui virhe."
-
-#, fuzzy
-#~| msgid "Error while recording"
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "Virhe tallentaessa ääntä"
-
-#, fuzzy
-#~| msgid "Cancel recording"
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "Peru äänitallenne"
-
-#, fuzzy
-#~| msgid "Failed to save recording"
-#~ msgid "Allow to set recording length"
-#~ msgstr "Äänitallenteen tallentaminen epäonnistui"

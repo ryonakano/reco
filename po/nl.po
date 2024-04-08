@@ -304,25 +304,3 @@ msgstr "Kies een opslaglocatie…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Kiezen"
-
-#, fuzzy
-#~| msgid "Pause recording"
-#~ msgid "Code refactoring"
-#~ msgstr "Opname pauzeren"
-
-#, fuzzy
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "Opname pauzeren"
-
-#, fuzzy
-#~| msgid "Cancel recording"
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "Opname afbreken"
-
-#, fuzzy
-#~ msgid "Allow to set recording length"
-#~ msgstr "Opname pauzeren"
-
-#, fuzzy
-#~ msgid "Show a notification after recorded successfully"
-#~ msgstr "Opname is afgerond"

@@ -299,33 +299,3 @@ msgstr "Ziel auswählen …"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Auswählen"
-
-#, fuzzy
-#~| msgid "Pause recording"
-#~ msgid "Code refactoring"
-#~ msgstr "Aufnahme pausieren"
-
-#, fuzzy
-#~| msgid "There was an error while recording."
-#~ msgid "Make sure to show a dialog for any errors in recording"
-#~ msgstr "Während der Aufnahme ist ein Fehler aufgetreten."
-
-#, fuzzy
-#~| msgid "Error while recording"
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "Aufnahme fehlgeschlagen"
-
-#, fuzzy
-#~| msgid "Cancel recording"
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "Aufnahme abbrechen"
-
-#, fuzzy
-#~| msgid "Failed to save recording"
-#~ msgid "Allow to set recording length"
-#~ msgstr "Speichern der Aufnahme fehlgeschlagen"
-
-#, fuzzy
-#~| msgid "An indication that recording is successfully finished"
-#~ msgid "Show a notification after recorded successfully"
-#~ msgstr "Eine Indikation, dass die Aufnahme erfolgreich beendet wurde"

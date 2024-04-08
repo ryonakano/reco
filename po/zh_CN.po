@@ -287,21 +287,3 @@ msgstr "选择默认目录"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Pause recording"
-#~ msgid "Code refactoring"
-#~ msgstr "暂停录音"
-
-#, fuzzy
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "暂停录音"
-
-#, fuzzy
-#~| msgid "Cancel recording"
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "取消录音"
-
-#, fuzzy
-#~ msgid "Allow to set recording length"
-#~ msgstr "暂停录音"

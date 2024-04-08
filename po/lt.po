@@ -294,19 +294,3 @@ msgstr "Pasirinkite numatytąją vietą"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Code refactoring"
-#~ msgstr "Pradėti įrašinėjimą"
-
-#, fuzzy
-#~ msgid "Inhibit sleeping while recording"
-#~ msgstr "Pradėti įrašinėjimą"
-
-#, fuzzy
-#~ msgid "Allow to cancel/pause recording"
-#~ msgstr "Pradėti įrašinėjimą"
-
-#, fuzzy
-#~ msgid "Allow to set recording length"
-#~ msgstr "Pradėti įrašinėjimą"
