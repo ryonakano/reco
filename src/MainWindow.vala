@@ -154,6 +154,19 @@ public class MainWindow : Gtk.ApplicationWindow {
 
                 if (is_success) {
                     welcome_view.show_success_button ();
+
+                    var notification = new Notification (_("Saved recording"));
+                    // The app that handles actions would be already destroyed when the user activates the notification,
+                    // so do not offer actions if it's decided to be destroyed
+                    if (destroy_on_save) {
+                        notification.set_body (_("Recording saved successfully."));
+                    } else {
+                        notification.set_body (_("Click here to play."));
+                        notification.set_default_action_and_target_value ("app.open", new Variant.string (save_path.get_path ()));
+                        notification.add_button_with_target_value (_("Open folder"), "app.open", new Variant.string (save_path.get_parent ().get_path ()));
+                    }
+
+                    application.send_notification ("com.github.ryonakano.reco", notification);
                 }
 
                 if (destroy_on_save) {
