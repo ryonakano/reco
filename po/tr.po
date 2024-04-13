@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-05 21:12+0900\n"
+"POT-Creation-Date: 2024-04-13 11:10+0900\n"
 "PO-Revision-Date: 2024-04-05 23:53+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco/tr/>\n"
@@ -32,7 +32,7 @@ msgstr "Ses Kayıt Uygulaması"
 msgid "Focus on recording"
 msgstr "Kayda odaklan"
 
-#: data/reco.desktop.in:11
+#: data/reco.desktop.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Kayıt;Ses;Konuşma;Kaydet;"
 
@@ -144,27 +144,44 @@ msgstr "Kayıt sırasında bir hata oluştu."
 msgid "Recording from %s"
 msgstr "Kayıt tarihi %s"
 
-#: src/MainWindow.vala:144 src/MainWindow.vala:180
+#: src/MainWindow.vala:148
 msgid "Failed to save recording"
 msgstr "Kayıt kaydedilemedi"
 
-#: src/MainWindow.vala:145 src/MainWindow.vala:181
+#: src/MainWindow.vala:149
 msgid "There was an error while moving file to the designated location."
 msgstr "Dosya belirlenen konuma taşınırken bir hata oluştu."
 
-#: src/MainWindow.vala:156
+#: src/MainWindow.vala:158
+#, fuzzy
+msgid "Saved recording"
+msgstr "Kaydı kaydedin"
+
+#: src/MainWindow.vala:162
+msgid "Recording saved successfully."
+msgstr ""
+
+#: src/MainWindow.vala:164
+msgid "Click here to play."
+msgstr ""
+
+#: src/MainWindow.vala:166
+msgid "Open folder"
+msgstr ""
+
+#: src/MainWindow.vala:195
 msgid "Save your recording"
 msgstr "Kaydı kaydedin"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:196
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/MainWindow.vala:210
+#: src/MainWindow.vala:231
 msgid "Failed to start recording"
 msgstr "Kayıt başlatılamadı"
 
-#: src/MainWindow.vala:211
+#: src/MainWindow.vala:232
 msgid "There was an error while starting recording."
 msgstr "Kayıt başlatılırken bir hata oluştu."
 
