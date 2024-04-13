@@ -67,7 +67,7 @@
   </developer>
 
   <releases>
-    <release version="5.0.1" date="2024-04-03" urgency="medium">
+    <release version="5.0.1" date="2024-04-13" urgency="medium">
       <description translate="no">
         <p>
           Improvements:
@@ -76,6 +76,7 @@
           <li>Reword string in metainfo (thanks to @daPhipz)</li>
           <li>Reword and elaborate on metadata and descriptions (thanks to @roxwize)</li>
           <li>Show tooltip for each row of microphone combobox</li>
+          <li>Add notification after saving recording for play and open folder</li>
           <li>Update submodules</li>
           <li>Update translations</li>
         </ul>
