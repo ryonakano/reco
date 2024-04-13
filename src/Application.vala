@@ -12,6 +12,13 @@ public class Application : Gtk.Application {
 
     public static Settings settings { get; private set; }
 
+    /**
+     * Action names and their callbacks.
+     */
+    private const ActionEntry[] ACTION_ENTRIES = {
+        { "open", on_open_activate, "s" },
+    };
+
     private MainWindow window;
     private unowned Manager.StyleManager style_manager;
 
@@ -127,6 +134,19 @@ public class Application : Gtk.Application {
         add_action (style_action);
     }
 
+    private void on_open_activate (SimpleAction action, Variant? parameter) requires (parameter != null) {
+        unowned string path = parameter.get_string ();
+        var launcher = new Gtk.FileLauncher (File.new_for_path (path));
+
+        launcher.launch.begin (window, null, (obj, res) => {
+            try {
+                launcher.launch.end (res);
+            } catch (Error err) {
+                warning ("on_open_activate: failed to Gtk.FileLauncher.launch: %s", err.message);
+            }
+        });
+    }
+
     protected override void startup () {
         base.startup ();
 
@@ -140,16 +160,13 @@ public class Application : Gtk.Application {
 
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
-        // TODO: Deprecated in Gtk 4.10, buit no alternative api is provided so leave it for now
         Gtk.StyleContext.add_provider_for_display (display,
                                                    cssprovider,
                                                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        // Load GResource for our custom icons
-        var icon_theme = Gtk.IconTheme.get_for_display (display);
-        icon_theme.add_resource_path ("/com/github/ryonakano/reco");
-
         setup_style ();
+
+        add_action_entries (ACTION_ENTRIES, this);
     }
 
     protected override void activate () {

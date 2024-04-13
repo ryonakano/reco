@@ -128,17 +128,21 @@ public class MainWindow : Gtk.ApplicationWindow {
             //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
             //Suffix is automatically appended depending on the recording format.
             //e.g. "Recording from 2018-11-10 23.42.36.wav"
-            string final_file_name = _("Recording from %s").printf (
+            string default_filename = _("Recording from %s").printf (
                                         new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S")
                                     ) + suffix;
 
-            var autosave_dest = Application.settings.get_string ("autosave-destination");
-            if (autosave_dest != Define.AUTOSAVE_DISABLED) {
-                var dest = File.new_for_path (autosave_dest).get_child (final_file_name);
+            ask_save_path.begin (default_filename, (obj, res) => {
+                File? save_path = ask_save_path.end (res);
+
+                if (save_path == null) {
+                    // Log message is already outputted in ask_save_path method
+                    return;
+                }
+
+                bool is_success = false;
                 try {
-                    if (tmp_file.move (dest, FileCopyFlags.OVERWRITE)) {
-                        welcome_view.show_success_button ();
-                    }
+                    is_success = tmp_file.move (save_path, FileCopyFlags.OVERWRITE);
                 } catch (Error e) {
                     show_error_dialog (
                         _("Failed to save recording"),
@@ -148,48 +152,65 @@ public class MainWindow : Gtk.ApplicationWindow {
                     recorder.remove_tmp_recording ();
                 }
 
+                if (is_success) {
+                    welcome_view.show_success_button ();
+
+                    var notification = new Notification (_("Saved recording"));
+                    // The app that handles actions would be already destroyed when the user activates the notification,
+                    // so do not offer actions if it's decided to be destroyed
+                    if (destroy_on_save) {
+                        notification.set_body (_("Recording saved successfully."));
+                    } else {
+                        notification.set_body (_("Click here to play."));
+                        notification.set_default_action_and_target_value ("app.open", new Variant.string (save_path.get_path ()));
+                        notification.add_button_with_target_value (_("Open folder"), "app.open", new Variant.string (save_path.get_parent ().get_path ()));
+                    }
+
+                    application.send_notification ("com.github.ryonakano.reco", notification);
+                }
+
                 if (destroy_on_save) {
                     destroy ();
                 }
-            } else {
-                var save_dialog = new Gtk.FileDialog () {
-                    title = _("Save your recording"),
-                    accept_label = _("Save"),
-                    modal = true,
-                    initial_name = final_file_name
-                };
-                save_dialog.save.begin (this, null, (obj, res) => {
-                    File dest;
-                    try {
-                        dest = save_dialog.save.end (res);
-                    } catch (Error e) {
-                        warning ("Failed to Gtk.FileDialog.save: %s", e.message);
-
-                        // May be cancelled by user, so delete the tmp recording
-                        recorder.remove_tmp_recording ();
-
-                        return;
-                    }
-
-                    try {
-                        if (tmp_file.move (dest, FileCopyFlags.OVERWRITE)) {
-                            welcome_view.show_success_button ();
-                        }
-                    } catch (Error e) {
-                        show_error_dialog (
-                            _("Failed to save recording"),
-                            _("There was an error while moving file to the designated location."),
-                            e.message
-                        );
-                        recorder.remove_tmp_recording ();
-                    }
-
-                    if (destroy_on_save) {
-                        destroy ();
-                    }
-                });
-            }
+            });
         });
+    }
+
+    /**
+     * Query location where to save recordings.
+     *
+     * This method shows Gtk.FileDialog if the autosave is disabled and waits for the user input.
+     * Otherwise, it returns the location depending on the autosave location.
+     *
+     * @param default_filename default filename of recoridngs
+     *
+     * @return location where to save recordings
+     */
+    private async File? ask_save_path (string default_filename) {
+        File? dest = null;
+
+        var autosave_dest = Application.settings.get_string ("autosave-destination");
+        if (autosave_dest == Define.AUTOSAVE_DISABLED) {
+            var save_dialog = new Gtk.FileDialog () {
+                title = _("Save your recording"),
+                accept_label = _("Save"),
+                modal = true,
+                initial_name = default_filename
+            };
+
+            try {
+                dest = yield save_dialog.save (this, null);
+            } catch (Error e) {
+                warning ("Failed to Gtk.FileDialog.save: %s", e.message);
+
+                // May be cancelled by user, so delete the tmp recording
+                recorder.remove_tmp_recording ();
+            }
+        } else {
+            dest = File.new_for_path (autosave_dest).get_child (default_filename);
+        }
+
+        return dest;
     }
 
     private void show_welcome () {

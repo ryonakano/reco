@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-30 09:22+0900\n"
+"POT-Creation-Date: 2024-04-05 21:12+0900\n"
 "PO-Revision-Date: 2022-10-20 18:06+0000\n"
 "Last-Translator: Maite Guix <maite.guix@gmail.com>\n"
 "Language-Team: \n"
@@ -158,7 +158,7 @@ msgstr "Comença a enregistrar"
 msgid "There was an error while starting recording."
 msgstr ""
 
-#: src/Model/Recorder.vala:324
+#: src/Model/Recorder.vala:330
 msgid "Recording is ongoing"
 msgstr "L’enregistrament està en curs"
 

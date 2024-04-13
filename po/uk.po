@@ -1,24 +1,25 @@
 # Ukrainian translations for com.github.ryonakano.reco.
 # Copyright (C) 2018-2024 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Ihor Hordiichuk <igor_ck@outlook.com>, 2022, 2023.
+# Ihor Hordiichuk <igor_ck@outlook.com>, 2022, 2023, 2024.
 # Dan <denqwerta@gmail.com>, 2022.
 # Artem <artem@molotov.work>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-30 09:22+0900\n"
-"PO-Revision-Date: 2023-12-19 15:11+0000\n"
+"POT-Creation-Date: 2024-04-05 21:12+0900\n"
+"PO-Revision-Date: 2024-04-09 21:01+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: \n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/rosp/reco/uk/>"
+"\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/reco.desktop.in:3
 msgid "Reco"
@@ -122,13 +123,12 @@ msgid "System"
 msgstr "Системи"
 
 #: src/MainWindow.vala:32
-#, fuzzy
 msgid "Style"
-msgstr "Стиль:"
+msgstr "Стиль"
 
 #: src/MainWindow.vala:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Головне меню"
 
 #: src/MainWindow.vala:117
 msgid "Error while recording"
@@ -170,7 +170,7 @@ msgstr "Не вдалося розпочати запис"
 msgid "There was an error while starting recording."
 msgstr "Виникла помилка під час початку запису."
 
-#: src/Model/Recorder.vala:324
+#: src/Model/Recorder.vala:330
 msgid "Recording is ongoing"
 msgstr "Триває запис"
 
