@@ -160,7 +160,6 @@ public class Application : Gtk.Application {
 
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/ryonakano/reco/Application.css");
-        // TODO: Deprecated in Gtk 4.10, buit no alternative api is provided so leave it for now
         Gtk.StyleContext.add_provider_for_display (display,
                                                    cssprovider,
                                                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
