@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-05 21:12+0900\n"
-"PO-Revision-Date: 2024-03-30 02:26+0000\n"
+"PO-Revision-Date: 2024-04-13 01:22+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
@@ -27,7 +27,7 @@ msgstr "オーディオ録音アプリ"
 
 #: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
 msgid "Focus on recording"
-msgstr ""
+msgstr "録音に集中します"
 
 #: data/reco.desktop.in:11
 msgid "Record;Audio;Sound;Voice;"
