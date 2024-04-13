@@ -7,4 +7,5 @@ Exec=com.github.ryonakano.reco
 Icon=com.github.ryonakano.reco
 Terminal=false
 Type=Application
+X-GNOME-UsesNotifications=true
 Keywords=Record;Audio;Sound;Voice;
