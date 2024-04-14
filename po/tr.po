@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-13 11:10+0900\n"
-"PO-Revision-Date: 2024-04-05 23:53+0000\n"
+"PO-Revision-Date: 2024-04-15 10:01+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco/tr/>\n"
 "Language: tr\n"
@@ -153,21 +153,20 @@ msgid "There was an error while moving file to the designated location."
 msgstr "Dosya belirlenen konuma taşınırken bir hata oluştu."
 
 #: src/MainWindow.vala:158
-#, fuzzy
 msgid "Saved recording"
-msgstr "Kaydı kaydedin"
+msgstr "Kayıt kaydedildi"
 
 #: src/MainWindow.vala:162
 msgid "Recording saved successfully."
-msgstr ""
+msgstr "Kayıt başarıyla kaydedildi."
 
 #: src/MainWindow.vala:164
 msgid "Click here to play."
-msgstr ""
+msgstr "Oynatmak için buraya tıklayın."
 
 #: src/MainWindow.vala:166
 msgid "Open folder"
-msgstr ""
+msgstr "Klasörü aç"
 
 #: src/MainWindow.vala:195
 msgid "Save your recording"
