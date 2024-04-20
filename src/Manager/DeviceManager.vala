@@ -23,6 +23,8 @@ public class Manager.DeviceManager : Object {
         return _instance;
     }
 
+    private const string CLASS_NAME_SOURCE = "Source/Audio";
+    private const string CLASS_NAME_SINK = "Sink/Audio";
     private Gst.DeviceMonitor monitor;
 
     private DeviceManager () {
@@ -42,8 +44,8 @@ public class Manager.DeviceManager : Object {
         });
 
         var caps = new Gst.Caps.empty_simple ("audio/x-raw");
-        monitor.add_filter ("Source/Audio", caps);
-        monitor.add_filter ("Sink/Audio", caps);
+        monitor.add_filter (CLASS_NAME_SOURCE, caps);
+        monitor.add_filter (CLASS_NAME_SINK, caps);
 
         sources = new Gee.ArrayList<Gst.Device> ();
         sinks = new Gee.ArrayList<Gst.Device> ();
@@ -76,7 +78,7 @@ public class Manager.DeviceManager : Object {
                 continue;
             }
 
-            if (device.has_classes ("Source")) {
+            if (device.has_classes (CLASS_NAME_SOURCE)) {
                 if (sources.contains (device)) {
                     continue;
                 }
@@ -90,7 +92,7 @@ public class Manager.DeviceManager : Object {
                 }
             }
 
-            if (device.has_classes ("Sink")) {
+            if (device.has_classes (CLASS_NAME_SINK)) {
                 if (sinks.contains (device)) {
                     continue;
                 }
