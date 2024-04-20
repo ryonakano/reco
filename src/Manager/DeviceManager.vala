@@ -60,13 +60,10 @@ public class Manager.DeviceManager : Object {
     private void update_devices () {
         bool is_default;
 
-        if (sources.size > 0) {
-            sources.clear ();
-        }
+        debug ("update_devices start.");
 
-        if (sinks.size > 0) {
-            sinks.clear ();
-        }
+        sources.clear ();
+        sinks.clear ();
 
         default_source = null;
         default_sink = null;
@@ -83,13 +80,21 @@ public class Manager.DeviceManager : Object {
                     continue;
                 }
 
-                debug ("Source detected: \"%s\"", device.display_name);
                 sources.add (device);
+                debug ("[Source] device detected: \"%s\"", device.display_name);
 
-                if (properties.get_boolean ("is-default", out is_default) && is_default) {
-                    default_source = device;
-                    debug ("Default source: \"%s\"", default_source.display_name);
+                bool ret = properties.get_boolean ("is-default", out is_default);
+                if (!ret) {
+                    continue;
                 }
+
+                if (!is_default) {
+                    // not a default device
+                    continue;
+                }
+
+                default_source = device;
+                debug ("[Source] default device: \"%s\"", default_source.display_name);
             }
 
             if (device.has_classes (CLASS_NAME_SINK)) {
@@ -97,16 +102,26 @@ public class Manager.DeviceManager : Object {
                     continue;
                 }
 
-                debug ("Sink detected: \"%s\"", device.display_name);
                 sinks.add (device);
+                debug ("[Sink] device detected: \"%s\"", device.display_name);
 
-                if (properties.get_boolean ("is-default", out is_default) && is_default) {
-                    default_sink = device;
-                    debug ("Default sink: \"%s\"", default_sink.display_name);
+                bool ret = properties.get_boolean ("is-default", out is_default);
+                if (!ret) {
+                    continue;
                 }
+
+                if (!is_default) {
+                    // not a default device
+                    continue;
+                }
+
+                default_sink = device;
+                debug ("[Sink] default device: \"%s\"", default_sink.display_name);
             }
         }
 
         device_updated ();
+
+        debug ("update_devices end.");
     }
 }
