@@ -92,7 +92,7 @@ public class Manager.DeviceManager : Object {
                 }
             }
 
-            if (device.has_classes (CLASS_NAME_SOURCE)) {
+            if (device.has_classes (CLASS_NAME_SINK)) {
                 if (sinks.contains (device)) {
                     continue;
                 }
