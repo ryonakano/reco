@@ -138,10 +138,22 @@ namespace Model {
                 throw new RecorderError.CREATE_ERROR ("Failed to create element \"level\"");
             }
 
+            var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
+            if (mixer == null) {
+                throw new RecorderError.CREATE_ERROR ("Failed to create element \"audiomixer\"");
+            }
+
+            // Prevent audio from stuttering after some time, by setting the latency to other than 0.
+            // This issue happens once audiomixer begins to be late and drop buffers.
+            // See https://github.com/SeaDve/Kooha/issues/218#issuecomment-1948123954
+            mixer.set_property ("latency", 1 * NSEC);
+
             var sink = Gst.ElementFactory.make ("filesink", "sink");
             if (sink == null) {
                 throw new RecorderError.CREATE_ERROR ("Failed to create element \"filesink\"");
             }
+
+            pipeline.add_many (level, mixer, sink);
 
             SourceID source = (SourceID) Application.settings.get_enum ("source");
 
@@ -162,6 +174,8 @@ namespace Model {
 
                 sys_sound.set ("device", monitor_name);
                 debug ("sound source (system): \"Monitor of %s\"", default_sink.display_name);
+                pipeline.add (sys_sound);
+                sys_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
             }
 
             Gst.Element? mic_sound = null;
@@ -174,6 +188,8 @@ namespace Model {
                 }
 
                 debug ("sound source (microphone): \"%s\"", microphone.display_name);
+                pipeline.add (mic_sound);
+                mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
             }
 
             FormatID file_format = (FormatID) Application.settings.get_enum ("format");
@@ -207,36 +223,9 @@ namespace Model {
 
             caps_filter.set ("caps", new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT,
                                                           (ChannelID) Application.settings.get_enum ("channel")));
-            pipeline.add_many (caps_filter, level, encoder, sink);
 
-            switch (source) {
-                case SourceID.MIC:
-                    pipeline.add_many (mic_sound);
-                    mic_sound.link_many (caps_filter, level, encoder);
-                    break;
-                case SourceID.SYSTEM:
-                    pipeline.add_many (sys_sound);
-                    sys_sound.link_many (caps_filter, level, encoder);
-                    break;
-                case SourceID.BOTH:
-                    var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
-                    if (mixer == null) {
-                        throw new RecorderError.CREATE_ERROR ("Failed to create element \"audiomixer\"");
-                    }
-
-                    // Prevent audio from stuttering after some time, by setting the latency to other than 0.
-                    // This issue happens once audiomixer begins to be late and drop buffers.
-                    // See https://github.com/SeaDve/Kooha/issues/218#issuecomment-1948123954
-                    mixer.set_property ("latency", 1 * NSEC);
-
-                    pipeline.add_many (mic_sound, sys_sound, mixer);
-                    mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
-                    sys_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
-                    mixer.link_many (caps_filter, level, encoder);
-                    break;
-                default:
-                    assert_not_reached ();
-            }
+            pipeline.add_many (caps_filter, encoder);
+            mixer.link_many (caps_filter, level, encoder);
 
             if (muxer != null) {
                 pipeline.add (muxer);

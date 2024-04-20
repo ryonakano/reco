@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-05 21:12+0900\n"
+"POT-Creation-Date: 2024-04-13 11:10+0900\n"
 "PO-Revision-Date: 2024-02-11 19:02+0000\n"
 "Last-Translator: Milan Šalka <salka.milan@googlemail.com>\n"
 "Language-Team: \n"
@@ -31,7 +31,7 @@ msgstr "Aplikácia na nahrávanie zvuku"
 msgid "Focus on recording"
 msgstr "Zameranie na záznam"
 
-#: data/reco.desktop.in:11
+#: data/reco.desktop.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Nahrávať;Nahrať;Nahrávanie;Zvuk;Hlas;"
 
@@ -145,27 +145,44 @@ msgstr "Nahrávanie došlo k chybe."
 msgid "Recording from %s"
 msgstr "Nahráva sa od %s"
 
-#: src/MainWindow.vala:144 src/MainWindow.vala:180
+#: src/MainWindow.vala:148
 msgid "Failed to save recording"
 msgstr "Zneužívanie záznamu"
 
-#: src/MainWindow.vala:145 src/MainWindow.vala:181
+#: src/MainWindow.vala:149
 msgid "There was an error while moving file to the designated location."
 msgstr "Pri sťahovaní súboru došlo k chybe."
 
-#: src/MainWindow.vala:156
+#: src/MainWindow.vala:158
+#, fuzzy
+msgid "Saved recording"
+msgstr "Uložiť nahrávku"
+
+#: src/MainWindow.vala:162
+msgid "Recording saved successfully."
+msgstr ""
+
+#: src/MainWindow.vala:164
+msgid "Click here to play."
+msgstr ""
+
+#: src/MainWindow.vala:166
+msgid "Open folder"
+msgstr ""
+
+#: src/MainWindow.vala:195
 msgid "Save your recording"
 msgstr "Uložiť nahrávku"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:196
 msgid "Save"
 msgstr "Uložiť"
 
-#: src/MainWindow.vala:210
+#: src/MainWindow.vala:231
 msgid "Failed to start recording"
 msgstr "Chyba pri spustení záznamu"
 
-#: src/MainWindow.vala:211
+#: src/MainWindow.vala:232
 msgid "There was an error while starting recording."
 msgstr "Pri spustení záznamu došlo k chybe."
 

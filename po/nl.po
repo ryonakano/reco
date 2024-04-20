@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-05 21:12+0900\n"
+"POT-Creation-Date: 2024-04-13 11:10+0900\n"
 "PO-Revision-Date: 2023-03-19 14:40+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: \n"
@@ -31,7 +31,7 @@ msgstr "Audio-opnametoepassing"
 msgid "Focus on recording"
 msgstr "Opname met tijdslimiet"
 
-#: data/reco.desktop.in:11
+#: data/reco.desktop.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Opname;Audio;Geluid;Stem;"
 
@@ -150,29 +150,46 @@ msgstr ""
 msgid "Recording from %s"
 msgstr "Bezig met opnemen van %s"
 
-#: src/MainWindow.vala:144 src/MainWindow.vala:180
+#: src/MainWindow.vala:148
 #, fuzzy
 msgid "Failed to save recording"
 msgstr "Opname pauzeren"
 
-#: src/MainWindow.vala:145 src/MainWindow.vala:181
+#: src/MainWindow.vala:149
 msgid "There was an error while moving file to the designated location."
 msgstr ""
 
-#: src/MainWindow.vala:156
+#: src/MainWindow.vala:158
+#, fuzzy
+msgid "Saved recording"
+msgstr "Sla je opname op"
+
+#: src/MainWindow.vala:162
+msgid "Recording saved successfully."
+msgstr ""
+
+#: src/MainWindow.vala:164
+msgid "Click here to play."
+msgstr ""
+
+#: src/MainWindow.vala:166
+msgid "Open folder"
+msgstr ""
+
+#: src/MainWindow.vala:195
 msgid "Save your recording"
 msgstr "Sla je opname op"
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:196
 msgid "Save"
 msgstr "Opslaan"
 
-#: src/MainWindow.vala:210
+#: src/MainWindow.vala:231
 #, fuzzy
 msgid "Failed to start recording"
 msgstr "Opname starten"
 
-#: src/MainWindow.vala:211
+#: src/MainWindow.vala:232
 msgid "There was an error while starting recording."
 msgstr ""
 
