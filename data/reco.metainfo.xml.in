@@ -27,17 +27,17 @@
   <screenshots>
     <screenshot type="default">
       <caption>Welcome view; perform recording configuration</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.0/data/screenshots/pantheon/welcome-init-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.1/data/screenshots/pantheon/welcome-init-light.png</image>
     </screenshot>
 
     <screenshot>
       <caption>Recording view</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.0/data/screenshots/pantheon/recording-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.1/data/screenshots/pantheon/recording-light.png</image>
     </screenshot>
 
     <screenshot>
       <caption>An indication that recording is successfully finished</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.0/data/screenshots/pantheon/welcome-success-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.1/data/screenshots/pantheon/welcome-success-light.png</image>
     </screenshot>
   </screenshots>
 
@@ -67,6 +67,31 @@
   </developer>
 
   <releases>
+    <release version="5.0.1" date="2024-04-20" urgency="medium">
+      <description translate="no">
+        <p>
+          Improvements:
+        </p>
+        <ul>
+          <li>Reword string in metainfo (thanks to @daPhipz)</li>
+          <li>Reword and elaborate on metadata and descriptions (thanks to @roxwize)</li>
+          <li>Show tooltip for each row of microphone combobox</li>
+          <li>Add notification after saving recording for play and open folder</li>
+          <li>Update submodules</li>
+          <li>Update translations</li>
+        </ul>
+        <p>
+          Fixes:
+        </p>
+        <ul>
+          <li>Recording levelbar disappears after some time</li>
+          <li>Potential null access</li>
+          <li>Timer counts up/down twice as fast when resuming from pause</li>
+          <li>Audio stutters after some time</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="5.0.0" date="2023-12-01" urgency="high">
       <description translate="no">
         <p>
