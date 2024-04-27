@@ -1,11 +1,11 @@
 # Reco
-Reco is an audio recorder focused on being concise and simple to use.
-
-You can use it to record and remember spoken words, system audio, improvized melodies, and anything else you can do with a microphone, speaker, or both.
-
 ![Welcome view in the light mode](data/screenshots/pantheon/welcome-init-light.png#gh-light-mode-only) ![Recording view in the light mode](data/screenshots/pantheon/recording-light.png#gh-light-mode-only)
 
 ![Welcome view in the dark mode](data/screenshots/pantheon/welcome-init-dark.png#gh-dark-mode-only) ![Recording view in the dark mode](data/screenshots/pantheon/recording-dark.png#gh-dark-mode-only)
+
+Reco is an audio recorder focused on being concise and simple to use.
+
+You can use it to record and remember spoken words, system audio, improvized melodies, and anything else you can do with a microphone, speaker, or both.
 
 Features include:
 
@@ -31,13 +31,19 @@ Community packages maintained by volunteers are also available on some distribut
 [![Packaging status](https://repology.org/badge/vertical-allrepos/reco.svg)](https://repology.org/project/reco/versions)
 
 ### From Source Code (Flatpak)
-If you would like to test latest source code, clone the repository and then run the following command:
+You'll need `flatpak` and `flatpak-builder` commands installed on your system.
+
+Run `flatpak remote-add` to add AppCenter remote for dependencies:
 
 ```
 flatpak remote-add --user --if-not-exists appcenter https://flatpak.elementary.io/repo.flatpakrepo
-flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install -y --user flathub org.flatpak.Builder
-flatpak run org.flatpak.Builder builddir-flatpak --user --install --force-clean --install-deps-from=appcenter com.github.ryonakano.reco.yml
+```
+
+To build and install, use `flatpak-builder`, then execute with `flatpak run`:
+
+```
+flatpak-builder builddir --user --install --force-clean --install-deps-from=appcenter com.github.ryonakano.reco.yml
+flatpak run com.github.ryonakano.reco
 ```
 
 ### From Source Code (Native)
@@ -48,9 +54,7 @@ You'll need the following dependencies to build:
 * libgstreamer1.0-dev (>= 1.20)
 * libgtk-4-dev (>= 4.10)
 * [libryokucha](https://github.com/ryonakano/ryokucha)
-    * automatically downloaded on build
 * [livechart](https://github.com/lcallarec/live-chart) (>= 1.10.0)
-    * automatically downloaded on build
 * meson (>= 0.57.0)
 * valac
 
@@ -65,7 +69,7 @@ meson setup builddir --prefix=/usr
 meson compile -C builddir
 ```
 
-To install, use `meson install`, then execute with `com.github.ryonakano.reco`
+To install, use `meson install`, then execute with `com.github.ryonakano.reco`:
 
 ```bash
 meson install -C builddir
