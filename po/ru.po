@@ -3,43 +3,44 @@
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Ivan Eresko <ivan@programmer.net>, 2022.
 # lenemter <lenemter@gmail.com>, 2022, 2023, 2024.
+# Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-13 11:10+0900\n"
-"PO-Revision-Date: 2024-01-21 12:01+0000\n"
-"Last-Translator: lenemter <lenemter@gmail.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2024-05-03 17:55+0900\n"
+"PO-Revision-Date: 2024-05-03 10:45+0000\n"
+"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/rosp/reco/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.5.3\n"
 
-#: data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
+#: data/reco.desktop.in.in:3
+msgid "@APP_NAME@"
+msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in:4
+#: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
 msgstr "Приложение для записи звука"
 
-#: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "Сфокусируйтесь на записи"
 
-#: data/reco.desktop.in:12
+#: data/reco.desktop.in.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Запись;Аудио;Звук;Голос;"
 
-#: data/reco.metainfo.xml.in:13
+#: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
 msgstr "Reco — это диктофон с упором на краткость и простоту использования."
 
-#: data/reco.metainfo.xml.in:16
+#: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
@@ -48,11 +49,11 @@ msgstr ""
 "системного звука, импровизированных мелодий и всего остального, что вы "
 "можете делать с помощью микрофона, динамика или того и другого."
 
-#: data/reco.metainfo.xml.in:17
+#: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
 msgstr "Функции:"
 
-#: data/reco.metainfo.xml.in:19
+#: data/reco.metainfo.xml.in.in:19
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
@@ -60,7 +61,7 @@ msgstr ""
 "Запись звука с микрофона и системы одновременно. Это полезно для записи "
 "разговоров или трансляции видео в Интернет."
 
-#: data/reco.metainfo.xml.in:20
+#: data/reco.metainfo.xml.in.in:20
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
@@ -68,7 +69,7 @@ msgstr ""
 "Сохранение во многих распространённых форматах. Reco поддерживает AAC, FLAC, "
 "MP3, Ogg Vorbis, Opus и WAV."
 
-#: data/reco.metainfo.xml.in:21
+#: data/reco.metainfo.xml.in.in:21
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
@@ -76,7 +77,7 @@ msgstr ""
 "Запись по таймеру. Вы можете поставить задержку перед началом записи до 15 "
 "секунд и длительность записи до 600 секунд."
 
-#: data/reco.metainfo.xml.in:22
+#: data/reco.metainfo.xml.in.in:22
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
@@ -84,7 +85,7 @@ msgstr ""
 "Выбирайте куда сохранять ваши записи. Вы можете выбрать, чтобы приложение "
 "сохраняло записи автоматически или, вы можете выбрать папку вручную."
 
-#: data/reco.metainfo.xml.in:23
+#: data/reco.metainfo.xml.in.in:23
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
@@ -94,15 +95,15 @@ msgstr ""
 "из приложения во время записи, то она в зависимости от ваших настроек будет "
 "сохранена автоматически или в то место, которое вы выберете вручную."
 
-#: data/reco.metainfo.xml.in:29
+#: data/reco.metainfo.xml.in.in:29
 msgid "Welcome view; perform recording configuration"
 msgstr "Экран приветствия; позволяет вам задать настройки записи"
 
-#: data/reco.metainfo.xml.in:34
+#: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
 msgstr "Экран записи"
 
-#: data/reco.metainfo.xml.in:39
+#: data/reco.metainfo.xml.in.in:39
 msgid "An indication that recording is successfully finished"
 msgstr "Индикатор успешного завершения записи"
 
@@ -184,7 +185,7 @@ msgstr "Не удалось начать запись"
 msgid "There was an error while starting recording."
 msgstr "Произошла ошибка во время начала запаси."
 
-#: src/Model/Recorder.vala:330
+#: src/Model/Recorder.vala:319
 msgid "Recording is ongoing"
 msgstr "Идёт запись"
 
@@ -311,3 +312,6 @@ msgstr "Выбрать место назначения…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Выбрать"
+
+#~ msgid "Reco"
+#~ msgstr "Reco"

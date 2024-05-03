@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-13 11:10+0900\n"
-"PO-Revision-Date: 2024-04-03 14:42+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"POT-Creation-Date: 2024-05-03 17:55+0900\n"
+"PO-Revision-Date: 2024-05-03 10:45+0000\n"
+"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/rosp/"
 "reco/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -17,29 +17,29 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.3\n"
 
-#: data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
+#: data/reco.desktop.in.in:3
+msgid "@APP_NAME@"
+msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in:4
+#: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
 msgstr "Lydopptaksprogram"
 
-#: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "Fokuser på opptak"
 
-#: data/reco.desktop.in:12
+#: data/reco.desktop.in.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Opptak;lyd;musikk;innspilling;stemme;"
 
-#: data/reco.metainfo.xml.in:13
+#: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
 msgstr "Reco er en lydopptaker fokusert på enkel bruk."
 
-#: data/reco.metainfo.xml.in:16
+#: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
@@ -47,11 +47,11 @@ msgstr ""
 "Du kan bruke den til å ta opp og huske tale, systemlyd, improviserte "
 "melodier, og alt annet du kan med en mikrofon, høyttaler, eller begge deler."
 
-#: data/reco.metainfo.xml.in:17
+#: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
 msgstr "Funksjoner:"
 
-#: data/reco.metainfo.xml.in:19
+#: data/reco.metainfo.xml.in.in:19
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
@@ -59,14 +59,14 @@ msgstr ""
 "Ta opp lyder fra mikrofonen og systemet samtidig. Nyttig for innspilling av "
 "samtaler eller strømming av videoer på Internett."
 
-#: data/reco.metainfo.xml.in:20
+#: data/reco.metainfo.xml.in.in:20
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
 "Lagring i mange populære formater. FLAC, ALAC, MP3, Ogg Vorbis, Opus, og WAV."
 
-#: data/reco.metainfo.xml.in:21
+#: data/reco.metainfo.xml.in.in:21
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
@@ -74,7 +74,7 @@ msgstr ""
 "Tidsbegrenset opptak. Du kan sette en tidsnedtelling før opptak opptil 15 "
 "sekunder, og sette lengden av opptaket opptil 600 sekunder."
 
-#: data/reco.metainfo.xml.in:22
+#: data/reco.metainfo.xml.in.in:22
 #, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
@@ -83,7 +83,7 @@ msgstr ""
 "Velg hvor du vil lagre opptak. Du kan velge hvorvidt programmet lagrer "
 "opptak i en mappe du velger automatisk, eller hver gang."
 
-#: data/reco.metainfo.xml.in:23
+#: data/reco.metainfo.xml.in.in:23
 #, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
@@ -94,16 +94,16 @@ msgstr ""
 "programmet under opptak lagres opptaket automatisk, eller hvis "
 "filvelgerdialogen vises — avhengig av innstillingene dine."
 
-#: data/reco.metainfo.xml.in:29
+#: data/reco.metainfo.xml.in.in:29
 #, fuzzy
 msgid "Welcome view; perform recording configuration"
 msgstr "Velkomstvisning; utfør opptaksoppsett"
 
-#: data/reco.metainfo.xml.in:34
+#: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
 msgstr "Opptaksvisning"
 
-#: data/reco.metainfo.xml.in:39
+#: data/reco.metainfo.xml.in.in:39
 msgid "An indication that recording is successfully finished"
 msgstr "En indikasjon på at opptaket har blitt fullført"
 
@@ -188,7 +188,7 @@ msgstr "Kunne ikke starte opptak"
 msgid "There was an error while starting recording."
 msgstr "En feil inntraff under oppstart av opptak."
 
-#: src/Model/Recorder.vala:330
+#: src/Model/Recorder.vala:319
 msgid "Recording is ongoing"
 msgstr "Opptak pågår"
 
@@ -318,3 +318,6 @@ msgstr "Velg mål …"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Velg"
+
+#~ msgid "Reco"
+#~ msgstr "Reco"

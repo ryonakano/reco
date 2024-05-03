@@ -2,44 +2,45 @@
 # Copyright (C) 2018-2024 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Ryo Nakano <ryonakaknock3@gmail.com>, 2018-2023, 2024.
+# Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-13 11:10+0900\n"
-"PO-Revision-Date: 2024-04-14 03:01+0000\n"
-"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"POT-Creation-Date: 2024-05-03 17:55+0900\n"
+"PO-Revision-Date: 2024-05-03 10:45+0000\n"
+"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.3\n"
 
-#: data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
+#: data/reco.desktop.in.in:3
+msgid "@APP_NAME@"
+msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in:4
+#: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
 msgstr "オーディオ録音アプリ"
 
-#: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "録音に集中します"
 
-#: data/reco.desktop.in:12
+#: data/reco.desktop.in.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Record;Audio;Sound;Voice;録音;オーディオ;サウンド;ボイス;"
 
-#: data/reco.metainfo.xml.in:13
+#: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
 msgstr ""
 "Reco は、簡潔かつシンプルに使えることに重きを置いた、オーディオレコーダーで"
 "す。"
 
-#: data/reco.metainfo.xml.in:16
+#: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
@@ -47,11 +48,11 @@ msgstr ""
 "会話、システム音、即興の旋律など、マイクやスピーカー (あるいはその両方) を"
 "使った録音・記録に使用できます。"
 
-#: data/reco.metainfo.xml.in:17
+#: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
 msgstr "含まれる機能:"
 
-#: data/reco.metainfo.xml.in:19
+#: data/reco.metainfo.xml.in.in:19
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
@@ -59,7 +60,7 @@ msgstr ""
 "マイクからの音とシステム音の同時録音。通話を録音したり、インターネット上の動"
 "画をストリーミングしたりする際に便利です。"
 
-#: data/reco.metainfo.xml.in:20
+#: data/reco.metainfo.xml.in.in:20
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
@@ -67,14 +68,14 @@ msgstr ""
 "よく使われる形式での保存。ALAC・FLAC・MP3・Ogg Vorbis・Opus・WAV に対応してい"
 "ます。"
 
-#: data/reco.metainfo.xml.in:21
+#: data/reco.metainfo.xml.in.in:21
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
 "遅延付き録音。録音前の遅延を最長15秒、録音の長さを最長600秒に設定できます。"
 
-#: data/reco.metainfo.xml.in:22
+#: data/reco.metainfo.xml.in.in:22
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
@@ -82,7 +83,7 @@ msgstr ""
 "保存先の選択。選択したディレクトリに自動的に録音を保存するか、毎回録音後に保"
 "存先を選択するかを選択できます。"
 
-#: data/reco.metainfo.xml.in:23
+#: data/reco.metainfo.xml.in.in:23
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
@@ -92,15 +93,15 @@ msgstr ""
 "音声は自動的に保存されるかファイル選択ダイアログが表示されます (設定に応じた"
 "挙動になります)。"
 
-#: data/reco.metainfo.xml.in:29
+#: data/reco.metainfo.xml.in.in:29
 msgid "Welcome view; perform recording configuration"
 msgstr "ようこそ画面では録音の設定をします"
 
-#: data/reco.metainfo.xml.in:34
+#: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
 msgstr "録音中の画面"
 
-#: data/reco.metainfo.xml.in:39
+#: data/reco.metainfo.xml.in.in:39
 msgid "An indication that recording is successfully finished"
 msgstr "録音が正常に完了したことを示すマーク"
 
@@ -180,7 +181,7 @@ msgstr "録音を開始できませんでした"
 msgid "There was an error while starting recording."
 msgstr "録音開始中にエラーが発生しました。"
 
-#: src/Model/Recorder.vala:330
+#: src/Model/Recorder.vala:319
 msgid "Recording is ongoing"
 msgstr "録音中です"
 
@@ -307,3 +308,6 @@ msgstr "保存先を選択…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "選択"
+
+#~ msgid "Reco"
+#~ msgstr "Reco"

@@ -3,55 +3,56 @@
 # This file is distributed under the same license as the com.github.ryonakano.reco.
 # Michał Nowakowski <nowakowski@offshore.rocks>, 2019.
 # Eryk Michalak <gnu.ewm@protonmail.com>, 2023.
+# Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-13 11:10+0900\n"
-"PO-Revision-Date: 2023-12-27 01:08+0000\n"
-"Last-Translator: Eryk Michalak <gnu.ewm@protonmail.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2024-05-03 17:55+0900\n"
+"PO-Revision-Date: 2024-05-03 10:45+0000\n"
+"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/rosp/reco/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.5.3\n"
 
-#: data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
+#: data/reco.desktop.in.in:3
+msgid "@APP_NAME@"
+msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in:4
+#: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
 msgstr "Rejestrator dźwięku"
 
-#: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "Skupienie na nagrywaniu"
 
-#: data/reco.desktop.in:12
+#: data/reco.desktop.in.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Nagrywaj;Audio;Dźwięk;Głos;"
 
-#: data/reco.metainfo.xml.in:13
+#: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
 msgstr ""
 "Reco to rejestrator dźwięku stworzony z myślą o zwięzłości i prostocie "
 "obsługi."
 
-#: data/reco.metainfo.xml.in:16
+#: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:17
+#: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
 msgstr "Wśród funkcji:"
 
-#: data/reco.metainfo.xml.in:19
+#: data/reco.metainfo.xml.in.in:19
 #, fuzzy
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
@@ -61,7 +62,7 @@ msgstr ""
 "przykładowo, kiedy nagrywasz rozmowy z aplikacji do czatowania albo "
 "strumieniujesz wideo w internecie"
 
-#: data/reco.metainfo.xml.in:20
+#: data/reco.metainfo.xml.in.in:20
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
@@ -69,7 +70,7 @@ msgstr ""
 "Zapisywanie w wielu powszechnie używanych formatach. Wsparcie dla AAC, FLAC, "
 "MP3, Ogg, Vorbis, Opus oraz WAV"
 
-#: data/reco.metainfo.xml.in:21
+#: data/reco.metainfo.xml.in.in:21
 #, fuzzy
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
@@ -78,7 +79,7 @@ msgstr ""
 "Nagrywanie czasowe. Możesz ustalić opóźnienie przed nagrywaniem do 15 "
 "sekund, a także długość nagrania do 600 sekund"
 
-#: data/reco.metainfo.xml.in:22
+#: data/reco.metainfo.xml.in.in:22
 #, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
@@ -88,7 +89,7 @@ msgstr ""
 "wybrać, czy aplikacja zapisuje nagrania automatycznie, czy też chcesz "
 "wybierać miejsce docelowe za każdym razem, gdy je zapisujesz"
 
-#: data/reco.metainfo.xml.in:23
+#: data/reco.metainfo.xml.in.in:23
 #, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
@@ -99,15 +100,15 @@ msgstr ""
 "trakcie nagrywania, plik zostanie automatycznie zapisany albo zostanie "
 "wyświetlone zapytanie o miejsce zapisu, w zależności od wybranych ustawień"
 
-#: data/reco.metainfo.xml.in:29
+#: data/reco.metainfo.xml.in.in:29
 msgid "Welcome view; perform recording configuration"
 msgstr "Ekran powitalny, który pozwala ci dostosować nagrywanie"
 
-#: data/reco.metainfo.xml.in:34
+#: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
 msgstr "Widok nagrywania"
 
-#: data/reco.metainfo.xml.in:39
+#: data/reco.metainfo.xml.in.in:39
 msgid "An indication that recording is successfully finished"
 msgstr "Wiadomość, że nagrywanie zostało pomyślnie zakończone"
 
@@ -189,7 +190,7 @@ msgstr "Nie udało się rozpocząć nagrywania"
 msgid "There was an error while starting recording."
 msgstr "Wystąpił błąd podczas zapisywania nagrywania."
 
-#: src/Model/Recorder.vala:330
+#: src/Model/Recorder.vala:319
 msgid "Recording is ongoing"
 msgstr "Nagrywanie nadal trwa"
 
@@ -316,3 +317,6 @@ msgstr "Wybierz domyślne położenie…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Wybierz"
+
+#~ msgid "Reco"
+#~ msgstr "Reco"
