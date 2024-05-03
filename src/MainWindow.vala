@@ -166,7 +166,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                         notification.add_button_with_target_value (_("Open folder"), "app.open", new Variant.string (save_path.get_parent ().get_path ()));
                     }
 
-                    application.send_notification ("com.github.ryonakano.reco", notification);
+                    application.send_notification (Config.APP_ID, notification);
                 }
 
                 if (destroy_on_save) {

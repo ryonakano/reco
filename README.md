@@ -42,8 +42,8 @@ flatpak remote-add --user --if-not-exists appcenter https://flatpak.elementary.i
 To build and install, use `flatpak-builder`, then execute with `flatpak run`:
 
 ```
-flatpak-builder builddir --user --install --force-clean --install-deps-from=appcenter com.github.ryonakano.reco.yml
-flatpak run com.github.ryonakano.reco
+flatpak-builder builddir --user --install --force-clean --install-deps-from=appcenter build-aux/appcenter/com.github.ryonakano.reco.Devel.yml
+flatpak run com.github.ryonakano.reco.Devel
 ```
 
 ### From Source Code (Native)
@@ -55,7 +55,7 @@ You'll need the following dependencies to build:
 * libgtk-4-dev (>= 4.10)
 * [libryokucha](https://github.com/ryonakano/ryokucha)
 * [livechart](https://github.com/lcallarec/live-chart) (>= 1.10.0)
-* meson (>= 0.57.0)
+* meson (>= 0.58.0)
 * valac
 
 You'll need the following dependencies to run:

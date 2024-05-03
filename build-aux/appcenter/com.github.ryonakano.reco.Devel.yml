@@ -1,0 +1,45 @@
+app-id: com.github.ryonakano.reco.Devel
+runtime: io.elementary.Platform
+runtime-version: '7.3'
+sdk: io.elementary.Sdk
+command: com.github.ryonakano.reco.Devel
+finish-args:
+  - '--device=all'
+  - '--share=ipc'
+  - '--socket=wayland'
+  - '--socket=fallback-x11'
+  - '--socket=pulseaudio'
+  - '--env=GST_PLUGIN_PATH_1_0=/app/lib/gstreamer-1.0'
+modules:
+  - name: live-chart
+    buildsystem: meson
+    sources:
+      - type: archive
+        url: https://github.com/lcallarec/live-chart/archive/refs/tags/1.10.0.tar.gz
+        sha256: 3f54c7569cc2a4711b5689038055aefc4321636f3e6dd4945e4be204bc9d4843
+
+  - name: gst-libav
+    buildsystem: meson
+    config_opts:
+      - '-Ddoc=disabled'
+    sources:
+      - type: archive
+        # we need to use the same version with gstreamer included in the sdk
+        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.5.tar.xz
+        sha256: 8583f0c1f4fcb01eed11fa1e3c21126543a8bd739ed4fc1db31f756a5ab01d9a
+
+  - name: ryokucha
+    buildsystem: meson
+    sources:
+      - type: archive
+        url: https://github.com/ryonakano/ryokucha/archive/refs/tags/0.2.0.tar.gz
+        sha256: 40c038798cafd6f8f2de00b19a27b89042197a301b256b2afa8da35fcc21a2f6
+
+  - name: reco
+    buildsystem: meson
+    config_opts:
+      - '-Duse_submodule=false'
+      - '-Ddevelopment=true'
+    sources:
+      - type: dir
+        path: ../../
