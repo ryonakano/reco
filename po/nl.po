@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-13 11:10+0900\n"
+"POT-Creation-Date: 2024-05-03 17:55+0900\n"
 "PO-Revision-Date: 2023-03-19 14:40+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: \n"
@@ -18,38 +18,38 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.16.2-dev\n"
 
-#: data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
+#: data/reco.desktop.in.in:3
+msgid "@APP_NAME@"
+msgstr ""
 
-#: data/reco.desktop.in:4
+#: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
 msgstr "Audio-opnametoepassing"
 
-#: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 #, fuzzy
 msgid "Focus on recording"
 msgstr "Opname met tijdslimiet"
 
-#: data/reco.desktop.in:12
+#: data/reco.desktop.in.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Opname;Audio;Geluid;Stem;"
 
-#: data/reco.metainfo.xml.in:13
+#: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:16
+#: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:17
+#: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
 msgstr "Kenmerken:"
 
-#: data/reco.metainfo.xml.in:19
+#: data/reco.metainfo.xml.in.in:19
 #, fuzzy
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
@@ -58,7 +58,7 @@ msgstr ""
 "Neem tegelijkertijd audio op van je microfoon en computer. Dit kan handig "
 "zijn als je gesprekken van chattoepassingen of videostreams wilt opnemen."
 
-#: data/reco.metainfo.xml.in:20
+#: data/reco.metainfo.xml.in.in:20
 #, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
@@ -67,7 +67,7 @@ msgstr ""
 "Reco ondersteunt de gebruikelijke formaten: AAC, FLAC, MP3, Ogg Vorbis, Opus "
 "en WAV"
 
-#: data/reco.metainfo.xml.in:21
+#: data/reco.metainfo.xml.in.in:21
 #, fuzzy
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
@@ -76,7 +76,7 @@ msgstr ""
 "Tijdsopname. Je kunt instellen dat de opname met max. 15 seconden vertraging "
 "moet beginnen en de duur van de opname max. 600 seconden moet duren."
 
-#: data/reco.metainfo.xml.in:22
+#: data/reco.metainfo.xml.in.in:22
 #, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
@@ -86,7 +86,7 @@ msgstr ""
 "Reco opnames automatisch moet opslaan of dat je na elke opname wordt "
 "gevraagd een locatie te kiezen."
 
-#: data/reco.metainfo.xml.in:23
+#: data/reco.metainfo.xml.in.in:23
 #, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
@@ -97,17 +97,17 @@ msgstr ""
 "een opname. Dit gebeurt ofwel automatisch, ofwel handmatig, afhankelijk van "
 "je opslaginstellingen."
 
-#: data/reco.metainfo.xml.in:29
+#: data/reco.metainfo.xml.in.in:29
 #, fuzzy
 msgid "Welcome view; perform recording configuration"
 msgstr "Introductiescherm waarop je de opname-instellingen kunt regelen"
 
-#: data/reco.metainfo.xml.in:34
+#: data/reco.metainfo.xml.in.in:34
 #, fuzzy
 msgid "Recording view"
 msgstr "Opnamescherm"
 
-#: data/reco.metainfo.xml.in:39
+#: data/reco.metainfo.xml.in.in:39
 #, fuzzy
 msgid "An indication that recording is successfully finished"
 msgstr "Opname is afgerond"
@@ -193,7 +193,7 @@ msgstr "Opname starten"
 msgid "There was an error while starting recording."
 msgstr ""
 
-#: src/Model/Recorder.vala:330
+#: src/Model/Recorder.vala:319
 msgid "Recording is ongoing"
 msgstr "Er wordt een opname gemaakt"
 
@@ -321,3 +321,6 @@ msgstr "Kies een opslaglocatie…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Kiezen"
+
+#~ msgid "Reco"
+#~ msgstr "Reco"

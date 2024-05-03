@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-13 11:10+0900\n"
+"POT-Creation-Date: 2024-05-03 17:55+0900\n"
 "PO-Revision-Date: 2023-12-05 00:46+0000\n"
 "Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: \n"
@@ -19,37 +19,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.3-dev\n"
 
-#: data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
+#: data/reco.desktop.in.in:3
+msgid "@APP_NAME@"
+msgstr ""
 
-#: data/reco.desktop.in:4
+#: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
 msgstr "Aplicativo de Gravador de Áudio"
 
-#: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr ""
 
-#: data/reco.desktop.in:12
+#: data/reco.desktop.in.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Gravar;Áudio;Som;Voz;"
 
-#: data/reco.metainfo.xml.in:13
+#: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:16
+#: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:17
+#: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
 msgstr "Funções incluídas:"
 
-#: data/reco.metainfo.xml.in:19
+#: data/reco.metainfo.xml.in.in:19
 #, fuzzy
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
@@ -59,7 +59,7 @@ msgstr ""
 "será útil quando se grava conversas com aplicações de chat ou transmissões "
 "de vídeos na Internet"
 
-#: data/reco.metainfo.xml.in:20
+#: data/reco.metainfo.xml.in.in:20
 #, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
@@ -68,7 +68,7 @@ msgstr ""
 "Grave em alguns formatos normalmente utilizados. Suporta AAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, e WAV"
 
-#: data/reco.metainfo.xml.in:21
+#: data/reco.metainfo.xml.in.in:21
 #, fuzzy
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
@@ -77,7 +77,7 @@ msgstr ""
 "Gravação cronometrada. Pode definir um atraso antes da gravação até 15 "
 "segundos e a duração da gravação até 600 segundos"
 
-#: data/reco.metainfo.xml.in:22
+#: data/reco.metainfo.xml.in.in:22
 #, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
@@ -87,7 +87,7 @@ msgstr ""
 "trabalho. Pode selecionar se a aplicação salva as gravações automaticamente "
 "ou se escolhe um destino cada vez que as salva"
 
-#: data/reco.metainfo.xml.in:23
+#: data/reco.metainfo.xml.in.in:23
 #, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
@@ -99,15 +99,15 @@ msgstr ""
 "mostrada uma Janela de escolha de arquivos dependendo da sua definição de "
 "gravação"
 
-#: data/reco.metainfo.xml.in:29
+#: data/reco.metainfo.xml.in.in:29
 msgid "Welcome view; perform recording configuration"
 msgstr "Tela de boas-vindas; realizar configuração de gravação"
 
-#: data/reco.metainfo.xml.in:34
+#: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
 msgstr "Visualização de gravação"
 
-#: data/reco.metainfo.xml.in:39
+#: data/reco.metainfo.xml.in.in:39
 msgid "An indication that recording is successfully finished"
 msgstr "Uma indicação de que a gravação foi concluída com sucesso"
 
@@ -189,7 +189,7 @@ msgstr "Falha ao iniciar a gravação"
 msgid "There was an error while starting recording."
 msgstr "Ocorreu um erro ao iniciar a gravação."
 
-#: src/Model/Recorder.vala:330
+#: src/Model/Recorder.vala:319
 msgid "Recording is ongoing"
 msgstr "A gravação está em curso"
 
@@ -316,3 +316,6 @@ msgstr "Selecionar destino…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Selecionar"
+
+#~ msgid "Reco"
+#~ msgstr "Reco"

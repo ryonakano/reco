@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-13 11:10+0900\n"
+"POT-Creation-Date: 2024-05-03 17:55+0900\n"
 "PO-Revision-Date: 2024-02-11 19:02+0000\n"
 "Last-Translator: Milan Šalka <salka.milan@googlemail.com>\n"
 "Language-Team: \n"
@@ -19,29 +19,29 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 5.4-dev\n"
 
-#: data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
+#: data/reco.desktop.in.in:3
+msgid "@APP_NAME@"
+msgstr ""
 
-#: data/reco.desktop.in:4
+#: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
 msgstr "Aplikácia na nahrávanie zvuku"
 
-#: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "Zameranie na záznam"
 
-#: data/reco.desktop.in:12
+#: data/reco.desktop.in.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Nahrávať;Nahrať;Nahrávanie;Zvuk;Hlas;"
 
-#: data/reco.metainfo.xml.in:13
+#: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
 msgstr ""
 "Reco je audio rekordér zameraný na to, že je stručný a jednoduchý na "
 "použitie."
 
-#: data/reco.metainfo.xml.in:16
+#: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
@@ -50,11 +50,11 @@ msgstr ""
 "improvizované melódie a čokoľvek iného môžete urobiť s mikrofónom, "
 "reproduktorom alebo oboje."
 
-#: data/reco.metainfo.xml.in:17
+#: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
 msgstr "Funkcie zahŕňajú:"
 
-#: data/reco.metainfo.xml.in:19
+#: data/reco.metainfo.xml.in.in:19
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
@@ -62,7 +62,7 @@ msgstr ""
 "Nahrávanie zvukov z vášho mikrofónu a systému súčasne. To je užitočné pre "
 "nahrávanie hovorov alebo streaming videá na internete."
 
-#: data/reco.metainfo.xml.in:20
+#: data/reco.metainfo.xml.in.in:20
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
@@ -70,7 +70,7 @@ msgstr ""
 "Ukladanie v mnohých bežne používaných formátoch. Podporuje ALAC, FLAC, MP3, "
 "Ogg Vorbis, Opus a WAV."
 
-#: data/reco.metainfo.xml.in:21
+#: data/reco.metainfo.xml.in.in:21
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
@@ -78,7 +78,7 @@ msgstr ""
 "Časový záznam. Môžete nastaviť oneskorenie pred nahrávanie až 15 sekúnd a "
 "nastaviť dĺžku záznamu až 600 sekúnd."
 
-#: data/reco.metainfo.xml.in:22
+#: data/reco.metainfo.xml.in.in:22
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
@@ -86,7 +86,7 @@ msgstr ""
 "Výber, kde uložiť nahrávky. Môžete si vybrať, či aplikácia ukladá nahrávanie "
 "do adresára automaticky alebo manuálne."
 
-#: data/reco.metainfo.xml.in:23
+#: data/reco.metainfo.xml.in.in:23
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
@@ -96,15 +96,15 @@ msgstr ""
 "aplikáciu pri nahrávaní, záznam je buď uložený automaticky, alebo súbor "
 "vyberie dialóg - v závislosti na vašich preferenciách."
 
-#: data/reco.metainfo.xml.in:29
+#: data/reco.metainfo.xml.in.in:29
 msgid "Welcome view; perform recording configuration"
 msgstr "Uvítacie zobrazenie; vykonajte nastavenie nahrávania"
 
-#: data/reco.metainfo.xml.in:34
+#: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
 msgstr "Zobrazenie nahrávania"
 
-#: data/reco.metainfo.xml.in:39
+#: data/reco.metainfo.xml.in.in:39
 msgid "An indication that recording is successfully finished"
 msgstr "Indikácia, že sa nahrávanie úspešne dokončilo"
 
@@ -186,7 +186,7 @@ msgstr "Chyba pri spustení záznamu"
 msgid "There was an error while starting recording."
 msgstr "Pri spustení záznamu došlo k chybe."
 
-#: src/Model/Recorder.vala:330
+#: src/Model/Recorder.vala:319
 msgid "Recording is ongoing"
 msgstr "Prebieha nahrávanie"
 
@@ -313,3 +313,6 @@ msgstr "Vyberte cieľ…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Vybrať"
+
+#~ msgid "Reco"
+#~ msgstr "Reco"

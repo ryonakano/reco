@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-13 11:10+0900\n"
+"POT-Creation-Date: 2024-05-03 17:55+0900\n"
 "PO-Revision-Date: 2019-02-18 14:43+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -18,79 +18,79 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
+#: data/reco.desktop.in.in:3
+msgid "@APP_NAME@"
+msgstr ""
 
-#: data/reco.desktop.in:4
+#: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
 msgstr "Garso rašytuvo programa"
 
-#: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 #, fuzzy
 msgid "Focus on recording"
 msgstr "Nustatytos trukmės įrašinėjimas"
 
-#: data/reco.desktop.in:12
+#: data/reco.desktop.in.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Įrašinėti;Įrašyti;Rašytuvas;Audio;Garsas;Balsas;"
 
-#: data/reco.metainfo.xml.in:13
+#: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:16
+#: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:17
+#: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
 msgstr "Ypatybės:"
 
-#: data/reco.metainfo.xml.in:19
+#: data/reco.metainfo.xml.in.in:19
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:20
+#: data/reco.metainfo.xml.in.in:20
 #, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr "Prieinami formatai: AAC, FLAC, MP3, Ogg Vorbis, Opus ir WAV"
 
-#: data/reco.metainfo.xml.in:21
+#: data/reco.metainfo.xml.in.in:21
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:22
+#: data/reco.metainfo.xml.in.in:22
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:23
+#: data/reco.metainfo.xml.in.in:23
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:29
+#: data/reco.metainfo.xml.in.in:29
 msgid "Welcome view; perform recording configuration"
 msgstr ""
 
-#: data/reco.metainfo.xml.in:34
+#: data/reco.metainfo.xml.in.in:34
 #, fuzzy
 msgid "Recording view"
 msgstr "Garso rašytuvo programa"
 
-#: data/reco.metainfo.xml.in:39
+#: data/reco.metainfo.xml.in.in:39
 msgid "An indication that recording is successfully finished"
 msgstr ""
 
@@ -174,7 +174,7 @@ msgstr "Pradėti įrašinėjimą"
 msgid "There was an error while starting recording."
 msgstr ""
 
-#: src/Model/Recorder.vala:330
+#: src/Model/Recorder.vala:319
 #, fuzzy
 msgid "Recording is ongoing"
 msgstr "Įrašinėjimai"
@@ -311,3 +311,6 @@ msgstr "Pasirinkite numatytąją vietą"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr ""
+
+#~ msgid "Reco"
+#~ msgstr "Reco"

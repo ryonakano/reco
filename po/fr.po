@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-13 11:10+0900\n"
+"POT-Creation-Date: 2024-05-03 17:55+0900\n"
 "PO-Revision-Date: 2023-01-13 18:48+0000\n"
 "Last-Translator: rene-coty <irenee.thirion@e.email>\n"
 "Language-Team: \n"
@@ -19,37 +19,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.15.1-dev\n"
 
-#: data/reco.desktop.in:3
-msgid "Reco"
-msgstr "Reco"
+#: data/reco.desktop.in.in:3
+msgid "@APP_NAME@"
+msgstr ""
 
-#: data/reco.desktop.in:4
+#: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
 msgstr "Aplication d'enregistrement audio"
 
-#: data/reco.desktop.in:5 data/reco.metainfo.xml.in:11
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr ""
 
-#: data/reco.desktop.in:12
+#: data/reco.desktop.in.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Enregistrement;Audio;Son;Voix;"
 
-#: data/reco.metainfo.xml.in:13
+#: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:16
+#: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
 
-#: data/reco.metainfo.xml.in:17
+#: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
 msgstr "Fonctionnalités incluses :"
 
-#: data/reco.metainfo.xml.in:19
+#: data/reco.metainfo.xml.in.in:19
 #, fuzzy
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
@@ -59,7 +59,7 @@ msgstr ""
 "peut être utile si vous souhaitez enregistrer des conversations via des "
 "applications de tchat ou pendant la lecture de vidéos sur Internet"
 
-#: data/reco.metainfo.xml.in:20
+#: data/reco.metainfo.xml.in.in:20
 #, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
@@ -68,7 +68,7 @@ msgstr ""
 "Enregistrement dans les formats les plus courants. Formats pris en charge : "
 "ALAC, FLAC, MP3, Ogg Vorbis, Opus et WAV"
 
-#: data/reco.metainfo.xml.in:21
+#: data/reco.metainfo.xml.in.in:21
 #, fuzzy
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
@@ -78,7 +78,7 @@ msgstr ""
 "d'enregistrer jusqu'à 15 secondes, et la durée de l'enregistrement jusqu'à "
 "600 secondes"
 
-#: data/reco.metainfo.xml.in:22
+#: data/reco.metainfo.xml.in.in:22
 #, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
@@ -89,7 +89,7 @@ msgstr ""
 "l'application sauvegarde automatiquement les enregistrements ou si vous "
 "préferez sélectionner un emplacement de destination à chaque sauvegarde"
 
-#: data/reco.metainfo.xml.in:23
+#: data/reco.metainfo.xml.in.in:23
 #, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
@@ -101,17 +101,17 @@ msgstr ""
 "automatiquement sauvegardé ou alors une boîte de dialogue d'enregistrement "
 "s'affichera en fonction de vos paramètres de sauvegarde"
 
-#: data/reco.metainfo.xml.in:29
+#: data/reco.metainfo.xml.in.in:29
 msgid "Welcome view; perform recording configuration"
 msgstr ""
 "Écran de bienvenue qui vous permet de définir la configuration "
 "d'enregistrement"
 
-#: data/reco.metainfo.xml.in:34
+#: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
 msgstr "Écran d'enregistrement"
 
-#: data/reco.metainfo.xml.in:39
+#: data/reco.metainfo.xml.in.in:39
 msgid "An indication that recording is successfully finished"
 msgstr "Une indication montrant que l'enregistrement est terminé avec succès"
 
@@ -196,7 +196,7 @@ msgstr "Démarrer l'enregistrement"
 msgid "There was an error while starting recording."
 msgstr ""
 
-#: src/Model/Recorder.vala:330
+#: src/Model/Recorder.vala:319
 msgid "Recording is ongoing"
 msgstr "Enregistrement en cours"
 
@@ -324,3 +324,6 @@ msgstr "Sélectionner une destination…"
 #: src/View/WelcomeView.vala:263
 msgid "Select"
 msgstr "Sélectionner"
+
+#~ msgid "Reco"
+#~ msgstr "Reco"
