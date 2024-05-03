@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-13 11:10+0900\n"
-"PO-Revision-Date: 2024-04-13 00:23+0000\n"
+"PO-Revision-Date: 2024-04-21 09:07+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco/it/>\n"
 "Language: it\n"
@@ -155,21 +155,20 @@ msgstr ""
 "designata."
 
 #: src/MainWindow.vala:158
-#, fuzzy
 msgid "Saved recording"
-msgstr "Salva registrazione"
+msgstr "Registrazione salvata"
 
 #: src/MainWindow.vala:162
 msgid "Recording saved successfully."
-msgstr ""
+msgstr "Registrazione salvata correttamente."
 
 #: src/MainWindow.vala:164
 msgid "Click here to play."
-msgstr ""
+msgstr "Clicca qui per avviare."
 
 #: src/MainWindow.vala:166
 msgid "Open folder"
-msgstr ""
+msgstr "Apri cartella"
 
 #: src/MainWindow.vala:195
 msgid "Save your recording"
