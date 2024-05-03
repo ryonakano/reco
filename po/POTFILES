@@ -1,5 +1,5 @@
-data/reco.desktop.in
-data/reco.metainfo.xml.in
+data/reco.desktop.in.in
+data/reco.metainfo.xml.in.in
 src/MainWindow.vala
 src/Model/Recorder.vala
 src/View/CountDownView.vala

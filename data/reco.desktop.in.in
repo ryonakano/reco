@@ -1,10 +1,10 @@
 [Desktop Entry]
-Name=Reco
+Name=@APP_NAME@
 GenericName=Audio Recording App
 Comment=Focus on recording
 Categories=Audio;AudioVideo;Utility;Recorder;
-Exec=com.github.ryonakano.reco
-Icon=com.github.ryonakano.reco
+Exec=@APP_ID@
+Icon=@APP_ID@
 Terminal=false
 Type=Application
 X-GNOME-UsesNotifications=true

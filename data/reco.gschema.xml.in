@@ -23,7 +23,7 @@
     <value value="2" nick="dark"/>
   </enum>
 
-  <schema path="/com/github/ryonakano/reco/" id="com.github.ryonakano.reco">
+  <schema path="/com/github/ryonakano/reco/" id="@APP_ID@">
     <key name="delay" type="u">
       <default>0</default>
       <summary>Delay in seconds</summary>

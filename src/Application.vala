@@ -24,13 +24,14 @@ public class Application : Gtk.Application {
 
     public Application () {
         Object (
-            application_id: "com.github.ryonakano.reco",
-            flags: ApplicationFlags.FLAGS_NONE
+            application_id: Config.APP_ID,
+            flags: ApplicationFlags.FLAGS_NONE,
+            resource_base_path: Config.RESOURCE_PREFIX
         );
     }
 
     static construct {
-        settings = new Settings ("com.github.ryonakano.reco");
+        settings = new Settings (Config.APP_ID);
     }
 
     private bool style_action_transform_to_cb (Binding binding, Value from_value, ref Value to_value) {
