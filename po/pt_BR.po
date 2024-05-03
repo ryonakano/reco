@@ -4,24 +4,26 @@
 # Matheus Tessarini Ricci, 2021.
 # Felipe Nogueira <contato.fnog@gmail.com>, 2023.
 # Tiago Lucas Flach <tiagolucas9830@gmail.com>, 2023.
+# Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-03 17:55+0900\n"
-"PO-Revision-Date: 2023-12-05 00:46+0000\n"
-"Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2024-05-03 10:45+0000\n"
+"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/rosp/"
+"reco/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.5.3\n"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
-msgstr ""
+msgstr "@APP_NAME@"
 
 #: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
