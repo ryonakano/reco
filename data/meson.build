@@ -29,3 +29,10 @@ install_data(
     rename: meson.project_name() + '.gschema.xml',
     install_dir: get_option('datadir') / 'glib-2.0' / 'schemas'
 )
+
+asresources = gnome.compile_resources(
+    'as-resources',
+    'reco.gresource.xml',
+    source_dir: 'data',
+    c_name: 'as'
+)
