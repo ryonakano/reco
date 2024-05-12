@@ -25,7 +25,7 @@ public class Application : Gtk.Application {
     public Application () {
         Object (
             application_id: Config.APP_ID,
-            flags: ApplicationFlags.FLAGS_NONE,
+            flags: ApplicationFlags.DEFAULT_FLAGS,
             resource_base_path: Config.RESOURCE_PREFIX
         );
     }

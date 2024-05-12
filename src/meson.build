@@ -11,10 +11,11 @@ config_file = configure_file(
 
 dependencies = [
     dependency('gee-0.8'),
+    dependency('glib-2.0', version: '>= 2.74'),
     dependency('granite-7'),
     dependency('gstreamer-1.0', version: '>= 1.20'),
     dependency('gtk4', version: '>= 4.10'),
-    dependency('pango')
+    dependency('pango'),
 ]
 
 sources = files(
