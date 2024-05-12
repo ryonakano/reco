@@ -50,6 +50,7 @@ flatpak run com.github.ryonakano.reco.Devel
 You'll need the following dependencies to build:
 
 * libgee-0.8-dev
+* libglib2.0-dev (>= 2.74)
 * libgranite-7-dev
 * libgstreamer1.0-dev (>= 1.20)
 * libgtk-4-dev (>= 4.10)
