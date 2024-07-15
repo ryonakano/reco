@@ -32,8 +32,8 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/ryonakano/ryokucha/archive/refs/tags/0.3.0.tar.gz
-        sha256: 677b3249b219533ec9fbb63e5f6af4175a4670a535efd1b3a39d9a8a47766635
+        url: https://github.com/ryonakano/ryokucha/archive/refs/tags/0.3.1.tar.gz
+        sha256: 503754d1a0a9012e5779f20ef1e9bb7db099eb9243bc98985b2136e4e1b0031e
 
   - name: reco
     buildsystem: meson
