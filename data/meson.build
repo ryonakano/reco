@@ -29,6 +29,7 @@ desktop_file = i18n.merge_file(
 appstream_conf = configuration_data()
 appstream_conf.set('APP_ID', app_id)
 appstream_conf.set('GETTEXT_PACKAGE', meson.project_name())
+appstream_conf.set('VERSION', meson.project_version())
 appstream_file_in = configure_file(
     input: 'reco.metainfo.xml.in.in',
     output: '@0@.metainfo.xml.in'.format(app_id),
