@@ -67,7 +67,7 @@
   </developer>
 
   <releases>
-    <release version="5.0.2" date="2024-08-13" urgency="low">
+    <release version="5.0.2" date="2024-08-14" urgency="low">
       <description translate="no">
         <ul>
           <li>Update Flatpak platform version</li>
