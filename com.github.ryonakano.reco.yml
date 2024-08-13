@@ -21,7 +21,7 @@ modules:
 
   - name: gst-libav
     buildsystem: meson
-    config_opts:
+    config-opts:
       - '-Ddoc=disabled'
     sources:
       - type: archive
@@ -38,7 +38,7 @@ modules:
 
   - name: reco
     buildsystem: meson
-    config_opts:
+    config-opts:
       - '-Duse_submodule=false'
     sources:
       - type: dir
