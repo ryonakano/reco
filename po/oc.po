@@ -1,22 +1,22 @@
 # Occitan translations for com.github.ryonakano.reco.
 # Copyright (C) 2018-2024 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Quentin PAGÈS <quentinantonin@free.fr>, 2023.
+# Quentin PAGÈS <quentinantonin@free.fr>, 2023, 2024.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-03 17:55+0900\n"
-"PO-Revision-Date: 2024-05-03 10:45+0000\n"
-"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
+"PO-Revision-Date: 2024-09-22 15:40+0000\n"
+"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/reco/oc/>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5.3\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -24,25 +24,28 @@ msgstr "@APP_NAME@"
 
 #: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
-msgstr ""
+msgstr "Aplicacion d’enregistrament àudio"
 
 #: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
-msgstr ""
+msgstr "Centrada sus l’enregistrament"
 
 #: data/reco.desktop.in.in:12
 msgid "Record;Audio;Sound;Voice;"
-msgstr ""
+msgstr "enregistrar;enregistrament;àudio;son;votz;"
 
 #: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
-msgstr ""
+msgstr "Reco es un enregistrador àudio que se vòl concís e simple d’utilizar."
 
 #: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
+"Lo podètz utilizar per enregistrar e remembrar d’orals, d'àudio del sistèma, "
+"de melodias improvisadas, e tot çò que podètz far amb un microfòn, un "
+"nautparlaire, o los dos."
 
 #: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
@@ -53,6 +56,8 @@ msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
+"Enregistrar de sons dempuèi vòstre microfòn e vòstre sistèma al meteis "
+"temps. Es util per enregistrar de sonadas o difusar de vidèos sus Internet."
 
 #: data/reco.metainfo.xml.in.in:20
 msgid ""
@@ -85,11 +90,11 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
-msgstr ""
+msgstr "Vista enregistrament"
 
 #: data/reco.metainfo.xml.in.in:39
 msgid "An indication that recording is successfully finished"
-msgstr ""
+msgstr "Una indicacion que l’enregistrament es corrèctament acabat"
 
 #: src/MainWindow.vala:27
 msgid "Light"
@@ -104,13 +109,12 @@ msgid "System"
 msgstr "Sistèma"
 
 #: src/MainWindow.vala:32
-#, fuzzy
 msgid "Style"
-msgstr "Estile :"
+msgstr "Estile"
 
 #: src/MainWindow.vala:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Menú principal"
 
 #: src/MainWindow.vala:117
 msgid "Error while recording"
@@ -138,21 +142,20 @@ msgstr ""
 "I a agut una error pendent lo desplaçament del fichièr a sa destinacion."
 
 #: src/MainWindow.vala:158
-#, fuzzy
 msgid "Saved recording"
-msgstr "Salvar vòstre enregistrament"
+msgstr "Enregistrament salvat"
 
 #: src/MainWindow.vala:162
 msgid "Recording saved successfully."
-msgstr ""
+msgstr "Enregistrament corrèctament salvat."
 
 #: src/MainWindow.vala:164
 msgid "Click here to play."
-msgstr ""
+msgstr "Clicar aquí per legir."
 
 #: src/MainWindow.vala:166
 msgid "Open folder"
-msgstr ""
+msgstr "Dobrir lo dossièr"
 
 #: src/MainWindow.vala:195
 msgid "Save your recording"
