@@ -5,13 +5,14 @@
 # Felipe Nogueira <contato.fnog@gmail.com>, 2023.
 # Tiago Lucas Flach <tiagolucas9830@gmail.com>, 2023.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
+# John Peter Sa <johnppetersa@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-03 17:55+0900\n"
-"PO-Revision-Date: 2024-05-03 10:45+0000\n"
-"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
+"PO-Revision-Date: 2024-12-11 12:15+0000\n"
+"Last-Translator: John Peter Sa <johnppetersa@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/rosp/"
 "reco/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.3\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -31,7 +32,7 @@ msgstr "Aplicativo de Gravador de Áudio"
 
 #: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
-msgstr ""
+msgstr "Foco na gravação"
 
 #: data/reco.desktop.in.in:12
 msgid "Record;Audio;Sound;Voice;"
@@ -39,67 +40,64 @@ msgstr "Gravar;Áudio;Som;Voz;"
 
 #: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
-msgstr ""
+msgstr "Reco é um gravador de áudio focado em ser conciso e simples de usar."
 
 #: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
+"Você pode usá-lo para gravar e memorizar palavras faladas, áudio do sistema, "
+"melodias improvisadas e qualquer outra coisa que você possa fazer com um "
+"microfone, alto-falante ou ambos."
 
 #: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
 msgstr "Funções incluídas:"
 
 #: data/reco.metainfo.xml.in.in:19
-#, fuzzy
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
-"Gravação de sons tanto do seu microfone como do sistema ao mesmo tempo. Isto "
-"será útil quando se grava conversas com aplicações de chat ou transmissões "
-"de vídeos na Internet"
+"Gravar sons do seu microfone e do sistema ao mesmo tempo. Isso é útil para "
+"gravar chamadas ou transmitir vídeos na Internet."
 
 #: data/reco.metainfo.xml.in.in:20
-#, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
-"Grave em alguns formatos normalmente utilizados. Suporta AAC, FLAC, MP3, Ogg "
-"Vorbis, Opus, e WAV"
+"Salvando em muitos formatos comumente usados. Suporta ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus e WAV."
 
 #: data/reco.metainfo.xml.in.in:21
-#, fuzzy
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
-"Gravação cronometrada. Pode definir um atraso antes da gravação até 15 "
-"segundos e a duração da gravação até 600 segundos"
+"Gravação cronometrada. Você pode definir um atraso antes da gravação de até "
+"15 segundos e definir a duração da gravação de até 600 segundos."
 
 #: data/reco.metainfo.xml.in.in:22
-#, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
-"Guardar automaticamente ou perguntar sempre onde guardar o fluxo de "
-"trabalho. Pode selecionar se a aplicação salva as gravações automaticamente "
-"ou se escolhe um destino cada vez que as salva"
+"Escolhendo onde salvar as gravações. Você pode selecionar se o aplicativo "
+"salva as gravações em um diretório de sua escolha, automaticamente ou "
+"manualmente."
 
 #: data/reco.metainfo.xml.in.in:23
-#, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
-"Salvar a gravação quando a aplicação deixa de funcionar. Mesmo que saia da "
-"aplicação durante a gravação, a gravação é guardada automaticamente ou é "
-"mostrada uma Janela de escolha de arquivos dependendo da sua definição de "
-"gravação"
+"Salvando gravações quando o aplicativo é encerrado. Mesmo se você fechar o "
+"aplicativo durante a gravação, a gravação será salva automaticamente ou o "
+"diálogo do seletor de arquivos será exibido - dependendo de suas "
+"preferências."
 
 #: data/reco.metainfo.xml.in.in:29
 msgid "Welcome view; perform recording configuration"
@@ -126,13 +124,12 @@ msgid "System"
 msgstr "Sistema"
 
 #: src/MainWindow.vala:32
-#, fuzzy
 msgid "Style"
-msgstr "Estilo:"
+msgstr "Estilo"
 
 #: src/MainWindow.vala:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Menu principal"
 
 #: src/MainWindow.vala:117
 msgid "Error while recording"
@@ -159,21 +156,20 @@ msgid "There was an error while moving file to the designated location."
 msgstr "Ocorreu um erro ao mover o arquivo para o local designado."
 
 #: src/MainWindow.vala:158
-#, fuzzy
 msgid "Saved recording"
-msgstr "Salvar a gravação"
+msgstr "Gravação salva"
 
 #: src/MainWindow.vala:162
 msgid "Recording saved successfully."
-msgstr ""
+msgstr "Gravação salva com sucesso."
 
 #: src/MainWindow.vala:164
 msgid "Click here to play."
-msgstr ""
+msgstr "Clique aqui para jogar."
 
 #: src/MainWindow.vala:166
 msgid "Open folder"
-msgstr ""
+msgstr "Abrir pasta"
 
 #: src/MainWindow.vala:195
 msgid "Save your recording"
