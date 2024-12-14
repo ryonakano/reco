@@ -174,6 +174,17 @@ namespace Model {
 
                 sys_sound.set ("device", monitor_name);
                 debug ("sound source (system): \"Monitor of %s\"", default_sink.display_name);
+
+                var pa_props = new Gst.Structure.from_string (
+                    "props"
+                    + ",application.name=Reco"
+                    + ",media.role=music"
+                    + ",application.id=%s".printf(Config.APP_ID)
+                    + ",application.icon_name=%s".printf(Config.APP_ID)
+                    , null
+                );
+                sys_sound.set ("stream-properties", pa_props);
+
                 pipeline.add (sys_sound);
                 sys_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
             }
@@ -188,6 +199,17 @@ namespace Model {
                 }
 
                 debug ("sound source (microphone): \"%s\"", microphone.display_name);
+
+                var pa_props = new Gst.Structure.from_string (
+                    "props"
+                    + ",application.name=Reco"
+                    + ",media.role=music"
+                    + ",application.id=%s".printf(Config.APP_ID)
+                    + ",application.icon_name=%s".printf(Config.APP_ID)
+                    , null
+                );
+                mic_sound.set ("stream-properties", pa_props);
+
                 pipeline.add (mic_sound);
                 mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
             }
