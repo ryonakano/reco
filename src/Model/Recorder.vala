@@ -179,8 +179,8 @@ namespace Model {
                     "props"
                     + ",application.name=Reco"
                     + ",media.role=music"
-                    + ",application.id=%s".printf(Config.APP_ID)
-                    + ",application.icon_name=%s".printf(Config.APP_ID)
+                    + ",application.id=" + Config.APP_ID
+                    + ",application.icon_name=" + Config.APP_ID
                     , null
                 );
                 sys_sound.set ("stream-properties", pa_props);
@@ -204,8 +204,8 @@ namespace Model {
                     "props"
                     + ",application.name=Reco"
                     + ",media.role=music"
-                    + ",application.id=%s".printf(Config.APP_ID)
-                    + ",application.icon_name=%s".printf(Config.APP_ID)
+                    + ",application.id=" + Config.APP_ID
+                    + ",application.icon_name=" + Config.APP_ID
                     , null
                 );
                 mic_sound.set ("stream-properties", pa_props);
