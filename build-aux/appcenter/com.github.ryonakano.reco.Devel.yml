@@ -1,4 +1,4 @@
-app-id: com.github.ryonakano.reco.Devel
+id: com.github.ryonakano.reco.Devel
 runtime: io.elementary.Platform
 runtime-version: '8'
 sdk: io.elementary.Sdk
