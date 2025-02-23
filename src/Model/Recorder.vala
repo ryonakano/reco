@@ -176,11 +176,10 @@ namespace Model {
                 debug ("sound source (system): \"Monitor of %s\"", default_sink.display_name);
 
                 var pa_props = new Gst.Structure.from_string (
-                    "props"
-                    + ",application.name=Reco"
-                    + ",media.role=music"
-                    + ",application.id=" + Config.APP_ID
-                    + ",application.icon_name=" + Config.APP_ID
+                    "props" + ",application.name=Reco"
+                            + ",media.role=music"
+                            + ",application.id=" + Config.APP_ID
+                            + ",application.icon_name=" + Config.APP_ID
                     , null
                 );
                 sys_sound.set ("stream-properties", pa_props);
@@ -201,11 +200,10 @@ namespace Model {
                 debug ("sound source (microphone): \"%s\"", microphone.display_name);
 
                 var pa_props = new Gst.Structure.from_string (
-                    "props"
-                    + ",application.name=Reco"
-                    + ",media.role=music"
-                    + ",application.id=" + Config.APP_ID
-                    + ",application.icon_name=" + Config.APP_ID
+                    "props" + ",application.name=Reco"
+                            + ",media.role=music"
+                            + ",application.id=" + Config.APP_ID
+                            + ",application.icon_name=" + Config.APP_ID
                     , null
                 );
                 mic_sound.set ("stream-properties", pa_props);
