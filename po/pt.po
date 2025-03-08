@@ -1,5 +1,5 @@
 # Portuguese translations for com.github.ryonakano.reco.
-# Copyright (C) 2018-2024 Ryo Nakano
+# Copyright (C) 2018-2025 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Hugo Carvalho <hugokarvalho@hotmail.com>, 2021, 2022.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
