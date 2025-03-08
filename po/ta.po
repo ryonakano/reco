@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-03 17:55+0900\n"
+"POT-Creation-Date: 2025-03-08 23:06+0900\n"
 "PO-Revision-Date: 2025-03-02 19:16+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/rosp/reco/ta/>\n"
@@ -44,8 +44,8 @@ msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
-"பேசும் சொற்கள், கணினி ஆடியோ, மேம்படுத்தப்பட்ட மெல்லிசைகள் மற்றும் மைக்ரோஃபோன், ச்பீக்கர் அல்லது"
-" இரண்டையும் நீங்கள் செய்யக்கூடிய வேறு எதையும் பதிவுசெய்து நினைவில் கொள்ள நீங்கள் இதைப் "
+"பேசும் சொற்கள், கணினி ஆடியோ, மேம்படுத்தப்பட்ட மெல்லிசைகள் மற்றும் மைக்ரோஃபோன், ச்பீக்கர் "
+"அல்லது இரண்டையும் நீங்கள் செய்யக்கூடிய வேறு எதையும் பதிவுசெய்து நினைவில் கொள்ள நீங்கள் இதைப் "
 "பயன்படுத்தலாம்."
 
 #: data/reco.metainfo.xml.in.in:17
@@ -82,8 +82,9 @@ msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
-"பதிவுகளை எங்கு சேமிப்பது என்பதைத் தேர்ந்தெடுப்பது. பயன்பாடு தானாகவோ அல்லது கைமுறையாகவோ"
-" நீங்கள் தேர்ந்தெடுக்கும் கோப்பகமாக பதிவுகளைச் சேமிக்கிறதா என்பதை நீங்கள் தேர்ந்தெடுக்கலாம்."
+"பதிவுகளை எங்கு சேமிப்பது என்பதைத் தேர்ந்தெடுப்பது. பயன்பாடு தானாகவோ அல்லது "
+"கைமுறையாகவோ நீங்கள் தேர்ந்தெடுக்கும் கோப்பகமாக பதிவுகளைச் சேமிக்கிறதா என்பதை நீங்கள் "
+"தேர்ந்தெடுக்கலாம்."
 
 #: data/reco.metainfo.xml.in.in:23
 msgid ""
@@ -92,8 +93,8 @@ msgid ""
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
 "பயன்பாடு வெளியேறும்போது பதிவுகளைச் சேமிக்கிறது. பதிவு செய்யும் போது நீங்கள் "
-"பயன்பாட்டிலிருந்து வெளியேற நேர்ந்தாலும், பதிவு தானாகவே சேமிக்கப்படுகிறது, அல்லது கோப்பு"
-" தேர்வாளர் உரையாடல் காட்டப்படும் - உங்கள் விருப்பங்களைப் பொறுத்து."
+"பயன்பாட்டிலிருந்து வெளியேற நேர்ந்தாலும், பதிவு தானாகவே சேமிக்கப்படுகிறது, அல்லது "
+"கோப்பு தேர்வாளர் உரையாடல் காட்டப்படும் - உங்கள் விருப்பங்களைப் பொறுத்து."
 
 #: data/reco.metainfo.xml.in.in:29
 msgid "Welcome view; perform recording configuration"
@@ -108,78 +109,86 @@ msgid "An indication that recording is successfully finished"
 msgstr "பதிவு வெற்றிகரமாக முடிந்தது என்பதற்கான அறிகுறி"
 
 #: src/MainWindow.vala:27
-msgid "Light"
-msgstr "ஒளி"
-
-#: src/MainWindow.vala:28
-msgid "Dark"
-msgstr "இருண்ட"
-
-#: src/MainWindow.vala:29 src/View/WelcomeView.vala:32
-msgid "System"
+#, fuzzy
+#| msgid "System"
+msgid "S_ystem"
 msgstr "மண்டலம்"
 
+#: src/MainWindow.vala:28
+#, fuzzy
+#| msgid "Light"
+msgid "_Light"
+msgstr "ஒளி"
+
+#: src/MainWindow.vala:29
+#, fuzzy
+#| msgid "Dark"
+msgid "_Dark"
+msgstr "இருண்ட"
+
 #: src/MainWindow.vala:32
-msgid "Style"
+#, fuzzy
+#| msgid "Style"
+msgid "_Style"
 msgstr "சூல் தண்டு"
 
 #: src/MainWindow.vala:35
 msgid "Main Menu"
 msgstr "பட்டியல் விளையாடுங்கள்"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:120
 msgid "Error while recording"
 msgstr "பதிவு செய்யும் போது பிழை"
 
-#: src/MainWindow.vala:118
+#: src/MainWindow.vala:121
 msgid "There was an error while recording."
 msgstr "பதிவு செய்யும் போது பிழை ஏற்பட்டது."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
 #. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:134
 #, c-format
 msgid "Recording from %s"
 msgstr "%s இலிருந்து பதிவு"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:151
 msgid "Failed to save recording"
 msgstr "பதிவைச் சேமிக்கத் தவறிவிட்டது"
 
-#: src/MainWindow.vala:149
+#: src/MainWindow.vala:152
 msgid "There was an error while moving file to the designated location."
 msgstr "நியமிக்கப்பட்ட இடத்திற்கு கோப்பை நகர்த்தும்போது பிழை ஏற்பட்டது."
 
-#: src/MainWindow.vala:158
+#: src/MainWindow.vala:161
 msgid "Saved recording"
 msgstr "சேமித்த பதிவு"
 
-#: src/MainWindow.vala:162
+#: src/MainWindow.vala:165
 msgid "Recording saved successfully."
 msgstr "பதிவு வெற்றிகரமாக சேமிக்கப்பட்டது."
 
-#: src/MainWindow.vala:164
+#: src/MainWindow.vala:167
 msgid "Click here to play."
 msgstr "விளையாட இங்கே சொடுக்கு செய்க."
 
-#: src/MainWindow.vala:166
+#: src/MainWindow.vala:170
 msgid "Open folder"
 msgstr "திறந்த கோப்புறை"
 
-#: src/MainWindow.vala:195
+#: src/MainWindow.vala:199
 msgid "Save your recording"
 msgstr "உங்கள் பதிவைச் சேமிக்கவும்"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:200
 msgid "Save"
 msgstr "சேமி"
 
-#: src/MainWindow.vala:231
+#: src/MainWindow.vala:235
 msgid "Failed to start recording"
 msgstr "பதிவு செய்யத் தவறிவிட்டது"
 
-#: src/MainWindow.vala:232
+#: src/MainWindow.vala:236
 msgid "There was an error while starting recording."
 msgstr "பதிவைத் தொடங்கும்போது பிழை ஏற்பட்டது."
 
@@ -203,15 +212,15 @@ msgstr "கவுண்ட்டவுனை மீண்டும் தொட�
 msgid "Cancel recording"
 msgstr "பதிவை ரத்துசெய்"
 
-#: src/View/RecordView.vala:57
+#: src/View/RecordView.vala:58 src/View/RecordView.vala:60
 msgid "Finish recording"
 msgstr "பதிவு செய்ய"
 
-#: src/View/RecordView.vala:201
+#: src/View/RecordView.vala:205
 msgid "Pause recording"
 msgstr "இடைநிறுத்த பதிவு"
 
-#: src/View/RecordView.vala:206
+#: src/View/RecordView.vala:210
 msgid "Resume recording"
 msgstr "மீண்டும் பதிவு செய்யுங்கள்"
 
@@ -219,94 +228,98 @@ msgstr "மீண்டும் பதிவு செய்யுங்கள�
 msgid "Source"
 msgstr "மூலம்"
 
-#: src/View/WelcomeView.vala:25
+#: src/View/WelcomeView.vala:28
 msgid "Record from:"
 msgstr "இதிலிருந்து பதிவு:"
 
-#: src/View/WelcomeView.vala:31
+#: src/View/WelcomeView.vala:34
 msgid "Microphone"
 msgstr "ஒலிவாங்கி"
 
-#: src/View/WelcomeView.vala:33
+#: src/View/WelcomeView.vala:35
+msgid "System"
+msgstr "மண்டலம்"
+
+#: src/View/WelcomeView.vala:36
 msgid "Both"
 msgstr "இரண்டும்"
 
-#: src/View/WelcomeView.vala:35
+#: src/View/WelcomeView.vala:38
 msgid "Microphone:"
 msgstr "மைக்ரோஃபோன்:"
 
-#: src/View/WelcomeView.vala:45
+#: src/View/WelcomeView.vala:48
 msgid "Channels:"
 msgstr "சேனல்கள்:"
 
-#: src/View/WelcomeView.vala:51
+#: src/View/WelcomeView.vala:54
 msgid "Mono"
 msgstr "மோனோ"
 
-#: src/View/WelcomeView.vala:52
+#: src/View/WelcomeView.vala:55
 msgid "Stereo"
 msgstr "ச்டீரியோ"
 
-#: src/View/WelcomeView.vala:54
+#: src/View/WelcomeView.vala:57
 msgid "Timer"
 msgstr "நேரங்குறிகருவி"
 
-#: src/View/WelcomeView.vala:56
+#: src/View/WelcomeView.vala:62
 msgid "Delay in seconds:"
 msgstr "விநாடிகளில் தாமதம்:"
 
-#: src/View/WelcomeView.vala:63
+#: src/View/WelcomeView.vala:69
 msgid "Length in seconds:"
 msgstr "விநாடிகளில் நீளம்:"
 
-#: src/View/WelcomeView.vala:74
+#: src/View/WelcomeView.vala:80
 msgid "Saving"
 msgstr "சேமிப்பு"
 
-#: src/View/WelcomeView.vala:76
+#: src/View/WelcomeView.vala:85
 msgid "Format:"
 msgstr "வடிவம்:"
 
-#: src/View/WelcomeView.vala:83
+#: src/View/WelcomeView.vala:92
 msgid "ALAC"
 msgstr "அலாக்"
 
-#: src/View/WelcomeView.vala:84
+#: src/View/WelcomeView.vala:93
 msgid "FLAC"
 msgstr "Flac"
 
-#: src/View/WelcomeView.vala:85
+#: src/View/WelcomeView.vala:94
 msgid "MP3"
 msgstr "தனிமையில்"
 
-#: src/View/WelcomeView.vala:86
+#: src/View/WelcomeView.vala:95
 msgid "Ogg Vorbis"
 msgstr "ஓக் வோர்பிச்"
 
-#: src/View/WelcomeView.vala:87
+#: src/View/WelcomeView.vala:96
 msgid "Opus"
 msgstr "ஓபச்"
 
-#: src/View/WelcomeView.vala:88
+#: src/View/WelcomeView.vala:97
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:90
+#: src/View/WelcomeView.vala:99
 msgid "Automatically save files:"
 msgstr "கோப்புகளை தானாக சேமிக்கவும்:"
 
-#: src/View/WelcomeView.vala:108 src/View/WelcomeView.vala:262
+#: src/View/WelcomeView.vala:117 src/View/WelcomeView.vala:275
 msgid "Choose a default destination"
 msgstr "இயல்புநிலை இலக்கைத் தேர்வுசெய்க"
 
-#: src/View/WelcomeView.vala:147
+#: src/View/WelcomeView.vala:157 src/View/WelcomeView.vala:159
 msgid "Start recording"
 msgstr "பதிவு செய்யத் தொடங்குங்கள்"
 
-#: src/View/WelcomeView.vala:254
+#: src/View/WelcomeView.vala:267
 msgid "Select destination…"
 msgstr "இலக்கைத் தேர்ந்தெடுக்கவும்…"
 
-#: src/View/WelcomeView.vala:263
+#: src/View/WelcomeView.vala:276
 msgid "Select"
 msgstr "தேர்ந்தெடு"

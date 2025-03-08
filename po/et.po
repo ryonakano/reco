@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-03 17:55+0900\n"
+"POT-Creation-Date: 2025-03-08 23:06+0900\n"
 "PO-Revision-Date: 2024-12-13 00:39+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/rosp/reco/et/>\n"
@@ -33,8 +33,8 @@ msgstr "Mugav helisalvestus"
 #: data/reco.desktop.in.in:12
 msgid "Record;Audio;Sound;Voice;"
 msgstr ""
-"Record;Audio;Sound;Voice;hääl;heli;salvestus;salvestis;salvestama;helisalvest"
-"us;salvestaja;diktofon;"
+"Record;Audio;Sound;Voice;hääl;heli;salvestus;salvestis;salvestama;"
+"helisalvestus;salvestaja;diktofon;"
 
 #: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
@@ -108,78 +108,86 @@ msgid "An indication that recording is successfully finished"
 msgstr "Kinnitus salvestamise õnnestumise kohta"
 
 #: src/MainWindow.vala:27
-msgid "Light"
-msgstr "Hele kujundus"
-
-#: src/MainWindow.vala:28
-msgid "Dark"
-msgstr "Tume kujundus"
-
-#: src/MainWindow.vala:29 src/View/WelcomeView.vala:32
-msgid "System"
+#, fuzzy
+#| msgid "System"
+msgid "S_ystem"
 msgstr "Süsteemi kujundus"
 
+#: src/MainWindow.vala:28
+#, fuzzy
+#| msgid "Light"
+msgid "_Light"
+msgstr "Hele kujundus"
+
+#: src/MainWindow.vala:29
+#, fuzzy
+#| msgid "Dark"
+msgid "_Dark"
+msgstr "Tume kujundus"
+
 #: src/MainWindow.vala:32
-msgid "Style"
+#, fuzzy
+#| msgid "Style"
+msgid "_Style"
 msgstr "Välimus"
 
 #: src/MainWindow.vala:35
 msgid "Main Menu"
 msgstr "Põhimenüü"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:120
 msgid "Error while recording"
 msgstr "Viga salvestamisel"
 
-#: src/MainWindow.vala:118
+#: src/MainWindow.vala:121
 msgid "There was an error while recording."
 msgstr "Salvestamisel tekkis viga."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
 #. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:134
 #, c-format
 msgid "Recording from %s"
 msgstr "helisalvestis %s"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:151
 msgid "Failed to save recording"
 msgstr "Salvestuse talletamine ei õnnestunud"
 
-#: src/MainWindow.vala:149
+#: src/MainWindow.vala:152
 msgid "There was an error while moving file to the designated location."
 msgstr "Faili teisaldamisel määratud kohta tekkis viga."
 
-#: src/MainWindow.vala:158
+#: src/MainWindow.vala:161
 msgid "Saved recording"
 msgstr "Salvestatud helisalvestis"
 
-#: src/MainWindow.vala:162
+#: src/MainWindow.vala:165
 msgid "Recording saved successfully."
 msgstr "Helisalvestise talletamine õnnestus."
 
-#: src/MainWindow.vala:164
+#: src/MainWindow.vala:167
 msgid "Click here to play."
 msgstr "Kuulamiseks klõpsi siin."
 
-#: src/MainWindow.vala:166
+#: src/MainWindow.vala:170
 msgid "Open folder"
 msgstr "Ava kaust"
 
-#: src/MainWindow.vala:195
+#: src/MainWindow.vala:199
 msgid "Save your recording"
 msgstr "Salvesta oma helisalvestis"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:200
 msgid "Save"
 msgstr "Salvesta"
 
-#: src/MainWindow.vala:231
+#: src/MainWindow.vala:235
 msgid "Failed to start recording"
 msgstr "Ei õnnestunud alustada salvestamist"
 
-#: src/MainWindow.vala:232
+#: src/MainWindow.vala:236
 msgid "There was an error while starting recording."
 msgstr "Helisalvestamise alustamisel tekkis viga."
 
@@ -203,15 +211,15 @@ msgstr "Jätka pöördloendust"
 msgid "Cancel recording"
 msgstr "Katkesta salvestamine"
 
-#: src/View/RecordView.vala:57
+#: src/View/RecordView.vala:58 src/View/RecordView.vala:60
 msgid "Finish recording"
 msgstr "Lõpeta salvestamine"
 
-#: src/View/RecordView.vala:201
+#: src/View/RecordView.vala:205
 msgid "Pause recording"
 msgstr "Peata salvestamine"
 
-#: src/View/RecordView.vala:206
+#: src/View/RecordView.vala:210
 msgid "Resume recording"
 msgstr "Jätka salvestamist"
 
@@ -219,94 +227,98 @@ msgstr "Jätka salvestamist"
 msgid "Source"
 msgstr "Heliallikas"
 
-#: src/View/WelcomeView.vala:25
+#: src/View/WelcomeView.vala:28
 msgid "Record from:"
 msgstr "Helivoo allikas:"
 
-#: src/View/WelcomeView.vala:31
+#: src/View/WelcomeView.vala:34
 msgid "Microphone"
 msgstr "Mikrofon"
 
-#: src/View/WelcomeView.vala:33
+#: src/View/WelcomeView.vala:35
+msgid "System"
+msgstr "Süsteemi kujundus"
+
+#: src/View/WelcomeView.vala:36
 msgid "Both"
 msgstr "Mõlemad"
 
-#: src/View/WelcomeView.vala:35
+#: src/View/WelcomeView.vala:38
 msgid "Microphone:"
 msgstr "Mikrofon:"
 
-#: src/View/WelcomeView.vala:45
+#: src/View/WelcomeView.vala:48
 msgid "Channels:"
 msgstr "Kanalid:"
 
-#: src/View/WelcomeView.vala:51
+#: src/View/WelcomeView.vala:54
 msgid "Mono"
 msgstr "Mono"
 
-#: src/View/WelcomeView.vala:52
+#: src/View/WelcomeView.vala:55
 msgid "Stereo"
 msgstr "Stereo"
 
-#: src/View/WelcomeView.vala:54
+#: src/View/WelcomeView.vala:57
 msgid "Timer"
 msgstr "Taimer"
 
-#: src/View/WelcomeView.vala:56
+#: src/View/WelcomeView.vala:62
 msgid "Delay in seconds:"
 msgstr "Eelnev viivitus sekundites:"
 
-#: src/View/WelcomeView.vala:63
+#: src/View/WelcomeView.vala:69
 msgid "Length in seconds:"
 msgstr "Salvestuse kestus sekundites:"
 
-#: src/View/WelcomeView.vala:74
+#: src/View/WelcomeView.vala:80
 msgid "Saving"
 msgstr "Talletamine"
 
-#: src/View/WelcomeView.vala:76
+#: src/View/WelcomeView.vala:85
 msgid "Format:"
 msgstr "Vorming:"
 
-#: src/View/WelcomeView.vala:83
+#: src/View/WelcomeView.vala:92
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:84
+#: src/View/WelcomeView.vala:93
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:85
+#: src/View/WelcomeView.vala:94
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:86
+#: src/View/WelcomeView.vala:95
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:87
+#: src/View/WelcomeView.vala:96
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:88
+#: src/View/WelcomeView.vala:97
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:90
+#: src/View/WelcomeView.vala:99
 msgid "Automatically save files:"
 msgstr "Loo failid automaatselt:"
 
-#: src/View/WelcomeView.vala:108 src/View/WelcomeView.vala:262
+#: src/View/WelcomeView.vala:117 src/View/WelcomeView.vala:275
 msgid "Choose a default destination"
 msgstr "Vali vaikimisi kasutatav kaust"
 
-#: src/View/WelcomeView.vala:147
+#: src/View/WelcomeView.vala:157 src/View/WelcomeView.vala:159
 msgid "Start recording"
 msgstr "Alusta salvestamisega"
 
-#: src/View/WelcomeView.vala:254
+#: src/View/WelcomeView.vala:267
 msgid "Select destination…"
 msgstr "Vali sihtkaust…"
 
-#: src/View/WelcomeView.vala:263
+#: src/View/WelcomeView.vala:276
 msgid "Select"
 msgstr "Vali"
