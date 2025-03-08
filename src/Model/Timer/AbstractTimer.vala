@@ -21,7 +21,7 @@ public abstract class Model.Timer.AbstractTimer : Object {
     public ToStringFunc? to_string_func = null;
 
     private const uint INTERVAL_MSEC = 1000;
-    private const uint TIMER_NOT_STARTED = -1;
+    private const uint TIMER_NOT_STARTED = 0;
 
     // The time this timer holds
     protected TimeSpan time_usec;
@@ -82,6 +82,9 @@ public abstract class Model.Timer.AbstractTimer : Object {
 
     private bool on_timeout_cb () {
         bool timeout_remove_flag = on_timeout ();
+        if (timeout_remove_flag == Source.REMOVE) {
+            timeout = TIMER_NOT_STARTED;
+        }
 
         ticked ();
         return timeout_remove_flag;

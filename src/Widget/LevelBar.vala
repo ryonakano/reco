@@ -56,8 +56,9 @@ public class Widget.LevelBar : Gtk.Box {
             switch (recorder.state) {
                 case Model.Recorder.RecordingState.STOPPED:
                     // Stop updating the graph when recording stopped
-                    if (update_graph_timeout != -1) {
+                    if (update_graph_timeout != 0) {
                         GLib.Source.remove (update_graph_timeout);
+                        update_graph_timeout = 0;
                     }
 
                     timestamp = -1;
@@ -66,7 +67,7 @@ public class Widget.LevelBar : Gtk.Box {
                 case Model.Recorder.RecordingState.PAUSED:
                     // Stop refreshing the graph
                     GLib.Source.remove (update_graph_timeout);
-                    update_graph_timeout = -1;
+                    update_graph_timeout = 0;
                     chart.refresh_every (REFRESH_MSEC, 0.0);
                     // Change the bar color to yellow
                     bar_color.parse (BANANA_500);
