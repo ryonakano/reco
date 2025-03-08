@@ -24,9 +24,9 @@ public class MainWindow : Gtk.ApplicationWindow {
         recorder = Model.Recorder.get_default ();
 
         var style_submenu = new Menu ();
-        style_submenu.append (_("Light"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.FORCE_LIGHT));
-        style_submenu.append (_("Dark"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.FORCE_DARK));
-        style_submenu.append (_("System"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.DEFAULT));
+        style_submenu.append (_("System"), "app.color-scheme('%s')".printf (Define.ColorScheme.DEFAULT));
+        style_submenu.append (_("Light"), "app.color-scheme('%s')".printf (Define.ColorScheme.FORCE_LIGHT));
+        style_submenu.append (_("Dark"), "app.color-scheme('%s')".printf (Define.ColorScheme.FORCE_DARK));
 
         var menu = new Menu ();
         menu.append_submenu (_("Style"), style_submenu);
@@ -43,8 +43,10 @@ public class MainWindow : Gtk.ApplicationWindow {
         };
         headerbar.pack_end (menu_button);
         set_titlebar (headerbar);
+#if USE_GRANITE
         headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
         headerbar.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
+#endif
 
         welcome_view = new View.WelcomeView ();
         countdown_view = new View.CountDownView ();
@@ -268,6 +270,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     private void show_error_dialog (string primary_text, string secondary_text, string error_message) {
         if (Application.IS_ON_PANTHEON) {
+#if USE_GRANITE
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                 primary_text,
                 secondary_text,
@@ -283,6 +286,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                 }
             });
             error_dialog.present ();
+#endif
         } else {
             var error_dialog = new Gtk.AlertDialog (
                 primary_text

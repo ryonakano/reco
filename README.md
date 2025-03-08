@@ -49,9 +49,10 @@ flatpak run com.github.ryonakano.reco.Devel
 ### From Source Code (Native)
 You'll need the following dependencies to build:
 
+* libadwaita-1-dev
 * libgee-0.8-dev
 * libglib2.0-dev (>= 2.74)
-* libgranite-7-dev
+* libgranite-7-dev (>= 7.2.0, required only when you build with `granite` feature enabled)
 * libgstreamer1.0-dev (>= 1.20)
 * libgtk-4-dev (>= 4.10)
 * [libryokucha](https://github.com/ryonakano/ryokucha)

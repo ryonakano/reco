@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class Application : Gtk.Application {
+public class Application : Adw.Application {
     public static bool IS_ON_PANTHEON {
         get {
             return GLib.Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon";
@@ -20,7 +20,6 @@ public class Application : Gtk.Application {
     };
 
     private MainWindow window;
-    private unowned Manager.StyleManager style_manager;
 
     public Application () {
         Object (
@@ -34,104 +33,44 @@ public class Application : Gtk.Application {
         settings = new Settings (Config.APP_ID);
     }
 
-    private bool style_action_transform_to_cb (Binding binding, Value from_value, ref Value to_value) {
-        Variant? variant = from_value.dup_variant ();
-        if (variant == null) {
-            warning ("Failed to Variant.dup_variant");
-            return false;
-        }
-
-        var val = (Manager.StyleManager.ColorScheme) variant.get_int32 ();
-        switch (val) {
-            case Manager.StyleManager.ColorScheme.DEFAULT:
-            case Manager.StyleManager.ColorScheme.FORCE_LIGHT:
-            case Manager.StyleManager.ColorScheme.FORCE_DARK:
-                to_value.set_enum (val);
-                break;
-            default:
-                warning ("style_action_transform_to_cb: Invalid ColorScheme: %d", val);
-                return false;
-        }
-
-        return true;
-    }
-
-    private bool style_action_transform_from_cb (Binding binding, Value from_value, ref Value to_value) {
-        var val = (Manager.StyleManager.ColorScheme) from_value;
-        switch (val) {
-            case Manager.StyleManager.ColorScheme.DEFAULT:
-            case Manager.StyleManager.ColorScheme.FORCE_LIGHT:
-            case Manager.StyleManager.ColorScheme.FORCE_DARK:
-                to_value.set_variant (new Variant.int32 (val));
-                break;
-            default:
-                warning ("style_action_transform_from_cb: Invalid ColorScheme: %d", val);
-                return false;
-        }
-
-        return true;
-    }
-
-    private static bool color_scheme_get_mapping_cb (Value value, Variant variant, void* user_data) {
-        // Convert from the "style" enum defined in the gschema to Manager.StyleManager.ColorScheme
-        var val = variant.get_string ();
-        switch (val) {
-            case Define.Style.DEFAULT:
-                value.set_enum (Manager.StyleManager.ColorScheme.DEFAULT);
-                break;
-            case Define.Style.LIGHT:
-                value.set_enum (Manager.StyleManager.ColorScheme.FORCE_LIGHT);
-                break;
-            case Define.Style.DARK:
-                value.set_enum (Manager.StyleManager.ColorScheme.FORCE_DARK);
-                break;
-            default:
-                warning ("color_scheme_get_mapping_cb: Invalid style: %s", val);
-                return false;
-        }
-
-        return true;
-    }
-
-    private static Variant color_scheme_set_mapping_cb (Value value, VariantType expected_type, void* user_data) {
-        string color_scheme;
-
-        // Convert from Manager.StyleManager.ColorScheme to the "style" enum defined in the gschema
-        var val = (Manager.StyleManager.ColorScheme) value;
-        switch (val) {
-            case Manager.StyleManager.ColorScheme.DEFAULT:
-                color_scheme = Define.Style.DEFAULT;
-                break;
-            case Manager.StyleManager.ColorScheme.FORCE_LIGHT:
-                color_scheme = Define.Style.LIGHT;
-                break;
-            case Manager.StyleManager.ColorScheme.FORCE_DARK:
-                color_scheme = Define.Style.DARK;
-                break;
-            default:
-                warning ("color_scheme_set_mapping_cb: Invalid Manager.StyleManager.ColorScheme: %d", val);
-                // fallback to default
-                color_scheme = Define.Style.DEFAULT;
-                break;
-        }
-
-        return new Variant.string (color_scheme);
-    }
-
     private void setup_style () {
-        style_manager = Manager.StyleManager.get_default ();
-
         var style_action = new SimpleAction.stateful (
-            "color-scheme", VariantType.INT32, new Variant.int32 (Manager.StyleManager.ColorScheme.DEFAULT)
+            "color-scheme", VariantType.STRING, new Variant.string (Define.ColorScheme.DEFAULT)
         );
-        style_action.bind_property ("state", style_manager, "color-scheme",
-                                    BindingFlags.BIDIRECTIONAL | BindingFlags.SYNC_CREATE,
-                                    style_action_transform_to_cb,
-                                    style_action_transform_from_cb);
-        settings.bind_with_mapping ("color-scheme", style_manager, "color-scheme", SettingsBindFlags.DEFAULT,
-                                    color_scheme_get_mapping_cb,
-                                    color_scheme_set_mapping_cb,
-                                    null, null);
+        style_action.bind_property (
+            "state",
+            style_manager, "color-scheme",
+            BindingFlags.BIDIRECTIONAL | BindingFlags.SYNC_CREATE,
+            (binding, state_scheme, ref adw_scheme) => {
+                Variant? state_scheme_dup = state_scheme.dup_variant ();
+                if (state_scheme_dup == null) {
+                    warning ("Failed to Variant.dup_variant");
+                    return false;
+                }
+
+                adw_scheme = Util.to_adw_scheme ((string) state_scheme_dup);
+                return true;
+            },
+            (binding, adw_scheme, ref state_scheme) => {
+                string str_scheme = Util.to_str_scheme ((Adw.ColorScheme) adw_scheme);
+                state_scheme = new Variant.string (str_scheme);
+                return true;
+            }
+        );
+        settings.bind_with_mapping (
+            "color-scheme",
+            style_manager, "color-scheme", SettingsBindFlags.DEFAULT,
+            (adw_scheme, gschema_scheme, user_data) => {
+                adw_scheme = Util.to_adw_scheme ((string) gschema_scheme);
+                return true;
+            },
+            (adw_scheme, expected_type, user_data) => {
+                string str_scheme = Util.to_str_scheme ((Adw.ColorScheme) adw_scheme);
+                Variant gschema_scheme = new Variant.string (str_scheme);
+                return gschema_scheme;
+            },
+            null, null
+        );
         add_action (style_action);
     }
 
@@ -149,6 +88,17 @@ public class Application : Gtk.Application {
     }
 
     protected override void startup () {
+#if USE_GRANITE
+        // Use both compile-time and runtime conditions to:
+        //
+        //  * make Granite optional dependency
+        //  * make sure to respect currently running DE
+        if (IS_ON_PANTHEON) {
+            // Apply elementary stylesheet instead of default Adwaita stylesheet
+            Granite.init ();
+        }
+#endif
+
         base.startup ();
 
         Intl.setlocale (LocaleCategory.ALL, "");

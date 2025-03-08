@@ -20,7 +20,10 @@ public class View.WelcomeView : AbstractView {
     construct {
         device_manager = Manager.DeviceManager.get_default ();
 
-        var source_header_label = new Granite.HeaderLabel (_("Source"));
+        var source_header_label = new Gtk.Label (_("Source")) {
+            halign = Gtk.Align.START
+        };
+        source_header_label.add_css_class ("title-4");
 
         var source_label = new Gtk.Label (_("Record from:")) {
             halign = Gtk.Align.END
@@ -51,7 +54,10 @@ public class View.WelcomeView : AbstractView {
         channels_combobox.append ("mono", _("Mono"));
         channels_combobox.append ("stereo", _("Stereo"));
 
-        var timer_header_label = new Granite.HeaderLabel (_("Timer"));
+        var timer_header_label = new Gtk.Label (_("Timer")) {
+            halign = Gtk.Align.START
+        };
+        timer_header_label.add_css_class ("title-4");
 
         var delay_label = new Gtk.Label (_("Delay in seconds:")) {
             halign = Gtk.Align.END
@@ -71,7 +77,10 @@ public class View.WelcomeView : AbstractView {
         timer_size_group.add_widget (delay_spin);
         timer_size_group.add_widget (length_spin);
 
-        var saving_header_label = new Granite.HeaderLabel (_("Saving"));
+        var saving_header_label = new Gtk.Label (_("Saving")) {
+            halign = Gtk.Align.START
+        };
+        saving_header_label.add_css_class ("title-4");
 
         var format_label = new Gtk.Label (_("Format:")) {
             halign = Gtk.Align.END
@@ -144,7 +153,11 @@ public class View.WelcomeView : AbstractView {
 
         record_button = new Gtk.Button () {
             icon_name = "audio-input-microphone-symbolic",
+#if USE_GRANITE
             tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Start recording")),
+#else
+            tooltip_text = _("Start recording"),
+#endif
             halign = Gtk.Align.CENTER,
             margin_top = 12,
             width_request = 48,

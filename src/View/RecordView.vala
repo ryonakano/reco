@@ -30,10 +30,10 @@ public class View.RecordView : AbstractView {
         };
 
         time_label = new Gtk.Label (null);
-        time_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
+        time_label.add_css_class ("title-2");
 
         remaining_time_label = new Gtk.Label (null);
-        remaining_time_label.add_css_class (Granite.STYLE_CLASS_H3_LABEL);
+        remaining_time_label.add_css_class ("title-3");
 
         var label_grid = new Gtk.Grid () {
             column_spacing = 6,
@@ -54,7 +54,11 @@ public class View.RecordView : AbstractView {
 
         stop_button = new Gtk.Button () {
             icon_name = "media-playback-stop-symbolic",
+#if USE_GRANITE
             tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Finish recording")),
+#else
+            tooltip_text = _("Finish recording"),
+#endif
             halign = Gtk.Align.CENTER,
             width_request = 48,
             height_request = 48
