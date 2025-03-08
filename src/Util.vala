@@ -4,6 +4,10 @@
  */
 
 namespace Util {
+    public static bool is_on_pantheon () {
+        return Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon";
+    }
+
     public static Adw.ColorScheme to_adw_scheme (string str_scheme) {
         switch (str_scheme) {
             case Define.ColorScheme.DEFAULT:

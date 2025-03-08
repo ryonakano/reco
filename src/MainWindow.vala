@@ -270,7 +270,7 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     private void show_error_dialog (string primary_text, string secondary_text, string error_message) {
-        if (Application.IS_ON_PANTHEON) {
+        if (Util.is_on_pantheon ()) {
 #if USE_GRANITE
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                 primary_text,
