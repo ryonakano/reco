@@ -22,7 +22,7 @@ public class View.CountDownView : AbstractView {
         };
 
         delay_remaining_label = new Gtk.Label (null);
-        delay_remaining_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
+        delay_remaining_label.add_css_class ("title-2");
 
         var label_grid = new Gtk.Grid () {
             column_spacing = 6,

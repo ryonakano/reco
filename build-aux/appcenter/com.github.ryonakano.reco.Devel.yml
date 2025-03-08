@@ -48,6 +48,7 @@ modules:
     buildsystem: meson
     config-opts:
       - -Duse_submodule=false
+      - -Dgranite=enabled
       - -Ddevelopment=true
     sources:
       - type: dir

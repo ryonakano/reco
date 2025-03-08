@@ -10,14 +10,16 @@ namespace Define {
     public const string AUTOSAVE_DISABLED = "";
 
     /**
-     * Constants for the "style" enum in the gschema.
+     * String representation of Adw.ColorScheme.
+     *
+     * Note: Only defines necessary strings for the app.
      */
-    namespace Style {
-        /** Inherit the system style. */
+    namespace ColorScheme {
+        /** Inherit the parent color-scheme. */
         public const string DEFAULT = "default";
         /** Always use light appearance. */
-        public const string LIGHT = "light";
+        public const string FORCE_LIGHT = "force-light";
         /** Always use dark appearance. */
-        public const string DARK = "dark";
+        public const string FORCE_DARK = "force-dark";
     }
 }

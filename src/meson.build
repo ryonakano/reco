@@ -9,12 +9,18 @@ config_file = configure_file(
     configuration: config_data
 )
 
+granite_dep = dependency('granite-7', version: '>= 7.2.0', required: get_option('granite'))
+if granite_dep.found()
+    add_project_arguments('--define=USE_GRANITE', language: 'vala')
+endif
+
 dependencies = [
     dependency('gee-0.8'),
     dependency('glib-2.0', version: '>= 2.74'),
-    dependency('granite-7'),
+    granite_dep,
     dependency('gstreamer-1.0', version: '>= 1.20'),
     dependency('gtk4', version: '>= 4.10'),
+    dependency('libadwaita-1'),
     dependency('pango'),
 ]
 
@@ -22,8 +28,8 @@ sources = files(
     'Application.vala',
     'Define.vala',
     'MainWindow.vala',
+    'Util.vala',
     'Manager/DeviceManager.vala',
-    'Manager/StyleManager.vala',
     'Model/Recorder.vala',
     'Model/Timer/AbstractTimer.vala',
     'Model/Timer/CountDownTimer.vala',

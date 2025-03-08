@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class MainWindow : Gtk.ApplicationWindow {
+public class MainWindow : Adw.ApplicationWindow {
     private unowned Model.Recorder recorder;
     private bool destroy_on_save;
 
@@ -24,9 +24,9 @@ public class MainWindow : Gtk.ApplicationWindow {
         recorder = Model.Recorder.get_default ();
 
         var style_submenu = new Menu ();
-        style_submenu.append (_("System"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.DEFAULT));
-        style_submenu.append (_("Light"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.FORCE_LIGHT));
-        style_submenu.append (_("Dark"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.FORCE_DARK));
+        style_submenu.append (_("System"), "app.color-scheme('%s')".printf (Define.ColorScheme.DEFAULT));
+        style_submenu.append (_("Light"), "app.color-scheme('%s')".printf (Define.ColorScheme.FORCE_LIGHT));
+        style_submenu.append (_("Dark"), "app.color-scheme('%s')".printf (Define.ColorScheme.FORCE_DARK));
 
         var menu = new Menu ();
         menu.append_submenu (_("Style"), style_submenu);
@@ -38,20 +38,16 @@ public class MainWindow : Gtk.ApplicationWindow {
             primary = true
         };
 
-        var headerbar = new Gtk.HeaderBar () {
+        var headerbar = new Adw.HeaderBar () {
             title_widget = new Gtk.Label ("")
         };
         headerbar.pack_end (menu_button);
-        set_titlebar (headerbar);
-        headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
-        headerbar.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
 
         welcome_view = new View.WelcomeView ();
         countdown_view = new View.CountDownView ();
         record_view = new View.RecordView ();
 
         stack = new Gtk.Stack () {
-            margin_top = 6,
             margin_bottom = 6,
             margin_start = 6,
             margin_end = 6
@@ -60,7 +56,14 @@ public class MainWindow : Gtk.ApplicationWindow {
         stack.add_child (countdown_view);
         stack.add_child (record_view);
 
-        child = stack;
+        var toolbar_view = new Adw.ToolbarView ();
+        toolbar_view.add_top_bar (headerbar);
+        toolbar_view.set_content (stack);
+
+        content = toolbar_view;
+        width_request = 350;
+        height_request = 480;
+
         show_welcome ();
 
         welcome_view.start_recording.connect (start_wrapper);
@@ -268,6 +271,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     private void show_error_dialog (string primary_text, string secondary_text, string error_message) {
         if (Application.IS_ON_PANTHEON) {
+#if USE_GRANITE
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                 primary_text,
                 secondary_text,
@@ -283,6 +287,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                 }
             });
             error_dialog.present ();
+#endif
         } else {
             var error_dialog = new Gtk.AlertDialog (
                 primary_text
