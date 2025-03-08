@@ -24,9 +24,9 @@ public class MainWindow : Gtk.ApplicationWindow {
         recorder = Model.Recorder.get_default ();
 
         var style_submenu = new Menu ();
+        style_submenu.append (_("System"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.DEFAULT));
         style_submenu.append (_("Light"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.FORCE_LIGHT));
         style_submenu.append (_("Dark"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.FORCE_DARK));
-        style_submenu.append (_("System"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.DEFAULT));
 
         var menu = new Menu ();
         menu.append_submenu (_("Style"), style_submenu);
