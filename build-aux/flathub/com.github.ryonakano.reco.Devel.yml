@@ -9,6 +9,8 @@ finish-args:
   - --socket=fallback-x11
   - --socket=pulseaudio
   - --env=GST_PLUGIN_PATH_1_0=/app/lib/gstreamer-1.0
+build-options:
+  libdir: /app/lib
 modules:
   - name: live-chart
     buildsystem: meson
