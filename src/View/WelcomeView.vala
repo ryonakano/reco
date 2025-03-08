@@ -293,16 +293,12 @@ public class View.WelcomeView : AbstractView {
     public void show_success_button () {
         record_button.add_css_class ("record-button-success");
         record_button.icon_name = "record-completed-symbolic";
-        uint timeout_button_color = Timeout.add (3000, () => {
+        Timeout.add_once (3000, () => {
             record_button.remove_css_class ("record-button-success");
-            return false;
         });
-        timeout_button_color = 0;
-        uint timeout_button_icon = Timeout.add (3250, () => {
+        Timeout.add_once (3250, () => {
             record_button.icon_name = "audio-input-microphone-symbolic";
-            return false;
         });
-        timeout_button_icon = 0;
     }
 
     private bool get_is_source_connected () {
