@@ -66,8 +66,8 @@ public class MainWindow : Adw.ApplicationWindow {
         toolbar_view.set_content (stack);
 
         content = toolbar_view;
-        width_request = 400;
-        height_request = 500;
+        width_request = 350;
+        height_request = 480;
 
         show_welcome ();
 
