@@ -28,8 +28,8 @@ modules:
     sources:
       - type: archive
         # we need to use the same version with gstreamer included in the sdk
-        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.5.tar.xz
-        sha256: 8583f0c1f4fcb01eed11fa1e3c21126543a8bd739ed4fc1db31f756a5ab01d9a
+        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.24.12.tar.xz
+        sha256: ef72c1c70a17b3c0bb283d16d09aba496d3401c927dcf5392a8a7866d9336379
 
   - name: ryokucha
     buildsystem: meson
