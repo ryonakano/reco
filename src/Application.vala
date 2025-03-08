@@ -10,7 +10,7 @@ public class Application : Adw.Application {
      * Action names and their callbacks.
      */
     private const ActionEntry[] ACTION_ENTRIES = {
-        { "open", on_open_activate, "s" },
+        { "open-folder", on_open_folder_activate, "s" },
     };
 
     private MainWindow window;
@@ -68,7 +68,7 @@ public class Application : Adw.Application {
         add_action (style_action);
     }
 
-    private void on_open_activate (SimpleAction action, Variant? parameter) requires (parameter != null) {
+    private void on_open_folder_activate (SimpleAction action, Variant? parameter) requires (parameter != null) {
         unowned string path = parameter.get_string ();
         var launcher = new Gtk.FileLauncher (File.new_for_path (path));
 
@@ -76,7 +76,7 @@ public class Application : Adw.Application {
             try {
                 launcher.launch.end (res);
             } catch (Error err) {
-                warning ("on_open_activate: failed to Gtk.FileLauncher.launch: %s", err.message);
+                warning ("Failed to Gtk.FileLauncher.launch: %s", err.message);
             }
         });
     }

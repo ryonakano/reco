@@ -165,8 +165,9 @@ public class MainWindow : Adw.ApplicationWindow {
                         notification.set_body (_("Recording saved successfully."));
                     } else {
                         notification.set_body (_("Click here to play."));
-                        notification.set_default_action_and_target_value ("app.open", new Variant.string (save_path.get_path ()));
-                        notification.add_button_with_target_value (_("Open folder"), "app.open", new Variant.string (save_path.get_parent ().get_path ()));
+                        // Only actions starting with "app." can be used here
+                        notification.set_default_action_and_target_value ("app.open-folder", new Variant.string (save_path.get_path ()));
+                        notification.add_button_with_target_value (_("Open folder"), "app.open-folder", new Variant.string (save_path.get_parent ().get_path ()));
                     }
 
                     application.send_notification (Config.APP_ID, notification);
