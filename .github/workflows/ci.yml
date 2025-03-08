@@ -19,11 +19,11 @@ jobs:
             repository-name: flathub
             repository-url: https://flathub.org/repo/flathub.flatpakrepo
           - arch: x86_64
-            container-image: ghcr.io/elementary/flatpak-platform/runtime:8-x86_64
+            container-image: ghcr.io/elementary/flatpak-platform/runtime:8.1-x86_64
             repository-name: appcenter
             repository-url: https://flatpak.elementary.io/repo.flatpakrepo
           - arch: aarch64
-            container-image: ghcr.io/elementary/flatpak-platform/runtime:8-aarch64
+            container-image: ghcr.io/elementary/flatpak-platform/runtime:8.1-aarch64
             repository-name: appcenter
             repository-url: https://flatpak.elementary.io/repo.flatpakrepo
       # Don't fail the whole workflow if one architecture fails
