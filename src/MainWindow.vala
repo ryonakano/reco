@@ -23,6 +23,11 @@ public class MainWindow : Adw.ApplicationWindow {
     construct {
         recorder = Model.Recorder.get_default ();
 
+        // Distinct development build visually
+        if (".Devel" in Config.APP_ID) {
+            add_css_class ("devel");
+        }
+
         var style_submenu = new Menu ();
         style_submenu.append (_("S_ystem"), "app.color-scheme('%s')".printf (Define.ColorScheme.DEFAULT));
         style_submenu.append (_("_Light"), "app.color-scheme('%s')".printf (Define.ColorScheme.FORCE_LIGHT));
