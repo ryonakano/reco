@@ -42,17 +42,12 @@ public class MainWindow : Adw.ApplicationWindow {
             title_widget = new Gtk.Label ("")
         };
         headerbar.pack_end (menu_button);
-#if USE_GRANITE
-        headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
-        headerbar.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
-#endif
 
         welcome_view = new View.WelcomeView ();
         countdown_view = new View.CountDownView ();
         record_view = new View.RecordView ();
 
         stack = new Gtk.Stack () {
-            margin_top = 6,
             margin_bottom = 6,
             margin_start = 6,
             margin_end = 6
