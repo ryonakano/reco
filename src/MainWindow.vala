@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class MainWindow : Gtk.ApplicationWindow {
+public class MainWindow : Adw.ApplicationWindow {
     private unowned Model.Recorder recorder;
     private bool destroy_on_save;
 
@@ -38,11 +38,10 @@ public class MainWindow : Gtk.ApplicationWindow {
             primary = true
         };
 
-        var headerbar = new Gtk.HeaderBar () {
+        var headerbar = new Adw.HeaderBar () {
             title_widget = new Gtk.Label ("")
         };
         headerbar.pack_end (menu_button);
-        set_titlebar (headerbar);
 #if USE_GRANITE
         headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
         headerbar.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
@@ -62,7 +61,14 @@ public class MainWindow : Gtk.ApplicationWindow {
         stack.add_child (countdown_view);
         stack.add_child (record_view);
 
-        child = stack;
+        var toolbar_view = new Adw.ToolbarView ();
+        toolbar_view.add_top_bar (headerbar);
+        toolbar_view.set_content (stack);
+
+        content = toolbar_view;
+        width_request = 400;
+        height_request = 500;
+
         show_welcome ();
 
         welcome_view.start_recording.connect (start_wrapper);
