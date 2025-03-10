@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Priit Jõerüüt <hwlate@joeruut.com>, 2024.
+# Priit Jõerüüt <hwlate@joeruut.com>, 2024, 2025.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-08 23:06+0900\n"
-"PO-Revision-Date: 2024-12-13 00:39+0000\n"
+"PO-Revision-Date: 2025-03-11 13:02+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/rosp/reco/et/>\n"
 "Language: et\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -108,28 +108,20 @@ msgid "An indication that recording is successfully finished"
 msgstr "Kinnitus salvestamise õnnestumise kohta"
 
 #: src/MainWindow.vala:27
-#, fuzzy
-#| msgid "System"
 msgid "S_ystem"
-msgstr "Süsteemi kujundus"
+msgstr "S_üsteemi kujundus"
 
 #: src/MainWindow.vala:28
-#, fuzzy
-#| msgid "Light"
 msgid "_Light"
-msgstr "Hele kujundus"
+msgstr "_Hele kujundus"
 
 #: src/MainWindow.vala:29
-#, fuzzy
-#| msgid "Dark"
 msgid "_Dark"
-msgstr "Tume kujundus"
+msgstr "_Tume kujundus"
 
 #: src/MainWindow.vala:32
-#, fuzzy
-#| msgid "Style"
 msgid "_Style"
-msgstr "Välimus"
+msgstr "_Kujundus"
 
 #: src/MainWindow.vala:35
 msgid "Main Menu"
