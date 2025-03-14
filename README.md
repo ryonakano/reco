@@ -49,6 +49,7 @@ flatpak run com.github.ryonakano.reco.Devel
 ### From Source Code (Native)
 You'll need the following dependencies to build:
 
+* blueprint-compiler
 * libadwaita-1-dev
 * libgee-0.8-dev
 * libglib2.0-dev (>= 2.74)

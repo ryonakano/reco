@@ -10,3 +10,4 @@ builddir*
 # subprojects
 subprojects/live-chart
 subprojects/ryokucha
+subprojects/blueprint-compiler

@@ -59,9 +59,24 @@ install_data(
     install_dir: get_option('datadir') / 'glib-2.0' / 'schemas'
 )
 
+blueprints = custom_target('blueprints',
+    input: files(
+        'ui/help-overlay.blp',
+    ),
+    output: '.',
+    command: [
+        find_program('blueprint-compiler'),
+        'batch-compile',
+        '@OUTPUT@',
+        '@CURRENT_SOURCE_DIR@',
+        '@INPUT@'
+    ]
+)
+
 asresources = gnome.compile_resources(
     'as-resources',
     'reco.gresource.xml',
+    dependencies: blueprints,
     source_dir: 'data',
     c_name: 'as'
 )
