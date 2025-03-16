@@ -84,39 +84,12 @@ public class MainWindow : Adw.ApplicationWindow {
             recorder.state = is_recording ? Model.Recorder.RecordingState.RECORDING : Model.Recorder.RecordingState.PAUSED;
         });
 
-        var event_controller = new Gtk.EventControllerKey ();
-        event_controller.key_pressed.connect ((keyval, keycode, state) => {
-            if (Gdk.ModifierType.CONTROL_MASK in state) {
-                switch (keyval) {
-                    case Gdk.Key.q:
-                        // Stop the recording if recording is in progress
-                        // The window is destroyed in the save callback
-                        if (recorder.state != Model.Recorder.RecordingState.STOPPED) {
-                            stop_wrapper (true);
-                            return Gdk.EVENT_STOP;
-                        }
-
-                        // Otherwise destroy the window
-                        destroy ();
-                        return Gdk.EVENT_STOP;
-                    default:
-                        break;
-                }
-            }
-
-            return Gdk.EVENT_PROPAGATE;
-        });
-        ((Gtk.Widget) this).add_controller (event_controller);
-
         close_request.connect ((event) => {
-            // Stop the recording if recording is in progress
-            // The window is destroyed in the save callback
-            if (recorder.state != Model.Recorder.RecordingState.STOPPED) {
-                stop_wrapper (true);
+            bool can_destroy = check_destroy ();
+            if (!can_destroy) {
                 return Gdk.EVENT_STOP;
             }
 
-            // Otherwise we don't block the window destroyed
             return Gdk.EVENT_PROPAGATE;
         });
 
@@ -256,6 +229,18 @@ public class MainWindow : Adw.ApplicationWindow {
         } else {
             show_record ();
         }
+    }
+
+    public bool check_destroy () {
+        // Stop the recording if recording is in progress
+        // The window is destroyed in the save callback
+        if (recorder.state != Model.Recorder.RecordingState.STOPPED) {
+            stop_wrapper (true);
+            return false;
+        }
+
+        // Otherwise we don't block the window destroyed
+        return true;
     }
 
     private void stop_wrapper (bool destroy_flag = false) {

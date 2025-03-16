@@ -11,6 +11,7 @@ public class Application : Adw.Application {
      */
     private const ActionEntry[] ACTION_ENTRIES = {
         { "open-folder", on_open_folder_activate, "s" },
+        { "quit", on_quit_activate },
     };
 
     private MainWindow window;
@@ -81,6 +82,20 @@ public class Application : Adw.Application {
         });
     }
 
+    private void on_quit_activate () {
+        if (window == null) {
+            quit ();
+            return;
+        }
+
+        bool can_destroy = window.check_destroy ();
+        if (!can_destroy) {
+            return;
+        }
+
+        window.destroy ();
+    }
+
     protected override void startup () {
 #if USE_GRANITE
         // Use both compile-time and runtime conditions to:
@@ -112,6 +127,7 @@ public class Application : Adw.Application {
         setup_style ();
 
         add_action_entries (ACTION_ENTRIES, this);
+        set_accels_for_action ("app.quit", { "<Control>q" });
     }
 
     protected override void activate () {
