@@ -2,5 +2,6 @@ namespace Config {
     public const string LOCALEDIR = @LOCALEDIR@;
     public const string GETTEXT_PACKAGE = @GETTEXT_PACKAGE@;
     public const string APP_ID = @APP_ID@;
+    public const string APP_VERSION = @APP_VERSION@;
     public const string RESOURCE_PREFIX = @RESOURCE_PREFIX@;
 }

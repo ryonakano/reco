@@ -73,9 +73,17 @@ blueprints = custom_target('blueprints',
     ]
 )
 
+gresource_conf = configuration_data()
+gresource_conf.set('APP_ID', app_id)
+gresource_file_in = configure_file(
+    input: 'reco.gresource.xml.in',
+    output: '@0@.gresource.xml'.format(app_id),
+    configuration: gresource_conf
+)
+
 asresources = gnome.compile_resources(
     'as-resources',
-    'reco.gresource.xml',
+    gresource_file_in,
     dependencies: blueprints,
     source_dir: 'data',
     c_name: 'as'
