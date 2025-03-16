@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-08 23:06+0900\n"
+"POT-Creation-Date: 2025-03-16 19:24+0900\n"
 "PO-Revision-Date: 2024-05-03 10:45+0000\n"
 "Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco/tr/>\n"
@@ -109,87 +109,97 @@ msgstr "Kayıt görünümü"
 msgid "An indication that recording is successfully finished"
 msgstr "Kaydın başarıyla tamamlandığına dair bir gösterge"
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:32
 #, fuzzy
 #| msgid "System"
 msgid "S_ystem"
 msgstr "Sistem"
 
-#: src/MainWindow.vala:28
+#: src/MainWindow.vala:33
 #, fuzzy
 #| msgid "Light"
 msgid "_Light"
 msgstr "Açık"
 
-#: src/MainWindow.vala:29
+#: src/MainWindow.vala:34
 #, fuzzy
 #| msgid "Dark"
 msgid "_Dark"
 msgstr "Koyu"
 
-#: src/MainWindow.vala:32
+#: src/MainWindow.vala:37
 #, fuzzy
 #| msgid "Style"
 msgid "_Style"
 msgstr "Biçem"
 
-#: src/MainWindow.vala:35
+#: src/MainWindow.vala:38
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#. TRANSLATORS: %s will be replaced by the app name
+#: src/MainWindow.vala:42
+#, c-format
+msgid "_About %s"
+msgstr ""
+
+#: src/MainWindow.vala:46
 msgid "Main Menu"
 msgstr "Ana Menü"
 
-#: src/MainWindow.vala:120
+#: src/MainWindow.vala:104
 msgid "Error while recording"
 msgstr "Kayıt sırasında hata"
 
-#: src/MainWindow.vala:121
+#: src/MainWindow.vala:105
 msgid "There was an error while recording."
 msgstr "Kayıt sırasında bir hata oluştu."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
 #. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:134
+#: src/MainWindow.vala:118
 #, c-format
 msgid "Recording from %s"
 msgstr "Kayıt tarihi %s"
 
-#: src/MainWindow.vala:151
+#: src/MainWindow.vala:135
 msgid "Failed to save recording"
 msgstr "Kayıt kaydedilemedi"
 
-#: src/MainWindow.vala:152
+#: src/MainWindow.vala:136
 msgid "There was an error while moving file to the designated location."
 msgstr "Dosya belirlenen konuma taşınırken bir hata oluştu."
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:145
 msgid "Saved recording"
 msgstr "Kayıt kaydedildi"
 
-#: src/MainWindow.vala:165
+#: src/MainWindow.vala:149
 msgid "Recording saved successfully."
 msgstr "Kayıt başarıyla kaydedildi."
 
-#: src/MainWindow.vala:167
+#: src/MainWindow.vala:151
 msgid "Click here to play."
 msgstr "Oynatmak için buraya tıklayın."
 
-#: src/MainWindow.vala:170
+#: src/MainWindow.vala:154
 msgid "Open folder"
 msgstr "Klasörü aç"
 
-#: src/MainWindow.vala:199
+#: src/MainWindow.vala:183
 msgid "Save your recording"
 msgstr "Kaydı kaydedin"
 
-#: src/MainWindow.vala:200
+#: src/MainWindow.vala:184
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/MainWindow.vala:235
+#: src/MainWindow.vala:219
 msgid "Failed to start recording"
 msgstr "Kayıt başlatılamadı"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:220
 msgid "There was an error while starting recording."
 msgstr "Kayıt başlatılırken bir hata oluştu."
 
@@ -213,15 +223,15 @@ msgstr "Geri sayıma devam et"
 msgid "Cancel recording"
 msgstr "Kaydı iptal et"
 
-#: src/View/RecordView.vala:58 src/View/RecordView.vala:60
+#: src/View/RecordView.vala:57
 msgid "Finish recording"
 msgstr "Kaydı bitir"
 
-#: src/View/RecordView.vala:205
+#: src/View/RecordView.vala:201
 msgid "Pause recording"
 msgstr "Kaydı durdur"
 
-#: src/View/RecordView.vala:210
+#: src/View/RecordView.vala:206
 msgid "Resume recording"
 msgstr "Kaydı devam ettir"
 
@@ -309,19 +319,19 @@ msgstr "WAV"
 msgid "Automatically save files:"
 msgstr "Dosyaları kendiliğinden kaydet:"
 
-#: src/View/WelcomeView.vala:117 src/View/WelcomeView.vala:275
+#: src/View/WelcomeView.vala:117 src/View/WelcomeView.vala:271
 msgid "Choose a default destination"
 msgstr "Varsayılan bir hedef seçin"
 
-#: src/View/WelcomeView.vala:157 src/View/WelcomeView.vala:159
+#: src/View/WelcomeView.vala:156
 msgid "Start recording"
 msgstr "Kaydı başlat"
 
-#: src/View/WelcomeView.vala:267
+#: src/View/WelcomeView.vala:263
 msgid "Select destination…"
 msgstr "Hedef seçin…"
 
-#: src/View/WelcomeView.vala:276
+#: src/View/WelcomeView.vala:272
 msgid "Select"
 msgstr "Seç"
 

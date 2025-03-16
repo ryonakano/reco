@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-08 23:06+0900\n"
+"POT-Creation-Date: 2025-03-16 19:24+0900\n"
 "PO-Revision-Date: 2025-03-11 13:02+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco/it/>\n"
@@ -109,81 +109,91 @@ msgstr "Vista di registrazione"
 msgid "An indication that recording is successfully finished"
 msgstr "Un'indicazione che la registrazione è terminata con successo"
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:32
 msgid "S_ystem"
 msgstr "S_istema"
 
-#: src/MainWindow.vala:28
+#: src/MainWindow.vala:33
 msgid "_Light"
 msgstr "_Chiaro"
 
-#: src/MainWindow.vala:29
+#: src/MainWindow.vala:34
 msgid "_Dark"
 msgstr "_Scuro"
 
-#: src/MainWindow.vala:32
+#: src/MainWindow.vala:37
 msgid "_Style"
 msgstr "_Stile"
 
-#: src/MainWindow.vala:35
+#: src/MainWindow.vala:38
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#. TRANSLATORS: %s will be replaced by the app name
+#: src/MainWindow.vala:42
+#, c-format
+msgid "_About %s"
+msgstr ""
+
+#: src/MainWindow.vala:46
 msgid "Main Menu"
 msgstr "Menu principale"
 
-#: src/MainWindow.vala:120
+#: src/MainWindow.vala:104
 msgid "Error while recording"
 msgstr "Errore durante la registrazione"
 
-#: src/MainWindow.vala:121
+#: src/MainWindow.vala:105
 msgid "There was an error while recording."
 msgstr "Si è verificato un errore durante la registrazione."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
 #. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:134
+#: src/MainWindow.vala:118
 #, c-format
 msgid "Recording from %s"
 msgstr "Registrazione da %s"
 
-#: src/MainWindow.vala:151
+#: src/MainWindow.vala:135
 msgid "Failed to save recording"
 msgstr "Impossibile salvare la registrazione"
 
-#: src/MainWindow.vala:152
+#: src/MainWindow.vala:136
 msgid "There was an error while moving file to the designated location."
 msgstr ""
 "Si è verificato un errore durante lo spostamento del file nella posizione "
 "designata."
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:145
 msgid "Saved recording"
 msgstr "Registrazione salvata"
 
-#: src/MainWindow.vala:165
+#: src/MainWindow.vala:149
 msgid "Recording saved successfully."
 msgstr "Registrazione salvata correttamente."
 
-#: src/MainWindow.vala:167
+#: src/MainWindow.vala:151
 msgid "Click here to play."
 msgstr "Clicca qui per avviare."
 
-#: src/MainWindow.vala:170
+#: src/MainWindow.vala:154
 msgid "Open folder"
 msgstr "Apri cartella"
 
-#: src/MainWindow.vala:199
+#: src/MainWindow.vala:183
 msgid "Save your recording"
 msgstr "Salva registrazione"
 
-#: src/MainWindow.vala:200
+#: src/MainWindow.vala:184
 msgid "Save"
 msgstr "Salva"
 
-#: src/MainWindow.vala:235
+#: src/MainWindow.vala:219
 msgid "Failed to start recording"
 msgstr "Impossibile avviare la registrazione"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:220
 msgid "There was an error while starting recording."
 msgstr "Si è verificato un errore durante l'avvio della registrazione."
 
@@ -207,15 +217,15 @@ msgstr "Riprendi il conto alla rovescia"
 msgid "Cancel recording"
 msgstr "Annulla la registrazione"
 
-#: src/View/RecordView.vala:58 src/View/RecordView.vala:60
+#: src/View/RecordView.vala:57
 msgid "Finish recording"
 msgstr "Termina registrazione"
 
-#: src/View/RecordView.vala:205
+#: src/View/RecordView.vala:201
 msgid "Pause recording"
 msgstr "Metti in pausa la registrazione"
 
-#: src/View/RecordView.vala:210
+#: src/View/RecordView.vala:206
 msgid "Resume recording"
 msgstr "Riprendi la registrazione"
 
@@ -303,19 +313,19 @@ msgstr "WAV"
 msgid "Automatically save files:"
 msgstr "Salva automaticamente i file:"
 
-#: src/View/WelcomeView.vala:117 src/View/WelcomeView.vala:275
+#: src/View/WelcomeView.vala:117 src/View/WelcomeView.vala:271
 msgid "Choose a default destination"
 msgstr "Scegli una destinazione predefinita"
 
-#: src/View/WelcomeView.vala:157 src/View/WelcomeView.vala:159
+#: src/View/WelcomeView.vala:156
 msgid "Start recording"
 msgstr "Avvia registrazione"
 
-#: src/View/WelcomeView.vala:267
+#: src/View/WelcomeView.vala:263
 msgid "Select destination…"
 msgstr "Seleziona destinazione…"
 
-#: src/View/WelcomeView.vala:276
+#: src/View/WelcomeView.vala:272
 msgid "Select"
 msgstr "Seleziona"
 
