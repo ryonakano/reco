@@ -35,6 +35,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
         var main_menu = new Menu ();
         main_menu.append_submenu (_("_Style"), style_submenu);
+        main_menu.append (_("_Keyboard Shortcuts"), "win.show-help-overlay");
 
         var menu_button = new Gtk.MenuButton () {
             tooltip_text = _("Main Menu"),

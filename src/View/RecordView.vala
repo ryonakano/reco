@@ -54,11 +54,7 @@ public class View.RecordView : AbstractView {
 
         stop_button = new Gtk.Button () {
             icon_name = "media-playback-stop-symbolic",
-#if USE_GRANITE
-            tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Finish recording")),
-#else
             tooltip_text = _("Finish recording"),
-#endif
             halign = Gtk.Align.CENTER,
             width_request = 48,
             height_request = 48

@@ -153,11 +153,7 @@ public class View.WelcomeView : AbstractView {
 
         record_button = new Gtk.Button () {
             icon_name = "audio-input-microphone-symbolic",
-#if USE_GRANITE
-            tooltip_markup = Granite.markup_accel_tooltip ({"<Shift><Ctrl>R"}, _("Start recording")),
-#else
             tooltip_text = _("Start recording"),
-#endif
             halign = Gtk.Align.CENTER,
             margin_top = 12,
             width_request = 48,
