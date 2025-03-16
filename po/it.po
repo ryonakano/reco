@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 19:24+0900\n"
+"POT-Creation-Date: 2025-03-16 19:26+0900\n"
 "PO-Revision-Date: 2025-03-11 13:02+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco/it/>\n"
@@ -17,6 +17,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.10.3-dev\n"
+
+#: data/ui/help-overlay.blp:10
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/ui/help-overlay.blp:13
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: data/ui/help-overlay.blp:18
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/ui/help-overlay.blp:24
+#, fuzzy
+#| msgid "Recording view"
+msgctxt "shortcut window"
+msgid "Recording"
+msgstr "Vista di registrazione"
+
+#: data/ui/help-overlay.blp:27
+#, fuzzy
+#| msgid "Start recording"
+msgctxt "shortcut window"
+msgid "Start/Stop recording"
+msgstr "Avvia registrazione"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
