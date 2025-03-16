@@ -20,11 +20,11 @@ add_project_arguments(
     language: 'c'
 )
 
+subdir('data')
+subdir('po')
+subdir('src')
+
 gnome.post_install(
     glib_compile_schemas: true,
     gtk_update_icon_cache: true
 )
-
-subdir('data')
-subdir('po')
-subdir('src')
