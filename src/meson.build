@@ -21,7 +21,9 @@ dependencies = [
     dependency('gstreamer-1.0', version: '>= 1.20'),
     dependency('gtk4', version: '>= 4.10'),
     dependency('libadwaita-1'),
+    dependency('livechart', version: '>= 1.10.0', allow_fallback: get_option('use_submodule')),
     dependency('pango'),
+    dependency('ryokucha', allow_fallback: get_option('use_submodule')),
 ]
 
 sources = files(
@@ -40,19 +42,6 @@ sources = files(
     'View/RecordView.vala',
     'Widget/LevelBar.vala',
 )
-
-if get_option('use_submodule')
-    livechart_subproject = subproject('live-chart')
-    livechart_deps = livechart_subproject.get_variable('livechart_static_dep')
-    dependencies += livechart_deps
-
-    ryokucha_subproject = subproject('ryokucha')
-    ryokucha_deps = ryokucha_subproject.get_variable('libryokucha')
-    dependencies += ryokucha_deps
-else
-    dependencies += dependency('livechart', version: '>= 1.10.0')
-    dependencies += dependency('ryokucha')
-endif
 
 executable(
     app_id,
