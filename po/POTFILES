@@ -1,3 +1,4 @@
+data/ui/help-overlay.blp
 data/reco.desktop.in.in
 data/reco.metainfo.xml.in.in
 src/MainWindow.vala
