@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-16 19:26+0900\n"
-"PO-Revision-Date: 2025-03-11 13:02+0000\n"
+"PO-Revision-Date: 2025-03-17 23:25+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/rosp/reco/et/>\n"
 "Language: et\n"
@@ -16,36 +16,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: data/ui/help-overlay.blp:10
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "Üldised seadistused"
 
 #: data/ui/help-overlay.blp:13
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Klaviatuuri kiirklahvid"
 
 #: data/ui/help-overlay.blp:18
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Välju"
 
 #: data/ui/help-overlay.blp:24
-#, fuzzy
-#| msgid "Recording view"
 msgctxt "shortcut window"
 msgid "Recording"
-msgstr "Salvestusvaade"
+msgstr "Salvestamine"
 
 #: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgid "Start recording"
 msgctxt "shortcut window"
 msgid "Start/Stop recording"
-msgstr "Alusta salvestamisega"
+msgstr "Alusta salvestamist või lõpeta salvestamine"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -154,13 +150,13 @@ msgstr "_Kujundus"
 
 #: src/MainWindow.vala:38
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Klaviatuuri kiirklahvid"
 
 #. TRANSLATORS: %s will be replaced by the app name
 #: src/MainWindow.vala:42
 #, c-format
 msgid "_About %s"
-msgstr ""
+msgstr "R_akenduse teave: %s"
 
 #: src/MainWindow.vala:46
 msgid "Main Menu"
