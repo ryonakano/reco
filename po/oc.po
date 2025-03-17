@@ -1,14 +1,14 @@
 # Occitan translations for com.github.ryonakano.reco.
 # Copyright (C) 2018-2025 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Quentin PAGÈS <quentinantonin@free.fr>, 2023, 2024.
+# Quentin PAGÈS <quentinantonin@free.fr>, 2023, 2024, 2025.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-16 19:26+0900\n"
-"PO-Revision-Date: 2024-09-22 15:40+0000\n"
+"PO-Revision-Date: 2025-03-17 07:17+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/reco/oc/>\n"
 "Language: oc\n"
@@ -16,36 +16,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: data/ui/help-overlay.blp:10
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: data/ui/help-overlay.blp:13
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Acorchis clavièr"
 
 #: data/ui/help-overlay.blp:18
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Quitar"
 
 #: data/ui/help-overlay.blp:24
-#, fuzzy
-#| msgid "Recording view"
 msgctxt "shortcut window"
 msgid "Recording"
-msgstr "Vista enregistrament"
+msgstr "Enregistrament"
 
 #: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgid "Start recording"
 msgctxt "shortcut window"
 msgid "Start/Stop recording"
-msgstr "Començar l'enregistrament"
+msgstr "Començar/Arrestar l'enregistrament"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -126,32 +122,24 @@ msgid "An indication that recording is successfully finished"
 msgstr "Una indicacion que l’enregistrament es corrèctament acabat"
 
 #: src/MainWindow.vala:32
-#, fuzzy
-#| msgid "System"
 msgid "S_ystem"
-msgstr "Sistèma"
+msgstr "S_istèma"
 
 #: src/MainWindow.vala:33
-#, fuzzy
-#| msgid "Light"
 msgid "_Light"
-msgstr "Clar"
+msgstr "_Clar"
 
 #: src/MainWindow.vala:34
-#, fuzzy
-#| msgid "Dark"
 msgid "_Dark"
-msgstr "Fosc"
+msgstr "_Fosc"
 
 #: src/MainWindow.vala:37
-#, fuzzy
-#| msgid "Style"
 msgid "_Style"
-msgstr "Estile"
+msgstr "_Estile"
 
 #: src/MainWindow.vala:38
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Acorchis de clavièr"
 
 #. TRANSLATORS: %s will be replaced by the app name
 #: src/MainWindow.vala:42
