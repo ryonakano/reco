@@ -46,9 +46,16 @@ namespace Model {
             }
 
             set {
-                // Control actual recording to stop, start, or pause
-                pipeline.set_state (GST_STATE_TABLE[value]);
                 _state = value;
+
+                // Control actual recording to stop, start, or pause
+                pipeline.set_state (GST_STATE_TABLE[_state]);
+
+                if (_state == RecordingState.RECORDING) {
+                    inhibit_sleep ();
+                } else {
+                    uninhibit_sleep ();
+                }
             }
         }
         private RecordingState _state = RecordingState.STOPPED;
@@ -237,7 +244,6 @@ namespace Model {
 
             pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
             state = RecordingState.RECORDING;
-            inhibit_sleep ();
         }
 
         private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
@@ -281,7 +287,6 @@ namespace Model {
         }
 
         public void cancel_recording () {
-            uninhibit_sleep ();
             state = RecordingState.STOPPED;
             pipeline.dispose ();
 
@@ -303,7 +308,6 @@ namespace Model {
         }
 
         public void stop_recording () {
-            uninhibit_sleep ();
             pipeline.send_event (new Gst.Event.eos ());
         }
 
