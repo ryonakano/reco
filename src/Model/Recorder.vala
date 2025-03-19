@@ -315,7 +315,7 @@ namespace Model {
 
             inhibit_token = app.inhibit (
                 app.get_active_window (),
-                Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.SUSPEND,
+                Gtk.ApplicationInhibitFlags.SUSPEND,
                 _("Recording is ongoing")
             );
         }
