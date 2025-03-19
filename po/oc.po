@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-16 19:26+0900\n"
-"PO-Revision-Date: 2025-03-17 07:17+0000\n"
+"PO-Revision-Date: 2025-03-19 10:52+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/reco/oc/>\n"
 "Language: oc\n"
@@ -145,7 +145,7 @@ msgstr "_Acorchis de clavièr"
 #: src/MainWindow.vala:42
 #, c-format
 msgid "_About %s"
-msgstr ""
+msgstr "_A prepaus de %s"
 
 #: src/MainWindow.vala:46
 msgid "Main Menu"
