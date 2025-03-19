@@ -225,7 +225,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
     private void show_record () {
         try {
-            recorder.start_recording ();
+            recorder.prepare_recording ();
         } catch (Model.RecorderError err) {
             show_error_dialog (
                 _("Failed to start recording"),
@@ -234,6 +234,8 @@ public class MainWindow : Adw.ApplicationWindow {
             );
             return;
         }
+
+        recorder.start_recording ();
 
         record_view.refresh_begin ();
         stack.visible_child = record_view;

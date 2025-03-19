@@ -134,7 +134,7 @@ namespace Model {
         private Recorder () {
         }
 
-        public void start_recording () throws RecorderError {
+        public void prepare_recording () throws RecorderError {
             pipeline = new Gst.Pipeline ("pipeline");
             if (pipeline == null) {
                 throw new RecorderError.CREATE_ERROR ("Failed to create element \"pipeline\"");
@@ -243,6 +243,9 @@ namespace Model {
             }
 
             pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
+        }
+
+        public void start_recording () {
             state = RecordingState.RECORDING;
         }
 
