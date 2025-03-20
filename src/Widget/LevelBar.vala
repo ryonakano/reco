@@ -4,7 +4,7 @@
  */
 
 public class Widget.LevelBar : Gtk.Box {
-    private const double PEAK_PERCENTAGE = 100.0;
+    private const double LEVEL_MAX_PERCENT = 100.0;
     private const int REFRESH_MSEC = 100;
 
     // Colors from the elementary color palette: https://elementary.io/brand#color
@@ -29,7 +29,7 @@ public class Widget.LevelBar : Gtk.Box {
 
         config = new LiveChart.Config ();
         config.x_axis.tick_interval = 1;
-        config.y_axis.fixed_max = PEAK_PERCENTAGE;
+        config.y_axis.fixed_max = LEVEL_MAX_PERCENT;
         config.padding = LiveChart.Padding () {
             smart = LiveChart.AutoPadding.NONE,
             top = 0,
@@ -71,7 +71,7 @@ public class Widget.LevelBar : Gtk.Box {
         update_graph_timeout = Timeout.add (REFRESH_MSEC, () => {
             unowned var recorder = Model.Recorder.get_default ();
 
-            int level = (int) (recorder.current_peak * PEAK_PERCENTAGE);
+            int level = (int) (recorder.current_peak * LEVEL_MAX_PERCENT);
             serie.add_with_timestamp (level, timestamp);
 
             // Keep last bar on the right of the graph area
