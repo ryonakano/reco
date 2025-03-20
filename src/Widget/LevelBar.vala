@@ -15,7 +15,7 @@ public class Widget.LevelBar : Gtk.Box {
     private LiveChart.Config config;
     private LiveChart.Chart chart;
     private uint refresh_graph_timeout;
-    private int64 timestamp = -1;
+    private int64 timestamp;
 
     public LevelBar () {
     }
@@ -53,13 +53,32 @@ public class Widget.LevelBar : Gtk.Box {
     }
 
     public void refresh_begin () {
-        if (timestamp == -1) {
-            // Seek to the current timestamp
-            int64 now_msec = usec_to_msec (GLib.get_monotonic_time ());
-            timestamp = now_msec;
-            config.time.current = timestamp;
-        }
+        // Seek to the current timestamp
+        int64 now_msec = usec_to_msec (GLib.get_monotonic_time ());
+        timestamp = now_msec;
+        config.time.current = timestamp;
 
+        refresh_resume ();
+    }
+
+    public void refresh_end () {
+        refresh_pause ();
+        serie.clear ();
+    }
+
+    public void refresh_pause () {
+        // Stop refreshing the graph
+        chart.refresh_every (REFRESH_MSEC, 0.0);
+
+        apply_bar_color (BANANA_500);
+
+        if (refresh_graph_timeout != 0) {
+            GLib.Source.remove (refresh_graph_timeout);
+            refresh_graph_timeout = 0;
+        }
+    }
+
+    public void refresh_resume () {
         // Start refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 1.0);
 
@@ -77,31 +96,6 @@ public class Widget.LevelBar : Gtk.Box {
 
             return GLib.Source.CONTINUE;
         });
-    }
-
-    public void refresh_end () {
-        if (refresh_graph_timeout != 0) {
-            // Stop refreshing the graph
-            GLib.Source.remove (refresh_graph_timeout);
-            refresh_graph_timeout = 0;
-            chart.refresh_every (REFRESH_MSEC, 0.0);
-        }
-
-        timestamp = -1;
-        serie.clear ();
-    }
-
-    public void refresh_pause () {
-        // Stop refreshing the graph
-        GLib.Source.remove (refresh_graph_timeout);
-        refresh_graph_timeout = 0;
-        chart.refresh_every (REFRESH_MSEC, 0.0);
-
-        apply_bar_color (BANANA_500);
-    }
-
-    public void refresh_resume () {
-        refresh_begin ();
     }
 
     private void apply_bar_color (string color) {
