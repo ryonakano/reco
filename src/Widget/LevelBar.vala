@@ -53,7 +53,7 @@ public class Widget.LevelBar : Gtk.Box {
     }
 
     public void refresh_begin () {
-        // Start refreshing the graph when recording started
+        // Start refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 1.0);
 
         // Change the bar color to red
