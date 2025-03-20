@@ -11,7 +11,7 @@ public class View.WelcomeView : AbstractView {
     private Ryokucha.DropDownText source_combobox;
     private Ryokucha.DropDownText mic_combobox;
     private Gtk.Switch auto_save_switch;
-    private Gtk.Label destination_chooser_label;
+    private Widget.FolderChooserButton destination_chooser_button;
     private Gtk.Button record_button;
 
     public WelcomeView () {
@@ -101,31 +101,24 @@ public class View.WelcomeView : AbstractView {
         };
 
         auto_save_switch = new Gtk.Switch () {
-            halign = Gtk.Align.START
-        };
-
-        var destination_chooser_icon = new Gtk.Image.from_icon_name ("folder");
-
-        destination_chooser_label = new Gtk.Label (null) {
-            // Avoid the window get wider when a folder with a long directory name selected
-            max_width_chars = 15,
-            ellipsize = Pango.EllipsizeMode.MIDDLE
-        };
-        get_destination ();
-
-        var destination_chooser_grid = new Gtk.Grid () {
-            tooltip_text = _("Choose a default destination"),
-            column_spacing = 6,
-            margin_top = 2,
-            margin_bottom = 2
-        };
-        destination_chooser_grid.attach (destination_chooser_icon, 0, 0);
-        destination_chooser_grid.attach (destination_chooser_label, 1, 0);
-
-        var destination_chooser_button = new Gtk.Button () {
             halign = Gtk.Align.START,
-            child = destination_chooser_grid
+            active = false
         };
+
+        destination_chooser_button = new Widget.FolderChooserButton (
+            _("Select destination…"),
+            _("Choose a default destination"),
+            _("Select")
+        ) {
+            halign = Gtk.Align.START,
+            tooltip_text = _("Choose a default destination")
+        };
+
+        string autosave_path = Application.settings.get_string ("autosave-destination");
+        if (check_path_is_dir (autosave_path)) {
+            auto_save_switch.active = true;
+            destination_chooser_button.label = Path.get_basename (autosave_path);
+        }
 
         var settings_grid = new Gtk.Grid () {
             column_spacing = 6,
@@ -212,25 +205,9 @@ public class View.WelcomeView : AbstractView {
             record_button.sensitive = get_is_source_connected ();
         });
 
-        auto_save_switch.state_set.connect ((state) => {
-            if (state) {
-                // Prevent the filechooser shown twice when enabling the autosaving
-                var autosave_dest = Application.settings.get_string ("autosave-destination");
-                if (autosave_dest != Define.AUTOSAVE_DISABLED) {
-                    return false;
-                }
+        auto_save_switch.notify["active"].connect (toggle_autosave);
 
-                // Let the user select the autosaving destination
-                show_destination_chooser ();
-                return false;
-            }
-
-            // Clear the current destination and disable autosaving
-            set_destination (Define.AUTOSAVE_DISABLED);
-            return false;
-        });
-
-        destination_chooser_button.clicked.connect (show_destination_chooser);
+        destination_chooser_button.folder_set.connect (remember_autosave_dir);
 
         record_button.clicked.connect (() => {
             start_recording ();
@@ -242,61 +219,44 @@ public class View.WelcomeView : AbstractView {
         });
     }
 
-    private void get_destination () {
-        string path = Application.settings.get_string ("autosave-destination");
-        destination_chooser_label.label = destination_chooser_get_label (path);
-        auto_save_switch.active = (path != Define.AUTOSAVE_DISABLED);
+    private async void toggle_autosave () {
+        if (auto_save_switch.active) {
+            // Prevent the filechooser shown twice when enabling the autosaving
+            var autosave_dest = Application.settings.get_string ("autosave-destination");
+            if (autosave_dest.length != 0) {
+                return;
+            }
+
+            // Let the user select the autosaving destination
+            bool ret = yield destination_chooser_button.present_chooser ();
+            if (!ret) {
+                auto_save_switch.active = false;
+            }
+        } else {
+            // Clear the current destination and disable autosaving
+            Application.settings.set_string ("autosave-destination", Define.AUTOSAVE_DISABLED);
+            destination_chooser_button.label = _("Select destination…");
+        }
+    }
+
+    private void remember_autosave_dir (File file) {
+        string path = file.get_path ();
+        Application.settings.set_string ("autosave-destination", path);
+        destination_chooser_button.label = Path.get_basename (path);
+        auto_save_switch.active = true;
+    }
+
+    private bool check_path_is_dir (string path) {
+        if (path.length == 0) {
+            return false;
+        }
 
         var file = File.new_for_path (path);
         if (!file.query_exists ()) {
             DirUtils.create_with_parents (path, 0775);
         }
-    }
 
-    private void set_destination (string path) {
-        Application.settings.set_string ("autosave-destination", path);
-        destination_chooser_label.label = destination_chooser_get_label (path);
-    }
-
-    private string destination_chooser_get_label (string path) {
-        if (path == Define.AUTOSAVE_DISABLED) {
-            return _("Select destination…");
-        }
-
-        return Path.get_basename (path);
-    }
-
-    private void show_destination_chooser () {
-        var filechooser = new Gtk.FileDialog () {
-            title = _("Choose a default destination"),
-            accept_label = _("Select"),
-            modal = true
-        };
-        filechooser.select_folder.begin (((Gtk.Application) GLib.Application.get_default ()).active_window, null,
-            (obj, res) => {
-                try {
-                    var file = filechooser.select_folder.end (res);
-                    if (file == null) {
-                        return;
-                    }
-
-                    string new_path = file.get_path ();
-                    set_destination (new_path);
-                    auto_save_switch.active = true;
-                } catch (Error e) {
-                    warning ("Failed to select folder: %s", e.message);
-
-                    // If the autosave switch was off previously, turn off the autosave switch
-                    // because the user cancels setting the autosave destination
-                    // If the autosave switch was on previously, then it means the user just cancels
-                    // changing the destination
-                    var autosave_dest = Application.settings.get_string ("autosave-destination");
-                    if (autosave_dest == Define.AUTOSAVE_DISABLED) {
-                        auto_save_switch.active = false;
-                    }
-                }
-            }
-        );
+        return true;
     }
 
     public void show_success_button () {
