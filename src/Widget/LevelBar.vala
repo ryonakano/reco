@@ -53,20 +53,17 @@ public class Widget.LevelBar : Gtk.Box {
     }
 
     public void refresh_begin () {
-        // Start refreshing the graph
-        chart.refresh_every (REFRESH_MSEC, 1.0);
-
-        // Change the bar color to red
-        var color = Gdk.RGBA ();
-        color.parse (STRAWBERRY_500);
-        serie.line.color = color;
-
         if (timestamp == -1) {
             // Seek to the current timestamp
             int64 now_msec = usec_to_msec (GLib.get_monotonic_time ());
             timestamp = now_msec;
             config.time.current = timestamp;
         }
+
+        // Start refreshing the graph
+        chart.refresh_every (REFRESH_MSEC, 1.0);
+
+        apply_bar_color (STRAWBERRY_500);
 
         refresh_graph_timeout = Timeout.add (REFRESH_MSEC, () => {
             unowned var recorder = Model.Recorder.get_default ();
@@ -100,14 +97,17 @@ public class Widget.LevelBar : Gtk.Box {
         refresh_graph_timeout = 0;
         chart.refresh_every (REFRESH_MSEC, 0.0);
 
-        // Change the bar color to yellow
-        var color = Gdk.RGBA ();
-        color.parse (BANANA_500);
-        serie.line.color = color;
+        apply_bar_color (BANANA_500);
     }
 
     public void refresh_resume () {
         refresh_begin ();
+    }
+
+    private void apply_bar_color (string color) {
+        var rgba = Gdk.RGBA ();
+        rgba.parse (color);
+        serie.line.color = rgba;
     }
 
     private int64 usec_to_msec (int64 usec) {
