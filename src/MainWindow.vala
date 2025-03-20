@@ -178,7 +178,7 @@ public class MainWindow : Adw.ApplicationWindow {
         File? dest = null;
 
         var autosave_dest = Application.settings.get_string ("autosave-destination");
-        if (autosave_dest == Define.AUTOSAVE_DISABLED) {
+        if (autosave_dest.length == 0) {
             var save_dialog = new Gtk.FileDialog () {
                 title = _("Save your recording"),
                 accept_label = _("Save"),

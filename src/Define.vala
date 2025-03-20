@@ -5,11 +5,6 @@
 
 namespace Define {
     /**
-     * Represent that auto-saving is disabled (not preferred).
-     */
-    public const string AUTOSAVE_DISABLED = "";
-
-    /**
      * The name of the application.
      *
      * Use this constant to prevent the app name from being translated.

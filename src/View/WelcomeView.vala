@@ -234,7 +234,7 @@ public class View.WelcomeView : AbstractView {
             }
         } else {
             // Clear the current destination and disable autosaving
-            Application.settings.set_string ("autosave-destination", Define.AUTOSAVE_DISABLED);
+            Application.settings.reset ("autosave-destination");
             destination_chooser_button.label = _("Select destination…");
         }
     }
