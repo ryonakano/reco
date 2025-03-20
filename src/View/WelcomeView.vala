@@ -10,7 +10,7 @@ public class View.WelcomeView : AbstractView {
 
     private Ryokucha.DropDownText source_combobox;
     private Ryokucha.DropDownText mic_combobox;
-    private Gtk.Switch auto_save_switch;
+    private Gtk.Switch autosave_switch;
     private Widget.FolderChooserButton destination_chooser_button;
     private Gtk.Button record_button;
 
@@ -96,11 +96,11 @@ public class View.WelcomeView : AbstractView {
         format_combobox.append ("opus", _("Opus"));
         format_combobox.append ("wav", _("WAV"));
 
-        var auto_save_label = new Gtk.Label (_("Automatically save files:")) {
+        var autosave_label = new Gtk.Label (_("Automatically save files:")) {
             halign = Gtk.Align.END
         };
 
-        auto_save_switch = new Gtk.Switch () {
+        autosave_switch = new Gtk.Switch () {
             halign = Gtk.Align.START,
             active = false
         };
@@ -116,7 +116,7 @@ public class View.WelcomeView : AbstractView {
 
         string autosave_path = Application.settings.get_string ("autosave-destination");
         if (check_path_is_dir (autosave_path)) {
-            auto_save_switch.active = true;
+            autosave_switch.active = true;
             destination_chooser_button.label = Path.get_basename (autosave_path);
         }
 
@@ -140,8 +140,8 @@ public class View.WelcomeView : AbstractView {
         settings_grid.attach (saving_header_label, 0, 7, 1, 1);
         settings_grid.attach (format_label, 0, 8, 1, 1);
         settings_grid.attach (format_combobox, 1, 8, 1, 1);
-        settings_grid.attach (auto_save_label, 0, 9, 1, 1);
-        settings_grid.attach (auto_save_switch, 1, 9, 1, 1);
+        settings_grid.attach (autosave_label, 0, 9, 1, 1);
+        settings_grid.attach (autosave_switch, 1, 9, 1, 1);
         settings_grid.attach (destination_chooser_button, 1, 10, 1, 1);
 
         record_button = new Gtk.Button () {
@@ -205,7 +205,7 @@ public class View.WelcomeView : AbstractView {
             record_button.sensitive = get_is_source_connected ();
         });
 
-        auto_save_switch.notify["active"].connect (toggle_autosave);
+        autosave_switch.notify["active"].connect (toggle_autosave);
 
         destination_chooser_button.folder_set.connect (remember_autosave_dir);
 
@@ -220,7 +220,7 @@ public class View.WelcomeView : AbstractView {
     }
 
     private async void toggle_autosave () {
-        if (auto_save_switch.active) {
+        if (autosave_switch.active) {
             // Prevent the filechooser shown twice when enabling the autosaving
             var autosave_dest = Application.settings.get_string ("autosave-destination");
             if (autosave_dest.length != 0) {
@@ -230,7 +230,7 @@ public class View.WelcomeView : AbstractView {
             // Let the user select the autosaving destination
             bool ret = yield destination_chooser_button.present_chooser ();
             if (!ret) {
-                auto_save_switch.active = false;
+                autosave_switch.active = false;
             }
         } else {
             // Clear the current destination and disable autosaving
@@ -243,7 +243,7 @@ public class View.WelcomeView : AbstractView {
         string path = file.get_path ();
         Application.settings.set_string ("autosave-destination", path);
         destination_chooser_button.label = Path.get_basename (path);
-        auto_save_switch.active = true;
+        autosave_switch.active = true;
     }
 
     private bool check_path_is_dir (string path) {
