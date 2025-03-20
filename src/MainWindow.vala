@@ -225,7 +225,13 @@ public class MainWindow : Adw.ApplicationWindow {
 
         record_view.init_count ();
         record_view.start_count ();
+        // FIXME: RecordView should execute this method
+        record_view.levelbar.refresh_begin (get_current_peak);
         stack.visible_child = record_view;
+    }
+
+    private double get_current_peak () {
+        return recorder.current_peak;
     }
 
     private void start_wrapper () {
