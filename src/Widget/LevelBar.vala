@@ -4,6 +4,8 @@
  */
 
 public class Widget.LevelBar : Gtk.Box {
+    public delegate double GetValueFunc ();
+
     private const double LEVEL_MAX_PERCENT = 100.0;
     private const int REFRESH_MSEC = 100;
 
@@ -14,8 +16,9 @@ public class Widget.LevelBar : Gtk.Box {
     private LiveChart.Serie serie;
     private LiveChart.Config config;
     private LiveChart.Chart chart;
-    private uint refresh_graph_timeout;
+    private uint refresh_timeout_id;
     private int64 timestamp;
+    private unowned GetValueFunc get_value_func;
 
     public LevelBar () {
     }
@@ -52,11 +55,13 @@ public class Widget.LevelBar : Gtk.Box {
         append (chart);
     }
 
-    public void refresh_begin () {
+    public void refresh_begin (GetValueFunc func) {
         // Seek to the current timestamp
         int64 now_msec = usec_to_msec (GLib.get_monotonic_time ());
         timestamp = now_msec;
         config.time.current = timestamp;
+
+        get_value_func = func;
 
         refresh_resume ();
     }
@@ -72,9 +77,9 @@ public class Widget.LevelBar : Gtk.Box {
 
         apply_bar_color (BANANA_500);
 
-        if (refresh_graph_timeout != 0) {
-            GLib.Source.remove (refresh_graph_timeout);
-            refresh_graph_timeout = 0;
+        if (refresh_timeout_id != 0) {
+            GLib.Source.remove (refresh_timeout_id);
+            refresh_timeout_id = 0;
         }
     }
 
@@ -84,11 +89,9 @@ public class Widget.LevelBar : Gtk.Box {
 
         apply_bar_color (STRAWBERRY_500);
 
-        refresh_graph_timeout = Timeout.add (REFRESH_MSEC, () => {
-            unowned var recorder = Model.Recorder.get_default ();
-
-            int level = (int) (recorder.current_peak * LEVEL_MAX_PERCENT);
-            serie.add_with_timestamp (level, timestamp);
+        refresh_timeout_id = Timeout.add (REFRESH_MSEC, () => {
+            double value = get_value_func () * LEVEL_MAX_PERCENT;
+            serie.add_with_timestamp (value, timestamp);
 
             // Keep last bar on the right of the graph area
             config.time.current = timestamp;
