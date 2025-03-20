@@ -4,7 +4,7 @@
  */
 
 public class Widget.LevelBar : Gtk.Box {
-    public delegate double GetValueFunc ();
+    public delegate double GetBarValueFunc ();
 
     private const double LEVEL_MAX_PERCENT = 100.0;
     private const int REFRESH_MSEC = 100;
@@ -18,7 +18,7 @@ public class Widget.LevelBar : Gtk.Box {
     private LiveChart.Chart chart;
     private uint refresh_timeout_id;
     private int64 timestamp;
-    private unowned GetValueFunc get_value_func;
+    private unowned GetBarValueFunc bar_value_func;
 
     public LevelBar () {
     }
@@ -55,13 +55,13 @@ public class Widget.LevelBar : Gtk.Box {
         append (chart);
     }
 
-    public void refresh_begin (GetValueFunc func) {
+    public void refresh_begin (GetBarValueFunc func) {
         // Seek to the current timestamp
         int64 now_msec = usec_to_msec (GLib.get_monotonic_time ());
         timestamp = now_msec;
         config.time.current = timestamp;
 
-        get_value_func = func;
+        bar_value_func = func;
 
         refresh_resume ();
     }
@@ -90,7 +90,7 @@ public class Widget.LevelBar : Gtk.Box {
         apply_bar_color (STRAWBERRY_500);
 
         refresh_timeout_id = Timeout.add (REFRESH_MSEC, () => {
-            double value = get_value_func () * LEVEL_MAX_PERCENT;
+            double value = bar_value_func () * LEVEL_MAX_PERCENT;
             serie.add_with_timestamp (value, timestamp);
 
             // Keep last bar on the right of the graph area
