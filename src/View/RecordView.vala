@@ -10,6 +10,7 @@ public class View.RecordView : AbstractView {
 
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
+    public Widget.LevelBar levelbar;
     private Gtk.Button stop_button;
     private Gtk.Button pause_button;
 
@@ -43,7 +44,7 @@ public class View.RecordView : AbstractView {
         label_grid.attach (time_label, 0, 1, 1, 1);
         label_grid.attach (remaining_time_label, 0, 2, 1, 1);
 
-        var levelbar = new Widget.LevelBar ();
+        levelbar = new Widget.LevelBar ();
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
@@ -114,6 +115,7 @@ public class View.RecordView : AbstractView {
 
         cancel_button.clicked.connect (() => {
             stop_count ();
+            levelbar.refresh_end ();
             cancel_recording ();
         });
 
@@ -124,9 +126,11 @@ public class View.RecordView : AbstractView {
         pause_button.clicked.connect (() => {
             if (is_recording) {
                 stop_count ();
+                levelbar.refresh_pause ();
                 pause_button_set_resume ();
             } else {
                 start_count ();
+                levelbar.refresh_resume ();
                 pause_button_set_pause ();
             }
 
@@ -136,6 +140,7 @@ public class View.RecordView : AbstractView {
 
     private void trigger_stop_recording () {
         stop_count ();
+        levelbar.refresh_end ();
         stop_recording ();
     }
 

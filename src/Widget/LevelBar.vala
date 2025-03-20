@@ -24,8 +24,6 @@ public class Widget.LevelBar : Gtk.Box {
         orientation = Gtk.Orientation.VERTICAL;
         spacing = 0;
 
-        unowned var recorder = Model.Recorder.get_default ();
-
         serie = new LiveChart.Serie ("peak-value", new LiveChart.Bar ());
         serie.line.width = 1.0;
 
@@ -52,22 +50,6 @@ public class Widget.LevelBar : Gtk.Box {
         chart.add_serie (serie);
 
         append (chart);
-
-        recorder.notify["state"].connect (() => {
-            switch (recorder.state) {
-                case Model.Recorder.RecordingState.STOPPED:
-                    refresh_end ();
-                    break;
-                case Model.Recorder.RecordingState.PAUSED:
-                    refresh_pause ();
-                    break;
-                case Model.Recorder.RecordingState.RECORDING:
-                    refresh_begin ();
-                    break;
-                default:
-                    assert_not_reached ();
-            }
-        });
     }
 
     public void refresh_begin () {
@@ -122,6 +104,10 @@ public class Widget.LevelBar : Gtk.Box {
         var color = Gdk.RGBA ();
         color.parse (BANANA_500);
         serie.line.color = color;
+    }
+
+    public void refresh_resume () {
+        refresh_begin ();
     }
 
     private int64 usec_to_msec (int64 usec) {
