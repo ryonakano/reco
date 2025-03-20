@@ -24,7 +24,7 @@ public class Widget.LevelBar : Gtk.Box {
         orientation = Gtk.Orientation.VERTICAL;
         spacing = 0;
 
-        serie = new LiveChart.Serie ("peak-value", new LiveChart.Bar ());
+        serie = new LiveChart.Serie ("level", new LiveChart.Bar ());
         serie.line.width = 1.0;
 
         config = new LiveChart.Config ();
@@ -53,7 +53,7 @@ public class Widget.LevelBar : Gtk.Box {
     }
 
     public void refresh_begin () {
-        // Start updating the graph when recording started
+        // Start refreshing the graph when recording started
         chart.refresh_every (REFRESH_MSEC, 1.0);
 
         // Change the bar color to red
