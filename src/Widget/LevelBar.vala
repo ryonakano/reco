@@ -14,7 +14,7 @@ public class Widget.LevelBar : Gtk.Box {
     private LiveChart.Serie serie;
     private LiveChart.Config config;
     private LiveChart.Chart chart;
-    private uint update_graph_timeout;
+    private uint refresh_graph_timeout;
     private int64 timestamp = -1;
 
     public LevelBar () {
@@ -68,7 +68,7 @@ public class Widget.LevelBar : Gtk.Box {
             config.time.current = timestamp;
         }
 
-        update_graph_timeout = Timeout.add (REFRESH_MSEC, () => {
+        refresh_graph_timeout = Timeout.add (REFRESH_MSEC, () => {
             unowned var recorder = Model.Recorder.get_default ();
 
             int level = (int) (recorder.current_peak * LEVEL_MAX_PERCENT);
@@ -83,10 +83,10 @@ public class Widget.LevelBar : Gtk.Box {
     }
 
     public void refresh_end () {
-        if (update_graph_timeout != 0) {
+        if (refresh_graph_timeout != 0) {
             // Stop refreshing the graph
-            GLib.Source.remove (update_graph_timeout);
-            update_graph_timeout = 0;
+            GLib.Source.remove (refresh_graph_timeout);
+            refresh_graph_timeout = 0;
             chart.refresh_every (REFRESH_MSEC, 0.0);
         }
 
@@ -96,8 +96,8 @@ public class Widget.LevelBar : Gtk.Box {
 
     public void refresh_pause () {
         // Stop refreshing the graph
-        GLib.Source.remove (update_graph_timeout);
-        update_graph_timeout = 0;
+        GLib.Source.remove (refresh_graph_timeout);
+        refresh_graph_timeout = 0;
         chart.refresh_every (REFRESH_MSEC, 0.0);
 
         // Change the bar color to yellow
