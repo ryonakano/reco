@@ -89,8 +89,8 @@ public class Widget.LevelBar : Gtk.Box {
         update_graph_timeout = Timeout.add (REFRESH_MSEC, () => {
             unowned var recorder = Model.Recorder.get_default ();
 
-            int current = (int) (recorder.current_peak * PEAK_PERCENTAGE);
-            serie.add_with_timestamp (current, timestamp);
+            int level = (int) (recorder.current_peak * PEAK_PERCENTAGE);
+            serie.add_with_timestamp (level, timestamp);
 
             // Keep last bar on the right of the graph area
             config.time.current = timestamp;
@@ -101,10 +101,11 @@ public class Widget.LevelBar : Gtk.Box {
     }
 
     public void refresh_end () {
-        // Stop updating the graph when recording stopped
         if (update_graph_timeout != 0) {
+            // Stop refreshing the graph
             GLib.Source.remove (update_graph_timeout);
             update_graph_timeout = 0;
+            chart.refresh_every (REFRESH_MSEC, 0.0);
         }
 
         timestamp = -1;
