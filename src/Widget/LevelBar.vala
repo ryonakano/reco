@@ -63,7 +63,7 @@ public class Widget.LevelBar : Gtk.Box {
 
         if (timestamp == -1) {
             // Seek to the current timestamp
-            int64 now_msec = usec_to_msec (GLib.get_real_time ());
+            int64 now_msec = usec_to_msec (GLib.get_monotonic_time ());
             timestamp = now_msec;
             config.time.current = timestamp;
         }
