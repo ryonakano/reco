@@ -72,22 +72,25 @@ public class Widget.LevelBar : Gtk.Box {
     }
 
     public void refresh_pause () {
+        // Already paused
+        if (refresh_timeout_id == 0) {
+            return;
+        }
+
+        GLib.Source.remove (refresh_timeout_id);
+        refresh_timeout_id = 0;
+
         // Stop refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 0.0);
 
         apply_bar_color (BANANA_500);
-
-        if (refresh_timeout_id != 0) {
-            GLib.Source.remove (refresh_timeout_id);
-            refresh_timeout_id = 0;
-        }
     }
 
     public void refresh_resume () {
-        // Start refreshing the graph
-        chart.refresh_every (REFRESH_MSEC, 1.0);
-
-        apply_bar_color (STRAWBERRY_500);
+        // Already resumed
+        if (refresh_timeout_id != 0) {
+            return;
+        }
 
         refresh_timeout_id = Timeout.add (REFRESH_MSEC, () => {
             double value = bar_value_func () * LEVEL_MAX_PERCENT;
@@ -99,6 +102,11 @@ public class Widget.LevelBar : Gtk.Box {
 
             return GLib.Source.CONTINUE;
         });
+
+        // Start refreshing the graph
+        chart.refresh_every (REFRESH_MSEC, 1.0);
+
+        apply_bar_color (STRAWBERRY_500);
     }
 
     private void apply_bar_color (string color) {

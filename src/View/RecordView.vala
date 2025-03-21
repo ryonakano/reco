@@ -6,12 +6,12 @@
 public class View.RecordView : AbstractView {
     public signal void cancel_recording ();
     public signal void stop_recording ();
-    public signal void toggle_recording (bool is_recording);
+    public signal void pause_recording ();
+    public signal void resume_recording ();
 
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
-    public Widget.LevelBar levelbar;
-    private Gtk.Button stop_button;
+    private Widget.LevelBar levelbar;
     private Gtk.Button pause_button;
 
     private bool is_recording;
@@ -53,7 +53,7 @@ public class View.RecordView : AbstractView {
         };
         cancel_button.add_css_class ("borderless-button");
 
-        stop_button = new Gtk.Button () {
+        var stop_button = new Gtk.Button () {
             icon_name = "media-playback-stop-symbolic",
             tooltip_text = _("Finish recording"),
             halign = Gtk.Align.CENTER,
@@ -88,7 +88,8 @@ public class View.RecordView : AbstractView {
                 switch (keyval) {
                     case Gdk.Key.R:
                         if (Gdk.ModifierType.SHIFT_MASK in state) {
-                            trigger_stop_recording ();
+                            refresh_end ();
+                            stop_recording ();
                             return Gdk.EVENT_STOP;
                         }
 
@@ -110,41 +111,41 @@ public class View.RecordView : AbstractView {
             remaining_time_label.label = downtimer.to_string ();
         });
         downtimer.ended.connect (() => {
-            trigger_stop_recording ();
+            refresh_end ();
+            stop_recording ();
         });
 
         cancel_button.clicked.connect (() => {
-            stop_count ();
-            levelbar.refresh_end ();
+            refresh_end ();
             cancel_recording ();
         });
 
         stop_button.clicked.connect (() => {
-            trigger_stop_recording ();
+            refresh_end ();
+            stop_recording ();
         });
 
         pause_button.clicked.connect (() => {
             if (is_recording) {
-                stop_count ();
-                levelbar.refresh_pause ();
-                pause_button_set_resume ();
+                is_recording = false;
+                refresh_pause ();
+                pause_recording ();
             } else {
-                start_count ();
-                levelbar.refresh_resume ();
-                pause_button_set_pause ();
+                is_recording = true;
+                refresh_resume ();
+                resume_recording ();
             }
-
-            toggle_recording (is_recording);
         });
     }
 
-    private void trigger_stop_recording () {
-        stop_count ();
-        levelbar.refresh_end ();
-        stop_recording ();
+    private double get_current_peak () {
+        unowned var recorder = Model.Recorder.get_default ();
+        return recorder.current_peak;
     }
 
-    public void init_count () {
+    public void refresh_begin () {
+        is_recording = true;
+
         uptimer.init ();
         downtimer.init ();
 
@@ -159,21 +160,39 @@ public class View.RecordView : AbstractView {
             remaining_time_label.label = null;
         }
 
-        pause_button_set_pause ();
+        levelbar.refresh_begin (get_current_peak);
+
+        refresh_resume ();
     }
 
-    public void start_count () {
-        is_recording = true;
+    public void refresh_end () {
+        is_recording = false;
+
+        refresh_pause ();
+
+        levelbar.refresh_end ();
+    }
+
+    private void refresh_pause () {
+        uptimer.stop ();
+        downtimer.stop ();
+
+        pause_button.icon_name = "media-playback-start-symbolic";
+        pause_button.tooltip_text = _("Resume recording");
+
+        levelbar.refresh_pause ();
+    }
+
+    private void refresh_resume () {
         uptimer.start ();
         if (downtimer.is_seeked) {
             downtimer.start ();
         }
-    }
 
-    public void stop_count () {
-        is_recording = false;
-        uptimer.stop ();
-        downtimer.stop ();
+        pause_button.icon_name = "media-playback-pause-symbolic";
+        pause_button.tooltip_text = _("Pause recording");
+
+        levelbar.refresh_resume ();
     }
 
     private string uptimer_strfunc (TimeSpan time_usec) {
@@ -199,15 +218,5 @@ public class View.RecordView : AbstractView {
         time.seconds = remain / TimeSpan.SECOND;
 
         return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT).printf (time.minutes, time.seconds);
-    }
-
-    private void pause_button_set_pause () {
-        pause_button.icon_name = "media-playback-pause-symbolic";
-        pause_button.tooltip_text = _("Pause recording");
-    }
-
-    private void pause_button_set_resume () {
-        pause_button.icon_name = "media-playback-start-symbolic";
-        pause_button.tooltip_text = _("Resume recording");
     }
 }
