@@ -8,6 +8,9 @@ public class View.WelcomeView : AbstractView {
 
     private unowned Manager.DeviceManager device_manager;
 
+    private uint timeout_button_color = 0;
+    private uint timeout_button_icon = 0;
+
     private Ryokucha.DropDownText source_combobox;
     private Ryokucha.DropDownText mic_combobox;
     private Gtk.Switch autosave_switch;
@@ -260,13 +263,25 @@ public class View.WelcomeView : AbstractView {
     }
 
     public void show_success_button () {
+        if (timeout_button_color != 0) {
+            Source.remove (timeout_button_color);
+            timeout_button_color = 0;
+        }
+
+        if (timeout_button_icon != 0) {
+            Source.remove (timeout_button_icon);
+            timeout_button_icon = 0;
+        }
+
         record_button.add_css_class ("record-button-success");
         record_button.icon_name = "record-completed-symbolic";
-        Timeout.add_once (3000, () => {
+        timeout_button_color = Timeout.add_once (3000, () => {
             record_button.remove_css_class ("record-button-success");
+            timeout_button_color = 0;
         });
-        Timeout.add_once (3250, () => {
+        timeout_button_icon = Timeout.add_once (3250, () => {
             record_button.icon_name = "audio-input-microphone-symbolic";
+            timeout_button_icon = 0;
         });
     }
 
