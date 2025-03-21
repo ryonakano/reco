@@ -126,8 +126,10 @@ public class View.RecordView : AbstractView {
 
         pause_button.clicked.connect (() => {
             if (is_recording) {
+                is_recording = false;
                 refresh_pause ();
             } else {
+                is_recording = true;
                 refresh_resume ();
             }
 
@@ -141,6 +143,8 @@ public class View.RecordView : AbstractView {
     }
 
     public void refresh_begin () {
+        is_recording = true;
+
         uptimer.init ();
         downtimer.init ();
 
@@ -161,14 +165,14 @@ public class View.RecordView : AbstractView {
     }
 
     public void refresh_end () {
+        is_recording = false;
+
         refresh_pause ();
 
         levelbar.refresh_end ();
     }
 
     public void refresh_pause () {
-        is_recording = false;
-
         uptimer.stop ();
         downtimer.stop ();
 
@@ -179,8 +183,6 @@ public class View.RecordView : AbstractView {
     }
 
     public void refresh_resume () {
-        is_recording = true;
-
         uptimer.start ();
         if (downtimer.is_seeked) {
             downtimer.start ();
