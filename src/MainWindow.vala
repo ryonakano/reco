@@ -86,8 +86,11 @@ public class MainWindow : Adw.ApplicationWindow {
         record_view.stop_recording.connect (() => {
             stop_wrapper (false);
         });
-        record_view.toggle_recording.connect ((is_recording) => {
-            recorder.state = is_recording ? Model.Recorder.RecordingState.RECORDING : Model.Recorder.RecordingState.PAUSED;
+        record_view.pause_recording.connect ((is_recording) => {
+            recorder.state = Model.Recorder.RecordingState.PAUSED;
+        });
+        record_view.resume_recording.connect ((is_recording) => {
+            recorder.state = Model.Recorder.RecordingState.RECORDING;
         });
 
         close_request.connect ((event) => {

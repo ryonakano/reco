@@ -6,7 +6,8 @@
 public class View.RecordView : AbstractView {
     public signal void cancel_recording ();
     public signal void stop_recording ();
-    public signal void toggle_recording (bool is_recording);
+    public signal void pause_recording ();
+    public signal void resume_recording ();
 
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
@@ -128,12 +129,12 @@ public class View.RecordView : AbstractView {
             if (is_recording) {
                 is_recording = false;
                 refresh_pause ();
+                pause_recording ();
             } else {
                 is_recording = true;
                 refresh_resume ();
+                resume_recording ();
             }
-
-            toggle_recording (is_recording);
         });
     }
 
