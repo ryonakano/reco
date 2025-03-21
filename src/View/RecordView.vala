@@ -172,7 +172,7 @@ public class View.RecordView : AbstractView {
         levelbar.refresh_end ();
     }
 
-    public void refresh_pause () {
+    private void refresh_pause () {
         uptimer.stop ();
         downtimer.stop ();
 
@@ -182,7 +182,7 @@ public class View.RecordView : AbstractView {
         levelbar.refresh_pause ();
     }
 
-    public void refresh_resume () {
+    private void refresh_resume () {
         uptimer.start ();
         if (downtimer.is_seeked) {
             downtimer.start ();
