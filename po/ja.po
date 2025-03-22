@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-22 23:38+0900\n"
-"PO-Revision-Date: 2025-03-16 15:49+0000\n"
+"PO-Revision-Date: 2025-03-22 15:27+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
@@ -138,7 +138,7 @@ msgstr "録音が正常に完了したことを示すマーク"
 #. John Doe https://example.com
 #: src/Application.vala:124
 msgid "translator-credits"
-msgstr ""
+msgstr "Ryo Nakano"
 
 #: src/MainWindow.vala:30
 msgid "S_ystem"
