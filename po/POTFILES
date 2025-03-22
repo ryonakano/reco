@@ -1,6 +1,7 @@
 data/ui/help-overlay.blp
 data/reco.desktop.in.in
 data/reco.metainfo.xml.in.in
+src/Application.vala
 src/MainWindow.vala
 src/Model/Recorder.vala
 src/View/CountDownView.vala
