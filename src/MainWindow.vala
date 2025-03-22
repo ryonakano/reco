@@ -143,7 +143,7 @@ public class MainWindow : Adw.ApplicationWindow {
                 }
 
                 if (is_success) {
-                    welcome_view.show_success_button ();
+                    welcome_view.succeeded_animation_begin ();
 
                     var notification = new Notification (_("Saved recording"));
                     // The app that handles actions would be already destroyed when the user activates the notification,
@@ -205,6 +205,9 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     private void show_welcome () {
+        // Stop ongoing animations
+        welcome_view.succeeded_animation_end ();
+
         stack.visible_child = welcome_view;
     }
 
