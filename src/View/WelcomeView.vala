@@ -8,8 +8,8 @@ public class View.WelcomeView : AbstractView {
 
     private unowned Manager.DeviceManager device_manager;
 
-    private uint timeout_button_color = 0;
-    private uint timeout_button_icon = 0;
+    private uint record_button_timeout_color = 0;
+    private uint record_button_timeout_icon = 0;
 
     private Ryokucha.DropDownText source_combobox;
     private Ryokucha.DropDownText mic_combobox;
@@ -266,14 +266,14 @@ public class View.WelcomeView : AbstractView {
         /*
          * Stop ongoing animations
          */
-        if (timeout_button_color != 0) {
-            Source.remove (timeout_button_color);
-            timeout_button_color = 0;
+        if (record_button_timeout_color != 0) {
+            Source.remove (record_button_timeout_color);
+            record_button_timeout_color = 0;
         }
 
-        if (timeout_button_icon != 0) {
-            Source.remove (timeout_button_icon);
-            timeout_button_icon = 0;
+        if (record_button_timeout_icon != 0) {
+            Source.remove (record_button_timeout_icon);
+            record_button_timeout_icon = 0;
         }
 
         /*
@@ -281,13 +281,13 @@ public class View.WelcomeView : AbstractView {
          */
         record_button.add_css_class ("record-button-success");
         record_button.icon_name = "record-completed-symbolic";
-        timeout_button_color = Timeout.add_once (3000, () => {
+        record_button_timeout_color = Timeout.add_once (3000, () => {
             record_button.remove_css_class ("record-button-success");
-            timeout_button_color = 0;
+            record_button_timeout_color = 0;
         });
-        timeout_button_icon = Timeout.add_once (3250, () => {
+        record_button_timeout_icon = Timeout.add_once (3250, () => {
             record_button.icon_name = "audio-input-microphone-symbolic";
-            timeout_button_icon = 0;
+            record_button_timeout_icon = 0;
         });
     }
 
