@@ -84,7 +84,10 @@ gresource_file_in = configure_file(
 asresources = gnome.compile_resources(
     'as-resources',
     gresource_file_in,
-    dependencies: blueprints,
+    dependencies: [
+        appstream_file,
+        blueprints,
+    ],
     source_dir: 'data',
     c_name: 'as'
 )
