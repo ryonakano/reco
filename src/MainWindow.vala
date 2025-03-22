@@ -16,7 +16,7 @@ public class MainWindow : Adw.ApplicationWindow {
         Object (
             application: app,
             resizable: false,
-            title: "Reco"
+            title: Define.APP_NAME
         );
     }
 
