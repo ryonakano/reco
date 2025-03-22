@@ -77,7 +77,13 @@ public class MainWindow : Adw.ApplicationWindow {
 
         show_welcome ();
 
-        welcome_view.start_recording.connect (start_wrapper);
+        welcome_view.start_recording.connect ((delay_sec) => {
+            if (delay_sec > 0) {
+                show_countdown (delay_sec);
+            } else {
+                show_record ();
+            }
+        });
 
         countdown_view.countdown_cancelled.connect (show_welcome);
         countdown_view.countdown_ended.connect (show_record);
@@ -211,8 +217,8 @@ public class MainWindow : Adw.ApplicationWindow {
         stack.visible_child = welcome_view;
     }
 
-    private void show_countdown () {
-        countdown_view.init_countdown ();
+    private void show_countdown (uint sec) {
+        countdown_view.init_countdown (sec);
         countdown_view.start_countdown ();
         stack.visible_child = countdown_view;
     }
@@ -231,15 +237,6 @@ public class MainWindow : Adw.ApplicationWindow {
 
         record_view.refresh_begin ();
         stack.visible_child = record_view;
-    }
-
-    private void start_wrapper () {
-        uint delay = Application.settings.get_uint ("delay");
-        if (delay != 0) {
-            show_countdown ();
-        } else {
-            show_record ();
-        }
     }
 
     public bool check_destroy () {
