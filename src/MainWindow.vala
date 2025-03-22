@@ -14,9 +14,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
     public MainWindow (Application app) {
         Object (
-            application: app,
-            resizable: false,
-            title: Define.APP_NAME
+            application: app
         );
     }
 
@@ -74,6 +72,8 @@ public class MainWindow : Adw.ApplicationWindow {
         content = toolbar_view;
         width_request = 350;
         height_request = 480;
+        resizable = false;
+        title = Define.APP_NAME;
 
         show_welcome ();
 

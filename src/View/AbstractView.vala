@@ -11,13 +11,14 @@ public abstract class View.AbstractView : Gtk.Box {
     }
 
     protected AbstractView () {
-        Object (
-            orientation: Gtk.Orientation.VERTICAL,
-            spacing: 12,
-            margin_top: 6,
-            margin_bottom: 6,
-            margin_start: 6,
-            margin_end: 6
-        );
+    }
+
+    construct {
+        orientation = Gtk.Orientation.VERTICAL;
+        spacing = 12;
+        margin_top = 6;
+        margin_bottom = 6;
+        margin_start = 6;
+        margin_end = 6;
     }
 }
