@@ -80,11 +80,10 @@ public class View.CountDownView : AbstractView {
         });
     }
 
-    public void init_countdown () {
+    public void init_countdown (uint sec) {
         delaytimer.init ();
 
-        uint delay_length = Application.settings.get_uint ("delay");
-        delaytimer.seek (delay_length);
+        delaytimer.seek (sec);
         delay_remaining_label.label = delaytimer.to_string ();
 
         pause_button_set_pause ();

@@ -211,8 +211,8 @@ public class MainWindow : Adw.ApplicationWindow {
         stack.visible_child = welcome_view;
     }
 
-    private void show_countdown () {
-        countdown_view.init_countdown ();
+    private void show_countdown (uint sec) {
+        countdown_view.init_countdown (sec);
         countdown_view.start_countdown ();
         stack.visible_child = countdown_view;
     }
@@ -233,10 +233,9 @@ public class MainWindow : Adw.ApplicationWindow {
         stack.visible_child = record_view;
     }
 
-    private void start_wrapper () {
-        uint delay = Application.settings.get_uint ("delay");
-        if (delay != 0) {
-            show_countdown ();
+    private void start_wrapper (uint delay_sec) {
+        if (delay_sec > 0) {
+            show_countdown (delay_sec);
         } else {
             show_record ();
         }

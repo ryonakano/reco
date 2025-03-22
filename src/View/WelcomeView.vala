@@ -4,7 +4,7 @@
  */
 
 public class View.WelcomeView : AbstractView {
-    public signal void start_recording ();
+    public signal void start_recording (uint delay_sec);
 
     private unowned Manager.DeviceManager device_manager;
 
@@ -13,6 +13,7 @@ public class View.WelcomeView : AbstractView {
 
     private Ryokucha.DropDownText source_combobox;
     private Ryokucha.DropDownText mic_combobox;
+    private Gtk.SpinButton delay_spin;
     private Gtk.Switch autosave_switch;
     private Widget.FolderChooserButton destination_chooser_button;
     private Gtk.Button record_button;
@@ -65,7 +66,7 @@ public class View.WelcomeView : AbstractView {
         var delay_label = new Gtk.Label (_("Delay in seconds:")) {
             halign = Gtk.Align.END
         };
-        var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1) {
+        delay_spin = new Gtk.SpinButton.with_range (0, 15, 1) {
             halign = Gtk.Align.START
         };
 
@@ -188,7 +189,7 @@ public class View.WelcomeView : AbstractView {
                             // Only start recording when recording source is connected
                             bool is_connected = get_is_source_connected ();
                             if (is_connected) {
-                                start_recording ();
+                                start_recording ((uint) delay_spin.value);
                             }
 
                             return Gdk.EVENT_STOP;
@@ -213,7 +214,7 @@ public class View.WelcomeView : AbstractView {
         destination_chooser_button.folder_set.connect (remember_autosave_dir);
 
         record_button.clicked.connect (() => {
-            start_recording ();
+            start_recording ((uint) delay_spin.value);
         });
 
         device_manager.device_updated.connect (() => {
