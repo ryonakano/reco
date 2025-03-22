@@ -263,6 +263,9 @@ public class View.WelcomeView : AbstractView {
     }
 
     public void show_success_button () {
+        /*
+         * Stop ongoing animations
+         */
         if (timeout_button_color != 0) {
             Source.remove (timeout_button_color);
             timeout_button_color = 0;
@@ -273,6 +276,9 @@ public class View.WelcomeView : AbstractView {
             timeout_button_icon = 0;
         }
 
+        /*
+         * Trigger animations
+         */
         record_button.add_css_class ("record-button-success");
         record_button.icon_name = "record-completed-symbolic";
         timeout_button_color = Timeout.add_once (3000, () => {
