@@ -77,7 +77,7 @@ public class Widget.LevelBar : Gtk.Box {
             return;
         }
 
-        GLib.Source.remove (refresh_timeout_id);
+        Source.remove (refresh_timeout_id);
         refresh_timeout_id = 0;
 
         // Stop refreshing the graph
@@ -100,7 +100,7 @@ public class Widget.LevelBar : Gtk.Box {
             config.time.current = timestamp;
             timestamp += REFRESH_MSEC;
 
-            return GLib.Source.CONTINUE;
+            return Source.CONTINUE;
         });
 
         // Start refreshing the graph

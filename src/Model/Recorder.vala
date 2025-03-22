@@ -269,11 +269,11 @@ namespace Model {
                         break;
                     }
 
-                    // FIXME: GLib.ValueArray is deprecated but used as an I/F structure in the GStreamer side:
+                    // FIXME: ValueArray is deprecated but used as an I/F structure in the GStreamer side:
                     // https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.5/subprojects/gst-plugins-good/gst/level/gstlevel.c#L579
                     // We would need a patch for GStreamer to replace ValueArray with Array
                     // when it's removed before GStreamer resolves
-                    unowned var peak_arr = (GLib.ValueArray) structure.get_value ("peak").get_boxed ();
+                    unowned var peak_arr = (ValueArray) structure.get_value ("peak").get_boxed ();
                     if (peak_arr != null) {
                         current_peak = peak_arr.get_nth (0).get_double ();
                     }
