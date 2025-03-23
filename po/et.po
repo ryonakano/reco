@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-22 23:38+0900\n"
-"PO-Revision-Date: 2025-03-17 23:25+0000\n"
+"PO-Revision-Date: 2025-03-23 06:44+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/rosp/reco/et/>\n"
 "Language: et\n"
@@ -140,7 +140,7 @@ msgstr "Kinnitus salvestamise õnnestumise kohta"
 #. John Doe https://example.com
 #: src/Application.vala:124
 msgid "translator-credits"
-msgstr ""
+msgstr "Priit Jõerüüt 2024-2025"
 
 #: src/MainWindow.vala:30
 msgid "S_ystem"
