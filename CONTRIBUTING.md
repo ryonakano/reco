@@ -45,7 +45,7 @@ We accept changes to the source code through pull requests―even a small typo f
 
 ### Coding Style
 
-We follow [the coding style of elementary OS](https://docs.elementary.io/develop/writing-apps/code-style) and [its Human Interface Guidelines](https://docs.elementary.io/hig/). Try to respect them.
+We follow [the coding style of elementary OS](https://docs.elementary.io/develop/writing-apps/code-style). Try to respect them.
 
 ## Manage the Project
 

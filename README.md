@@ -1,7 +1,7 @@
 # Reco
-![Welcome view in the light mode](data/screenshots/pantheon/welcome-init-light.png#gh-light-mode-only) ![Recording view in the light mode](data/screenshots/pantheon/recording-light.png#gh-light-mode-only)
+![Welcome view in the light mode](data/screenshots/gnome/welcome-init-light.png#gh-light-mode-only) ![Recording view in the light mode](data/screenshots/gnome/recording-light.png#gh-light-mode-only)
 
-![Welcome view in the dark mode](data/screenshots/pantheon/welcome-init-dark.png#gh-dark-mode-only) ![Recording view in the dark mode](data/screenshots/pantheon/recording-dark.png#gh-dark-mode-only)
+![Welcome view in the dark mode](data/screenshots/gnome/welcome-init-dark.png#gh-dark-mode-only) ![Recording view in the dark mode](data/screenshots/gnome/recording-dark.png#gh-dark-mode-only)
 
 Reco is an audio recorder focused on being concise and simple to use.
 
@@ -16,14 +16,14 @@ Features include:
 * **Saving recordings when the app quits.** Even if you happen to quit the app while recording, the recording is either saved automatically, or the file chooser dialog is shown - depending on your preferences.
 
 ## Installation
-### From AppCenter or Flathub (Recommended)
-Click the button to get Reco on AppCenter if you're on elementary OS:
-
-[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.ryonakano.reco)
-
-You can install Reco from Flathub if you're on another distribution:
+### From Flathub or AppCenter (Recommended)
+You can install Reco from Flathub:
 
 [<img src="https://flathub.org/assets/badges/flathub-badge-en.svg" width="160" alt="Download on Flathub">](https://flathub.org/apps/com.github.ryonakano.reco)
+
+You should install Reco from AppCenter if you're on elementary OS. This build is optimized for elementary OS:
+
+[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.ryonakano.reco)
 
 ### From Community Packages
 Community packages maintained by volunteers are also available on some distributions:
