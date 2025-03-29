@@ -121,13 +121,12 @@ public class MainWindow : Adw.ApplicationWindow {
 
             string suffix = Util.get_suffix (tmp_path);
             var tmp_file = File.new_for_path (tmp_path);
+            var end_dt = new DateTime.now_local ();
 
             //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
             //Suffix is automatically appended depending on the recording format.
             //e.g. "Recording from 2018-11-10 23.42.36.wav"
-            string default_filename = _("Recording from %s").printf (
-                                        new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S")
-                                    ) + suffix;
+            string default_filename = _("Recording from %s").printf (end_dt.format ("%Y-%m-%d %H.%M.%S")) + suffix;
 
             ask_save_path.begin (default_filename, (obj, res) => {
                 File? save_path = ask_save_path.end (res);

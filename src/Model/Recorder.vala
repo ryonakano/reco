@@ -83,7 +83,6 @@ namespace Model {
         private double _current_peak = 0;
 
         private string tmp_path;
-        private string suffix;
         private Gst.Pipeline pipeline;
         private uint inhibit_token = 0;
         private const uint64 NSEC = 1000000000;
@@ -219,9 +218,8 @@ namespace Model {
                 }
             }
 
-            suffix = fmt_data.suffix;
-
-            string tmp_filename = "reco_%s%s".printf (new DateTime.now_local ().to_unix ().to_string (), suffix);
+            var start_dt = new DateTime.now_local ();
+            string tmp_filename = "reco_%s%s".printf (start_dt.to_unix ().to_string (), fmt_data.suffix);
             tmp_path = Path.build_filename (Environment.get_user_cache_dir (), tmp_filename);
             sink.set ("location", tmp_path);
             debug ("temporary saving path: %s", tmp_path);
