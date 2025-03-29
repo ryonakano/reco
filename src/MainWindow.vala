@@ -116,17 +116,17 @@ public class MainWindow : Adw.ApplicationWindow {
             );
         });
 
-        recorder.save_file.connect ((tmp_path, suffix) => {
-            debug ("recorder.save_file: tmp_path(%s), suffix(%s)", tmp_path, suffix);
+        recorder.save_file.connect ((tmp_path) => {
+            debug ("recorder.save_file: tmp_path(%s)", tmp_path);
 
+            string suffix = Util.get_suffix (tmp_path);
             var tmp_file = File.new_for_path (tmp_path);
+            var end_dt = new DateTime.now_local ();
 
             //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
             //Suffix is automatically appended depending on the recording format.
             //e.g. "Recording from 2018-11-10 23.42.36.wav"
-            string default_filename = _("Recording from %s").printf (
-                                        new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S")
-                                    ) + suffix;
+            string default_filename = _("Recording from %s").printf (end_dt.format ("%Y-%m-%d %H.%M.%S")) + suffix;
 
             ask_save_path.begin (default_filename, (obj, res) => {
                 File? save_path = ask_save_path.end (res);
@@ -225,7 +225,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
     private void show_record () {
         try {
-            recorder.start_recording ();
+            recorder.prepare_recording ();
         } catch (Model.RecorderError err) {
             show_error_dialog (
                 _("Failed to start recording"),
@@ -234,6 +234,8 @@ public class MainWindow : Adw.ApplicationWindow {
             );
             return;
         }
+
+        recorder.start_recording ();
 
         record_view.refresh_begin ();
         stack.visible_child = record_view;
