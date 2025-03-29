@@ -222,7 +222,7 @@ namespace Model {
             suffix = fmt_data.suffix;
 
             string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string () + suffix;
-            tmp_path = Path.build_path (Path.DIR_SEPARATOR_S, Environment.get_user_cache_dir (), tmp_filename);
+            tmp_path = Path.build_filename (Environment.get_user_cache_dir (), tmp_filename);
             sink.set ("location", tmp_path);
             debug ("temporary saving path: %s", tmp_path);
 
