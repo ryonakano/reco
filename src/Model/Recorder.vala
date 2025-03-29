@@ -21,7 +21,7 @@ namespace Model {
 
     public class Recorder : Object {
         public signal void throw_error (Error err, string debug);
-        public signal void save_file (string tmp_path, string suffix);
+        public signal void save_file (string tmp_path);
 
         private const string IGNORED_PROPNAMES[] = {
             "name", "parent", "direction", "template", "caps"
@@ -268,7 +268,7 @@ namespace Model {
                     state = RecordingState.STOPPED;
                     pipeline.dispose ();
 
-                    save_file (tmp_path, suffix);
+                    save_file (tmp_path);
                     break;
                 case Gst.MessageType.ELEMENT:
                     unowned Gst.Structure? structure = msg.get_structure ();
