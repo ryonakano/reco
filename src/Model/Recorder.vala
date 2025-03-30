@@ -83,6 +83,8 @@ namespace Model {
         private double _current_peak = 0;
 
         private string tmp_path;
+        public DateTime start_dt { get; private set; }
+        public DateTime end_dt { get; private set; }
         private Gst.Pipeline pipeline;
         private uint inhibit_token = 0;
         private const uint64 NSEC = 1000000000;
@@ -218,7 +220,7 @@ namespace Model {
                 }
             }
 
-            var start_dt = new DateTime.now_local ();
+            start_dt = new DateTime.now_local ();
             string tmp_filename = "reco_%s%s".printf (start_dt.to_unix ().to_string (), fmt_data.suffix);
             tmp_path = Path.build_filename (Environment.get_user_cache_dir (), tmp_filename);
             sink.set ("location", tmp_path);
@@ -265,6 +267,7 @@ namespace Model {
                 case Gst.MessageType.EOS:
                     state = RecordingState.STOPPED;
                     pipeline.dispose ();
+                    end_dt = new DateTime.now_local ();
 
                     save_file (tmp_path);
                     break;

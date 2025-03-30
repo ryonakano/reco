@@ -129,12 +129,8 @@ public class MainWindow : Adw.ApplicationWindow {
 
             string suffix = Util.get_suffix (tmp_path);
             var tmp_file = File.new_for_path (tmp_path);
-            var end_dt = new DateTime.now_local ();
 
-            //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
-            //Suffix is automatically appended depending on the recording format.
-            //e.g. "Recording from 2018-11-10 23.42.36.wav"
-            string default_filename = _("Recording from %s").printf (end_dt.format ("%Y-%m-%d %H.%M.%S")) + suffix;
+            string default_filename = build_filename_from_datetime (recorder.start_dt, recorder.end_dt, suffix);
 
             ask_save_path.begin (default_filename, (obj, res) => {
                 File? save_path = ask_save_path.end (res);
@@ -179,6 +175,25 @@ public class MainWindow : Adw.ApplicationWindow {
                 }
             });
         });
+    }
+
+    private string build_filename_from_datetime (DateTime start, DateTime end, string suffix) {
+        string start_format = "%Y-%m-%d_%H:%M:%S";
+        string end_format = "%Y-%m-%d_%H:%M:%S";
+
+        bool is_same_day = Util.is_same_day (start, end);
+        if (is_same_day) {
+            // Avoid redundant date
+            end_format = "%H:%M:%S";
+        }
+
+        string start_str = start.format (start_format);
+        string end_str = end.format (end_format);
+
+        //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
+        //Suffix is automatically appended depending on the recording format.
+        //e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
+        return _("%s to %s").printf (start_str, end_str) + suffix;
     }
 
     /**
