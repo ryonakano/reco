@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2018-2025 Ryo Nakano <ryonakaknock3@gmail.com>
  *
  * GStreamer related codes are inspired from:
  * * https://github.com/artemanufrij/screencast/blob/1.0.0/src/MainWindow.vala
@@ -21,7 +21,7 @@ namespace Model {
 
     public class Recorder : Object {
         public signal void throw_error (Error err, string debug);
-        public signal void save_file (string tmp_path, string suffix);
+        public signal void save_file (string tmp_path);
 
         private const string IGNORED_PROPNAMES[] = {
             "name", "parent", "direction", "template", "caps"
@@ -46,9 +46,16 @@ namespace Model {
             }
 
             set {
-                // Control actual recording to stop, start, or pause
-                pipeline.set_state (GST_STATE_TABLE[value]);
                 _state = value;
+
+                // Control actual recording to stop, start, or pause
+                pipeline.set_state (GST_STATE_TABLE[_state]);
+
+                if (_state == RecordingState.RECORDING) {
+                    inhibit_sleep ();
+                } else {
+                    uninhibit_sleep ();
+                }
             }
         }
         private RecordingState _state = RecordingState.STOPPED;
@@ -76,7 +83,8 @@ namespace Model {
         private double _current_peak = 0;
 
         private string tmp_path;
-        private string suffix;
+        public DateTime start_dt { get; private set; }
+        public DateTime end_dt { get; private set; }
         private Gst.Pipeline pipeline;
         private uint inhibit_token = 0;
         private const uint64 NSEC = 1000000000;
@@ -127,20 +135,20 @@ namespace Model {
         private Recorder () {
         }
 
-        public void start_recording () throws RecorderError {
+        public void prepare_recording () throws RecorderError {
             pipeline = new Gst.Pipeline ("pipeline");
             if (pipeline == null) {
-                throw new RecorderError.CREATE_ERROR ("Failed to create element \"pipeline\"");
+                throw new RecorderError.CREATE_ERROR ("Failed to create pipeline");
             }
 
             var level = Gst.ElementFactory.make ("level", "level");
             if (level == null) {
-                throw new RecorderError.CREATE_ERROR ("Failed to create element \"level\"");
+                throw new RecorderError.CREATE_ERROR ("Failed to create level element named 'level'");
             }
 
             var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
             if (mixer == null) {
-                throw new RecorderError.CREATE_ERROR ("Failed to create element \"audiomixer\"");
+                throw new RecorderError.CREATE_ERROR ("Failed to create audiomixer element named 'mixer'");
             }
 
             // Prevent audio from stuttering after some time, by setting the latency to other than 0.
@@ -150,7 +158,7 @@ namespace Model {
 
             var sink = Gst.ElementFactory.make ("filesink", "sink");
             if (sink == null) {
-                throw new RecorderError.CREATE_ERROR ("Failed to create element \"filesink\"");
+                throw new RecorderError.CREATE_ERROR ("Failed to create filesink element named 'sink'");
             }
 
             pipeline.add_many (level, mixer, sink);
@@ -161,14 +169,14 @@ namespace Model {
             if (source != SourceID.MIC) {
                 sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
                 if (sys_sound == null) {
-                    throw new RecorderError.CREATE_ERROR ("Failed to create element \"sys_sound\"");
+                    throw new RecorderError.CREATE_ERROR ("Failed to create pulsesrc element 'sys_sound'");
                 }
 
                 Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
                 string? monitor_name = get_default_monitor_name (default_sink);
                 if (monitor_name == null) {
                     throw new RecorderError.CONFIGURE_ERROR (
-                        "Failed to set \"device\" property of element \"sys_sound\": get_default_monitor_name () failed"
+                        "Failed to set 'device' property of pulsesrc element named 'sys_sound': get_default_monitor_name () failed"
                     );
                 }
 
@@ -194,7 +202,7 @@ namespace Model {
                 Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
                 mic_sound = microphone.create_element ("mic_sound");
                 if (mic_sound == null) {
-                    throw new RecorderError.CREATE_ERROR ("Failed to create element \"mic_sound\"");
+                    throw new RecorderError.CREATE_ERROR ("Failed to create pulsesrc element named 'mic_sound'");
                 }
 
                 debug ("sound source (microphone): \"%s\"", microphone.display_name);
@@ -217,28 +225,31 @@ namespace Model {
 
             var encoder = Gst.ElementFactory.make (fmt_data.encoder, "encoder");
             if (encoder == null) {
-                throw new RecorderError.CREATE_ERROR ("Failed to create encoder element \"%s\"", fmt_data.encoder);
+                throw new RecorderError.CREATE_ERROR (
+                    "Failed to create %s element named 'encoder'".printf (fmt_data.encoder)
+                );
             }
 
             Gst.Element? muxer = null;
             if (fmt_data.muxer != null) {
                 muxer = Gst.ElementFactory.make (fmt_data.muxer, "muxer");
                 if (muxer == null) {
-                    throw new RecorderError.CREATE_ERROR ("Failed to create muxer element \"%s\"", fmt_data.muxer);
+                    throw new RecorderError.CREATE_ERROR (
+                        "Failed to create %s element named 'muxer'".printf (fmt_data.muxer)
+                    );
                 }
             }
 
-            suffix = fmt_data.suffix;
-
-            string tmp_filename = "reco_" + new DateTime.now_local ().to_unix ().to_string () + suffix;
-            tmp_path = Path.build_path (Path.DIR_SEPARATOR_S, Environment.get_user_cache_dir (), tmp_filename);
+            start_dt = new DateTime.now_local ();
+            string tmp_filename = "reco_%s%s".printf (start_dt.to_unix ().to_string (), fmt_data.suffix);
+            tmp_path = Path.build_filename (Environment.get_user_cache_dir (), tmp_filename);
             sink.set ("location", tmp_path);
             debug ("temporary saving path: %s", tmp_path);
 
             // Dual-channelization
             var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
             if (caps_filter == null) {
-                throw new RecorderError.CREATE_ERROR ("Failed to create element \"capsfilter\"");
+                throw new RecorderError.CREATE_ERROR ("Failed to create capsfilter element 'filter'");
             }
 
             caps_filter.set ("caps", new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT,
@@ -256,8 +267,10 @@ namespace Model {
             }
 
             pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
+        }
+
+        public void start_recording () {
             state = RecordingState.RECORDING;
-            inhibit_sleep ();
         }
 
         private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
@@ -274,8 +287,9 @@ namespace Model {
                 case Gst.MessageType.EOS:
                     state = RecordingState.STOPPED;
                     pipeline.dispose ();
+                    end_dt = new DateTime.now_local ();
 
-                    save_file (tmp_path, suffix);
+                    save_file (tmp_path);
                     break;
                 case Gst.MessageType.ELEMENT:
                     unowned Gst.Structure? structure = msg.get_structure ();
@@ -283,11 +297,11 @@ namespace Model {
                         break;
                     }
 
-                    // FIXME: GLib.ValueArray is deprecated but used as an I/F structure in the GStreamer side:
+                    // FIXME: ValueArray is deprecated but used as an I/F structure in the GStreamer side:
                     // https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.5/subprojects/gst-plugins-good/gst/level/gstlevel.c#L579
                     // We would need a patch for GStreamer to replace ValueArray with Array
                     // when it's removed before GStreamer resolves
-                    unowned var peak_arr = (GLib.ValueArray) structure.get_value ("peak").get_boxed ();
+                    unowned var peak_arr = (ValueArray) structure.get_value ("peak").get_boxed ();
                     if (peak_arr != null) {
                         current_peak = peak_arr.get_nth (0).get_double ();
                     }
@@ -301,7 +315,6 @@ namespace Model {
         }
 
         public void cancel_recording () {
-            uninhibit_sleep ();
             state = RecordingState.STOPPED;
             pipeline.dispose ();
 
@@ -323,7 +336,6 @@ namespace Model {
         }
 
         public void stop_recording () {
-            uninhibit_sleep ();
             pipeline.send_event (new Gst.Event.eos ());
         }
 
@@ -335,7 +347,7 @@ namespace Model {
 
             inhibit_token = app.inhibit (
                 app.get_active_window (),
-                Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.SUSPEND,
+                Gtk.ApplicationInhibitFlags.SUSPEND,
                 _("Recording is ongoing")
             );
         }

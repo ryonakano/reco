@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2018-2025 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 public class View.CountDownView : AbstractView {
@@ -22,7 +22,7 @@ public class View.CountDownView : AbstractView {
         };
 
         delay_remaining_label = new Gtk.Label (null);
-        delay_remaining_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
+        delay_remaining_label.add_css_class ("title-2");
 
         var label_grid = new Gtk.Grid () {
             column_spacing = 6,
@@ -80,11 +80,10 @@ public class View.CountDownView : AbstractView {
         });
     }
 
-    public void init_countdown () {
+    public void init_countdown (uint sec) {
         delaytimer.init ();
 
-        uint delay_length = Application.settings.get_uint ("delay");
-        delaytimer.seek (delay_length);
+        delaytimer.seek (sec);
         delay_remaining_label.label = delaytimer.to_string ();
 
         pause_button_set_pause ();

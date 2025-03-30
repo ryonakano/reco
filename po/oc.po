@@ -1,14 +1,14 @@
 # Occitan translations for com.github.ryonakano.reco.
-# Copyright (C) 2018-2024 Ryo Nakano
+# Copyright (C) 2018-2025 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Quentin PAGÈS <quentinantonin@free.fr>, 2023, 2024.
+# Quentin PAGÈS <quentinantonin@free.fr>, 2023, 2024, 2025.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-03 17:55+0900\n"
-"PO-Revision-Date: 2024-09-22 15:40+0000\n"
+"POT-Creation-Date: 2025-03-22 23:38+0900\n"
+"PO-Revision-Date: 2025-03-23 06:44+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/reco/oc/>\n"
 "Language: oc\n"
@@ -16,7 +16,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
+
+#: data/ui/help-overlay.blp:10
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: data/ui/help-overlay.blp:13
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "Acorchis clavièr"
+
+#: data/ui/help-overlay.blp:18
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Quitar"
+
+#: data/ui/help-overlay.blp:24
+msgctxt "shortcut window"
+msgid "Recording"
+msgstr "Enregistrament"
+
+#: data/ui/help-overlay.blp:27
+msgctxt "shortcut window"
+msgid "Start/Stop recording"
+msgstr "Començar/Arrestar l'enregistrament"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -96,72 +121,92 @@ msgstr "Vista enregistrament"
 msgid "An indication that recording is successfully finished"
 msgstr "Una indicacion que l’enregistrament es corrèctament acabat"
 
-#: src/MainWindow.vala:27
-msgid "Light"
-msgstr "Clar"
+#. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
+#. You can optionally add your name if you want, plus you may add your email address or website.
+#. e.g.:
+#. John Doe
+#. John Doe <john-doe@example.com>
+#. John Doe https://example.com
+#: src/Application.vala:124
+msgid "translator-credits"
+msgstr "Quentin PAGÈS"
 
-#: src/MainWindow.vala:28
-msgid "Dark"
-msgstr "Fosc"
+#: src/MainWindow.vala:30
+msgid "S_ystem"
+msgstr "S_istèma"
 
-#: src/MainWindow.vala:29 src/View/WelcomeView.vala:32
-msgid "System"
-msgstr "Sistèma"
+#: src/MainWindow.vala:31
+msgid "_Light"
+msgstr "_Clar"
 
 #: src/MainWindow.vala:32
-msgid "Style"
-msgstr "Estile"
+msgid "_Dark"
+msgstr "_Fosc"
 
 #: src/MainWindow.vala:35
+msgid "_Style"
+msgstr "_Estile"
+
+#: src/MainWindow.vala:36
+msgid "_Keyboard Shortcuts"
+msgstr "_Acorchis de clavièr"
+
+#. TRANSLATORS: %s will be replaced by the app name
+#: src/MainWindow.vala:40
+#, c-format
+msgid "_About %s"
+msgstr "_A prepaus de %s"
+
+#: src/MainWindow.vala:44
 msgid "Main Menu"
 msgstr "Menú principal"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:113
 msgid "Error while recording"
 msgstr "Error pendent l’enregistrament"
 
-#: src/MainWindow.vala:118
+#: src/MainWindow.vala:114
 msgid "There was an error while recording."
 msgstr "Una error se's producha pendent l'enregistrament."
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
 #. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:127
 #, c-format
 msgid "Recording from %s"
 msgstr "Enregistrament de %s"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:144
 msgid "Failed to save recording"
 msgstr "Fracàs de l'enregistrament del fichièr"
 
-#: src/MainWindow.vala:149
+#: src/MainWindow.vala:145
 msgid "There was an error while moving file to the designated location."
 msgstr ""
 "I a agut una error pendent lo desplaçament del fichièr a sa destinacion."
 
-#: src/MainWindow.vala:158
+#: src/MainWindow.vala:154
 msgid "Saved recording"
 msgstr "Enregistrament salvat"
 
-#: src/MainWindow.vala:162
+#: src/MainWindow.vala:158
 msgid "Recording saved successfully."
 msgstr "Enregistrament corrèctament salvat."
 
-#: src/MainWindow.vala:164
+#: src/MainWindow.vala:160
 msgid "Click here to play."
 msgstr "Clicar aquí per legir."
 
-#: src/MainWindow.vala:166
+#: src/MainWindow.vala:163
 msgid "Open folder"
 msgstr "Dobrir lo dossièr"
 
-#: src/MainWindow.vala:195
+#: src/MainWindow.vala:192
 msgid "Save your recording"
 msgstr "Salvar vòstre enregistrament"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:193
 msgid "Save"
 msgstr "Enregistrar"
 
@@ -173,7 +218,7 @@ msgstr "Fracàs de l'aviada de l'enregistrament"
 msgid "There was an error while starting recording."
 msgstr "I a agut una error en lançant l'enregistrament."
 
-#: src/Model/Recorder.vala:319
+#: src/Model/Recorder.vala:323
 msgid "Recording is ongoing"
 msgstr "L'enregistrament es en cors"
 
@@ -181,125 +226,129 @@ msgstr "L'enregistrament es en cors"
 msgid "Cancel the countdown"
 msgstr "Anullar lo descompte"
 
-#: src/View/CountDownView.vala:114
+#: src/View/CountDownView.vala:113
 msgid "Pause the countdown"
 msgstr "Pausar lo descompte"
 
-#: src/View/CountDownView.vala:119
+#: src/View/CountDownView.vala:118
 msgid "Resume the countdown"
 msgstr "Reprendre lo descompte"
 
-#: src/View/RecordView.vala:50
+#: src/View/RecordView.vala:51
 msgid "Cancel recording"
 msgstr "Anullar l'enregistrament"
 
-#: src/View/RecordView.vala:57
+#: src/View/RecordView.vala:58
 msgid "Finish recording"
 msgstr "Terminar l'enregistrament"
 
-#: src/View/RecordView.vala:201
-msgid "Pause recording"
-msgstr "Pausar l'enregistrament"
-
-#: src/View/RecordView.vala:206
+#: src/View/RecordView.vala:181
 msgid "Resume recording"
 msgstr "Reprendre l'enregistrament"
 
-#: src/View/WelcomeView.vala:23
+#: src/View/RecordView.vala:193
+msgid "Pause recording"
+msgstr "Pausar l'enregistrament"
+
+#: src/View/WelcomeView.vala:27
 msgid "Source"
 msgstr "Font"
 
-#: src/View/WelcomeView.vala:25
+#: src/View/WelcomeView.vala:32
 msgid "Record from:"
 msgstr "Enregistrar a partir de :"
 
-#: src/View/WelcomeView.vala:31
+#: src/View/WelcomeView.vala:38
 msgid "Microphone"
 msgstr "Microfòn"
 
-#: src/View/WelcomeView.vala:33
+#: src/View/WelcomeView.vala:39
+msgid "System"
+msgstr "Sistèma"
+
+#: src/View/WelcomeView.vala:40
 msgid "Both"
 msgstr "Totes dos"
 
-#: src/View/WelcomeView.vala:35
+#: src/View/WelcomeView.vala:42
 msgid "Microphone:"
 msgstr "Microfòn :"
 
-#: src/View/WelcomeView.vala:45
+#: src/View/WelcomeView.vala:52
 msgid "Channels:"
 msgstr "Canals :"
 
-#: src/View/WelcomeView.vala:51
+#: src/View/WelcomeView.vala:58
 msgid "Mono"
 msgstr "Mono"
 
-#: src/View/WelcomeView.vala:52
+#: src/View/WelcomeView.vala:59
 msgid "Stereo"
 msgstr "Estereo"
 
-#: src/View/WelcomeView.vala:54
+#: src/View/WelcomeView.vala:61
 msgid "Timer"
 msgstr "Minutador"
 
-#: src/View/WelcomeView.vala:56
+#: src/View/WelcomeView.vala:66
 msgid "Delay in seconds:"
 msgstr "Relambi en segondas :"
 
-#: src/View/WelcomeView.vala:63
+#: src/View/WelcomeView.vala:73
 msgid "Length in seconds:"
 msgstr "Durada en segondas :"
 
-#: src/View/WelcomeView.vala:74
+#: src/View/WelcomeView.vala:84
 msgid "Saving"
 msgstr "Salvament"
 
-#: src/View/WelcomeView.vala:76
+#: src/View/WelcomeView.vala:89
 msgid "Format:"
 msgstr "Format :"
 
-#: src/View/WelcomeView.vala:83
+#: src/View/WelcomeView.vala:96
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:84
+#: src/View/WelcomeView.vala:97
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:85
+#: src/View/WelcomeView.vala:98
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:86
+#: src/View/WelcomeView.vala:99
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:87
+#: src/View/WelcomeView.vala:100
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:88
+#: src/View/WelcomeView.vala:101
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:90
+#: src/View/WelcomeView.vala:103
 msgid "Automatically save files:"
 msgstr "Salvar automaticament los fichièrs :"
 
-#: src/View/WelcomeView.vala:108 src/View/WelcomeView.vala:262
-msgid "Choose a default destination"
-msgstr "Seleccionar una destinacion per defaut"
-
-#: src/View/WelcomeView.vala:147
-msgid "Start recording"
-msgstr "Començar l'enregistrament"
-
-#: src/View/WelcomeView.vala:254
+#: src/View/WelcomeView.vala:113 src/View/WelcomeView.vala:242
 msgid "Select destination…"
 msgstr "Seleccionar una destinacion…"
 
-#: src/View/WelcomeView.vala:263
+#: src/View/WelcomeView.vala:114 src/View/WelcomeView.vala:118
+msgid "Choose a default destination"
+msgstr "Seleccionar una destinacion per defaut"
+
+#: src/View/WelcomeView.vala:115
 msgid "Select"
 msgstr "Seleccionar"
+
+#: src/View/WelcomeView.vala:153
+msgid "Start recording"
+msgstr "Començar l'enregistrament"
 
 #~ msgid "Reco"
 #~ msgstr "Reco"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018-2024 Ryo Nakano -->
+<!-- Copyright 2018-2025 Ryo Nakano -->
 <component type="desktop-application">
   <id>@APP_ID@</id>
   <launchable type="desktop-id">@APP_ID@.desktop</launchable>
@@ -27,17 +27,17 @@
   <screenshots>
     <screenshot type="default">
       <caption>Welcome view; perform recording configuration</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/@VERSION@/data/screenshots/pantheon/welcome-init-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/@VERSION@/data/screenshots/@DE@/welcome-init-light.png</image>
     </screenshot>
 
     <screenshot>
       <caption>Recording view</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/@VERSION@/data/screenshots/pantheon/recording-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/@VERSION@/data/screenshots/@DE@/recording-light.png</image>
     </screenshot>
 
     <screenshot>
       <caption>An indication that recording is successfully finished</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/@VERSION@/data/screenshots/pantheon/welcome-success-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/@VERSION@/data/screenshots/@DE@/welcome-success-light.png</image>
     </screenshot>
   </screenshots>
 

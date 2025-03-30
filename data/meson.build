@@ -29,6 +29,8 @@ desktop_file = i18n.merge_file(
 appstream_conf = configuration_data()
 appstream_conf.set('APP_ID', app_id)
 appstream_conf.set('GETTEXT_PACKAGE', meson.project_name())
+# Use screenshots taken on Pantheon, which is a publishing requirement for AppCenter, if build with granite.
+appstream_conf.set('DE', get_option('granite').enabled() ? 'pantheon' : 'gnome')
 appstream_conf.set('VERSION', meson.project_version())
 appstream_file_in = configure_file(
     input: 'reco.metainfo.xml.in.in',
@@ -57,9 +59,50 @@ install_data(
     install_dir: get_option('datadir') / 'glib-2.0' / 'schemas'
 )
 
+blueprints = custom_target('blueprints',
+    input: files(
+        'ui/help-overlay.blp',
+    ),
+    output: '.',
+    command: [
+        find_program('blueprint-compiler'),
+        'batch-compile',
+        '@OUTPUT@',
+        '@CURRENT_SOURCE_DIR@',
+        '@INPUT@'
+    ]
+)
+
+gresource_conf = configuration_data()
+gresource_conf.set('APP_ID', app_id)
+gresource_file_in = configure_file(
+    input: 'reco.gresource.xml.in',
+    output: '@0@.gresource.xml'.format(app_id),
+    configuration: gresource_conf
+)
+
 asresources = gnome.compile_resources(
     'as-resources',
-    'reco.gresource.xml',
+    gresource_file_in,
+    dependencies: [
+        appstream_file,
+        blueprints,
+    ],
     source_dir: 'data',
     c_name: 'as'
 )
+
+# Test definitions
+desktop_utils = find_program('desktop-file-validate', required: false)
+if desktop_utils.found()
+    test('Validate desktop file', desktop_utils, args: [desktop_file])
+endif
+
+appstreamcli = find_program('appstreamcli', required: false, disabler: true)
+test('Validate appstream file', appstreamcli,
+    args: ['validate', '--no-net', '--explain', appstream_file])
+
+compile_schemas = find_program('glib-compile-schemas', required: false, disabler: true)
+test('Validate schema file',
+    compile_schemas,
+    args: ['--strict', '--dry-run', meson.current_source_dir()])

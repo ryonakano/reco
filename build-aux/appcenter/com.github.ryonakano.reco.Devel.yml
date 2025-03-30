@@ -1,45 +1,68 @@
-app-id: com.github.ryonakano.reco.Devel
+id: com.github.ryonakano.reco.Devel
 runtime: io.elementary.Platform
-runtime-version: '8'
+runtime-version: '8.1'
 sdk: io.elementary.Sdk
 command: com.github.ryonakano.reco.Devel
 finish-args:
-  - '--device=all'
-  - '--share=ipc'
-  - '--socket=wayland'
-  - '--socket=fallback-x11'
-  - '--socket=pulseaudio'
-  - '--env=GST_PLUGIN_PATH_1_0=/app/lib/gstreamer-1.0'
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --env=GST_PLUGIN_PATH_1_0=/app/lib/gstreamer-1.0
+build-options:
+  libdir: /app/lib
 modules:
   - name: live-chart
     buildsystem: meson
     sources:
-      - type: archive
-        url: https://github.com/lcallarec/live-chart/archive/refs/tags/1.10.0.tar.gz
-        sha256: 3f54c7569cc2a4711b5689038055aefc4321636f3e6dd4945e4be204bc9d4843
+      - type: git
+        url: https://github.com/lcallarec/live-chart.git
+        tag: 1.10.0
+        commit: 41e5803e61162d80a06974eebc67a511cc22e83d
+        x-checker-data:
+          type: git
+          tag-pattern: '^([\d.]+)$'
 
   - name: gst-libav
     buildsystem: meson
     config-opts:
-      - '-Ddoc=disabled'
+      - -Ddoc=disabled
     sources:
       - type: archive
         # we need to use the same version with gstreamer included in the sdk
-        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.5.tar.xz
-        sha256: 8583f0c1f4fcb01eed11fa1e3c21126543a8bd739ed4fc1db31f756a5ab01d9a
+        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.24.12.tar.xz
+        sha256: ef72c1c70a17b3c0bb283d16d09aba496d3401c927dcf5392a8a7866d9336379
 
   - name: ryokucha
     buildsystem: meson
     sources:
-      - type: archive
-        url: https://github.com/ryonakano/ryokucha/archive/refs/tags/0.3.1.tar.gz
-        sha256: 503754d1a0a9012e5779f20ef1e9bb7db099eb9243bc98985b2136e4e1b0031e
+      - type: git
+        url: https://github.com/ryonakano/ryokucha.git
+        tag: 0.3.1
+        commit: 781f43d5c539bfe77c72fbaa32fc589a02b03c40
+        x-checker-data:
+          type: git
+          tag-pattern: '^([\d.]+)$'
+
+  - name: blueprint-compiler
+    buildsystem: meson
+    cleanup:
+      - '*'
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/jwestman/blueprint-compiler.git
+        tag: v0.16.0
+        commit: 04ef0944db56ab01307a29aaa7303df6067cb3c0
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
 
   - name: reco
     buildsystem: meson
     config-opts:
-      - '-Duse_submodule=false'
-      - '-Ddevelopment=true'
+      - -Duse_submodule=false
+      - -Dgranite=enabled
+      - -Ddevelopment=true
     sources:
       - type: dir
         path: ../../

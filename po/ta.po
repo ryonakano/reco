@@ -1,0 +1,374 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.ryonakano.reco package.
+# தமிழ்நேரம் <anishprabu.t@gmail.com>, 2025.
+# Fill read-only add-on <noreply-addon-fill@weblate.org>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.ryonakano.reco\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-22 23:38+0900\n"
+"PO-Revision-Date: 2025-03-02 19:16+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/rosp/reco/ta/>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.3-dev\n"
+
+#: data/ui/help-overlay.blp:10
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/ui/help-overlay.blp:13
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: data/ui/help-overlay.blp:18
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/ui/help-overlay.blp:24
+#, fuzzy
+#| msgid "Recording view"
+msgctxt "shortcut window"
+msgid "Recording"
+msgstr "பதிவு செய்யும் பார்வை"
+
+#: data/ui/help-overlay.blp:27
+#, fuzzy
+#| msgid "Start recording"
+msgctxt "shortcut window"
+msgid "Start/Stop recording"
+msgstr "பதிவு செய்யத் தொடங்குங்கள்"
+
+#: data/reco.desktop.in.in:3
+msgid "@APP_NAME@"
+msgstr "@APP_NAME@"
+
+#: data/reco.desktop.in.in:4
+msgid "Audio Recording App"
+msgstr "ஆடியோ ரெக்கார்டிங் பயன்பாடு"
+
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
+msgid "Focus on recording"
+msgstr "பதிவு செய்வதில் கவனம் செலுத்துங்கள்"
+
+#: data/reco.desktop.in.in:12
+msgid "Record;Audio;Sound;Voice;"
+msgstr "பதிவு; ஆடியோ; ஒலி; குரல்;"
+
+#: data/reco.metainfo.xml.in.in:13
+msgid "Reco is an audio recorder focused on being concise and simple to use."
+msgstr ""
+"RECO என்பது ஆடியோ ரெக்கார்டர் ஆகும், இது சுருக்கமாகவும் பயன்படுத்த எளிதாகவும் இருக்கும்."
+
+#: data/reco.metainfo.xml.in.in:16
+msgid ""
+"You can use it to record and remember spoken words, system audio, improvized "
+"melodies, and anything else you can do with a microphone, speaker, or both."
+msgstr ""
+"பேசும் சொற்கள், கணினி ஆடியோ, மேம்படுத்தப்பட்ட மெல்லிசைகள் மற்றும் மைக்ரோஃபோன், ச்பீக்கர் "
+"அல்லது இரண்டையும் நீங்கள் செய்யக்கூடிய வேறு எதையும் பதிவுசெய்து நினைவில் கொள்ள நீங்கள் இதைப் "
+"பயன்படுத்தலாம்."
+
+#: data/reco.metainfo.xml.in.in:17
+msgid "Features include:"
+msgstr "நற்பொருத்தங்கள் பின்வருமாறு:"
+
+#: data/reco.metainfo.xml.in.in:19
+msgid ""
+"Recording sounds from both your microphone and system at the same time. This "
+"is useful for recording calls or streaming videos on the Internet."
+msgstr ""
+"உங்கள் மைக்ரோஃபோன் மற்றும் கணினி இரண்டிலிருந்தும் ஒரே நேரத்தில் ஒலிகளைப் பதிவுசெய்கிறது. "
+"இணையத்தில் அழைப்புகளை பதிவு செய்ய அல்லது வீடியோக்களை ச்ட்ரீமிங் செய்ய இது பயனுள்ளதாக "
+"இருக்கும்."
+
+#: data/reco.metainfo.xml.in.in:20
+msgid ""
+"Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus, and WAV."
+msgstr ""
+"பொதுவாகப் பயன்படுத்தப்படும் பல வடிவங்களில் சேமித்தல். இது ALAC, FLAC, MP3, OGG "
+"VORBIS, Opus மற்றும் Wav ஐ ஆதரிக்கிறது."
+
+#: data/reco.metainfo.xml.in.in:21
+msgid ""
+"Timed recording. You can set a delay before recording up to 15 seconds, and "
+"set the length of recording up to 600 seconds."
+msgstr ""
+"நேர பதிவு. 15 வினாடிகள் வரை பதிவு செய்வதற்கு முன்பு நீங்கள் தாமதத்தை அமைக்கலாம், மேலும் "
+"600 வினாடிகள் வரை பதிவு செய்யும் நீளத்தை அமைக்கலாம்."
+
+#: data/reco.metainfo.xml.in.in:22
+msgid ""
+"Choosing where to save recordings. You can select whether the app saves "
+"recordings into a directory of your choosing automatically or manually."
+msgstr ""
+"பதிவுகளை எங்கு சேமிப்பது என்பதைத் தேர்ந்தெடுப்பது. பயன்பாடு தானாகவோ அல்லது "
+"கைமுறையாகவோ நீங்கள் தேர்ந்தெடுக்கும் கோப்பகமாக பதிவுகளைச் சேமிக்கிறதா என்பதை நீங்கள் "
+"தேர்ந்தெடுக்கலாம்."
+
+#: data/reco.metainfo.xml.in.in:23
+msgid ""
+"Saving recordings when the app quits. Even if you happen to quit the app "
+"while recording, the recording is either saved automatically, or the file "
+"chooser dialog is shown - depending on your preferences."
+msgstr ""
+"பயன்பாடு வெளியேறும்போது பதிவுகளைச் சேமிக்கிறது. பதிவு செய்யும் போது நீங்கள் "
+"பயன்பாட்டிலிருந்து வெளியேற நேர்ந்தாலும், பதிவு தானாகவே சேமிக்கப்படுகிறது, அல்லது "
+"கோப்பு தேர்வாளர் உரையாடல் காட்டப்படும் - உங்கள் விருப்பங்களைப் பொறுத்து."
+
+#: data/reco.metainfo.xml.in.in:29
+msgid "Welcome view; perform recording configuration"
+msgstr "வரவேற்பு பார்வை; பதிவு உள்ளமைவைச் செய்யுங்கள்"
+
+#: data/reco.metainfo.xml.in.in:34
+msgid "Recording view"
+msgstr "பதிவு செய்யும் பார்வை"
+
+#: data/reco.metainfo.xml.in.in:39
+msgid "An indication that recording is successfully finished"
+msgstr "பதிவு வெற்றிகரமாக முடிந்தது என்பதற்கான அறிகுறி"
+
+#. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
+#. You can optionally add your name if you want, plus you may add your email address or website.
+#. e.g.:
+#. John Doe
+#. John Doe <john-doe@example.com>
+#. John Doe https://example.com
+#: src/Application.vala:124
+msgid "translator-credits"
+msgstr ""
+
+#: src/MainWindow.vala:30
+#, fuzzy
+#| msgid "System"
+msgid "S_ystem"
+msgstr "மண்டலம்"
+
+#: src/MainWindow.vala:31
+#, fuzzy
+#| msgid "Light"
+msgid "_Light"
+msgstr "ஒளி"
+
+#: src/MainWindow.vala:32
+#, fuzzy
+#| msgid "Dark"
+msgid "_Dark"
+msgstr "இருண்ட"
+
+#: src/MainWindow.vala:35
+#, fuzzy
+#| msgid "Style"
+msgid "_Style"
+msgstr "சூல் தண்டு"
+
+#: src/MainWindow.vala:36
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#. TRANSLATORS: %s will be replaced by the app name
+#: src/MainWindow.vala:40
+#, c-format
+msgid "_About %s"
+msgstr ""
+
+#: src/MainWindow.vala:44
+msgid "Main Menu"
+msgstr "பட்டியல் விளையாடுங்கள்"
+
+#: src/MainWindow.vala:113
+msgid "Error while recording"
+msgstr "பதிவு செய்யும் போது பிழை"
+
+#: src/MainWindow.vala:114
+msgid "There was an error while recording."
+msgstr "பதிவு செய்யும் போது பிழை ஏற்பட்டது."
+
+#. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
+#. Suffix is automatically appended depending on the recording format.
+#. e.g. "Recording from 2018-11-10 23.42.36.wav"
+#: src/MainWindow.vala:127
+#, c-format
+msgid "Recording from %s"
+msgstr "%s இலிருந்து பதிவு"
+
+#: src/MainWindow.vala:144
+msgid "Failed to save recording"
+msgstr "பதிவைச் சேமிக்கத் தவறிவிட்டது"
+
+#: src/MainWindow.vala:145
+msgid "There was an error while moving file to the designated location."
+msgstr "நியமிக்கப்பட்ட இடத்திற்கு கோப்பை நகர்த்தும்போது பிழை ஏற்பட்டது."
+
+#: src/MainWindow.vala:154
+msgid "Saved recording"
+msgstr "சேமித்த பதிவு"
+
+#: src/MainWindow.vala:158
+msgid "Recording saved successfully."
+msgstr "பதிவு வெற்றிகரமாக சேமிக்கப்பட்டது."
+
+#: src/MainWindow.vala:160
+msgid "Click here to play."
+msgstr "விளையாட இங்கே சொடுக்கு செய்க."
+
+#: src/MainWindow.vala:163
+msgid "Open folder"
+msgstr "திறந்த கோப்புறை"
+
+#: src/MainWindow.vala:192
+msgid "Save your recording"
+msgstr "உங்கள் பதிவைச் சேமிக்கவும்"
+
+#: src/MainWindow.vala:193
+msgid "Save"
+msgstr "சேமி"
+
+#: src/MainWindow.vala:231
+msgid "Failed to start recording"
+msgstr "பதிவு செய்யத் தவறிவிட்டது"
+
+#: src/MainWindow.vala:232
+msgid "There was an error while starting recording."
+msgstr "பதிவைத் தொடங்கும்போது பிழை ஏற்பட்டது."
+
+#: src/Model/Recorder.vala:323
+msgid "Recording is ongoing"
+msgstr "பதிவுசெய்தல் நடந்து வருகிறது"
+
+#: src/View/CountDownView.vala:37
+msgid "Cancel the countdown"
+msgstr "கவுண்ட்டவுனை ரத்துசெய்"
+
+#: src/View/CountDownView.vala:113
+msgid "Pause the countdown"
+msgstr "கவுண்ட்டவுனை இடைநிறுத்துங்கள்"
+
+#: src/View/CountDownView.vala:118
+msgid "Resume the countdown"
+msgstr "கவுண்ட்டவுனை மீண்டும் தொடங்குங்கள்"
+
+#: src/View/RecordView.vala:51
+msgid "Cancel recording"
+msgstr "பதிவை ரத்துசெய்"
+
+#: src/View/RecordView.vala:58
+msgid "Finish recording"
+msgstr "பதிவு செய்ய"
+
+#: src/View/RecordView.vala:181
+msgid "Resume recording"
+msgstr "மீண்டும் பதிவு செய்யுங்கள்"
+
+#: src/View/RecordView.vala:193
+msgid "Pause recording"
+msgstr "இடைநிறுத்த பதிவு"
+
+#: src/View/WelcomeView.vala:27
+msgid "Source"
+msgstr "மூலம்"
+
+#: src/View/WelcomeView.vala:32
+msgid "Record from:"
+msgstr "இதிலிருந்து பதிவு:"
+
+#: src/View/WelcomeView.vala:38
+msgid "Microphone"
+msgstr "ஒலிவாங்கி"
+
+#: src/View/WelcomeView.vala:39
+msgid "System"
+msgstr "மண்டலம்"
+
+#: src/View/WelcomeView.vala:40
+msgid "Both"
+msgstr "இரண்டும்"
+
+#: src/View/WelcomeView.vala:42
+msgid "Microphone:"
+msgstr "மைக்ரோஃபோன்:"
+
+#: src/View/WelcomeView.vala:52
+msgid "Channels:"
+msgstr "சேனல்கள்:"
+
+#: src/View/WelcomeView.vala:58
+msgid "Mono"
+msgstr "மோனோ"
+
+#: src/View/WelcomeView.vala:59
+msgid "Stereo"
+msgstr "ச்டீரியோ"
+
+#: src/View/WelcomeView.vala:61
+msgid "Timer"
+msgstr "நேரங்குறிகருவி"
+
+#: src/View/WelcomeView.vala:66
+msgid "Delay in seconds:"
+msgstr "விநாடிகளில் தாமதம்:"
+
+#: src/View/WelcomeView.vala:73
+msgid "Length in seconds:"
+msgstr "விநாடிகளில் நீளம்:"
+
+#: src/View/WelcomeView.vala:84
+msgid "Saving"
+msgstr "சேமிப்பு"
+
+#: src/View/WelcomeView.vala:89
+msgid "Format:"
+msgstr "வடிவம்:"
+
+#: src/View/WelcomeView.vala:96
+msgid "ALAC"
+msgstr "அலாக்"
+
+#: src/View/WelcomeView.vala:97
+msgid "FLAC"
+msgstr "Flac"
+
+#: src/View/WelcomeView.vala:98
+msgid "MP3"
+msgstr "தனிமையில்"
+
+#: src/View/WelcomeView.vala:99
+msgid "Ogg Vorbis"
+msgstr "ஓக் வோர்பிச்"
+
+#: src/View/WelcomeView.vala:100
+msgid "Opus"
+msgstr "ஓபச்"
+
+#: src/View/WelcomeView.vala:101
+msgid "WAV"
+msgstr "WAV"
+
+#: src/View/WelcomeView.vala:103
+msgid "Automatically save files:"
+msgstr "கோப்புகளை தானாக சேமிக்கவும்:"
+
+#: src/View/WelcomeView.vala:113 src/View/WelcomeView.vala:242
+msgid "Select destination…"
+msgstr "இலக்கைத் தேர்ந்தெடுக்கவும்…"
+
+#: src/View/WelcomeView.vala:114 src/View/WelcomeView.vala:118
+msgid "Choose a default destination"
+msgstr "இயல்புநிலை இலக்கைத் தேர்வுசெய்க"
+
+#: src/View/WelcomeView.vala:115
+msgid "Select"
+msgstr "தேர்ந்தெடு"
+
+#: src/View/WelcomeView.vala:153
+msgid "Start recording"
+msgstr "பதிவு செய்யத் தொடங்குங்கள்"

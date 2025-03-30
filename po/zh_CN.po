@@ -1,12 +1,12 @@
 # Chinese (Simplified) translations for com.github.ryonakano.reco.
-# Copyright (C) 2018-2024 Ryo Nakano
+# Copyright (C) 2018-2025 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-03 17:55+0900\n"
+"POT-Creation-Date: 2025-03-22 23:38+0900\n"
 "PO-Revision-Date: 2024-05-03 10:45+0000\n"
 "Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -17,6 +17,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.5.3\n"
+
+#: data/ui/help-overlay.blp:10
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/ui/help-overlay.blp:13
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: data/ui/help-overlay.blp:18
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/ui/help-overlay.blp:24
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Recording"
+msgstr "录音"
+
+#: data/ui/help-overlay.blp:27
+#, fuzzy
+#| msgid "Start recording"
+msgctxt "shortcut window"
+msgid "Start/Stop recording"
+msgstr "开始录音"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -94,75 +122,101 @@ msgstr "录音"
 msgid "An indication that recording is successfully finished"
 msgstr ""
 
-#: src/MainWindow.vala:27
-msgid "Light"
-msgstr "亮"
+#. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
+#. You can optionally add your name if you want, plus you may add your email address or website.
+#. e.g.:
+#. John Doe
+#. John Doe <john-doe@example.com>
+#. John Doe https://example.com
+#: src/Application.vala:124
+msgid "translator-credits"
+msgstr ""
 
-#: src/MainWindow.vala:28
-msgid "Dark"
-msgstr "暗"
-
-#: src/MainWindow.vala:29 src/View/WelcomeView.vala:32
-msgid "System"
+#: src/MainWindow.vala:30
+#, fuzzy
+#| msgid "System"
+msgid "S_ystem"
 msgstr "系统"
+
+#: src/MainWindow.vala:31
+#, fuzzy
+#| msgid "Light"
+msgid "_Light"
+msgstr "亮"
 
 #: src/MainWindow.vala:32
 #, fuzzy
-msgid "Style"
-msgstr "样式："
+#| msgid "Dark"
+msgid "_Dark"
+msgstr "暗"
 
 #: src/MainWindow.vala:35
+#, fuzzy
+msgid "_Style"
+msgstr "样式："
+
+#: src/MainWindow.vala:36
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#. TRANSLATORS: %s will be replaced by the app name
+#: src/MainWindow.vala:40
+#, c-format
+msgid "_About %s"
+msgstr ""
+
+#: src/MainWindow.vala:44
 msgid "Main Menu"
 msgstr ""
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:113
 #, fuzzy
 msgid "Error while recording"
 msgstr "暂停录音"
 
-#: src/MainWindow.vala:118
+#: src/MainWindow.vala:114
 msgid "There was an error while recording."
 msgstr ""
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
 #. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:127
 #, c-format
 msgid "Recording from %s"
 msgstr "录音 %s"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:144
 #, fuzzy
 msgid "Failed to save recording"
 msgstr "暂停录音"
 
-#: src/MainWindow.vala:149
+#: src/MainWindow.vala:145
 msgid "There was an error while moving file to the designated location."
 msgstr ""
 
-#: src/MainWindow.vala:158
+#: src/MainWindow.vala:154
 #, fuzzy
 msgid "Saved recording"
 msgstr "保存录音"
 
-#: src/MainWindow.vala:162
+#: src/MainWindow.vala:158
 msgid "Recording saved successfully."
 msgstr ""
 
-#: src/MainWindow.vala:164
+#: src/MainWindow.vala:160
 msgid "Click here to play."
 msgstr ""
 
-#: src/MainWindow.vala:166
+#: src/MainWindow.vala:163
 msgid "Open folder"
 msgstr ""
 
-#: src/MainWindow.vala:195
+#: src/MainWindow.vala:192
 msgid "Save your recording"
 msgstr "保存录音"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:193
 msgid "Save"
 msgstr "保存"
 
@@ -175,7 +229,7 @@ msgstr "开始录音"
 msgid "There was an error while starting recording."
 msgstr ""
 
-#: src/Model/Recorder.vala:319
+#: src/Model/Recorder.vala:323
 msgid "Recording is ongoing"
 msgstr "正在录音"
 
@@ -183,127 +237,131 @@ msgstr "正在录音"
 msgid "Cancel the countdown"
 msgstr "取消倒计时"
 
-#: src/View/CountDownView.vala:114
+#: src/View/CountDownView.vala:113
 msgid "Pause the countdown"
 msgstr "暂停倒计时"
 
-#: src/View/CountDownView.vala:119
+#: src/View/CountDownView.vala:118
 msgid "Resume the countdown"
 msgstr "恢复倒计时"
 
-#: src/View/RecordView.vala:50
+#: src/View/RecordView.vala:51
 msgid "Cancel recording"
 msgstr "取消录音"
 
-#: src/View/RecordView.vala:57
+#: src/View/RecordView.vala:58
 msgid "Finish recording"
 msgstr "完成录音"
 
-#: src/View/RecordView.vala:201
-msgid "Pause recording"
-msgstr "暂停录音"
-
-#: src/View/RecordView.vala:206
+#: src/View/RecordView.vala:181
 msgid "Resume recording"
 msgstr "恢复录音"
 
-#: src/View/WelcomeView.vala:23
+#: src/View/RecordView.vala:193
+msgid "Pause recording"
+msgstr "暂停录音"
+
+#: src/View/WelcomeView.vala:27
 msgid "Source"
 msgstr ""
 
-#: src/View/WelcomeView.vala:25
+#: src/View/WelcomeView.vala:32
 msgid "Record from:"
 msgstr "声音来源："
 
-#: src/View/WelcomeView.vala:31
+#: src/View/WelcomeView.vala:38
 msgid "Microphone"
 msgstr "麦克风"
 
-#: src/View/WelcomeView.vala:33
+#: src/View/WelcomeView.vala:39
+msgid "System"
+msgstr "系统"
+
+#: src/View/WelcomeView.vala:40
 msgid "Both"
 msgstr "都有"
 
-#: src/View/WelcomeView.vala:35
+#: src/View/WelcomeView.vala:42
 #, fuzzy
 msgid "Microphone:"
 msgstr "麦克风"
 
-#: src/View/WelcomeView.vala:45
+#: src/View/WelcomeView.vala:52
 msgid "Channels:"
 msgstr "声道："
 
-#: src/View/WelcomeView.vala:51
+#: src/View/WelcomeView.vala:58
 msgid "Mono"
 msgstr "单声道"
 
-#: src/View/WelcomeView.vala:52
+#: src/View/WelcomeView.vala:59
 msgid "Stereo"
 msgstr "立体"
 
-#: src/View/WelcomeView.vala:54
+#: src/View/WelcomeView.vala:61
 msgid "Timer"
 msgstr "计时"
 
-#: src/View/WelcomeView.vala:56
+#: src/View/WelcomeView.vala:66
 msgid "Delay in seconds:"
 msgstr "延迟秒数："
 
-#: src/View/WelcomeView.vala:63
+#: src/View/WelcomeView.vala:73
 msgid "Length in seconds:"
 msgstr "持续秒数："
 
-#: src/View/WelcomeView.vala:74
+#: src/View/WelcomeView.vala:84
 msgid "Saving"
 msgstr "保存"
 
-#: src/View/WelcomeView.vala:76
+#: src/View/WelcomeView.vala:89
 msgid "Format:"
 msgstr "格式："
 
-#: src/View/WelcomeView.vala:83
+#: src/View/WelcomeView.vala:96
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:84
+#: src/View/WelcomeView.vala:97
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:85
+#: src/View/WelcomeView.vala:98
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:86
+#: src/View/WelcomeView.vala:99
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:87
+#: src/View/WelcomeView.vala:100
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:88
+#: src/View/WelcomeView.vala:101
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:90
+#: src/View/WelcomeView.vala:103
 msgid "Automatically save files:"
 msgstr "自动保存文件："
 
-#: src/View/WelcomeView.vala:108 src/View/WelcomeView.vala:262
-msgid "Choose a default destination"
-msgstr "选择默认目录"
-
-#: src/View/WelcomeView.vala:147
-msgid "Start recording"
-msgstr "开始录音"
-
-#: src/View/WelcomeView.vala:254
+#: src/View/WelcomeView.vala:113 src/View/WelcomeView.vala:242
 #, fuzzy
 msgid "Select destination…"
 msgstr "选择默认目录"
 
-#: src/View/WelcomeView.vala:263
+#: src/View/WelcomeView.vala:114 src/View/WelcomeView.vala:118
+msgid "Choose a default destination"
+msgstr "选择默认目录"
+
+#: src/View/WelcomeView.vala:115
 msgid "Select"
 msgstr ""
+
+#: src/View/WelcomeView.vala:153
+msgid "Start recording"
+msgstr "开始录音"
 
 #~ msgid "Reco"
 #~ msgstr "Reco"

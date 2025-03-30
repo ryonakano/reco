@@ -2,3 +2,6 @@
 url = https://github.com/lcallarec/live-chart.git
 revision = 1.10.0
 depth = 1
+
+[provide]
+livechart = livechart_static_dep

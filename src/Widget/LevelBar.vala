@@ -1,10 +1,12 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2023-2024 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2023-2025 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 public class Widget.LevelBar : Gtk.Box {
-    private const double PEAK_PERCENTAGE = 100.0;
+    public delegate double GetBarValueFunc ();
+
+    private const double LEVEL_MAX_PERCENT = 100.0;
     private const int REFRESH_MSEC = 100;
 
     // Colors from the elementary color palette: https://elementary.io/brand#color
@@ -12,9 +14,11 @@ public class Widget.LevelBar : Gtk.Box {
     private const string BANANA_500 = "#f9c440";
 
     private LiveChart.Serie serie;
-    private uint update_graph_timeout;
-    private int64 timestamp = -1;
-    private Gdk.RGBA bar_color = Gdk.RGBA ();
+    private LiveChart.Config config;
+    private LiveChart.Chart chart;
+    private uint refresh_timeout_id;
+    private int64 timestamp;
+    private unowned GetBarValueFunc bar_value_func;
 
     public LevelBar () {
     }
@@ -23,14 +27,12 @@ public class Widget.LevelBar : Gtk.Box {
         orientation = Gtk.Orientation.VERTICAL;
         spacing = 0;
 
-        unowned var recorder = Model.Recorder.get_default ();
-
-        serie = new LiveChart.Serie ("peak-value", new LiveChart.Bar ());
+        serie = new LiveChart.Serie ("level", new LiveChart.Bar ());
         serie.line.width = 1.0;
 
-        var config = new LiveChart.Config ();
+        config = new LiveChart.Config ();
         config.x_axis.tick_interval = 1;
-        config.y_axis.fixed_max = PEAK_PERCENTAGE;
+        config.y_axis.fixed_max = LEVEL_MAX_PERCENT;
         config.padding = LiveChart.Padding () {
             smart = LiveChart.AutoPadding.NONE,
             top = 0,
@@ -39,7 +41,7 @@ public class Widget.LevelBar : Gtk.Box {
             left = 0
         };
 
-        var chart = new LiveChart.Chart (config) {
+        chart = new LiveChart.Chart (config) {
             hexpand = true,
             vexpand = true
         };
@@ -51,53 +53,69 @@ public class Widget.LevelBar : Gtk.Box {
         chart.add_serie (serie);
 
         append (chart);
+    }
 
-        recorder.notify["state"].connect (() => {
-            switch (recorder.state) {
-                case Model.Recorder.RecordingState.STOPPED:
-                    // Stop updating the graph when recording stopped
-                    if (update_graph_timeout != -1) {
-                        GLib.Source.remove (update_graph_timeout);
-                    }
+    public void refresh_begin (GetBarValueFunc func) {
+        // Seek to the current timestamp
+        int64 now_msec = usec_to_msec (GLib.get_monotonic_time ());
+        timestamp = now_msec;
+        config.time.current = timestamp;
 
-                    timestamp = -1;
-                    serie.clear ();
-                    break;
-                case Model.Recorder.RecordingState.PAUSED:
-                    // Stop refreshing the graph
-                    GLib.Source.remove (update_graph_timeout);
-                    update_graph_timeout = -1;
-                    chart.refresh_every (REFRESH_MSEC, 0.0);
-                    // Change the bar color to yellow
-                    bar_color.parse (BANANA_500);
-                    serie.line.color = bar_color;
-                    break;
-                case Model.Recorder.RecordingState.RECORDING:
-                    // Start updating the graph when recording started
-                    chart.refresh_every (REFRESH_MSEC, 1.0);
-                    // Change the bar color to red
-                    bar_color.parse (STRAWBERRY_500);
-                    serie.line.color = bar_color;
+        bar_value_func = func;
 
-                    if (timestamp == -1) {
-                        // Seek to the current timestamp
-                        int64 now_msec = GLib.get_real_time () / 1000;
-                        timestamp = now_msec;
-                        config.time.current = now_msec;
-                    }
+        refresh_resume ();
+    }
 
-                    update_graph_timeout = Timeout.add (REFRESH_MSEC, () => {
-                        int current = (int) (recorder.current_peak * PEAK_PERCENTAGE);
-                        serie.add_with_timestamp (current, timestamp);
-                        // Keep last bar on the right of the graph area
-                        config.time.current = timestamp;
-                        timestamp += REFRESH_MSEC;
-                        return GLib.Source.CONTINUE;
-                    });
-                    break;
-                default:
-                    assert_not_reached ();
-            }
+    public void refresh_end () {
+        refresh_pause ();
+        serie.clear ();
+    }
+
+    public void refresh_pause () {
+        // Already paused
+        if (refresh_timeout_id == 0) {
+            return;
+        }
+
+        Source.remove (refresh_timeout_id);
+        refresh_timeout_id = 0;
+
+        // Stop refreshing the graph
+        chart.refresh_every (REFRESH_MSEC, 0.0);
+
+        apply_bar_color (BANANA_500);
+    }
+
+    public void refresh_resume () {
+        // Already resumed
+        if (refresh_timeout_id != 0) {
+            return;
+        }
+
+        refresh_timeout_id = Timeout.add (REFRESH_MSEC, () => {
+            double value = bar_value_func () * LEVEL_MAX_PERCENT;
+            serie.add_with_timestamp (value, timestamp);
+
+            // Keep last bar on the right of the graph area
+            config.time.current = timestamp;
+            timestamp += REFRESH_MSEC;
+
+            return Source.CONTINUE;
         });
+
+        // Start refreshing the graph
+        chart.refresh_every (REFRESH_MSEC, 1.0);
+
+        apply_bar_color (STRAWBERRY_500);
+    }
+
+    private void apply_bar_color (string color) {
+        var rgba = Gdk.RGBA ();
+        rgba.parse (color);
+        serie.line.color = rgba;
+    }
+
+    private int64 usec_to_msec (int64 usec) {
+        return usec / 1000;
     }
 }

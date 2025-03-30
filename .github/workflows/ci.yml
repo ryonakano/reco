@@ -4,22 +4,43 @@ on: [pull_request]
 
 jobs:
   flatpak:
-    name: Flatpak
-    runs-on: ubuntu-22.04
+    name: Flatpak (${{ matrix.arch }}, ${{ matrix.repository-name }})
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        arch: [x86_64, aarch64]
+        include:
+          - arch: x86_64
+            container-image: bilelmoussaoui/flatpak-github-actions:gnome-47
+            repository-name: flathub
+            repository-url: https://flathub.org/repo/flathub.flatpakrepo
+          - arch: aarch64
+            container-image: bilelmoussaoui/flatpak-github-actions:gnome-47
+            repository-name: flathub
+            repository-url: https://flathub.org/repo/flathub.flatpakrepo
+          - arch: x86_64
+            container-image: ghcr.io/elementary/flatpak-platform/runtime:8.1-x86_64
+            repository-name: appcenter
+            repository-url: https://flatpak.elementary.io/repo.flatpakrepo
+          - arch: aarch64
+            container-image: ghcr.io/elementary/flatpak-platform/runtime:8.1-aarch64
+            repository-name: appcenter
+            repository-url: https://flatpak.elementary.io/repo.flatpakrepo
       # Don't fail the whole workflow if one architecture fails
       fail-fast: false
 
     container:
-      image: ghcr.io/elementary/flatpak-platform/runtime:8-${{ matrix.arch }}
+      image: ${{ matrix.container-image }}
       options: --privileged
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Install QEMU
+        if: ${{ matrix.arch != 'x86_64' && contains(matrix.container-image, 'gnome') }}
+        run: |
+          dnf -y install docker
 
       - name: Set up QEMU for aarch64 emulation
         if: ${{ matrix.arch != 'x86_64' }}
@@ -30,17 +51,17 @@ jobs:
       - name: Build
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
-          bundle: reco.flatpak
-          manifest-path: build-aux/appcenter/com.github.ryonakano.reco.Devel.yml
+          bundle: reco-${{ matrix.repository-name }}.flatpak
+          manifest-path: build-aux/${{ matrix.repository-name }}/com.github.ryonakano.reco.Devel.yml
           run-tests: true
-          repository-name: appcenter
-          repository-url: https://flatpak.elementary.io/repo.flatpakrepo
-          cache-key: "flatpak-builder-${{ github.sha }}"
+          repository-name: ${{ matrix.repository-name }}
+          repository-url: ${{ matrix.repository-url }}
+          cache-key: "flatpak-builder-${sha256(manifestPath)}-${{ github.sha }}"
           arch: ${{ matrix.arch }}
 
   lint:
     name: Lint
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     container:
       image: valalang/lint

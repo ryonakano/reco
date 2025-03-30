@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-03 17:55+0900\n"
+"POT-Creation-Date: 2025-03-22 23:38+0900\n"
 "PO-Revision-Date: 2024-05-16 15:01+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/rosp/reco/hi/>\n"
@@ -17,6 +17,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.6-dev\n"
+
+#: data/ui/help-overlay.blp:10
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/ui/help-overlay.blp:13
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: data/ui/help-overlay.blp:18
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/ui/help-overlay.blp:24
+#, fuzzy
+#| msgid "Recording view"
+msgctxt "shortcut window"
+msgid "Recording"
+msgstr "रिकॉर्डिंग दृश्य"
+
+#: data/ui/help-overlay.blp:27
+#, fuzzy
+#| msgid "Start recording"
+msgctxt "shortcut window"
+msgid "Start/Stop recording"
+msgstr "रिकॉर्डिंग प्रारंभ करें"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -36,17 +65,15 @@ msgstr "रिकॉर्ड;ऑडियो;ध्वनि;आवाज़;"
 
 #: data/reco.metainfo.xml.in.in:13
 msgid "Reco is an audio recorder focused on being concise and simple to use."
-msgstr ""
-"Reco एक ऑडियो रिकॉर्डर है जो संक्षिप्त और उपयोग में सरल होने पर केंद्रित है।"
+msgstr "Reco एक ऑडियो रिकॉर्डर है जो संक्षिप्त और उपयोग में सरल होने पर केंद्रित है।"
 
 #: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
-"आप इसका उपयोग बोले गए शब्दों, सिस्टम ऑडियो, तात्कालिक धुनों और माइक्रोफोन, "
-"स्पीकर या दोनों के साथ जो कुछ भी कर सकते हैं उसे रिकॉर्ड करने और याद रखने के "
-"लिए कर सकते हैं।"
+"आप इसका उपयोग बोले गए शब्दों, सिस्टम ऑडियो, तात्कालिक धुनों और माइक्रोफोन, स्पीकर या "
+"दोनों के साथ जो कुछ भी कर सकते हैं उसे रिकॉर्ड करने और याद रखने के लिए कर सकते हैं।"
 
 #: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
@@ -57,33 +84,32 @@ msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
-"एक ही समय में आपके माइक्रोफोन और सिस्टम दोनों से ध्वनियां रिकॉर्ड करना। यह कॉ"
-"ल रिकॉर्ड करने या इंटरनेट पर वीडियो स्ट्रीम करने के लिए उपयोगी है।"
+"एक ही समय में आपके माइक्रोफोन और सिस्टम दोनों से ध्वनियां रिकॉर्ड करना। यह कॉल रिकॉर्ड "
+"करने या इंटरनेट पर वीडियो स्ट्रीम करने के लिए उपयोगी है।"
 
 #: data/reco.metainfo.xml.in.in:20
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
-"आमतौर पर उपयोग किये जाने वाले कई प्रारूपों में सहेजना। यह ALAC, FLAC, MP3, "
-"Ogg Vorbis, Opus और WAV का समर्थन करता है।"
+"आमतौर पर उपयोग किये जाने वाले कई प्रारूपों में सहेजना। यह ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus और WAV का समर्थन करता है।"
 
 #: data/reco.metainfo.xml.in.in:21
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
-"समयबद्ध रिकॉर्डिंग। आप रिकॉर्डिंग से पहले 15 सेकंड तक की देरी निर्धारित कर "
-"सकते हैं, और रिकॉर्डिंग की अवधि 600 सेकंड तक निर्धारित कर सकते हैं।"
+"समयबद्ध रिकॉर्डिंग। आप रिकॉर्डिंग से पहले 15 सेकंड तक की देरी निर्धारित कर सकते हैं, और "
+"रिकॉर्डिंग की अवधि 600 सेकंड तक निर्धारित कर सकते हैं।"
 
 #: data/reco.metainfo.xml.in.in:22
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
-"रिकॉर्डिंग को सहेजने का स्थान चुनना। आप यह चुन सकते हैं कि ऐप रिकॉर्डिंग को "
-"आपकी पसंद की निर्देशिका में स्वचालित रूप से या हस्तचालित रूप से सहेजता है या "
-"नहीं।"
+"रिकॉर्डिंग को सहेजने का स्थान चुनना। आप यह चुन सकते हैं कि ऐप रिकॉर्डिंग को आपकी पसंद की "
+"निर्देशिका में स्वचालित रूप से या हस्तचालित रूप से सहेजता है या नहीं।"
 
 #: data/reco.metainfo.xml.in.in:23
 msgid ""
@@ -91,9 +117,9 @@ msgid ""
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
-"ऐप बंद होने पर रिकॉर्डिंग सहेजना। भले ही आप रिकॉर्डिंग करते समय ऐप छोड़ दें, "
-"रिकॉर्डिंग या तो स्वचालित रूप से सहेजी जाती है, या फाइल चयनकर्ता संवाद दिखाया"
-" जाता है - आपकी प्राथमिकताओं के आधार पर।"
+"ऐप बंद होने पर रिकॉर्डिंग सहेजना। भले ही आप रिकॉर्डिंग करते समय ऐप छोड़ दें, रिकॉर्डिंग या "
+"तो स्वचालित रूप से सहेजी जाती है, या फाइल चयनकर्ता संवाद दिखाया जाता है - आपकी "
+"प्राथमिकताओं के आधार पर।"
 
 #: data/reco.metainfo.xml.in.in:29
 msgid "Welcome view; perform recording configuration"
@@ -107,71 +133,99 @@ msgstr "रिकॉर्डिंग दृश्य"
 msgid "An indication that recording is successfully finished"
 msgstr "एक संकेत कि रिकॉर्डिंग सफलतापूर्वक समाप्त हो गई है"
 
-#: src/MainWindow.vala:27
-msgid "Light"
-msgstr "हल्की"
+#. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
+#. You can optionally add your name if you want, plus you may add your email address or website.
+#. e.g.:
+#. John Doe
+#. John Doe <john-doe@example.com>
+#. John Doe https://example.com
+#: src/Application.vala:124
+msgid "translator-credits"
+msgstr ""
 
-#: src/MainWindow.vala:28
-msgid "Dark"
-msgstr "गहरी"
-
-#: src/MainWindow.vala:29 src/View/WelcomeView.vala:32
-msgid "System"
+#: src/MainWindow.vala:30
+#, fuzzy
+#| msgid "System"
+msgid "S_ystem"
 msgstr "सिस्टम"
 
+#: src/MainWindow.vala:31
+#, fuzzy
+#| msgid "Light"
+msgid "_Light"
+msgstr "हल्की"
+
 #: src/MainWindow.vala:32
-msgid "Style"
-msgstr "शैली"
+#, fuzzy
+#| msgid "Dark"
+msgid "_Dark"
+msgstr "गहरी"
 
 #: src/MainWindow.vala:35
+#, fuzzy
+#| msgid "Style"
+msgid "_Style"
+msgstr "शैली"
+
+#: src/MainWindow.vala:36
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#. TRANSLATORS: %s will be replaced by the app name
+#: src/MainWindow.vala:40
+#, c-format
+msgid "_About %s"
+msgstr ""
+
+#: src/MainWindow.vala:44
 msgid "Main Menu"
 msgstr "मुख्य मेनू"
 
-#: src/MainWindow.vala:117
+#: src/MainWindow.vala:113
 msgid "Error while recording"
 msgstr "रिकॉर्डिंग करते समय त्रुटि"
 
-#: src/MainWindow.vala:118
+#: src/MainWindow.vala:114
 msgid "There was an error while recording."
 msgstr "रिकॉर्डिंग करते समय एक त्रुटि हुई।"
 
 #. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
 #. Suffix is automatically appended depending on the recording format.
 #. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:127
 #, c-format
 msgid "Recording from %s"
 msgstr "%s से रिकॉर्डिंग"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:144
 msgid "Failed to save recording"
 msgstr "रिकॉर्डिंग सहेजने में विफल"
 
-#: src/MainWindow.vala:149
+#: src/MainWindow.vala:145
 msgid "There was an error while moving file to the designated location."
 msgstr "फाइल को निर्दिष्ट स्थान पर ले जाते समय एक त्रुटि हुई।"
 
-#: src/MainWindow.vala:158
+#: src/MainWindow.vala:154
 msgid "Saved recording"
 msgstr "रिकॉर्डिंग सहेजी गई"
 
-#: src/MainWindow.vala:162
+#: src/MainWindow.vala:158
 msgid "Recording saved successfully."
 msgstr "रिकॉर्डिंग सफलतापूर्वक सहेजी गई।"
 
-#: src/MainWindow.vala:164
+#: src/MainWindow.vala:160
 msgid "Click here to play."
 msgstr "चलाने के लिए यहां क्लिक करें।"
 
-#: src/MainWindow.vala:166
+#: src/MainWindow.vala:163
 msgid "Open folder"
 msgstr "फोल्डर खोलें"
 
-#: src/MainWindow.vala:195
+#: src/MainWindow.vala:192
 msgid "Save your recording"
 msgstr "अपनी रिकॉर्डिंग सहेजें"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:193
 msgid "Save"
 msgstr "सहेजें"
 
@@ -183,7 +237,7 @@ msgstr "रिकॉर्डिंग प्रारंभ करने मे
 msgid "There was an error while starting recording."
 msgstr "रिकॉर्डिंग प्रारंभ करते समय एक त्रुटि हुई।"
 
-#: src/Model/Recorder.vala:319
+#: src/Model/Recorder.vala:323
 msgid "Recording is ongoing"
 msgstr "रिकॉर्डिंग जारी है"
 
@@ -191,122 +245,126 @@ msgstr "रिकॉर्डिंग जारी है"
 msgid "Cancel the countdown"
 msgstr "उल्टी गिनती रद्द करें"
 
-#: src/View/CountDownView.vala:114
+#: src/View/CountDownView.vala:113
 msgid "Pause the countdown"
 msgstr "उल्टी गिनती रोकें"
 
-#: src/View/CountDownView.vala:119
+#: src/View/CountDownView.vala:118
 msgid "Resume the countdown"
 msgstr "उल्टी गिनती फिर से शुरू करें"
 
-#: src/View/RecordView.vala:50
+#: src/View/RecordView.vala:51
 msgid "Cancel recording"
 msgstr "रिकॉर्डिंग रद्द करें"
 
-#: src/View/RecordView.vala:57
+#: src/View/RecordView.vala:58
 msgid "Finish recording"
 msgstr "रिकॉर्डिंग समाप्त करें"
 
-#: src/View/RecordView.vala:201
-msgid "Pause recording"
-msgstr "रिकॉर्डिंग विरामित करें"
-
-#: src/View/RecordView.vala:206
+#: src/View/RecordView.vala:181
 msgid "Resume recording"
 msgstr "रिकॉर्डिंग पुनः प्रारंभ करें"
 
-#: src/View/WelcomeView.vala:23
+#: src/View/RecordView.vala:193
+msgid "Pause recording"
+msgstr "रिकॉर्डिंग विरामित करें"
+
+#: src/View/WelcomeView.vala:27
 msgid "Source"
 msgstr "स्रोत"
 
-#: src/View/WelcomeView.vala:25
+#: src/View/WelcomeView.vala:32
 msgid "Record from:"
 msgstr "इससे रिकॉर्ड करें:"
 
-#: src/View/WelcomeView.vala:31
+#: src/View/WelcomeView.vala:38
 msgid "Microphone"
 msgstr "माइक्रोफोन"
 
-#: src/View/WelcomeView.vala:33
+#: src/View/WelcomeView.vala:39
+msgid "System"
+msgstr "सिस्टम"
+
+#: src/View/WelcomeView.vala:40
 msgid "Both"
 msgstr "दोनों"
 
-#: src/View/WelcomeView.vala:35
+#: src/View/WelcomeView.vala:42
 msgid "Microphone:"
 msgstr "माइक्रोफोन:"
 
-#: src/View/WelcomeView.vala:45
+#: src/View/WelcomeView.vala:52
 msgid "Channels:"
 msgstr "चैनल:"
 
-#: src/View/WelcomeView.vala:51
+#: src/View/WelcomeView.vala:58
 msgid "Mono"
 msgstr "मोनो"
 
-#: src/View/WelcomeView.vala:52
+#: src/View/WelcomeView.vala:59
 msgid "Stereo"
 msgstr "स्टीरियो"
 
-#: src/View/WelcomeView.vala:54
+#: src/View/WelcomeView.vala:61
 msgid "Timer"
 msgstr "टाइमर"
 
-#: src/View/WelcomeView.vala:56
+#: src/View/WelcomeView.vala:66
 msgid "Delay in seconds:"
 msgstr "सेकंड में विलंब:"
 
-#: src/View/WelcomeView.vala:63
+#: src/View/WelcomeView.vala:73
 msgid "Length in seconds:"
 msgstr "सेकंड में लंबाई:"
 
-#: src/View/WelcomeView.vala:74
+#: src/View/WelcomeView.vala:84
 msgid "Saving"
 msgstr "सहेज रहे हैं"
 
-#: src/View/WelcomeView.vala:76
+#: src/View/WelcomeView.vala:89
 msgid "Format:"
 msgstr "प्रारूप:"
 
-#: src/View/WelcomeView.vala:83
+#: src/View/WelcomeView.vala:96
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:84
+#: src/View/WelcomeView.vala:97
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:85
+#: src/View/WelcomeView.vala:98
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:86
+#: src/View/WelcomeView.vala:99
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:87
+#: src/View/WelcomeView.vala:100
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:88
+#: src/View/WelcomeView.vala:101
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:90
+#: src/View/WelcomeView.vala:103
 msgid "Automatically save files:"
 msgstr "फाइलें स्वचालित रूप से सहेजें:"
 
-#: src/View/WelcomeView.vala:108 src/View/WelcomeView.vala:262
-msgid "Choose a default destination"
-msgstr "तयशुदा गंतव्य चुनें"
-
-#: src/View/WelcomeView.vala:147
-msgid "Start recording"
-msgstr "रिकॉर्डिंग प्रारंभ करें"
-
-#: src/View/WelcomeView.vala:254
+#: src/View/WelcomeView.vala:113 src/View/WelcomeView.vala:242
 msgid "Select destination…"
 msgstr "गंतव्य चुनें…"
 
-#: src/View/WelcomeView.vala:263
+#: src/View/WelcomeView.vala:114 src/View/WelcomeView.vala:118
+msgid "Choose a default destination"
+msgstr "तयशुदा गंतव्य चुनें"
+
+#: src/View/WelcomeView.vala:115
 msgid "Select"
 msgstr "चुनें"
+
+#: src/View/WelcomeView.vala:153
+msgid "Start recording"
+msgstr "रिकॉर्डिंग प्रारंभ करें"

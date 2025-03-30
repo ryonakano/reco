@@ -1,9 +1,9 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2024 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2018-2025 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class MainWindow : Gtk.ApplicationWindow {
+public class MainWindow : Adw.ApplicationWindow {
     private unowned Model.Recorder recorder;
     private bool destroy_on_save;
 
@@ -12,46 +12,59 @@ public class MainWindow : Gtk.ApplicationWindow {
     private View.RecordView record_view;
     private Gtk.Stack stack;
 
+    private static Gee.HashMap<int, string> starterr_message_table;
+
     public MainWindow (Application app) {
         Object (
-            application: app,
-            resizable: false,
-            title: "Reco"
+            application: app
         );
+    }
+
+    static construct {
+        starterr_message_table = new Gee.HashMap<int, string> ();
+        starterr_message_table[Model.RecorderError.CREATE_ERROR] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists.");
+        starterr_message_table[Model.RecorderError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected them.");
     }
 
     construct {
         recorder = Model.Recorder.get_default ();
 
-        var style_submenu = new Menu ();
-        style_submenu.append (_("Light"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.FORCE_LIGHT));
-        style_submenu.append (_("Dark"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.FORCE_DARK));
-        style_submenu.append (_("System"), "app.color-scheme(%d)".printf (Manager.StyleManager.ColorScheme.DEFAULT));
+        // Distinct development build visually
+        if (".Devel" in Config.APP_ID) {
+            add_css_class ("devel");
+        }
 
-        var menu = new Menu ();
-        menu.append_submenu (_("Style"), style_submenu);
+        var style_submenu = new Menu ();
+        style_submenu.append (_("S_ystem"), "app.color-scheme('%s')".printf (Define.ColorScheme.DEFAULT));
+        style_submenu.append (_("_Light"), "app.color-scheme('%s')".printf (Define.ColorScheme.FORCE_LIGHT));
+        style_submenu.append (_("_Dark"), "app.color-scheme('%s')".printf (Define.ColorScheme.FORCE_DARK));
+
+        var main_menu = new Menu ();
+        main_menu.append_submenu (_("_Style"), style_submenu);
+        main_menu.append (_("_Keyboard Shortcuts"), "win.show-help-overlay");
+        // Pantheon prefers AppCenter instead of an about dialog for app details, so prevent it from being shown on Pantheon
+        if (!Util.is_on_pantheon ()) {
+            ///TRANSLATORS: %s will be replaced by the app name
+            main_menu.append (_("_About %s").printf (Define.APP_NAME), "app.about");
+        }
 
         var menu_button = new Gtk.MenuButton () {
             tooltip_text = _("Main Menu"),
             icon_name = "open-menu",
-            menu_model = menu,
+            menu_model = main_menu,
             primary = true
         };
 
-        var headerbar = new Gtk.HeaderBar () {
+        var headerbar = new Adw.HeaderBar () {
             title_widget = new Gtk.Label ("")
         };
         headerbar.pack_end (menu_button);
-        set_titlebar (headerbar);
-        headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
-        headerbar.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
 
         welcome_view = new View.WelcomeView ();
         countdown_view = new View.CountDownView ();
         record_view = new View.RecordView ();
 
         stack = new Gtk.Stack () {
-            margin_top = 6,
             margin_bottom = 6,
             margin_start = 6,
             margin_end = 6
@@ -60,10 +73,25 @@ public class MainWindow : Gtk.ApplicationWindow {
         stack.add_child (countdown_view);
         stack.add_child (record_view);
 
-        child = stack;
+        var toolbar_view = new Adw.ToolbarView ();
+        toolbar_view.add_top_bar (headerbar);
+        toolbar_view.set_content (stack);
+
+        content = toolbar_view;
+        width_request = 350;
+        height_request = 480;
+        resizable = false;
+        title = Define.APP_NAME;
+
         show_welcome ();
 
-        welcome_view.start_recording.connect (start_wrapper);
+        welcome_view.start_recording.connect ((delay_sec) => {
+            if (delay_sec > 0) {
+                show_countdown (delay_sec);
+            } else {
+                show_record ();
+            }
+        });
 
         countdown_view.countdown_cancelled.connect (show_welcome);
         countdown_view.countdown_ended.connect (show_record);
@@ -72,43 +100,19 @@ public class MainWindow : Gtk.ApplicationWindow {
         record_view.stop_recording.connect (() => {
             stop_wrapper (false);
         });
-        record_view.toggle_recording.connect ((is_recording) => {
-            recorder.state = is_recording ? Model.Recorder.RecordingState.RECORDING : Model.Recorder.RecordingState.PAUSED;
+        record_view.pause_recording.connect (() => {
+            recorder.state = Model.Recorder.RecordingState.PAUSED;
         });
-
-        var event_controller = new Gtk.EventControllerKey ();
-        event_controller.key_pressed.connect ((keyval, keycode, state) => {
-            if (Gdk.ModifierType.CONTROL_MASK in state) {
-                switch (keyval) {
-                    case Gdk.Key.q:
-                        // Stop the recording if recording is in progress
-                        // The window is destroyed in the save callback
-                        if (recorder.state != Model.Recorder.RecordingState.STOPPED) {
-                            stop_wrapper (true);
-                            return Gdk.EVENT_STOP;
-                        }
-
-                        // Otherwise destroy the window
-                        destroy ();
-                        return Gdk.EVENT_STOP;
-                    default:
-                        break;
-                }
-            }
-
-            return Gdk.EVENT_PROPAGATE;
+        record_view.resume_recording.connect (() => {
+            recorder.state = Model.Recorder.RecordingState.RECORDING;
         });
-        ((Gtk.Widget) this).add_controller (event_controller);
 
         close_request.connect ((event) => {
-            // Stop the recording if recording is in progress
-            // The window is destroyed in the save callback
-            if (recorder.state != Model.Recorder.RecordingState.STOPPED) {
-                stop_wrapper (true);
+            bool can_destroy = check_destroy ();
+            if (!can_destroy) {
                 return Gdk.EVENT_STOP;
             }
 
-            // Otherwise we don't block the window destroyed
             return Gdk.EVENT_PROPAGATE;
         });
 
@@ -120,17 +124,13 @@ public class MainWindow : Gtk.ApplicationWindow {
             );
         });
 
-        recorder.save_file.connect ((tmp_path, suffix) => {
-            debug ("recorder.save_file: tmp_path(%s), suffix(%s)", tmp_path, suffix);
+        recorder.save_file.connect ((tmp_path) => {
+            debug ("recorder.save_file: tmp_path(%s)", tmp_path);
 
+            string suffix = Util.get_suffix (tmp_path);
             var tmp_file = File.new_for_path (tmp_path);
 
-            //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
-            //Suffix is automatically appended depending on the recording format.
-            //e.g. "Recording from 2018-11-10 23.42.36.wav"
-            string default_filename = _("Recording from %s").printf (
-                                        new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S")
-                                    ) + suffix;
+            string default_filename = build_filename_from_datetime (recorder.start_dt, recorder.end_dt, suffix);
 
             ask_save_path.begin (default_filename, (obj, res) => {
                 File? save_path = ask_save_path.end (res);
@@ -153,7 +153,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                 }
 
                 if (is_success) {
-                    welcome_view.show_success_button ();
+                    welcome_view.succeeded_animation_begin ();
 
                     var notification = new Notification (_("Saved recording"));
                     // The app that handles actions would be already destroyed when the user activates the notification,
@@ -162,8 +162,9 @@ public class MainWindow : Gtk.ApplicationWindow {
                         notification.set_body (_("Recording saved successfully."));
                     } else {
                         notification.set_body (_("Click here to play."));
-                        notification.set_default_action_and_target_value ("app.open", new Variant.string (save_path.get_path ()));
-                        notification.add_button_with_target_value (_("Open folder"), "app.open", new Variant.string (save_path.get_parent ().get_path ()));
+                        // Only actions starting with "app." can be used here
+                        notification.set_default_action_and_target_value ("app.open-folder", new Variant.string (save_path.get_path ()));
+                        notification.add_button_with_target_value (_("Open folder"), "app.open-folder", new Variant.string (save_path.get_parent ().get_path ()));
                     }
 
                     application.send_notification (Config.APP_ID, notification);
@@ -174,6 +175,25 @@ public class MainWindow : Gtk.ApplicationWindow {
                 }
             });
         });
+    }
+
+    private string build_filename_from_datetime (DateTime start, DateTime end, string suffix) {
+        string start_format = "%Y-%m-%d_%H:%M:%S";
+        string end_format = "%Y-%m-%d_%H:%M:%S";
+
+        bool is_same_day = Util.is_same_day (start, end);
+        if (is_same_day) {
+            // Avoid redundant date
+            end_format = "%H:%M:%S";
+        }
+
+        string start_str = start.format (start_format);
+        string end_str = end.format (end_format);
+
+        //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
+        //Suffix is automatically appended depending on the recording format.
+        //e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
+        return _("%s to %s").printf (start_str, end_str) + suffix;
     }
 
     /**
@@ -190,7 +210,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         File? dest = null;
 
         var autosave_dest = Application.settings.get_string ("autosave-destination");
-        if (autosave_dest == Define.AUTOSAVE_DISABLED) {
+        if (autosave_dest.length == 0) {
             var save_dialog = new Gtk.FileDialog () {
                 title = _("Save your recording"),
                 accept_label = _("Save"),
@@ -214,39 +234,52 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     private void show_welcome () {
+        // Stop ongoing animations
+        welcome_view.succeeded_animation_end ();
+
         stack.visible_child = welcome_view;
     }
 
-    private void show_countdown () {
-        countdown_view.init_countdown ();
+    private void show_countdown (uint sec) {
+        countdown_view.init_countdown (sec);
         countdown_view.start_countdown ();
         stack.visible_child = countdown_view;
     }
 
     private void show_record () {
         try {
-            recorder.start_recording ();
+            recorder.prepare_recording ();
         } catch (Model.RecorderError err) {
+            string? secondary_text = starterr_message_table[err.code];
+            // Errors without dedicated message
+            if (secondary_text == null) {
+                secondary_text = N_("There was an unknown error while starting recording.");
+            }
+
             show_error_dialog (
                 _("Failed to start recording"),
-                _("There was an error while starting recording."),
+                _(secondary_text),
                 err.message
             );
             return;
         }
 
-        record_view.init_count ();
-        record_view.start_count ();
+        recorder.start_recording ();
+
+        record_view.refresh_begin ();
         stack.visible_child = record_view;
     }
 
-    private void start_wrapper () {
-        uint delay = Application.settings.get_uint ("delay");
-        if (delay != 0) {
-            show_countdown ();
-        } else {
-            show_record ();
+    public bool check_destroy () {
+        // Stop the recording if recording is in progress
+        // The window is destroyed in the save callback
+        if (recorder.state != Model.Recorder.RecordingState.STOPPED) {
+            stop_wrapper (true);
+            return false;
         }
+
+        // Otherwise we don't block the window destroyed
+        return true;
     }
 
     private void stop_wrapper (bool destroy_flag = false) {
@@ -267,7 +300,8 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     private void show_error_dialog (string primary_text, string secondary_text, string error_message) {
-        if (Application.IS_ON_PANTHEON) {
+        if (Util.is_on_pantheon ()) {
+#if USE_GRANITE
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                 primary_text,
                 secondary_text,
@@ -283,17 +317,20 @@ public class MainWindow : Gtk.ApplicationWindow {
                 }
             });
             error_dialog.present ();
+#endif
         } else {
+            string detail_text = secondary_text + "\n\n" + _("Details:") + "\n\n" + error_message;
+
             var error_dialog = new Gtk.AlertDialog (
                 primary_text
             ) {
-                detail = secondary_text + "\n\n" + error_message,
+                detail = detail_text,
                 modal = true
             };
             error_dialog.show (this);
         }
 
-        record_view.stop_count ();
+        record_view.refresh_end ();
         show_welcome ();
     }
 }

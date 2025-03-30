@@ -17,11 +17,6 @@
     <value value="1" nick="mono"/>
     <value value="2" nick="stereo"/>
   </enum>
-  <enum id="style">
-    <value value="0" nick="default"/>
-    <value value="1" nick="light"/>
-    <value value="2" nick="dark"/>
-  </enum>
 
   <schema path="/com/github/ryonakano/reco/" id="@APP_ID@">
     <key name="delay" type="u">
@@ -60,7 +55,13 @@
       <summary>Default destination for autosaving</summary>
       <description>Specify the path to save recordings automatically. Setting this key blank disables autosaving</description>
     </key>
-    <key name="color-scheme" enum="style">
+    <key name="color-scheme" type="s">
+      <choices>
+        <choice value="default"/>
+        <choice value="force-light"/>
+        <choice value="force-dark"/>
+      </choices>
+
       <default>'default'</default>
       <summary>Color scheme</summary>
       <description>Whether to show the window in a dark style or not</description>
