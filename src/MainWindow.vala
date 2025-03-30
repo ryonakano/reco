@@ -12,10 +12,18 @@ public class MainWindow : Adw.ApplicationWindow {
     private View.RecordView record_view;
     private Gtk.Stack stack;
 
+    private static Gee.HashMap<int, string> starterr_message_table;
+
     public MainWindow (Application app) {
         Object (
             application: app
         );
+    }
+
+    static construct {
+        starterr_message_table = new Gee.HashMap<int, string> ();
+        starterr_message_table[Model.RecorderError.CREATE_ERROR] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists.");
+        starterr_message_table[Model.RecorderError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected them.");
     }
 
     construct {
@@ -227,29 +235,9 @@ public class MainWindow : Adw.ApplicationWindow {
         try {
             recorder.start_recording ();
         } catch (Model.RecorderError err) {
-            string secondary_text;
-            switch (err.code) {
-                case Model.RecorderError.CREATE_ERROR:
-                    secondary_text = _(
-                        "This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists."
-                    );
-                    break;
-                case Model.RecorderError.CONFIGURE_ERROR:
-                    secondary_text = _(
-                        "This is possibly due to missing sound input or output devices. Make sure you've connected them."
-                    );
-                    break;
-                default:
-                    // Unknown error
-                    secondary_text = _(
-                        "There was an unknown error while starting recording."
-                    );
-                    break;
-            }
-
             show_error_dialog (
                 _("Failed to start recording"),
-                secondary_text,
+                _(starterr_message_table[err.code]),
                 err.message
             );
             return;
