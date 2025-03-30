@@ -12,10 +12,18 @@ public class MainWindow : Adw.ApplicationWindow {
     private View.RecordView record_view;
     private Gtk.Stack stack;
 
+    private static Gee.HashMap<int, string> starterr_message_table;
+
     public MainWindow (Application app) {
         Object (
             application: app
         );
+    }
+
+    static construct {
+        starterr_message_table = new Gee.HashMap<int, string> ();
+        starterr_message_table[Model.RecorderError.CREATE_ERROR] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists.");
+        starterr_message_table[Model.RecorderError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected them.");
     }
 
     construct {
@@ -227,9 +235,15 @@ public class MainWindow : Adw.ApplicationWindow {
         try {
             recorder.start_recording ();
         } catch (Model.RecorderError err) {
+            string? secondary_text = starterr_message_table[err.code];
+            // Errors without dedicated message
+            if (secondary_text == null) {
+                secondary_text = N_("There was an unknown error while starting recording.");
+            }
+
             show_error_dialog (
                 _("Failed to start recording"),
-                _("There was an error while starting recording."),
+                _(secondary_text),
                 err.message
             );
             return;
@@ -288,10 +302,12 @@ public class MainWindow : Adw.ApplicationWindow {
             error_dialog.present ();
 #endif
         } else {
+            string detail_text = secondary_text + "\n\n" + _("Details:") + "\n\n" + error_message;
+
             var error_dialog = new Gtk.AlertDialog (
                 primary_text
             ) {
-                detail = secondary_text + "\n\n" + error_message,
+                detail = detail_text,
                 modal = true
             };
             error_dialog.show (this);
