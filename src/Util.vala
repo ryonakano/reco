@@ -18,6 +18,32 @@ namespace Util {
         return path.substring (suffix_index);
     }
 
+    public static bool is_same_day (DateTime a, DateTime b) {
+        int a_year;
+        int a_month;
+        int a_day;
+        int b_year;
+        int b_month;
+        int b_day;
+
+        a.get_ymd (out a_year, out a_month, out a_day);
+        b.get_ymd (out b_year, out b_month, out b_day);
+
+        if (a_day != b_day) {
+            return false;
+        }
+
+        if (a_month != b_month) {
+            return false;
+        }
+
+        if (a_year != b_year) {
+            return false;
+        }
+
+        return true;
+    }
+
     public static Adw.ColorScheme to_adw_scheme (string str_scheme) {
         switch (str_scheme) {
             case Define.ColorScheme.DEFAULT:
