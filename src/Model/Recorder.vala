@@ -83,8 +83,8 @@ namespace Model {
         private double _current_peak = 0;
 
         private string tmp_path;
-        public DateTime start_dt { get; private set ; }
-        public DateTime end_dt { get; private set ; }
+        public DateTime start_dt { get; private set; }
+        public DateTime end_dt { get; private set; }
         private Gst.Pipeline pipeline;
         private uint inhibit_token = 0;
         private const uint64 NSEC = 1000000000;
