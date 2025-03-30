@@ -132,8 +132,8 @@ public class MainWindow : Adw.ApplicationWindow {
 
             //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
             //Suffix is automatically appended depending on the recording format.
-            //e.g. "Recording from 2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
-            string default_filename = _("Recording from %s to %s").printf (
+            //e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
+            string default_filename = _("%s to %s").printf (
                                           recorder.start_dt.format ("%Y-%m-%d_%H:%M:%S")
                                         , recorder.end_dt.format ("%Y-%m-%d_%H:%M:%S")
                                     ) + suffix;
