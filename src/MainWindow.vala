@@ -227,9 +227,29 @@ public class MainWindow : Adw.ApplicationWindow {
         try {
             recorder.start_recording ();
         } catch (Model.RecorderError err) {
+            string secondary_text;
+            switch (err.code) {
+                case Model.RecorderError.CREATE_ERROR:
+                    secondary_text = _(
+                        "This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists."
+                    );
+                    break;
+                case Model.RecorderError.CONFIGURE_ERROR:
+                    secondary_text = _(
+                        "This is possibly due to missing sound input or output devices. Make sure you've connected them."
+                    );
+                    break;
+                default:
+                    // Unknown error
+                    secondary_text = _(
+                        "There was an unknown error while starting recording."
+                    );
+                    break;
+            }
+
             show_error_dialog (
                 _("Failed to start recording"),
-                _("There was an error while starting recording."),
+                secondary_text,
                 err.message
             );
             return;
@@ -288,10 +308,12 @@ public class MainWindow : Adw.ApplicationWindow {
             error_dialog.present ();
 #endif
         } else {
+            string detail_text = secondary_text + "\n\n" + _("Details:") + "\n\n" + error_message;
+
             var error_dialog = new Gtk.AlertDialog (
                 primary_text
             ) {
-                detail = secondary_text + "\n\n" + error_message,
+                detail = detail_text,
                 modal = true
             };
             error_dialog.show (this);
