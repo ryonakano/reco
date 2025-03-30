@@ -235,9 +235,15 @@ public class MainWindow : Adw.ApplicationWindow {
         try {
             recorder.start_recording ();
         } catch (Model.RecorderError err) {
+            string? secondary_text = starterr_message_table[err.code];
+            // Errors without dedicated message
+            if (secondary_text == null) {
+                secondary_text = N_("There was an unknown error while starting recording.");
+            }
+
             show_error_dialog (
                 _("Failed to start recording"),
-                _(starterr_message_table[err.code]),
+                _(secondary_text),
                 err.message
             );
             return;
