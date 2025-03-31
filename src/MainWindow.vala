@@ -101,10 +101,10 @@ public class MainWindow : Adw.ApplicationWindow {
             stop_wrapper (false);
         });
         record_view.pause_recording.connect (() => {
-            recorder.state = Model.Recorder.RecordingState.PAUSED;
+            recorder.pause_recording ();
         });
         record_view.resume_recording.connect (() => {
-            recorder.state = Model.Recorder.RecordingState.RECORDING;
+            recorder.resume_recording ();
         });
 
         close_request.connect ((event) => {
@@ -273,7 +273,7 @@ public class MainWindow : Adw.ApplicationWindow {
     public bool check_destroy () {
         // Stop the recording if recording is in progress
         // The window is destroyed in the save callback
-        if (recorder.state != Model.Recorder.RecordingState.STOPPED) {
+        if (recorder.is_recording_progress) {
             stop_wrapper (true);
             return false;
         }
@@ -284,11 +284,6 @@ public class MainWindow : Adw.ApplicationWindow {
 
     private void stop_wrapper (bool destroy_flag = false) {
         destroy_on_save = destroy_flag;
-
-        // If a user tries to stop recording while pausing, resume recording once and reset the button icon
-        if (recorder.state != Model.Recorder.RecordingState.RECORDING) {
-            recorder.state = Model.Recorder.RecordingState.RECORDING;
-        }
 
         recorder.stop_recording ();
         show_welcome ();
