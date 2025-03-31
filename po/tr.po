@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-22 23:38+0900\n"
+"POT-Creation-Date: 2025-03-31 22:22+0900\n"
 "PO-Revision-Date: 2024-05-03 10:45+0000\n"
 "Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco/tr/>\n"
@@ -148,101 +148,112 @@ msgstr "Kaydın başarıyla tamamlandığına dair bir gösterge"
 msgid "translator-credits"
 msgstr ""
 
-#: src/MainWindow.vala:30
+#: src/MainWindow.vala:25
+msgid ""
+"This is possibly due to missing codecs or incomplete installation of the "
+"app. Make sure you've installed them and try reinstalling them if this issue "
+"persists."
+msgstr ""
+
+#: src/MainWindow.vala:26
+msgid ""
+"This is possibly due to missing sound input or output devices. Make sure "
+"you've connected them."
+msgstr ""
+
+#: src/MainWindow.vala:38
 #, fuzzy
 #| msgid "System"
 msgid "S_ystem"
 msgstr "Sistem"
 
-#: src/MainWindow.vala:31
+#: src/MainWindow.vala:39
 #, fuzzy
 #| msgid "Light"
 msgid "_Light"
 msgstr "Açık"
 
-#: src/MainWindow.vala:32
+#: src/MainWindow.vala:40
 #, fuzzy
 #| msgid "Dark"
 msgid "_Dark"
 msgstr "Koyu"
 
-#: src/MainWindow.vala:35
+#: src/MainWindow.vala:43
 #, fuzzy
 #| msgid "Style"
 msgid "_Style"
 msgstr "Biçem"
 
-#: src/MainWindow.vala:36
+#: src/MainWindow.vala:44
 msgid "_Keyboard Shortcuts"
 msgstr ""
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:48
 #, c-format
 msgid "_About %s"
 msgstr ""
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:52
 msgid "Main Menu"
 msgstr "Ana Menü"
 
-#: src/MainWindow.vala:113
+#: src/MainWindow.vala:121
 msgid "Error while recording"
 msgstr "Kayıt sırasında hata"
 
-#: src/MainWindow.vala:114
+#: src/MainWindow.vala:122
 msgid "There was an error while recording."
 msgstr "Kayıt sırasında bir hata oluştu."
 
-#. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
-#. Suffix is automatically appended depending on the recording format.
-#. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:127
-#, c-format
-msgid "Recording from %s"
-msgstr "Kayıt tarihi %s"
-
-#: src/MainWindow.vala:144
+#: src/MainWindow.vala:148
 msgid "Failed to save recording"
 msgstr "Kayıt kaydedilemedi"
 
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:149
 msgid "There was an error while moving file to the designated location."
 msgstr "Dosya belirlenen konuma taşınırken bir hata oluştu."
 
-#: src/MainWindow.vala:154
+#: src/MainWindow.vala:158
 msgid "Saved recording"
 msgstr "Kayıt kaydedildi"
 
-#: src/MainWindow.vala:158
+#: src/MainWindow.vala:162
 msgid "Recording saved successfully."
 msgstr "Kayıt başarıyla kaydedildi."
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:164
 msgid "Click here to play."
 msgstr "Oynatmak için buraya tıklayın."
 
-#: src/MainWindow.vala:163
+#: src/MainWindow.vala:167
 msgid "Open folder"
 msgstr "Klasörü aç"
 
-#: src/MainWindow.vala:192
+#: src/MainWindow.vala:221
 msgid "Save your recording"
 msgstr "Kaydı kaydedin"
 
-#: src/MainWindow.vala:193
+#: src/MainWindow.vala:222
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/MainWindow.vala:231
+#: src/MainWindow.vala:262
+#, fuzzy
+#| msgid "There was an error while starting recording."
+msgid "There was an unknown error while starting recording."
+msgstr "Kayıt başlatılırken bir hata oluştu."
+
+#: src/MainWindow.vala:266
 msgid "Failed to start recording"
 msgstr "Kayıt başlatılamadı"
 
-#: src/MainWindow.vala:232
-msgid "There was an error while starting recording."
-msgstr "Kayıt başlatılırken bir hata oluştu."
+#: src/MainWindow.vala:323
+msgid "Details:"
+msgstr ""
 
-#: src/Model/Recorder.vala:323
+#: src/Model/Recorder.vala:321
 msgid "Recording is ongoing"
 msgstr "Kayıt devam ediyor"
 
@@ -373,6 +384,10 @@ msgstr "Seç"
 #: src/View/WelcomeView.vala:153
 msgid "Start recording"
 msgstr "Kaydı başlat"
+
+#, c-format
+#~ msgid "Recording from %s"
+#~ msgstr "Kayıt tarihi %s"
 
 #~ msgid "Reco"
 #~ msgstr "Reco"
