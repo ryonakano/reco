@@ -27,38 +27,7 @@ namespace Model {
             "name", "parent", "direction", "template", "caps"
         };
 
-        public enum RecordingState {
-            STOPPED,                // Not recording
-            PAUSED,                 // Recording is paused
-            RECORDING               // Recording is ongoing
-        }
-
-        // Convert from RecordingState to Gst.State
-        private const Gst.State GST_STATE_TABLE[] = {
-            Gst.State.NULL,         // RecordingState.STOPPED
-            Gst.State.PAUSED,       // RecordingState.PAUSED
-            Gst.State.PLAYING       // RecordingState.RECORDING
-        };
-
-        public RecordingState state {
-            get {
-                return _state;
-            }
-
-            set {
-                _state = value;
-
-                // Control actual recording to stop, start, or pause
-                pipeline.set_state (GST_STATE_TABLE[_state]);
-
-                if (_state == RecordingState.RECORDING) {
-                    inhibit_sleep ();
-                } else {
-                    uninhibit_sleep ();
-                }
-            }
-        }
-        private RecordingState _state = RecordingState.STOPPED;
+        public bool is_recording_progress { get; private set; default = false; }
 
         // current sound level, taking value from 0 to 1
         public double current_peak {
@@ -250,7 +219,37 @@ namespace Model {
         }
 
         public void start_recording () {
-            state = RecordingState.RECORDING;
+            inhibit_sleep ();
+
+            pipeline.set_state (Gst.State.PLAYING);
+            is_recording_progress = true;
+        }
+
+        public void stop_recording () {
+            // Pipelines don't seem to catch events when it's in the PAUSED state
+            pipeline.set_state (Gst.State.PLAYING);
+
+            pipeline.send_event (new Gst.Event.eos ());
+        }
+
+        public void cancel_recording () {
+            uninhibit_sleep ();
+
+            pipeline.set_state (Gst.State.NULL);
+            pipeline.dispose ();
+            is_recording_progress = false;
+
+            remove_tmp_recording ();
+        }
+
+        public void pause_recording () {
+            uninhibit_sleep ();
+
+            pipeline.set_state (Gst.State.PAUSED);
+        }
+
+        public void resume_recording () {
+            start_recording ();
         }
 
         private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
@@ -265,8 +264,10 @@ namespace Model {
                     throw_error (err, debug);
                     break;
                 case Gst.MessageType.EOS:
-                    state = RecordingState.STOPPED;
+                    pipeline.set_state (Gst.State.NULL);
                     pipeline.dispose ();
+                    is_recording_progress = false;
+
                     end_dt = new DateTime.now_local ();
 
                     save_file (tmp_path);
@@ -294,13 +295,6 @@ namespace Model {
             return true;
         }
 
-        public void cancel_recording () {
-            state = RecordingState.STOPPED;
-            pipeline.dispose ();
-
-            remove_tmp_recording ();
-        }
-
         public void remove_tmp_recording () {
             var tmp_file = File.new_for_path (tmp_path);
             if (!tmp_file.query_exists ()) {
@@ -313,10 +307,6 @@ namespace Model {
                 // Just failed to remove tmp file so letting user know through error dialog is not necessary
                 warning (e.message);
             }
-        }
-
-        public void stop_recording () {
-            pipeline.send_event (new Gst.Event.eos ());
         }
 
         private void inhibit_sleep () {
