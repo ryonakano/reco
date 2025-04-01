@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-31 22:22+0900\n"
-"PO-Revision-Date: 2025-03-22 15:27+0000\n"
+"PO-Revision-Date: 2025-04-01 19:20+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
@@ -146,12 +146,15 @@ msgid ""
 "app. Make sure you've installed them and try reinstalling them if this issue "
 "persists."
 msgstr ""
+"コーデックが不足しているか、アプリが不完全にインストールされている可能性があ"
+"ります。問題が再発する場合は、コーデックやアプリがきちんとインストールされて"
+"いることを確認したり、再インストールしてみたりしてください。"
 
 #: src/MainWindow.vala:26
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected them."
-msgstr ""
+msgstr "音声入出力デバイスない可能性があります。接続状態を確認してください。"
 
 #: src/MainWindow.vala:38
 msgid "S_ystem"
@@ -224,10 +227,8 @@ msgid "Save"
 msgstr "保存"
 
 #: src/MainWindow.vala:262
-#, fuzzy
-#| msgid "There was an error while starting recording."
 msgid "There was an unknown error while starting recording."
-msgstr "録音開始中にエラーが発生しました。"
+msgstr "録音開始中に不明なエラーが発生しました。"
 
 #: src/MainWindow.vala:266
 msgid "Failed to start recording"
@@ -235,7 +236,7 @@ msgstr "録音を開始できませんでした"
 
 #: src/MainWindow.vala:323
 msgid "Details:"
-msgstr ""
+msgstr "詳細:"
 
 #: src/Model/Recorder.vala:321
 msgid "Recording is ongoing"
