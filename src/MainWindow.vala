@@ -23,7 +23,7 @@ public class MainWindow : Adw.ApplicationWindow {
     static construct {
         starterr_message_table = new Gee.HashMap<int, string> ();
         starterr_message_table[Model.RecorderError.CREATE_ERROR] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists.");
-        starterr_message_table[Model.RecorderError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected them.");
+        starterr_message_table[Model.RecorderError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one them if this issue persists.");
     }
 
     construct {
