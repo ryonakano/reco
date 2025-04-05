@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 20:46+0900\n"
+"POT-Creation-Date: 2025-04-05 20:59+0900\n"
 "PO-Revision-Date: 2025-03-31 04:19+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco/it/>\n"
@@ -154,7 +154,7 @@ msgstr ""
 #: src/MainWindow.vala:26
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
-"you've connected one and try using another one them if this issue persists."
+"you've connected one and try using another one if this issue persists."
 msgstr ""
 
 #: src/MainWindow.vala:38
