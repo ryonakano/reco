@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-22 23:38+0900\n"
+"POT-Creation-Date: 2025-04-05 20:59+0900\n"
 "PO-Revision-Date: 2024-05-03 10:45+0000\n"
 "Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -132,104 +132,113 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: src/MainWindow.vala:30
+#: src/MainWindow.vala:25
+msgid ""
+"This is possibly due to missing codecs or incomplete installation of the "
+"app. Make sure you've installed them and try reinstalling them if this issue "
+"persists."
+msgstr ""
+
+#: src/MainWindow.vala:26
+msgid ""
+"This is possibly due to missing sound input or output devices. Make sure "
+"you've connected one and try using another one if this issue persists."
+msgstr ""
+
+#: src/MainWindow.vala:38
 #, fuzzy
 #| msgid "System"
 msgid "S_ystem"
 msgstr "系统"
 
-#: src/MainWindow.vala:31
+#: src/MainWindow.vala:39
 #, fuzzy
 #| msgid "Light"
 msgid "_Light"
 msgstr "亮"
 
-#: src/MainWindow.vala:32
+#: src/MainWindow.vala:40
 #, fuzzy
 #| msgid "Dark"
 msgid "_Dark"
 msgstr "暗"
 
-#: src/MainWindow.vala:35
+#: src/MainWindow.vala:43
 #, fuzzy
 msgid "_Style"
 msgstr "样式："
 
-#: src/MainWindow.vala:36
+#: src/MainWindow.vala:44
 msgid "_Keyboard Shortcuts"
 msgstr ""
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:48
 #, c-format
 msgid "_About %s"
 msgstr ""
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:52
 msgid "Main Menu"
 msgstr ""
 
-#: src/MainWindow.vala:113
+#: src/MainWindow.vala:121
 #, fuzzy
 msgid "Error while recording"
 msgstr "暂停录音"
 
-#: src/MainWindow.vala:114
+#: src/MainWindow.vala:122
 msgid "There was an error while recording."
 msgstr ""
 
-#. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
-#. Suffix is automatically appended depending on the recording format.
-#. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:127
-#, c-format
-msgid "Recording from %s"
-msgstr "录音 %s"
-
-#: src/MainWindow.vala:144
+#: src/MainWindow.vala:148
 #, fuzzy
 msgid "Failed to save recording"
 msgstr "暂停录音"
 
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:149
 msgid "There was an error while moving file to the designated location."
 msgstr ""
 
-#: src/MainWindow.vala:154
+#: src/MainWindow.vala:158
 #, fuzzy
 msgid "Saved recording"
 msgstr "保存录音"
 
-#: src/MainWindow.vala:158
+#: src/MainWindow.vala:162
 msgid "Recording saved successfully."
 msgstr ""
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:164
 msgid "Click here to play."
 msgstr ""
 
-#: src/MainWindow.vala:163
+#: src/MainWindow.vala:167
 msgid "Open folder"
 msgstr ""
 
-#: src/MainWindow.vala:192
+#: src/MainWindow.vala:221
 msgid "Save your recording"
 msgstr "保存录音"
 
-#: src/MainWindow.vala:193
+#: src/MainWindow.vala:222
 msgid "Save"
 msgstr "保存"
 
-#: src/MainWindow.vala:231
+#: src/MainWindow.vala:262
+msgid "There was an unknown error while starting recording."
+msgstr ""
+
+#: src/MainWindow.vala:266
 #, fuzzy
 msgid "Failed to start recording"
 msgstr "开始录音"
 
-#: src/MainWindow.vala:232
-msgid "There was an error while starting recording."
+#: src/MainWindow.vala:323
+msgid "Details:"
 msgstr ""
 
-#: src/Model/Recorder.vala:323
+#: src/Model/Recorder.vala:321
 msgid "Recording is ongoing"
 msgstr "正在录音"
 
@@ -362,6 +371,10 @@ msgstr ""
 #: src/View/WelcomeView.vala:153
 msgid "Start recording"
 msgstr "开始录音"
+
+#, c-format
+#~ msgid "Recording from %s"
+#~ msgstr "录音 %s"
 
 #~ msgid "Reco"
 #~ msgstr "Reco"

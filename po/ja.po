@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-22 23:38+0900\n"
-"PO-Revision-Date: 2025-03-22 15:27+0000\n"
+"POT-Creation-Date: 2025-04-05 20:59+0900\n"
+"PO-Revision-Date: 2025-04-01 19:20+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
@@ -140,93 +140,109 @@ msgstr "録音が正常に完了したことを示すマーク"
 msgid "translator-credits"
 msgstr "Ryo Nakano"
 
-#: src/MainWindow.vala:30
+#: src/MainWindow.vala:25
+msgid ""
+"This is possibly due to missing codecs or incomplete installation of the "
+"app. Make sure you've installed them and try reinstalling them if this issue "
+"persists."
+msgstr ""
+"コーデックが不足しているか、アプリが不完全にインストールされている可能性があ"
+"ります。問題が再発する場合は、コーデックやアプリがきちんとインストールされて"
+"いることを確認したり、再インストールしてみたりしてください。"
+
+#: src/MainWindow.vala:26
+#, fuzzy
+#| msgid ""
+#| "This is possibly due to missing sound input or output devices. Make sure "
+#| "you've connected them."
+msgid ""
+"This is possibly due to missing sound input or output devices. Make sure "
+"you've connected one and try using another one if this issue persists."
+msgstr "音声入出力デバイスない可能性があります。接続状態を確認してください。"
+
+#: src/MainWindow.vala:38
 msgid "S_ystem"
 msgstr "システム(_Y)"
 
-#: src/MainWindow.vala:31
+#: src/MainWindow.vala:39
 msgid "_Light"
 msgstr "ライト(_L)"
 
-#: src/MainWindow.vala:32
+#: src/MainWindow.vala:40
 msgid "_Dark"
 msgstr "ダーク(_D)"
 
-#: src/MainWindow.vala:35
+#: src/MainWindow.vala:43
 msgid "_Style"
 msgstr "スタイル(_S)"
 
-#: src/MainWindow.vala:36
+#: src/MainWindow.vala:44
 msgid "_Keyboard Shortcuts"
 msgstr "キーボードショートカット(_K)"
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:48
 #, c-format
 msgid "_About %s"
 msgstr "%s について(_A)"
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:52
 msgid "Main Menu"
 msgstr "メインメニュー"
 
-#: src/MainWindow.vala:113
+#: src/MainWindow.vala:121
 msgid "Error while recording"
 msgstr "録音中エラー"
 
-#: src/MainWindow.vala:114
+#: src/MainWindow.vala:122
 msgid "There was an error while recording."
 msgstr "録音中にエラーが発生しました。"
 
-#. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
-#. Suffix is automatically appended depending on the recording format.
-#. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:127
-#, c-format
-msgid "Recording from %s"
-msgstr "録音 %s"
-
-#: src/MainWindow.vala:144
+#: src/MainWindow.vala:148
 msgid "Failed to save recording"
 msgstr "録音を保存できませんでした"
 
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:149
 msgid "There was an error while moving file to the designated location."
 msgstr "ファイルを指定場所へ移動中にエラーが発生しました。"
 
-#: src/MainWindow.vala:154
+#: src/MainWindow.vala:158
 msgid "Saved recording"
 msgstr "録音を保存しました"
 
-#: src/MainWindow.vala:158
+#: src/MainWindow.vala:162
 msgid "Recording saved successfully."
 msgstr "録音の保存に成功しました。"
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:164
 msgid "Click here to play."
 msgstr "再生するにはここをクリックしてください。"
 
-#: src/MainWindow.vala:163
+#: src/MainWindow.vala:167
 msgid "Open folder"
 msgstr "フォルダーを開く"
 
-#: src/MainWindow.vala:192
+#: src/MainWindow.vala:221
 msgid "Save your recording"
 msgstr "録音内容を保存"
 
-#: src/MainWindow.vala:193
+#: src/MainWindow.vala:222
 msgid "Save"
 msgstr "保存"
 
-#: src/MainWindow.vala:231
+#: src/MainWindow.vala:262
+msgid "There was an unknown error while starting recording."
+msgstr "録音開始中に不明なエラーが発生しました。"
+
+#: src/MainWindow.vala:266
 msgid "Failed to start recording"
 msgstr "録音を開始できませんでした"
 
-#: src/MainWindow.vala:232
-msgid "There was an error while starting recording."
-msgstr "録音開始中にエラーが発生しました。"
+#: src/MainWindow.vala:323
+msgid "Details:"
+msgstr "詳細:"
 
-#: src/Model/Recorder.vala:323
+#: src/Model/Recorder.vala:321
 msgid "Recording is ongoing"
 msgstr "録音中です"
 
@@ -357,6 +373,10 @@ msgstr "選択"
 #: src/View/WelcomeView.vala:153
 msgid "Start recording"
 msgstr "録音を開始します"
+
+#, c-format
+#~ msgid "Recording from %s"
+#~ msgstr "録音 %s"
 
 #~ msgid "Reco"
 #~ msgstr "Reco"

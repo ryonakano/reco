@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-22 23:38+0900\n"
+"POT-Creation-Date: 2025-04-05 20:59+0900\n"
 "PO-Revision-Date: 2025-03-02 19:16+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/rosp/reco/ta/>\n"
@@ -147,101 +147,112 @@ msgstr "பதிவு வெற்றிகரமாக முடிந்த�
 msgid "translator-credits"
 msgstr ""
 
-#: src/MainWindow.vala:30
+#: src/MainWindow.vala:25
+msgid ""
+"This is possibly due to missing codecs or incomplete installation of the "
+"app. Make sure you've installed them and try reinstalling them if this issue "
+"persists."
+msgstr ""
+
+#: src/MainWindow.vala:26
+msgid ""
+"This is possibly due to missing sound input or output devices. Make sure "
+"you've connected one and try using another one if this issue persists."
+msgstr ""
+
+#: src/MainWindow.vala:38
 #, fuzzy
 #| msgid "System"
 msgid "S_ystem"
 msgstr "மண்டலம்"
 
-#: src/MainWindow.vala:31
+#: src/MainWindow.vala:39
 #, fuzzy
 #| msgid "Light"
 msgid "_Light"
 msgstr "ஒளி"
 
-#: src/MainWindow.vala:32
+#: src/MainWindow.vala:40
 #, fuzzy
 #| msgid "Dark"
 msgid "_Dark"
 msgstr "இருண்ட"
 
-#: src/MainWindow.vala:35
+#: src/MainWindow.vala:43
 #, fuzzy
 #| msgid "Style"
 msgid "_Style"
 msgstr "சூல் தண்டு"
 
-#: src/MainWindow.vala:36
+#: src/MainWindow.vala:44
 msgid "_Keyboard Shortcuts"
 msgstr ""
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:48
 #, c-format
 msgid "_About %s"
 msgstr ""
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:52
 msgid "Main Menu"
 msgstr "பட்டியல் விளையாடுங்கள்"
 
-#: src/MainWindow.vala:113
+#: src/MainWindow.vala:121
 msgid "Error while recording"
 msgstr "பதிவு செய்யும் போது பிழை"
 
-#: src/MainWindow.vala:114
+#: src/MainWindow.vala:122
 msgid "There was an error while recording."
 msgstr "பதிவு செய்யும் போது பிழை ஏற்பட்டது."
 
-#. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
-#. Suffix is automatically appended depending on the recording format.
-#. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:127
-#, c-format
-msgid "Recording from %s"
-msgstr "%s இலிருந்து பதிவு"
-
-#: src/MainWindow.vala:144
+#: src/MainWindow.vala:148
 msgid "Failed to save recording"
 msgstr "பதிவைச் சேமிக்கத் தவறிவிட்டது"
 
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:149
 msgid "There was an error while moving file to the designated location."
 msgstr "நியமிக்கப்பட்ட இடத்திற்கு கோப்பை நகர்த்தும்போது பிழை ஏற்பட்டது."
 
-#: src/MainWindow.vala:154
+#: src/MainWindow.vala:158
 msgid "Saved recording"
 msgstr "சேமித்த பதிவு"
 
-#: src/MainWindow.vala:158
+#: src/MainWindow.vala:162
 msgid "Recording saved successfully."
 msgstr "பதிவு வெற்றிகரமாக சேமிக்கப்பட்டது."
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:164
 msgid "Click here to play."
 msgstr "விளையாட இங்கே சொடுக்கு செய்க."
 
-#: src/MainWindow.vala:163
+#: src/MainWindow.vala:167
 msgid "Open folder"
 msgstr "திறந்த கோப்புறை"
 
-#: src/MainWindow.vala:192
+#: src/MainWindow.vala:221
 msgid "Save your recording"
 msgstr "உங்கள் பதிவைச் சேமிக்கவும்"
 
-#: src/MainWindow.vala:193
+#: src/MainWindow.vala:222
 msgid "Save"
 msgstr "சேமி"
 
-#: src/MainWindow.vala:231
+#: src/MainWindow.vala:262
+#, fuzzy
+#| msgid "There was an error while starting recording."
+msgid "There was an unknown error while starting recording."
+msgstr "பதிவைத் தொடங்கும்போது பிழை ஏற்பட்டது."
+
+#: src/MainWindow.vala:266
 msgid "Failed to start recording"
 msgstr "பதிவு செய்யத் தவறிவிட்டது"
 
-#: src/MainWindow.vala:232
-msgid "There was an error while starting recording."
-msgstr "பதிவைத் தொடங்கும்போது பிழை ஏற்பட்டது."
+#: src/MainWindow.vala:323
+msgid "Details:"
+msgstr ""
 
-#: src/Model/Recorder.vala:323
+#: src/Model/Recorder.vala:321
 msgid "Recording is ongoing"
 msgstr "பதிவுசெய்தல் நடந்து வருகிறது"
 
@@ -372,3 +383,7 @@ msgstr "தேர்ந்தெடு"
 #: src/View/WelcomeView.vala:153
 msgid "Start recording"
 msgstr "பதிவு செய்யத் தொடங்குங்கள்"
+
+#, c-format
+#~ msgid "Recording from %s"
+#~ msgstr "%s இலிருந்து பதிவு"

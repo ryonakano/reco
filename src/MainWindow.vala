@@ -12,10 +12,18 @@ public class MainWindow : Adw.ApplicationWindow {
     private View.RecordView record_view;
     private Gtk.Stack stack;
 
+    private static Gee.HashMap<int, string> starterr_message_table;
+
     public MainWindow (Application app) {
         Object (
             application: app
         );
+    }
+
+    static construct {
+        starterr_message_table = new Gee.HashMap<int, string> ();
+        starterr_message_table[Model.RecorderError.CREATE_ERROR] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists.");
+        starterr_message_table[Model.RecorderError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one if this issue persists.");
     }
 
     construct {
@@ -93,10 +101,10 @@ public class MainWindow : Adw.ApplicationWindow {
             stop_wrapper (false);
         });
         record_view.pause_recording.connect (() => {
-            recorder.state = Model.Recorder.RecordingState.PAUSED;
+            recorder.pause_recording ();
         });
         record_view.resume_recording.connect (() => {
-            recorder.state = Model.Recorder.RecordingState.RECORDING;
+            recorder.resume_recording ();
         });
 
         close_request.connect ((event) => {
@@ -116,17 +124,13 @@ public class MainWindow : Adw.ApplicationWindow {
             );
         });
 
-        recorder.save_file.connect ((tmp_path, suffix) => {
-            debug ("recorder.save_file: tmp_path(%s), suffix(%s)", tmp_path, suffix);
+        recorder.save_file.connect ((tmp_path) => {
+            debug ("recorder.save_file: tmp_path(%s)", tmp_path);
 
+            string suffix = Util.get_suffix (tmp_path);
             var tmp_file = File.new_for_path (tmp_path);
 
-            //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
-            //Suffix is automatically appended depending on the recording format.
-            //e.g. "Recording from 2018-11-10 23.42.36.wav"
-            string default_filename = _("Recording from %s").printf (
-                                        new DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S")
-                                    ) + suffix;
+            string default_filename = build_filename_from_datetime (recorder.start_dt, recorder.end_dt, suffix);
 
             ask_save_path.begin (default_filename, (obj, res) => {
                 File? save_path = ask_save_path.end (res);
@@ -171,6 +175,31 @@ public class MainWindow : Adw.ApplicationWindow {
                 }
             });
         });
+    }
+
+    /**
+     * Build filename using the given arguments.
+     *
+     * The filename includes start datetime and end time. It also includes end date if the date is different between
+     * start and end.
+     *
+     * e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
+     *      "2018-11-10_23:42:36 to 23:49:52.wav"
+     */
+    private string build_filename_from_datetime (DateTime start, DateTime end, string suffix) {
+        string start_format = "%Y-%m-%d_%H:%M:%S";
+        string end_format = "%Y-%m-%d_%H:%M:%S";
+
+        bool is_same_day = Util.is_same_day (start, end);
+        if (is_same_day) {
+            // Avoid redundant date
+            end_format = "%H:%M:%S";
+        }
+
+        string start_str = start.format (start_format);
+        string end_str = end.format (end_format);
+
+        return "%s to %s".printf (start_str, end_str) + suffix;
     }
 
     /**
@@ -225,15 +254,23 @@ public class MainWindow : Adw.ApplicationWindow {
 
     private void show_record () {
         try {
-            recorder.start_recording ();
+            recorder.prepare_recording ();
         } catch (Model.RecorderError err) {
+            string? secondary_text = starterr_message_table[err.code];
+            // Errors without dedicated message
+            if (secondary_text == null) {
+                secondary_text = N_("There was an unknown error while starting recording.");
+            }
+
             show_error_dialog (
                 _("Failed to start recording"),
-                _("There was an error while starting recording."),
+                _(secondary_text),
                 err.message
             );
             return;
         }
+
+        recorder.start_recording ();
 
         record_view.refresh_begin ();
         stack.visible_child = record_view;
@@ -242,7 +279,7 @@ public class MainWindow : Adw.ApplicationWindow {
     public bool check_destroy () {
         // Stop the recording if recording is in progress
         // The window is destroyed in the save callback
-        if (recorder.state != Model.Recorder.RecordingState.STOPPED) {
+        if (recorder.is_recording_progress) {
             stop_wrapper (true);
             return false;
         }
@@ -253,11 +290,6 @@ public class MainWindow : Adw.ApplicationWindow {
 
     private void stop_wrapper (bool destroy_flag = false) {
         destroy_on_save = destroy_flag;
-
-        // If a user tries to stop recording while pausing, resume recording once and reset the button icon
-        if (recorder.state != Model.Recorder.RecordingState.RECORDING) {
-            recorder.state = Model.Recorder.RecordingState.RECORDING;
-        }
 
         recorder.stop_recording ();
         show_welcome ();
@@ -288,10 +320,12 @@ public class MainWindow : Adw.ApplicationWindow {
             error_dialog.present ();
 #endif
         } else {
+            string detail_text = secondary_text + "\n\n" + _("Details:") + "\n\n" + error_message;
+
             var error_dialog = new Gtk.AlertDialog (
                 primary_text
             ) {
-                detail = secondary_text + "\n\n" + error_message,
+                detail = detail_text,
                 modal = true
             };
             error_dialog.show (this);
