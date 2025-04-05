@@ -27,7 +27,7 @@
     - Release title: `<Project Name> X.Y.Z Released`
     - Publish it when completed
 
-## Work in AppCenter Review repository
+## Work in AppCenter Review Repository
 - Repository URL: https://github.com/elementary/appcenter-reviews
 - Fork the repository if you don't have write access to it
 - Create a new branch named `com.github.ryonakano.reco-X.Y.Z` from latest `origin/main`
@@ -37,7 +37,7 @@
         - `version` for the relase version
 - The new release should be available on AppCenter after some time
 
-## Work in Flathub repository
+## Work in Flathub Repository
 - Repository URL: https://github.com/flathub/com.github.ryonakano.reco
 - Create a new branch named `release-X.Y.Z` from latest `origin/master`
 - Create a pull request with the following changes and merge it once the build succeeds
