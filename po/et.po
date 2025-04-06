@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-05 20:59+0900\n"
-"PO-Revision-Date: 2025-04-01 03:00+0000\n"
+"PO-Revision-Date: 2025-04-06 13:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/rosp/reco/et/>\n"
 "Language: et\n"
@@ -153,16 +153,13 @@ msgstr ""
 "paigaldatud ja kui viga ei kao, siis paigalda rakendus uuesti."
 
 #: src/MainWindow.vala:26
-#, fuzzy
-#| msgid ""
-#| "This is possibly due to missing sound input or output devices. Make sure "
-#| "you've connected them."
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
 msgstr ""
 "Selline olukord võib tekkida, kui heli sisend- või väljundseadmed on puudu. "
-"Palun kontrolli, et sa oled kõik vajalikud seadmed ühednanud."
+"Palun kontrolli, et sa oled vajaliku seadme ühendanud või kui viga ei "
+"lahene, siis kasuta mõnda teist seadet."
 
 #: src/MainWindow.vala:38
 msgid "S_ystem"
