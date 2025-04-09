@@ -11,11 +11,11 @@ jobs:
       matrix:
         include:
           - arch: x86_64
-            container-image: bilelmoussaoui/flatpak-github-actions:gnome-47
+            container-image: bilelmoussaoui/flatpak-github-actions:gnome-48
             repository-name: flathub
             repository-url: https://flathub.org/repo/flathub.flatpakrepo
           - arch: aarch64
-            container-image: bilelmoussaoui/flatpak-github-actions:gnome-47
+            container-image: bilelmoussaoui/flatpak-github-actions:gnome-48
             repository-name: flathub
             repository-url: https://flathub.org/repo/flathub.flatpakrepo
           - arch: x86_64
