@@ -5,28 +5,28 @@ on: [pull_request]
 jobs:
   flatpak:
     name: Flatpak (${{ matrix.arch }}, ${{ matrix.repository-name }})
-    runs-on: ${{ matrix.runner }}
+    runs-on: ${{ matrix.runs-on }}
 
     strategy:
       matrix:
         include:
           - arch: x86_64
-            runner: ubuntu-latest
+            runs-on: ubuntu-latest
             container-image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-48
             repository-name: flathub
             repository-url: https://flathub.org/repo/flathub.flatpakrepo
           - arch: aarch64
-            runner: ubuntu-24.04-arm
+            runs-on: ubuntu-24.04-arm
             container-image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-48
             repository-name: flathub
             repository-url: https://flathub.org/repo/flathub.flatpakrepo
           - arch: x86_64
-            runner: ubuntu-latest
+            runs-on: ubuntu-latest
             container-image: ghcr.io/elementary/flatpak-platform/runtime:8.1-x86_64
             repository-name: appcenter
             repository-url: https://flatpak.elementary.io/repo.flatpakrepo
           - arch: aarch64
-            runner: ubuntu-24.04-arm
+            runs-on: ubuntu-24.04-arm
             container-image: ghcr.io/elementary/flatpak-platform/runtime:8.1-aarch64
             repository-name: appcenter
             repository-url: https://flatpak.elementary.io/repo.flatpakrepo
