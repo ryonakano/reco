@@ -1,7 +1,7 @@
 # Reco
-![Welcome view in the light mode](data/screenshots/gnome/welcome-init-light.png#gh-light-mode-only) ![Recording view in the light mode](data/screenshots/gnome/recording-light.png#gh-light-mode-only)
+![Welcome view in the light mode](data/screenshots/gnome/welcome-light.png#gh-light-mode-only) ![Recording view in the light mode](data/screenshots/gnome/recording-light.png#gh-light-mode-only)
 
-![Welcome view in the dark mode](data/screenshots/gnome/welcome-init-dark.png#gh-dark-mode-only) ![Recording view in the dark mode](data/screenshots/gnome/recording-dark.png#gh-dark-mode-only)
+![Welcome view in the dark mode](data/screenshots/gnome/welcome-dark.png#gh-dark-mode-only) ![Recording view in the dark mode](data/screenshots/gnome/recording-dark.png#gh-dark-mode-only)
 
 Reco is an audio recorder focused on being concise and simple to use.
 

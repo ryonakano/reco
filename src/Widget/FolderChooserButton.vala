@@ -22,7 +22,7 @@ public class Widget.FolderChooserButton : Gtk.Button {
         var button_icon = new Gtk.Image.from_icon_name ("folder");
 
         var button_label = new Gtk.Label (null) {
-            max_width_chars = 15,
+            max_width_chars = 20,
             ellipsize = Pango.EllipsizeMode.MIDDLE,
         };
 
