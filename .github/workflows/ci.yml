@@ -37,11 +37,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install QEMU
-        if: ${{ matrix.arch != 'x86_64' && contains(matrix.container-image, 'gnome') }}
-        run: |
-          dnf -y install docker
-
       - name: Set up QEMU for aarch64 emulation
         if: ${{ matrix.arch != 'x86_64' }}
         uses: docker/setup-qemu-action@v3
