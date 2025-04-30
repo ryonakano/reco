@@ -23,7 +23,7 @@ public class MainWindow : Adw.ApplicationWindow {
     static construct {
         starterr_message_table = new Gee.HashMap<int, string> ();
         starterr_message_table[Model.RecorderError.CREATE_ERROR] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists.");
-        starterr_message_table[Model.RecorderError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected them.");
+        starterr_message_table[Model.RecorderError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one if this issue persists.");
     }
 
     construct {
@@ -101,10 +101,10 @@ public class MainWindow : Adw.ApplicationWindow {
             stop_wrapper (false);
         });
         record_view.pause_recording.connect (() => {
-            recorder.state = Model.Recorder.RecordingState.PAUSED;
+            recorder.pause_recording ();
         });
         record_view.resume_recording.connect (() => {
-            recorder.state = Model.Recorder.RecordingState.RECORDING;
+            recorder.resume_recording ();
         });
 
         close_request.connect ((event) => {
@@ -177,6 +177,15 @@ public class MainWindow : Adw.ApplicationWindow {
         });
     }
 
+    /**
+     * Build filename using the given arguments.
+     *
+     * The filename includes start datetime and end time. It also includes end date if the date is different between
+     * start and end.
+     *
+     * e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
+     *      "2018-11-10_23:42:36 to 23:49:52.wav"
+     */
     private string build_filename_from_datetime (DateTime start, DateTime end, string suffix) {
         string start_format = "%Y-%m-%d_%H:%M:%S";
         string end_format = "%Y-%m-%d_%H:%M:%S";
@@ -190,10 +199,7 @@ public class MainWindow : Adw.ApplicationWindow {
         string start_str = start.format (start_format);
         string end_str = end.format (end_format);
 
-        //TRANSLATORS: This is the format of filename and %s represents a timestamp here.
-        //Suffix is automatically appended depending on the recording format.
-        //e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
-        return _("%s to %s").printf (start_str, end_str) + suffix;
+        return "%s to %s".printf (start_str, end_str) + suffix;
     }
 
     /**
@@ -273,7 +279,7 @@ public class MainWindow : Adw.ApplicationWindow {
     public bool check_destroy () {
         // Stop the recording if recording is in progress
         // The window is destroyed in the save callback
-        if (recorder.state != Model.Recorder.RecordingState.STOPPED) {
+        if (recorder.is_recording_progress) {
             stop_wrapper (true);
             return false;
         }
@@ -284,11 +290,6 @@ public class MainWindow : Adw.ApplicationWindow {
 
     private void stop_wrapper (bool destroy_flag = false) {
         destroy_on_save = destroy_flag;
-
-        // If a user tries to stop recording while pausing, resume recording once and reset the button icon
-        if (recorder.state != Model.Recorder.RecordingState.RECORDING) {
-            recorder.state = Model.Recorder.RecordingState.RECORDING;
-        }
 
         recorder.stop_recording ();
         show_welcome ();

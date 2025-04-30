@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-22 23:38+0900\n"
+"POT-Creation-Date: 2025-04-05 20:59+0900\n"
 "PO-Revision-Date: 2024-05-16 15:01+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/rosp/reco/hi/>\n"
@@ -143,101 +143,112 @@ msgstr "एक संकेत कि रिकॉर्डिंग सफल�
 msgid "translator-credits"
 msgstr ""
 
-#: src/MainWindow.vala:30
+#: src/MainWindow.vala:25
+msgid ""
+"This is possibly due to missing codecs or incomplete installation of the "
+"app. Make sure you've installed them and try reinstalling them if this issue "
+"persists."
+msgstr ""
+
+#: src/MainWindow.vala:26
+msgid ""
+"This is possibly due to missing sound input or output devices. Make sure "
+"you've connected one and try using another one if this issue persists."
+msgstr ""
+
+#: src/MainWindow.vala:38
 #, fuzzy
 #| msgid "System"
 msgid "S_ystem"
 msgstr "सिस्टम"
 
-#: src/MainWindow.vala:31
+#: src/MainWindow.vala:39
 #, fuzzy
 #| msgid "Light"
 msgid "_Light"
 msgstr "हल्की"
 
-#: src/MainWindow.vala:32
+#: src/MainWindow.vala:40
 #, fuzzy
 #| msgid "Dark"
 msgid "_Dark"
 msgstr "गहरी"
 
-#: src/MainWindow.vala:35
+#: src/MainWindow.vala:43
 #, fuzzy
 #| msgid "Style"
 msgid "_Style"
 msgstr "शैली"
 
-#: src/MainWindow.vala:36
+#: src/MainWindow.vala:44
 msgid "_Keyboard Shortcuts"
 msgstr ""
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:48
 #, c-format
 msgid "_About %s"
 msgstr ""
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:52
 msgid "Main Menu"
 msgstr "मुख्य मेनू"
 
-#: src/MainWindow.vala:113
+#: src/MainWindow.vala:121
 msgid "Error while recording"
 msgstr "रिकॉर्डिंग करते समय त्रुटि"
 
-#: src/MainWindow.vala:114
+#: src/MainWindow.vala:122
 msgid "There was an error while recording."
 msgstr "रिकॉर्डिंग करते समय एक त्रुटि हुई।"
 
-#. TRANSLATORS: This is the format of filename and %s represents a timestamp here.
-#. Suffix is automatically appended depending on the recording format.
-#. e.g. "Recording from 2018-11-10 23.42.36.wav"
-#: src/MainWindow.vala:127
-#, c-format
-msgid "Recording from %s"
-msgstr "%s से रिकॉर्डिंग"
-
-#: src/MainWindow.vala:144
+#: src/MainWindow.vala:148
 msgid "Failed to save recording"
 msgstr "रिकॉर्डिंग सहेजने में विफल"
 
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:149
 msgid "There was an error while moving file to the designated location."
 msgstr "फाइल को निर्दिष्ट स्थान पर ले जाते समय एक त्रुटि हुई।"
 
-#: src/MainWindow.vala:154
+#: src/MainWindow.vala:158
 msgid "Saved recording"
 msgstr "रिकॉर्डिंग सहेजी गई"
 
-#: src/MainWindow.vala:158
+#: src/MainWindow.vala:162
 msgid "Recording saved successfully."
 msgstr "रिकॉर्डिंग सफलतापूर्वक सहेजी गई।"
 
-#: src/MainWindow.vala:160
+#: src/MainWindow.vala:164
 msgid "Click here to play."
 msgstr "चलाने के लिए यहां क्लिक करें।"
 
-#: src/MainWindow.vala:163
+#: src/MainWindow.vala:167
 msgid "Open folder"
 msgstr "फोल्डर खोलें"
 
-#: src/MainWindow.vala:192
+#: src/MainWindow.vala:221
 msgid "Save your recording"
 msgstr "अपनी रिकॉर्डिंग सहेजें"
 
-#: src/MainWindow.vala:193
+#: src/MainWindow.vala:222
 msgid "Save"
 msgstr "सहेजें"
 
-#: src/MainWindow.vala:231
+#: src/MainWindow.vala:262
+#, fuzzy
+#| msgid "There was an error while starting recording."
+msgid "There was an unknown error while starting recording."
+msgstr "रिकॉर्डिंग प्रारंभ करते समय एक त्रुटि हुई।"
+
+#: src/MainWindow.vala:266
 msgid "Failed to start recording"
 msgstr "रिकॉर्डिंग प्रारंभ करने में विफल"
 
-#: src/MainWindow.vala:232
-msgid "There was an error while starting recording."
-msgstr "रिकॉर्डिंग प्रारंभ करते समय एक त्रुटि हुई।"
+#: src/MainWindow.vala:323
+msgid "Details:"
+msgstr ""
 
-#: src/Model/Recorder.vala:323
+#: src/Model/Recorder.vala:321
 msgid "Recording is ongoing"
 msgstr "रिकॉर्डिंग जारी है"
 
@@ -368,3 +379,7 @@ msgstr "चुनें"
 #: src/View/WelcomeView.vala:153
 msgid "Start recording"
 msgstr "रिकॉर्डिंग प्रारंभ करें"
+
+#, c-format
+#~ msgid "Recording from %s"
+#~ msgstr "%s से रिकॉर्डिंग"

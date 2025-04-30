@@ -27,17 +27,12 @@
   <screenshots>
     <screenshot type="default">
       <caption>Welcome view; perform recording configuration</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/@VERSION@/data/screenshots/@DE@/welcome-init-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/@VERSION@/data/screenshots/@DE@/welcome-light.png</image>
     </screenshot>
 
     <screenshot>
       <caption>Recording view</caption>
       <image>https://raw.githubusercontent.com/ryonakano/reco/@VERSION@/data/screenshots/@DE@/recording-light.png</image>
-    </screenshot>
-
-    <screenshot>
-      <caption>An indication that recording is successfully finished</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/@VERSION@/data/screenshots/@DE@/welcome-success-light.png</image>
     </screenshot>
   </screenshots>
 
