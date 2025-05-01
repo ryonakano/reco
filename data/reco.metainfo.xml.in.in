@@ -62,7 +62,7 @@
   </developer>
 
   <releases>
-    <release version="5.1.0" date="2025-04-30" urgency="medium">
+    <release version="5.1.0" date="2025-05-01" urgency="medium">
       <description translate="no">
         <p>
           Improvements:
@@ -87,6 +87,7 @@
           Fixes:
         </p>
         <ul>
+          <li>Bluetooth input/output devices not being detected</li>
           <li>Prevent record button from being broken when clicking rapidly</li>
           <li>Flatpak: Remove unnecessary device access permission</li>
           <li>Make sure to initialize timeout variable when it's removed</li>
