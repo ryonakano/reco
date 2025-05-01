@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 20:59+0900\n"
+"POT-Creation-Date: 2025-05-01 12:24+0900\n"
 "PO-Revision-Date: 2024-05-03 10:45+0000\n"
 "Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/rosp/reco/de/>\n"
@@ -47,19 +47,19 @@ msgctxt "shortcut window"
 msgid "Start/Stop recording"
 msgstr "Aufnahme starten"
 
-#: data/reco.desktop.in.in:3
+#: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
 msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in.in:4
+#: data/reco.desktop.in.in:3
 msgid "Audio Recording App"
 msgstr "Audio-Aufnahme-App"
 
-#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
+#: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr ""
 
-#: data/reco.desktop.in.in:12
+#: data/reco.desktop.in.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Record;Aufnahme;Audio;Sound;Ton;Voice;Stimme;"
 
@@ -134,10 +134,6 @@ msgstr "Willkommensansicht; Wählen Sie Ihre Aufnahmeeinstellungen"
 #: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
 msgstr "Aufnahmeansicht"
-
-#: data/reco.metainfo.xml.in.in:39
-msgid "An indication that recording is successfully finished"
-msgstr "Eine Indikation, dass die Aufnahme erfolgreich beendet wurde"
 
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
@@ -386,6 +382,9 @@ msgstr "Auswählen"
 #: src/View/WelcomeView.vala:153
 msgid "Start recording"
 msgstr "Aufnahme starten"
+
+#~ msgid "An indication that recording is successfully finished"
+#~ msgstr "Eine Indikation, dass die Aufnahme erfolgreich beendet wurde"
 
 #, c-format
 #~ msgid "Recording from %s"
