@@ -62,6 +62,40 @@
   </developer>
 
   <releases>
+    <release version="5.1.0" date="2025-05-01" urgency="medium">
+      <description translate="no">
+        <p>
+          Improvements:
+        </p>
+        <ul>
+          <li>Port to libadwaita for modern look &amp; feel</li>
+          <li>Add Keyboard Shortcuts window</li>
+          <li>Add About dialog (not visible on Pantheon because elementary encourages to show app info in AppCenter instead of it)</li>
+          <li>Do not inhibit screen lock</li>
+          <li>Uninhibit sleep while pausing recording</li>
+          <li>Include both start and end date time in filenames</li>
+          <li>Remove redundant prefix "Recording from" in filenames</li>
+          <li>Do not translate default filenames</li>
+          <li>Detailed error message</li>
+          <li>Use mnemonics in the main menu</li>
+          <li>The default menu item "System" now appears at the top of the "Style" main menu</li>
+          <li>Flatpak: Update to GNOME platform 48</li>
+          <li>Flatpak: Update elementary Platform to 8.1</li>
+          <li>Update translations</li>
+        </ul>
+        <p>
+          Fixes:
+        </p>
+        <ul>
+          <li>Bluetooth input/output devices not being detected</li>
+          <li>Prevent record button from being broken when clicking rapidly</li>
+          <li>Flatpak: Remove unnecessary device access permission</li>
+          <li>Make sure to initialize timeout variable when it's removed</li>
+          <li>Fix substituting signed values to unsigned variables</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="5.0.2" date="2024-08-14" urgency="low">
       <description translate="no">
         <ul>
