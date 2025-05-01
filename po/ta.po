@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 20:59+0900\n"
+"POT-Creation-Date: 2025-05-01 12:24+0900\n"
 "PO-Revision-Date: 2025-04-20 23:37+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/rosp/reco/ta/>\n"
@@ -47,19 +47,19 @@ msgctxt "shortcut window"
 msgid "Start/Stop recording"
 msgstr "பதிவு செய்யத் தொடங்குங்கள்"
 
-#: data/reco.desktop.in.in:3
+#: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
 msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in.in:4
+#: data/reco.desktop.in.in:3
 msgid "Audio Recording App"
 msgstr "ஆடியோ ரெக்கார்டிங் பயன்பாடு"
 
-#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
+#: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "பதிவு செய்வதில் கவனம் செலுத்துங்கள்"
 
-#: data/reco.desktop.in.in:12
+#: data/reco.desktop.in.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "பதிவு; ஆடியோ; ஒலி; குரல்;"
 
@@ -132,10 +132,6 @@ msgstr "வரவேற்பு பார்வை; பதிவு உள்�
 #: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
 msgstr "பதிவு செய்யும் பார்வை"
-
-#: data/reco.metainfo.xml.in.in:39
-msgid "An indication that recording is successfully finished"
-msgstr "பதிவு வெற்றிகரமாக முடிந்தது என்பதற்கான அறிகுறி"
 
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
@@ -377,6 +373,9 @@ msgstr "தேர்ந்தெடு"
 #: src/View/WelcomeView.vala:153
 msgid "Start recording"
 msgstr "பதிவு செய்யத் தொடங்குங்கள்"
+
+#~ msgid "An indication that recording is successfully finished"
+#~ msgstr "பதிவு வெற்றிகரமாக முடிந்தது என்பதற்கான அறிகுறி"
 
 #, c-format
 #~ msgid "Recording from %s"

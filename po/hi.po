@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 20:59+0900\n"
+"POT-Creation-Date: 2025-05-01 12:24+0900\n"
 "PO-Revision-Date: 2024-05-16 15:01+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/rosp/reco/hi/>\n"
@@ -47,19 +47,19 @@ msgctxt "shortcut window"
 msgid "Start/Stop recording"
 msgstr "रिकॉर्डिंग प्रारंभ करें"
 
-#: data/reco.desktop.in.in:3
+#: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
 msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in.in:4
+#: data/reco.desktop.in.in:3
 msgid "Audio Recording App"
 msgstr "ऑडियो रिकॉर्डिंग ऐप"
 
-#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
+#: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "रिकॉर्डिंग पर ध्यान दें"
 
-#: data/reco.desktop.in.in:12
+#: data/reco.desktop.in.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "रिकॉर्ड;ऑडियो;ध्वनि;आवाज़;"
 
@@ -128,10 +128,6 @@ msgstr "स्वागत दृश्य; रिकॉर्डिंग व�
 #: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
 msgstr "रिकॉर्डिंग दृश्य"
-
-#: data/reco.metainfo.xml.in.in:39
-msgid "An indication that recording is successfully finished"
-msgstr "एक संकेत कि रिकॉर्डिंग सफलतापूर्वक समाप्त हो गई है"
 
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
@@ -379,6 +375,9 @@ msgstr "चुनें"
 #: src/View/WelcomeView.vala:153
 msgid "Start recording"
 msgstr "रिकॉर्डिंग प्रारंभ करें"
+
+#~ msgid "An indication that recording is successfully finished"
+#~ msgstr "एक संकेत कि रिकॉर्डिंग सफलतापूर्वक समाप्त हो गई है"
 
 #, c-format
 #~ msgid "Recording from %s"

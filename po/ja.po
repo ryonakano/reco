@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 20:59+0900\n"
+"POT-Creation-Date: 2025-05-01 12:24+0900\n"
 "PO-Revision-Date: 2025-04-06 13:01+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
@@ -43,19 +43,19 @@ msgctxt "shortcut window"
 msgid "Start/Stop recording"
 msgstr "録音を開始/終了する"
 
-#: data/reco.desktop.in.in:3
+#: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
 msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in.in:4
+#: data/reco.desktop.in.in:3
 msgid "Audio Recording App"
 msgstr "オーディオ録音アプリ"
 
-#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
+#: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "録音に集中します"
 
-#: data/reco.desktop.in.in:12
+#: data/reco.desktop.in.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Record;Audio;Sound;Voice;録音;オーディオ;サウンド;ボイス;"
 
@@ -126,10 +126,6 @@ msgstr "ようこそ画面では録音の設定をします"
 msgid "Recording view"
 msgstr "録音中の画面"
 
-#: data/reco.metainfo.xml.in.in:39
-msgid "An indication that recording is successfully finished"
-msgstr "録音が正常に完了したことを示すマーク"
-
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
 #. e.g.:
@@ -154,7 +150,8 @@ msgstr ""
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
-msgstr "音声入出力デバイスがない可能性があります。接続状態を確認してください。再発す"
+msgstr ""
+"音声入出力デバイスがない可能性があります。接続状態を確認してください。再発す"
 "る場合は、他のデバイスを使用してみてください。"
 
 #: src/MainWindow.vala:38
@@ -370,6 +367,9 @@ msgstr "選択"
 #: src/View/WelcomeView.vala:153
 msgid "Start recording"
 msgstr "録音を開始します"
+
+#~ msgid "An indication that recording is successfully finished"
+#~ msgstr "録音が正常に完了したことを示すマーク"
 
 #, c-format
 #~ msgid "Recording from %s"
