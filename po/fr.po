@@ -92,7 +92,6 @@ msgstr ""
 "ou pendant la lecture de vidéos sur Internet"
 
 #: data/reco.metainfo.xml.in.in:20
-#, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
