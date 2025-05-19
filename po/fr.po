@@ -180,7 +180,7 @@ msgstr "Sombre"
 
 #: src/MainWindow.vala:43
 msgid "_Style"
-msgstr "_Style : "
+msgstr "_Style"
 
 #: src/MainWindow.vala:44
 msgid "_Keyboard Shortcuts"
