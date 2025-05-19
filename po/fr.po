@@ -38,8 +38,6 @@ msgid "Quit"
 msgstr "Quitter"
 
 #: data/ui/help-overlay.blp:24
-#, fuzzy
-#| msgid "Recording view"
 msgctxt "shortcut window"
 msgid "Recording"
 msgstr "Fenêtre d'enregistrement"
