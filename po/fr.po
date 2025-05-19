@@ -43,7 +43,6 @@ msgid "Recording"
 msgstr "Fenêtre d'enregistrement"
 
 #: data/ui/help-overlay.blp:27
-#| msgid "Start recording"
 msgctxt "shortcut window"
 msgid "Start/Stop recording"
 msgstr "Démarrer/Stopper l'enregistrement"
