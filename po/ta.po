@@ -36,14 +36,12 @@ msgstr "வெளியேறு"
 #: data/ui/help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Recording"
-msgstr "பதிவு செய்தல் ..."
+msgstr "பதிவு செய்தல்"
 
 #: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgid "Start recording"
 msgctxt "shortcut window"
 msgid "Start/Stop recording"
-msgstr "பதிவு செய்யத் தொடங்குங்கள்"
+msgstr "பதிவு தொடங்கு/நிறுத்து"
 
 #: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
@@ -139,7 +137,7 @@ msgstr "பதிவு செய்யும் பார்வை"
 #. John Doe https://example.com
 #: src/Application.vala:124
 msgid "translator-credits"
-msgstr ""
+msgstr "தமிழ்நேரம் (TamilNeram.github.io)"
 
 #: src/MainWindow.vala:25
 msgid ""
@@ -147,12 +145,18 @@ msgid ""
 "app. Make sure you've installed them and try reinstalling them if this issue "
 "persists."
 msgstr ""
+"இது கோடெக்குகளைக் காணவில்லை அல்லது பயன்பாட்டின் முழுமையற்ற நிறுவல் காரணமாக இருக்கலாம். "
+"நீங்கள் அவற்றை நிறுவியுள்ளீர்கள் என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள், இந்த சிக்கல் தொடர்ந்தால் "
+"அவற்றை மீண்டும் நிறுவ முயற்சிக்கவும்."
 
 #: src/MainWindow.vala:26
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
 msgstr ""
+"ஒலி உள்ளீடு அல்லது வெளியீட்டு சாதனங்கள் காணாமல் போனதால் இது இருக்கலாம். நீங்கள் ஒன்றை "
+"இணைத்துள்ளீர்கள் என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள், இந்த சிக்கல் தொடர்ந்தால் இன்னொன்றைப் பயன்படுத்"
+"த முயற்சிக்கவும்."
 
 #: src/MainWindow.vala:38
 msgid "S_ystem"
@@ -163,8 +167,6 @@ msgid "_Light"
 msgstr "விளக்கு"
 
 #: src/MainWindow.vala:40
-#, fuzzy
-#| msgid "Dark"
 msgid "_Dark"
 msgstr "இருண்ட"
 
@@ -227,10 +229,8 @@ msgid "Save"
 msgstr "சேமி"
 
 #: src/MainWindow.vala:262
-#, fuzzy
-#| msgid "There was an error while starting recording."
 msgid "There was an unknown error while starting recording."
-msgstr "பதிவைத் தொடங்கும்போது பிழை ஏற்பட்டது."
+msgstr "பதிவைத் தொடங்கும்போது தெரியாத பிழை ஏற்பட்டது."
 
 #: src/MainWindow.vala:266
 msgid "Failed to start recording"
@@ -238,7 +238,7 @@ msgstr "பதிவு செய்யத் தவறிவிட்டது"
 
 #: src/MainWindow.vala:323
 msgid "Details:"
-msgstr ""
+msgstr "விவரங்கள்:"
 
 #: src/Model/Recorder.vala:321
 msgid "Recording is ongoing"
