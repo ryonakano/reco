@@ -22,7 +22,7 @@ modules:
         commit: 41e5803e61162d80a06974eebc67a511cc22e83d
         x-checker-data:
           type: git
-          tag-pattern: '^([\d.]+)$'
+          tag-pattern: ^([\d.]+)$
 
   - name: gst-libav
     buildsystem: meson
@@ -43,7 +43,7 @@ modules:
         commit: 781f43d5c539bfe77c72fbaa32fc589a02b03c40
         x-checker-data:
           type: git
-          tag-pattern: '^([\d.]+)$'
+          tag-pattern: ^([\d.]+)$
 
   - name: blueprint-compiler
     buildsystem: meson
