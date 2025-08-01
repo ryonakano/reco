@@ -2,15 +2,15 @@
 # Copyright (C) 2018-2025 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Ivan Eresko <ivan@programmer.net>, 2022.
-# lenemter <lenemter@gmail.com>, 2022, 2023, 2024.
+# lenemter <lenemter@gmail.com>, 2022, 2023, 2024, 2025.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-01 12:24+0900\n"
-"PO-Revision-Date: 2024-05-03 10:45+0000\n"
-"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
+"PO-Revision-Date: 2025-08-01 16:02+0000\n"
+"Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/rosp/reco/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -18,36 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5.3\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/ui/help-overlay.blp:10
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "Основные"
 
 #: data/ui/help-overlay.blp:13
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Сочетания клавиш"
 
 #: data/ui/help-overlay.blp:18
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Выйти"
 
 #: data/ui/help-overlay.blp:24
-#, fuzzy
-#| msgid "Recording view"
 msgctxt "shortcut window"
 msgid "Recording"
-msgstr "Экран записи"
+msgstr "Запись"
 
 #: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgid "Start recording"
 msgctxt "shortcut window"
 msgid "Start/Stop recording"
-msgstr "Начать запись"
+msgstr "Начать/закончить запись"
 
 #: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
@@ -140,7 +136,7 @@ msgstr "Экран записи"
 #. John Doe https://example.com
 #: src/Application.vala:124
 msgid "translator-credits"
-msgstr ""
+msgstr "Leo \"lenemter\" <lenemter@gmail.com>"
 
 #: src/MainWindow.vala:25
 msgid ""
@@ -148,49 +144,48 @@ msgid ""
 "app. Make sure you've installed them and try reinstalling them if this issue "
 "persists."
 msgstr ""
+"Это могло произойти из-за отсутствия кодеков или ошибки при установке "
+"приложения. Убедитесь, что всё установлено правильно. И если ошибка не "
+"уходит, попробуйте переустановить приложение."
 
 #: src/MainWindow.vala:26
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
 msgstr ""
+"Это могло произойти из-за отсутствия устройств ввода и вывода. Убедитесь, "
+"что всё подключено. И если ошибка не уходит, попробуйте использовать другое "
+"утройство."
 
 #: src/MainWindow.vala:38
-#, fuzzy
-#| msgid "System"
 msgid "S_ystem"
 msgstr "Система"
 
 #: src/MainWindow.vala:39
-#, fuzzy
-#| msgid "Light"
 msgid "_Light"
 msgstr "Светлый"
 
 #: src/MainWindow.vala:40
-#, fuzzy
-#| msgid "Dark"
 msgid "_Dark"
 msgstr "Тёмный"
 
 #: src/MainWindow.vala:43
-#, fuzzy
 msgid "_Style"
-msgstr "Стиль:"
+msgstr "Стиль"
 
 #: src/MainWindow.vala:44
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "Сочетания клавиш"
 
 #. TRANSLATORS: %s will be replaced by the app name
 #: src/MainWindow.vala:48
 #, c-format
 msgid "_About %s"
-msgstr ""
+msgstr "О %s"
 
 #: src/MainWindow.vala:52
 msgid "Main Menu"
-msgstr ""
+msgstr "Главное меню"
 
 #: src/MainWindow.vala:121
 msgid "Error while recording"
@@ -209,21 +204,20 @@ msgid "There was an error while moving file to the designated location."
 msgstr "Произошла ошибка во время создания файла в нужной локации."
 
 #: src/MainWindow.vala:158
-#, fuzzy
 msgid "Saved recording"
-msgstr "Сохраните свою запись"
+msgstr "Запись сохранена"
 
 #: src/MainWindow.vala:162
 msgid "Recording saved successfully."
-msgstr ""
+msgstr "Запись была успешно сохранена."
 
 #: src/MainWindow.vala:164
 msgid "Click here to play."
-msgstr ""
+msgstr "Нажмите, чтобы прослушать."
 
 #: src/MainWindow.vala:167
 msgid "Open folder"
-msgstr ""
+msgstr "Открыть папку"
 
 #: src/MainWindow.vala:221
 msgid "Save your recording"
@@ -234,10 +228,8 @@ msgid "Save"
 msgstr "Сохранить"
 
 #: src/MainWindow.vala:262
-#, fuzzy
-#| msgid "There was an error while starting recording."
 msgid "There was an unknown error while starting recording."
-msgstr "Произошла ошибка во время начала запаси."
+msgstr "При начале записи произошла неизвестная ошибка."
 
 #: src/MainWindow.vala:266
 msgid "Failed to start recording"
@@ -245,7 +237,7 @@ msgstr "Не удалось начать запись"
 
 #: src/MainWindow.vala:323
 msgid "Details:"
-msgstr ""
+msgstr "Детали:"
 
 #: src/Model/Recorder.vala:321
 msgid "Recording is ongoing"
