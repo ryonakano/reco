@@ -162,6 +162,13 @@ public class View.RecordView : AbstractView {
 
         levelbar.refresh_begin (get_current_peak);
 
+        /*
+         * cancel_button is focused implicitly by default when RecordView is shown,
+         * which has a risk to press Space/Enter key accidentally and lost recordings.
+         * So, focus to pause_button explicitly.
+         */
+        pause_button.grab_focus ();
+
         refresh_resume ();
     }
 
