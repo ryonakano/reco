@@ -8,9 +8,6 @@ public class View.WelcomeView : AbstractView {
 
     private unowned Manager.DeviceManager device_manager;
 
-    private uint record_button_timeout_color = 0;
-    private uint record_button_timeout_icon = 0;
-
     private Ryokucha.DropDownText source_combobox;
     private Ryokucha.DropDownText mic_combobox;
     private Gtk.SpinButton delay_spin;
@@ -261,33 +258,6 @@ public class View.WelcomeView : AbstractView {
         }
 
         return true;
-    }
-
-    public void succeeded_animation_begin () {
-        record_button.add_css_class ("record-button-success");
-        record_button.icon_name = "record-completed-symbolic";
-        record_button_timeout_color = Timeout.add_once (3000, () => {
-            record_button.remove_css_class ("record-button-success");
-            record_button_timeout_color = 0;
-        });
-        record_button_timeout_icon = Timeout.add_once (3250, () => {
-            record_button.icon_name = "audio-input-microphone-symbolic";
-            record_button_timeout_icon = 0;
-        });
-    }
-
-    public void succeeded_animation_end () {
-        if (record_button_timeout_color != 0) {
-            Source.remove (record_button_timeout_color);
-            record_button_timeout_color = 0;
-            record_button.remove_css_class ("record-button-success");
-        }
-
-        if (record_button_timeout_icon != 0) {
-            Source.remove (record_button_timeout_icon);
-            record_button_timeout_icon = 0;
-            record_button.icon_name = "audio-input-microphone-symbolic";
-        }
     }
 
     private bool get_is_source_connected () {
