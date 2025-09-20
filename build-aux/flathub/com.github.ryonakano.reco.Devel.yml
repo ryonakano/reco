@@ -1,6 +1,6 @@
 id: com.github.ryonakano.reco.Devel
 runtime: org.gnome.Platform
-runtime-version: '48'
+runtime-version: '49'
 sdk: org.gnome.Sdk
 command: com.github.ryonakano.reco.Devel
 finish-args:

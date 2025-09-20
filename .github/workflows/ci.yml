@@ -12,12 +12,12 @@ jobs:
         include:
           - arch: x86_64
             runs-on: ubuntu-latest
-            container-image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-48
+            container-image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-49
             repository-name: flathub
             repository-url: https://flathub.org/repo/flathub.flatpakrepo
           - arch: aarch64
             runs-on: ubuntu-24.04-arm
-            container-image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-48
+            container-image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-49
             repository-name: flathub
             repository-url: https://flathub.org/repo/flathub.flatpakrepo
           - arch: x86_64
