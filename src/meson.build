@@ -21,7 +21,7 @@ dependencies = [
     granite_dep,
     dependency('gstreamer-1.0', version: '>= 1.20'),
     dependency('gtk4', version: '>= 4.10'),
-    dependency('libadwaita-1', version: '>= 1.8'),
+    dependency('libadwaita-1', version: '>= 1.8'), # Adw.ShortcutsDialog
     dependency('livechart', version: '>= 1.10.0', allow_fallback: get_option('use_submodule')),
     dependency('pango'),
     dependency('ryokucha', allow_fallback: get_option('use_submodule')),
