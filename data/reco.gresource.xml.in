@@ -3,7 +3,7 @@
   <gresource prefix="/com/github/ryonakano/reco">
     <file alias="Application.css">Application.css</file>
 
-    <file preprocess="xml-stripblanks" alias="gtk/help-overlay.ui">ui/help-overlay.ui</file>
+    <file preprocess="xml-stripblanks" alias="shortcuts-dialog.ui">ui/shortcuts-dialog.ui</file>
 
     <file preprocess="xml-stripblanks" alias="@APP_ID@.metainfo.xml">@APP_ID@.metainfo.xml</file>
   </gresource>
