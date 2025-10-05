@@ -21,7 +21,7 @@ modules:
         commit: 41e5803e61162d80a06974eebc67a511cc22e83d
         x-checker-data:
           type: git
-          tag-pattern: '^([\d.]+)$'
+          tag-pattern: ^([\d.]+)$
 
   - name: gst-libav
     buildsystem: meson
@@ -42,7 +42,7 @@ modules:
         commit: 781f43d5c539bfe77c72fbaa32fc589a02b03c40
         x-checker-data:
           type: git
-          tag-pattern: '^([\d.]+)$'
+          tag-pattern: ^([\d.]+)$
 
   - name: blueprint-compiler
     buildsystem: meson
@@ -50,12 +50,12 @@ modules:
       - '*'
     sources:
       - type: git
-        url: https://gitlab.gnome.org/jwestman/blueprint-compiler.git
-        tag: v0.16.0
-        commit: 04ef0944db56ab01307a29aaa7303df6067cb3c0
+        url: https://gitlab.gnome.org/GNOME/blueprint-compiler.git
+        tag: 0.18.0
+        commit: 07c9c9df9cd1b6b4454ecba21ee58211e9144a4b
         x-checker-data:
           type: git
-          tag-pattern: ^v([\d.]+)$
+          tag-pattern: ^([\d.]+)$
 
   - name: reco
     buildsystem: meson

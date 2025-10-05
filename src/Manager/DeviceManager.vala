@@ -71,12 +71,13 @@ public class Manager.DeviceManager : Object {
         foreach (var device in monitor.get_devices ()) {
             Gst.Structure properties = device.properties;
 
-            if (properties.get_string ("device.class") != "sound") {
-                continue;
-            }
-
             if (device.has_classes (CLASS_NAME_SOURCE)) {
                 if (sources.contains (device)) {
+                    continue;
+                }
+
+                // We manually build device names of monitors so don't add them as a source here
+                if (properties.get_string ("device.class") == "monitor") {
                     continue;
                 }
 

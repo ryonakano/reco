@@ -7,5 +7,4 @@ Exec=@APP_ID@
 Icon=@APP_ID@
 Terminal=false
 Type=Application
-X-GNOME-UsesNotifications=true
 Keywords=Record;Audio;Sound;Voice;

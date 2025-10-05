@@ -11,6 +11,7 @@ public class MainWindow : Adw.ApplicationWindow {
     private View.CountDownView countdown_view;
     private View.RecordView record_view;
     private Gtk.Stack stack;
+    private Adw.ToastOverlay toast_overlay;
 
     private static Gee.HashMap<int, string> starterr_message_table;
 
@@ -65,7 +66,7 @@ public class MainWindow : Adw.ApplicationWindow {
         record_view = new View.RecordView ();
 
         stack = new Gtk.Stack () {
-            margin_bottom = 6,
+            margin_bottom = 24,
             margin_start = 6,
             margin_end = 6
         };
@@ -73,9 +74,13 @@ public class MainWindow : Adw.ApplicationWindow {
         stack.add_child (countdown_view);
         stack.add_child (record_view);
 
+        toast_overlay = new Adw.ToastOverlay () {
+            child = stack
+        };
+
         var toolbar_view = new Adw.ToolbarView ();
         toolbar_view.add_top_bar (headerbar);
-        toolbar_view.set_content (stack);
+        toolbar_view.set_content (toast_overlay);
 
         content = toolbar_view;
         width_request = 350;
@@ -153,21 +158,13 @@ public class MainWindow : Adw.ApplicationWindow {
                 }
 
                 if (is_success) {
-                    welcome_view.succeeded_animation_begin ();
+                    var saved_toast = new Adw.Toast (_("Recording Saved")) {
+                        button_label = _("Open Folder"),
+                        action_name = "app.open-folder",
+                        action_target = new Variant.string (save_path.get_parent ().get_path ())
+                    };
 
-                    var notification = new Notification (_("Saved recording"));
-                    // The app that handles actions would be already destroyed when the user activates the notification,
-                    // so do not offer actions if it's decided to be destroyed
-                    if (destroy_on_save) {
-                        notification.set_body (_("Recording saved successfully."));
-                    } else {
-                        notification.set_body (_("Click here to play."));
-                        // Only actions starting with "app." can be used here
-                        notification.set_default_action_and_target_value ("app.open-folder", new Variant.string (save_path.get_path ()));
-                        notification.add_button_with_target_value (_("Open folder"), "app.open-folder", new Variant.string (save_path.get_parent ().get_path ()));
-                    }
-
-                    application.send_notification (Config.APP_ID, notification);
+                    toast_overlay.add_toast (saved_toast);
                 }
 
                 if (destroy_on_save) {
@@ -240,9 +237,6 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     private void show_welcome () {
-        // Stop ongoing animations
-        welcome_view.succeeded_animation_end ();
-
         stack.visible_child = welcome_view;
     }
 

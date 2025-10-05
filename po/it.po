@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 20:59+0900\n"
-"PO-Revision-Date: 2025-03-31 04:19+0000\n"
+"POT-Creation-Date: 2025-05-01 12:24+0900\n"
+"PO-Revision-Date: 2025-08-11 12:02+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco/it/>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/ui/help-overlay.blp:10
 msgctxt "shortcut window"
@@ -43,19 +43,19 @@ msgctxt "shortcut window"
 msgid "Start/Stop recording"
 msgstr "Avvia/Interrompi registrazione"
 
-#: data/reco.desktop.in.in:3
+#: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
 msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in.in:4
+#: data/reco.desktop.in.in:3
 msgid "Audio Recording App"
 msgstr "App di registrazione audio"
 
-#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
+#: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "Concentrati sulla registrazione"
 
-#: data/reco.desktop.in.in:12
+#: data/reco.desktop.in.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Registra;Audio;Suono;Voce;"
 
@@ -130,10 +130,6 @@ msgstr "Vista di benvenuto; eseguire la configurazione della registrazione"
 msgid "Recording view"
 msgstr "Vista di registrazione"
 
-#: data/reco.metainfo.xml.in.in:39
-msgid "An indication that recording is successfully finished"
-msgstr "Un'indicazione che la registrazione è terminata con successo"
-
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
 #. e.g.:
@@ -150,12 +146,18 @@ msgid ""
 "app. Make sure you've installed them and try reinstalling them if this issue "
 "persists."
 msgstr ""
+"Ciò è probabilmente dovuto alla mancanza di codec o all'installazione "
+"incompleta dell'app. Assicurati di averli installati e prova a reinstallarli "
+"se il problema persiste."
 
 #: src/MainWindow.vala:26
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
 msgstr ""
+"Ciò è probabilmente dovuto alla mancanza di dispositivi di input o output "
+"audio. Assicurati di averne collegato uno e prova a utilizzarne un altro se "
+"il problema persiste."
 
 #: src/MainWindow.vala:38
 msgid "S_ystem"
@@ -230,10 +232,9 @@ msgid "Save"
 msgstr "Salva"
 
 #: src/MainWindow.vala:262
-#, fuzzy
-#| msgid "There was an error while starting recording."
 msgid "There was an unknown error while starting recording."
-msgstr "Si è verificato un errore durante l'avvio della registrazione."
+msgstr ""
+"Si è verificato un errore sconosciuto durante l'avvio della registrazione."
 
 #: src/MainWindow.vala:266
 msgid "Failed to start recording"
@@ -241,7 +242,7 @@ msgstr "Impossibile avviare la registrazione"
 
 #: src/MainWindow.vala:323
 msgid "Details:"
-msgstr ""
+msgstr "Dettagli:"
 
 #: src/Model/Recorder.vala:321
 msgid "Recording is ongoing"
@@ -374,6 +375,9 @@ msgstr "Seleziona"
 #: src/View/WelcomeView.vala:153
 msgid "Start recording"
 msgstr "Avvia registrazione"
+
+#~ msgid "An indication that recording is successfully finished"
+#~ msgstr "Un'indicazione che la registrazione è terminata con successo"
 
 #, c-format
 #~ msgid "Recording from %s"

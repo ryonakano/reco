@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 20:59+0900\n"
-"PO-Revision-Date: 2025-04-20 23:37+0000\n"
+"POT-Creation-Date: 2025-05-01 12:24+0900\n"
+"PO-Revision-Date: 2025-07-04 15:03+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/rosp/reco/ta/>\n"
 "Language: ta\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/ui/help-overlay.blp:10
 msgctxt "shortcut window"
@@ -34,32 +34,28 @@ msgid "Quit"
 msgstr "வெளியேறு"
 
 #: data/ui/help-overlay.blp:24
-#, fuzzy
-#| msgid "Recording view"
 msgctxt "shortcut window"
 msgid "Recording"
-msgstr "பதிவு செய்யும் பார்வை"
+msgstr "பதிவு செய்தல்"
 
 #: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgid "Start recording"
 msgctxt "shortcut window"
 msgid "Start/Stop recording"
-msgstr "பதிவு செய்யத் தொடங்குங்கள்"
+msgstr "பதிவு தொடங்கு/நிறுத்து"
 
-#: data/reco.desktop.in.in:3
+#: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
 msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in.in:4
+#: data/reco.desktop.in.in:3
 msgid "Audio Recording App"
 msgstr "ஆடியோ ரெக்கார்டிங் பயன்பாடு"
 
-#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
+#: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "பதிவு செய்வதில் கவனம் செலுத்துங்கள்"
 
-#: data/reco.desktop.in.in:12
+#: data/reco.desktop.in.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr "பதிவு; ஆடியோ; ஒலி; குரல்;"
 
@@ -133,10 +129,6 @@ msgstr "வரவேற்பு பார்வை; பதிவு உள்�
 msgid "Recording view"
 msgstr "பதிவு செய்யும் பார்வை"
 
-#: data/reco.metainfo.xml.in.in:39
-msgid "An indication that recording is successfully finished"
-msgstr "பதிவு வெற்றிகரமாக முடிந்தது என்பதற்கான அறிகுறி"
-
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
 #. e.g.:
@@ -145,7 +137,7 @@ msgstr "பதிவு வெற்றிகரமாக முடிந்த�
 #. John Doe https://example.com
 #: src/Application.vala:124
 msgid "translator-credits"
-msgstr ""
+msgstr "தமிழ்நேரம் (TamilNeram.github.io)"
 
 #: src/MainWindow.vala:25
 msgid ""
@@ -153,12 +145,18 @@ msgid ""
 "app. Make sure you've installed them and try reinstalling them if this issue "
 "persists."
 msgstr ""
+"இது கோடெக்குகளைக் காணவில்லை அல்லது பயன்பாட்டின் முழுமையற்ற நிறுவல் காரணமாக இருக்கலாம். "
+"நீங்கள் அவற்றை நிறுவியுள்ளீர்கள் என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள், இந்த சிக்கல் தொடர்ந்தால் "
+"அவற்றை மீண்டும் நிறுவ முயற்சிக்கவும்."
 
 #: src/MainWindow.vala:26
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
 msgstr ""
+"ஒலி உள்ளீடு அல்லது வெளியீட்டு சாதனங்கள் காணாமல் போனதால் இது இருக்கலாம். நீங்கள் ஒன்றை "
+"இணைத்துள்ளீர்கள் என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள், இந்த சிக்கல் தொடர்ந்தால் இன்னொன்றைப் பயன்படுத்"
+"த முயற்சிக்கவும்."
 
 #: src/MainWindow.vala:38
 msgid "S_ystem"
@@ -169,8 +167,6 @@ msgid "_Light"
 msgstr "விளக்கு"
 
 #: src/MainWindow.vala:40
-#, fuzzy
-#| msgid "Dark"
 msgid "_Dark"
 msgstr "இருண்ட"
 
@@ -233,10 +229,8 @@ msgid "Save"
 msgstr "சேமி"
 
 #: src/MainWindow.vala:262
-#, fuzzy
-#| msgid "There was an error while starting recording."
 msgid "There was an unknown error while starting recording."
-msgstr "பதிவைத் தொடங்கும்போது பிழை ஏற்பட்டது."
+msgstr "பதிவைத் தொடங்கும்போது தெரியாத பிழை ஏற்பட்டது."
 
 #: src/MainWindow.vala:266
 msgid "Failed to start recording"
@@ -244,7 +238,7 @@ msgstr "பதிவு செய்யத் தவறிவிட்டது"
 
 #: src/MainWindow.vala:323
 msgid "Details:"
-msgstr ""
+msgstr "விவரங்கள்:"
 
 #: src/Model/Recorder.vala:321
 msgid "Recording is ongoing"
@@ -377,6 +371,9 @@ msgstr "தேர்ந்தெடு"
 #: src/View/WelcomeView.vala:153
 msgid "Start recording"
 msgstr "பதிவு செய்யத் தொடங்குங்கள்"
+
+#~ msgid "An indication that recording is successfully finished"
+#~ msgstr "பதிவு வெற்றிகரமாக முடிந்தது என்பதற்கான அறிகுறி"
 
 #, c-format
 #~ msgid "Recording from %s"

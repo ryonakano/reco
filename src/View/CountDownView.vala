@@ -86,6 +86,14 @@ public class View.CountDownView : AbstractView {
         delaytimer.seek (sec);
         delay_remaining_label.label = delaytimer.to_string ();
 
+        /*
+         * cancel_button is focused implicitly by default when RecordView is shown,
+         * which has a possibility to press Space/Enter key accidentally
+         * and result that recording is cancelled unexpectedly.
+         * So, focus to pause_button explicitly.
+         */
+        pause_button.grab_focus ();
+
         pause_button_set_pause ();
     }
 

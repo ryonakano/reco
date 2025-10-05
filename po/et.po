@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 20:59+0900\n"
+"POT-Creation-Date: 2025-05-01 12:24+0900\n"
 "PO-Revision-Date: 2025-04-06 13:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/rosp/reco/et/>\n"
@@ -43,19 +43,19 @@ msgctxt "shortcut window"
 msgid "Start/Stop recording"
 msgstr "Alusta salvestamist või lõpeta salvestamine"
 
-#: data/reco.desktop.in.in:3
+#: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
 msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in.in:4
+#: data/reco.desktop.in.in:3
 msgid "Audio Recording App"
 msgstr "Rakendus helide salvestamiseks"
 
-#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
+#: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "Mugav helisalvestus"
 
-#: data/reco.desktop.in.in:12
+#: data/reco.desktop.in.in:11
 msgid "Record;Audio;Sound;Voice;"
 msgstr ""
 "Record;Audio;Sound;Voice;hääl;heli;salvestus;salvestis;salvestama;"
@@ -127,10 +127,6 @@ msgstr "Avavaade koos salvestamise seadistsutega"
 #: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
 msgstr "Salvestusvaade"
-
-#: data/reco.metainfo.xml.in.in:39
-msgid "An indication that recording is successfully finished"
-msgstr "Kinnitus salvestamise õnnestumise kohta"
 
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
@@ -374,6 +370,9 @@ msgstr "Vali"
 #: src/View/WelcomeView.vala:153
 msgid "Start recording"
 msgstr "Alusta salvestamisega"
+
+#~ msgid "An indication that recording is successfully finished"
+#~ msgstr "Kinnitus salvestamise õnnestumise kohta"
 
 #, c-format
 #~ msgid "Recording from %s"
