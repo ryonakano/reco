@@ -151,6 +151,16 @@ namespace Model {
 
                 sys_sound.set ("device", monitor_name);
                 debug ("sound source (system): \"Monitor of %s\"", default_sink.display_name);
+
+                // Set properties that can be used in monitor apps e.g. pavucontrol or gnome-system-monitor
+                var pa_props = new Gst.Structure.from_string (
+                    "props" + ",media.role=music"
+                            + ",application.id=" + Config.APP_ID
+                            + ",application.icon_name=" + Config.APP_ID
+                    , null
+                );
+                sys_sound.set ("stream-properties", pa_props);
+
                 pipeline.add (sys_sound);
                 sys_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
             }
@@ -165,6 +175,16 @@ namespace Model {
                 }
 
                 debug ("sound source (microphone): \"%s\"", microphone.display_name);
+
+                // Set properties that can be used in monitor apps e.g. pavucontrol or gnome-system-monitor
+                var pa_props = new Gst.Structure.from_string (
+                    "props" + ",media.role=music"
+                            + ",application.id=" + Config.APP_ID
+                            + ",application.icon_name=" + Config.APP_ID
+                    , null
+                );
+                mic_sound.set ("stream-properties", pa_props);
+
                 pipeline.add (mic_sound);
                 mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
             }

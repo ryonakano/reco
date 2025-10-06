@@ -145,6 +145,10 @@ public class Application : Adw.Application {
         Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (Config.GETTEXT_PACKAGE);
 
+        // Set human-readable string to the application name that can be used in monitor apps
+        // e.g. pavucontrol or gnome-system-monitor
+        Environment.set_application_name (Config.APP_NAME);
+
         // Load and setup styles
         unowned var display = Gdk.Display.get_default ();
 
