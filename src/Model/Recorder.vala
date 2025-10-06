@@ -134,7 +134,6 @@ namespace Model {
 
             SourceID source = (SourceID) Application.settings.get_enum ("source");
 
-
             Gst.Element? sys_sound = null;
             if (source != SourceID.MIC) {
                 sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
