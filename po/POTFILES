@@ -1,4 +1,4 @@
-data/ui/help-overlay.blp
+data/ui/shortcuts-dialog.blp
 data/reco.desktop.in.in
 data/reco.metainfo.xml.in.in
 src/Application.vala
