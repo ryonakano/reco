@@ -134,6 +134,7 @@ namespace Model {
 
             SourceID source = (SourceID) Application.settings.get_enum ("source");
 
+
             Gst.Element? sys_sound = null;
             if (source != SourceID.MIC) {
                 sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
@@ -152,9 +153,9 @@ namespace Model {
                 sys_sound.set ("device", monitor_name);
                 debug ("sound source (system): \"Monitor of %s\"", default_sink.display_name);
 
+                // Set properties that can be used in monitor apps e.g. pavucontrol or gnome-system-monitor
                 var pa_props = new Gst.Structure.from_string (
-                    "props" + ",application.name=Reco"
-                            + ",media.role=music"
+                    "props" + ",media.role=music"
                             + ",application.id=" + Config.APP_ID
                             + ",application.icon_name=" + Config.APP_ID
                     , null
@@ -176,9 +177,9 @@ namespace Model {
 
                 debug ("sound source (microphone): \"%s\"", microphone.display_name);
 
+                // Set properties that can be used in monitor apps e.g. pavucontrol or gnome-system-monitor
                 var pa_props = new Gst.Structure.from_string (
-                    "props" + ",application.name=Reco"
-                            + ",media.role=music"
+                    "props" + ",media.role=music"
                             + ",application.id=" + Config.APP_ID
                             + ",application.icon_name=" + Config.APP_ID
                     , null
