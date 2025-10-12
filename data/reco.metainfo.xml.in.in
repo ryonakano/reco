@@ -62,6 +62,19 @@
   </developer>
 
   <releases>
+    <release version="5.1.1" date="2025-10-12" urgency="low">
+      <description translate="no">
+        <ul>
+          <li>Focus to pause button by default to avoid unintentional cancel</li>
+          <li>Show a toast, generic design, instead of changing appearance of the record button when recording succeeded</li>
+          <li>App name and icon are now displayed correctly in monitoring apps e.g. pavucontrol or gnome-system-monitor</li>
+          <li>Flatpak: Update to GNOME platform 49</li>
+          <li>Flatpak: Update blueprint-compiler to 0.18.0</li>
+          <li>Update translations</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="5.1.0" date="2025-05-01" urgency="medium">
       <description translate="no">
         <p>
