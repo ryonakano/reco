@@ -4,51 +4,47 @@
 # Safak Genisol (@safak45x), 2019, 2020.
 # Sabri Ünal <libreajans@gmail.com>, 2022, 2023.
 # Oğuz Ersen <oguz@ersen.moe>, 2022, 2023.
-# Sabri Ünal <yakushabb@gmail.com>, 2024.
+# Sabri Ünal <yakushabb@gmail.com>, 2024, 2025.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-01 12:24+0900\n"
-"PO-Revision-Date: 2024-05-03 10:45+0000\n"
-"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
+"PO-Revision-Date: 2025-10-25 10:02+0000\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5.3\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: data/ui/help-overlay.blp:10
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: data/ui/help-overlay.blp:13
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Klavye Kısayolları"
 
 #: data/ui/help-overlay.blp:18
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Çık"
 
 #: data/ui/help-overlay.blp:24
-#, fuzzy
-#| msgid "Recording view"
 msgctxt "shortcut window"
 msgid "Recording"
-msgstr "Kayıt görünümü"
+msgstr "Kayıt"
 
 #: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgid "Start recording"
 msgctxt "shortcut window"
 msgid "Start/Stop recording"
-msgstr "Kaydı başlat"
+msgstr "Kaydı Başlat/Durdur"
 
 #: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
@@ -142,7 +138,7 @@ msgstr "Kayıt görünümü"
 #. John Doe https://example.com
 #: src/Application.vala:124
 msgid "translator-credits"
-msgstr ""
+msgstr "Sabri Ünal <yakushabb@gmail.com>"
 
 #: src/MainWindow.vala:25
 msgid ""
@@ -150,46 +146,44 @@ msgid ""
 "app. Make sure you've installed them and try reinstalling them if this issue "
 "persists."
 msgstr ""
+"Bunun nedeni muhtemelen eksik kod çözücü bileşenleri yaa da uygulamanın "
+"eksik kurulumu olabilir. Bunları kurduğunuzdan emin olun ve bu sorun devam "
+"ederse yeniden kurmayı deneyin."
 
 #: src/MainWindow.vala:26
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
 msgstr ""
+"Bunun nedeni muhtemelen eksik ses girdi ya da çıktı aygıtlarıdır. Birini "
+"bağladığınızdan emin olun ve bu sorun devam ederse başka bir tane kullanmayı "
+"deneyin."
 
 #: src/MainWindow.vala:38
-#, fuzzy
-#| msgid "System"
 msgid "S_ystem"
-msgstr "Sistem"
+msgstr "_Sistem"
 
 #: src/MainWindow.vala:39
-#, fuzzy
-#| msgid "Light"
 msgid "_Light"
-msgstr "Açık"
+msgstr "_Açık"
 
 #: src/MainWindow.vala:40
-#, fuzzy
-#| msgid "Dark"
 msgid "_Dark"
-msgstr "Koyu"
+msgstr "_Koyu"
 
 #: src/MainWindow.vala:43
-#, fuzzy
-#| msgid "Style"
 msgid "_Style"
-msgstr "Biçem"
+msgstr "_Biçem"
 
 #: src/MainWindow.vala:44
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Klavye Kısayolları"
 
 #. TRANSLATORS: %s will be replaced by the app name
 #: src/MainWindow.vala:48
 #, c-format
 msgid "_About %s"
-msgstr ""
+msgstr "%s _Hakkında"
 
 #: src/MainWindow.vala:52
 msgid "Main Menu"
@@ -236,10 +230,8 @@ msgid "Save"
 msgstr "Kaydet"
 
 #: src/MainWindow.vala:262
-#, fuzzy
-#| msgid "There was an error while starting recording."
 msgid "There was an unknown error while starting recording."
-msgstr "Kayıt başlatılırken bir hata oluştu."
+msgstr "Kayıt başlatılırken bilinmeyen bir hata oluştu."
 
 #: src/MainWindow.vala:266
 msgid "Failed to start recording"
@@ -247,7 +239,7 @@ msgstr "Kayıt başlatılamadı"
 
 #: src/MainWindow.vala:323
 msgid "Details:"
-msgstr ""
+msgstr "Ayrıntılar:"
 
 #: src/Model/Recorder.vala:321
 msgid "Recording is ongoing"
