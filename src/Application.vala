@@ -74,11 +74,11 @@ public class Application : Adw.Application {
         unowned string path = parameter.get_string ();
         var launcher = new Gtk.FileLauncher (File.new_for_path (path));
 
-        launcher.launch.begin (window, null, (obj, res) => {
+        launcher.open_containing_folder.begin (window, null, (obj, res) => {
             try {
-                launcher.launch.end (res);
+                launcher.open_containing_folder.end (res);
             } catch (Error err) {
-                warning ("Failed to Gtk.FileLauncher.launch: %s", err.message);
+                warning ("Failed to Gtk.FileLauncher.open_containing_folder: %s", err.message);
             }
         });
     }
