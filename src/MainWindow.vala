@@ -161,7 +161,7 @@ public class MainWindow : Adw.ApplicationWindow {
                     var saved_toast = new Adw.Toast (_("Recording Saved")) {
                         button_label = _("Open Folder"),
                         action_name = "app.open-folder",
-                        action_target = new Variant.string (save_path.get_parent ().get_path ())
+                        action_target = new Variant.string (save_path.get_path ())
                     };
 
                     toast_overlay.add_toast (saved_toast);
