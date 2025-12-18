@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-01 12:24+0900\n"
-"PO-Revision-Date: 2025-03-23 06:44+0000\n"
+"PO-Revision-Date: 2025-12-19 23:00+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/reco/oc/>\n"
 "Language: oc\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: data/ui/help-overlay.blp:10
 msgctxt "shortcut window"
@@ -89,18 +89,25 @@ msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
+"Enregistrament dins divèrses formats d'usatge corrent. Pren en carga ALAC, "
+"FLAC, MP3, Ogg Vorbis, Opus e WAV."
 
 #: data/reco.metainfo.xml.in.in:21
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
+"Enregistrament cronometrat. Podètz definir un delai abans d'enregistrar fins "
+"a 15 segondas, e la durada de l'enregistrament fins a 600 segondas."
 
 #: data/reco.metainfo.xml.in.in:22
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
+"Causida del luòc d'enregistrament. Podètz causir se l'aplicacion enregistra "
+"automaticament o manualament los enregistraments dins un repertòri de vòstra "
+"causida."
 
 #: data/reco.metainfo.xml.in.in:23
 msgid ""
@@ -108,10 +115,14 @@ msgid ""
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
+"Enregistrament a la sortida de l'aplicacion. Quitament se quitatz "
+"l'aplicacion per cas pendent un enregistrament, aqueste es salvat "
+"automaticament, o la fenèstra de seleccion de fichièr s'aficha – segon "
+"vòstras preferéncias."
 
 #: data/reco.metainfo.xml.in.in:29
 msgid "Welcome view; perform recording configuration"
-msgstr ""
+msgstr "Vista de benvenguda ; efectuar la configuracion de l'enregistrament"
 
 #: data/reco.metainfo.xml.in.in:34
 msgid "Recording view"
