@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-01 12:24+0900\n"
-"PO-Revision-Date: 2025-12-19 23:00+0000\n"
+"PO-Revision-Date: 2025-12-21 16:00+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/reco/oc/>\n"
 "Language: oc\n"
@@ -144,12 +144,18 @@ msgid ""
 "app. Make sure you've installed them and try reinstalling them if this issue "
 "persists."
 msgstr ""
+"Aquò se deu benlèu a de còdecs que mancan o a una installacion incomplèta de "
+"l'aplicacion. Asseguratz-vos que los avètz installats e ensajatz de los "
+"tornar installar se lo problèma persistís."
 
 #: src/MainWindow.vala:26
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
 msgstr ""
+"Aquò es possiblement degut a de periferics d'entrada o de sortida de son que "
+"mancan. Asseguratz-vos que n'avètz connectat un e ensajatz d'utilizar un "
+"autre se lo problèma persistís."
 
 #: src/MainWindow.vala:38
 msgid "S_ystem"
@@ -223,10 +229,8 @@ msgid "Save"
 msgstr "Enregistrar"
 
 #: src/MainWindow.vala:262
-#, fuzzy
-#| msgid "There was an error while starting recording."
 msgid "There was an unknown error while starting recording."
-msgstr "I a agut una error en lançant l'enregistrament."
+msgstr "I a agut una error desconeguda en lançant l'enregistrament."
 
 #: src/MainWindow.vala:266
 msgid "Failed to start recording"
@@ -234,7 +238,7 @@ msgstr "Fracàs de l'aviada de l'enregistrament"
 
 #: src/MainWindow.vala:323
 msgid "Details:"
-msgstr ""
+msgstr "Detalhs :"
 
 #: src/Model/Recorder.vala:321
 msgid "Recording is ongoing"
