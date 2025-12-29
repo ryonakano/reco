@@ -17,13 +17,15 @@ modules:
   - name: live-chart
     buildsystem: meson
     sources:
-      - type: git
-        url: https://github.com/lcallarec/live-chart.git
-        tag: 1.10.0
-        commit: 41e5803e61162d80a06974eebc67a511cc22e83d
+      - type: archive
+        url: https://github.com/lcallarec/live-chart/archive/1.10.0.tar.gz
+        sha256: 3f54c7569cc2a4711b5689038055aefc4321636f3e6dd4945e4be204bc9d4843
         x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
+          type: json
+          url: https://api.github.com/repos/lcallarec/live-chart/releases/latest
+          version-query: .tag_name
+          url-query: '"https://github.com/lcallarec/live-chart/archive/" + .tag_name + ".tar.gz"'
+          timestamp-query: .published_at
 
   - name: gst-libav
     buildsystem: meson
@@ -38,13 +40,15 @@ modules:
   - name: ryokucha
     buildsystem: meson
     sources:
-      - type: git
-        url: https://github.com/ryonakano/ryokucha.git
-        tag: 0.3.1
-        commit: 781f43d5c539bfe77c72fbaa32fc589a02b03c40
+      - type: archive
+        url: https://github.com/ryonakano/ryokucha/archive/0.3.1.tar.gz
+        sha256: 503754d1a0a9012e5779f20ef1e9bb7db099eb9243bc98985b2136e4e1b0031e
         x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
+          type: json
+          url: https://api.github.com/repos/ryonakano/ryokucha/releases/latest
+          version-query: .tag_name
+          url-query: '"https://github.com/ryonakano/ryokucha/archive/" + .tag_name + ".tar.gz"'
+          timestamp-query: .published_at
 
   - name: blueprint-compiler
     buildsystem: meson
