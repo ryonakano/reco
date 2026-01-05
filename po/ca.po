@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-01 12:24+0900\n"
+"POT-Creation-Date: 2026-01-05 08:58+0000\n"
 "PO-Revision-Date: 2024-05-03 10:45+0000\n"
 "Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/rosp/reco/ca/>\n"
@@ -47,16 +47,16 @@ msgctxt "shortcut window"
 msgid "Start/Stop recording"
 msgstr "Comença a enregistrar"
 
-#: data/reco.desktop.in.in:2
+#: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
 msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in.in:3
+#: data/reco.desktop.in.in:4
 #, fuzzy
 msgid "Audio Recording App"
 msgstr "Enregistrament"
 
-#: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 #, fuzzy
 msgid "Focus on recording"
 msgstr "Posa en pausa l’enregistrament"
@@ -129,113 +129,105 @@ msgstr "Enregistrament"
 msgid "translator-credits"
 msgstr ""
 
-#: src/MainWindow.vala:25
+#: src/MainWindow.vala:26
 msgid ""
 "This is possibly due to missing codecs or incomplete installation of the "
 "app. Make sure you've installed them and try reinstalling them if this issue "
 "persists."
 msgstr ""
 
-#: src/MainWindow.vala:26
+#: src/MainWindow.vala:27
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
 msgstr ""
 
-#: src/MainWindow.vala:38
+#: src/MainWindow.vala:39
 #, fuzzy
 #| msgid "System"
 msgid "S_ystem"
 msgstr "Sistema"
 
-#: src/MainWindow.vala:39
+#: src/MainWindow.vala:40
 #, fuzzy
 #| msgid "Light"
 msgid "_Light"
 msgstr "Clar"
 
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:41
 #, fuzzy
 #| msgid "Dark"
 msgid "_Dark"
 msgstr "Fosc"
 
-#: src/MainWindow.vala:43
+#: src/MainWindow.vala:44
 #, fuzzy
 msgid "_Style"
 msgstr "Estil:"
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:45
 msgid "_Keyboard Shortcuts"
 msgstr ""
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:48
+#: src/MainWindow.vala:49
 #, c-format
 msgid "_About %s"
 msgstr ""
 
-#: src/MainWindow.vala:52
+#: src/MainWindow.vala:53
 msgid "Main Menu"
 msgstr ""
 
-#: src/MainWindow.vala:121
+#: src/MainWindow.vala:126
 #, fuzzy
 msgid "Error while recording"
 msgstr "Posa en pausa l’enregistrament"
 
-#: src/MainWindow.vala:122
+#: src/MainWindow.vala:127
 msgid "There was an error while recording."
 msgstr ""
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:153
 #, fuzzy
 msgid "Failed to save recording"
 msgstr "Posa en pausa l’enregistrament"
 
-#: src/MainWindow.vala:149
+#: src/MainWindow.vala:154
 msgid "There was an error while moving file to the designated location."
 msgstr ""
 
-#: src/MainWindow.vala:158
+#: src/MainWindow.vala:161
 #, fuzzy
-msgid "Saved recording"
-msgstr "Deseu el vostre enregistrament"
+msgid "Recording Saved"
+msgstr "Enregistrament"
 
 #: src/MainWindow.vala:162
-msgid "Recording saved successfully."
+msgid "Open Folder"
 msgstr ""
 
-#: src/MainWindow.vala:164
-msgid "Click here to play."
-msgstr ""
-
-#: src/MainWindow.vala:167
-msgid "Open folder"
-msgstr ""
-
-#: src/MainWindow.vala:221
+#: src/MainWindow.vala:218
 msgid "Save your recording"
 msgstr "Deseu el vostre enregistrament"
 
-#: src/MainWindow.vala:222
+#: src/MainWindow.vala:219
 msgid "Save"
 msgstr "Desar"
 
-#: src/MainWindow.vala:262
+#: src/MainWindow.vala:256
 msgid "There was an unknown error while starting recording."
 msgstr ""
 
-#: src/MainWindow.vala:266
+#: src/MainWindow.vala:260
 #, fuzzy
 msgid "Failed to start recording"
 msgstr "Comença a enregistrar"
 
-#: src/MainWindow.vala:323
+#: src/MainWindow.vala:317
 msgid "Details:"
 msgstr ""
 
-#: src/Model/Recorder.vala:321
+#: src/Model/Recorder.vala:341
 msgid "Recording is ongoing"
 msgstr "L’enregistrament està en curs"
 
@@ -243,11 +235,11 @@ msgstr "L’enregistrament està en curs"
 msgid "Cancel the countdown"
 msgstr "Cancel·la el compte enrere"
 
-#: src/View/CountDownView.vala:113
+#: src/View/CountDownView.vala:121
 msgid "Pause the countdown"
 msgstr "Posa en pausa el compte enrere"
 
-#: src/View/CountDownView.vala:118
+#: src/View/CountDownView.vala:126
 msgid "Resume the countdown"
 msgstr "Reprèn el compte enrere"
 
@@ -259,114 +251,118 @@ msgstr "Cancel·la l’enregistrament"
 msgid "Finish recording"
 msgstr "Finalitza l’enregistrament"
 
-#: src/View/RecordView.vala:181
+#: src/View/RecordView.vala:188
 msgid "Resume recording"
 msgstr "Reprèn l’enregistrament"
 
-#: src/View/RecordView.vala:193
+#: src/View/RecordView.vala:200
 msgid "Pause recording"
 msgstr "Posa en pausa l’enregistrament"
 
-#: src/View/WelcomeView.vala:27
+#: src/View/WelcomeView.vala:24
 msgid "Source"
 msgstr "Font"
 
-#: src/View/WelcomeView.vala:32
+#: src/View/WelcomeView.vala:29
 msgid "Record from:"
 msgstr "Enregistra des de:"
 
-#: src/View/WelcomeView.vala:38
+#: src/View/WelcomeView.vala:35
 msgid "Microphone"
 msgstr "Micròfon"
 
-#: src/View/WelcomeView.vala:39
+#: src/View/WelcomeView.vala:36
 msgid "System"
 msgstr "Sistema"
 
-#: src/View/WelcomeView.vala:40
+#: src/View/WelcomeView.vala:37
 msgid "Both"
 msgstr "Tots dos"
 
-#: src/View/WelcomeView.vala:42
+#: src/View/WelcomeView.vala:39
 #, fuzzy
 msgid "Microphone:"
 msgstr "Micròfon"
 
-#: src/View/WelcomeView.vala:52
+#: src/View/WelcomeView.vala:49
 msgid "Channels:"
 msgstr "Canals:"
 
-#: src/View/WelcomeView.vala:58
+#: src/View/WelcomeView.vala:55
 msgid "Mono"
 msgstr "Monofònic"
 
-#: src/View/WelcomeView.vala:59
+#: src/View/WelcomeView.vala:56
 msgid "Stereo"
 msgstr "Estereofònic"
 
-#: src/View/WelcomeView.vala:61
+#: src/View/WelcomeView.vala:58
 msgid "Timer"
 msgstr "Temporitzador"
 
-#: src/View/WelcomeView.vala:66
+#: src/View/WelcomeView.vala:63
 msgid "Delay in seconds:"
 msgstr "Retard en segons:"
 
-#: src/View/WelcomeView.vala:73
+#: src/View/WelcomeView.vala:70
 msgid "Length in seconds:"
 msgstr "Durada en segons:"
 
-#: src/View/WelcomeView.vala:84
+#: src/View/WelcomeView.vala:81
 msgid "Saving"
 msgstr "Desament"
 
-#: src/View/WelcomeView.vala:89
+#: src/View/WelcomeView.vala:86
 msgid "Format:"
 msgstr "Format:"
 
-#: src/View/WelcomeView.vala:96
+#: src/View/WelcomeView.vala:93
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:97
+#: src/View/WelcomeView.vala:94
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:98
+#: src/View/WelcomeView.vala:95
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:99
+#: src/View/WelcomeView.vala:96
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:100
+#: src/View/WelcomeView.vala:97
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:101
+#: src/View/WelcomeView.vala:98
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:103
+#: src/View/WelcomeView.vala:100
 msgid "Automatically save files:"
 msgstr "Desa els fitxers automàticament:"
 
-#: src/View/WelcomeView.vala:113 src/View/WelcomeView.vala:242
+#: src/View/WelcomeView.vala:110 src/View/WelcomeView.vala:239
 msgid "Select destination…"
 msgstr "Seleccionar destinació…"
 
-#: src/View/WelcomeView.vala:114 src/View/WelcomeView.vala:118
+#: src/View/WelcomeView.vala:111 src/View/WelcomeView.vala:115
 msgid "Choose a default destination"
 msgstr "Trieu una destinació per defecte"
 
-#: src/View/WelcomeView.vala:115
+#: src/View/WelcomeView.vala:112
 msgid "Select"
 msgstr "Seleccionar"
 
-#: src/View/WelcomeView.vala:153
+#: src/View/WelcomeView.vala:150
 msgid "Start recording"
 msgstr "Comença a enregistrar"
+
+#, fuzzy
+#~ msgid "Saved recording"
+#~ msgstr "Deseu el vostre enregistrament"
 
 #, c-format
 #~ msgid "Recording from %s"

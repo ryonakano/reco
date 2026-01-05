@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-01 12:24+0900\n"
+"POT-Creation-Date: 2026-01-05 08:58+0000\n"
 "PO-Revision-Date: 2025-10-25 10:02+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/rosp/reco/tr/>\n"
@@ -46,15 +46,15 @@ msgctxt "shortcut window"
 msgid "Start/Stop recording"
 msgstr "Kaydı Başlat/Durdur"
 
-#: data/reco.desktop.in.in:2
+#: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
 msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in.in:3
+#: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
 msgstr "Ses Kayıt Uygulaması"
 
-#: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "Kayda odaklan"
 
@@ -140,7 +140,7 @@ msgstr "Kayıt görünümü"
 msgid "translator-credits"
 msgstr "Sabri Ünal <yakushabb@gmail.com>"
 
-#: src/MainWindow.vala:25
+#: src/MainWindow.vala:26
 msgid ""
 "This is possibly due to missing codecs or incomplete installation of the "
 "app. Make sure you've installed them and try reinstalling them if this issue "
@@ -150,7 +150,7 @@ msgstr ""
 "eksik kurulumu olabilir. Bunları kurduğunuzdan emin olun ve bu sorun devam "
 "ederse yeniden kurmayı deneyin."
 
-#: src/MainWindow.vala:26
+#: src/MainWindow.vala:27
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
@@ -159,89 +159,85 @@ msgstr ""
 "bağladığınızdan emin olun ve bu sorun devam ederse başka bir tane kullanmayı "
 "deneyin."
 
-#: src/MainWindow.vala:38
+#: src/MainWindow.vala:39
 msgid "S_ystem"
 msgstr "_Sistem"
 
-#: src/MainWindow.vala:39
+#: src/MainWindow.vala:40
 msgid "_Light"
 msgstr "_Açık"
 
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:41
 msgid "_Dark"
 msgstr "_Koyu"
 
-#: src/MainWindow.vala:43
+#: src/MainWindow.vala:44
 msgid "_Style"
 msgstr "_Biçem"
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:45
 msgid "_Keyboard Shortcuts"
 msgstr "_Klavye Kısayolları"
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:48
+#: src/MainWindow.vala:49
 #, c-format
 msgid "_About %s"
 msgstr "%s _Hakkında"
 
-#: src/MainWindow.vala:52
+#: src/MainWindow.vala:53
 msgid "Main Menu"
 msgstr "Ana Menü"
 
-#: src/MainWindow.vala:121
+#: src/MainWindow.vala:126
 msgid "Error while recording"
 msgstr "Kayıt sırasında hata"
 
-#: src/MainWindow.vala:122
+#: src/MainWindow.vala:127
 msgid "There was an error while recording."
 msgstr "Kayıt sırasında bir hata oluştu."
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:153
 msgid "Failed to save recording"
 msgstr "Kayıt kaydedilemedi"
 
-#: src/MainWindow.vala:149
+#: src/MainWindow.vala:154
 msgid "There was an error while moving file to the designated location."
 msgstr "Dosya belirlenen konuma taşınırken bir hata oluştu."
 
-#: src/MainWindow.vala:158
-msgid "Saved recording"
-msgstr "Kayıt kaydedildi"
+#: src/MainWindow.vala:161
+#, fuzzy
+#| msgid "Recording view"
+msgid "Recording Saved"
+msgstr "Kayıt görünümü"
 
 #: src/MainWindow.vala:162
-msgid "Recording saved successfully."
-msgstr "Kayıt başarıyla kaydedildi."
-
-#: src/MainWindow.vala:164
-msgid "Click here to play."
-msgstr "Oynatmak için buraya tıklayın."
-
-#: src/MainWindow.vala:167
-msgid "Open folder"
+#, fuzzy
+#| msgid "Open folder"
+msgid "Open Folder"
 msgstr "Klasörü aç"
 
-#: src/MainWindow.vala:221
+#: src/MainWindow.vala:218
 msgid "Save your recording"
 msgstr "Kaydı kaydedin"
 
-#: src/MainWindow.vala:222
+#: src/MainWindow.vala:219
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/MainWindow.vala:262
+#: src/MainWindow.vala:256
 msgid "There was an unknown error while starting recording."
 msgstr "Kayıt başlatılırken bilinmeyen bir hata oluştu."
 
-#: src/MainWindow.vala:266
+#: src/MainWindow.vala:260
 msgid "Failed to start recording"
 msgstr "Kayıt başlatılamadı"
 
-#: src/MainWindow.vala:323
+#: src/MainWindow.vala:317
 msgid "Details:"
 msgstr "Ayrıntılar:"
 
-#: src/Model/Recorder.vala:321
+#: src/Model/Recorder.vala:341
 msgid "Recording is ongoing"
 msgstr "Kayıt devam ediyor"
 
@@ -249,11 +245,11 @@ msgstr "Kayıt devam ediyor"
 msgid "Cancel the countdown"
 msgstr "Geri sayımı iptal et"
 
-#: src/View/CountDownView.vala:113
+#: src/View/CountDownView.vala:121
 msgid "Pause the countdown"
 msgstr "Geri sayımı durdur"
 
-#: src/View/CountDownView.vala:118
+#: src/View/CountDownView.vala:126
 msgid "Resume the countdown"
 msgstr "Geri sayıma devam et"
 
@@ -265,113 +261,122 @@ msgstr "Kaydı iptal et"
 msgid "Finish recording"
 msgstr "Kaydı bitir"
 
-#: src/View/RecordView.vala:181
+#: src/View/RecordView.vala:188
 msgid "Resume recording"
 msgstr "Kaydı devam ettir"
 
-#: src/View/RecordView.vala:193
+#: src/View/RecordView.vala:200
 msgid "Pause recording"
 msgstr "Kaydı durdur"
 
-#: src/View/WelcomeView.vala:27
+#: src/View/WelcomeView.vala:24
 msgid "Source"
 msgstr "Kaynak"
 
-#: src/View/WelcomeView.vala:32
+#: src/View/WelcomeView.vala:29
 msgid "Record from:"
 msgstr "Kayıt kaynağı :"
 
-#: src/View/WelcomeView.vala:38
+#: src/View/WelcomeView.vala:35
 msgid "Microphone"
 msgstr "Mikrofon"
 
-#: src/View/WelcomeView.vala:39
+#: src/View/WelcomeView.vala:36
 msgid "System"
 msgstr "Sistem"
 
-#: src/View/WelcomeView.vala:40
+#: src/View/WelcomeView.vala:37
 msgid "Both"
 msgstr "Her ikiside"
 
-#: src/View/WelcomeView.vala:42
+#: src/View/WelcomeView.vala:39
 msgid "Microphone:"
 msgstr "Mikrofon:"
 
-#: src/View/WelcomeView.vala:52
+#: src/View/WelcomeView.vala:49
 msgid "Channels:"
 msgstr "Kanallar:"
 
-#: src/View/WelcomeView.vala:58
+#: src/View/WelcomeView.vala:55
 msgid "Mono"
 msgstr "Mono"
 
-#: src/View/WelcomeView.vala:59
+#: src/View/WelcomeView.vala:56
 msgid "Stereo"
 msgstr "Stereo"
 
-#: src/View/WelcomeView.vala:61
+#: src/View/WelcomeView.vala:58
 msgid "Timer"
 msgstr "Zamanlayıcı"
 
-#: src/View/WelcomeView.vala:66
+#: src/View/WelcomeView.vala:63
 msgid "Delay in seconds:"
 msgstr "Saniye cinsinden gecikme:"
 
-#: src/View/WelcomeView.vala:73
+#: src/View/WelcomeView.vala:70
 msgid "Length in seconds:"
 msgstr "Saniye cinsinden uzunluk:"
 
-#: src/View/WelcomeView.vala:84
+#: src/View/WelcomeView.vala:81
 msgid "Saving"
 msgstr "Kaydedilen"
 
-#: src/View/WelcomeView.vala:89
+#: src/View/WelcomeView.vala:86
 msgid "Format:"
 msgstr "Biçim:"
 
-#: src/View/WelcomeView.vala:96
+#: src/View/WelcomeView.vala:93
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:97
+#: src/View/WelcomeView.vala:94
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:98
+#: src/View/WelcomeView.vala:95
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:99
+#: src/View/WelcomeView.vala:96
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:100
+#: src/View/WelcomeView.vala:97
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:101
+#: src/View/WelcomeView.vala:98
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:103
+#: src/View/WelcomeView.vala:100
 msgid "Automatically save files:"
 msgstr "Dosyaları kendiliğinden kaydet:"
 
-#: src/View/WelcomeView.vala:113 src/View/WelcomeView.vala:242
+#: src/View/WelcomeView.vala:110 src/View/WelcomeView.vala:239
 msgid "Select destination…"
 msgstr "Hedef seçin…"
 
-#: src/View/WelcomeView.vala:114 src/View/WelcomeView.vala:118
+#: src/View/WelcomeView.vala:111 src/View/WelcomeView.vala:115
 msgid "Choose a default destination"
 msgstr "Varsayılan bir hedef seçin"
 
-#: src/View/WelcomeView.vala:115
+#: src/View/WelcomeView.vala:112
 msgid "Select"
 msgstr "Seç"
 
-#: src/View/WelcomeView.vala:153
+#: src/View/WelcomeView.vala:150
 msgid "Start recording"
 msgstr "Kaydı başlat"
+
+#~ msgid "Saved recording"
+#~ msgstr "Kayıt kaydedildi"
+
+#~ msgid "Recording saved successfully."
+#~ msgstr "Kayıt başarıyla kaydedildi."
+
+#~ msgid "Click here to play."
+#~ msgstr "Oynatmak için buraya tıklayın."
 
 #~ msgid "An indication that recording is successfully finished"
 #~ msgstr "Kaydın başarıyla tamamlandığına dair bir gösterge"
