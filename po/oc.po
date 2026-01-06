@@ -1,14 +1,14 @@
 # Occitan translations for com.github.ryonakano.reco.
 # Copyright (C) 2018-2025 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# Quentin PAGÈS <quentinantonin@free.fr>, 2023, 2024, 2025.
+# Quentin PAGÈS <quentinantonin@free.fr>, 2023, 2024, 2025, 2026.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-05 08:58+0000\n"
-"PO-Revision-Date: 2025-12-21 16:00+0000\n"
+"PO-Revision-Date: 2026-01-06 11:01+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/reco/oc/>\n"
 "Language: oc\n"
@@ -205,14 +205,10 @@ msgstr ""
 "I a agut una error pendent lo desplaçament del fichièr a sa destinacion."
 
 #: src/MainWindow.vala:161
-#, fuzzy
-#| msgid "Recording view"
 msgid "Recording Saved"
-msgstr "Vista enregistrament"
+msgstr "Enregistrament salvat"
 
 #: src/MainWindow.vala:162
-#, fuzzy
-#| msgid "Open folder"
 msgid "Open Folder"
 msgstr "Dobrir lo dossièr"
 
