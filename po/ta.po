@@ -1,5 +1,5 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Tamil translations for com.github.ryonakano.reco.
+# Copyright (C) 2018-2026 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # தமிழ்நேரம் <anishprabu.t@gmail.com>, 2025.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2025.

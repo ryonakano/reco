@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2025 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 public class Application : Adw.Application {
@@ -112,7 +112,7 @@ public class Application : Adw.Application {
             null
         ) {
             version = Config.APP_VERSION,
-            copyright = "© 2018-2025 Ryo Nakano",
+            copyright = "© 2018-2026 Ryo Nakano",
             developers = DEVELOPERS,
             artists = ARTISTS,
             ///TRANSLATORS: A newline-separated list of translators. Don't translate literally.

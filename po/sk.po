@@ -1,5 +1,5 @@
 # Slovak translations for com.github.ryonakano.reco.
-# Copyright (C) 2018-2025 Ryo Nakano
+# Copyright (C) 2018-2026 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Ryo Nakano <ryonakaknock3@gmail.com>, 2022.
 # JohnDumpling <john_dumpling@protonmail.com>, 2022, 2023.

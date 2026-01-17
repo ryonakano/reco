@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2023-2025 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2023-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 public class Widget.LevelBar : Gtk.Box {
