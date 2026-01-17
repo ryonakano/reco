@@ -1,5 +1,5 @@
 # Turkish translations for com.github.ryonakano.reco.
-# Copyright (C) 2018-2025 Ryo Nakano
+# Copyright (C) 2018-2026 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Safak Genisol (@safak45x), 2019, 2020.
 # Sabri Ünal <libreajans@gmail.com>, 2022, 2023.

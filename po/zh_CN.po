@@ -1,5 +1,5 @@
 # Chinese (Simplified) translations for com.github.ryonakano.reco.
-# Copyright (C) 2018-2025 Ryo Nakano
+# Copyright (C) 2018-2026 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""

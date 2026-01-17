@@ -1,5 +1,5 @@
 # Polish translations for com.github.ryonakano.reco.
-# Copyright (C) 2018-2025 Ryo Nakano
+# Copyright (C) 2018-2026 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco.
 # Michał Nowakowski <nowakowski@offshore.rocks>, 2019.
 # Eryk Michalak <gnu.ewm@protonmail.com>, 2023.
