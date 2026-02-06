@@ -8,7 +8,6 @@ project(
 app_name = 'Reco'
 app_id = meson.project_name()
 app_version = meson.project_version()
-app_revision = meson.project_version()
 if get_option('development')
   app_name += ' (Development)'
   app_id += '.Devel'
@@ -16,15 +15,17 @@ if get_option('development')
   ret = run_command('git', 'rev-parse', '--short', 'HEAD', check: false)
   if ret.returncode() != 0
     version_suffix = '-devel'
-    # Fallback to the default branch name
-    app_revision = 'main'
   else
-    rev = ret.stdout().strip()
-    version_suffix = '-@0@'.format(rev)
-    app_revision = rev
+    version_suffix = '-@0@'.format(ret.stdout().strip())
   endif
 
   app_version += version_suffix
+endif
+
+app_revision = 'main'
+ret = run_command('git', 'rev-parse', 'HEAD', check: false)
+if ret.returncode() == 0
+  app_revision = ret.stdout().strip()
 endif
 
 gnome = import('gnome')
