@@ -31,7 +31,7 @@ appstream_conf.set('APP_ID', app_id)
 appstream_conf.set('GETTEXT_PACKAGE', meson.project_name())
 # Use screenshots taken on Pantheon, which is a publishing requirement for AppCenter, if build with granite.
 appstream_conf.set('DE', get_option('granite').enabled() ? 'pantheon' : 'gnome')
-appstream_conf.set('VERSION', meson.project_version())
+appstream_conf.set('APP_REVISION', app_revision)
 appstream_file_in = configure_file(
   input: 'reco.metainfo.xml.in.in',
   output: '@0@.metainfo.xml.in'.format(app_id),
