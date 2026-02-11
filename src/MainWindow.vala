@@ -143,10 +143,18 @@ public class MainWindow : Adw.ApplicationWindow {
             try {
                 final_file = yield ask_final_file (default_filename);
             } catch (Error err) {
-                warning ("Failed to ask where to save final file: %s", err.message);
+                if (err.domain == Gtk.DialogError.quark () && err.code == Gtk.DialogError.DISMISSED) {
+                    // Don't show the warning log and do nothing when the dialog is just dismissed by the user
+                    return;
+                }
 
-                // May be cancelled by user, so delete the tmp recording
-                recorder.remove_tmp_recording ();
+                show_error_dialog (
+                    _("Failed to save recording"),
+                    _("There was an error while asking for final path where to move the temporary recording file \"%s\"."
+                        .printf (tmp_file.get_path ())
+                    ),
+                    err.message
+                );
 
                 return;
             }
