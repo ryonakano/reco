@@ -151,7 +151,7 @@ public class MainWindow : Adw.ApplicationWindow {
                 show_error_dialog (
                     _("Failed to save recording"),
                     _("There was an error while asking for final path where to move the temporary recording file \"%s\"."
-                        .printf (tmp_file.get_path ())
+                        .printf (tmp_path)
                     ),
                     err.message
                 );
