@@ -21,7 +21,7 @@ namespace Model {
 
     public class Recorder : Object {
         public signal void throw_error (Error err, string debug);
-        public signal void save_file (string tmp_path);
+        public signal void save_file (string tmp_path, string default_filename);
 
         private const string IGNORED_PROPNAMES[] = {
             "name", "parent", "direction", "template", "caps"
@@ -52,8 +52,7 @@ namespace Model {
         private double _current_peak = 0;
 
         private string tmp_path;
-        public DateTime start_dt { get; private set; }
-        public DateTime end_dt { get; private set; }
+        private DateTime start_dt;
         private Gst.Pipeline pipeline;
         private uint inhibit_token = 0;
         private const uint64 NSEC = 1000000000;
@@ -288,9 +287,11 @@ namespace Model {
                     pipeline.dispose ();
                     is_recording_progress = false;
 
-                    end_dt = new DateTime.now_local ();
+                    var end_dt = new DateTime.now_local ();
+                    string suffix = Util.get_suffix (tmp_path);
+                    string default_filename = build_filename_from_datetime (start_dt, end_dt, suffix);
 
-                    save_file (tmp_path);
+                    save_file (tmp_path, default_filename);
                     break;
                 case Gst.MessageType.ELEMENT:
                     unowned Gst.Structure? structure = msg.get_structure ();
@@ -404,6 +405,31 @@ namespace Model {
             }
 
             return null;
+        }
+
+        /**
+         * Build filename using the given arguments.
+         *
+         * The filename includes start datetime and end time. It also includes end date if the date is different between
+         * start and end.
+         *
+         * e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
+         *      "2018-11-10_23:42:36 to 23:49:52.wav"
+         */
+        private string build_filename_from_datetime (DateTime start, DateTime end, string suffix) {
+            string start_format = "%Y-%m-%d_%H:%M:%S";
+            string end_format = "%Y-%m-%d_%H:%M:%S";
+
+            bool is_same_day = Util.is_same_day (start, end);
+            if (is_same_day) {
+                // Avoid redundant date
+                end_format = "%H:%M:%S";
+            }
+
+            string start_str = start.format (start_format);
+            string end_str = end.format (end_format);
+
+            return "%s to %s".printf (start_str, end_str) + suffix;
         }
     }
 }
