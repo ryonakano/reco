@@ -135,61 +135,59 @@ public class MainWindow : Adw.ApplicationWindow {
     private async void save_file (string tmp_path, string default_filename) {
         debug ("recorder.save_file: tmp_path(%s)", tmp_path);
 
-        ask_save_path.begin (default_filename, (obj, res) => {
-            File? save_path = ask_save_path.end (res);
+        File? save_path;
+        var autosave_dest = Application.settings.get_string ("autosave-destination");
+        if (autosave_dest.length > 0) {
+            save_path = File.new_for_path (autosave_dest).get_child (default_filename);
+        } else {
+            save_path = yield ask_save_path (default_filename);
+        }
 
-            if (save_path == null) {
-                // Log message is already outputted in ask_save_path method
-                return;
-            }
+        if (save_path == null) {
+            // Log message is already outputted in ask_save_path method
+            return;
+        }
 
-            var tmp_file = File.new_for_path (tmp_path);
-            string path = save_path.get_path ();
-            bool is_success = false;
-            try {
-                is_success = tmp_file.move (save_path, FileCopyFlags.OVERWRITE);
-            } catch (Error e) {
-                show_error_dialog (
-                    _("Failed to save recording"),
-                    _("There was an error while moving the temporary recording file \"%s\" to \"%s\"."
-                        .printf (tmp_file.get_path (), path)
-                    ),
-                    e.message
-                );
-            }
+        var tmp_file = File.new_for_path (tmp_path);
+        string path = save_path.get_path ();
+        bool is_success = false;
+        try {
+            is_success = tmp_file.move (save_path, FileCopyFlags.OVERWRITE);
+        } catch (Error e) {
+            show_error_dialog (
+                _("Failed to save recording"),
+                _("There was an error while moving the temporary recording file \"%s\" to \"%s\"."
+                    .printf (tmp_file.get_path (), path)
+                ),
+                e.message
+            );
+        }
 
-            if (is_success) {
-                var saved_toast = new Adw.Toast (_("Recording Saved")) {
-                    button_label = _("Open Folder"),
-                    action_name = "app.open-folder",
-                    action_target = new Variant.string (path)
-                };
+        if (is_success) {
+            var saved_toast = new Adw.Toast (_("Recording Saved")) {
+                button_label = _("Open Folder"),
+                action_name = "app.open-folder",
+                action_target = new Variant.string (path)
+            };
 
-                toast_overlay.add_toast (saved_toast);
-            }
+            toast_overlay.add_toast (saved_toast);
+        }
 
-            if (destroy_on_save) {
-                destroy ();
-            }
-        });
+        if (destroy_on_save) {
+            destroy ();
+        }
     }
 
     /**
      * Query location where to save recordings.
      *
-     * This method shows Gtk.FileDialog if the autosave is disabled and waits for the user input.
-     * Otherwise, it returns the location depending on the autosave location.
+     * This method shows Gtk.FileDialog and waits for the user input.
      *
      * @param default_filename default filename of recoridngs
      *
      * @return location where to save recordings
      */
     private async File? ask_save_path (string default_filename) {
-        var autosave_dest = Application.settings.get_string ("autosave-destination");
-        if (autosave_dest.length > 0) {
-            return File.new_for_path (autosave_dest).get_child (default_filename);
-        }
-
         var save_dialog = new Gtk.FileDialog () {
             title = _("Save your recording"),
             accept_label = _("Save"),
