@@ -258,7 +258,7 @@ namespace Model {
             pipeline.dispose ();
             is_recording_progress = false;
 
-            remove_tmp_recording ();
+            trash_or_delete.begin (tmp_path);
         }
 
         public void pause_recording () {
@@ -316,18 +316,32 @@ namespace Model {
             return true;
         }
 
-        public void remove_tmp_recording () {
-            var tmp_file = File.new_for_path (tmp_path);
-            if (!tmp_file.query_exists ()) {
+        private async void trash_or_delete (string path) {
+            if (!FileUtils.test (path, FileTest.EXISTS)) {
                 return;
             }
 
             try {
-                tmp_file.delete ();
-            } catch (Error e) {
-                // Just failed to remove tmp file so letting user know through error dialog is not necessary
-                warning (e.message);
+                yield trash_file (path);
+            } catch (Error err) {
+                warning ("Failed to trash file \"%s\", deleting permanently instead: %s", path, err.message);
+
+                try {
+                    yield delete_file (path);
+                } catch (Error err) {
+                    // Just failed to remove tmp file so letting user know through error dialog is not necessary
+                    warning ("Failed to delete file \"%s\": %s", path, err.message);
+                }
             }
+        }
+
+        private async void trash_file (string path) throws Error {
+            var portal = new Xdp.Portal.initable_new ();
+            yield portal.trash_file (path, null);
+        }
+
+        private async void delete_file (string path) throws Error {
+            yield File.new_for_path (path).delete_async ();
         }
 
         private void inhibit_sleep () {
