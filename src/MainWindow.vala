@@ -157,13 +157,13 @@ public class MainWindow : Adw.ApplicationWindow {
         bool is_success = false;
         try {
             is_success = tmp_file.move (final_file, FileCopyFlags.OVERWRITE);
-        } catch (Error e) {
+        } catch (Error err) {
             show_error_dialog (
                 _("Failed to save recording"),
                 _("There was an error while moving the temporary recording file \"%s\" to \"%s\"."
                     .printf (tmp_file.get_path (), final_path)
                 ),
-                e.message
+                err.message
             );
         }
 
