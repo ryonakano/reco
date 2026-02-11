@@ -140,12 +140,16 @@ public class MainWindow : Adw.ApplicationWindow {
         if (autosave_dest.length > 0) {
             save_path = File.new_for_path (autosave_dest).get_child (default_filename);
         } else {
-            save_path = yield ask_save_path (default_filename);
-        }
+            try {
+                save_path = yield ask_save_path (default_filename);
+            } catch (Error err) {
+                warning ("Failed to ask save path: %s", err.message);
 
-        if (save_path == null) {
-            // Log message is already outputted in ask_save_path method
-            return;
+                // May be cancelled by user, so delete the tmp recording
+                recorder.remove_tmp_recording ();
+
+                return;
+            }
         }
 
         var tmp_file = File.new_for_path (tmp_path);
@@ -187,7 +191,7 @@ public class MainWindow : Adw.ApplicationWindow {
      *
      * @return location where to save recordings
      */
-    private async File? ask_save_path (string default_filename) {
+    private async File? ask_save_path (string default_filename) throws Error {
         var save_dialog = new Gtk.FileDialog () {
             title = _("Save your recording"),
             accept_label = _("Save"),
@@ -195,19 +199,7 @@ public class MainWindow : Adw.ApplicationWindow {
             initial_name = default_filename
         };
 
-        File dest;
-        try {
-            dest = yield save_dialog.save (this, null);
-        } catch (Error e) {
-            warning ("Failed to Gtk.FileDialog.save: %s", e.message);
-
-            // May be cancelled by user, so delete the tmp recording
-            recorder.remove_tmp_recording ();
-
-            return null;
-        }
-
-        return dest;
+        return yield save_dialog.save (this, null);
     }
 
     private void show_welcome () {
