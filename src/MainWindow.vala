@@ -135,15 +135,15 @@ public class MainWindow : Adw.ApplicationWindow {
     private async void save_file (string tmp_path, string default_filename) {
         debug ("recorder.save_file: tmp_path(%s)", tmp_path);
 
-        File? save_path;
+        File? final_file;
         var autosave_dest = Application.settings.get_string ("autosave-destination");
         if (autosave_dest.length > 0) {
-            save_path = File.new_for_path (autosave_dest).get_child (default_filename);
+            final_file = File.new_for_path (autosave_dest).get_child (default_filename);
         } else {
             try {
-                save_path = yield ask_save_path (default_filename);
+                final_file = yield ask_final_file (default_filename);
             } catch (Error err) {
-                warning ("Failed to ask save path: %s", err.message);
+                warning ("Failed to ask where to save final file: %s", err.message);
 
                 // May be cancelled by user, so delete the tmp recording
                 recorder.remove_tmp_recording ();
@@ -153,15 +153,15 @@ public class MainWindow : Adw.ApplicationWindow {
         }
 
         var tmp_file = File.new_for_path (tmp_path);
-        string path = save_path.get_path ();
+        string final_path = final_file.get_path ();
         bool is_success = false;
         try {
-            is_success = tmp_file.move (save_path, FileCopyFlags.OVERWRITE);
+            is_success = tmp_file.move (final_file, FileCopyFlags.OVERWRITE);
         } catch (Error e) {
             show_error_dialog (
                 _("Failed to save recording"),
                 _("There was an error while moving the temporary recording file \"%s\" to \"%s\"."
-                    .printf (tmp_file.get_path (), path)
+                    .printf (tmp_file.get_path (), final_path)
                 ),
                 e.message
             );
@@ -171,7 +171,7 @@ public class MainWindow : Adw.ApplicationWindow {
             var saved_toast = new Adw.Toast (_("Recording Saved")) {
                 button_label = _("Open Folder"),
                 action_name = "app.open-folder",
-                action_target = new Variant.string (path)
+                action_target = new Variant.string (final_path)
             };
 
             toast_overlay.add_toast (saved_toast);
@@ -191,7 +191,7 @@ public class MainWindow : Adw.ApplicationWindow {
      *
      * @return location where to save recordings
      */
-    private async File? ask_save_path (string default_filename) throws Error {
+    private async File? ask_final_file (string default_filename) throws Error {
         var save_dialog = new Gtk.FileDialog () {
             title = _("Save your recording"),
             accept_label = _("Save"),
