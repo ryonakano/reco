@@ -162,9 +162,8 @@ public class MainWindow : Adw.ApplicationWindow {
 
         var tmp_file = File.new_for_path (tmp_path);
         string final_path = final_file.get_path ();
-        bool is_success = false;
         try {
-            is_success = tmp_file.move (final_file, FileCopyFlags.OVERWRITE);
+            tmp_file.move (final_file, FileCopyFlags.OVERWRITE);
         } catch (Error err) {
             show_error_dialog (
                 _("Failed to save recording"),
@@ -173,17 +172,17 @@ public class MainWindow : Adw.ApplicationWindow {
                 ),
                 err.message
             );
+
+            return;
         }
 
-        if (is_success) {
-            var saved_toast = new Adw.Toast (_("Recording Saved")) {
-                button_label = _("Open Folder"),
-                action_name = "app.open-folder",
-                action_target = new Variant.string (final_path)
-            };
+        var saved_toast = new Adw.Toast (_("Recording Saved")) {
+            button_label = _("Open Folder"),
+            action_name = "app.open-folder",
+            action_target = new Variant.string (final_path)
+        };
 
-            toast_overlay.add_toast (saved_toast);
-        }
+        toast_overlay.add_toast (saved_toast);
 
         if (destroy_on_save) {
             destroy ();
