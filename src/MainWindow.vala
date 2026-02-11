@@ -129,13 +129,8 @@ public class MainWindow : Adw.ApplicationWindow {
             );
         });
 
-        recorder.save_file.connect ((tmp_path) => {
+        recorder.save_file.connect ((tmp_path, default_filename) => {
             debug ("recorder.save_file: tmp_path(%s)", tmp_path);
-
-            string suffix = Util.get_suffix (tmp_path);
-            var tmp_file = File.new_for_path (tmp_path);
-
-            string default_filename = build_filename_from_datetime (recorder.start_dt, recorder.end_dt, suffix);
 
             ask_save_path.begin (default_filename, (obj, res) => {
                 File? save_path = ask_save_path.end (res);
@@ -145,6 +140,7 @@ public class MainWindow : Adw.ApplicationWindow {
                     return;
                 }
 
+                var tmp_file = File.new_for_path (tmp_path);
                 string path = save_path.get_path ();
                 bool is_success = false;
                 try {
@@ -174,31 +170,6 @@ public class MainWindow : Adw.ApplicationWindow {
                 }
             });
         });
-    }
-
-    /**
-     * Build filename using the given arguments.
-     *
-     * The filename includes start datetime and end time. It also includes end date if the date is different between
-     * start and end.
-     *
-     * e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
-     *      "2018-11-10_23:42:36 to 23:49:52.wav"
-     */
-    private string build_filename_from_datetime (DateTime start, DateTime end, string suffix) {
-        string start_format = "%Y-%m-%d_%H:%M:%S";
-        string end_format = "%Y-%m-%d_%H:%M:%S";
-
-        bool is_same_day = Util.is_same_day (start, end);
-        if (is_same_day) {
-            // Avoid redundant date
-            end_format = "%H:%M:%S";
-        }
-
-        string start_str = start.format (start_format);
-        string end_str = end.format (end_format);
-
-        return "%s to %s".printf (start_str, end_str) + suffix;
     }
 
     /**
