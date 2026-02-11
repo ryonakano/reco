@@ -145,23 +145,25 @@ public class MainWindow : Adw.ApplicationWindow {
                     return;
                 }
 
+                string path = save_path.get_path ();
                 bool is_success = false;
                 try {
                     is_success = tmp_file.move (save_path, FileCopyFlags.OVERWRITE);
                 } catch (Error e) {
                     show_error_dialog (
                         _("Failed to save recording"),
-                        _("There was an error while moving file to the designated location."),
+                        _("There was an error while moving the temporary recording file \"%s\" to \"%s\"."
+                            .printf (tmp_file.get_path (), path)
+                        ),
                         e.message
                     );
-                    recorder.remove_tmp_recording ();
                 }
 
                 if (is_success) {
                     var saved_toast = new Adw.Toast (_("Recording Saved")) {
                         button_label = _("Open Folder"),
                         action_name = "app.open-folder",
-                        action_target = new Variant.string (save_path.get_path ())
+                        action_target = new Variant.string (path)
                     };
 
                     toast_overlay.add_toast (saved_toast);
