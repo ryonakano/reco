@@ -176,6 +176,13 @@ public class MainWindow : Adw.ApplicationWindow {
             return;
         }
 
+        if (destroy_on_save) {
+            destroy ();
+
+            // Don't show the toast unnecessarily when going to quit
+            return;
+        }
+
         var saved_toast = new Adw.Toast (_("Recording Saved")) {
             button_label = _("Open Folder"),
             action_name = "app.open-folder",
@@ -183,10 +190,6 @@ public class MainWindow : Adw.ApplicationWindow {
         };
 
         toast_overlay.add_toast (saved_toast);
-
-        if (destroy_on_save) {
-            destroy ();
-        }
     }
 
     /**
