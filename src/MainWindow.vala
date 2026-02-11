@@ -183,27 +183,28 @@ public class MainWindow : Adw.ApplicationWindow {
      * @return location where to save recordings
      */
     private async File? ask_save_path (string default_filename) {
-        File? dest = null;
-
         var autosave_dest = Application.settings.get_string ("autosave-destination");
-        if (autosave_dest.length == 0) {
-            var save_dialog = new Gtk.FileDialog () {
-                title = _("Save your recording"),
-                accept_label = _("Save"),
-                modal = true,
-                initial_name = default_filename
-            };
+        if (autosave_dest.length > 0) {
+            return File.new_for_path (autosave_dest).get_child (default_filename);
+        }
 
-            try {
-                dest = yield save_dialog.save (this, null);
-            } catch (Error e) {
-                warning ("Failed to Gtk.FileDialog.save: %s", e.message);
+        var save_dialog = new Gtk.FileDialog () {
+            title = _("Save your recording"),
+            accept_label = _("Save"),
+            modal = true,
+            initial_name = default_filename
+        };
 
-                // May be cancelled by user, so delete the tmp recording
-                recorder.remove_tmp_recording ();
-            }
-        } else {
-            dest = File.new_for_path (autosave_dest).get_child (default_filename);
+        File dest;
+        try {
+            dest = yield save_dialog.save (this, null);
+        } catch (Error e) {
+            warning ("Failed to Gtk.FileDialog.save: %s", e.message);
+
+            // May be cancelled by user, so delete the tmp recording
+            recorder.remove_tmp_recording ();
+
+            return null;
         }
 
         return dest;
