@@ -129,46 +129,48 @@ public class MainWindow : Adw.ApplicationWindow {
             );
         });
 
-        recorder.save_file.connect ((tmp_path, default_filename) => {
-            debug ("recorder.save_file: tmp_path(%s)", tmp_path);
+        recorder.save_file.connect (save_file);
+    }
 
-            ask_save_path.begin (default_filename, (obj, res) => {
-                File? save_path = ask_save_path.end (res);
+    private async void save_file (string tmp_path, string default_filename) {
+        debug ("recorder.save_file: tmp_path(%s)", tmp_path);
 
-                if (save_path == null) {
-                    // Log message is already outputted in ask_save_path method
-                    return;
-                }
+        ask_save_path.begin (default_filename, (obj, res) => {
+            File? save_path = ask_save_path.end (res);
 
-                var tmp_file = File.new_for_path (tmp_path);
-                string path = save_path.get_path ();
-                bool is_success = false;
-                try {
-                    is_success = tmp_file.move (save_path, FileCopyFlags.OVERWRITE);
-                } catch (Error e) {
-                    show_error_dialog (
-                        _("Failed to save recording"),
-                        _("There was an error while moving the temporary recording file \"%s\" to \"%s\"."
-                            .printf (tmp_file.get_path (), path)
-                        ),
-                        e.message
-                    );
-                }
+            if (save_path == null) {
+                // Log message is already outputted in ask_save_path method
+                return;
+            }
 
-                if (is_success) {
-                    var saved_toast = new Adw.Toast (_("Recording Saved")) {
-                        button_label = _("Open Folder"),
-                        action_name = "app.open-folder",
-                        action_target = new Variant.string (path)
-                    };
+            var tmp_file = File.new_for_path (tmp_path);
+            string path = save_path.get_path ();
+            bool is_success = false;
+            try {
+                is_success = tmp_file.move (save_path, FileCopyFlags.OVERWRITE);
+            } catch (Error e) {
+                show_error_dialog (
+                    _("Failed to save recording"),
+                    _("There was an error while moving the temporary recording file \"%s\" to \"%s\"."
+                        .printf (tmp_file.get_path (), path)
+                    ),
+                    e.message
+                );
+            }
 
-                    toast_overlay.add_toast (saved_toast);
-                }
+            if (is_success) {
+                var saved_toast = new Adw.Toast (_("Recording Saved")) {
+                    button_label = _("Open Folder"),
+                    action_name = "app.open-folder",
+                    action_target = new Variant.string (path)
+                };
 
-                if (destroy_on_save) {
-                    destroy ();
-                }
-            });
+                toast_overlay.add_toast (saved_toast);
+            }
+
+            if (destroy_on_save) {
+                destroy ();
+            }
         });
     }
 
