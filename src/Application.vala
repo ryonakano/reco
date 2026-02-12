@@ -11,6 +11,7 @@ public class Application : Adw.Application {
      */
     private const ActionEntry[] ACTION_ENTRIES = {
         { "open-folder", on_open_folder_activate, "s" },
+        { "open-uri", on_open_uri_activate, "s" },
         { "quit", on_quit_activate },
         { "about", on_about_activate },
     };
@@ -79,6 +80,19 @@ public class Application : Adw.Application {
                 launcher.open_containing_folder.end (res);
             } catch (Error err) {
                 warning ("Failed to Gtk.FileLauncher.open_containing_folder: %s", err.message);
+            }
+        });
+    }
+
+    private void on_open_uri_activate (SimpleAction action, Variant? parameter) requires (parameter != null) {
+        unowned string uri = parameter.get_string ();
+        var launcher = new Gtk.FileLauncher (File.new_for_uri (uri));
+
+        launcher.launch.begin (window, null, (obj, res) => {
+            try {
+                launcher.launch.end (res);
+            } catch (Error err) {
+                warning ("Failed to Gtk.FileLauncher.launch: %s", err.message);
             }
         });
     }

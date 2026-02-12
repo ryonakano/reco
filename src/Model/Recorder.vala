@@ -257,8 +257,6 @@ namespace Model {
             pipeline.set_state (Gst.State.NULL);
             pipeline.dispose ();
             is_recording_progress = false;
-
-            trash_or_delete.begin (tmp_path);
         }
 
         public void pause_recording () {
@@ -316,23 +314,26 @@ namespace Model {
             return true;
         }
 
-        private async void trash_or_delete (string path) {
-            if (!FileUtils.test (path, FileTest.EXISTS)) {
+        public async void trash_tmp_recording () throws Error {
+            // It's a bug of the caller if it tries to cleanup the tmp recording while it's still writing to it
+            assert (!is_recording_progress);
+
+            if (!FileUtils.test (tmp_path, FileTest.EXISTS)) {
                 return;
             }
 
-            try {
-                yield trash_file (path);
-            } catch (Error err) {
-                warning ("Failed to trash file \"%s\", deleting permanently instead: %s", path, err.message);
+            yield trash_file (tmp_path);
+        }
 
-                try {
-                    yield delete_file (path);
-                } catch (Error err) {
-                    // Just failed to remove tmp file so letting user know through error dialog is not necessary
-                    warning ("Failed to delete file \"%s\": %s", path, err.message);
-                }
+        public async void delete_tmp_recording () throws Error {
+            // It's a bug of the caller if it tries to cleanup the tmp recording while it's still writing to it
+            assert (!is_recording_progress);
+
+            if (!FileUtils.test (tmp_path, FileTest.EXISTS)) {
+                return;
             }
+
+            yield delete_file (tmp_path);
         }
 
         private async void trash_file (string path) throws Error {
