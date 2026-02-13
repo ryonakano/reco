@@ -271,19 +271,16 @@ public class MainWindow : Adw.ApplicationWindow {
         cleanup_tmp_recording.begin ((obj, res) => {
             cleanup_tmp_recording.end (res);
 
+            var cancel_toast = new Adw.Toast (_("Recording Canceled"));
+            toast_overlay.add_toast (cancel_toast);
+
             show_welcome ();
         });
     }
 
     private async void cleanup_tmp_recording () {
-        var cancel_toast = new Adw.Toast (_("Recording Canceled"));
-
         try {
             yield recorder.trash_tmp_recording ();
-
-            cancel_toast.button_label = _("Recover");
-            cancel_toast.action_name = "app.open-uri";
-            cancel_toast.action_target = new Variant.string ("trash:///");
         } catch (Error err) {
             warning ("Failed to trash tmp recording, deleting permanently instead: %s", err.message);
 
@@ -294,8 +291,6 @@ public class MainWindow : Adw.ApplicationWindow {
                 warning ("Failed to delete tmp recording: %s", err.message);
             }
         }
-
-        toast_overlay.add_toast (cancel_toast);
     }
 
     private void show_error_dialog (string primary_text, string secondary_text, string error_message) {
