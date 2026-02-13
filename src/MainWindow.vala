@@ -281,7 +281,7 @@ public class MainWindow : Adw.ApplicationWindow {
         try {
             yield recorder.trash_tmp_recording ();
 
-            cancel_toast.title = _("Recording Trashed");
+            cancel_toast.title = _("Recording Moved to Trash");
         } catch (Error err) {
             warning ("Failed to trash tmp recording, deleting permanently instead: %s", err.message);
 
