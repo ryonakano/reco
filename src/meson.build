@@ -31,7 +31,6 @@ dependencies = [
   dependency('gstreamer-1.0', version: '>= 1.20'),
   dependency('gtk4', version: '>= 4.10'),
   dependency('libadwaita-1'),
-  dependency('libportal'),
   livechart_dep,
   dependency('pango'),
   dependency('ryokucha', allow_fallback: get_option('use_submodule')),

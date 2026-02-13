@@ -337,8 +337,7 @@ namespace Model {
         }
 
         private async void trash_file (string path) throws Error {
-            var portal = new Xdp.Portal.initable_new ();
-            yield portal.trash_file (path, null);
+            yield File.new_for_path (path).trash_async ();
         }
 
         private async void delete_file (string path) throws Error {

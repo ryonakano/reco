@@ -50,24 +50,6 @@ modules:
           timestamp-query: .published_at
           tag-pattern: ^([\d.]+)$
 
-  - name: libportal
-    buildsystem: meson
-    config-opts:
-      - -Dbackend-qt5=disabled
-      - -Dbackend-qt6=disabled
-      - -Ddocs=false
-      - -Dtests=false
-    sources:
-      - type: archive
-        url: https://github.com/flatpak/libportal/archive/0.9.1.tar.gz
-        sha256: ea422b789ae487e04194d387bea031fd7485bf88a18aef8c767f7d1c29496a4e
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/flatpak/libportal/releases/latest
-          version-query: .tag_name
-          url-query: '"https://github.com/flatpak/libportal/archive/" + .tag_name + ".tar.gz"'
-          timestamp-query: .published_at
-
   - name: reco
     buildsystem: meson
     config-opts:
