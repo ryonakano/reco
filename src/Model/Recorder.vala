@@ -257,8 +257,6 @@ namespace Model {
             pipeline.set_state (Gst.State.NULL);
             pipeline.dispose ();
             is_recording_progress = false;
-
-            remove_tmp_recording ();
         }
 
         public void pause_recording () {
@@ -316,18 +314,34 @@ namespace Model {
             return true;
         }
 
-        public void remove_tmp_recording () {
-            var tmp_file = File.new_for_path (tmp_path);
-            if (!tmp_file.query_exists ()) {
+        public async void trash_tmp_recording () throws Error {
+            // It's a bug of the caller if it tries to cleanup the tmp recording while it's still writing to it
+            assert (!is_recording_progress);
+
+            if (!FileUtils.test (tmp_path, FileTest.EXISTS)) {
                 return;
             }
 
-            try {
-                tmp_file.delete ();
-            } catch (Error e) {
-                // Just failed to remove tmp file so letting user know through error dialog is not necessary
-                warning (e.message);
+            yield trash_file (tmp_path);
+        }
+
+        public async void delete_tmp_recording () throws Error {
+            // It's a bug of the caller if it tries to cleanup the tmp recording while it's still writing to it
+            assert (!is_recording_progress);
+
+            if (!FileUtils.test (tmp_path, FileTest.EXISTS)) {
+                return;
             }
+
+            yield delete_file (tmp_path);
+        }
+
+        private async void trash_file (string path) throws Error {
+            yield File.new_for_path (path).trash_async ();
+        }
+
+        private async void delete_file (string path) throws Error {
+            yield File.new_for_path (path).delete_async ();
         }
 
         private void inhibit_sleep () {
