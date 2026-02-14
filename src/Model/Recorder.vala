@@ -234,8 +234,8 @@ namespace Model {
                 encoder.link (sink);
             }
 
-            unowned string user_name = Environment.get_user_name ();
-            add_metainfo (pipeline, user_name, start_dt);
+            unowned string real_name = Environment.get_real_name ();
+            add_metainfo (pipeline, real_name, start_dt);
 
             pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
         }
