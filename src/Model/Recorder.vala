@@ -431,9 +431,15 @@ namespace Model {
                 return false;
             }
 
-            tag_setter.add_tags (Gst.TagMergeMode.REPLACE_ALL,
-                                    Gst.Tags.ARTIST, Environment.get_user_name (),
-                                    Gst.Tags.DATE_TIME, start_dt);
+            Value artist = Value (typeof (string));
+            artist.set_string (Environment.get_user_name ());
+
+            Value date_time = Value (typeof (Gst.DateTime));
+            date_time.set_boxed (new Gst.DateTime.from_g_date_time (start_dt));
+
+            tag_setter.add_tag_values (Gst.TagMergeMode.REPLACE_ALL,
+                                    Gst.Tags.ARTIST, artist,
+                                    Gst.Tags.DATE_TIME, date_time);
 
             return true;
         }
