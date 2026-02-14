@@ -234,9 +234,6 @@ namespace Model {
                 encoder.link (sink);
             }
 
-            unowned string real_name = Environment.get_real_name ();
-            add_metainfo (pipeline, real_name, start_dt);
-
             pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
         }
 
@@ -244,6 +241,10 @@ namespace Model {
             inhibit_sleep ();
 
             pipeline.set_state (Gst.State.PLAYING);
+
+            unowned string real_name = Environment.get_real_name ();
+            add_metainfo (pipeline, real_name, start_dt);
+
             is_recording_progress = true;
         }
 
@@ -424,6 +425,23 @@ namespace Model {
             return null;
         }
 
+        /**
+         * Add #artist and #date_time metainfo to the stream using a {@link Gst.TagSetter} element found from #pipeline.
+         *
+         * NOTE:
+         *  * You should call this method before #pipeline goes to {@link Gst.State.PAUSED}
+         *
+         * See also:
+         *  * https://gstreamer.freedesktop.org/documentation/application-development/advanced/metadata.html?gi-language=c#tag-writing
+         *  * https://gstreamer.freedesktop.org/documentation/gstreamer/gsttagsetter.html?gi-language=c
+         *
+         * @param pipeline      a {@link Gst.Pipeline} that has at least one {@link Gst.Element} that inherits
+         *                      {@link Gst.TagSetter} interface, e.g. "vorbisenc", "theoraenc", "id3v2mux", etc.
+         * @param artist        artist name that will be set to metadata
+         * @param date_time     date & time that will be set to metadata
+         *
+         * @return              true if succeeded, false otherwise
+         */
         private bool add_metainfo (Gst.Pipeline pipeline, string artist, DateTime date_time) {
             Gst.TagSetter? tag_setter = pipeline.get_by_interface (typeof (Gst.TagSetter)) as Gst.TagSetter;
             if (tag_setter == null) {
