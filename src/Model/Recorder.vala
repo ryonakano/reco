@@ -234,6 +234,9 @@ namespace Model {
                 encoder.link (sink);
             }
 
+            unowned string user_name = Environment.get_user_name ();
+            add_metainfo (pipeline, user_name, start_dt);
+
             pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
         }
 
@@ -282,9 +285,6 @@ namespace Model {
                     break;
                 case Gst.MessageType.EOS:
                     pipeline.set_state (Gst.State.NULL);
-
-                    add_tags (pipeline);
-
                     pipeline.dispose ();
                     is_recording_progress = false;
 
@@ -424,22 +424,22 @@ namespace Model {
             return null;
         }
 
-        private bool add_tags (Gst.Pipeline pipeline) {
+        private bool add_metainfo (Gst.Pipeline pipeline, string artist, DateTime date_time) {
             Gst.TagSetter? tag_setter = pipeline.get_by_interface (typeof (Gst.TagSetter)) as Gst.TagSetter;
             if (tag_setter == null) {
                 warning ("Element that implements GstTagSetter not found");
                 return false;
             }
 
-            Value artist = Value (typeof (string));
-            artist.set_string (Environment.get_user_name ());
+            Value gvalue_artist = Value (typeof (string));
+            gvalue_artist.set_string (artist);
 
-            Value date_time = Value (typeof (Gst.DateTime));
-            date_time.set_boxed (new Gst.DateTime.from_g_date_time (start_dt));
+            Value gvalue_date_time = Value (typeof (Gst.DateTime));
+            gvalue_date_time.set_boxed (new Gst.DateTime.from_g_date_time (date_time));
 
             tag_setter.add_tag_values (Gst.TagMergeMode.REPLACE_ALL,
-                                    Gst.Tags.ARTIST, artist,
-                                    Gst.Tags.DATE_TIME, date_time);
+                                    Gst.Tags.ARTIST, gvalue_artist,
+                                    Gst.Tags.DATE_TIME, gvalue_date_time);
 
             return true;
         }
