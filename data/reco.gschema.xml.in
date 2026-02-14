@@ -39,16 +39,6 @@
       <default>'stereo'</default>
       <summary>Audio channel</summary>
     </key>
-    <key name="auto-save" type="b">
-      <default>true</default>
-      <summary>Automatically save files</summary>
-      <description>This key is deprecated and ignored; use 'autosave-destination' key instead</description>
-    </key>
-    <key name="destination" type="s">
-      <default>''</default>
-      <summary>Default destination</summary>
-      <description>This key is deprecated and ignored; use 'autosave-destination' key instead</description>
-    </key>
     <key name="autosave-destination" type="s">
       <!-- The app doesn't require any access to the storage by default -->
       <default>''</default>
