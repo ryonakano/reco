@@ -236,7 +236,7 @@ public class View.WelcomeView : AbstractView {
             }
         } else {
             if (FileUtils.test (autosave_dest, FileTest.IS_DIR)) {
-                info ("Setting manual-save-last-folder to autosave_dest (%s)", path);
+                info ("Setting manual-save-last-folder to autosave_dest (%s)", autosave_dest);
                 // Set last value of folder path for autosaving to first value of last folder path for manual saving
                 Application.settings.set_string ("manual-save-last-folder", autosave_dest);
             }
