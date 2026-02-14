@@ -431,15 +431,11 @@ namespace Model {
                 return false;
             }
 
-            Value gvalue_artist = Value (typeof (string));
-            gvalue_artist.set_string (artist);
+            var gst_date_time = new Gst.DateTime.from_g_date_time (date_time);
 
-            Value gvalue_date_time = Value (typeof (Gst.DateTime));
-            gvalue_date_time.set_boxed (new Gst.DateTime.from_g_date_time (date_time));
-
-            tag_setter.add_tag_values (Gst.TagMergeMode.REPLACE_ALL,
-                                    Gst.Tags.ARTIST, gvalue_artist,
-                                    Gst.Tags.DATE_TIME, gvalue_date_time);
+            tag_setter.add_tags (Gst.TagMergeMode.REPLACE_ALL,
+                                    Gst.Tags.ARTIST, artist,
+                                    Gst.Tags.DATE_TIME, gst_date_time);
 
             return true;
         }
