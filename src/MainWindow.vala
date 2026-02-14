@@ -231,6 +231,7 @@ public class MainWindow : Adw.ApplicationWindow {
             path = parent_dir.get_path ();
         }
 
+        info ("Setting manual-save-last-folder to parent dir (%s)", path);
         Application.settings.set_string ("manual-save-last-folder", path);
 
         return final_file;

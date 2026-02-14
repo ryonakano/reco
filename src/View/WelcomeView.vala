@@ -236,6 +236,7 @@ public class View.WelcomeView : AbstractView {
             }
         } else {
             if (FileUtils.test (autosave_dest, FileTest.IS_DIR)) {
+                info ("Setting manual-save-last-folder to autosave_dest (%s)", path);
                 // Set last value of folder path for autosaving to first value of last folder path for manual saving
                 Application.settings.set_string ("manual-save-last-folder", autosave_dest);
             }
@@ -261,6 +262,7 @@ public class View.WelcomeView : AbstractView {
             path = file.get_path ();
         }
 
+        info ("Setting autosave-destination to %s", path);
         Application.settings.set_string ("autosave-destination", path);
         destination_chooser_button.label = Path.get_basename (path);
         autosave_switch.active = true;
