@@ -85,7 +85,7 @@ namespace Model {
         private FormatData[] format_data = {
             { ".m4a",   "avenc_alac",   "mp4mux"    },  // FormatID.ALAC                      // vala-lint=double-spaces
             { ".flac",  "flacenc",      null        },  // FormatID.FLAC                      // vala-lint=double-spaces
-            { ".mp3",   "lamemp3enc",   null        },  // FormatID.MP3                       // vala-lint=double-spaces
+            { ".mp3",   "lamemp3enc",   "id3v2mux"  },  // FormatID.MP3                       // vala-lint=double-spaces
             { ".ogg",   "vorbisenc",    "oggmux"    },  // FormatID.OGG                       // vala-lint=double-spaces
             { ".opus",  "opusenc",      "oggmux"    },  // FormatID.OPUS                      // vala-lint=double-spaces
             { ".wav",   "wavenc",       null        },  // FormatID.WAV                       // vala-lint=double-spaces
@@ -282,6 +282,9 @@ namespace Model {
                     break;
                 case Gst.MessageType.EOS:
                     pipeline.set_state (Gst.State.NULL);
+
+                    add_tags (pipeline);
+
                     pipeline.dispose ();
                     is_recording_progress = false;
 
@@ -419,6 +422,20 @@ namespace Model {
             }
 
             return null;
+        }
+
+        private bool add_tags (Gst.Pipeline pipeline) {
+            Gst.TagSetter? tag_setter = pipeline.get_by_interface (typeof (Gst.TagSetter)) as Gst.TagSetter;
+            if (tag_setter == null) {
+                warning ("Element that implements GstTagSetter not found");
+                return false;
+            }
+
+            tag_setter.add_tags (Gst.TagMergeMode.REPLACE_ALL,
+                                    Gst.Tags.ARTIST, Environment.get_user_name (),
+                                    Gst.Tags.DATE_TIME, start_dt);
+
+            return true;
         }
 
         /**
