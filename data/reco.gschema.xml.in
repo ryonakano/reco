@@ -45,6 +45,12 @@
       <summary>Default destination for autosaving</summary>
       <description>Specify the path to save recordings automatically. Setting this key blank disables autosaving</description>
     </key>
+    <key name="add-metadata" type="b">
+      <!-- Opt-in beacuse enabling this results recording files include personal info like real name -->
+      <default>false</default>
+      <summary>Add metadata</summary>
+      <description>Add metadata like artist and datetime to recording files automatically</description>
+    </key>
     <key name="color-scheme" type="s">
       <choices>
         <choice value="default"/>
