@@ -45,6 +45,11 @@
       <summary>Default destination for autosaving</summary>
       <description>Specify the path to save recordings automatically. Setting this key blank disables autosaving</description>
     </key>
+    <key name="manual-save-last-folder" type="s">
+      <default>''</default>
+      <summary>Last folder path for manual saving</summary>
+      <description>Folder path where recordings are saved manually last time</description>
+    </key>
     <key name="color-scheme" type="s">
       <choices>
         <choice value="default"/>

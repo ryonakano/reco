@@ -221,9 +221,10 @@ public class View.WelcomeView : AbstractView {
     }
 
     private async void toggle_autosave () {
+        var autosave_dest = Application.settings.get_string ("autosave-destination");
+
         if (autosave_switch.active) {
             // Prevent the filechooser shown twice when enabling the autosaving
-            var autosave_dest = Application.settings.get_string ("autosave-destination");
             if (autosave_dest.length != 0) {
                 return;
             }
@@ -234,6 +235,11 @@ public class View.WelcomeView : AbstractView {
                 autosave_switch.active = false;
             }
         } else {
+            if (FileUtils.test (autosave_dest, FileTest.IS_DIR)) {
+                // Set last value of folder path for autosaving to first value of last folder path for manual saving
+                Application.settings.set_string ("manual-save-last-folder", autosave_dest);
+            }
+
             // Clear the current destination and disable autosaving
             Application.settings.reset ("autosave-destination");
             destination_chooser_button.label = _("Select destination…");
@@ -241,7 +247,20 @@ public class View.WelcomeView : AbstractView {
     }
 
     private void remember_autosave_dir (File file) {
-        string path = file.get_path ();
+        string? path = null;
+        try {
+            FileInfo info = file.query_info (Define.FileAttribute.HOST_PATH, FileQueryInfoFlags.NONE);
+
+            path = info.get_attribute_as_string (Define.FileAttribute.HOST_PATH);
+        } catch (Error err) {
+            warning ("Failed to query file info: %s", err.message);
+        }
+
+        if (path == null) {
+            // Getting host path requires xdg-desktop-portal >= 1.19.0; fallback to path inside sandbox
+            path = file.get_path ();
+        }
+
         Application.settings.set_string ("autosave-destination", path);
         destination_chooser_button.label = Path.get_basename (path);
         autosave_switch.active = true;

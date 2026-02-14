@@ -209,7 +209,31 @@ public class MainWindow : Adw.ApplicationWindow {
             initial_name = default_filename
         };
 
-        return yield save_dialog.save (this, null);
+        var last_folder = Application.settings.get_string ("manual-save-last-folder");
+        if (FileUtils.test (last_folder, FileTest.IS_DIR)) {
+            save_dialog.initial_folder = File.new_for_path (last_folder);
+        }
+
+        File? final_file = yield save_dialog.save (this, null);
+
+        File? parent_dir = final_file.get_parent ();
+        string? path = null;
+        try {
+            FileInfo info = parent_dir.query_info (Define.FileAttribute.HOST_PATH, FileQueryInfoFlags.NONE);
+
+            path = info.get_attribute_as_string (Define.FileAttribute.HOST_PATH);
+        } catch (Error err) {
+            warning ("Failed to query file info: %s", err.message);
+        }
+
+        if (path == null) {
+            // Getting host path requires xdg-desktop-portal >= 1.19.0; fallback to path inside sandbox
+            path = parent_dir.get_path ();
+        }
+
+        Application.settings.set_string ("manual-save-last-folder", path);
+
+        return final_file;
     }
 
     private void show_welcome () {

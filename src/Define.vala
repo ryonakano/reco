@@ -24,4 +24,8 @@ namespace Define {
         /** Always use dark appearance. */
         public const string FORCE_DARK = "force-dark";
     }
+
+    namespace FileAttribute {
+        public const string HOST_PATH = "xattr::document-portal.host-path";
+    }
 }
