@@ -4,8 +4,7 @@
  */
 
 /**
- * A transitional dialog to be shown while some process is ongoing
- * and you want to prevent users from accessing to the main content of the app.
+ * A transitional dialog to be shown while saving and we don't want users to access to the main content of the app.
  */
 public class Widget.ProcessingDialog : Adw.Dialog {
     public signal void cancel_recording ();
