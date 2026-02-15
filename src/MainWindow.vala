@@ -4,7 +4,7 @@
  */
 
 public class MainWindow : Adw.ApplicationWindow {
-    private unowned Model.Recorder recorder;
+    private unowned Manager.RecordManager record_manager;
     private bool destroy_on_save;
 
     private View.WelcomeView welcome_view;
@@ -23,12 +23,12 @@ public class MainWindow : Adw.ApplicationWindow {
 
     static construct {
         starterr_message_table = new Gee.HashMap<int, string> ();
-        starterr_message_table[Model.RecorderError.CREATE_ERROR] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists.");
-        starterr_message_table[Model.RecorderError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one if this issue persists.");
+        starterr_message_table[Define.RecordError.CREATE_ERROR] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists.");
+        starterr_message_table[Define.RecordError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one if this issue persists.");
     }
 
     construct {
-        recorder = Model.Recorder.get_default ();
+        record_manager = Manager.RecordManager.get_default ();
 
         // Distinct development build visually
         if (".Devel" in Config.APP_ID) {
@@ -106,10 +106,10 @@ public class MainWindow : Adw.ApplicationWindow {
             stop_wrapper (false);
         });
         record_view.pause_recording.connect (() => {
-            recorder.pause_recording ();
+            record_manager.pause_recording ();
         });
         record_view.resume_recording.connect (() => {
-            recorder.resume_recording ();
+            record_manager.resume_recording ();
         });
 
         close_request.connect ((event) => {
@@ -121,7 +121,7 @@ public class MainWindow : Adw.ApplicationWindow {
             return Gdk.EVENT_PROPAGATE;
         });
 
-        recorder.throw_error.connect ((err, debug) => {
+        record_manager.throw_error.connect ((err, debug) => {
             show_error_dialog (
                 _("Error while recording"),
                 _("There was an error while recording."),
@@ -129,11 +129,11 @@ public class MainWindow : Adw.ApplicationWindow {
             );
         });
 
-        recorder.save_file.connect (save_file);
+        record_manager.save_file.connect (save_file);
     }
 
     private async void save_file (string tmp_path, string default_filename) {
-        debug ("recorder.save_file: tmp_path(%s)", tmp_path);
+        debug ("record_manager.save_file: tmp_path(%s)", tmp_path);
 
         File? final_file;
         var autosave_dest = Application.settings.get_string ("autosave-destination");
@@ -224,8 +224,8 @@ public class MainWindow : Adw.ApplicationWindow {
 
     private void show_record () {
         try {
-            recorder.prepare_recording ();
-        } catch (Model.RecorderError err) {
+            record_manager.prepare_recording ();
+        } catch (Define.RecordError err) {
             string? secondary_text = starterr_message_table[err.code];
             // Errors without dedicated message
             if (secondary_text == null) {
@@ -240,7 +240,7 @@ public class MainWindow : Adw.ApplicationWindow {
             return;
         }
 
-        recorder.start_recording ();
+        record_manager.start_recording ();
 
         record_view.refresh_begin ();
         stack.visible_child = record_view;
@@ -249,7 +249,7 @@ public class MainWindow : Adw.ApplicationWindow {
     public bool check_destroy () {
         // Stop the recording if recording is in progress
         // The window is destroyed in the save callback
-        if (recorder.is_recording_progress) {
+        if (record_manager.is_recording_progress) {
             stop_wrapper (true);
             return false;
         }
@@ -261,12 +261,12 @@ public class MainWindow : Adw.ApplicationWindow {
     private void stop_wrapper (bool destroy_flag = false) {
         destroy_on_save = destroy_flag;
 
-        recorder.stop_recording ();
+        record_manager.stop_recording ();
         show_welcome ();
     }
 
     private void cancel_warpper () {
-        recorder.cancel_recording ();
+        record_manager.cancel_recording ();
 
         cleanup_tmp_recording.begin ((obj, res) => {
             cleanup_tmp_recording.end (res);
@@ -279,14 +279,14 @@ public class MainWindow : Adw.ApplicationWindow {
         var cancel_toast = new Adw.Toast (_("Recording Canceled"));
 
         try {
-            yield recorder.trash_tmp_recording ();
+            yield record_manager.trash_tmp_recording ();
 
             cancel_toast.title = _("Recording Moved to Trash");
         } catch (Error err) {
             warning ("Failed to trash tmp recording, deleting permanently instead: %s", err.message);
 
             try {
-                yield recorder.delete_tmp_recording ();
+                yield record_manager.delete_tmp_recording ();
             } catch (Error err) {
                 // Just failed to remove tmp recording so letting user know through error dialog is not necessary
                 warning ("Failed to delete tmp recording: %s", err.message);

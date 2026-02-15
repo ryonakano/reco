@@ -8,18 +8,8 @@
  * * https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.6/subprojects/gst-plugins-base/tools/gst-device-monitor.c
  */
 
-namespace Model {
-    /**
-     * Error definitions for {@link Model.Recorder}.
-     */
-    public errordomain RecorderError {
-        /** Error while creating elements. **/
-        CREATE_ERROR,
-        /** Error configuring elements. **/
-        CONFIGURE_ERROR,
-    }
-
-    public class Recorder : Object {
+namespace Manager {
+    public class RecordManager : Object {
         public signal void throw_error (Error err, string debug);
         public signal void save_file (string tmp_path, string default_filename);
 
@@ -72,51 +62,49 @@ namespace Model {
             WAV
         }
 
+        private static Gee.HashMap<FormatID, unowned Model.Recorder.AbstractRecorder> recorder_table;
+
         private enum ChannelID {
             MONO = 1,
             STEREO = 2
         }
 
-        private struct FormatData {
-            string suffix;
-            string encoder;
-            string? muxer;
-        }
-        private FormatData[] format_data = {
-            { ".m4a",   "avenc_alac",   "mp4mux"    },  // FormatID.ALAC                      // vala-lint=double-spaces
-            { ".flac",  "flacenc",      null        },  // FormatID.FLAC                      // vala-lint=double-spaces
-            { ".mp3",   "lamemp3enc",   null        },  // FormatID.MP3                       // vala-lint=double-spaces
-            { ".ogg",   "vorbisenc",    "oggmux"    },  // FormatID.OGG                       // vala-lint=double-spaces
-            { ".opus",  "opusenc",      "oggmux"    },  // FormatID.OPUS                      // vala-lint=double-spaces
-            { ".wav",   "wavenc",       null        },  // FormatID.WAV                       // vala-lint=double-spaces
-        };
-
-        private static Recorder _instance;
-        public static unowned Recorder get_default () {
+        private static RecordManager _instance;
+        public static unowned RecordManager get_default () {
             if (_instance == null) {
-                _instance = new Recorder ();
+                _instance = new RecordManager ();
             }
 
             return _instance;
         }
 
-        private Recorder () {
+        private RecordManager () {
         }
 
-        public void prepare_recording () throws RecorderError {
+        static construct {
+            recorder_table = new Gee.HashMap<FormatID, unowned Model.Recorder.AbstractRecorder> ();
+            recorder_table[FormatID.ALAC] = new Model.Recorder.ALACRecorder ();
+            recorder_table[FormatID.FLAC] = new Model.Recorder.FLACRecorder ();
+            recorder_table[FormatID.MP3] = new Model.Recorder.MP3Recorder ();
+            recorder_table[FormatID.OGG] = new Model.Recorder.OGGRecorder ();
+            recorder_table[FormatID.OPUS] = new Model.Recorder.OPUSRecorder ();
+            recorder_table[FormatID.WAV] = new Model.Recorder.WAVRecorder ();
+        }
+
+        public void prepare_recording () throws Define.RecordError {
             pipeline = new Gst.Pipeline ("pipeline");
             if (pipeline == null) {
-                throw new RecorderError.CREATE_ERROR ("Failed to create pipeline");
+                throw new Define.RecordError.CREATE_ERROR ("Failed to create pipeline");
             }
 
             var level = Gst.ElementFactory.make ("level", "level");
             if (level == null) {
-                throw new RecorderError.CREATE_ERROR ("Failed to create level element named 'level'");
+                throw new Define.RecordError.CREATE_ERROR ("Failed to create level element named 'level'");
             }
 
             var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
             if (mixer == null) {
-                throw new RecorderError.CREATE_ERROR ("Failed to create audiomixer element named 'mixer'");
+                throw new Define.RecordError.CREATE_ERROR ("Failed to create audiomixer element named 'mixer'");
             }
 
             // Prevent audio from stuttering after some time, by setting the latency to other than 0.
@@ -126,7 +114,7 @@ namespace Model {
 
             var sink = Gst.ElementFactory.make ("filesink", "sink");
             if (sink == null) {
-                throw new RecorderError.CREATE_ERROR ("Failed to create filesink element named 'sink'");
+                throw new Define.RecordError.CREATE_ERROR ("Failed to create filesink element named 'sink'");
             }
 
             pipeline.add_many (level, mixer, sink);
@@ -137,13 +125,13 @@ namespace Model {
             if (source != SourceID.MIC) {
                 sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
                 if (sys_sound == null) {
-                    throw new RecorderError.CREATE_ERROR ("Failed to create pulsesrc element 'sys_sound'");
+                    throw new Define.RecordError.CREATE_ERROR ("Failed to create pulsesrc element 'sys_sound'");
                 }
 
                 Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
                 string? monitor_name = get_default_monitor_name (default_sink);
                 if (monitor_name == null) {
-                    throw new RecorderError.CONFIGURE_ERROR (
+                    throw new Define.RecordError.CONFIGURE_ERROR (
                         "Failed to set 'device' property of pulsesrc element named 'sys_sound': get_default_monitor_name () failed"
                     );
                 }
@@ -170,7 +158,7 @@ namespace Model {
                 Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
                 mic_sound = microphone.create_element ("mic_sound");
                 if (mic_sound == null) {
-                    throw new RecorderError.CREATE_ERROR ("Failed to create pulsesrc element named 'mic_sound'");
+                    throw new Define.RecordError.CREATE_ERROR ("Failed to create pulsesrc element named 'mic_sound'");
                 }
 
                 debug ("sound source (microphone): \"%s\"", microphone.display_name);
@@ -189,27 +177,22 @@ namespace Model {
             }
 
             FormatID file_format = (FormatID) Application.settings.get_enum ("format");
-            FormatData fmt_data = format_data[file_format];
-
-            var encoder = Gst.ElementFactory.make (fmt_data.encoder, "encoder");
-            if (encoder == null) {
-                throw new RecorderError.CREATE_ERROR (
-                    "Failed to create %s element named 'encoder'".printf (fmt_data.encoder)
+            unowned var? recorder = recorder_table[file_format];
+            if (recorder == null) {
+                throw new Define.RecordError.CREATE_ERROR (
+                    "No Recorder object that handles given file format found. format=%d".printf (file_format)
                 );
             }
 
-            Gst.Element? muxer = null;
-            if (fmt_data.muxer != null) {
-                muxer = Gst.ElementFactory.make (fmt_data.muxer, "muxer");
-                if (muxer == null) {
-                    throw new RecorderError.CREATE_ERROR (
-                        "Failed to create %s element named 'muxer'".printf (fmt_data.muxer)
-                    );
-                }
+            bool ret = recorder.prepare (pipeline, sink);
+            if (!ret) {
+                throw new Define.RecordError.CREATE_ERROR (
+                    "Failed to prepare Recorder. name=%s".printf (recorder.get_name ())
+                );
             }
 
             start_dt = new DateTime.now_local ();
-            string tmp_filename = "reco_%s%s".printf (start_dt.to_unix ().to_string (), fmt_data.suffix);
+            string tmp_filename = "reco_%s%s".printf (start_dt.to_unix ().to_string (), recorder.get_suffix ());
             tmp_path = Path.build_filename (Environment.get_user_cache_dir (), tmp_filename);
             sink.set ("location", tmp_path);
             debug ("temporary saving path: %s", tmp_path);
@@ -217,22 +200,14 @@ namespace Model {
             // Dual-channelization
             var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
             if (caps_filter == null) {
-                throw new RecorderError.CREATE_ERROR ("Failed to create capsfilter element 'filter'");
+                throw new Define.RecordError.CREATE_ERROR ("Failed to create capsfilter element 'filter'");
             }
 
             caps_filter.set ("caps", new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT,
                                                           (ChannelID) Application.settings.get_enum ("channel")));
 
-            pipeline.add_many (caps_filter, encoder);
-            mixer.link_many (caps_filter, level, encoder);
-
-            if (muxer != null) {
-                pipeline.add (muxer);
-                encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
-                muxer.link (sink);
-            } else {
-                encoder.link (sink);
-            }
+            pipeline.add (caps_filter);
+            mixer.link_many (caps_filter, level);
 
             pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
         }

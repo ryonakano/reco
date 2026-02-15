@@ -139,8 +139,8 @@ public class View.RecordView : AbstractView {
     }
 
     private double get_current_peak () {
-        unowned var recorder = Model.Recorder.get_default ();
-        return recorder.current_peak;
+        unowned var record_manager = Manager.RecordManager.get_default ();
+        return record_manager.current_peak;
     }
 
     public void refresh_begin () {
