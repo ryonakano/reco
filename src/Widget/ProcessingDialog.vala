@@ -92,16 +92,15 @@ public class Widget.ProcessingDialog : Adw.Dialog {
 
         cancel_reveal_timeout = Timeout.add_once (CANCEL_REVEAL_TIMEOUT_MSEC, () => {
             cancel_revealer.reveal_child = true;
+            cancel_reveal_timeout = 0;
         });
     }
 
     public void conceal_cancel_revealer () {
-        if (cancel_reveal_timeout == 0) {
-            return;
+        if (cancel_reveal_timeout > 0) {
+            Source.remove (cancel_reveal_timeout);
+            cancel_reveal_timeout = 0;
         }
-
-        Source.remove (cancel_reveal_timeout);
-        cancel_reveal_timeout = 0;
 
         cancel_revealer.reveal_child = false;
     }
