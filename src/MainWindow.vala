@@ -136,6 +136,10 @@ public class MainWindow : Adw.ApplicationWindow {
     private async void save_file_wrapper (string tmp_path, string default_filename) {
         assert (processing_dialog != null);
 
+        // Prevent cancel option from being revealed in case users don't notice the file dialog appears
+        // and tries to use the cancel option, which is no longer clickable because a transient dialog presents.
+        processing_dialog.conceal_cancel_revealer ();
+
         string? final_path = yield save_file (tmp_path, default_filename);
         if (final_path != null) {
             var saved_toast = new Adw.Toast (_("Recording Saved")) {
