@@ -180,7 +180,7 @@ namespace Manager {
             var recorder = recorder_table[file_format];
             if (recorder == null) {
                 throw new Define.RecordError.CREATE_ERROR (
-                    "No Recorder object that handles given file format found. format=%d".printf (file_format)
+                    "No handler for the given file format. file_format=%d".printf (file_format)
                 );
             }
 
