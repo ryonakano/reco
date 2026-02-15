@@ -6,7 +6,6 @@
 public class Model.Recorder.FLACRecorder : Model.Recorder.AbstractRecorder {
     private const string NAME = "FLAC";
     private const string SUFFIX = ".flac";
-    private const string ENCODER = "flacenc";
 
     public FLACRecorder () {
     }
@@ -20,9 +19,9 @@ public class Model.Recorder.FLACRecorder : Model.Recorder.AbstractRecorder {
     }
 
     public override bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) {
-        var encoder = Gst.ElementFactory.make (ENCODER, "encoder");
+        var encoder = Gst.ElementFactory.make ("flacenc", "encoder");
         if (encoder == null) {
-            warning ("Failed to create %s element named 'encoder'".printf (ENCODER));
+            warning ("Failed to create flacenc element");
             return false;
         }
 

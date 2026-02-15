@@ -6,8 +6,6 @@
 public class Model.Recorder.OPUSRecorder : Model.Recorder.AbstractRecorder {
     private const string NAME = "OPUS";
     private const string SUFFIX = ".opus";
-    private const string ENCODER = "opusenc";
-    private const string MUXER = "oggmux";
 
     public OPUSRecorder () {
     }
@@ -21,18 +19,18 @@ public class Model.Recorder.OPUSRecorder : Model.Recorder.AbstractRecorder {
     }
 
     public override bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) {
-        var encoder = Gst.ElementFactory.make (ENCODER, "encoder");
+        var encoder = Gst.ElementFactory.make ("opusenc", "encoder");
         if (encoder == null) {
-            warning ("Failed to create %s element named 'encoder'".printf (ENCODER));
+            warning ("Failed to create opusenc element");
             return false;
         }
 
         pipeline.add (encoder);
         mixer.link (encoder);
 
-        var muxer = Gst.ElementFactory.make (MUXER, "muxer");
+        var muxer = Gst.ElementFactory.make ("oggmux", "muxer");
         if (muxer == null) {
-            warning ("Failed to create %s element named 'muxer'".printf (MUXER));
+            warning ("Failed to create oggmux element");
             return false;
         }
 

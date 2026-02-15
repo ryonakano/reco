@@ -6,7 +6,6 @@
 public class Model.Recorder.WAVRecorder : Model.Recorder.AbstractRecorder {
     private const string NAME = "WAV";
     private const string SUFFIX = ".wav";
-    private const string ENCODER = "wavenc";
 
     public WAVRecorder () {
     }
@@ -20,9 +19,9 @@ public class Model.Recorder.WAVRecorder : Model.Recorder.AbstractRecorder {
     }
 
     public override bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) {
-        var encoder = Gst.ElementFactory.make (ENCODER, "encoder");
+        var encoder = Gst.ElementFactory.make ("wavenc", "encoder");
         if (encoder == null) {
-            warning ("Failed to create %s element named 'encoder'".printf (ENCODER));
+            warning ("Failed to create wavenc element");
             return false;
         }
 

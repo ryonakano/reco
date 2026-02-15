@@ -6,8 +6,6 @@
 public class Model.Recorder.OGGRecorder : Model.Recorder.AbstractRecorder {
     private const string NAME = "OGG";
     private const string SUFFIX = ".ogg";
-    private const string ENCODER = "vorbisenc";
-    private const string MUXER = "oggmux";
 
     public OGGRecorder () {
     }
@@ -21,18 +19,18 @@ public class Model.Recorder.OGGRecorder : Model.Recorder.AbstractRecorder {
     }
 
     public override bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) {
-        var encoder = Gst.ElementFactory.make (ENCODER, "encoder");
+        var encoder = Gst.ElementFactory.make ("vorbisenc", "encoder");
         if (encoder == null) {
-            warning ("Failed to create %s element named 'encoder'".printf (ENCODER));
+            warning ("Failed to create vorbisenc element");
             return false;
         }
 
         pipeline.add (encoder);
         mixer.link (encoder);
 
-        var muxer = Gst.ElementFactory.make (MUXER, "muxer");
+        var muxer = Gst.ElementFactory.make ("oggmux", "muxer");
         if (muxer == null) {
-            warning ("Failed to create %s element named 'muxer'".printf (MUXER));
+            warning ("Failed to create oggmux element");
             return false;
         }
 

@@ -6,8 +6,6 @@
 public class Model.Recorder.ALACRecorder : Model.Recorder.AbstractRecorder {
     private const string NAME = "ALAC";
     private const string SUFFIX = ".m4a";
-    private const string ENCODER = "avenc_alac";
-    private const string MUXER = "mp4mux";
 
     public ALACRecorder () {
     }
@@ -21,18 +19,18 @@ public class Model.Recorder.ALACRecorder : Model.Recorder.AbstractRecorder {
     }
 
     public override bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) {
-        var encoder = Gst.ElementFactory.make (ENCODER, "encoder");
+        var encoder = Gst.ElementFactory.make ("avenc_alac", "encoder");
         if (encoder == null) {
-            warning ("Failed to create %s element named 'encoder'".printf (ENCODER));
+            warning ("Failed to create avenc_alac element");
             return false;
         }
 
         pipeline.add (encoder);
         mixer.link (encoder);
 
-        var muxer = Gst.ElementFactory.make (MUXER, "muxer");
+        var muxer = Gst.ElementFactory.make ("mp4mux", "muxer");
         if (muxer == null) {
-            warning ("Failed to create %s element named 'muxer'".printf (MUXER));
+            warning ("Failed to create mp4mux element");
             return false;
         }
 

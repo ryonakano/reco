@@ -6,7 +6,6 @@
 public class Model.Recorder.MP3Recorder : Model.Recorder.AbstractRecorder {
     private const string NAME = "MP3";
     private const string SUFFIX = ".mp3";
-    private const string ENCODER = "lamemp3enc";
 
     public MP3Recorder () {
     }
@@ -20,9 +19,9 @@ public class Model.Recorder.MP3Recorder : Model.Recorder.AbstractRecorder {
     }
 
     public override bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) {
-        var encoder = Gst.ElementFactory.make (ENCODER, "encoder");
+        var encoder = Gst.ElementFactory.make ("lamemp3enc", "encoder");
         if (encoder == null) {
-            warning ("Failed to create %s element named 'encoder'".printf (ENCODER));
+            warning ("Failed to create lamemp3enc element");
             return false;
         }
 
