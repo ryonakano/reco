@@ -11,7 +11,7 @@ public class Widget.ProcessingDialog : Adw.Dialog {
 
     private const uint CANCEL_REVEAL_TIMEOUT_MSEC = 5000;
 
-    // Can't make this local variable because the following critical log is shown when setting reveal_child to true
+    // Can't make this local variable because the following critical log is shown when setting reveal_child to true:
     //   Gtk-CRITICAL **: 20:59:53.389: gtk_revealer_set_reveal_child: assertion 'GTK_IS_REVEALER (revealer)' failed
     private Gtk.Revealer cancel_revealer;
 
