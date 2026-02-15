@@ -8,6 +8,8 @@
  * and you want to prevent users from accessing to the main content of the app.
  */
 public class Widget.ProcessingDialog : Adw.Dialog {
+    public signal void cancel_recording ();
+
     /**
      * Text shown in #this to let users know the reason why #this presents.
      */
@@ -81,6 +83,10 @@ public class Widget.ProcessingDialog : Adw.Dialog {
         content_box.append (cancel_revealer);
 
         child = content_box;
+
+        cancel_button.clicked.connect (() => {
+            cancel_recording ();
+        });
 
         cancel_reveal_timeout = Timeout.add_once (CANCEL_REVEAL_TIMEOUT_MSEC, () => {
             cancel_revealer.reveal_child = true;

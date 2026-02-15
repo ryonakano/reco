@@ -289,6 +289,7 @@ public class MainWindow : Adw.ApplicationWindow {
             // Prevent users from closing the dialog manually and access to the main content behind it accidentally
             can_close = false,
         };
+        processing_dialog.cancel_recording.connect (cancel_warpper);
         processing_dialog.present (this);
 
         record_manager.stop_recording ();
