@@ -41,7 +41,7 @@ public abstract class Model.Recorder.AbstractRecorder : Object {
      * @param mixer     audiomixer that precedes all elements created in this method.
      * @param sink      filesink that succeeds to all elements created in this method.
      *
-     * @return  suffix of the file format #this handles.
+     * @return          true if succeeds, false otherwise.
      */
     public abstract bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink);
 }
