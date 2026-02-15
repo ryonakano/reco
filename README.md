@@ -65,6 +65,7 @@ You'll need the following dependencies to build:
 You'll need the following dependencies to run:
 
 * gstreamer1.0-libav (use the same version with libgstreamer1.0-dev)
+* libgstreamer-plugins-good1.0-0 (use the same version with libgstreamer1.0-dev, compiled with `-Dtaglib=enabled`)
 
 Run `meson setup` to configure the build environment and run `meson compile` to build:
 

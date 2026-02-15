@@ -27,7 +27,16 @@ public class Model.Recorder.MP3Recorder : Model.Recorder.AbstractRecorder {
 
         pipeline.add (encoder);
         mixer.link (encoder);
-        encoder.link (sink);
+
+        var muxer = Gst.ElementFactory.make ("id3v2mux", "muxer");
+        if (muxer == null) {
+            warning ("Failed to create id3v2mux element");
+            return false;
+        }
+
+        pipeline.add (muxer);
+        encoder.link_many (muxer, sink);
+        muxer.link (sink);
 
         return true;
     }
