@@ -3,9 +3,23 @@
  * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
+/**
+ * A transitional dialog to be shown while some process is ongoing
+ * and you want to prevent users from accessing to the main content of the app.
+ */
 public class Widget.ProcessingDialog : Adw.Dialog {
+    /**
+     * Text shown in #this to let users know the reason why #this presents.
+     */
     public string description { get; construct; }
 
+    /**
+     * Creates a new ProcessingDialog.
+     *
+     * @param description   Text shown in #this to let users know the reason why #this presents.
+     *
+     * @return the newly created ProcessingDialog.
+     */
     public ProcessingDialog (string description) {
         Object (
             description: description
