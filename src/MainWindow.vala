@@ -284,7 +284,7 @@ public class MainWindow : Adw.ApplicationWindow {
         // When you record more than twice, however, that results it being not shown
         // and the following critical log shown instead:
         //   Gtk-CRITICAL **: 20:12:33.353: gtk_window_present: assertion 'GTK_IS_WINDOW (window)' failed
-        processing_dialog = new Widget.ProcessingDialog (_("Saving…")) {
+        processing_dialog = new Widget.ProcessingDialog () {
             // Prevent users from closing the dialog manually and access to the main content behind it accidentally
             can_close = false,
         };

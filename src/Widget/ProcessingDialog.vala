@@ -10,11 +10,6 @@
 public class Widget.ProcessingDialog : Adw.Dialog {
     public signal void cancel_recording ();
 
-    /**
-     * Text shown in #this to let users know the reason why #this presents.
-     */
-    public string description { get; construct; }
-
     private const uint CANCEL_REVEAL_TIMEOUT_MSEC = 5000;
 
     // Can't make this local variable because the following critical log is shown when setting reveal_child to true
@@ -26,14 +21,9 @@ public class Widget.ProcessingDialog : Adw.Dialog {
     /**
      * Creates a new ProcessingDialog.
      *
-     * @param description   Text shown in #this to let users know the reason why #this presents.
-     *
      * @return the newly created ProcessingDialog.
      */
-    public ProcessingDialog (string description) {
-        Object (
-            description: description
-        );
+    public ProcessingDialog () {
     }
 
     construct {
@@ -43,7 +33,7 @@ public class Widget.ProcessingDialog : Adw.Dialog {
             valign = Gtk.Align.CENTER,
         };
 
-        var desc_label = new Gtk.Label (description) {
+        var desc_label = new Gtk.Label (_("Saving…")) {
             halign = Gtk.Align.CENTER,
         };
         desc_label.add_css_class ("title-3");
