@@ -8,417 +8,415 @@
  * * https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.6/subprojects/gst-plugins-base/tools/gst-device-monitor.c
  */
 
-namespace Manager {
-    public class RecordManager : Object {
-        public signal void throw_error (Error err, string debug);
-        public signal void save_file (string tmp_path, string default_filename);
+public class Manager.RecordManager : Object {
+    public signal void throw_error (Error err, string debug);
+    public signal void save_file (string tmp_path, string default_filename);
 
-        private const string IGNORED_PROPNAMES[] = {
-            "name", "parent", "direction", "template", "caps"
-        };
+    private const string IGNORED_PROPNAMES[] = {
+        "name", "parent", "direction", "template", "caps"
+    };
 
-        public bool is_recording_progress { get; private set; default = false; }
+    public bool is_recording_progress { get; private set; default = false; }
 
-        // current sound level, taking value from 0 to 1
-        public double current_peak {
-            get {
-                return _current_peak;
-            }
-            set {
-                double decibel = value;
-                if (decibel > 0) {
-                    decibel = 0;
-                }
-
-                double p = Math.pow (10, decibel / 20);
-                if (p == _current_peak) {
-                    // No need to renew value
-                    return;
-                }
-
-                _current_peak = p;
-            }
+    // current sound level, taking value from 0 to 1
+    public double current_peak {
+        get {
+            return _current_peak;
         }
-        private double _current_peak = 0;
-
-        private string tmp_path;
-        private DateTime start_dt;
-        private Gst.Pipeline pipeline;
-        private uint inhibit_token = 0;
-        private const uint64 NSEC = 1000000000;
-
-        private enum SourceID {
-            MIC,
-            SYSTEM,
-            BOTH
-        }
-
-        private enum FormatID {
-            ALAC,
-            FLAC,
-            MP3,
-            OGG,
-            OPUS,
-            WAV
-        }
-
-        private static Gee.HashMap<FormatID, unowned Model.Recorder.AbstractRecorder> recorder_table;
-
-        private enum ChannelID {
-            MONO = 1,
-            STEREO = 2
-        }
-
-        private static RecordManager _instance;
-        public static unowned RecordManager get_default () {
-            if (_instance == null) {
-                _instance = new RecordManager ();
+        set {
+            double decibel = value;
+            if (decibel > 0) {
+                decibel = 0;
             }
 
-            return _instance;
-        }
-
-        private RecordManager () {
-        }
-
-        static construct {
-            recorder_table = new Gee.HashMap<FormatID, unowned Model.Recorder.AbstractRecorder> ();
-            recorder_table[FormatID.ALAC] = new Model.Recorder.ALACRecorder ();
-            recorder_table[FormatID.FLAC] = new Model.Recorder.FLACRecorder ();
-            recorder_table[FormatID.MP3] = new Model.Recorder.MP3Recorder ();
-            recorder_table[FormatID.OGG] = new Model.Recorder.OGGRecorder ();
-            recorder_table[FormatID.OPUS] = new Model.Recorder.OPUSRecorder ();
-            recorder_table[FormatID.WAV] = new Model.Recorder.WAVRecorder ();
-        }
-
-        public void prepare_recording () throws Define.RecordError {
-            pipeline = new Gst.Pipeline ("pipeline");
-            if (pipeline == null) {
-                throw new Define.RecordError.CREATE_ERROR ("Failed to create pipeline");
-            }
-
-            var level = Gst.ElementFactory.make ("level", "level");
-            if (level == null) {
-                throw new Define.RecordError.CREATE_ERROR ("Failed to create level element named 'level'");
-            }
-
-            var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
-            if (mixer == null) {
-                throw new Define.RecordError.CREATE_ERROR ("Failed to create audiomixer element named 'mixer'");
-            }
-
-            // Prevent audio from stuttering after some time, by setting the latency to other than 0.
-            // This issue happens once audiomixer begins to be late and drop buffers.
-            // See https://github.com/SeaDve/Kooha/issues/218#issuecomment-1948123954
-            mixer.set_property ("latency", 1 * NSEC);
-
-            var sink = Gst.ElementFactory.make ("filesink", "sink");
-            if (sink == null) {
-                throw new Define.RecordError.CREATE_ERROR ("Failed to create filesink element named 'sink'");
-            }
-
-            pipeline.add_many (level, mixer, sink);
-
-            SourceID source = (SourceID) Application.settings.get_enum ("source");
-
-            Gst.Element? sys_sound = null;
-            if (source != SourceID.MIC) {
-                sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
-                if (sys_sound == null) {
-                    throw new Define.RecordError.CREATE_ERROR ("Failed to create pulsesrc element 'sys_sound'");
-                }
-
-                Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
-                string? monitor_name = get_default_monitor_name (default_sink);
-                if (monitor_name == null) {
-                    throw new Define.RecordError.CONFIGURE_ERROR (
-                        "Failed to set 'device' property of pulsesrc element named 'sys_sound': get_default_monitor_name () failed"
-                    );
-                }
-
-                sys_sound.set ("device", monitor_name);
-                debug ("sound source (system): \"Monitor of %s\"", default_sink.display_name);
-
-                // Set properties that can be used in monitor apps e.g. pavucontrol or gnome-system-monitor
-                var pa_props = new Gst.Structure.from_string (
-                    "props" + ",media.role=music"
-                            + ",application.id=" + Config.APP_ID
-                            + ",application.icon_name=" + Config.APP_ID
-                    , null
-                );
-                sys_sound.set ("stream-properties", pa_props);
-
-                pipeline.add (sys_sound);
-                sys_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
-            }
-
-            Gst.Element? mic_sound = null;
-            if (source != SourceID.SYSTEM) {
-                var index = (int) Manager.DeviceManager.get_default ().selected_source_index;
-                Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
-                mic_sound = microphone.create_element ("mic_sound");
-                if (mic_sound == null) {
-                    throw new Define.RecordError.CREATE_ERROR ("Failed to create pulsesrc element named 'mic_sound'");
-                }
-
-                debug ("sound source (microphone): \"%s\"", microphone.display_name);
-
-                // Set properties that can be used in monitor apps e.g. pavucontrol or gnome-system-monitor
-                var pa_props = new Gst.Structure.from_string (
-                    "props" + ",media.role=music"
-                            + ",application.id=" + Config.APP_ID
-                            + ",application.icon_name=" + Config.APP_ID
-                    , null
-                );
-                mic_sound.set ("stream-properties", pa_props);
-
-                pipeline.add (mic_sound);
-                mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
-            }
-
-            FormatID file_format = (FormatID) Application.settings.get_enum ("format");
-            unowned var? recorder = recorder_table[file_format];
-            if (recorder == null) {
-                throw new Define.RecordError.CREATE_ERROR (
-                    "No Recorder object that handles given file format found. format=%d".printf (file_format)
-                );
-            }
-
-            bool ret = recorder.prepare (pipeline, sink);
-            if (!ret) {
-                throw new Define.RecordError.CREATE_ERROR (
-                    "Failed to prepare Recorder. name=%s".printf (recorder.get_name ())
-                );
-            }
-
-            start_dt = new DateTime.now_local ();
-            string tmp_filename = "reco_%s%s".printf (start_dt.to_unix ().to_string (), recorder.get_suffix ());
-            tmp_path = Path.build_filename (Environment.get_user_cache_dir (), tmp_filename);
-            sink.set ("location", tmp_path);
-            debug ("temporary saving path: %s", tmp_path);
-
-            // Dual-channelization
-            var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
-            if (caps_filter == null) {
-                throw new Define.RecordError.CREATE_ERROR ("Failed to create capsfilter element 'filter'");
-            }
-
-            caps_filter.set ("caps", new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT,
-                                                          (ChannelID) Application.settings.get_enum ("channel")));
-
-            pipeline.add (caps_filter);
-            mixer.link_many (caps_filter, level);
-
-            pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
-        }
-
-        public void start_recording () {
-            inhibit_sleep ();
-
-            pipeline.set_state (Gst.State.PLAYING);
-            is_recording_progress = true;
-        }
-
-        public void stop_recording () {
-            // Pipelines don't seem to catch events when it's in the PAUSED state
-            pipeline.set_state (Gst.State.PLAYING);
-
-            pipeline.send_event (new Gst.Event.eos ());
-        }
-
-        public void cancel_recording () {
-            uninhibit_sleep ();
-
-            pipeline.set_state (Gst.State.NULL);
-            pipeline.dispose ();
-            is_recording_progress = false;
-        }
-
-        public void pause_recording () {
-            uninhibit_sleep ();
-
-            pipeline.set_state (Gst.State.PAUSED);
-        }
-
-        public void resume_recording () {
-            start_recording ();
-        }
-
-        private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
-            switch (msg.type) {
-                case Gst.MessageType.ERROR:
-                    cancel_recording ();
-
-                    Error err;
-                    string debug;
-                    msg.parse_error (out err, out debug);
-
-                    throw_error (err, debug);
-                    break;
-                case Gst.MessageType.EOS:
-                    pipeline.set_state (Gst.State.NULL);
-                    pipeline.dispose ();
-                    is_recording_progress = false;
-
-                    var end_dt = new DateTime.now_local ();
-                    string suffix = Util.get_suffix (tmp_path);
-                    string default_filename = build_filename_from_datetime (start_dt, end_dt, suffix);
-
-                    save_file (tmp_path, default_filename);
-                    break;
-                case Gst.MessageType.ELEMENT:
-                    unowned Gst.Structure? structure = msg.get_structure ();
-                    if (!structure.has_name ("level")) {
-                        break;
-                    }
-
-                    // FIXME: ValueArray is deprecated but used as an I/F structure in the GStreamer side:
-                    // https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.5/subprojects/gst-plugins-good/gst/level/gstlevel.c#L579
-                    // We would need a patch for GStreamer to replace ValueArray with Array
-                    // when it's removed before GStreamer resolves
-                    unowned var peak_arr = (ValueArray) structure.get_value ("peak").get_boxed ();
-                    if (peak_arr != null) {
-                        current_peak = peak_arr.get_nth (0).get_double ();
-                    }
-
-                    break;
-                default:
-                    break;
-            }
-
-            return true;
-        }
-
-        public async void trash_tmp_recording () throws Error {
-            // It's a bug of the caller if it tries to cleanup the tmp recording while it's still writing to it
-            assert (!is_recording_progress);
-
-            if (!FileUtils.test (tmp_path, FileTest.EXISTS)) {
+            double p = Math.pow (10, decibel / 20);
+            if (p == _current_peak) {
+                // No need to renew value
                 return;
             }
 
-            yield trash_file (tmp_path);
+            _current_peak = p;
+        }
+    }
+    private double _current_peak = 0;
+
+    private string tmp_path;
+    private DateTime start_dt;
+    private Gst.Pipeline pipeline;
+    private uint inhibit_token = 0;
+    private const uint64 NSEC = 1000000000;
+
+    private enum SourceID {
+        MIC,
+        SYSTEM,
+        BOTH
+    }
+
+    private enum FormatID {
+        ALAC,
+        FLAC,
+        MP3,
+        OGG,
+        OPUS,
+        WAV
+    }
+
+    private static Gee.HashMap<FormatID, unowned Model.Recorder.AbstractRecorder> recorder_table;
+
+    private enum ChannelID {
+        MONO = 1,
+        STEREO = 2
+    }
+
+    private static RecordManager _instance;
+    public static unowned RecordManager get_default () {
+        if (_instance == null) {
+            _instance = new RecordManager ();
         }
 
-        public async void delete_tmp_recording () throws Error {
-            // It's a bug of the caller if it tries to cleanup the tmp recording while it's still writing to it
-            assert (!is_recording_progress);
+        return _instance;
+    }
 
-            if (!FileUtils.test (tmp_path, FileTest.EXISTS)) {
-                return;
+    private RecordManager () {
+    }
+
+    static construct {
+        recorder_table = new Gee.HashMap<FormatID, unowned Model.Recorder.AbstractRecorder> ();
+        recorder_table[FormatID.ALAC] = new Model.Recorder.ALACRecorder ();
+        recorder_table[FormatID.FLAC] = new Model.Recorder.FLACRecorder ();
+        recorder_table[FormatID.MP3] = new Model.Recorder.MP3Recorder ();
+        recorder_table[FormatID.OGG] = new Model.Recorder.OGGRecorder ();
+        recorder_table[FormatID.OPUS] = new Model.Recorder.OPUSRecorder ();
+        recorder_table[FormatID.WAV] = new Model.Recorder.WAVRecorder ();
+    }
+
+    public void prepare_recording () throws Define.RecordError {
+        pipeline = new Gst.Pipeline ("pipeline");
+        if (pipeline == null) {
+            throw new Define.RecordError.CREATE_ERROR ("Failed to create pipeline");
+        }
+
+        var level = Gst.ElementFactory.make ("level", "level");
+        if (level == null) {
+            throw new Define.RecordError.CREATE_ERROR ("Failed to create level element named 'level'");
+        }
+
+        var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
+        if (mixer == null) {
+            throw new Define.RecordError.CREATE_ERROR ("Failed to create audiomixer element named 'mixer'");
+        }
+
+        // Prevent audio from stuttering after some time, by setting the latency to other than 0.
+        // This issue happens once audiomixer begins to be late and drop buffers.
+        // See https://github.com/SeaDve/Kooha/issues/218#issuecomment-1948123954
+        mixer.set_property ("latency", 1 * NSEC);
+
+        var sink = Gst.ElementFactory.make ("filesink", "sink");
+        if (sink == null) {
+            throw new Define.RecordError.CREATE_ERROR ("Failed to create filesink element named 'sink'");
+        }
+
+        pipeline.add_many (level, mixer, sink);
+
+        SourceID source = (SourceID) Application.settings.get_enum ("source");
+
+        Gst.Element? sys_sound = null;
+        if (source != SourceID.MIC) {
+            sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
+            if (sys_sound == null) {
+                throw new Define.RecordError.CREATE_ERROR ("Failed to create pulsesrc element 'sys_sound'");
             }
 
-            yield delete_file (tmp_path);
-        }
-
-        private async void trash_file (string path) throws Error {
-            yield File.new_for_path (path).trash_async ();
-        }
-
-        private async void delete_file (string path) throws Error {
-            yield File.new_for_path (path).delete_async ();
-        }
-
-        private void inhibit_sleep () {
-            unowned Gtk.Application app = (Gtk.Application) GLib.Application.get_default ();
-            if (inhibit_token != 0) {
-                app.uninhibit (inhibit_token);
+            Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
+            string? monitor_name = get_default_monitor_name (default_sink);
+            if (monitor_name == null) {
+                throw new Define.RecordError.CONFIGURE_ERROR (
+                    "Failed to set 'device' property of pulsesrc element named 'sys_sound': get_default_monitor_name () failed"
+                );
             }
 
-            inhibit_token = app.inhibit (
-                app.get_active_window (),
-                Gtk.ApplicationInhibitFlags.SUSPEND,
-                _("Recording is ongoing")
+            sys_sound.set ("device", monitor_name);
+            debug ("sound source (system): \"Monitor of %s\"", default_sink.display_name);
+
+            // Set properties that can be used in monitor apps e.g. pavucontrol or gnome-system-monitor
+            var pa_props = new Gst.Structure.from_string (
+                "props" + ",media.role=music"
+                        + ",application.id=" + Config.APP_ID
+                        + ",application.icon_name=" + Config.APP_ID
+                , null
+            );
+            sys_sound.set ("stream-properties", pa_props);
+
+            pipeline.add (sys_sound);
+            sys_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
+        }
+
+        Gst.Element? mic_sound = null;
+        if (source != SourceID.SYSTEM) {
+            var index = (int) Manager.DeviceManager.get_default ().selected_source_index;
+            Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
+            mic_sound = microphone.create_element ("mic_sound");
+            if (mic_sound == null) {
+                throw new Define.RecordError.CREATE_ERROR ("Failed to create pulsesrc element named 'mic_sound'");
+            }
+
+            debug ("sound source (microphone): \"%s\"", microphone.display_name);
+
+            // Set properties that can be used in monitor apps e.g. pavucontrol or gnome-system-monitor
+            var pa_props = new Gst.Structure.from_string (
+                "props" + ",media.role=music"
+                        + ",application.id=" + Config.APP_ID
+                        + ",application.icon_name=" + Config.APP_ID
+                , null
+            );
+            mic_sound.set ("stream-properties", pa_props);
+
+            pipeline.add (mic_sound);
+            mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
+        }
+
+        FormatID file_format = (FormatID) Application.settings.get_enum ("format");
+        unowned var? recorder = recorder_table[file_format];
+        if (recorder == null) {
+            throw new Define.RecordError.CREATE_ERROR (
+                "No Recorder object that handles given file format found. format=%d".printf (file_format)
             );
         }
 
-        private void uninhibit_sleep () {
-            if (inhibit_token != 0) {
-                ((Gtk.Application) GLib.Application.get_default ()).uninhibit (inhibit_token);
-                inhibit_token = 0;
-            }
+        bool ret = recorder.prepare (pipeline, sink);
+        if (!ret) {
+            throw new Define.RecordError.CREATE_ERROR (
+                "Failed to prepare Recorder. name=%s".printf (recorder.get_name ())
+            );
         }
 
-        // Get the name of the default monitor device from the default sink name
-        private string? get_default_monitor_name (Gst.Device? default_sink) {
-            if (default_sink == null) {
-                warning ("default_sink is null");
-                return null;
-            }
+        start_dt = new DateTime.now_local ();
+        string tmp_filename = "reco_%s%s".printf (start_dt.to_unix ().to_string (), recorder.get_suffix ());
+        tmp_path = Path.build_filename (Environment.get_user_cache_dir (), tmp_filename);
+        sink.set ("location", tmp_path);
+        debug ("temporary saving path: %s", tmp_path);
 
-            Gst.Element? element = default_sink.create_element (null);
-            if (element == null) {
-                warning ("element is null");
-                return null;
-            }
+        // Dual-channelization
+        var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
+        if (caps_filter == null) {
+            throw new Define.RecordError.CREATE_ERROR ("Failed to create capsfilter element 'filter'");
+        }
 
-            Gst.ElementFactory? factory = element.get_factory ();
-            if (factory == null) {
-                warning ("factory is null");
-                return null;
-            }
+        caps_filter.set ("caps", new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT,
+                                                      (ChannelID) Application.settings.get_enum ("channel")));
 
-            Gst.Element? pureelement = factory.create (null);
-            if (pureelement == null) {
-                warning ("pureelement is null");
-                return null;
-            }
+        pipeline.add (caps_filter);
+        mixer.link_many (caps_filter, level);
 
-            // Get paramspecs and show non-default properties
-            (unowned ParamSpec)[] properties = element.get_class ().list_properties ();
-            foreach (var property in properties) {
-                // Skip some properties
-                if ((property.flags & ParamFlags.READWRITE) != ParamFlags.READWRITE) {
-                    continue;
+        pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
+    }
+
+    public void start_recording () {
+        inhibit_sleep ();
+
+        pipeline.set_state (Gst.State.PLAYING);
+        is_recording_progress = true;
+    }
+
+    public void stop_recording () {
+        // Pipelines don't seem to catch events when it's in the PAUSED state
+        pipeline.set_state (Gst.State.PLAYING);
+
+        pipeline.send_event (new Gst.Event.eos ());
+    }
+
+    public void cancel_recording () {
+        uninhibit_sleep ();
+
+        pipeline.set_state (Gst.State.NULL);
+        pipeline.dispose ();
+        is_recording_progress = false;
+    }
+
+    public void pause_recording () {
+        uninhibit_sleep ();
+
+        pipeline.set_state (Gst.State.PAUSED);
+    }
+
+    public void resume_recording () {
+        start_recording ();
+    }
+
+    private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
+        switch (msg.type) {
+            case Gst.MessageType.ERROR:
+                cancel_recording ();
+
+                Error err;
+                string debug;
+                msg.parse_error (out err, out debug);
+
+                throw_error (err, debug);
+                break;
+            case Gst.MessageType.EOS:
+                pipeline.set_state (Gst.State.NULL);
+                pipeline.dispose ();
+                is_recording_progress = false;
+
+                var end_dt = new DateTime.now_local ();
+                string suffix = Util.get_suffix (tmp_path);
+                string default_filename = build_filename_from_datetime (start_dt, end_dt, suffix);
+
+                save_file (tmp_path, default_filename);
+                break;
+            case Gst.MessageType.ELEMENT:
+                unowned Gst.Structure? structure = msg.get_structure ();
+                if (!structure.has_name ("level")) {
+                    break;
                 }
 
-                if (property.name in IGNORED_PROPNAMES) {
-                    continue;
+                // FIXME: ValueArray is deprecated but used as an I/F structure in the GStreamer side:
+                // https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.5/subprojects/gst-plugins-good/gst/level/gstlevel.c#L579
+                // We would need a patch for GStreamer to replace ValueArray with Array
+                // when it's removed before GStreamer resolves
+                unowned var peak_arr = (ValueArray) structure.get_value ("peak").get_boxed ();
+                if (peak_arr != null) {
+                    current_peak = peak_arr.get_nth (0).get_double ();
                 }
 
-                var value = Value (property.value_type);
-                element.get_property (property.name, ref value);
+                break;
+            default:
+                break;
+        }
 
-                var pvalue = Value (property.value_type);
-                pureelement.get_property (property.name, ref pvalue);
+        return true;
+    }
 
-                if (Gst.Value.compare (value, pvalue) != Gst.VALUE_EQUAL) {
-                    string? valuestr = Gst.Value.serialize (value);
-                    if (valuestr == null) {
-                        warning ("Could not serialize property %s: %s", element.name, property.name);
-                        continue;
-                    }
+    public async void trash_tmp_recording () throws Error {
+        // It's a bug of the caller if it tries to cleanup the tmp recording while it's still writing to it
+        assert (!is_recording_progress);
 
-                    return valuestr + ".monitor";
-                }
-            }
+        if (!FileUtils.test (tmp_path, FileTest.EXISTS)) {
+            return;
+        }
 
+        yield trash_file (tmp_path);
+    }
+
+    public async void delete_tmp_recording () throws Error {
+        // It's a bug of the caller if it tries to cleanup the tmp recording while it's still writing to it
+        assert (!is_recording_progress);
+
+        if (!FileUtils.test (tmp_path, FileTest.EXISTS)) {
+            return;
+        }
+
+        yield delete_file (tmp_path);
+    }
+
+    private async void trash_file (string path) throws Error {
+        yield File.new_for_path (path).trash_async ();
+    }
+
+    private async void delete_file (string path) throws Error {
+        yield File.new_for_path (path).delete_async ();
+    }
+
+    private void inhibit_sleep () {
+        unowned Gtk.Application app = (Gtk.Application) GLib.Application.get_default ();
+        if (inhibit_token != 0) {
+            app.uninhibit (inhibit_token);
+        }
+
+        inhibit_token = app.inhibit (
+            app.get_active_window (),
+            Gtk.ApplicationInhibitFlags.SUSPEND,
+            _("Recording is ongoing")
+        );
+    }
+
+    private void uninhibit_sleep () {
+        if (inhibit_token != 0) {
+            ((Gtk.Application) GLib.Application.get_default ()).uninhibit (inhibit_token);
+            inhibit_token = 0;
+        }
+    }
+
+    // Get the name of the default monitor device from the default sink name
+    private string? get_default_monitor_name (Gst.Device? default_sink) {
+        if (default_sink == null) {
+            warning ("default_sink is null");
             return null;
         }
 
-        /**
-         * Build filename using the given arguments.
-         *
-         * The filename includes start datetime and end time. It also includes end date if the date is different between
-         * start and end.
-         *
-         * e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
-         *      "2018-11-10_23:42:36 to 23:49:52.wav"
-         */
-        private string build_filename_from_datetime (DateTime start, DateTime end, string suffix) {
-            string start_format = "%Y-%m-%d_%H:%M:%S";
-            string end_format = "%Y-%m-%d_%H:%M:%S";
+        Gst.Element? element = default_sink.create_element (null);
+        if (element == null) {
+            warning ("element is null");
+            return null;
+        }
 
-            bool is_same_day = Util.is_same_day (start, end);
-            if (is_same_day) {
-                // Avoid redundant date
-                end_format = "%H:%M:%S";
+        Gst.ElementFactory? factory = element.get_factory ();
+        if (factory == null) {
+            warning ("factory is null");
+            return null;
+        }
+
+        Gst.Element? pureelement = factory.create (null);
+        if (pureelement == null) {
+            warning ("pureelement is null");
+            return null;
+        }
+
+        // Get paramspecs and show non-default properties
+        (unowned ParamSpec)[] properties = element.get_class ().list_properties ();
+        foreach (var property in properties) {
+            // Skip some properties
+            if ((property.flags & ParamFlags.READWRITE) != ParamFlags.READWRITE) {
+                continue;
             }
 
-            string start_str = start.format (start_format);
-            string end_str = end.format (end_format);
+            if (property.name in IGNORED_PROPNAMES) {
+                continue;
+            }
 
-            return "%s to %s".printf (start_str, end_str) + suffix;
+            var value = Value (property.value_type);
+            element.get_property (property.name, ref value);
+
+            var pvalue = Value (property.value_type);
+            pureelement.get_property (property.name, ref pvalue);
+
+            if (Gst.Value.compare (value, pvalue) != Gst.VALUE_EQUAL) {
+                string? valuestr = Gst.Value.serialize (value);
+                if (valuestr == null) {
+                    warning ("Could not serialize property %s: %s", element.name, property.name);
+                    continue;
+                }
+
+                return valuestr + ".monitor";
+            }
         }
+
+        return null;
+    }
+
+    /**
+     * Build filename using the given arguments.
+     *
+     * The filename includes start datetime and end time. It also includes end date if the date is different between
+     * start and end.
+     *
+     * e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
+     *      "2018-11-10_23:42:36 to 23:49:52.wav"
+     */
+    private string build_filename_from_datetime (DateTime start, DateTime end, string suffix) {
+        string start_format = "%Y-%m-%d_%H:%M:%S";
+        string end_format = "%Y-%m-%d_%H:%M:%S";
+
+        bool is_same_day = Util.is_same_day (start, end);
+        if (is_same_day) {
+            // Avoid redundant date
+            end_format = "%H:%M:%S";
+        }
+
+        string start_str = start.format (start_format);
+        string end_str = end.format (end_format);
+
+        return "%s to %s".printf (start_str, end_str) + suffix;
     }
 }
