@@ -62,7 +62,7 @@ namespace Manager {
             WAV
         }
 
-        private static Gee.HashMap<FormatID, unowned Model.Recorder.AbstractRecorder> recorder_table;
+        private static Gee.HashMap<FormatID, Model.Recorder.AbstractRecorder> recorder_table;
 
         private enum ChannelID {
             MONO = 1,
@@ -82,7 +82,7 @@ namespace Manager {
         }
 
         static construct {
-            recorder_table = new Gee.HashMap<FormatID, unowned Model.Recorder.AbstractRecorder> ();
+            recorder_table = new Gee.HashMap<FormatID, Model.Recorder.AbstractRecorder> ();
             recorder_table[FormatID.ALAC] = new Model.Recorder.ALACRecorder ();
             recorder_table[FormatID.FLAC] = new Model.Recorder.FLACRecorder ();
             recorder_table[FormatID.MP3] = new Model.Recorder.MP3Recorder ();
@@ -177,7 +177,7 @@ namespace Manager {
             }
 
             FormatID file_format = (FormatID) Application.settings.get_enum ("format");
-            unowned var? recorder = recorder_table[file_format];
+            var recorder = recorder_table[file_format];
             if (recorder == null) {
                 throw new Define.RecordError.CREATE_ERROR (
                     "No Recorder object that handles given file format found. format=%d".printf (file_format)
