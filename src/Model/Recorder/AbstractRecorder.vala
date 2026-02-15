@@ -9,5 +9,5 @@ public abstract class Model.Recorder.AbstractRecorder : Object {
 
     public abstract unowned string get_name ();
     public abstract unowned string get_suffix ();
-    public abstract bool prepare (Gst.Pipeline pipeline, Gst.Element sink);
+    public abstract bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink);
 }

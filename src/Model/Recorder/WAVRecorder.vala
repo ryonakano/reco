@@ -19,7 +19,7 @@ public class Model.Recorder.WAVRecorder : Model.Recorder.AbstractRecorder {
         return SUFFIX;
     }
 
-    public override bool prepare (Gst.Pipeline pipeline, Gst.Element sink) {
+    public override bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) {
         var encoder = Gst.ElementFactory.make (ENCODER, "encoder");
         if (encoder == null) {
             warning ("Failed to create %s element named 'encoder'".printf (ENCODER));
@@ -27,6 +27,7 @@ public class Model.Recorder.WAVRecorder : Model.Recorder.AbstractRecorder {
         }
 
         pipeline.add (encoder);
+        mixer.link (encoder);
         encoder.link (sink);
 
         return true;

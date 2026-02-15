@@ -184,7 +184,7 @@ namespace Manager {
                 );
             }
 
-            bool ret = recorder.prepare (pipeline, sink);
+            bool ret = recorder.prepare (pipeline, mixer, sink);
             if (!ret) {
                 throw new Define.RecordError.CREATE_ERROR (
                     "Failed to prepare Recorder. name=%s".printf (recorder.get_name ())

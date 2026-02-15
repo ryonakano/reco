@@ -20,12 +20,15 @@ public class Model.Recorder.OGGRecorder : Model.Recorder.AbstractRecorder {
         return SUFFIX;
     }
 
-    public override bool prepare (Gst.Pipeline pipeline, Gst.Element sink) {
+    public override bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) {
         var encoder = Gst.ElementFactory.make (ENCODER, "encoder");
         if (encoder == null) {
             warning ("Failed to create %s element named 'encoder'".printf (ENCODER));
             return false;
         }
+
+        pipeline.add (encoder);
+        mixer.link (encoder);
 
         var muxer = Gst.ElementFactory.make (MUXER, "muxer");
         if (muxer == null) {
@@ -33,9 +36,9 @@ public class Model.Recorder.OGGRecorder : Model.Recorder.AbstractRecorder {
             return false;
         }
 
-        pipeline.add_many (encoder, muxer);
+        pipeline.add (muxer);
         encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
-        muxer.link_many (encoder, sink);
+        muxer.link (sink);
 
         return true;
     }
