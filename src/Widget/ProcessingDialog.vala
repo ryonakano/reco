@@ -85,6 +85,8 @@ public class Widget.ProcessingDialog : Adw.Dialog {
         child = content_box;
 
         cancel_button.clicked.connect (() => {
+            cancel_button.sensitive = false;
+            cancel_label.label = _("Canceling…");
             cancel_recording ();
         });
 

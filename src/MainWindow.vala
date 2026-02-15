@@ -152,6 +152,7 @@ public class MainWindow : Adw.ApplicationWindow {
         }
 
         processing_dialog.force_close ();
+        processing_dialog = null;
 
         if (destroy_on_save) {
             destroy ();
@@ -300,6 +301,11 @@ public class MainWindow : Adw.ApplicationWindow {
 
         cleanup_tmp_recording.begin ((obj, res) => {
             cleanup_tmp_recording.end (res);
+
+            if (processing_dialog != null) {
+                processing_dialog.force_close ();
+                processing_dialog = null;
+            }
 
             show_welcome ();
         });
