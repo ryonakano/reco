@@ -190,6 +190,8 @@ public class MainWindow : Adw.ApplicationWindow {
         };
 
         toast_overlay.add_toast (saved_toast);
+
+        show_welcome ();
     }
 
     /**
@@ -262,7 +264,6 @@ public class MainWindow : Adw.ApplicationWindow {
         destroy_on_save = destroy_flag;
 
         record_manager.stop_recording ();
-        show_welcome ();
     }
 
     private void cancel_warpper () {
