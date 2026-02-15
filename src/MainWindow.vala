@@ -175,7 +175,9 @@ public class MainWindow : Adw.ApplicationWindow {
                 final_file = yield ask_final_file (default_filename);
             } catch (Error err) {
                 if (err.domain == Gtk.DialogError.quark () && err.code == Gtk.DialogError.DISMISSED) {
-                    // Don't show the warning log and do nothing when the dialog is just dismissed by the user
+                    yield cleanup_tmp_recording ();
+
+                    // Don't show the warning log when the dialog is just dismissed by the user
                     return null;
                 }
 
