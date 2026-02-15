@@ -12,6 +12,7 @@ public class MainWindow : Adw.ApplicationWindow {
     private View.RecordView record_view;
     private Gtk.Stack stack;
     private Adw.ToastOverlay toast_overlay;
+    private Widget.ProcessingDialog processing_dialog = null;
 
     private static Gee.HashMap<int, string> starterr_message_table;
 
@@ -129,10 +130,37 @@ public class MainWindow : Adw.ApplicationWindow {
             );
         });
 
-        record_manager.save_file.connect (save_file);
+        record_manager.save_file.connect (save_file_wrapper);
     }
 
-    private async void save_file (string tmp_path, string default_filename) {
+    private async void save_file_wrapper (string tmp_path, string default_filename) {
+        assert (processing_dialog != null);
+
+        string? final_path = yield save_file (tmp_path, default_filename);
+        if (final_path != null) {
+            var saved_toast = new Adw.Toast (_("Recording Saved")) {
+                button_label = _("Open Folder"),
+                action_name = "app.open-folder",
+                action_target = new Variant.string (final_path)
+            };
+
+            toast_overlay.add_toast (saved_toast);
+        }
+
+        processing_dialog.force_close ();
+
+        if (destroy_on_save) {
+            destroy ();
+
+            // Don't go back to welcome view after we decided to quit
+            // to prevent users from starting recording again accidentally.
+            return;
+        }
+
+        show_welcome ();
+    }
+
+    private async string? save_file (string tmp_path, string default_filename) {
         debug ("record_manager.save_file: tmp_path(%s)", tmp_path);
 
         File? final_file;
@@ -145,7 +173,7 @@ public class MainWindow : Adw.ApplicationWindow {
             } catch (Error err) {
                 if (err.domain == Gtk.DialogError.quark () && err.code == Gtk.DialogError.DISMISSED) {
                     // Don't show the warning log and do nothing when the dialog is just dismissed by the user
-                    return;
+                    return null;
                 }
 
                 show_error_dialog (
@@ -156,7 +184,7 @@ public class MainWindow : Adw.ApplicationWindow {
                     err.message
                 );
 
-                return;
+                return null;
             }
         }
 
@@ -173,25 +201,10 @@ public class MainWindow : Adw.ApplicationWindow {
                 err.message
             );
 
-            return;
+            return null;
         }
 
-        if (destroy_on_save) {
-            destroy ();
-
-            // Don't show the toast unnecessarily when going to quit
-            return;
-        }
-
-        var saved_toast = new Adw.Toast (_("Recording Saved")) {
-            button_label = _("Open Folder"),
-            action_name = "app.open-folder",
-            action_target = new Variant.string (final_path)
-        };
-
-        toast_overlay.add_toast (saved_toast);
-
-        show_welcome ();
+        return final_path;
     }
 
     /**
@@ -262,6 +275,17 @@ public class MainWindow : Adw.ApplicationWindow {
 
     private void stop_wrapper (bool destroy_flag = false) {
         destroy_on_save = destroy_flag;
+
+        // Ideally, we should initialize processing dialog not here but in the constructor of #this
+        // and keep the same instance during the lifetime of the app.
+        // When you record more than twice, however, that results it being not shown
+        // and the following critical log shown instead:
+        //   Gtk-CRITICAL **: 20:12:33.353: gtk_window_present: assertion 'GTK_IS_WINDOW (window)' failed
+        processing_dialog = new Widget.ProcessingDialog (_("Saving…")) {
+            // Prevent users from closing the dialog manually and access to the main content behind it accidentally
+            can_close = false,
+        };
+        processing_dialog.present (this);
 
         record_manager.stop_recording ();
     }

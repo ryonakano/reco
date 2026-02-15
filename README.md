@@ -50,7 +50,7 @@ flatpak run com.github.ryonakano.reco.Devel
 You'll need the following dependencies to build:
 
 * blueprint-compiler
-* libadwaita-1-dev
+* libadwaita-1-dev (>= 1.6.0)
 * libgee-0.8-dev
 * libglib2.0-dev (>= 2.74)
 * libgranite-7-dev (>= 7.2.0, required only when you build with `granite` feature enabled)
