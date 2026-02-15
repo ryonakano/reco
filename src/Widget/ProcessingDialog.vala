@@ -7,7 +7,7 @@
  * A transitional dialog to be shown while saving and we don't want users to access to the main content of the app.
  */
 public class Widget.ProcessingDialog : Adw.Dialog {
-    public signal void cancel_recording ();
+    public signal void cancel ();
 
     private const uint CANCEL_REVEAL_TIMEOUT_MSEC = 5000;
 
@@ -76,7 +76,7 @@ public class Widget.ProcessingDialog : Adw.Dialog {
         cancel_button.clicked.connect (() => {
             cancel_button.sensitive = false;
             cancel_label.label = _("Canceling…");
-            cancel_recording ();
+            cancel ();
         });
 
         cancel_reveal_timeout = Timeout.add_once (CANCEL_REVEAL_TIMEOUT_MSEC, () => {
