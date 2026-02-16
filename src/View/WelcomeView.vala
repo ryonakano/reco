@@ -235,10 +235,32 @@ public class View.WelcomeView : AbstractView {
                 autosave_switch.active = false;
             }
         } else {
-            if (FileUtils.test (autosave_dest, FileTest.IS_DIR)) {
-                info ("Setting manual-save-last-folder to autosave_dest (%s)", autosave_dest);
+// TODO: Do we need this?
+#if 1
+            File file = File.new_for_path (autosave_dest);
+            string? path = null;
+            try {
+                FileInfo info = file.query_info (Define.FileAttribute.HOST_PATH, FileQueryInfoFlags.NONE);
+
+                path = info.get_attribute_as_string (Define.FileAttribute.HOST_PATH);
+            } catch (Error err) {
+                warning ("Failed to query file info: %s", err.message);
+            }
+
+            if (path == null) {
+                // Getting host path requires xdg-desktop-portal >= 1.19.0; fallback to path inside sandbox
+                path = autosave_dest;
+            }
+
+            if (file.query_exists ()) {
+#else
+            string path = autosave_dest;
+            if (FileUtils.test (path, FileTest.IS_DIR)) {
+#endif
+                // TODO: Remove log
+                info ("Setting manual-save-last-folder to autosave_dest (%s)", path);
                 // Set last value of folder path for autosaving to first value of last folder path for manual saving
-                Application.settings.set_string ("manual-save-last-folder", autosave_dest);
+                Application.settings.set_string ("manual-save-last-folder", path);
             }
 
             // Clear the current destination and disable autosaving
@@ -248,21 +270,7 @@ public class View.WelcomeView : AbstractView {
     }
 
     private void remember_autosave_dir (File file) {
-        string? path = null;
-        try {
-            FileInfo info = file.query_info (Define.FileAttribute.HOST_PATH, FileQueryInfoFlags.NONE);
-
-            path = info.get_attribute_as_string (Define.FileAttribute.HOST_PATH);
-        } catch (Error err) {
-            warning ("Failed to query file info: %s", err.message);
-        }
-
-        if (path == null) {
-            // Getting host path requires xdg-desktop-portal >= 1.19.0; fallback to path inside sandbox
-            path = file.get_path ();
-        }
-
-        info ("Setting autosave-destination to %s", path);
+        string path = file.get_path ();
         Application.settings.set_string ("autosave-destination", path);
         destination_chooser_button.label = Path.get_basename (path);
         autosave_switch.active = true;
