@@ -25,6 +25,16 @@ namespace Define {
         public const string FORCE_DARK = "force-dark";
     }
 
+    /**
+     * Error definitions for recording.
+     */
+    public errordomain RecordError {
+        /** Error while creating elements. **/
+        CREATE_ERROR,
+        /** Error configuring elements. **/
+        CONFIGURE_ERROR,
+    }
+
     namespace FileAttribute {
         public const string HOST_PATH = "xattr::document-portal.host-path";
     }

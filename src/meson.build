@@ -30,7 +30,7 @@ dependencies = [
   granite_dep,
   dependency('gstreamer-1.0', version: '>= 1.20'),
   dependency('gtk4', version: '>= 4.10'),
-  dependency('libadwaita-1'),
+  dependency('libadwaita-1', version: '>= 1.6.0'),
   livechart_dep,
   dependency('pango'),
   dependency('ryokucha', allow_fallback: get_option('use_submodule')),
@@ -42,7 +42,14 @@ sources = files(
   'MainWindow.vala',
   'Util.vala',
   'Manager/DeviceManager.vala',
-  'Model/Recorder.vala',
+  'Manager/RecordManager.vala',
+  'Model/Recorder/AbstractRecorder.vala',
+  'Model/Recorder/ALACRecorder.vala',
+  'Model/Recorder/FLACRecorder.vala',
+  'Model/Recorder/MP3Recorder.vala',
+  'Model/Recorder/OGGRecorder.vala',
+  'Model/Recorder/OPUSRecorder.vala',
+  'Model/Recorder/WAVRecorder.vala',
   'Model/Timer/AbstractTimer.vala',
   'Model/Timer/CountDownTimer.vala',
   'Model/Timer/CountUpTimer.vala',
@@ -52,6 +59,7 @@ sources = files(
   'View/RecordView.vala',
   'Widget/FolderChooserButton.vala',
   'Widget/LevelBar.vala',
+  'Widget/ProcessingDialog.vala',
 )
 
 executable(
