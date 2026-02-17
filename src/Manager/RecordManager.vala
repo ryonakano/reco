@@ -431,7 +431,6 @@ public class Manager.RecordManager : Object {
         int day;
         date_time.get_ymd (out year, out month, out day);
 
-        // TODO: "error: too many arguments to function ‘g_date_util_new_wrap’; expected 0, have 1"
         Date date = GDateUtil.new_wrap ();
         date.add_days (day);
         date.add_months (month);

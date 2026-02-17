@@ -6,5 +6,5 @@
 [CCode (lower_case_cprefix = "g_date_util_")]
 namespace GDateUtil {
     [CCode (cheader_filename = "g_date_util.h")]
-    public static GLib.Date new_wrap ();
+    public static GLib.Date? new_wrap ();
 }
