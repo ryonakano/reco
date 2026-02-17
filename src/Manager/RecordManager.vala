@@ -433,9 +433,9 @@ public class Manager.RecordManager : Object {
         Date date = Util.dt2date (date_time);
 
         tag_setter.add_tags (Gst.TagMergeMode.REPLACE_ALL,
-                                Gst.Tags.ARTIST, artist,
-                                Gst.Tags.DATE_TIME, gst_date_time,
-                                Gst.Tags.DATE, date);
+                             Gst.Tags.ARTIST, artist,
+                             Gst.Tags.DATE_TIME, gst_date_time,
+                             Gst.Tags.DATE, date);
 
         return true;
     }
