@@ -106,9 +106,11 @@ public class View.WelcomeView : AbstractView {
         };
 
         var metadata_desc_label = new Gtk.Label (_("Add record datetime and your real name in recording files.")) {
-            halign = Gtk.Align.START,
+            justify = Gtk.Justification.LEFT,
             wrap = true,
-            max_width_chars = 20
+            width_chars = 28,
+            max_width_chars = 28,
+            hexpand = true,
         };
 
         var autosave_label = new Gtk.Label (_("Automatically save files:")) {
