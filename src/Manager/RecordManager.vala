@@ -426,11 +426,20 @@ public class Manager.RecordManager : Object {
             return false;
         }
 
-        var gst_date_time = new Gst.DateTime.from_g_date_time (date_time);
+        int year;
+        int month;
+        int day;
+        date_time.get_ymd (out year, out month, out day);
+
+        // TODO: "error: too many arguments to function ‘g_date_util_new_wrap’; expected 0, have 1"
+        Date date = GDateUtil.new_wrap ();
+        date.add_days (day);
+        date.add_months (month);
+        date.add_years (year);
 
         tag_setter.add_tags (Gst.TagMergeMode.REPLACE_ALL,
                                 Gst.Tags.ARTIST, artist,
-                                Gst.Tags.DATE_TIME, gst_date_time);
+                                Gst.Tags.DATE, date);
 
         return true;
     }
