@@ -39,7 +39,7 @@ public abstract class Model.Recorder.AbstractRecorder : Object {
      *
      * NOTE:<<BR>>
      * Overridden methods should add at least one element that inherits {@link Gst.TagSetter} to #pipeline for metadata.<<BR>>
-     * See {@link Manager.RecordManager.add_metadata} for detail.
+     * See {@link Manager.RecordManager.add_metadata} for details.
      *
      * @param pipeline  pipeline that holds all elements necessary for recording.
      * @param mixer     audiomixer that precedes all elements created in this method.
