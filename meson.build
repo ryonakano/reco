@@ -36,15 +36,7 @@ add_project_arguments(
   language: 'c',
 )
 
-vapidir = meson.project_source_root() / 'vapi'
-
-vala_flags = [
-  '--vapidir', vapidir,
-]
-add_project_arguments(vala_flags, language: 'vala')
-
 subdir('data')
-subdir('lib')
 subdir('po')
 subdir('src')
 

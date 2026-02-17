@@ -426,18 +426,15 @@ public class Manager.RecordManager : Object {
             return false;
         }
 
-        int year;
-        int month;
-        int day;
-        date_time.get_ymd (out year, out month, out day);
+        var gst_date_time = new Gst.DateTime.from_g_date_time (date_time);
 
-        Date date = GDateUtil.new_wrap ();
-        date.add_days (day);
-        date.add_months (month);
-        date.add_years (year);
+        // Only setting Gst.Tags.DATE_TIME with a Gst.DateTime value converted from #date_time results
+        // missing "Year" tag in WAV and MP3 files, so set Gst.Tags.DATE with a Date value additionally.
+        Date date = Util.dt2date (date_time);
 
         tag_setter.add_tags (Gst.TagMergeMode.REPLACE_ALL,
                                 Gst.Tags.ARTIST, artist,
+                                Gst.Tags.DATE_TIME, gst_date_time,
                                 Gst.Tags.DATE, date);
 
         return true;

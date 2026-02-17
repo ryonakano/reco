@@ -34,7 +34,6 @@ dependencies = [
   livechart_dep,
   dependency('pango'),
   dependency('ryokucha', allow_fallback: get_option('use_submodule')),
-  meson.get_compiler('vala').find_library('g-date-util', dirs: vapidir),
 ]
 
 sources = files(
@@ -68,10 +67,7 @@ executable(
   asresources,
   config_file,
   sources,
-  lib_c_sources,
-  lib_headers,
   dependencies: dependencies,
   link_args: ['-lm'],
-  include_directories: lib_includes,
   install: true,
 )
