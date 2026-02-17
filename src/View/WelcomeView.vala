@@ -105,7 +105,7 @@ public class View.WelcomeView : AbstractView {
             halign = Gtk.Align.START,
         };
 
-        var metadata_desc_label = new Gtk.Label (_("Add record datetime and your real name in recording files.")) {
+        var metadata_desc_label = new Gtk.Label (_("Add record year and your real name in recording files.")) {
             halign = Gtk.Align.START,
             wrap = true,
             width_chars = 28,

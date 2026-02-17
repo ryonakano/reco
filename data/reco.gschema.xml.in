@@ -49,7 +49,7 @@
       <!-- Opt-in because enabling this results recording files include personal info like real name -->
       <default>false</default>
       <summary>Add metadata</summary>
-      <description>Add metadata like artist and datetime to recording files automatically</description>
+      <description>Add metadata like artist and year to recording files automatically</description>
     </key>
     <key name="color-scheme" type="s">
       <choices>

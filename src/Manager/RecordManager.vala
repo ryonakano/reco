@@ -403,7 +403,7 @@ public class Manager.RecordManager : Object {
     }
 
     /**
-     * Add #artist and #date_time metadata to the stream using a {@link Gst.TagSetter} element found from #pipeline.
+     * Add metadata to the stream using a {@link Gst.TagSetter} element found from #pipeline.
      *
      * NOTE:
      *  * You should call this method before #pipeline goes to {@link Gst.State.PAUSED}
@@ -414,8 +414,8 @@ public class Manager.RecordManager : Object {
      *
      * @param pipeline      a {@link Gst.Pipeline} that has at least one {@link Gst.Element} that inherits
      *                      {@link Gst.TagSetter} interface, e.g. "vorbisenc", "theoraenc", "id3v2mux", etc.
-     * @param artist        artist name that will be set to metadata
-     * @param date_time     date & time that will be set to metadata
+     * @param artist        artist name that will be set to metadata as value of "Artist"
+     * @param date_time     date & time that will be set to metadata as value of "Year"
      *
      * @return              true if succeeded, false otherwise
      */
@@ -426,10 +426,10 @@ public class Manager.RecordManager : Object {
             return false;
         }
 
+        // "Year" tag seems to correspond to a Gst.Tags.DATE_TIME tag (takes Gst.DateTime value)
+        // and a Gst.Tags.DATE tag (takes Date value); Setting only the former one results missing "Year" tag
+        // in WAV and MP3 files and setting the latter too works as expected.
         var gst_date_time = new Gst.DateTime.from_g_date_time (date_time);
-
-        // Only setting Gst.Tags.DATE_TIME with a Gst.DateTime value converted from #date_time results
-        // missing "Year" tag in WAV and MP3 files, so set Gst.Tags.DATE with a Date value additionally.
         Date date = Util.dt2date (date_time);
 
         tag_setter.add_tags (Gst.TagMergeMode.REPLACE_ALL,

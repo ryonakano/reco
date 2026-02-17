@@ -37,6 +37,10 @@ public abstract class Model.Recorder.AbstractRecorder : Object {
      * |---------------------------------------------------------------------------------|
      *                          <--------- scope of this method ---------->
      *
+     * NOTE:<<BR>>
+     * You should add at least an element that inherits {@link Gst.TagSetter} to #pipeline for metadata.<<BR>>
+     * See Manager.RecordManager.add_metadata() for detail.
+     *
      * @param pipeline  pipeline that holds all elements necessary for recording.
      * @param mixer     audiomixer that precedes all elements created in this method.
      * @param sink      filesink that succeeds to all elements created in this method.
