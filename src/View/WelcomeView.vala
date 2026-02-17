@@ -98,19 +98,18 @@ public class View.WelcomeView : AbstractView {
         format_combobox.append ("wav", _("WAV"));
 
         var metadata_label = new Gtk.Label (_("Add metadata:")) {
-            halign = Gtk.Align.END
+            halign = Gtk.Align.END,
         };
 
         var metadata_switch = new Gtk.Switch () {
-            halign = Gtk.Align.START
+            halign = Gtk.Align.START,
         };
 
         var metadata_desc_label = new Gtk.Label (_("Add record datetime and your real name in recording files.")) {
-            justify = Gtk.Justification.LEFT,
+            halign = Gtk.Align.START,
             wrap = true,
-            width_chars = 28,
-            max_width_chars = 28,
-            hexpand = true,
+            width_chars = 20,
+            max_width_chars = 20,
         };
 
         var autosave_label = new Gtk.Label (_("Automatically save files:")) {
