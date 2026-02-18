@@ -97,6 +97,21 @@ public class View.WelcomeView : AbstractView {
         format_combobox.append ("opus", _("Opus"));
         format_combobox.append ("wav", _("WAV"));
 
+        var metadata_label = new Gtk.Label (_("Add metadata:")) {
+            halign = Gtk.Align.END,
+        };
+
+        var metadata_switch = new Gtk.Switch () {
+            halign = Gtk.Align.START,
+        };
+
+        var metadata_desc_label = new Gtk.Label (_("Add record year and your real name in recording files.")) {
+            halign = Gtk.Align.START,
+            wrap = true,
+            width_chars = 28,
+            max_width_chars = 28,
+        };
+
         var autosave_label = new Gtk.Label (_("Automatically save files:")) {
             halign = Gtk.Align.END
         };
@@ -141,9 +156,12 @@ public class View.WelcomeView : AbstractView {
         settings_grid.attach (saving_header_label, 0, 7, 1, 1);
         settings_grid.attach (format_label, 0, 8, 1, 1);
         settings_grid.attach (format_combobox, 1, 8, 1, 1);
-        settings_grid.attach (autosave_label, 0, 9, 1, 1);
-        settings_grid.attach (autosave_switch, 1, 9, 1, 1);
-        settings_grid.attach (destination_chooser_button, 1, 10, 1, 1);
+        settings_grid.attach (metadata_label, 0, 9, 1, 1);
+        settings_grid.attach (metadata_switch, 1, 9, 1, 1);
+        settings_grid.attach (metadata_desc_label, 1, 10, 1, 1);
+        settings_grid.attach (autosave_label, 0, 11, 1, 1);
+        settings_grid.attach (autosave_switch, 1, 11, 1, 1);
+        settings_grid.attach (destination_chooser_button, 1, 12, 1, 1);
 
         record_button = new Gtk.Button () {
             icon_name = "audio-input-microphone-symbolic",
@@ -163,6 +181,7 @@ public class View.WelcomeView : AbstractView {
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("source", source_combobox, "active-id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active-id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("add-metadata", metadata_switch, "active", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channel", channels_combobox, "active-id", SettingsBindFlags.DEFAULT);
         // Make mic_combobox insensitive if selected source is "system" and sensitive otherwise
         source_combobox.bind_property ("active-id", mic_combobox, "sensitive",
