@@ -218,7 +218,7 @@ public class Manager.RecordManager : Object {
 
         if (Application.settings.get_boolean ("add-metadata")) {
             unowned string real_name = Environment.get_real_name ();
-            // Ignore return value because failure to add metadata does not affect to recording itself
+            // Ignore return value because failure to add metadata does not affect recording itself
             add_metadata (pipeline, real_name, start_dt);
         }
 
