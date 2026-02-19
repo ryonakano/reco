@@ -2,7 +2,7 @@ project(
   'com.github.ryonakano.reco',
   'vala', 'c',
   version: '5.1.1',
-  meson_version: '>= 1.5.0',
+  meson_version: '>= 0.58.0',
 )
 
 app_name = 'Reco'
