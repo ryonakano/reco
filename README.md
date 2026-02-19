@@ -59,7 +59,7 @@ You'll need the following dependencies to build:
 * [libryokucha](https://github.com/ryonakano/ryokucha)
 * [livechart](https://github.com/lcallarec/live-chart) (>= 1.10.0)
     * alternatively, [livechart-2 (the elementary fork)](https://github.com/elementary/live-chart) (>= 2.0.0)
-* meson (>= 0.58.0)
+* meson (>= 1.5.0)
 * valac
 
 You'll need the following dependencies to run:
