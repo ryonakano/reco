@@ -10,7 +10,7 @@ foreach dep : dependencies
 endforeach
 
 valadoc_output_dir = 'valadoc'
-valadoc_target = custom_target(
+custom_target(
   'valadoc',
   command: [
     valadoc,
