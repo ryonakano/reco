@@ -254,18 +254,10 @@ public class View.WelcomeView : AbstractView {
             }
         } else {
             File file = File.new_for_path (autosave_dest);
-            string? path = null;
-            try {
-                FileInfo info = file.query_info (Define.FileAttribute.HOST_PATH, FileQueryInfoFlags.NONE);
-
-                path = info.get_attribute_as_string (Define.FileAttribute.HOST_PATH);
-            } catch (Error err) {
-                warning ("Failed to query file info: %s", err.message);
-            }
-
+            string? path = Util.query_host_path (file);
             if (path == null) {
-                // Getting host path requires xdg-desktop-portal >= 1.19.0; fallback to path inside sandbox
-                path = autosave_dest;
+                warning ("Failed to query host path");
+                return;
             }
 
             // Set last value of folder path for autosaving to first value of last folder path for manual saving

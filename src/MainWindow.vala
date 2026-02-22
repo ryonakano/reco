@@ -192,6 +192,9 @@ public class MainWindow : Adw.ApplicationWindow {
 
                 return null;
             }
+
+            // Ignore return value because failure does not affect saving recording itself
+            remember_manual_save_last_folder (final_file);
         }
 
         var tmp_file = File.new_for_path (tmp_path);
@@ -234,26 +237,23 @@ public class MainWindow : Adw.ApplicationWindow {
             save_dialog.initial_folder = File.new_for_path (last_folder);
         }
 
-        File? final_file = yield save_dialog.save (this, null);
+        return yield save_dialog.save (this, null);
+    }
 
-        File? parent_dir = final_file.get_parent ();
-        string? path = null;
-        try {
-            FileInfo info = parent_dir.query_info (Define.FileAttribute.HOST_PATH, FileQueryInfoFlags.NONE);
+    private bool remember_manual_save_last_folder (File file) {
+        File? parent_dir = file.get_parent ();
+        // BUG: #file is supposed to be a recording file which should have a parent
+        assert (parent_dir != null);
 
-            path = info.get_attribute_as_string (Define.FileAttribute.HOST_PATH);
-        } catch (Error err) {
-            warning ("Failed to query file info: %s", err.message);
-        }
-
+        string? path = Util.query_host_path (parent_dir);
         if (path == null) {
-            // Getting host path requires xdg-desktop-portal >= 1.19.0; fallback to path inside sandbox
-            path = parent_dir.get_path ();
+            warning ("Failed to remember manual save last folder: Failed to query host path");
+            return false;
         }
 
         Application.settings.set_string ("manual-save-last-folder", path);
 
-        return final_file;
+        return true;
     }
 
     private void show_welcome () {

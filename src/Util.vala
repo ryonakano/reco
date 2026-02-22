@@ -18,6 +18,21 @@ namespace Util {
         return path.substring (suffix_index);
     }
 
+    public static string? query_host_path (File file) {
+        // Getting host path requires xdg-desktop-portal >= 1.19.0; fallback to path inside sandbox
+        string? path = file.get_path ();
+
+        FileInfo info;
+        try {
+            info = file.query_info (Define.FileAttribute.HOST_PATH, FileQueryInfoFlags.NONE);
+        } catch (Error err) {
+            warning ("Failed to query host path of \"%s\": %s", path, err.message);
+            return path;
+        }
+
+        return info.get_attribute_as_string (Define.FileAttribute.HOST_PATH);
+    }
+
     public static bool is_same_day (DateTime a, DateTime b) {
         int a_year;
         int a_month;
