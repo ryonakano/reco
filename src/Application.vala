@@ -14,25 +14,8 @@ public class Application : Adw.Application {
         { "quit", on_quit_activate },
         { "about", on_about_activate },
     };
+
     private MainWindow window;
-
-    private static Util.SettingsMigrationEntry[] settings_migrate_table = {
-        {
-            "autosave-destination",
-            ((settings, old_val) => {
-                unowned string path = old_val.get_string ();
-                if (path.length <= 0) {
-                    // No need to migrate; shouldn't reach here because this is the case of the default value
-                    return true;
-                }
-
-                settings.set_boolean ("autosave", true);
-                settings.set_string ("last-folder-path", path);
-
-                return true;
-            }),
-        },
-    };
 
     public Application () {
         Object (
@@ -180,7 +163,9 @@ public class Application : Adw.Application {
         add_action_entries (ACTION_ENTRIES, this);
         set_accels_for_action ("app.quit", { "<Control>q" });
 
-        Util.migrate_settings (Application.settings, Application.settings_migrate_table);
+        var migration_manager = new Manager.MigrationManager ();
+        // Ignore return value because failure just results old user preferences not migrated
+        migration_manager.migrate_settings (Application.settings);
     }
 
     protected override void activate () {

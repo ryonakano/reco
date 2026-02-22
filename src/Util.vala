@@ -4,23 +4,6 @@
  */
 
 namespace Util {
-    public delegate bool SettingsMigrationFunc (Settings settings, Variant old_val);
-
-    /**
-     * Data structure to migrate user preferences saved in {@link GLib.Settings}.
-     */
-    public struct SettingsMigrationEntry {
-        /**
-         * Key name before migration.
-         */
-        string old_key;
-
-        /**
-         * Migration procedure.
-         */
-        unowned SettingsMigrationFunc migrate;
-    }
-
     public static bool is_on_pantheon () {
         return Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon";
     }
@@ -125,33 +108,6 @@ namespace Util {
             default:
                 warning ("Invalid color scheme: %d", adw_scheme);
                 return Define.ColorScheme.DEFAULT;
-        }
-    }
-
-    public static void migrate_settings (Settings settings, SettingsMigrationEntry[] table) {
-        SettingsSchema ss = settings.settings_schema;
-
-        foreach (unowned var entry in table) {
-            if (!ss.has_key (entry.old_key)) {
-                continue;
-            }
-
-            var old_val = settings.get_value (entry.old_key);
-
-            SettingsSchemaKey ssk = ss.get_key (entry.old_key);
-            var default_val = ssk.get_default_value ();
-            if (old_val.equal (default_val)) {
-                // No need to migrate
-                continue;
-            }
-
-            bool ret = entry.migrate (settings, old_val);
-            if (!ret) {
-                warning ("Failed to migrate settings. key=\"%s\"", entry.old_key);
-                continue;
-            }
-
-            settings.reset (entry.old_key);
         }
     }
 }
