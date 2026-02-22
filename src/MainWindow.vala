@@ -168,12 +168,13 @@ public class MainWindow : Adw.ApplicationWindow {
         debug ("record_manager.save_file: tmp_path(%s)", tmp_path);
 
         File? final_file;
-        var autosave_dest = Application.settings.get_string ("autosave-destination");
-        if (autosave_dest.length > 0) {
-            final_file = File.new_for_path (autosave_dest).get_child (default_filename);
+        string last_folder_path = Application.settings.get_string ("last-folder-path");
+        bool autosave_enabled = Application.settings.get_boolean ("autosave");
+        if (autosave_enabled) {
+            final_file = File.new_for_path (last_folder_path).get_child (default_filename);
         } else {
             try {
-                final_file = yield ask_final_file (default_filename);
+                final_file = yield ask_final_file (last_folder_path, default_filename);
             } catch (Error err) {
                 if (err.domain == Gtk.DialogError.quark () && err.code == Gtk.DialogError.DISMISSED) {
                     yield cleanup_tmp_recording ();
@@ -194,7 +195,7 @@ public class MainWindow : Adw.ApplicationWindow {
             }
 
             // Ignore return value because failure does not affect saving recording itself
-            remember_manual_save_last_folder (final_file);
+            remember_last_folder_path (final_file);
         }
 
         var tmp_file = File.new_for_path (tmp_path);
@@ -221,38 +222,38 @@ public class MainWindow : Adw.ApplicationWindow {
      *
      * This method shows Gtk.FileDialog and waits for the user input.
      *
-     * @param default_filename default filename of recoridngs
+     * @param initial_folder    initial folder for {@link Gtk.FileDialog}
+     * @param default_filename  default filename of recoridngs
      *
      * @return location where to save recordings
      */
-    private async File? ask_final_file (string default_filename) throws Error {
+    private async File? ask_final_file (string initial_folder, string default_filename) throws Error {
         var save_dialog = new Gtk.FileDialog () {
             title = _("Save your recording"),
             modal = true,
             initial_name = default_filename
         };
 
-        var last_folder = Application.settings.get_string ("manual-save-last-folder");
-        string? last_folder_host = Util.query_host_path (last_folder);
-        if (last_folder_host != null) {
-            save_dialog.initial_folder = File.new_for_path (last_folder_host);
+        string? initial_folder_host = Util.query_host_path (initial_folder);
+        if (initial_folder_host != null) {
+            save_dialog.initial_folder = File.new_for_path (initial_folder_host);
         }
 
         return yield save_dialog.save (this, null);
     }
 
-    private bool remember_manual_save_last_folder (File file) {
+    private bool remember_last_folder_path (File file) {
         File? parent_dir = file.get_parent ();
         // BUG: #file is supposed to be a recording file which should have a parent
         assert (parent_dir != null);
 
         string? path = parent_dir.get_path ();
         if (path == null) {
-            warning ("Failed to remember manual save last folder: Failed to get parent path");
+            warning ("Failed to remember last folder path: Failed to get parent path");
             return false;
         }
 
-        Application.settings.set_string ("manual-save-last-folder", path);
+        Application.settings.set_string ("last-folder-path", path);
 
         return true;
     }

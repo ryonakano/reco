@@ -129,10 +129,13 @@ public class View.WelcomeView : AbstractView {
             tooltip_text = _("Choose a default destination")
         };
 
-        string autosave_path = Application.settings.get_string ("autosave-destination");
-        if (check_path_is_dir (autosave_path)) {
+        bool autosave_enabled = Application.settings.get_boolean ("autosave");
+        if (autosave_enabled) {
             autosave_switch.active = true;
-            destination_chooser_button.label = Path.get_basename (autosave_path);
+
+            string last_folder_path = Application.settings.get_string ("last-folder-path");
+            check_path_is_dir (last_folder_path);
+            destination_chooser_button.label = Path.get_basename (last_folder_path);
         }
 
         var settings_grid = new Gtk.Grid () {
@@ -239,11 +242,10 @@ public class View.WelcomeView : AbstractView {
     }
 
     private async void toggle_autosave () {
-        var autosave_dest = Application.settings.get_string ("autosave-destination");
-
         if (autosave_switch.active) {
             // Prevent the filechooser shown twice when enabling the autosaving
-            if (autosave_dest.length != 0) {
+            bool autosave_enabled = Application.settings.get_boolean ("autosave");
+            if (autosave_enabled) {
                 return;
             }
 
@@ -253,33 +255,20 @@ public class View.WelcomeView : AbstractView {
                 autosave_switch.active = false;
             }
         } else {
-            if (!FileUtils.test (autosave_dest, FileTest.IS_DIR)) {
-                // Prevent invalid path from being saved
-                warning ("Failed to update manual-save-last-folder settings: Invalid path \"%s\"", autosave_dest);
-                return;
-            }
-
-            // Set last value of folder path for autosaving to first value of last folder path for manual saving
-            Application.settings.set_string ("manual-save-last-folder", autosave_dest);
-
-            // Clear the current destination and disable autosaving
-            Application.settings.reset ("autosave-destination");
+            Application.settings.set_boolean ("autosave", false);
             destination_chooser_button.label = _("Select destination…");
         }
     }
 
     private void remember_autosave_dir (File file) {
         string path = file.get_path ();
-        Application.settings.set_string ("autosave-destination", path);
+        Application.settings.set_string ("last-folder-path", path);
+        Application.settings.set_boolean ("autosave", true);
         destination_chooser_button.label = Path.get_basename (path);
         autosave_switch.active = true;
     }
 
     private bool check_path_is_dir (string path) {
-        if (path.length == 0) {
-            return false;
-        }
-
         var file = File.new_for_path (path);
         if (!file.query_exists ()) {
             DirUtils.create_with_parents (path, 0775);
