@@ -7,6 +7,7 @@
  * A class that handles backward compatibility.
  */
 public class Manager.MigrationManager : Object {
+    [CCode (has_target = false)]
     private delegate bool SettingsMigrationFunc (Settings settings, Variant old_val);
 
     /**
