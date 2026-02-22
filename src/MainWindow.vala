@@ -233,7 +233,8 @@ public class MainWindow : Adw.ApplicationWindow {
         };
 
         var last_folder = Application.settings.get_string ("manual-save-last-folder");
-        if (FileUtils.test (last_folder, FileTest.IS_DIR)) {
+        // Ideally, we should check if #last_folder exists but can't because host path is invisible inside sandbox
+        if (last_folder.length > 0) {
             save_dialog.initial_folder = File.new_for_path (last_folder);
         }
 
