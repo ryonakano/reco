@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-05 08:58+0000\n"
+"POT-Creation-Date: 2026-02-22 11:34+0000\n"
 "PO-Revision-Date: 2026-01-06 11:01+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/reco/oc/>\n"
@@ -17,31 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.15.1\n"
-
-#: data/ui/help-overlay.blp:10
-msgctxt "shortcut window"
-msgid "General"
-msgstr "General"
-
-#: data/ui/help-overlay.blp:13
-msgctxt "shortcut window"
-msgid "Keyboard Shortcuts"
-msgstr "Acorchis clavièr"
-
-#: data/ui/help-overlay.blp:18
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Quitar"
-
-#: data/ui/help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Recording"
-msgstr "Enregistrament"
-
-#: data/ui/help-overlay.blp:27
-msgctxt "shortcut window"
-msgid "Start/Stop recording"
-msgstr "Començar/Arrestar l'enregistrament"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -128,6 +103,31 @@ msgstr "Vista de benvenguda ; efectuar la configuracion de l'enregistrament"
 msgid "Recording view"
 msgstr "Vista enregistrament"
 
+#: data/ui/help-overlay.blp:10
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: data/ui/help-overlay.blp:13
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "Acorchis clavièr"
+
+#: data/ui/help-overlay.blp:18
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Quitar"
+
+#: data/ui/help-overlay.blp:24
+msgctxt "shortcut window"
+msgid "Recording"
+msgstr "Enregistrament"
+
+#: data/ui/help-overlay.blp:27
+msgctxt "shortcut window"
+msgid "Start/Stop recording"
+msgstr "Començar/Arrestar l'enregistrament"
+
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
 #. e.g.:
@@ -138,7 +138,7 @@ msgstr "Vista enregistrament"
 msgid "translator-credits"
 msgstr "Quentin PAGÈS"
 
-#: src/MainWindow.vala:26
+#: src/MainWindow.vala:27
 msgid ""
 "This is possibly due to missing codecs or incomplete installation of the "
 "app. Make sure you've installed them and try reinstalling them if this issue "
@@ -148,7 +148,7 @@ msgstr ""
 "l'aplicacion. Asseguratz-vos que los avètz installats e ensajatz de los "
 "tornar installar se lo problèma persistís."
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:28
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
@@ -157,82 +157,103 @@ msgstr ""
 "mancan. Asseguratz-vos que n'avètz connectat un e ensajatz d'utilizar un "
 "autre se lo problèma persistís."
 
-#: src/MainWindow.vala:39
+#: src/MainWindow.vala:40
 msgid "S_ystem"
 msgstr "S_istèma"
 
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:41
 msgid "_Light"
 msgstr "_Clar"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:42
 msgid "_Dark"
 msgstr "_Fosc"
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:45
 msgid "_Style"
 msgstr "_Estile"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:46
 msgid "_Keyboard Shortcuts"
 msgstr "_Acorchis de clavièr"
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:49
+#: src/MainWindow.vala:50
 #, c-format
 msgid "_About %s"
 msgstr "_A prepaus de %s"
 
-#: src/MainWindow.vala:53
+#: src/MainWindow.vala:54
 msgid "Main Menu"
 msgstr "Menú principal"
 
-#: src/MainWindow.vala:126
+#: src/MainWindow.vala:128
 msgid "Error while recording"
 msgstr "Error pendent l’enregistrament"
 
-#: src/MainWindow.vala:127
+#: src/MainWindow.vala:129
 msgid "There was an error while recording."
 msgstr "Una error se's producha pendent l'enregistrament."
 
-#: src/MainWindow.vala:153
-msgid "Failed to save recording"
-msgstr "Fracàs de l'enregistrament del fichièr"
-
-#: src/MainWindow.vala:154
-msgid "There was an error while moving file to the designated location."
-msgstr ""
-"I a agut una error pendent lo desplaçament del fichièr a sa destinacion."
-
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:144
 msgid "Recording Saved"
 msgstr "Enregistrament salvat"
 
-#: src/MainWindow.vala:162
+#: src/MainWindow.vala:145
 msgid "Open Folder"
 msgstr "Dobrir lo dossièr"
 
-#: src/MainWindow.vala:218
+#: src/MainWindow.vala:186 src/MainWindow.vala:206
+msgid "Failed to save recording"
+msgstr "Fracàs de l'enregistrament del fichièr"
+
+#: src/MainWindow.vala:187
+#, fuzzy, c-format
+#| msgid "There was an error while moving file to the designated location."
+msgid ""
+"There was an error while asking for final path where to move the temporary "
+"recording file \"%s\"."
+msgstr ""
+"I a agut una error pendent lo desplaçament del fichièr a sa destinacion."
+
+#: src/MainWindow.vala:207
+#, fuzzy, c-format
+#| msgid "There was an error while moving file to the designated location."
+msgid ""
+"There was an error while moving the temporary recording file \"%s\" to "
+"\"%s\"."
+msgstr ""
+"I a agut una error pendent lo desplaçament del fichièr a sa destinacion."
+
+#: src/MainWindow.vala:230
 msgid "Save your recording"
 msgstr "Salvar vòstre enregistrament"
 
-#: src/MainWindow.vala:219
-msgid "Save"
-msgstr "Enregistrar"
-
-#: src/MainWindow.vala:256
+#: src/MainWindow.vala:280
 msgid "There was an unknown error while starting recording."
 msgstr "I a agut una error desconeguda en lançant l'enregistrament."
 
-#: src/MainWindow.vala:260
+#: src/MainWindow.vala:284
 msgid "Failed to start recording"
 msgstr "Fracàs de l'aviada de l'enregistrament"
 
-#: src/MainWindow.vala:317
+#: src/MainWindow.vala:343
+#, fuzzy
+#| msgid "Recording Saved"
+msgid "Recording Canceled"
+msgstr "Enregistrament salvat"
+
+#: src/MainWindow.vala:348
+#, fuzzy
+#| msgid "Recording Saved"
+msgid "Recording Moved to Trash"
+msgstr "Enregistrament salvat"
+
+#: src/MainWindow.vala:383
 msgid "Details:"
 msgstr "Detalhs :"
 
-#: src/Model/Recorder.vala:341
+#: src/Manager/RecordManager.vala:337
 msgid "Recording is ongoing"
 msgstr "L'enregistrament es en cors"
 
@@ -248,7 +269,7 @@ msgstr "Pausar lo descompte"
 msgid "Resume the countdown"
 msgstr "Reprendre lo descompte"
 
-#: src/View/RecordView.vala:51
+#: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
 msgid "Cancel recording"
 msgstr "Anullar l'enregistrament"
 
@@ -345,24 +366,54 @@ msgid "WAV"
 msgstr "WAV"
 
 #: src/View/WelcomeView.vala:100
+msgid "Add metadata:"
+msgstr ""
+
+#: src/View/WelcomeView.vala:108
+msgid "Add record year and your real name in recording files."
+msgstr ""
+
+#: src/View/WelcomeView.vala:115
 msgid "Automatically save files:"
 msgstr "Salvar automaticament los fichièrs :"
 
-#: src/View/WelcomeView.vala:110 src/View/WelcomeView.vala:239
+#: src/View/WelcomeView.vala:125 src/View/WelcomeView.vala:257
 msgid "Select destination…"
 msgstr "Seleccionar una destinacion…"
 
-#: src/View/WelcomeView.vala:111 src/View/WelcomeView.vala:115
+#: src/View/WelcomeView.vala:126 src/View/WelcomeView.vala:129
 msgid "Choose a default destination"
 msgstr "Seleccionar una destinacion per defaut"
 
-#: src/View/WelcomeView.vala:112
-msgid "Select"
-msgstr "Seleccionar"
-
-#: src/View/WelcomeView.vala:150
+#: src/View/WelcomeView.vala:167
 msgid "Start recording"
 msgstr "Començar l'enregistrament"
+
+#: src/Widget/ProcessingDialog.vala:35
+#, fuzzy
+#| msgid "Saving"
+msgid "Saving…"
+msgstr "Salvament"
+
+#: src/Widget/ProcessingDialog.vala:40
+msgid "Problems?"
+msgstr ""
+
+#: src/Widget/ProcessingDialog.vala:40
+msgid "Just hang on until the file dialog appears."
+msgstr ""
+
+#: src/Widget/ProcessingDialog.vala:78
+#, fuzzy
+#| msgid "Cancel recording"
+msgid "Canceling…"
+msgstr "Anullar l'enregistrament"
+
+#~ msgid "Save"
+#~ msgstr "Enregistrar"
+
+#~ msgid "Select"
+#~ msgstr "Seleccionar"
 
 #~ msgid "Saved recording"
 #~ msgstr "Enregistrament salvat"

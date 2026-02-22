@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-05 08:58+0000\n"
+"POT-Creation-Date: 2026-02-22 11:34+0000\n"
 "PO-Revision-Date: 2025-04-22 04:04+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/rosp/reco/uk/"
@@ -21,31 +21,6 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.11.1-dev\n"
-
-#: data/ui/help-overlay.blp:10
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Загальні"
-
-#: data/ui/help-overlay.blp:13
-msgctxt "shortcut window"
-msgid "Keyboard Shortcuts"
-msgstr "Комбінації клавіш"
-
-#: data/ui/help-overlay.blp:18
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Вихід"
-
-#: data/ui/help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Recording"
-msgstr "Запис"
-
-#: data/ui/help-overlay.blp:27
-msgctxt "shortcut window"
-msgid "Start/Stop recording"
-msgstr "Почати/зупинити запис"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -132,6 +107,31 @@ msgstr "Вітання; виконати налаштування запису"
 msgid "Recording view"
 msgstr "Перегляд запису"
 
+#: data/ui/help-overlay.blp:10
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Загальні"
+
+#: data/ui/help-overlay.blp:13
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "Комбінації клавіш"
+
+#: data/ui/help-overlay.blp:18
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Вихід"
+
+#: data/ui/help-overlay.blp:24
+msgctxt "shortcut window"
+msgid "Recording"
+msgstr "Запис"
+
+#: data/ui/help-overlay.blp:27
+msgctxt "shortcut window"
+msgid "Start/Stop recording"
+msgstr "Почати/зупинити запис"
+
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
 #. e.g.:
@@ -142,7 +142,7 @@ msgstr "Перегляд запису"
 msgid "translator-credits"
 msgstr "Ihor Hordiichuk"
 
-#: src/MainWindow.vala:26
+#: src/MainWindow.vala:27
 msgid ""
 "This is possibly due to missing codecs or incomplete installation of the "
 "app. Make sure you've installed them and try reinstalling them if this issue "
@@ -152,7 +152,7 @@ msgstr ""
 "застосунку. Переконайтеся, що ви їх встановили, і спробуйте перевстановити, "
 "якщо проблема не зникне."
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:28
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
@@ -161,85 +161,105 @@ msgstr ""
 "Переконайтеся, що ви під'єднали один з них, і спробуйте під'єднати інший, "
 "якщо проблема не зникне."
 
-#: src/MainWindow.vala:39
+#: src/MainWindow.vala:40
 msgid "S_ystem"
 msgstr "С_истемний"
 
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:41
 msgid "_Light"
 msgstr "_Світлий"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:42
 msgid "_Dark"
 msgstr "_Темний"
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:45
 msgid "_Style"
 msgstr "_Стиль"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:46
 msgid "_Keyboard Shortcuts"
 msgstr "_Комбінації клавіш"
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:49
+#: src/MainWindow.vala:50
 #, c-format
 msgid "_About %s"
 msgstr "_Про %s"
 
-#: src/MainWindow.vala:53
+#: src/MainWindow.vala:54
 msgid "Main Menu"
 msgstr "Головне меню"
 
-#: src/MainWindow.vala:126
+#: src/MainWindow.vala:128
 msgid "Error while recording"
 msgstr "Помилка запису"
 
-#: src/MainWindow.vala:127
+#: src/MainWindow.vala:129
 msgid "There was an error while recording."
 msgstr "Сталася помилка під час запису."
 
-#: src/MainWindow.vala:153
-msgid "Failed to save recording"
-msgstr "Не вдалося зберегти запис"
-
-#: src/MainWindow.vala:154
-msgid "There was an error while moving file to the designated location."
-msgstr "Виникла помилка під час переміщення файлу у вказане місце."
-
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:144
 #, fuzzy
 #| msgid "Recording view"
 msgid "Recording Saved"
 msgstr "Перегляд запису"
 
-#: src/MainWindow.vala:162
+#: src/MainWindow.vala:145
 #, fuzzy
 #| msgid "Open folder"
 msgid "Open Folder"
 msgstr "Відкрити теку"
 
-#: src/MainWindow.vala:218
+#: src/MainWindow.vala:186 src/MainWindow.vala:206
+msgid "Failed to save recording"
+msgstr "Не вдалося зберегти запис"
+
+#: src/MainWindow.vala:187
+#, fuzzy, c-format
+#| msgid "There was an error while moving file to the designated location."
+msgid ""
+"There was an error while asking for final path where to move the temporary "
+"recording file \"%s\"."
+msgstr "Виникла помилка під час переміщення файлу у вказане місце."
+
+#: src/MainWindow.vala:207
+#, fuzzy, c-format
+#| msgid "There was an error while moving file to the designated location."
+msgid ""
+"There was an error while moving the temporary recording file \"%s\" to "
+"\"%s\"."
+msgstr "Виникла помилка під час переміщення файлу у вказане місце."
+
+#: src/MainWindow.vala:230
 msgid "Save your recording"
 msgstr "Збережіть свій запис"
 
-#: src/MainWindow.vala:219
-msgid "Save"
-msgstr "Зберегти"
-
-#: src/MainWindow.vala:256
+#: src/MainWindow.vala:280
 msgid "There was an unknown error while starting recording."
 msgstr "Виникла невідома помилка під час початку запису."
 
-#: src/MainWindow.vala:260
+#: src/MainWindow.vala:284
 msgid "Failed to start recording"
 msgstr "Не вдалося розпочати запис"
 
-#: src/MainWindow.vala:317
+#: src/MainWindow.vala:343
+#, fuzzy
+#| msgid "Recording view"
+msgid "Recording Canceled"
+msgstr "Перегляд запису"
+
+#: src/MainWindow.vala:348
+#, fuzzy
+#| msgid "Recording view"
+msgid "Recording Moved to Trash"
+msgstr "Перегляд запису"
+
+#: src/MainWindow.vala:383
 msgid "Details:"
 msgstr "Подробиці:"
 
-#: src/Model/Recorder.vala:341
+#: src/Manager/RecordManager.vala:337
 msgid "Recording is ongoing"
 msgstr "Триває запис"
 
@@ -255,7 +275,7 @@ msgstr "Призупинити зворотний відлік"
 msgid "Resume the countdown"
 msgstr "Продовжити зворотний відлік"
 
-#: src/View/RecordView.vala:51
+#: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
 msgid "Cancel recording"
 msgstr "Скасувати запис"
 
@@ -352,24 +372,54 @@ msgid "WAV"
 msgstr "WAV"
 
 #: src/View/WelcomeView.vala:100
+msgid "Add metadata:"
+msgstr ""
+
+#: src/View/WelcomeView.vala:108
+msgid "Add record year and your real name in recording files."
+msgstr ""
+
+#: src/View/WelcomeView.vala:115
 msgid "Automatically save files:"
 msgstr "Автозбереження файлів:"
 
-#: src/View/WelcomeView.vala:110 src/View/WelcomeView.vala:239
+#: src/View/WelcomeView.vala:125 src/View/WelcomeView.vala:257
 msgid "Select destination…"
 msgstr "Вибрати місце призначення…"
 
-#: src/View/WelcomeView.vala:111 src/View/WelcomeView.vala:115
+#: src/View/WelcomeView.vala:126 src/View/WelcomeView.vala:129
 msgid "Choose a default destination"
 msgstr "Виберіть усталене місце"
 
-#: src/View/WelcomeView.vala:112
-msgid "Select"
-msgstr "Вибрати"
-
-#: src/View/WelcomeView.vala:150
+#: src/View/WelcomeView.vala:167
 msgid "Start recording"
 msgstr "Почати запис"
+
+#: src/Widget/ProcessingDialog.vala:35
+#, fuzzy
+#| msgid "Saving"
+msgid "Saving…"
+msgstr "Збереження"
+
+#: src/Widget/ProcessingDialog.vala:40
+msgid "Problems?"
+msgstr ""
+
+#: src/Widget/ProcessingDialog.vala:40
+msgid "Just hang on until the file dialog appears."
+msgstr ""
+
+#: src/Widget/ProcessingDialog.vala:78
+#, fuzzy
+#| msgid "Cancel recording"
+msgid "Canceling…"
+msgstr "Скасувати запис"
+
+#~ msgid "Save"
+#~ msgstr "Зберегти"
+
+#~ msgid "Select"
+#~ msgstr "Вибрати"
 
 #~ msgid "Saved recording"
 #~ msgstr "Збережений запис"

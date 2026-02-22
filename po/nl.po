@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-05 08:58+0000\n"
+"POT-Creation-Date: 2026-02-22 11:34+0000\n"
 "PO-Revision-Date: 2024-05-03 10:45+0000\n"
 "Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/rosp/reco/nl/>\n"
@@ -18,34 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.5.3\n"
-
-#: data/ui/help-overlay.blp:10
-msgctxt "shortcut window"
-msgid "General"
-msgstr ""
-
-#: data/ui/help-overlay.blp:13
-msgctxt "shortcut window"
-msgid "Keyboard Shortcuts"
-msgstr ""
-
-#: data/ui/help-overlay.blp:18
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr ""
-
-#: data/ui/help-overlay.blp:24
-#, fuzzy
-msgctxt "shortcut window"
-msgid "Recording"
-msgstr "Opnamescherm"
-
-#: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgid "Start recording"
-msgctxt "shortcut window"
-msgid "Start/Stop recording"
-msgstr "Opname starten"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -136,6 +108,34 @@ msgstr "Introductiescherm waarop je de opname-instellingen kunt regelen"
 msgid "Recording view"
 msgstr "Opnamescherm"
 
+#: data/ui/help-overlay.blp:10
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/ui/help-overlay.blp:13
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: data/ui/help-overlay.blp:18
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/ui/help-overlay.blp:24
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Recording"
+msgstr "Opnamescherm"
+
+#: data/ui/help-overlay.blp:27
+#, fuzzy
+#| msgid "Start recording"
+msgctxt "shortcut window"
+msgid "Start/Stop recording"
+msgstr "Opname starten"
+
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
 #. e.g.:
@@ -146,105 +146,121 @@ msgstr "Opnamescherm"
 msgid "translator-credits"
 msgstr ""
 
-#: src/MainWindow.vala:26
+#: src/MainWindow.vala:27
 msgid ""
 "This is possibly due to missing codecs or incomplete installation of the "
 "app. Make sure you've installed them and try reinstalling them if this issue "
 "persists."
 msgstr ""
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:28
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
 msgstr ""
 
-#: src/MainWindow.vala:39
+#: src/MainWindow.vala:40
 #, fuzzy
 #| msgid "System"
 msgid "S_ystem"
 msgstr "Systeem"
 
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:41
 #, fuzzy
 #| msgid "Light"
 msgid "_Light"
 msgstr "Licht"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:42
 #, fuzzy
 #| msgid "Dark"
 msgid "_Dark"
 msgstr "Donker"
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:45
 #, fuzzy
 msgid "_Style"
 msgstr "Thema:"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:46
 msgid "_Keyboard Shortcuts"
 msgstr ""
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:49
+#: src/MainWindow.vala:50
 #, c-format
 msgid "_About %s"
 msgstr ""
 
-#: src/MainWindow.vala:53
+#: src/MainWindow.vala:54
 msgid "Main Menu"
 msgstr ""
 
-#: src/MainWindow.vala:126
+#: src/MainWindow.vala:128
 #, fuzzy
 msgid "Error while recording"
 msgstr "Opname pauzeren"
 
-#: src/MainWindow.vala:127
+#: src/MainWindow.vala:129
 msgid "There was an error while recording."
 msgstr ""
 
-#: src/MainWindow.vala:153
-#, fuzzy
-msgid "Failed to save recording"
-msgstr "Opname pauzeren"
-
-#: src/MainWindow.vala:154
-msgid "There was an error while moving file to the designated location."
-msgstr ""
-
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:144
 #, fuzzy
 msgid "Recording Saved"
 msgstr "Opnamescherm"
 
-#: src/MainWindow.vala:162
+#: src/MainWindow.vala:145
 msgid "Open Folder"
 msgstr ""
 
-#: src/MainWindow.vala:218
+#: src/MainWindow.vala:186 src/MainWindow.vala:206
+#, fuzzy
+msgid "Failed to save recording"
+msgstr "Opname pauzeren"
+
+#: src/MainWindow.vala:187
+#, c-format
+msgid ""
+"There was an error while asking for final path where to move the temporary "
+"recording file \"%s\"."
+msgstr ""
+
+#: src/MainWindow.vala:207
+#, c-format
+msgid ""
+"There was an error while moving the temporary recording file \"%s\" to "
+"\"%s\"."
+msgstr ""
+
+#: src/MainWindow.vala:230
 msgid "Save your recording"
 msgstr "Sla je opname op"
 
-#: src/MainWindow.vala:219
-msgid "Save"
-msgstr "Opslaan"
-
-#: src/MainWindow.vala:256
+#: src/MainWindow.vala:280
 msgid "There was an unknown error while starting recording."
 msgstr ""
 
-#: src/MainWindow.vala:260
+#: src/MainWindow.vala:284
 #, fuzzy
 msgid "Failed to start recording"
 msgstr "Opname starten"
 
-#: src/MainWindow.vala:317
+#: src/MainWindow.vala:343
+#, fuzzy
+msgid "Recording Canceled"
+msgstr "Opnamescherm"
+
+#: src/MainWindow.vala:348
+#, fuzzy
+msgid "Recording Moved to Trash"
+msgstr "Opnamescherm"
+
+#: src/MainWindow.vala:383
 msgid "Details:"
 msgstr ""
 
-#: src/Model/Recorder.vala:341
+#: src/Manager/RecordManager.vala:337
 msgid "Recording is ongoing"
 msgstr "Er wordt een opname gemaakt"
 
@@ -260,7 +276,7 @@ msgstr "Aftellen onderbreken"
 msgid "Resume the countdown"
 msgstr "Aftellen hervatten"
 
-#: src/View/RecordView.vala:51
+#: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
 msgid "Cancel recording"
 msgstr "Opname afbreken"
 
@@ -358,24 +374,54 @@ msgid "WAV"
 msgstr "WAV"
 
 #: src/View/WelcomeView.vala:100
+msgid "Add metadata:"
+msgstr ""
+
+#: src/View/WelcomeView.vala:108
+msgid "Add record year and your real name in recording files."
+msgstr ""
+
+#: src/View/WelcomeView.vala:115
 msgid "Automatically save files:"
 msgstr "Bestanden automatisch opslaan:"
 
-#: src/View/WelcomeView.vala:110 src/View/WelcomeView.vala:239
+#: src/View/WelcomeView.vala:125 src/View/WelcomeView.vala:257
 msgid "Select destination…"
 msgstr "Kies een opslaglocatie…"
 
-#: src/View/WelcomeView.vala:111 src/View/WelcomeView.vala:115
+#: src/View/WelcomeView.vala:126 src/View/WelcomeView.vala:129
 msgid "Choose a default destination"
 msgstr "Kies de standaard opslaglocatie"
 
-#: src/View/WelcomeView.vala:112
-msgid "Select"
-msgstr "Kiezen"
-
-#: src/View/WelcomeView.vala:150
+#: src/View/WelcomeView.vala:167
 msgid "Start recording"
 msgstr "Opname starten"
+
+#: src/Widget/ProcessingDialog.vala:35
+#, fuzzy
+#| msgid "Saving"
+msgid "Saving…"
+msgstr "Opslaan"
+
+#: src/Widget/ProcessingDialog.vala:40
+msgid "Problems?"
+msgstr ""
+
+#: src/Widget/ProcessingDialog.vala:40
+msgid "Just hang on until the file dialog appears."
+msgstr ""
+
+#: src/Widget/ProcessingDialog.vala:78
+#, fuzzy
+#| msgid "Cancel recording"
+msgid "Canceling…"
+msgstr "Opname afbreken"
+
+#~ msgid "Save"
+#~ msgstr "Opslaan"
+
+#~ msgid "Select"
+#~ msgstr "Kiezen"
 
 #, fuzzy
 #~ msgid "Saved recording"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-05 08:58+0000\n"
+"POT-Creation-Date: 2026-02-22 11:34+0000\n"
 "PO-Revision-Date: 2026-02-21 15:09+0000\n"
 "Last-Translator: Priit Jõerüüt <jrthwlate@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/rosp/reco/et/>\n"
@@ -18,31 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.16.1-dev\n"
-
-#: data/ui/help-overlay.blp:10
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Üldised seadistused"
-
-#: data/ui/help-overlay.blp:13
-msgctxt "shortcut window"
-msgid "Keyboard Shortcuts"
-msgstr "Klaviatuuri kiirklahvid"
-
-#: data/ui/help-overlay.blp:18
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Välju"
-
-#: data/ui/help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Recording"
-msgstr "Salvestamine"
-
-#: data/ui/help-overlay.blp:27
-msgctxt "shortcut window"
-msgid "Start/Stop recording"
-msgstr "Alusta salvestamist või lõpeta salvestamine"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -127,6 +102,31 @@ msgstr "Avavaade koos salvestamise seadistsutega"
 msgid "Recording view"
 msgstr "Salvestusvaade"
 
+#: data/ui/help-overlay.blp:10
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Üldised seadistused"
+
+#: data/ui/help-overlay.blp:13
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "Klaviatuuri kiirklahvid"
+
+#: data/ui/help-overlay.blp:18
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Välju"
+
+#: data/ui/help-overlay.blp:24
+msgctxt "shortcut window"
+msgid "Recording"
+msgstr "Salvestamine"
+
+#: data/ui/help-overlay.blp:27
+msgctxt "shortcut window"
+msgid "Start/Stop recording"
+msgstr "Alusta salvestamist või lõpeta salvestamine"
+
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
 #. e.g.:
@@ -137,7 +137,7 @@ msgstr "Salvestusvaade"
 msgid "translator-credits"
 msgstr "Priit Jõerüüt 2024-2026"
 
-#: src/MainWindow.vala:26
+#: src/MainWindow.vala:27
 msgid ""
 "This is possibly due to missing codecs or incomplete installation of the "
 "app. Make sure you've installed them and try reinstalling them if this issue "
@@ -147,7 +147,7 @@ msgstr ""
 "paigaldamine jäänud pooleli. Palun kontrolli, et kõik vajalik oleks "
 "paigaldatud ja kui viga ei kao, siis paigalda rakendus uuesti."
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:28
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists."
@@ -156,81 +156,101 @@ msgstr ""
 "Palun kontrolli, et sa oled vajaliku seadme ühendanud või kui viga ei "
 "lahene, siis kasuta mõnda teist seadet."
 
-#: src/MainWindow.vala:39
+#: src/MainWindow.vala:40
 msgid "S_ystem"
 msgstr "S_üsteemi kujundus"
 
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:41
 msgid "_Light"
 msgstr "_Hele kujundus"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:42
 msgid "_Dark"
 msgstr "_Tume kujundus"
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:45
 msgid "_Style"
 msgstr "_Kujundus"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:46
 msgid "_Keyboard Shortcuts"
 msgstr "_Klaviatuuri kiirklahvid"
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:49
+#: src/MainWindow.vala:50
 #, c-format
 msgid "_About %s"
 msgstr "R_akenduse teave: %s"
 
-#: src/MainWindow.vala:53
+#: src/MainWindow.vala:54
 msgid "Main Menu"
 msgstr "Põhimenüü"
 
-#: src/MainWindow.vala:126
+#: src/MainWindow.vala:128
 msgid "Error while recording"
 msgstr "Viga salvestamisel"
 
-#: src/MainWindow.vala:127
+#: src/MainWindow.vala:129
 msgid "There was an error while recording."
 msgstr "Salvestamisel tekkis viga."
 
-#: src/MainWindow.vala:153
-msgid "Failed to save recording"
-msgstr "Salvestuse talletamine ei õnnestunud"
-
-#: src/MainWindow.vala:154
-msgid "There was an error while moving file to the designated location."
-msgstr "Faili teisaldamisel määratud kohta tekkis viga."
-
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:144
 msgid "Recording Saved"
 msgstr "Salvestus on talletatud"
 
-#: src/MainWindow.vala:162
+#: src/MainWindow.vala:145
 msgid "Open Folder"
 msgstr "Ava kaust"
 
-#: src/MainWindow.vala:218
+#: src/MainWindow.vala:186 src/MainWindow.vala:206
+msgid "Failed to save recording"
+msgstr "Salvestuse talletamine ei õnnestunud"
+
+#: src/MainWindow.vala:187
+#, fuzzy, c-format
+#| msgid "There was an error while moving file to the designated location."
+msgid ""
+"There was an error while asking for final path where to move the temporary "
+"recording file \"%s\"."
+msgstr "Faili teisaldamisel määratud kohta tekkis viga."
+
+#: src/MainWindow.vala:207
+#, fuzzy, c-format
+#| msgid "There was an error while moving file to the designated location."
+msgid ""
+"There was an error while moving the temporary recording file \"%s\" to "
+"\"%s\"."
+msgstr "Faili teisaldamisel määratud kohta tekkis viga."
+
+#: src/MainWindow.vala:230
 msgid "Save your recording"
 msgstr "Salvesta oma helisalvestis"
 
-#: src/MainWindow.vala:219
-msgid "Save"
-msgstr "Salvesta"
-
-#: src/MainWindow.vala:256
+#: src/MainWindow.vala:280
 msgid "There was an unknown error while starting recording."
 msgstr "Helisalvestamise alustamisel tekkis tundmatu viga."
 
-#: src/MainWindow.vala:260
+#: src/MainWindow.vala:284
 msgid "Failed to start recording"
 msgstr "Ei õnnestunud alustada salvestamist"
 
-#: src/MainWindow.vala:317
+#: src/MainWindow.vala:343
+#, fuzzy
+#| msgid "Recording Saved"
+msgid "Recording Canceled"
+msgstr "Salvestus on talletatud"
+
+#: src/MainWindow.vala:348
+#, fuzzy
+#| msgid "Recording Saved"
+msgid "Recording Moved to Trash"
+msgstr "Salvestus on talletatud"
+
+#: src/MainWindow.vala:383
 msgid "Details:"
 msgstr "Üksikasjad:"
 
-#: src/Model/Recorder.vala:341
+#: src/Manager/RecordManager.vala:337
 msgid "Recording is ongoing"
 msgstr "Helisalvestamine on pooleli"
 
@@ -246,7 +266,7 @@ msgstr "Peata pöördloendus"
 msgid "Resume the countdown"
 msgstr "Jätka pöördloendust"
 
-#: src/View/RecordView.vala:51
+#: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
 msgid "Cancel recording"
 msgstr "Katkesta salvestamine"
 
@@ -343,24 +363,54 @@ msgid "WAV"
 msgstr "WAV"
 
 #: src/View/WelcomeView.vala:100
+msgid "Add metadata:"
+msgstr ""
+
+#: src/View/WelcomeView.vala:108
+msgid "Add record year and your real name in recording files."
+msgstr ""
+
+#: src/View/WelcomeView.vala:115
 msgid "Automatically save files:"
 msgstr "Loo failid automaatselt:"
 
-#: src/View/WelcomeView.vala:110 src/View/WelcomeView.vala:239
+#: src/View/WelcomeView.vala:125 src/View/WelcomeView.vala:257
 msgid "Select destination…"
 msgstr "Vali sihtkaust…"
 
-#: src/View/WelcomeView.vala:111 src/View/WelcomeView.vala:115
+#: src/View/WelcomeView.vala:126 src/View/WelcomeView.vala:129
 msgid "Choose a default destination"
 msgstr "Vali vaikimisi kasutatav kaust"
 
-#: src/View/WelcomeView.vala:112
-msgid "Select"
-msgstr "Vali"
-
-#: src/View/WelcomeView.vala:150
+#: src/View/WelcomeView.vala:167
 msgid "Start recording"
 msgstr "Alusta salvestamisega"
+
+#: src/Widget/ProcessingDialog.vala:35
+#, fuzzy
+#| msgid "Saving"
+msgid "Saving…"
+msgstr "Talletamine"
+
+#: src/Widget/ProcessingDialog.vala:40
+msgid "Problems?"
+msgstr ""
+
+#: src/Widget/ProcessingDialog.vala:40
+msgid "Just hang on until the file dialog appears."
+msgstr ""
+
+#: src/Widget/ProcessingDialog.vala:78
+#, fuzzy
+#| msgid "Cancel recording"
+msgid "Canceling…"
+msgstr "Katkesta salvestamine"
+
+#~ msgid "Save"
+#~ msgstr "Salvesta"
+
+#~ msgid "Select"
+#~ msgstr "Vali"
 
 #~ msgid "Saved recording"
 #~ msgstr "Salvestatud helisalvestis"
