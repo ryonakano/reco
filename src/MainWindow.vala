@@ -168,13 +168,12 @@ public class MainWindow : Adw.ApplicationWindow {
         debug ("record_manager.save_file: tmp_path(%s)", tmp_path);
 
         File? final_file;
-        string last_folder_path = Application.settings.get_string ("last-folder-path");
-        bool autosave_enabled = Application.settings.get_boolean ("autosave");
-        if (autosave_enabled) {
-            final_file = File.new_for_path (last_folder_path).get_child (default_filename);
+        var autosave_dest = Application.settings.get_string ("autosave-destination");
+        if (autosave_dest.length > 0) {
+            final_file = File.new_for_path (autosave_dest).get_child (default_filename);
         } else {
             try {
-                final_file = yield ask_final_file (last_folder_path, default_filename);
+                final_file = yield ask_final_file (default_filename);
             } catch (Error err) {
                 if (err.domain == Gtk.DialogError.quark () && err.code == Gtk.DialogError.DISMISSED) {
                     yield cleanup_tmp_recording ();
@@ -222,23 +221,23 @@ public class MainWindow : Adw.ApplicationWindow {
      *
      * This method shows Gtk.FileDialog and waits for the user input.
      *
-     * @param initial_folder    initial folder for {@link Gtk.FileDialog}
-     * @param default_filename  default filename of recoridngs
+     * @param default_filename default filename of recoridngs
      *
      * @return location where to save recordings
      */
-    private async File? ask_final_file (string initial_folder, string default_filename) throws Error {
+    private async File? ask_final_file (string default_filename) throws Error {
         var save_dialog = new Gtk.FileDialog () {
             title = _("Save your recording"),
             modal = true,
             initial_name = default_filename
         };
 
-        if (FileUtils.test (initial_folder, FileTest.IS_DIR)) {
+        string last_path = Application.settings.get_string ("last-folder-path");
+        if (FileUtils.test (last_path, FileTest.IS_DIR)) {
             // Gtk.FileDialog.initial_folder seems to must be a host path to work as expected inside sandbox
-            string? initial_folder_host = Util.query_host_path (initial_folder);
-            if (initial_folder_host != null) {
-                save_dialog.initial_folder = File.new_for_path (initial_folder_host);
+            string? last_path_host = Util.query_host_path (last_path);
+            if (last_path_host != null) {
+                save_dialog.initial_folder = File.new_for_path (last_path_host);
             }
         }
 
@@ -252,7 +251,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
         string? path = parent_dir.get_path ();
         if (path == null) {
-            warning ("Failed to remember last folder path: Failed to get parent path");
+            warning ("Failed to remember last folder path: Failed to get parent dir path");
             return false;
         }
 

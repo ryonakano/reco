@@ -18,7 +18,6 @@ sources = files(
   'Util.vala',
   'Manager/DeviceManager.vala',
   'Manager/RecordManager.vala',
-  'Manager/MigrationManager.vala',
   'Model/Recorder/AbstractRecorder.vala',
   'Model/Recorder/ALACRecorder.vala',
   'Model/Recorder/FLACRecorder.vala',

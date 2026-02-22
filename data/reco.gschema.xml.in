@@ -39,16 +39,11 @@
       <default>'stereo'</default>
       <summary>Audio channel</summary>
     </key>
-    <key name="autosave" type="b">
-      <!-- The app doesn't require any access to the storage by default -->
-      <default>false</default>
-      <summary>Automatically save files</summary>
-      <description></description>
-    </key>
     <key name="autosave-destination" type="s">
+      <!-- The app doesn't require any access to the storage by default -->
       <default>''</default>
       <summary>Default destination for autosaving</summary>
-      <description>This key is deprecated; use 'autosave' and 'last-folder-path' keys instead</description>
+      <description>Specify the path to save recordings automatically. Setting this key blank disables autosaving</description>
     </key>
     <key name="add-metadata" type="b">
       <!-- Opt-in because enabling this results recording files include personal info like real name -->

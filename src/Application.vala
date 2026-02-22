@@ -162,10 +162,6 @@ public class Application : Adw.Application {
 
         add_action_entries (ACTION_ENTRIES, this);
         set_accels_for_action ("app.quit", { "<Control>q" });
-
-        var migration_manager = new Manager.MigrationManager ();
-        // Ignore return value because failure just results old user preferences not migrated
-        migration_manager.migrate_settings (Application.settings);
     }
 
     protected override void activate () {
