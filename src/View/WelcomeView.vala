@@ -253,8 +253,6 @@ public class View.WelcomeView : AbstractView {
                 autosave_switch.active = false;
             }
         } else {
-// TODO: Do we need this?
-#if 1
             File file = File.new_for_path (autosave_dest);
             string? path = null;
             try {
@@ -270,16 +268,8 @@ public class View.WelcomeView : AbstractView {
                 path = autosave_dest;
             }
 
-            if (file.query_exists ()) {
-#else
-            string path = autosave_dest;
-            if (FileUtils.test (path, FileTest.IS_DIR)) {
-#endif
-                // TODO: Remove log
-                info ("Setting manual-save-last-folder to autosave_dest (%s)", path);
-                // Set last value of folder path for autosaving to first value of last folder path for manual saving
-                Application.settings.set_string ("manual-save-last-folder", path);
-            }
+            // Set last value of folder path for autosaving to first value of last folder path for manual saving
+            Application.settings.set_string ("manual-save-last-folder", path);
 
             // Clear the current destination and disable autosaving
             Application.settings.reset ("autosave-destination");

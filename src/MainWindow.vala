@@ -237,8 +237,6 @@ public class MainWindow : Adw.ApplicationWindow {
         File? final_file = yield save_dialog.save (this, null);
 
         File? parent_dir = final_file.get_parent ();
-// TODO: Do we need this?
-#if 1
         string? path = null;
         try {
             FileInfo info = parent_dir.query_info (Define.FileAttribute.HOST_PATH, FileQueryInfoFlags.NONE);
@@ -252,12 +250,7 @@ public class MainWindow : Adw.ApplicationWindow {
             // Getting host path requires xdg-desktop-portal >= 1.19.0; fallback to path inside sandbox
             path = parent_dir.get_path ();
         }
-#else
-        string path = parent_dir.get_path ();
-#endif
 
-        // TODO: Remove log
-        info ("Setting manual-save-last-folder to parent dir (%s)", path);
         Application.settings.set_string ("manual-save-last-folder", path);
 
         return final_file;
