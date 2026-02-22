@@ -225,7 +225,6 @@ public class MainWindow : Adw.ApplicationWindow {
     private async File? ask_final_file (string default_filename) throws Error {
         var save_dialog = new Gtk.FileDialog () {
             title = _("Save your recording"),
-            accept_label = _("Save"),
             modal = true,
             initial_name = default_filename
         };

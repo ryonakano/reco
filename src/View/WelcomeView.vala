@@ -123,8 +123,7 @@ public class View.WelcomeView : AbstractView {
 
         destination_chooser_button = new Widget.FolderChooserButton (
             _("Select destination…"),
-            _("Choose a default destination"),
-            _("Select")
+            _("Choose a default destination")
         ) {
             halign = Gtk.Align.START,
             tooltip_text = _("Choose a default destination")
