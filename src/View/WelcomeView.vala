@@ -255,6 +255,7 @@ public class View.WelcomeView : AbstractView {
         } else {
             if (!FileUtils.test (autosave_dest, FileTest.IS_DIR)) {
                 // Prevent invalid path from being saved
+                warning ("Failed to update manual-save-last-folder settings: Invalid path \"%s\"", autosave_dest);
                 return;
             }
 
