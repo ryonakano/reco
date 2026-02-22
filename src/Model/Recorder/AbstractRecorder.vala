@@ -29,6 +29,7 @@ public abstract class Model.Recorder.AbstractRecorder : Object {
      * All elements created in this method should be added to #pipeline using {@link Gst.Bin.add}
      * and linked to #mixer or #sink appropriately using {@link Gst.Pad.link}.
      *
+     * {{{
      * |-- #pipeline --------------------------------------------------------------------|
      * |           |------------|  |-----------------|                    |------------| |
      * |  (snip) --|   #mixer   |--| format-specific |-- (snip, if any) --|   #sink    | |
@@ -36,6 +37,11 @@ public abstract class Model.Recorder.AbstractRecorder : Object {
      * |           |------------|  |-----------------|                    |------------| |
      * |---------------------------------------------------------------------------------|
      *                          <--------- scope of this method ---------->
+     * }}}
+     *
+     * NOTE:<<BR>>
+     * Overridden methods should add at least one element that inherits {@link Gst.TagSetter} to #pipeline for metadata.<<BR>>
+     * See {@link Manager.RecordManager.add_metadata} for details.
      *
      * @param pipeline  pipeline that holds all elements necessary for recording.
      * @param mixer     audiomixer that precedes all elements created in this method.

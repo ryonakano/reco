@@ -76,7 +76,8 @@ public class MainWindow : Adw.ApplicationWindow {
         stack.add_child (record_view);
 
         toast_overlay = new Adw.ToastOverlay () {
-            child = stack
+            child = stack,
+            valign = Gtk.Align.START,
         };
 
         var toolbar_view = new Adw.ToolbarView ();
@@ -84,7 +85,7 @@ public class MainWindow : Adw.ApplicationWindow {
         toolbar_view.set_content (toast_overlay);
 
         content = toolbar_view;
-        width_request = 350;
+        width_request = 360;
         height_request = 480;
         resizable = false;
         title = Define.APP_NAME;
@@ -224,7 +225,6 @@ public class MainWindow : Adw.ApplicationWindow {
     private async File? ask_final_file (string default_filename) throws Error {
         var save_dialog = new Gtk.FileDialog () {
             title = _("Save your recording"),
-            accept_label = _("Save"),
             modal = true,
             initial_name = default_filename
         };

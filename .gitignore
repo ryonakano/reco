@@ -8,7 +8,6 @@ builddir*
 *.un~
 
 # subprojects
-.wraplock
 subprojects/live-chart
 subprojects/ryokucha
 subprojects/blueprint-compiler

@@ -44,6 +44,23 @@ namespace Util {
         return true;
     }
 
+    public static Date dt2date (DateTime dt) {
+        int year;
+        int month;
+        int day;
+
+        dt.get_ymd (out year, out month, out day);
+
+        // Declare a new Date struct and then use set_*() methods because binding for g_date_new_dmy() is not available.
+        // See also: https://gitlab.gnome.org/GNOME/vala/-/issues/1327
+        var date = Date ();
+        date.set_day ((DateDay) day);
+        date.set_month ((DateMonth) month);
+        date.set_year ((DateYear) year);
+
+        return date;
+    }
+
     public static Adw.ColorScheme to_adw_scheme (string str_scheme) {
         switch (str_scheme) {
             case Define.ColorScheme.DEFAULT:

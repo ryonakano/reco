@@ -215,6 +215,13 @@ public class Manager.RecordManager : Object {
         inhibit_sleep ();
 
         pipeline.set_state (Gst.State.PLAYING);
+
+        if (Application.settings.get_boolean ("add-metadata")) {
+            unowned string real_name = Environment.get_real_name ();
+            // Ignore return value because failure to add metadata does not affect recording itself
+            add_metadata (pipeline, real_name, start_dt);
+        }
+
         is_recording_progress = true;
     }
 
@@ -393,6 +400,44 @@ public class Manager.RecordManager : Object {
         }
 
         return null;
+    }
+
+    /**
+     * Add metadata to the stream using a {@link Gst.TagSetter} element found from #pipeline.
+     *
+     * NOTE:
+     *  * You should call this method before #pipeline goes to {@link Gst.State.PAUSED}
+     *
+     * See also:
+     *  * https://gstreamer.freedesktop.org/documentation/application-development/advanced/metadata.html?gi-language=c#tag-writing
+     *  * https://gstreamer.freedesktop.org/documentation/gstreamer/gsttagsetter.html?gi-language=c
+     *
+     * @param pipeline      a {@link Gst.Pipeline} that has at least one {@link Gst.Element} that inherits
+     *                      {@link Gst.TagSetter} interface, e.g. "vorbisenc", "theoraenc", "id3v2mux", etc.
+     * @param artist        artist name that will be set to metadata as value of "Artist"
+     * @param date_time     date & time that will be set to metadata as value of "Year"
+     *
+     * @return              true if succeeded, false otherwise
+     */
+    private bool add_metadata (Gst.Pipeline pipeline, string artist, DateTime date_time) {
+        Gst.TagSetter? tag_setter = pipeline.get_by_interface (typeof (Gst.TagSetter)) as Gst.TagSetter;
+        if (tag_setter == null) {
+            warning ("Element that implements GstTagSetter not found");
+            return false;
+        }
+
+        // "Year" tag seems to correspond to a Gst.Tags.DATE_TIME tag (takes Gst.DateTime value)
+        // and a Gst.Tags.DATE tag (takes Date value); Setting only the former results missing "Year" tag
+        // in WAV and MP3 files and setting the latter too works as expected.
+        var gst_date_time = new Gst.DateTime.from_g_date_time (date_time);
+        Date date = Util.dt2date (date_time);
+
+        tag_setter.add_tags (Gst.TagMergeMode.REPLACE_ALL,
+                             Gst.Tags.ARTIST, artist,
+                             Gst.Tags.DATE_TIME, gst_date_time,
+                             Gst.Tags.DATE, date);
+
+        return true;
     }
 
     /**

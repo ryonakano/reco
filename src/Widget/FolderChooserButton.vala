@@ -8,13 +8,11 @@ public class Widget.FolderChooserButton : Gtk.Button {
 
     public new string label { get; construct set; }
     public string title { get; construct set; }
-    public string accept_label { get; construct set; }
 
-    public FolderChooserButton (string label, string title, string accept_label) {
+    public FolderChooserButton (string label, string title) {
         Object (
             label: label,
-            title: title,
-            accept_label: accept_label
+            title: title
         );
     }
 
@@ -47,7 +45,6 @@ public class Widget.FolderChooserButton : Gtk.Button {
     public async bool present_chooser () {
         var chooser = new Gtk.FileDialog () {
             title = title,
-            accept_label = accept_label,
             modal = true
         };
 
