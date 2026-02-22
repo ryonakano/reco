@@ -234,7 +234,7 @@ public class MainWindow : Adw.ApplicationWindow {
             initial_name = default_filename
         };
 
-        if (initial_folder.length > 0) {
+        if (FileUtils.test (initial_folder, FileTest.IS_DIR)) {
             // Gtk.FileDialog.initial_folder seems to must be a host path to work as expected inside sandbox
             string? initial_folder_host = Util.query_host_path (initial_folder);
             if (initial_folder_host != null) {
