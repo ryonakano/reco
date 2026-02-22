@@ -34,4 +34,8 @@ namespace Define {
         /** Error configuring elements. **/
         CONFIGURE_ERROR,
     }
+
+    namespace FileAttribute {
+        public const string HOST_PATH = "xattr::document-portal.host-path";
+    }
 }

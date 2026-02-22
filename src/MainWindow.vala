@@ -192,6 +192,9 @@ public class MainWindow : Adw.ApplicationWindow {
 
                 return null;
             }
+
+            // Ignore return value because failure does not affect saving recording itself
+            remember_last_folder_path (final_file);
         }
 
         var tmp_file = File.new_for_path (tmp_path);
@@ -229,7 +232,32 @@ public class MainWindow : Adw.ApplicationWindow {
             initial_name = default_filename
         };
 
+        string last_path = Application.settings.get_string ("last-folder-path");
+        if (FileUtils.test (last_path, FileTest.IS_DIR)) {
+            // Gtk.FileDialog.initial_folder seems to must be a host path to work as expected inside sandbox
+            string? last_path_host = Util.query_host_path (last_path);
+            if (last_path_host != null) {
+                save_dialog.initial_folder = File.new_for_path (last_path_host);
+            }
+        }
+
         return yield save_dialog.save (this, null);
+    }
+
+    private bool remember_last_folder_path (File file) {
+        File? parent_dir = file.get_parent ();
+        // BUG: #file is supposed to be a recording file which should have a parent
+        assert (parent_dir != null);
+
+        string? path = parent_dir.get_path ();
+        if (path == null) {
+            warning ("Failed to remember last folder path: Failed to get parent dir path");
+            return false;
+        }
+
+        Application.settings.set_string ("last-folder-path", path);
+
+        return true;
     }
 
     private void show_welcome () {

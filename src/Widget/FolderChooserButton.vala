@@ -48,6 +48,15 @@ public class Widget.FolderChooserButton : Gtk.Button {
             modal = true
         };
 
+        string last_path = Application.settings.get_string ("last-folder-path");
+        if (FileUtils.test (last_path, FileTest.IS_DIR)) {
+            // Gtk.FileDialog.initial_folder seems to must be a host path to work as expected inside sandbox
+            string? last_path_host = Util.query_host_path (last_path);
+            if (last_path_host != null) {
+                chooser.initial_folder = File.new_for_path (last_path_host);
+            }
+        }
+
         File file;
         try {
             file = yield chooser.select_folder (((Gtk.Application) GLib.Application.get_default ()).active_window, null);
@@ -56,7 +65,16 @@ public class Widget.FolderChooserButton : Gtk.Button {
             return false;
         }
 
+        last_path = file.get_path ();
+        if (last_path == null) {
+            warning ("Failed to select folder: Failed to get path");
+            return false;
+        }
+
+        Application.settings.set_string ("last-folder-path", last_path);
+
         folder_set (file);
+
         return true;
     }
 }
