@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-22 11:34+0000\n"
-"PO-Revision-Date: 2026-02-04 13:01+0000\n"
+"PO-Revision-Date: 2026-02-22 13:18+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.16.1-dev\n"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -205,20 +205,18 @@ msgid "Failed to save recording"
 msgstr "録音を保存できませんでした"
 
 #: src/MainWindow.vala:187
-#, fuzzy, c-format
-#| msgid "There was an error while moving file to the designated location."
+#, c-format
 msgid ""
 "There was an error while asking for final path where to move the temporary "
 "recording file \"%s\"."
-msgstr "ファイルを指定場所へ移動中にエラーが発生しました。"
+msgstr "一時録音ファイル \"%s\" の最終的な移動先を確認中にエラーが発生しました。"
 
 #: src/MainWindow.vala:207
-#, fuzzy, c-format
-#| msgid "There was an error while moving file to the designated location."
+#, c-format
 msgid ""
 "There was an error while moving the temporary recording file \"%s\" to "
 "\"%s\"."
-msgstr "ファイルを指定場所へ移動中にエラーが発生しました。"
+msgstr "一時録音ファイル \"%s\" を \"%s\" へ移動中にエラーが発生しました。"
 
 #: src/MainWindow.vala:230
 msgid "Save your recording"
@@ -233,16 +231,12 @@ msgid "Failed to start recording"
 msgstr "録音を開始できませんでした"
 
 #: src/MainWindow.vala:343
-#, fuzzy
-#| msgid "Recording Saved"
 msgid "Recording Canceled"
-msgstr "録音を保存しました"
+msgstr "録音をキャンセルしました"
 
 #: src/MainWindow.vala:348
-#, fuzzy
-#| msgid "Recording Saved"
 msgid "Recording Moved to Trash"
-msgstr "録音を保存しました"
+msgstr "録音をゴミ箱に移動しました"
 
 #: src/MainWindow.vala:383
 msgid "Details:"
@@ -362,11 +356,11 @@ msgstr "WAV"
 
 #: src/View/WelcomeView.vala:100
 msgid "Add metadata:"
-msgstr ""
+msgstr "メタデータを追加:"
 
 #: src/View/WelcomeView.vala:108
 msgid "Add record year and your real name in recording files."
-msgstr ""
+msgstr "録音年とあなたの名前を録音ファイルに追加します。"
 
 #: src/View/WelcomeView.vala:115
 msgid "Automatically save files:"
@@ -385,24 +379,20 @@ msgid "Start recording"
 msgstr "録音を開始します"
 
 #: src/Widget/ProcessingDialog.vala:35
-#, fuzzy
-#| msgid "Saving"
 msgid "Saving…"
-msgstr "保存"
+msgstr "保存しています…"
 
 #: src/Widget/ProcessingDialog.vala:40
 msgid "Problems?"
-msgstr ""
+msgstr "問題が発生しましたか?"
 
 #: src/Widget/ProcessingDialog.vala:40
 msgid "Just hang on until the file dialog appears."
-msgstr ""
+msgstr "ファイルダイアログの表示までお待ちください。"
 
 #: src/Widget/ProcessingDialog.vala:78
-#, fuzzy
-#| msgid "Cancel recording"
 msgid "Canceling…"
-msgstr "録音をキャンセルします"
+msgstr "キャンセルしています…"
 
 #~ msgid "Save"
 #~ msgstr "保存"
