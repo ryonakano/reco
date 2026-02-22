@@ -234,9 +234,12 @@ public class MainWindow : Adw.ApplicationWindow {
             initial_name = default_filename
         };
 
-        string? initial_folder_host = Util.query_host_path (initial_folder);
-        if (initial_folder_host != null) {
-            save_dialog.initial_folder = File.new_for_path (initial_folder_host);
+        if (initial_folder.length > 0) {
+            // Gtk.FileDialog.initial_folder seems to must be a host path to work as expected inside sandbox
+            string? initial_folder_host = Util.query_host_path (initial_folder);
+            if (initial_folder_host != null) {
+                save_dialog.initial_folder = File.new_for_path (initial_folder_host);
+            }
         }
 
         return yield save_dialog.save (this, null);
