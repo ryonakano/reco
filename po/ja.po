@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-22 11:34+0000\n"
-"PO-Revision-Date: 2026-02-22 13:18+0000\n"
+"PO-Revision-Date: 2026-02-22 13:22+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
@@ -384,7 +384,7 @@ msgstr "保存しています…"
 
 #: src/Widget/ProcessingDialog.vala:40
 msgid "Problems?"
-msgstr "問題が発生しましたか?"
+msgstr "お困りですか?"
 
 #: src/Widget/ProcessingDialog.vala:40
 msgid "Just hang on until the file dialog appears."
