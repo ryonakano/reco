@@ -253,15 +253,13 @@ public class View.WelcomeView : AbstractView {
                 autosave_switch.active = false;
             }
         } else {
-            File file = File.new_for_path (autosave_dest);
-            string? path = Util.query_host_path (file);
-            if (path == null) {
-                warning ("Failed to query host path");
+            if (!FileUtils.test (autosave_dest, FileTest.IS_DIR)) {
+                // Prevent invalid path from being saved
                 return;
             }
 
             // Set last value of folder path for autosaving to first value of last folder path for manual saving
-            Application.settings.set_string ("manual-save-last-folder", path);
+            Application.settings.set_string ("manual-save-last-folder", autosave_dest);
 
             // Clear the current destination and disable autosaving
             Application.settings.reset ("autosave-destination");

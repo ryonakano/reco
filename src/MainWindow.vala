@@ -233,9 +233,9 @@ public class MainWindow : Adw.ApplicationWindow {
         };
 
         var last_folder = Application.settings.get_string ("manual-save-last-folder");
-        // Ideally, we should check if #last_folder exists but can't because host path is invisible inside sandbox
-        if (last_folder.length > 0) {
-            save_dialog.initial_folder = File.new_for_path (last_folder);
+        string? last_folder_host = Util.query_host_path (last_folder);
+        if (last_folder_host != null) {
+            save_dialog.initial_folder = File.new_for_path (last_folder_host);
         }
 
         return yield save_dialog.save (this, null);
@@ -246,9 +246,9 @@ public class MainWindow : Adw.ApplicationWindow {
         // BUG: #file is supposed to be a recording file which should have a parent
         assert (parent_dir != null);
 
-        string? path = Util.query_host_path (parent_dir);
+        string? path = parent_dir.get_path ();
         if (path == null) {
-            warning ("Failed to remember manual save last folder: Failed to query host path");
+            warning ("Failed to remember manual save last folder: Failed to get parent path");
             return false;
         }
 
