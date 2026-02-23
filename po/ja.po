@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-23 11:24+0000\n"
-"PO-Revision-Date: 2026-02-22 13:22+0000\n"
+"PO-Revision-Date: 2026-02-23 11:35+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
@@ -122,9 +122,6 @@ msgid "Recording"
 msgstr "録音"
 
 #: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Start/Stop recording"
 msgctxt "shortcut window"
 msgid "Start/Stop Recording"
 msgstr "録音を開始/終了する"
@@ -140,31 +137,22 @@ msgid "translator-credits"
 msgstr "Ryo Nakano"
 
 #: src/MainWindow.vala:27
-#, fuzzy
-#| msgid ""
-#| "This is possibly due to missing codecs or incomplete installation of the "
-#| "app. Make sure you've installed them and try reinstalling them if this "
-#| "issue persists."
 msgid ""
 "This is possibly due to missing codecs or incomplete installation of the "
 "app. Make sure you've installed them and try reinstalling them if this issue "
 "persists"
 msgstr ""
 "コーデックが不足しているか、アプリが不完全にインストールされている可能性があ"
-"ります。インストール状態を確認してください。再発する場合は、コーデックやアプ"
-"リを再インストールしてみてください。"
+"ります。インストール状態を確認してください。再発する場合は、コーデックや"
+"アプリを再インストールしてみてください"
 
 #: src/MainWindow.vala:28
-#, fuzzy
-#| msgid ""
-#| "This is possibly due to missing sound input or output devices. Make sure "
-#| "you've connected one and try using another one if this issue persists."
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists"
 msgstr ""
 "音声入出力デバイスがない可能性があります。接続状態を確認してください。再発す"
-"る場合は、他のデバイスを使用してみてください。"
+"る場合は、他のデバイスを使用してみてください"
 
 #: src/MainWindow.vala:40
 msgid "S_ystem"
@@ -197,16 +185,12 @@ msgid "Main Menu"
 msgstr "メインメニュー"
 
 #: src/MainWindow.vala:128
-#, fuzzy
-#| msgid "Failed to save recording"
 msgid "Failed to Complete Recording"
-msgstr "録音を保存できませんでした"
+msgstr "録音を完了できませんでした"
 
 #: src/MainWindow.vala:129
-#, fuzzy
-#| msgid "There was an error while recording."
 msgid "There was an error while recording"
-msgstr "録音中にエラーが発生しました。"
+msgstr "録音中にエラーが発生しました"
 
 #: src/MainWindow.vala:144
 msgid "Recording Saved"
@@ -217,46 +201,31 @@ msgid "Open Folder"
 msgstr "フォルダーを開く"
 
 #: src/MainWindow.vala:186 src/MainWindow.vala:206
-#, fuzzy
-#| msgid "Failed to save recording"
 msgid "Failed to Save Recording"
 msgstr "録音を保存できませんでした"
 
 #: src/MainWindow.vala:187
-#, fuzzy, c-format
-#| msgid ""
-#| "There was an error while asking for final path where to move the "
-#| "temporary recording file \"%s\"."
+#, c-format
 msgid ""
 "There was an error while asking for final path where to move the temporary "
 "recording file \"%s\""
-msgstr ""
-"一時録音ファイル \"%s\" の最終的な移動先を確認中にエラーが発生しました。"
+msgstr "一時録音ファイル \"%s\" の最終的な移動先を確認中にエラーが発生しました"
 
 #: src/MainWindow.vala:207
-#, fuzzy, c-format
-#| msgid ""
-#| "There was an error while moving the temporary recording file \"%s\" to "
-#| "\"%s\"."
+#, c-format
 msgid ""
 "There was an error while moving the temporary recording file \"%s\" to \"%s\""
-msgstr "一時録音ファイル \"%s\" を \"%s\" へ移動中にエラーが発生しました。"
+msgstr "一時録音ファイル \"%s\" を \"%s\" へ移動中にエラーが発生しました"
 
 #: src/MainWindow.vala:230
-#, fuzzy
-#| msgid "Saved recording"
 msgid "Save Recording"
-msgstr "録音を保存しました"
+msgstr "録音を保存"
 
 #: src/MainWindow.vala:280
-#, fuzzy
-#| msgid "There was an unknown error while starting recording."
 msgid "There was an unknown error while starting recording"
-msgstr "録音開始中に不明なエラーが発生しました。"
+msgstr "録音開始中に不明なエラーが発生しました"
 
 #: src/MainWindow.vala:284
-#, fuzzy
-#| msgid "Failed to start recording"
 msgid "Failed to Start Recording"
 msgstr "録音を開始できませんでした"
 
@@ -277,54 +246,38 @@ msgid "Recording is ongoing"
 msgstr "録音中です"
 
 #: src/View/CountDownView.vala:37
-#, fuzzy
-#| msgid "Cancel the countdown"
 msgid "Cancel Countdown"
-msgstr "カウントダウンをキャンセルします"
+msgstr "カウントダウンをキャンセル"
 
 #: src/View/CountDownView.vala:121
-#, fuzzy
-#| msgid "Pause the countdown"
 msgid "Pause Countdown"
-msgstr "カウントダウンを一時停止します"
+msgstr "カウントダウンを一時停止"
 
 #: src/View/CountDownView.vala:126
-#, fuzzy
-#| msgid "Resume the countdown"
 msgid "Resume Countdown"
-msgstr "カウントダウンを再開します"
+msgstr "カウントダウンを再開"
 
 #: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
-#, fuzzy
-#| msgid "Cancel recording"
 msgid "Cancel Recording"
-msgstr "録音をキャンセルします"
+msgstr "録音をキャンセル"
 
 #: src/View/RecordView.vala:58
-#, fuzzy
-#| msgid "Finish recording"
 msgid "Finish Recording"
-msgstr "録音を終了します"
+msgstr "録音を終了"
 
 #: src/View/RecordView.vala:188
-#, fuzzy
-#| msgid "Resume recording"
 msgid "Resume Recording"
-msgstr "録音を再開します"
+msgstr "録音を再開"
 
 #: src/View/RecordView.vala:200
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Pause Recording"
-msgstr "録音を一時停止します"
+msgstr "録音を一時停止"
 
 #. TRANSLATORS: This is the label of a button that shows a file dialog to select a folder
 #. where the app saves recodings automatically
 #: src/View/WelcomeView.vala:11
-#, fuzzy
-#| msgid "Select destination…"
 msgid "Destination…"
-msgstr "保存先を選択…"
+msgstr "保存先…"
 
 #: src/View/WelcomeView.vala:28
 msgid "Source"
@@ -411,26 +364,20 @@ msgid "Add metadata:"
 msgstr "メタデータを追加:"
 
 #: src/View/WelcomeView.vala:112
-#, fuzzy
-#| msgid "Add record year and your real name in recording files."
 msgid "Add record year and your real name in recording files"
-msgstr "録音年とあなたの名前を録音ファイルに追加します。"
+msgstr "西暦とあなたの名前を録音ファイルに追加します"
 
 #: src/View/WelcomeView.vala:119
 msgid "Automatically save files:"
 msgstr "ファイルを自動的に保存:"
 
 #: src/View/WelcomeView.vala:130 src/View/WelcomeView.vala:133
-#, fuzzy
-#| msgid "Select destination…"
 msgid "Select AutoSave Destination"
-msgstr "保存先を選択…"
+msgstr "自動保存先を選択"
 
 #: src/View/WelcomeView.vala:171
-#, fuzzy
-#| msgid "Start recording"
 msgid "Start Recording"
-msgstr "録音を開始します"
+msgstr "録音を開始"
 
 #: src/Widget/ProcessingDialog.vala:35
 msgid "Saving…"
@@ -441,10 +388,8 @@ msgid "Problems?"
 msgstr "お困りですか?"
 
 #: src/Widget/ProcessingDialog.vala:40
-#, fuzzy
-#| msgid "Just hang on until the file dialog appears."
 msgid "Just hang on until the file dialog appears"
-msgstr "ファイルダイアログの表示までお待ちください。"
+msgstr "ファイルダイアログの表示までお待ちください"
 
 #: src/Widget/ProcessingDialog.vala:78
 msgid "Canceling…"
