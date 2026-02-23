@@ -6,6 +6,10 @@
 public class View.WelcomeView : AbstractView {
     public signal void start_recording (uint delay_sec);
 
+    ///TRANSLATORS: This is the label of a button that shows a file dialog to select a folder
+    // where the app saves recodings automatically
+    private const string DESTINATION_CHOOSER_DEFAULT_LABEL = N_("Destination…");
+
     private unowned Manager.DeviceManager device_manager;
 
     private Ryokucha.DropDownText source_combobox;
@@ -105,7 +109,7 @@ public class View.WelcomeView : AbstractView {
             halign = Gtk.Align.START,
         };
 
-        var metadata_desc_label = new Gtk.Label (_("Add record year and your real name in recording files.")) {
+        var metadata_desc_label = new Gtk.Label (_("Add record year and your real name in recording files")) {
             halign = Gtk.Align.START,
             wrap = true,
             width_chars = 28,
@@ -122,11 +126,11 @@ public class View.WelcomeView : AbstractView {
         };
 
         destination_chooser_button = new Widget.FolderChooserButton (
-            _("Select destination…"),
-            _("Choose a default destination")
+            _(DESTINATION_CHOOSER_DEFAULT_LABEL),
+            _("Select AutoSave Destination")
         ) {
             halign = Gtk.Align.START,
-            tooltip_text = _("Choose a default destination")
+            tooltip_text = _("Select AutoSave Destination")
         };
 
         string autosave_path = Application.settings.get_string ("autosave-destination");
@@ -164,7 +168,7 @@ public class View.WelcomeView : AbstractView {
 
         record_button = new Gtk.Button () {
             icon_name = "audio-input-microphone-symbolic",
-            tooltip_text = _("Start recording"),
+            tooltip_text = _("Start Recording"),
             halign = Gtk.Align.CENTER,
             margin_top = 12,
             width_request = 48,
@@ -254,7 +258,7 @@ public class View.WelcomeView : AbstractView {
         } else {
             // Clear the current destination and disable autosaving
             Application.settings.reset ("autosave-destination");
-            destination_chooser_button.label = _("Select destination…");
+            destination_chooser_button.label = _(DESTINATION_CHOOSER_DEFAULT_LABEL);
         }
     }
 

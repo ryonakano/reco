@@ -34,7 +34,7 @@ public class View.CountDownView : AbstractView {
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
-            tooltip_text = _("Cancel the countdown"),
+            tooltip_text = _("Cancel Countdown"),
             halign = Gtk.Align.START
         };
         cancel_button.add_css_class ("borderless-button");
@@ -118,11 +118,11 @@ public class View.CountDownView : AbstractView {
 
     private void pause_button_set_pause () {
         pause_button.icon_name = "media-playback-pause-symbolic";
-        pause_button.tooltip_text = _("Pause the countdown");
+        pause_button.tooltip_text = _("Pause Countdown");
     }
 
     private void pause_button_set_resume () {
         pause_button.icon_name = "media-playback-start-symbolic";
-        pause_button.tooltip_text = _("Resume the countdown");
+        pause_button.tooltip_text = _("Resume Countdown");
     }
 }

@@ -48,14 +48,14 @@ public class View.RecordView : AbstractView {
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
-            tooltip_text = _("Cancel recording"),
+            tooltip_text = _("Cancel Recording"),
             halign = Gtk.Align.START
         };
         cancel_button.add_css_class ("borderless-button");
 
         var stop_button = new Gtk.Button () {
             icon_name = "media-playback-stop-symbolic",
-            tooltip_text = _("Finish recording"),
+            tooltip_text = _("Finish Recording"),
             halign = Gtk.Align.CENTER,
             width_request = 48,
             height_request = 48
@@ -185,7 +185,7 @@ public class View.RecordView : AbstractView {
         downtimer.stop ();
 
         pause_button.icon_name = "media-playback-start-symbolic";
-        pause_button.tooltip_text = _("Resume recording");
+        pause_button.tooltip_text = _("Resume Recording");
 
         levelbar.refresh_pause ();
     }
@@ -197,7 +197,7 @@ public class View.RecordView : AbstractView {
         }
 
         pause_button.icon_name = "media-playback-pause-symbolic";
-        pause_button.tooltip_text = _("Pause recording");
+        pause_button.tooltip_text = _("Pause Recording");
 
         levelbar.refresh_resume ();
     }

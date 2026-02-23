@@ -37,13 +37,13 @@ public class Widget.ProcessingDialog : Adw.Dialog {
         };
         desc_label.add_css_class ("title-3");
 
-        var cancel_label = new Gtk.Label (_("Problems?") + "\n" + _("Just hang on until the file dialog appears.")) {
+        var cancel_label = new Gtk.Label (_("Problems?") + "\n" + _("Just hang on until the file dialog appears")) {
             halign = Gtk.Align.CENTER,
         };
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
-            tooltip_text = _("Cancel recording"),
+            tooltip_text = _("Cancel Recording"),
             halign = Gtk.Align.CENTER,
         };
         cancel_button.add_css_class ("borderless-button");

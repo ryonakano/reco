@@ -24,8 +24,8 @@ public class MainWindow : Adw.ApplicationWindow {
 
     static construct {
         starterr_message_table = new Gee.HashMap<int, string> ();
-        starterr_message_table[Define.RecordError.CREATE_ERROR] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists.");
-        starterr_message_table[Define.RecordError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one if this issue persists.");
+        starterr_message_table[Define.RecordError.CREATE_ERROR] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists");
+        starterr_message_table[Define.RecordError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one if this issue persists");
     }
 
     construct {
@@ -125,8 +125,8 @@ public class MainWindow : Adw.ApplicationWindow {
 
         record_manager.throw_error.connect ((err, debug) => {
             show_error_dialog (
-                _("Error while recording"),
-                _("There was an error while recording."),
+                _("Failed to Complete Recording"),
+                _("There was an error while recording"),
                 "%s\n%s".printf (err.message, debug)
             );
         });
@@ -183,8 +183,8 @@ public class MainWindow : Adw.ApplicationWindow {
                 }
 
                 show_error_dialog (
-                    _("Failed to save recording"),
-                    _("There was an error while asking for final path where to move the temporary recording file \"%s\"."
+                    _("Failed to Save Recording"),
+                    _("There was an error while asking for final path where to move the temporary recording file \"%s\""
                         .printf (tmp_path)
                     ),
                     err.message
@@ -203,8 +203,8 @@ public class MainWindow : Adw.ApplicationWindow {
             tmp_file.move (final_file, FileCopyFlags.OVERWRITE);
         } catch (Error err) {
             show_error_dialog (
-                _("Failed to save recording"),
-                _("There was an error while moving the temporary recording file \"%s\" to \"%s\"."
+                _("Failed to Save Recording"),
+                _("There was an error while moving the temporary recording file \"%s\" to \"%s\""
                     .printf (tmp_file.get_path (), final_path)
                 ),
                 err.message
@@ -227,7 +227,7 @@ public class MainWindow : Adw.ApplicationWindow {
      */
     private async File? ask_final_file (string default_filename) throws Error {
         var save_dialog = new Gtk.FileDialog () {
-            title = _("Save your recording"),
+            title = _("Save Recording"),
             modal = true,
             initial_name = default_filename
         };
@@ -277,11 +277,11 @@ public class MainWindow : Adw.ApplicationWindow {
             string? secondary_text = starterr_message_table[err.code];
             // Errors without dedicated message
             if (secondary_text == null) {
-                secondary_text = N_("There was an unknown error while starting recording.");
+                secondary_text = N_("There was an unknown error while starting recording");
             }
 
             show_error_dialog (
-                _("Failed to start recording"),
+                _("Failed to Start Recording"),
                 _(secondary_text),
                 err.message
             );
