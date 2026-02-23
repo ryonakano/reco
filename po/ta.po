@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-22 11:34+0000\n"
+"POT-Creation-Date: 2026-02-23 11:24+0000\n"
 "PO-Revision-Date: 2025-07-04 15:03+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/rosp/reco/ta/>\n"
@@ -125,8 +125,11 @@ msgid "Recording"
 msgstr "பதிவு செய்தல்"
 
 #: data/ui/help-overlay.blp:27
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Start/Stop recording"
 msgctxt "shortcut window"
-msgid "Start/Stop recording"
+msgid "Start/Stop Recording"
 msgstr "பதிவு தொடங்கு/நிறுத்து"
 
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
@@ -140,19 +143,28 @@ msgid "translator-credits"
 msgstr "தமிழ்நேரம் (TamilNeram.github.io)"
 
 #: src/MainWindow.vala:27
+#, fuzzy
+#| msgid ""
+#| "This is possibly due to missing codecs or incomplete installation of the "
+#| "app. Make sure you've installed them and try reinstalling them if this "
+#| "issue persists."
 msgid ""
 "This is possibly due to missing codecs or incomplete installation of the "
 "app. Make sure you've installed them and try reinstalling them if this issue "
-"persists."
+"persists"
 msgstr ""
 "இது கோடெக்குகளைக் காணவில்லை அல்லது பயன்பாட்டின் முழுமையற்ற நிறுவல் காரணமாக இருக்கலாம். "
 "நீங்கள் அவற்றை நிறுவியுள்ளீர்கள் என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள், இந்த சிக்கல் தொடர்ந்தால் "
 "அவற்றை மீண்டும் நிறுவ முயற்சிக்கவும்."
 
 #: src/MainWindow.vala:28
+#, fuzzy
+#| msgid ""
+#| "This is possibly due to missing sound input or output devices. Make sure "
+#| "you've connected one and try using another one if this issue persists."
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
-"you've connected one and try using another one if this issue persists."
+"you've connected one and try using another one if this issue persists"
 msgstr ""
 "ஒலி உள்ளீடு அல்லது வெளியீட்டு சாதனங்கள் காணாமல் போனதால் இது இருக்கலாம். நீங்கள் ஒன்றை "
 "இணைத்துள்ளீர்கள் என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள், இந்த சிக்கல் தொடர்ந்தால் இன்னொன்றைப் "
@@ -189,11 +201,15 @@ msgid "Main Menu"
 msgstr "பட்டியல் விளையாடுங்கள்"
 
 #: src/MainWindow.vala:128
-msgid "Error while recording"
-msgstr "பதிவு செய்யும் போது பிழை"
+#, fuzzy
+#| msgid "Failed to save recording"
+msgid "Failed to Complete Recording"
+msgstr "பதிவைச் சேமிக்கத் தவறிவிட்டது"
 
 #: src/MainWindow.vala:129
-msgid "There was an error while recording."
+#, fuzzy
+#| msgid "There was an error while recording."
+msgid "There was an error while recording"
 msgstr "பதிவு செய்யும் போது பிழை ஏற்பட்டது."
 
 #: src/MainWindow.vala:144
@@ -209,7 +225,9 @@ msgid "Open Folder"
 msgstr "திறந்த கோப்புறை"
 
 #: src/MainWindow.vala:186 src/MainWindow.vala:206
-msgid "Failed to save recording"
+#, fuzzy
+#| msgid "Failed to save recording"
+msgid "Failed to Save Recording"
 msgstr "பதிவைச் சேமிக்கத் தவறிவிட்டது"
 
 #: src/MainWindow.vala:187
@@ -217,27 +235,32 @@ msgstr "பதிவைச் சேமிக்கத் தவறிவிட�
 #| msgid "There was an error while moving file to the designated location."
 msgid ""
 "There was an error while asking for final path where to move the temporary "
-"recording file \"%s\"."
+"recording file \"%s\""
 msgstr "நியமிக்கப்பட்ட இடத்திற்கு கோப்பை நகர்த்தும்போது பிழை ஏற்பட்டது."
 
 #: src/MainWindow.vala:207
 #, fuzzy, c-format
 #| msgid "There was an error while moving file to the designated location."
 msgid ""
-"There was an error while moving the temporary recording file \"%s\" to "
-"\"%s\"."
+"There was an error while moving the temporary recording file \"%s\" to \"%s\""
 msgstr "நியமிக்கப்பட்ட இடத்திற்கு கோப்பை நகர்த்தும்போது பிழை ஏற்பட்டது."
 
 #: src/MainWindow.vala:230
-msgid "Save your recording"
-msgstr "உங்கள் பதிவைச் சேமிக்கவும்"
+#, fuzzy
+#| msgid "Saved recording"
+msgid "Save Recording"
+msgstr "சேமித்த பதிவு"
 
 #: src/MainWindow.vala:280
-msgid "There was an unknown error while starting recording."
+#, fuzzy
+#| msgid "There was an unknown error while starting recording."
+msgid "There was an unknown error while starting recording"
 msgstr "பதிவைத் தொடங்கும்போது தெரியாத பிழை ஏற்பட்டது."
 
 #: src/MainWindow.vala:284
-msgid "Failed to start recording"
+#, fuzzy
+#| msgid "Failed to start recording"
+msgid "Failed to Start Recording"
 msgstr "பதிவு செய்யத் தவறிவிட்டது"
 
 #: src/MainWindow.vala:343
@@ -261,135 +284,157 @@ msgid "Recording is ongoing"
 msgstr "பதிவுசெய்தல் நடந்து வருகிறது"
 
 #: src/View/CountDownView.vala:37
-msgid "Cancel the countdown"
+#, fuzzy
+#| msgid "Cancel the countdown"
+msgid "Cancel Countdown"
 msgstr "கவுண்ட்டவுனை ரத்துசெய்"
 
 #: src/View/CountDownView.vala:121
-msgid "Pause the countdown"
+#, fuzzy
+#| msgid "Pause the countdown"
+msgid "Pause Countdown"
 msgstr "கவுண்ட்டவுனை இடைநிறுத்துங்கள்"
 
 #: src/View/CountDownView.vala:126
-msgid "Resume the countdown"
+#, fuzzy
+#| msgid "Resume the countdown"
+msgid "Resume Countdown"
 msgstr "கவுண்ட்டவுனை மீண்டும் தொடங்குங்கள்"
 
 #: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
-msgid "Cancel recording"
+#, fuzzy
+#| msgid "Cancel recording"
+msgid "Cancel Recording"
 msgstr "பதிவை ரத்துசெய்"
 
 #: src/View/RecordView.vala:58
-msgid "Finish recording"
+#, fuzzy
+#| msgid "Finish recording"
+msgid "Finish Recording"
 msgstr "பதிவு செய்ய"
 
 #: src/View/RecordView.vala:188
-msgid "Resume recording"
+#, fuzzy
+#| msgid "Resume recording"
+msgid "Resume Recording"
 msgstr "மீண்டும் பதிவு செய்யுங்கள்"
 
 #: src/View/RecordView.vala:200
-msgid "Pause recording"
+#, fuzzy
+#| msgid "Pause recording"
+msgid "Pause Recording"
 msgstr "இடைநிறுத்த பதிவு"
 
-#: src/View/WelcomeView.vala:24
+#. TRANSLATORS: This is the label of a button that shows a file dialog to select a folder
+#. where the app saves recodings automatically
+#: src/View/WelcomeView.vala:11
+#, fuzzy
+#| msgid "Select destination…"
+msgid "Destination…"
+msgstr "இலக்கைத் தேர்ந்தெடுக்கவும்…"
+
+#: src/View/WelcomeView.vala:28
 msgid "Source"
 msgstr "மூலம்"
 
-#: src/View/WelcomeView.vala:29
+#: src/View/WelcomeView.vala:33
 msgid "Record from:"
 msgstr "இதிலிருந்து பதிவு:"
 
-#: src/View/WelcomeView.vala:35
+#: src/View/WelcomeView.vala:39
 msgid "Microphone"
 msgstr "ஒலிவாங்கி"
 
-#: src/View/WelcomeView.vala:36
+#: src/View/WelcomeView.vala:40
 msgid "System"
 msgstr "மண்டலம்"
 
-#: src/View/WelcomeView.vala:37
+#: src/View/WelcomeView.vala:41
 msgid "Both"
 msgstr "இரண்டும்"
 
-#: src/View/WelcomeView.vala:39
+#: src/View/WelcomeView.vala:43
 msgid "Microphone:"
 msgstr "மைக்ரோஃபோன்:"
 
-#: src/View/WelcomeView.vala:49
+#: src/View/WelcomeView.vala:53
 msgid "Channels:"
 msgstr "சேனல்கள்:"
 
-#: src/View/WelcomeView.vala:55
+#: src/View/WelcomeView.vala:59
 msgid "Mono"
 msgstr "மோனோ"
 
-#: src/View/WelcomeView.vala:56
+#: src/View/WelcomeView.vala:60
 msgid "Stereo"
 msgstr "ச்டீரியோ"
 
-#: src/View/WelcomeView.vala:58
+#: src/View/WelcomeView.vala:62
 msgid "Timer"
 msgstr "நேரங்குறிகருவி"
 
-#: src/View/WelcomeView.vala:63
+#: src/View/WelcomeView.vala:67
 msgid "Delay in seconds:"
 msgstr "விநாடிகளில் தாமதம்:"
 
-#: src/View/WelcomeView.vala:70
+#: src/View/WelcomeView.vala:74
 msgid "Length in seconds:"
 msgstr "விநாடிகளில் நீளம்:"
 
-#: src/View/WelcomeView.vala:81
+#: src/View/WelcomeView.vala:85
 msgid "Saving"
 msgstr "சேமிப்பு"
 
-#: src/View/WelcomeView.vala:86
+#: src/View/WelcomeView.vala:90
 msgid "Format:"
 msgstr "வடிவம்:"
 
-#: src/View/WelcomeView.vala:93
+#: src/View/WelcomeView.vala:97
 msgid "ALAC"
 msgstr "அலாக்"
 
-#: src/View/WelcomeView.vala:94
+#: src/View/WelcomeView.vala:98
 msgid "FLAC"
 msgstr "Flac"
 
-#: src/View/WelcomeView.vala:95
+#: src/View/WelcomeView.vala:99
 msgid "MP3"
 msgstr "தனிமையில்"
 
-#: src/View/WelcomeView.vala:96
+#: src/View/WelcomeView.vala:100
 msgid "Ogg Vorbis"
 msgstr "ஓக் வோர்பிச்"
 
-#: src/View/WelcomeView.vala:97
+#: src/View/WelcomeView.vala:101
 msgid "Opus"
 msgstr "ஓபச்"
 
-#: src/View/WelcomeView.vala:98
+#: src/View/WelcomeView.vala:102
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:100
+#: src/View/WelcomeView.vala:104
 msgid "Add metadata:"
 msgstr ""
 
-#: src/View/WelcomeView.vala:108
-msgid "Add record year and your real name in recording files."
+#: src/View/WelcomeView.vala:112
+msgid "Add record year and your real name in recording files"
 msgstr ""
 
-#: src/View/WelcomeView.vala:115
+#: src/View/WelcomeView.vala:119
 msgid "Automatically save files:"
 msgstr "கோப்புகளை தானாக சேமிக்கவும்:"
 
-#: src/View/WelcomeView.vala:125 src/View/WelcomeView.vala:257
-msgid "Select destination…"
+#: src/View/WelcomeView.vala:130 src/View/WelcomeView.vala:133
+#, fuzzy
+#| msgid "Select destination…"
+msgid "Select AutoSave Destination"
 msgstr "இலக்கைத் தேர்ந்தெடுக்கவும்…"
 
-#: src/View/WelcomeView.vala:126 src/View/WelcomeView.vala:129
-msgid "Choose a default destination"
-msgstr "இயல்புநிலை இலக்கைத் தேர்வுசெய்க"
-
-#: src/View/WelcomeView.vala:167
-msgid "Start recording"
+#: src/View/WelcomeView.vala:171
+#, fuzzy
+#| msgid "Start recording"
+msgid "Start Recording"
 msgstr "பதிவு செய்யத் தொடங்குங்கள்"
 
 #: src/Widget/ProcessingDialog.vala:35
@@ -403,7 +448,7 @@ msgid "Problems?"
 msgstr ""
 
 #: src/Widget/ProcessingDialog.vala:40
-msgid "Just hang on until the file dialog appears."
+msgid "Just hang on until the file dialog appears"
 msgstr ""
 
 #: src/Widget/ProcessingDialog.vala:78
@@ -412,14 +457,20 @@ msgstr ""
 msgid "Canceling…"
 msgstr "பதிவை ரத்துசெய்"
 
+#~ msgid "Error while recording"
+#~ msgstr "பதிவு செய்யும் போது பிழை"
+
+#~ msgid "Save your recording"
+#~ msgstr "உங்கள் பதிவைச் சேமிக்கவும்"
+
+#~ msgid "Choose a default destination"
+#~ msgstr "இயல்புநிலை இலக்கைத் தேர்வுசெய்க"
+
 #~ msgid "Save"
 #~ msgstr "சேமி"
 
 #~ msgid "Select"
 #~ msgstr "தேர்ந்தெடு"
-
-#~ msgid "Saved recording"
-#~ msgstr "சேமித்த பதிவு"
 
 #~ msgid "Recording saved successfully."
 #~ msgstr "பதிவு வெற்றிகரமாக சேமிக்கப்பட்டது."

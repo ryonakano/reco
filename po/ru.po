@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-22 11:34+0000\n"
+"POT-Creation-Date: 2026-02-23 11:24+0000\n"
 "PO-Revision-Date: 2025-08-01 16:02+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/rosp/reco/ru/>\n"
@@ -124,8 +124,11 @@ msgid "Recording"
 msgstr "Запись"
 
 #: data/ui/help-overlay.blp:27
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Start/Stop recording"
 msgctxt "shortcut window"
-msgid "Start/Stop recording"
+msgid "Start/Stop Recording"
 msgstr "Начать/закончить запись"
 
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
@@ -139,19 +142,28 @@ msgid "translator-credits"
 msgstr "Leo \"lenemter\" <lenemter@gmail.com>"
 
 #: src/MainWindow.vala:27
+#, fuzzy
+#| msgid ""
+#| "This is possibly due to missing codecs or incomplete installation of the "
+#| "app. Make sure you've installed them and try reinstalling them if this "
+#| "issue persists."
 msgid ""
 "This is possibly due to missing codecs or incomplete installation of the "
 "app. Make sure you've installed them and try reinstalling them if this issue "
-"persists."
+"persists"
 msgstr ""
 "Это могло произойти из-за отсутствия кодеков или ошибки при установке "
 "приложения. Убедитесь, что всё установлено правильно. И если ошибка не "
 "уходит, попробуйте переустановить приложение."
 
 #: src/MainWindow.vala:28
+#, fuzzy
+#| msgid ""
+#| "This is possibly due to missing sound input or output devices. Make sure "
+#| "you've connected one and try using another one if this issue persists."
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
-"you've connected one and try using another one if this issue persists."
+"you've connected one and try using another one if this issue persists"
 msgstr ""
 "Это могло произойти из-за отсутствия устройств ввода и вывода. Убедитесь, "
 "что всё подключено. И если ошибка не уходит, попробуйте использовать другое "
@@ -188,11 +200,15 @@ msgid "Main Menu"
 msgstr "Главное меню"
 
 #: src/MainWindow.vala:128
-msgid "Error while recording"
-msgstr "Ошибка при записи"
+#, fuzzy
+#| msgid "Failed to save recording"
+msgid "Failed to Complete Recording"
+msgstr "Не удалось сохранить запись"
 
 #: src/MainWindow.vala:129
-msgid "There was an error while recording."
+#, fuzzy
+#| msgid "There was an error while recording."
+msgid "There was an error while recording"
 msgstr "Произошла ошибка во время записи."
 
 #: src/MainWindow.vala:144
@@ -208,7 +224,9 @@ msgid "Open Folder"
 msgstr "Открыть папку"
 
 #: src/MainWindow.vala:186 src/MainWindow.vala:206
-msgid "Failed to save recording"
+#, fuzzy
+#| msgid "Failed to save recording"
+msgid "Failed to Save Recording"
 msgstr "Не удалось сохранить запись"
 
 #: src/MainWindow.vala:187
@@ -216,27 +234,32 @@ msgstr "Не удалось сохранить запись"
 #| msgid "There was an error while moving file to the designated location."
 msgid ""
 "There was an error while asking for final path where to move the temporary "
-"recording file \"%s\"."
+"recording file \"%s\""
 msgstr "Произошла ошибка во время создания файла в нужной локации."
 
 #: src/MainWindow.vala:207
 #, fuzzy, c-format
 #| msgid "There was an error while moving file to the designated location."
 msgid ""
-"There was an error while moving the temporary recording file \"%s\" to "
-"\"%s\"."
+"There was an error while moving the temporary recording file \"%s\" to \"%s\""
 msgstr "Произошла ошибка во время создания файла в нужной локации."
 
 #: src/MainWindow.vala:230
-msgid "Save your recording"
-msgstr "Сохраните свою запись"
+#, fuzzy
+#| msgid "Saved recording"
+msgid "Save Recording"
+msgstr "Запись сохранена"
 
 #: src/MainWindow.vala:280
-msgid "There was an unknown error while starting recording."
+#, fuzzy
+#| msgid "There was an unknown error while starting recording."
+msgid "There was an unknown error while starting recording"
 msgstr "При начале записи произошла неизвестная ошибка."
 
 #: src/MainWindow.vala:284
-msgid "Failed to start recording"
+#, fuzzy
+#| msgid "Failed to start recording"
+msgid "Failed to Start Recording"
 msgstr "Не удалось начать запись"
 
 #: src/MainWindow.vala:343
@@ -260,135 +283,157 @@ msgid "Recording is ongoing"
 msgstr "Идёт запись"
 
 #: src/View/CountDownView.vala:37
-msgid "Cancel the countdown"
+#, fuzzy
+#| msgid "Cancel the countdown"
+msgid "Cancel Countdown"
 msgstr "Отменить обратный отсчёт"
 
 #: src/View/CountDownView.vala:121
-msgid "Pause the countdown"
+#, fuzzy
+#| msgid "Pause the countdown"
+msgid "Pause Countdown"
 msgstr "Остановить обратный отсчёт"
 
 #: src/View/CountDownView.vala:126
-msgid "Resume the countdown"
+#, fuzzy
+#| msgid "Resume the countdown"
+msgid "Resume Countdown"
 msgstr "Продолжить обратный отсчёт"
 
 #: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
-msgid "Cancel recording"
+#, fuzzy
+#| msgid "Cancel recording"
+msgid "Cancel Recording"
 msgstr "Отменить запись"
 
 #: src/View/RecordView.vala:58
-msgid "Finish recording"
+#, fuzzy
+#| msgid "Finish recording"
+msgid "Finish Recording"
 msgstr "Закончить запись"
 
 #: src/View/RecordView.vala:188
-msgid "Resume recording"
+#, fuzzy
+#| msgid "Resume recording"
+msgid "Resume Recording"
 msgstr "Продолжить запись"
 
 #: src/View/RecordView.vala:200
-msgid "Pause recording"
+#, fuzzy
+#| msgid "Pause recording"
+msgid "Pause Recording"
 msgstr "Приостановить запись"
 
-#: src/View/WelcomeView.vala:24
+#. TRANSLATORS: This is the label of a button that shows a file dialog to select a folder
+#. where the app saves recodings automatically
+#: src/View/WelcomeView.vala:11
+#, fuzzy
+#| msgid "Select destination…"
+msgid "Destination…"
+msgstr "Выбрать место назначения…"
+
+#: src/View/WelcomeView.vala:28
 msgid "Source"
 msgstr "Источник"
 
-#: src/View/WelcomeView.vala:29
+#: src/View/WelcomeView.vala:33
 msgid "Record from:"
 msgstr "Источник:"
 
-#: src/View/WelcomeView.vala:35
+#: src/View/WelcomeView.vala:39
 msgid "Microphone"
 msgstr "Микрофон"
 
-#: src/View/WelcomeView.vala:36
+#: src/View/WelcomeView.vala:40
 msgid "System"
 msgstr "Система"
 
-#: src/View/WelcomeView.vala:37
+#: src/View/WelcomeView.vala:41
 msgid "Both"
 msgstr "Оба"
 
-#: src/View/WelcomeView.vala:39
+#: src/View/WelcomeView.vala:43
 msgid "Microphone:"
 msgstr "Микрофон:"
 
-#: src/View/WelcomeView.vala:49
+#: src/View/WelcomeView.vala:53
 msgid "Channels:"
 msgstr "Каналы:"
 
-#: src/View/WelcomeView.vala:55
+#: src/View/WelcomeView.vala:59
 msgid "Mono"
 msgstr "Моно"
 
-#: src/View/WelcomeView.vala:56
+#: src/View/WelcomeView.vala:60
 msgid "Stereo"
 msgstr "Стерео"
 
-#: src/View/WelcomeView.vala:58
+#: src/View/WelcomeView.vala:62
 msgid "Timer"
 msgstr "Таймер"
 
-#: src/View/WelcomeView.vala:63
+#: src/View/WelcomeView.vala:67
 msgid "Delay in seconds:"
 msgstr "Задержка в секундах:"
 
-#: src/View/WelcomeView.vala:70
+#: src/View/WelcomeView.vala:74
 msgid "Length in seconds:"
 msgstr "Длина в секундах:"
 
-#: src/View/WelcomeView.vala:81
+#: src/View/WelcomeView.vala:85
 msgid "Saving"
 msgstr "Сохранение"
 
-#: src/View/WelcomeView.vala:86
+#: src/View/WelcomeView.vala:90
 msgid "Format:"
 msgstr "Формат:"
 
-#: src/View/WelcomeView.vala:93
+#: src/View/WelcomeView.vala:97
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:94
+#: src/View/WelcomeView.vala:98
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:95
+#: src/View/WelcomeView.vala:99
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:96
+#: src/View/WelcomeView.vala:100
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:97
+#: src/View/WelcomeView.vala:101
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:98
+#: src/View/WelcomeView.vala:102
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:100
+#: src/View/WelcomeView.vala:104
 msgid "Add metadata:"
 msgstr ""
 
-#: src/View/WelcomeView.vala:108
-msgid "Add record year and your real name in recording files."
+#: src/View/WelcomeView.vala:112
+msgid "Add record year and your real name in recording files"
 msgstr ""
 
-#: src/View/WelcomeView.vala:115
+#: src/View/WelcomeView.vala:119
 msgid "Automatically save files:"
 msgstr "Автоматически сохранять файлы:"
 
-#: src/View/WelcomeView.vala:125 src/View/WelcomeView.vala:257
-msgid "Select destination…"
+#: src/View/WelcomeView.vala:130 src/View/WelcomeView.vala:133
+#, fuzzy
+#| msgid "Select destination…"
+msgid "Select AutoSave Destination"
 msgstr "Выбрать место назначения…"
 
-#: src/View/WelcomeView.vala:126 src/View/WelcomeView.vala:129
-msgid "Choose a default destination"
-msgstr "Выберите место по умолчанию"
-
-#: src/View/WelcomeView.vala:167
-msgid "Start recording"
+#: src/View/WelcomeView.vala:171
+#, fuzzy
+#| msgid "Start recording"
+msgid "Start Recording"
 msgstr "Начать запись"
 
 #: src/Widget/ProcessingDialog.vala:35
@@ -402,7 +447,7 @@ msgid "Problems?"
 msgstr ""
 
 #: src/Widget/ProcessingDialog.vala:40
-msgid "Just hang on until the file dialog appears."
+msgid "Just hang on until the file dialog appears"
 msgstr ""
 
 #: src/Widget/ProcessingDialog.vala:78
@@ -411,14 +456,20 @@ msgstr ""
 msgid "Canceling…"
 msgstr "Отменить запись"
 
+#~ msgid "Error while recording"
+#~ msgstr "Ошибка при записи"
+
+#~ msgid "Save your recording"
+#~ msgstr "Сохраните свою запись"
+
+#~ msgid "Choose a default destination"
+#~ msgstr "Выберите место по умолчанию"
+
 #~ msgid "Save"
 #~ msgstr "Сохранить"
 
 #~ msgid "Select"
 #~ msgstr "Выбрать"
-
-#~ msgid "Saved recording"
-#~ msgstr "Запись сохранена"
 
 #~ msgid "Recording saved successfully."
 #~ msgstr "Запись была успешно сохранена."
