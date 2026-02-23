@@ -60,7 +60,7 @@ public class Manager.DeviceManager : Object {
     private void update_devices () {
         bool is_default;
 
-        debug ("update_devices start.");
+        debug ("update_devices start");
 
         sources.clear ();
         sinks.clear ();
@@ -123,6 +123,6 @@ public class Manager.DeviceManager : Object {
 
         device_updated ();
 
-        debug ("update_devices end.");
+        debug ("update_devices end");
     }
 }
