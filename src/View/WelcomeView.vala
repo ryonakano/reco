@@ -46,7 +46,8 @@ public class View.WelcomeView : AbstractView {
         mic_combobox = new Ryokucha.DropDownText () {
             halign = Gtk.Align.START,
             // Ellipsize if device name is long; otherwise the app window get stretched
-            max_width_chars = 20,
+            // TODO: Ryokucha should set default value as -1
+            max_width_chars = -1,
             ellipsize = Pango.EllipsizeMode.END
         };
 
@@ -110,13 +111,12 @@ public class View.WelcomeView : AbstractView {
         };
 
         var metadata_desc_label = new Gtk.Label (_("Add record year and your real name in recording files")) {
-            halign = Gtk.Align.START,
+            hexpand = true,
             wrap = true,
-            width_chars = 28,
-            max_width_chars = 28,
+            xalign = 0,
         };
 
-        var autosave_label = new Gtk.Label (_("Automatically save files:")) {
+        var autosave_label = new Gtk.Label (_("AutoSave:")) {
             halign = Gtk.Align.END
         };
 
@@ -142,7 +142,7 @@ public class View.WelcomeView : AbstractView {
         var settings_grid = new Gtk.Grid () {
             column_spacing = 6,
             row_spacing = 6,
-            halign = Gtk.Align.CENTER
+            vexpand = true,
         };
         settings_grid.attach (source_header_label, 0, 0, 1, 1);
         settings_grid.attach (source_label, 0, 1, 1, 1);
@@ -166,6 +166,10 @@ public class View.WelcomeView : AbstractView {
         settings_grid.attach (autosave_switch, 1, 11, 1, 1);
         settings_grid.attach (destination_chooser_button, 1, 12, 1, 1);
 
+        var content_scrolled = new Gtk.ScrolledWindow () {
+            child = settings_grid,
+        };
+
         record_button = new Gtk.Button () {
             icon_name = "audio-input-microphone-symbolic",
             tooltip_text = _("Start Recording"),
@@ -177,8 +181,14 @@ public class View.WelcomeView : AbstractView {
         record_button.add_css_class ("record-button");
         ((Gtk.Image) record_button.child).icon_size = Gtk.IconSize.LARGE;
 
-        append (settings_grid);
-        append (record_button);
+        var action_bar = new Gtk.ActionBar ();
+        action_bar.set_center_widget (record_button);
+
+        var toolbar_view = new Adw.ToolbarView ();
+        toolbar_view.set_content (content_scrolled);
+        toolbar_view.add_bottom_bar (action_bar);
+
+        append (toolbar_view);
 
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);

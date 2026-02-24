@@ -77,7 +77,6 @@ public class MainWindow : Adw.ApplicationWindow {
 
         toast_overlay = new Adw.ToastOverlay () {
             child = stack,
-            valign = Gtk.Align.START,
         };
 
         var toolbar_view = new Adw.ToolbarView ();
@@ -85,8 +84,8 @@ public class MainWindow : Adw.ApplicationWindow {
         toolbar_view.set_content (toast_overlay);
 
         content = toolbar_view;
-        width_request = 360;
-        height_request = 480;
+        default_width = 360;
+        default_height = 680;
         title = Define.APP_NAME;
 
         show_welcome ();
