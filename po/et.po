@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-23 11:24+0000\n"
-"PO-Revision-Date: 2026-02-23 11:18+0000\n"
+"PO-Revision-Date: 2026-02-25 19:09+0000\n"
 "Last-Translator: Priit Jõerüüt <jrthwlate@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/rosp/reco/et/>\n"
 "Language: et\n"
@@ -123,9 +123,6 @@ msgid "Recording"
 msgstr "Salvestamine"
 
 #: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Start/Stop recording"
 msgctxt "shortcut window"
 msgid "Start/Stop Recording"
 msgstr "Alusta salvestamist või lõpeta salvestamine"
@@ -141,11 +138,6 @@ msgid "translator-credits"
 msgstr "Priit Jõerüüt 2024-2026"
 
 #: src/MainWindow.vala:27
-#, fuzzy
-#| msgid ""
-#| "This is possibly due to missing codecs or incomplete installation of the "
-#| "app. Make sure you've installed them and try reinstalling them if this "
-#| "issue persists."
 msgid ""
 "This is possibly due to missing codecs or incomplete installation of the "
 "app. Make sure you've installed them and try reinstalling them if this issue "
@@ -153,20 +145,16 @@ msgid ""
 msgstr ""
 "Selline olukord võib tekkida, kuna kas koodekid on puudu või on rakenduse "
 "paigaldamine jäänud pooleli. Palun kontrolli, et kõik vajalik oleks "
-"paigaldatud ja kui viga ei kao, siis paigalda rakendus uuesti."
+"paigaldatud ja kui viga ei kao, siis paigalda rakendus uuesti"
 
 #: src/MainWindow.vala:28
-#, fuzzy
-#| msgid ""
-#| "This is possibly due to missing sound input or output devices. Make sure "
-#| "you've connected one and try using another one if this issue persists."
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
 "you've connected one and try using another one if this issue persists"
 msgstr ""
 "Selline olukord võib tekkida, kui heli sisend- või väljundseadmed on puudu. "
 "Palun kontrolli, et sa oled vajaliku seadme ühendanud või kui viga ei "
-"lahene, siis kasuta mõnda teist seadet."
+"lahene, siis kasuta mõnda teist seadet"
 
 #: src/MainWindow.vala:40
 msgid "S_ystem"
@@ -199,16 +187,12 @@ msgid "Main Menu"
 msgstr "Põhimenüü"
 
 #: src/MainWindow.vala:128
-#, fuzzy
-#| msgid "Failed to save recording"
 msgid "Failed to Complete Recording"
-msgstr "Salvestuse talletamine ei õnnestunud"
+msgstr "Salvestuse lõpetamine ei õnnestunud"
 
 #: src/MainWindow.vala:129
-#, fuzzy
-#| msgid "There was an error while recording."
 msgid "There was an error while recording"
-msgstr "Salvestamisel tekkis viga."
+msgstr "Salvestamisel tekkis viga"
 
 #: src/MainWindow.vala:144
 msgid "Recording Saved"
@@ -219,45 +203,31 @@ msgid "Open Folder"
 msgstr "Ava kaust"
 
 #: src/MainWindow.vala:186 src/MainWindow.vala:206
-#, fuzzy
-#| msgid "Failed to save recording"
 msgid "Failed to Save Recording"
 msgstr "Salvestuse talletamine ei õnnestunud"
 
 #: src/MainWindow.vala:187
-#, fuzzy, c-format
-#| msgid ""
-#| "There was an error while asking for final path where to move the "
-#| "temporary recording file \"%s\"."
+#, c-format
 msgid ""
 "There was an error while asking for final path where to move the temporary "
 "recording file \"%s\""
-msgstr "Ajutise salvestusfaili „%s“ lõpliku sihtkoha küsimisel tekkis viga."
+msgstr "Ajutise salvestusfaili „%s“ lõpliku sihtkoha küsimisel tekkis viga"
 
 #: src/MainWindow.vala:207
-#, fuzzy, c-format
-#| msgid ""
-#| "There was an error while moving the temporary recording file \"%s\" to "
-#| "\"%s\"."
+#, c-format
 msgid ""
 "There was an error while moving the temporary recording file \"%s\" to \"%s\""
-msgstr "Ajutise salvestusfaili teisaldamisel tekkis viga: „%s“ → „%s“."
+msgstr "Ajutise salvestusfaili teisaldamisel tekkis viga: „%s“ → „%s“"
 
 #: src/MainWindow.vala:230
-#, fuzzy
-#| msgid "Saved recording"
 msgid "Save Recording"
-msgstr "Salvestatud helisalvestis"
+msgstr "Salvesta helisalvestis"
 
 #: src/MainWindow.vala:280
-#, fuzzy
-#| msgid "There was an unknown error while starting recording."
 msgid "There was an unknown error while starting recording"
-msgstr "Helisalvestamise alustamisel tekkis tundmatu viga."
+msgstr "Helisalvestamise alustamisel tekkis tundmatu viga"
 
 #: src/MainWindow.vala:284
-#, fuzzy
-#| msgid "Failed to start recording"
 msgid "Failed to Start Recording"
 msgstr "Ei õnnestunud alustada salvestamist"
 
@@ -278,54 +248,38 @@ msgid "Recording is ongoing"
 msgstr "Helisalvestamine on pooleli"
 
 #: src/View/CountDownView.vala:37
-#, fuzzy
-#| msgid "Cancel the countdown"
 msgid "Cancel Countdown"
 msgstr "Katkesta pöördloendus"
 
 #: src/View/CountDownView.vala:121
-#, fuzzy
-#| msgid "Pause the countdown"
 msgid "Pause Countdown"
 msgstr "Peata pöördloendus"
 
 #: src/View/CountDownView.vala:126
-#, fuzzy
-#| msgid "Resume the countdown"
 msgid "Resume Countdown"
 msgstr "Jätka pöördloendust"
 
 #: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
-#, fuzzy
-#| msgid "Cancel recording"
 msgid "Cancel Recording"
 msgstr "Katkesta salvestamine"
 
 #: src/View/RecordView.vala:58
-#, fuzzy
-#| msgid "Finish recording"
 msgid "Finish Recording"
 msgstr "Lõpeta salvestamine"
 
 #: src/View/RecordView.vala:188
-#, fuzzy
-#| msgid "Resume recording"
 msgid "Resume Recording"
 msgstr "Jätka salvestamist"
 
 #: src/View/RecordView.vala:200
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Pause Recording"
 msgstr "Peata salvestamine"
 
 #. TRANSLATORS: This is the label of a button that shows a file dialog to select a folder
 #. where the app saves recodings automatically
 #: src/View/WelcomeView.vala:11
-#, fuzzy
-#| msgid "Select destination…"
 msgid "Destination…"
-msgstr "Vali sihtkaust…"
+msgstr "Sihtkaust…"
 
 #: src/View/WelcomeView.vala:28
 msgid "Source"
@@ -412,24 +366,18 @@ msgid "Add metadata:"
 msgstr "Lisa metateave:"
 
 #: src/View/WelcomeView.vala:112
-#, fuzzy
-#| msgid "Add record year and your real name in recording files."
 msgid "Add record year and your real name in recording files"
-msgstr "Lisa salvestiste failidesse salvestuse aasta ja oma tegelik nimi."
+msgstr "Lisa salvestiste failidesse salvestuse aasta ja oma tegelik nimi"
 
 #: src/View/WelcomeView.vala:119
 msgid "Automatically save files:"
 msgstr "Loo failid automaatselt:"
 
 #: src/View/WelcomeView.vala:130 src/View/WelcomeView.vala:133
-#, fuzzy
-#| msgid "Select destination…"
 msgid "Select AutoSave Destination"
-msgstr "Vali sihtkaust…"
+msgstr "Vali automaatse salvestamise kaust"
 
 #: src/View/WelcomeView.vala:171
-#, fuzzy
-#| msgid "Start recording"
 msgid "Start Recording"
 msgstr "Alusta salvestamisega"
 
@@ -442,10 +390,8 @@ msgid "Problems?"
 msgstr "Kas tekkis probleeme?"
 
 #: src/Widget/ProcessingDialog.vala:40
-#, fuzzy
-#| msgid "Just hang on until the file dialog appears."
 msgid "Just hang on until the file dialog appears"
-msgstr "Lihtsalt oota, kuni avaneb failivaade."
+msgstr "Lihtsalt oota, kuni avaneb failivaade"
 
 #: src/Widget/ProcessingDialog.vala:78
 msgid "Canceling…"
