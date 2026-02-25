@@ -67,8 +67,8 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/ryonakano/ryokucha/archive/0.3.1.tar.gz
-        sha256: 503754d1a0a9012e5779f20ef1e9bb7db099eb9243bc98985b2136e4e1b0031e
+        url: https://github.com/ryonakano/ryokucha/archive/0.4.0.tar.gz
+        sha256: b7bebd8caba5b33714958f6014f3bfedfbb3b5d92b0f046c0b0ab1a8fde0bcc2
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ryonakano/ryokucha/releases/latest
