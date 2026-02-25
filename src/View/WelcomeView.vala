@@ -134,7 +134,10 @@ public class View.WelcomeView : AbstractView {
         };
 
         string autosave_path = Application.settings.get_string ("autosave-destination");
-        if (check_path_is_dir (autosave_path)) {
+        if (!FileUtils.test (autosave_path, FileTest.IS_DIR)) {
+            // Clear no longer exists or invalid path and disable AutoSave
+            Application.settings.reset ("autosave-destination");
+        } else {
             autosave_switch.active = true;
             destination_chooser_button.label = Path.get_basename (autosave_path);
         }
@@ -267,19 +270,6 @@ public class View.WelcomeView : AbstractView {
         Application.settings.set_string ("autosave-destination", path);
         destination_chooser_button.label = Path.get_basename (path);
         autosave_switch.active = true;
-    }
-
-    private bool check_path_is_dir (string path) {
-        if (path.length == 0) {
-            return false;
-        }
-
-        var file = File.new_for_path (path);
-        if (!file.query_exists ()) {
-            DirUtils.create_with_parents (path, 0775);
-        }
-
-        return true;
     }
 
     private bool get_is_source_connected () {
