@@ -50,6 +50,8 @@ public class View.CountDownView : AbstractView {
             margin_top = 12,
             halign = Gtk.Align.CENTER
         };
+        // We don't use Adw.ToolbarView here but positions of button change slightly between each view without this
+        buttons_grid.add_css_class ("toolbar");
         buttons_grid.attach (cancel_button, 0, 0, 1, 1);
         buttons_grid.attach (pause_button, 1, 0, 1, 1);
 
