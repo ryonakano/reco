@@ -47,7 +47,15 @@
   <supports>
     <control>pointing</control>
     <control>keyboard</control>
+    <control>touch</control>
   </supports>
+
+  <recommends>
+    <!-- taken from MainWindow.default_width -->
+    <display_length side="shortest" compare="ge">360</display_length>
+    <!-- taken from MainWindow.default_height -->
+    <display_length side="longest" compare="ge">680</display_length>
+  </recommends>
 
   <url type="homepage">https://github.com/ryonakano/reco</url>
   <url type="bugtracker">https://github.com/ryonakano/reco/issues</url>
