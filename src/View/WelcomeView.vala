@@ -116,7 +116,7 @@ public class View.WelcomeView : AbstractView {
             xalign = 0,
         };
 
-        var autosave_label = new Gtk.Label (_("AutoSave:")) {
+        var autosave_label = new Gtk.Label (_("Autosave:")) {
             halign = Gtk.Align.END
         };
 
