@@ -185,7 +185,7 @@ public class View.WelcomeView : AbstractView {
             column_spacing = 30,
             row_spacing = 6,
             margin_top = 12,
-            halign = Gtk.Align.CENTER
+            halign = Gtk.Align.CENTER,
         };
         buttons_grid.attach (record_button, 0, 0, 1, 1);
         buttons_grid.add_css_class ("toolbar");
