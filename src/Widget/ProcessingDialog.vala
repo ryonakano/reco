@@ -33,12 +33,14 @@ public class Widget.ProcessingDialog : Adw.Dialog {
         };
 
         var desc_label = new Gtk.Label (_("Saving…")) {
-            halign = Gtk.Align.CENTER,
+            wrap = true,
+            hexpand = true,
         };
         desc_label.add_css_class ("title-3");
 
         var cancel_label = new Gtk.Label (_("Problems?") + "\n" + _("Just hang on until the file dialog appears")) {
-            halign = Gtk.Align.CENTER,
+            wrap = true,
+            hexpand = true,
         };
 
         var cancel_button = new Gtk.Button () {
