@@ -127,14 +127,17 @@ public class View.WelcomeView : AbstractView {
 
         destination_chooser_button = new Widget.FolderChooserButton (
             _(DESTINATION_CHOOSER_DEFAULT_LABEL),
-            _("Select AutoSave Destination")
+            _("Select Autosave Destination")
         ) {
             halign = Gtk.Align.START,
-            tooltip_text = _("Select AutoSave Destination")
+            tooltip_text = _("Select Autosave Destination")
         };
 
         string autosave_path = Application.settings.get_string ("autosave-destination");
-        if (check_path_is_dir (autosave_path)) {
+        if (!FileUtils.test (autosave_path, FileTest.IS_DIR)) {
+            // Clear no longer exists or invalid path and disable autosave
+            Application.settings.reset ("autosave-destination");
+        } else {
             autosave_switch.active = true;
             destination_chooser_button.label = Path.get_basename (autosave_path);
         }
@@ -260,19 +263,19 @@ public class View.WelcomeView : AbstractView {
 
     private async void toggle_autosave () {
         if (autosave_switch.active) {
-            // Prevent the filechooser shown twice when enabling the autosaving
+            // Prevent the filechooser shown twice when enabling the autosave
             var autosave_dest = Application.settings.get_string ("autosave-destination");
             if (autosave_dest.length != 0) {
                 return;
             }
 
-            // Let the user select the autosaving destination
+            // Let the user select the autosave destination
             bool ret = yield destination_chooser_button.present_chooser ();
             if (!ret) {
                 autosave_switch.active = false;
             }
         } else {
-            // Clear the current destination and disable autosaving
+            // Clear the current destination and disable autosave
             Application.settings.reset ("autosave-destination");
             destination_chooser_button.label = _(DESTINATION_CHOOSER_DEFAULT_LABEL);
         }
@@ -283,19 +286,6 @@ public class View.WelcomeView : AbstractView {
         Application.settings.set_string ("autosave-destination", path);
         destination_chooser_button.label = Path.get_basename (path);
         autosave_switch.active = true;
-    }
-
-    private bool check_path_is_dir (string path) {
-        if (path.length == 0) {
-            return false;
-        }
-
-        var file = File.new_for_path (path);
-        if (!file.query_exists ()) {
-            DirUtils.create_with_parents (path, 0775);
-        }
-
-        return true;
     }
 
     private bool get_is_source_connected () {

@@ -42,8 +42,8 @@
     <key name="autosave-destination" type="s">
       <!-- The app doesn't require any access to the storage by default -->
       <default>''</default>
-      <summary>Default destination for autosaving</summary>
-      <description>Specify the path to save recordings automatically. Setting this key blank disables autosaving</description>
+      <summary>Default destination for autosave</summary>
+      <description>Specify the path to save recordings automatically. Setting this key blank disables autosave</description>
     </key>
     <key name="add-metadata" type="b">
       <!-- Opt-in because enabling this results recording files include personal info like real name -->
