@@ -32,6 +32,7 @@ sources = files(
   'View/CountDownView.vala',
   'View/WelcomeView.vala',
   'View/RecordView.vala',
+  'Widget/ControlBar.vala',
   'Widget/FolderChooserButton.vala',
   'Widget/LevelBar.vala',
   'Widget/ProcessingDialog.vala',

@@ -68,21 +68,14 @@ public class View.RecordView : AbstractView {
         };
         pause_button.add_css_class ("borderless-button");
 
-        var buttons_grid = new Gtk.Grid () {
-            column_spacing = 30,
-            row_spacing = 6,
-            margin_top = 12,
-            halign = Gtk.Align.CENTER
-        };
-        // We don't use Adw.ToolbarView here but positions of button change slightly between each view without this
-        buttons_grid.add_css_class ("toolbar");
-        buttons_grid.attach (cancel_button, 0, 0, 1, 1);
-        buttons_grid.attach (stop_button, 1, 0, 1, 1);
-        buttons_grid.attach (pause_button, 2, 0, 1, 1);
+        var control_bar = new Widget.ControlBar ();
+        control_bar.append (cancel_button);
+        control_bar.append (stop_button);
+        control_bar.append (pause_button);
 
         append (label_grid);
         append (levelbar);
-        append (buttons_grid);
+        append (control_bar);
 
         var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {
