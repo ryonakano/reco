@@ -130,11 +130,10 @@ public class MainWindow : Adw.ApplicationWindow {
             return Gdk.EVENT_PROPAGATE;
         });
 
-        record_manager.throw_error.connect ((err, debug) => {
+        record_manager.throw_error.connect (() => {
             show_error_dialog (
                 _("Failed to Complete Recording"),
-                _("There was an error while recording"),
-                "%s\n%s".printf (err.message, debug)
+                _("There was an error while recording")
             );
         });
 
@@ -195,8 +194,7 @@ public class MainWindow : Adw.ApplicationWindow {
                     _("Failed to Save Recording"),
                     _("There was an error while asking for final path where to move the temporary recording file \"%s\""
                         .printf (tmp_path)
-                    ),
-                    err.message
+                    )
                 );
 
                 return null;
@@ -217,8 +215,7 @@ public class MainWindow : Adw.ApplicationWindow {
                 _("Failed to Save Recording"),
                 _("There was an error while moving the temporary recording file \"%s\" to \"%s\""
                     .printf (tmp_file.get_path (), final_path)
-                ),
-                err.message
+                )
             );
 
             return null;
@@ -293,8 +290,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
             show_error_dialog (
                 _("Failed to Start Recording"),
-                _(secondary_text),
-                err.message
+                _(secondary_text)
             );
             return;
         }
@@ -383,14 +379,13 @@ public class MainWindow : Adw.ApplicationWindow {
 
                 show_error_dialog (
                     _("Failed to Open Folder"),
-                    _("There was an error while trying to open folder containing \"%s\"").printf (path),
-                    err.message
+                    _("There was an error while trying to open folder containing \"%s\"").printf (path)
                 );
             }
         });
     }
 
-    private void show_error_dialog (string primary_text, string secondary_text, string error_message) {
+    private void show_error_dialog (string primary_text, string secondary_text) {
         if (Util.is_on_pantheon ()) {
 #if USE_GRANITE
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
@@ -399,22 +394,17 @@ public class MainWindow : Adw.ApplicationWindow {
                 "dialog-error", Gtk.ButtonsType.CLOSE
             ) {
                 transient_for = this,
-                modal = true
+                modal = true,
             };
-            error_dialog.show_error_details (error_message);
             error_dialog.response.connect (() => {
                 error_dialog.destroy ();
             });
             error_dialog.present ();
 #endif
         } else {
-            string detail_text = secondary_text + "\n\n" + _("Details:") + "\n\n" + error_message;
-
-            var error_dialog = new Gtk.AlertDialog (
-                primary_text
-            ) {
-                detail = detail_text,
-                modal = true
+            var error_dialog = new Gtk.AlertDialog (primary_text) {
+                detail = secondary_text,
+                modal = true,
             };
             error_dialog.show (this);
         }
