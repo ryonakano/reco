@@ -4,6 +4,8 @@
  */
 
 public class MainWindow : Adw.ApplicationWindow {
+    private const string HELP_URL = "https://github.com/ryonakano/reco/discussions";
+
     /**
      * Action names and their callbacks.
      */
@@ -385,6 +387,22 @@ public class MainWindow : Adw.ApplicationWindow {
         });
     }
 
+    private void open_help_url () {
+        var launcher = new Gtk.UriLauncher (HELP_URL);
+
+        launcher.launch.begin (this, null, (obj, res) => {
+            try {
+                launcher.launch.end (res);
+            } catch (Error err) {
+                warning ("Failed to Gtk.UriLauncher.launch: %s", err.message);
+
+                // Don't show error dialog because this method is meant to be invoked by error dialog
+                // and thus showing another error dialog creates a hole that allows users to show
+                // multiple error dialogs infinitelly
+            }
+        });
+    }
+
     private void show_error_dialog (string primary_text, string secondary_text) {
         if (Util.is_on_pantheon ()) {
 #if USE_GRANITE
@@ -396,8 +414,18 @@ public class MainWindow : Adw.ApplicationWindow {
                 transient_for = this,
                 modal = true,
             };
-            error_dialog.response.connect (() => {
-                error_dialog.destroy ();
+            error_dialog.add_button (_("_Get Support…"), Gtk.ResponseType.HELP);
+            error_dialog.response.connect ((response) => {
+                switch (response) {
+                    case Gtk.ResponseType.HELP:
+                        open_help_url ();
+                        break;
+                    case Gtk.ResponseType.CLOSE:
+                        break;
+                    default:
+                        warning ("Unexpected response: %d", response);
+                        break;
+                }
             });
             error_dialog.present ();
 #endif
@@ -407,8 +435,18 @@ public class MainWindow : Adw.ApplicationWindow {
                 close_response = Define.ErrorDialogResponseID.CLOSE,
             };
             error_dialog.add_response (Define.ErrorDialogResponseID.CLOSE, _("_Close"));
+            error_dialog.add_response (Define.ErrorDialogResponseID.HELP, _("_Get Support…"));
             error_dialog.response.connect ((response) => {
-                error_dialog.destroy ();
+                switch (response) {
+                    case Define.ErrorDialogResponseID.HELP:
+                        open_help_url ();
+                        break;
+                    case Define.ErrorDialogResponseID.CLOSE:
+                        break;
+                    default:
+                        warning ("Unexpected response: %s", response);
+                        break;
+                }
             });
             error_dialog.present (this);
         }

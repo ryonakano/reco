@@ -16,6 +16,7 @@ namespace Define {
      */
     namespace ErrorDialogResponseID {
         public const string CLOSE = "close";
+        public const string HELP = "help";
     }
 
     /**
