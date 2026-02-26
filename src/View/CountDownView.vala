@@ -24,13 +24,11 @@ public class View.CountDownView : AbstractView {
         delay_remaining_label = new Gtk.Label (null);
         delay_remaining_label.add_css_class ("title-2");
 
-        var label_grid = new Gtk.Grid () {
-            column_spacing = 6,
-            row_spacing = 6,
+        var content_area = new Gtk.Box (Gtk.Orientation.VERTICAL, 6) {
             halign = Gtk.Align.CENTER,
-            vexpand = true
+            vexpand = true,
         };
-        label_grid.attach (delay_remaining_label, 0, 1, 1, 1);
+        content_area.append (delay_remaining_label);
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
@@ -48,7 +46,7 @@ public class View.CountDownView : AbstractView {
         control_bar.append (cancel_button);
         control_bar.append (pause_button);
 
-        append (label_grid);
+        append (content_area);
         append (control_bar);
 
         delaytimer.ticked.connect (() => {
