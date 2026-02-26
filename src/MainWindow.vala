@@ -4,6 +4,13 @@
  */
 
 public class MainWindow : Adw.ApplicationWindow {
+    /**
+     * Action names and their callbacks.
+     */
+    private const ActionEntry[] ACTION_ENTRIES = {
+        { "open-folder", on_open_folder_activate, "s" },
+    };
+
     private unowned Manager.RecordManager record_manager;
     private bool destroy_on_save;
 
@@ -35,6 +42,8 @@ public class MainWindow : Adw.ApplicationWindow {
         if (".Devel" in Config.APP_ID) {
             add_css_class ("devel");
         }
+
+        add_action_entries (ACTION_ENTRIES, this);
 
         var style_submenu = new Menu ();
         style_submenu.append (_("S_ystem"), "app.color-scheme('%s')".printf (Define.ColorScheme.DEFAULT));
@@ -141,7 +150,7 @@ public class MainWindow : Adw.ApplicationWindow {
         if (final_path != null) {
             var saved_toast = new Adw.Toast (_("Recording Saved")) {
                 button_label = _("Open Folder"),
-                action_name = "app.open-folder",
+                action_name = "win.open-folder",
                 action_target = new Variant.string (final_path)
             };
 
@@ -356,6 +365,25 @@ public class MainWindow : Adw.ApplicationWindow {
         }
 
         toast_overlay.add_toast (cancel_toast);
+    }
+
+    private void on_open_folder_activate (SimpleAction action, Variant? parameter) requires (parameter != null) {
+        unowned string path = parameter.get_string ();
+        var launcher = new Gtk.FileLauncher (File.new_for_path (path));
+
+        launcher.open_containing_folder.begin (this, null, (obj, res) => {
+            try {
+                launcher.open_containing_folder.end (res);
+            } catch (Error err) {
+                warning ("Failed to Gtk.FileLauncher.open_containing_folder: %s", err.message);
+
+                show_error_dialog (
+                    _("Failed to Open Folder"),
+                    _("There was an error while trying to open folder containing \"%s\"").printf (path),
+                    err.message
+                );
+            }
+        });
     }
 
     private void show_error_dialog (string primary_text, string secondary_text, string error_message) {
