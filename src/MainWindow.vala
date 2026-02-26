@@ -409,13 +409,19 @@ public class MainWindow : Adw.ApplicationWindow {
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                 primary_text,
                 secondary_text,
-                "dialog-error", Gtk.ButtonsType.NONE
+                "dialog-error",
+                // Using Gtk.ButtonsType.CLOSE here adds a ready-made close button, which is handy.
+                // However, we want to add a help button to the dialog, which is an alternate action
+                // and should be listed before the close button to follow elementary HIG.
+                // https://docs.elementary.io/hig/widgets/providing-feedback#button-order
+                // Using Gtk.ButtonsType.CLOSE and adding help button using Gtk.Dialog.add_button() results the help
+                // button is listed first and the close button follows, which opposes to HIG.
+                // So, use Gtk.ButtonsType.NONE here and add the help and close buttons manually.
+                Gtk.ButtonsType.NONE
             ) {
                 transient_for = this,
                 modal = true,
             };
-            // Help button is an alternate action and thus placed before the cancel button to follow elementary HIG
-            // https://docs.elementary.io/hig/widgets/providing-feedback#button-order
             error_dialog.add_button (_("_Get Support…"), Gtk.ResponseType.HELP);
             error_dialog.add_button (_("_Close"), Gtk.ResponseType.CLOSE);
             error_dialog.response.connect ((response) => {
