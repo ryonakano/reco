@@ -426,7 +426,7 @@ public class MainWindow : Adw.ApplicationWindow {
                     case Gtk.ResponseType.CLOSE:
                         break;
                     default:
-                        warning ("Unexpected response: %d", response);
+                        warning ("Granite.MessageDialog: Unexpected response: %d", response);
                         break;
                 }
 
@@ -449,7 +449,7 @@ public class MainWindow : Adw.ApplicationWindow {
                     case Define.ErrorDialogResponseID.CLOSE:
                         break;
                     default:
-                        warning ("Unexpected response: %s", response);
+                        warning ("Adw.AlertDialog: Unexpected response: %s", response);
                         break;
                 }
 
