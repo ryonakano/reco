@@ -140,35 +140,35 @@ public class View.WelcomeView : AbstractView {
             destination_chooser_button.label = Path.get_basename (autosave_path);
         }
 
-        var settings_grid = new Gtk.Grid () {
+        var content_area = new Gtk.Grid () {
             column_spacing = 6,
             row_spacing = 6,
             vexpand = true,
         };
-        settings_grid.attach (source_header_label, 0, 0, 1, 1);
-        settings_grid.attach (source_label, 0, 1, 1, 1);
-        settings_grid.attach (source_combobox, 1, 1, 1, 1);
-        settings_grid.attach (mic_label, 0, 2, 1, 1);
-        settings_grid.attach (mic_combobox, 1, 2, 1, 1);
-        settings_grid.attach (channels_label, 0, 3, 1, 1);
-        settings_grid.attach (channels_combobox, 1, 3, 1, 1);
-        settings_grid.attach (timer_header_label, 0, 4, 1, 1);
-        settings_grid.attach (delay_label, 0, 5, 1, 1);
-        settings_grid.attach (delay_spin, 1, 5, 1, 1);
-        settings_grid.attach (length_label, 0, 6, 1, 1);
-        settings_grid.attach (length_spin, 1, 6, 1, 1);
-        settings_grid.attach (saving_header_label, 0, 7, 1, 1);
-        settings_grid.attach (format_label, 0, 8, 1, 1);
-        settings_grid.attach (format_combobox, 1, 8, 1, 1);
-        settings_grid.attach (metadata_label, 0, 9, 1, 1);
-        settings_grid.attach (metadata_switch, 1, 9, 1, 1);
-        settings_grid.attach (metadata_desc_label, 1, 10, 1, 1);
-        settings_grid.attach (autosave_label, 0, 11, 1, 1);
-        settings_grid.attach (autosave_switch, 1, 11, 1, 1);
-        settings_grid.attach (destination_chooser_button, 1, 12, 1, 1);
+        content_area.attach (source_header_label, 0, 0, 1, 1);
+        content_area.attach (source_label, 0, 1, 1, 1);
+        content_area.attach (source_combobox, 1, 1, 1, 1);
+        content_area.attach (mic_label, 0, 2, 1, 1);
+        content_area.attach (mic_combobox, 1, 2, 1, 1);
+        content_area.attach (channels_label, 0, 3, 1, 1);
+        content_area.attach (channels_combobox, 1, 3, 1, 1);
+        content_area.attach (timer_header_label, 0, 4, 1, 1);
+        content_area.attach (delay_label, 0, 5, 1, 1);
+        content_area.attach (delay_spin, 1, 5, 1, 1);
+        content_area.attach (length_label, 0, 6, 1, 1);
+        content_area.attach (length_spin, 1, 6, 1, 1);
+        content_area.attach (saving_header_label, 0, 7, 1, 1);
+        content_area.attach (format_label, 0, 8, 1, 1);
+        content_area.attach (format_combobox, 1, 8, 1, 1);
+        content_area.attach (metadata_label, 0, 9, 1, 1);
+        content_area.attach (metadata_switch, 1, 9, 1, 1);
+        content_area.attach (metadata_desc_label, 1, 10, 1, 1);
+        content_area.attach (autosave_label, 0, 11, 1, 1);
+        content_area.attach (autosave_switch, 1, 11, 1, 1);
+        content_area.attach (destination_chooser_button, 1, 12, 1, 1);
 
         var content_scrolled = new Gtk.ScrolledWindow () {
-            child = settings_grid,
+            child = content_area,
         };
 
         record_button = new Gtk.Button () {

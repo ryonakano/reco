@@ -36,13 +36,11 @@ public class View.RecordView : AbstractView {
         remaining_time_label = new Gtk.Label (null);
         remaining_time_label.add_css_class ("title-3");
 
-        var label_grid = new Gtk.Grid () {
-            column_spacing = 6,
-            row_spacing = 6,
-            halign = Gtk.Align.CENTER
+        var content_area = new Gtk.Box (Gtk.Orientation.VERTICAL, 6) {
+            halign = Gtk.Align.CENTER,
         };
-        label_grid.attach (time_label, 0, 1, 1, 1);
-        label_grid.attach (remaining_time_label, 0, 2, 1, 1);
+        content_area.append (time_label);
+        content_area.append (remaining_time_label);
 
         levelbar = new Widget.LevelBar ();
 
@@ -73,7 +71,7 @@ public class View.RecordView : AbstractView {
         control_bar.append (stop_button);
         control_bar.append (pause_button);
 
-        append (label_grid);
+        append (content_area);
         append (levelbar);
         append (control_bar);
 
