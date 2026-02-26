@@ -8,3 +8,4 @@ Icon=@APP_ID@
 Terminal=false
 Type=Application
 Keywords=Record;Audio;Sound;Voice;
+StartupNotify=true
