@@ -409,15 +409,15 @@ public class MainWindow : Adw.ApplicationWindow {
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                 primary_text,
                 secondary_text,
-                "dialog-error", Gtk.ButtonsType.CLOSE
+                "dialog-error", Gtk.ButtonsType.NONE
             ) {
                 transient_for = this,
                 modal = true,
             };
-            // FIXME: Help button is an alternate action and should be placed
-            // before the cancel button to follow elementary HIG, but I'm not sure how to…
+            // Help button is an alternate action and thus placed before the cancel button to follow elementary HIG
             // https://docs.elementary.io/hig/widgets/providing-feedback#button-order
             error_dialog.add_button (_("_Get Support…"), Gtk.ResponseType.HELP);
+            error_dialog.add_button (_("_Close"), Gtk.ResponseType.CLOSE);
             error_dialog.response.connect ((response) => {
                 switch (response) {
                     case Gtk.ResponseType.HELP:
