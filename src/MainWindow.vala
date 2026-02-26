@@ -426,6 +426,8 @@ public class MainWindow : Adw.ApplicationWindow {
                         warning ("Unexpected response: %d", response);
                         break;
                 }
+
+                error_dialog.destroy ();
             });
             error_dialog.present ();
 #endif
@@ -447,6 +449,8 @@ public class MainWindow : Adw.ApplicationWindow {
                         warning ("Unexpected response: %s", response);
                         break;
                 }
+
+                error_dialog.destroy ();
             });
             error_dialog.present (this);
         }
