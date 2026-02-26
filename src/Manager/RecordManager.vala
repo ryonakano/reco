@@ -93,16 +93,19 @@ public class Manager.RecordManager : Object {
     public void prepare_recording () throws Define.RecordError {
         pipeline = new Gst.Pipeline ("pipeline");
         if (pipeline == null) {
+            warning ("Failed to create pipeline");
             throw new Define.RecordError.CREATE_ERROR ("Failed to create pipeline");
         }
 
         var level = Gst.ElementFactory.make ("level", "level");
         if (level == null) {
+            warning ("Failed to create level element named 'level'");
             throw new Define.RecordError.CREATE_ERROR ("Failed to create level element named 'level'");
         }
 
         var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
         if (mixer == null) {
+            warning ("Failed to create audiomixer element named 'mixer'");
             throw new Define.RecordError.CREATE_ERROR ("Failed to create audiomixer element named 'mixer'");
         }
 
@@ -113,6 +116,7 @@ public class Manager.RecordManager : Object {
 
         var sink = Gst.ElementFactory.make ("filesink", "sink");
         if (sink == null) {
+            warning ("Failed to create filesink element named 'sink'");
             throw new Define.RecordError.CREATE_ERROR ("Failed to create filesink element named 'sink'");
         }
 
@@ -124,12 +128,14 @@ public class Manager.RecordManager : Object {
         if (source != SourceID.MIC) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
+                warning ("Failed to create pulsesrc element 'sys_sound'");
                 throw new Define.RecordError.CREATE_ERROR ("Failed to create pulsesrc element 'sys_sound'");
             }
 
             Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
             string? monitor_name = get_default_monitor_name (default_sink);
             if (monitor_name == null) {
+                warning ("Failed to set 'device' property of pulsesrc element named 'sys_sound': get_default_monitor_name () failed");
                 throw new Define.RecordError.CONFIGURE_ERROR (
                     "Failed to set 'device' property of pulsesrc element named 'sys_sound': get_default_monitor_name () failed"
                 );
@@ -157,6 +163,7 @@ public class Manager.RecordManager : Object {
             Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
             mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
+                warning ("Failed to create pulsesrc element named 'mic_sound'");
                 throw new Define.RecordError.CREATE_ERROR ("Failed to create pulsesrc element named 'mic_sound'");
             }
 
@@ -178,6 +185,7 @@ public class Manager.RecordManager : Object {
         FormatID file_format = (FormatID) Application.settings.get_enum ("format");
         var recorder = recorder_table[file_format];
         if (recorder == null) {
+            warning ("No handler for the given file format. file_format=%d", file_format);
             throw new Define.RecordError.CREATE_ERROR (
                 "No handler for the given file format. file_format=%d".printf (file_format)
             );
@@ -185,6 +193,7 @@ public class Manager.RecordManager : Object {
 
         bool ret = recorder.prepare (pipeline, mixer, sink);
         if (!ret) {
+            warning ("Failed to prepare Recorder. name=%s", recorder.get_name ());
             throw new Define.RecordError.CREATE_ERROR (
                 "Failed to prepare Recorder. name=%s".printf (recorder.get_name ())
             );
@@ -199,6 +208,7 @@ public class Manager.RecordManager : Object {
         // Dual-channelization
         var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
         if (caps_filter == null) {
+            warning ("Failed to create capsfilter element 'filter'");
             throw new Define.RecordError.CREATE_ERROR ("Failed to create capsfilter element 'filter'");
         }
 
@@ -256,10 +266,13 @@ public class Manager.RecordManager : Object {
                 cancel_recording ();
 
                 Error err;
-                string debug;
-                msg.parse_error (out err, out debug);
+                string debug_info;
+                msg.parse_error (out err, out debug_info);
 
-                throw_error (err, debug);
+                warning ("Error received from element \"%s\": err=\"%s\" debug_info=\"%s\"",
+                            msg.src.name, err.message, debug_info);
+
+                throw_error (err, debug_info);
                 break;
             case Gst.MessageType.EOS:
                 pipeline.set_state (Gst.State.NULL);

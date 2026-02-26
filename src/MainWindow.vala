@@ -189,6 +189,8 @@ public class MainWindow : Adw.ApplicationWindow {
                     return null;
                 }
 
+                warning ("Failed to Gtk.FileDialog.save: %s", err.message);
+
                 show_error_dialog (
                     _("Failed to Save Recording"),
                     _("There was an error while asking for final path where to move the temporary recording file \"%s\""
@@ -209,6 +211,8 @@ public class MainWindow : Adw.ApplicationWindow {
         try {
             tmp_file.move (final_file, FileCopyFlags.OVERWRITE);
         } catch (Error err) {
+            warning ("Failed to File.move: src=\"%s\" dst=\"%s\": %s", tmp_path, final_path, err.message);
+
             show_error_dialog (
                 _("Failed to Save Recording"),
                 _("There was an error while moving the temporary recording file \"%s\" to \"%s\""
