@@ -414,6 +414,9 @@ public class MainWindow : Adw.ApplicationWindow {
                 transient_for = this,
                 modal = true,
             };
+            // FIXME: Help button is an alternate action and should be placed
+            // before the cancel button to follow elementary HIG, but I'm not sure how to…
+            // https://docs.elementary.io/hig/widgets/providing-feedback#button-order
             error_dialog.add_button (_("_Get Support…"), Gtk.ResponseType.HELP);
             error_dialog.response.connect ((response) => {
                 switch (response) {
