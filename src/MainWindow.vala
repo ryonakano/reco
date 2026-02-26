@@ -402,11 +402,15 @@ public class MainWindow : Adw.ApplicationWindow {
             error_dialog.present ();
 #endif
         } else {
-            var error_dialog = new Gtk.AlertDialog (primary_text) {
-                detail = secondary_text,
-                modal = true,
+            var error_dialog = new Adw.AlertDialog (primary_text, secondary_text) {
+                default_response = Define.ErrorDialogResponseID.CLOSE,
+                close_response = Define.ErrorDialogResponseID.CLOSE,
             };
-            error_dialog.show (this);
+            error_dialog.add_response (Define.ErrorDialogResponseID.CLOSE, _("_Close"));
+            error_dialog.response.connect ((response) => {
+                error_dialog.destroy ();
+            });
+            error_dialog.present (this);
         }
 
         record_view.refresh_end ();

@@ -12,6 +12,13 @@ namespace Define {
     public const string APP_NAME = "Reco";
 
     /**
+     * Response IDs used in the error dialog.
+     */
+    namespace ErrorDialogResponseID {
+        public const string CLOSE = "close";
+    }
+
+    /**
      * String representation of Adw.ColorScheme.
      *
      * Note: Only defines necessary strings for the app.
