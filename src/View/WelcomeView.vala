@@ -182,18 +182,12 @@ public class View.WelcomeView : AbstractView {
         record_button.add_css_class ("record-button");
         ((Gtk.Image) record_button.child).icon_size = Gtk.IconSize.LARGE;
 
-        var buttons_grid = new Gtk.Grid () {
-            column_spacing = 30,
-            row_spacing = 6,
-            margin_top = 12,
-            halign = Gtk.Align.CENTER,
-        };
-        buttons_grid.attach (record_button, 0, 0, 1, 1);
-        buttons_grid.add_css_class ("toolbar");
+        var control_bar = new Widget.ControlBar ();
+        control_bar.append (record_button);
 
         var toolbar_view = new Adw.ToolbarView ();
         toolbar_view.set_content (content_scrolled);
-        toolbar_view.add_bottom_bar (buttons_grid);
+        toolbar_view.add_bottom_bar (control_bar);
 
         append (toolbar_view);
 
