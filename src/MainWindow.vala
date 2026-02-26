@@ -398,10 +398,8 @@ public class MainWindow : Adw.ApplicationWindow {
                 modal = true
             };
             error_dialog.show_error_details (error_message);
-            error_dialog.response.connect ((response_id) => {
-                if (response_id == Gtk.ResponseType.CLOSE) {
-                    error_dialog.destroy ();
-                }
+            error_dialog.response.connect (() => {
+                error_dialog.destroy ();
             });
             error_dialog.present ();
 #endif
