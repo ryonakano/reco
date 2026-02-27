@@ -18,17 +18,14 @@ public class Model.Recorder.FLACRecorder : Model.Recorder.AbstractRecorder {
         return SUFFIX;
     }
 
-    public override bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) {
+    public override void prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) throws Error {
         var encoder = Gst.ElementFactory.make ("flacenc", "encoder");
         if (encoder == null) {
-            warning ("Failed to create flacenc element");
-            return false;
+            throw new Gst.LibraryError.INIT ("Failed to create flacenc element");
         }
 
         pipeline.add (encoder);
         mixer.link (encoder);
         encoder.link (sink);
-
-        return true;
     }
 }

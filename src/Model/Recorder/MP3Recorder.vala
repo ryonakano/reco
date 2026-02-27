@@ -18,11 +18,10 @@ public class Model.Recorder.MP3Recorder : Model.Recorder.AbstractRecorder {
         return SUFFIX;
     }
 
-    public override bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) {
+    public override void prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) throws Error {
         var encoder = Gst.ElementFactory.make ("lamemp3enc", "encoder");
         if (encoder == null) {
-            warning ("Failed to create lamemp3enc element");
-            return false;
+            throw new Gst.LibraryError.INIT ("Failed to create lamemp3enc element");
         }
 
         pipeline.add (encoder);
@@ -30,14 +29,11 @@ public class Model.Recorder.MP3Recorder : Model.Recorder.AbstractRecorder {
 
         var muxer = Gst.ElementFactory.make ("id3v2mux", "muxer");
         if (muxer == null) {
-            warning ("Failed to create id3v2mux element");
-            return false;
+            throw new Gst.LibraryError.INIT ("Failed to create id3v2mux element");
         }
 
         pipeline.add (muxer);
         encoder.link_many (muxer, sink);
         muxer.link (sink);
-
-        return true;
     }
 }

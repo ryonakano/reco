@@ -18,17 +18,14 @@ public class Model.Recorder.WAVRecorder : Model.Recorder.AbstractRecorder {
         return SUFFIX;
     }
 
-    public override bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) {
+    public override void prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) throws Error {
         var encoder = Gst.ElementFactory.make ("wavenc", "encoder");
         if (encoder == null) {
-            warning ("Failed to create wavenc element");
-            return false;
+            throw new Gst.LibraryError.INIT ("Failed to create wavenc element");
         }
 
         pipeline.add (encoder);
         mixer.link (encoder);
         encoder.link (sink);
-
-        return true;
     }
 }

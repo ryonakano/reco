@@ -183,12 +183,7 @@ public class Manager.RecordManager : Object {
             );
         }
 
-        bool ret = recorder.prepare (pipeline, mixer, sink);
-        if (!ret) {
-            throw new Gst.LibraryError.INIT (
-                "Failed to prepare Recorder. name=%s".printf (recorder.get_name ())
-            );
-        }
+        recorder.prepare (pipeline, mixer, sink);
 
         start_dt = new DateTime.now_local ();
         string tmp_filename = "reco_%s%s".printf (start_dt.to_unix ().to_string (), recorder.get_suffix ());

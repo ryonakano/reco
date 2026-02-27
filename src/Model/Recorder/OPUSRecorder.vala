@@ -18,11 +18,10 @@ public class Model.Recorder.OPUSRecorder : Model.Recorder.AbstractRecorder {
         return SUFFIX;
     }
 
-    public override bool prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) {
+    public override void prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) throws Error {
         var encoder = Gst.ElementFactory.make ("opusenc", "encoder");
         if (encoder == null) {
-            warning ("Failed to create opusenc element");
-            return false;
+            throw new Gst.LibraryError.INIT ("Failed to create opusenc element");
         }
 
         pipeline.add (encoder);
@@ -30,14 +29,11 @@ public class Model.Recorder.OPUSRecorder : Model.Recorder.AbstractRecorder {
 
         var muxer = Gst.ElementFactory.make ("oggmux", "muxer");
         if (muxer == null) {
-            warning ("Failed to create oggmux element");
-            return false;
+            throw new Gst.LibraryError.INIT ("Failed to create oggmux element");
         }
 
         pipeline.add (muxer);
         encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
         muxer.link (sink);
-
-        return true;
     }
 }
