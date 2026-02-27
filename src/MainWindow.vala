@@ -131,7 +131,7 @@ public class MainWindow : Adw.ApplicationWindow {
             return Gdk.EVENT_PROPAGATE;
         });
 
-        record_manager.throw_error.connect ((err, debug_info) => {
+        record_manager.record_err.connect ((err, debug_info) => {
             show_error_dialog (
                 _("Unable to Continue Recording"),
                 _("There was an internal error while recording"),
@@ -139,7 +139,7 @@ public class MainWindow : Adw.ApplicationWindow {
             );
         });
 
-        record_manager.save_file.connect (save_file_wrapper);
+        record_manager.record_ok.connect (save_file_wrapper);
     }
 
     private async void save_file_wrapper (string tmp_path, string default_filename) {

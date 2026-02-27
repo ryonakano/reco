@@ -9,8 +9,8 @@
  */
 
 public class Manager.RecordManager : Object {
-    public signal void throw_error (Error err, string debug_info);
-    public signal void save_file (string tmp_path, string default_filename);
+    public signal void record_err (Error err, string debug_info);
+    public signal void record_ok (string tmp_path, string default_filename);
 
     private const string IGNORED_PROPNAMES[] = {
         "name", "parent", "direction", "template", "caps"
@@ -257,7 +257,7 @@ public class Manager.RecordManager : Object {
                 warning ("Error received from element \"%s\": err=\"%s\" debug_info=\"%s\"",
                             msg.src.name, err.message, debug_info);
 
-                throw_error (err, debug_info);
+                record_err (err, debug_info);
                 break;
             case Gst.MessageType.EOS:
                 pipeline.set_state (Gst.State.NULL);
@@ -268,7 +268,7 @@ public class Manager.RecordManager : Object {
                 string suffix = Util.get_suffix (tmp_path);
                 string default_filename = build_filename_from_datetime (start_dt, end_dt, suffix);
 
-                save_file (tmp_path, default_filename);
+                record_ok (tmp_path, default_filename);
                 break;
             case Gst.MessageType.ELEMENT:
                 unowned Gst.Structure? structure = msg.get_structure ();
