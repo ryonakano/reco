@@ -90,7 +90,7 @@ public class Manager.RecordManager : Object {
         recorder_table[FormatID.WAV] = new Model.Recorder.WAVRecorder ();
     }
 
-    public void prepare_recording () throws Error {
+    public void prepare () throws Error {
         pipeline = new Gst.Pipeline ("pipeline");
         if (pipeline == null) {
             throw new Gst.LibraryError.INIT ("Failed to create pipeline");
@@ -206,7 +206,7 @@ public class Manager.RecordManager : Object {
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
     }
 
-    public void start_recording () {
+    public void start () {
         inhibit_sleep ();
 
         pipeline.set_state (Gst.State.PLAYING);
@@ -220,14 +220,14 @@ public class Manager.RecordManager : Object {
         is_recording_progress = true;
     }
 
-    public void stop_recording () {
+    public void stop () {
         // Pipelines don't seem to catch events when it's in the PAUSED state
         pipeline.set_state (Gst.State.PLAYING);
 
         pipeline.send_event (new Gst.Event.eos ());
     }
 
-    public void cancel_recording () {
+    public void cancel () {
         uninhibit_sleep ();
 
         pipeline.set_state (Gst.State.NULL);
@@ -235,20 +235,20 @@ public class Manager.RecordManager : Object {
         is_recording_progress = false;
     }
 
-    public void pause_recording () {
+    public void pause () {
         uninhibit_sleep ();
 
         pipeline.set_state (Gst.State.PAUSED);
     }
 
-    public void resume_recording () {
-        start_recording ();
+    public void resume () {
+        start ();
     }
 
     private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
         switch (msg.type) {
             case Gst.MessageType.ERROR:
-                cancel_recording ();
+                cancel ();
 
                 Error err;
                 string debug_info;

@@ -116,10 +116,10 @@ public class MainWindow : Adw.ApplicationWindow {
             stop_wrapper (false);
         });
         record_view.pause_recording.connect (() => {
-            record_manager.pause_recording ();
+            record_manager.pause ();
         });
         record_view.resume_recording.connect (() => {
-            record_manager.resume_recording ();
+            record_manager.resume ();
         });
 
         close_request.connect ((event) => {
@@ -284,9 +284,9 @@ public class MainWindow : Adw.ApplicationWindow {
 
     private void show_record () {
         try {
-            record_manager.prepare_recording ();
+            record_manager.prepare ();
         } catch (Error err) {
-            warning ("Failed to record_manager.prepare_recording: %s", err.message);
+            warning ("Failed to record_manager.prepare: %s", err.message);
 
             string? secondary_text = starterr_message_table[err.code];
             // Errors without dedicated message
@@ -303,7 +303,7 @@ public class MainWindow : Adw.ApplicationWindow {
             return;
         }
 
-        record_manager.start_recording ();
+        record_manager.start ();
 
         record_view.refresh_begin ();
         stack.visible_child = record_view;
@@ -336,11 +336,11 @@ public class MainWindow : Adw.ApplicationWindow {
         processing_dialog.cancel.connect (cancel_warpper);
         processing_dialog.present (this);
 
-        record_manager.stop_recording ();
+        record_manager.stop ();
     }
 
     private void cancel_warpper () {
-        record_manager.cancel_recording ();
+        record_manager.cancel ();
 
         cleanup_tmp_recording.begin ((obj, res) => {
             cleanup_tmp_recording.end (res);
