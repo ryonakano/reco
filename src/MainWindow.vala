@@ -177,7 +177,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
         File? final_file;
         var autosave_dest = Application.settings.get_string ("autosave-destination");
-        if (autosave_dest.length > 0) {
+        if (FileUtils.test (autosave_dest, FileTest.IS_DIR)) {
             final_file = File.new_for_path (autosave_dest).get_child (default_filename);
         } else {
             try {
