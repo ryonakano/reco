@@ -173,8 +173,6 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     private async string? save_file (string tmp_path, string default_filename) {
-        debug ("record_manager.save_file: tmp_path(%s)", tmp_path);
-
         File? final_file = yield ask_final_file (default_filename);
         if (final_file == null) {
             return null;
