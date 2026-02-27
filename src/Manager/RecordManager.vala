@@ -98,12 +98,12 @@ public class Manager.RecordManager : Object {
 
         var level = Gst.ElementFactory.make ("level", "level");
         if (level == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create level element named 'level'");
+            throw new Gst.LibraryError.INIT ("Failed to create level element");
         }
 
         var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
         if (mixer == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create audiomixer element named 'mixer'");
+            throw new Gst.LibraryError.INIT ("Failed to create audiomixer element");
         }
 
         // Prevent audio from stuttering after some time, by setting the latency to other than 0.
@@ -113,7 +113,7 @@ public class Manager.RecordManager : Object {
 
         var sink = Gst.ElementFactory.make ("filesink", "sink");
         if (sink == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create filesink element named 'sink'");
+            throw new Gst.LibraryError.INIT ("Failed to create filesink element");
         }
 
         pipeline.add_many (level, mixer, sink);
@@ -124,14 +124,14 @@ public class Manager.RecordManager : Object {
         if (source != SourceID.MIC) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
-                throw new Gst.LibraryError.INIT ("Failed to create pulsesrc element 'sys_sound'");
+                throw new Gst.LibraryError.INIT ("Failed to create pulsesrc element \"sys_sound\"");
             }
 
             Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
             string? monitor_name = get_default_monitor_name (default_sink);
             if (monitor_name == null) {
                 throw new Gst.LibraryError.SETTINGS (
-                    "Failed to set 'device' property of pulsesrc element named 'sys_sound': get_default_monitor_name () failed"
+                    "Failed to set \"device\" property of pulsesrc element \"sys_sound\": get_default_monitor_name () failed"
                 );
             }
 
@@ -157,7 +157,7 @@ public class Manager.RecordManager : Object {
             Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
             mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
-                throw new Gst.LibraryError.INIT ("Failed to create pulsesrc element named 'mic_sound'");
+                throw new Gst.LibraryError.INIT ("Failed to create pulsesrc element \"mic_sound\"");
             }
 
             debug ("sound source (microphone): \"%s\"", microphone.display_name);
@@ -199,7 +199,7 @@ public class Manager.RecordManager : Object {
         // Dual-channelization
         var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
         if (caps_filter == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create capsfilter element 'filter'");
+            throw new Gst.LibraryError.INIT ("Failed to create capsfilter element");
         }
 
         caps_filter.set ("caps", new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT,
