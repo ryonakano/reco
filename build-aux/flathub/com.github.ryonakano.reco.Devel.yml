@@ -10,6 +10,10 @@ finish-args:
   - --device=dri
   - --socket=pulseaudio
   - --env=GST_PLUGIN_PATH_1_0=/app/lib/gstreamer-1.0
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /share/vala
 build-options:
   libdir: /app/lib
 modules:
