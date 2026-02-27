@@ -175,34 +175,9 @@ public class MainWindow : Adw.ApplicationWindow {
     private async string? save_file (string tmp_path, string default_filename) {
         debug ("record_manager.save_file: tmp_path(%s)", tmp_path);
 
-        File? final_file;
-        var autosave_dest = Application.settings.get_string ("autosave-destination");
-        if (FileUtils.test (autosave_dest, FileTest.IS_DIR)) {
-            final_file = File.new_for_path (autosave_dest).get_child (default_filename);
-        } else {
-            try {
-                final_file = yield ask_final_file (default_filename);
-            } catch (Error err) {
-                if (err.domain == Gtk.DialogError.quark () && err.code == Gtk.DialogError.DISMISSED) {
-                    yield cleanup_tmp_recording ();
-
-                    // Don't show the warning log when the dialog is just dismissed by the user
-                    return null;
-                }
-
-                warning ("Failed to Gtk.FileDialog.save: %s", err.message);
-
-                show_error_dialog (
-                    _("Failed to Save Recording"),
-                    _("Unable to determine where to save recording finally. Try again using autosave instead"),
-                    err.message
-                );
-
-                return null;
-            }
-
-            // Ignore return value because failure does not affect saving recording itself
-            remember_last_folder_path (final_file);
+        File? final_file = yield ask_final_file (default_filename);
+        if (final_file == null) {
+            return null;
         }
 
         var tmp_file = File.new_for_path (tmp_path);
@@ -227,17 +202,23 @@ public class MainWindow : Adw.ApplicationWindow {
     /**
      * Query location where to save recordings.
      *
-     * This method shows Gtk.FileDialog and waits for the user input.
+     * This method shows Gtk.FileDialog if the autosave is disabled and waits for the user input.
+     * Otherwise, it returns the location depending on the autosave location.
      *
      * @param default_filename default filename of recoridngs
      *
      * @return location where to save recordings
      */
-    private async File? ask_final_file (string default_filename) throws Error {
+    private async File? ask_final_file (string default_filename) {
+        string autosave_dest = Application.settings.get_string ("autosave-destination");
+        if (FileUtils.test (autosave_dest, FileTest.IS_DIR)) {
+            return File.new_for_path (autosave_dest).get_child (default_filename);
+        }
+
         var save_dialog = new Gtk.FileDialog () {
             title = _("Save Recording"),
             modal = true,
-            initial_name = default_filename
+            initial_name = default_filename,
         };
 
         string last_path = Application.settings.get_string ("last-folder-path");
@@ -249,7 +230,32 @@ public class MainWindow : Adw.ApplicationWindow {
             }
         }
 
-        return yield save_dialog.save (this, null);
+        File? final_file;
+        try {
+            final_file = yield save_dialog.save (this, null);
+        } catch (Error err) {
+            if (err.domain == Gtk.DialogError.quark () && err.code == Gtk.DialogError.DISMISSED) {
+                yield cleanup_tmp_recording ();
+
+                // Don't show the warning log when the dialog is just dismissed by the user
+                return null;
+            }
+
+            warning ("Failed to Gtk.FileDialog.save: %s", err.message);
+
+            show_error_dialog (
+                _("Failed to Save Recording"),
+                _("Unable to determine where to save recording finally. Try again using autosave instead"),
+                err.message
+            );
+
+            return null;
+        }
+
+        // Ignore return value because failure does not affect saving recording itself
+        remember_last_folder_path (final_file);
+
+        return final_file;
     }
 
     private bool remember_last_folder_path (File file) {
