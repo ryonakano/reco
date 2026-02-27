@@ -133,8 +133,8 @@ public class MainWindow : Adw.ApplicationWindow {
 
         record_manager.throw_error.connect ((err, debug_info) => {
             show_error_dialog (
-                _("Failed to Complete Recording"),
-                _("There was an error while recording"),
+                _("Unable to Continue Recording"),
+                _("There was an internal error while recording"),
                 "%s\n%s".printf (err.message, debug_info)
             );
         });
@@ -194,9 +194,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
                 show_error_dialog (
                     _("Failed to Save Recording"),
-                    _("There was an error while asking for final path where to move the temporary recording file \"%s\""
-                        .printf (tmp_path)
-                    ),
+                    _("Unable to determine where to save recording finally. Try again using autosave instead"),
                     err.message
                 );
 
@@ -216,9 +214,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
             show_error_dialog (
                 _("Failed to Save Recording"),
-                _("There was an error while moving the temporary recording file \"%s\" to \"%s\""
-                    .printf (tmp_file.get_path (), final_path)
-                ),
+                _("Unable to move a temporary recording file to the final path. Make sure the destination exists and you have write access to it"),
                 err.message
             );
 
@@ -387,7 +383,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
                 show_error_dialog (
                     _("Failed to Open Folder"),
-                    _("There was an error while trying to open folder containing \"%s\"").printf (path),
+                    _("Unable to open folder containing \"%s\"").printf (path),
                     err.message
                 );
             }
