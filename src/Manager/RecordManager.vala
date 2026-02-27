@@ -90,23 +90,20 @@ public class Manager.RecordManager : Object {
         recorder_table[FormatID.WAV] = new Model.Recorder.WAVRecorder ();
     }
 
-    public void prepare_recording () throws Define.RecordError {
+    public void prepare_recording () throws Error {
         pipeline = new Gst.Pipeline ("pipeline");
         if (pipeline == null) {
-            warning ("Failed to create pipeline");
-            throw new Define.RecordError.CREATE_ERROR ("Failed to create pipeline");
+            throw new Gst.LibraryError.INIT ("Failed to create pipeline");
         }
 
         var level = Gst.ElementFactory.make ("level", "level");
         if (level == null) {
-            warning ("Failed to create level element named 'level'");
-            throw new Define.RecordError.CREATE_ERROR ("Failed to create level element named 'level'");
+            throw new Gst.LibraryError.INIT ("Failed to create level element named 'level'");
         }
 
         var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
         if (mixer == null) {
-            warning ("Failed to create audiomixer element named 'mixer'");
-            throw new Define.RecordError.CREATE_ERROR ("Failed to create audiomixer element named 'mixer'");
+            throw new Gst.LibraryError.INIT ("Failed to create audiomixer element named 'mixer'");
         }
 
         // Prevent audio from stuttering after some time, by setting the latency to other than 0.
@@ -116,8 +113,7 @@ public class Manager.RecordManager : Object {
 
         var sink = Gst.ElementFactory.make ("filesink", "sink");
         if (sink == null) {
-            warning ("Failed to create filesink element named 'sink'");
-            throw new Define.RecordError.CREATE_ERROR ("Failed to create filesink element named 'sink'");
+            throw new Gst.LibraryError.INIT ("Failed to create filesink element named 'sink'");
         }
 
         pipeline.add_many (level, mixer, sink);
@@ -128,15 +124,13 @@ public class Manager.RecordManager : Object {
         if (source != SourceID.MIC) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
-                warning ("Failed to create pulsesrc element 'sys_sound'");
-                throw new Define.RecordError.CREATE_ERROR ("Failed to create pulsesrc element 'sys_sound'");
+                throw new Gst.LibraryError.INIT ("Failed to create pulsesrc element 'sys_sound'");
             }
 
             Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
             string? monitor_name = get_default_monitor_name (default_sink);
             if (monitor_name == null) {
-                warning ("Failed to set 'device' property of pulsesrc element named 'sys_sound': get_default_monitor_name () failed");
-                throw new Define.RecordError.CONFIGURE_ERROR (
+                throw new Gst.LibraryError.SETTINGS (
                     "Failed to set 'device' property of pulsesrc element named 'sys_sound': get_default_monitor_name () failed"
                 );
             }
@@ -163,8 +157,7 @@ public class Manager.RecordManager : Object {
             Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
             mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
-                warning ("Failed to create pulsesrc element named 'mic_sound'");
-                throw new Define.RecordError.CREATE_ERROR ("Failed to create pulsesrc element named 'mic_sound'");
+                throw new Gst.LibraryError.INIT ("Failed to create pulsesrc element named 'mic_sound'");
             }
 
             debug ("sound source (microphone): \"%s\"", microphone.display_name);
@@ -185,16 +178,14 @@ public class Manager.RecordManager : Object {
         FormatID file_format = (FormatID) Application.settings.get_enum ("format");
         var recorder = recorder_table[file_format];
         if (recorder == null) {
-            warning ("No handler for the given file format. file_format=%d", file_format);
-            throw new Define.RecordError.CREATE_ERROR (
+            throw new Gst.ResourceError.NOT_FOUND (
                 "No handler for the given file format. file_format=%d".printf (file_format)
             );
         }
 
         bool ret = recorder.prepare (pipeline, mixer, sink);
         if (!ret) {
-            warning ("Failed to prepare Recorder. name=%s", recorder.get_name ());
-            throw new Define.RecordError.CREATE_ERROR (
+            throw new Gst.LibraryError.INIT (
                 "Failed to prepare Recorder. name=%s".printf (recorder.get_name ())
             );
         }
@@ -208,8 +199,7 @@ public class Manager.RecordManager : Object {
         // Dual-channelization
         var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
         if (caps_filter == null) {
-            warning ("Failed to create capsfilter element 'filter'");
-            throw new Define.RecordError.CREATE_ERROR ("Failed to create capsfilter element 'filter'");
+            throw new Gst.LibraryError.INIT ("Failed to create capsfilter element 'filter'");
         }
 
         caps_filter.set ("caps", new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT,

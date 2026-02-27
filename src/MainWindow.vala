@@ -31,8 +31,9 @@ public class MainWindow : Adw.ApplicationWindow {
 
     static construct {
         starterr_message_table = new Gee.HashMap<int, string> ();
-        starterr_message_table[Define.RecordError.CREATE_ERROR] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists");
-        starterr_message_table[Define.RecordError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one if this issue persists");
+        starterr_message_table[Gst.LibraryError.INIT] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists");
+        starterr_message_table[Gst.LibraryError.SETTINGS] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one if this issue persists");
+        starterr_message_table[Gst.ResourceError.NOT_FOUND] = N_("This is possibly due to invalid or broken preferences of the app. Make sure you've set valid values and try reinstalling the app if this issue persists");
     }
 
     construct {
@@ -281,7 +282,7 @@ public class MainWindow : Adw.ApplicationWindow {
     private void show_record () {
         try {
             record_manager.prepare_recording ();
-        } catch (Define.RecordError err) {
+        } catch (Error err) {
             string? secondary_text = starterr_message_table[err.code];
             // Errors without dedicated message
             if (secondary_text == null) {
