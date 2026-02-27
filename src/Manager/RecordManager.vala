@@ -9,7 +9,7 @@
  */
 
 public class Manager.RecordManager : Object {
-    public signal void throw_error ();
+    public signal void throw_error (Error err, string debug_info);
     public signal void save_file (string tmp_path, string default_filename);
 
     private const string IGNORED_PROPNAMES[] = {
@@ -257,7 +257,7 @@ public class Manager.RecordManager : Object {
                 warning ("Error received from element \"%s\": err=\"%s\" debug_info=\"%s\"",
                             msg.src.name, err.message, debug_info);
 
-                throw_error ();
+                throw_error (err, debug_info);
                 break;
             case Gst.MessageType.EOS:
                 pipeline.set_state (Gst.State.NULL);

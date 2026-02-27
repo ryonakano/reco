@@ -131,10 +131,11 @@ public class MainWindow : Adw.ApplicationWindow {
             return Gdk.EVENT_PROPAGATE;
         });
 
-        record_manager.throw_error.connect (() => {
+        record_manager.throw_error.connect ((err, debug_info) => {
             show_error_dialog (
                 _("Failed to Complete Recording"),
-                _("There was an error while recording")
+                _("There was an error while recording"),
+                "%s\n%s".printf (err.message, debug_info)
             );
         });
 
@@ -195,7 +196,8 @@ public class MainWindow : Adw.ApplicationWindow {
                     _("Failed to Save Recording"),
                     _("There was an error while asking for final path where to move the temporary recording file \"%s\""
                         .printf (tmp_path)
-                    )
+                    ),
+                    err.message
                 );
 
                 return null;
@@ -216,7 +218,8 @@ public class MainWindow : Adw.ApplicationWindow {
                 _("Failed to Save Recording"),
                 _("There was an error while moving the temporary recording file \"%s\" to \"%s\""
                     .printf (tmp_file.get_path (), final_path)
-                )
+                ),
+                err.message
             );
 
             return null;
@@ -283,6 +286,8 @@ public class MainWindow : Adw.ApplicationWindow {
         try {
             record_manager.prepare_recording ();
         } catch (Error err) {
+            warning ("Failed to record_manager.prepare_recording: %s", err.message);
+
             string? secondary_text = starterr_message_table[err.code];
             // Errors without dedicated message
             if (secondary_text == null) {
@@ -291,8 +296,10 @@ public class MainWindow : Adw.ApplicationWindow {
 
             show_error_dialog (
                 _("Failed to Start Recording"),
-                _(secondary_text)
+                _(secondary_text),
+                err.message
             );
+
             return;
         }
 
@@ -380,13 +387,14 @@ public class MainWindow : Adw.ApplicationWindow {
 
                 show_error_dialog (
                     _("Failed to Open Folder"),
-                    _("There was an error while trying to open folder containing \"%s\"").printf (path)
+                    _("There was an error while trying to open folder containing \"%s\"").printf (path),
+                    err.message
                 );
             }
         });
     }
 
-    private void show_error_dialog (string primary_text, string secondary_text) {
+    private void show_error_dialog (string primary_text, string secondary_text, string detailed_text) {
         if (Util.is_on_pantheon ()) {
 #if USE_GRANITE
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
@@ -397,13 +405,16 @@ public class MainWindow : Adw.ApplicationWindow {
                 transient_for = this,
                 modal = true,
             };
+            error_dialog.show_error_details (detailed_text);
             error_dialog.response.connect (() => {
                 error_dialog.destroy ();
             });
             error_dialog.present ();
 #endif
         } else {
-            var error_dialog = new Adw.AlertDialog (primary_text, secondary_text) {
+            string body_text = "%s\n\n%s".printf (secondary_text, detailed_text);
+
+            var error_dialog = new Adw.AlertDialog (primary_text, body_text) {
                 default_response = Define.ErrorDialogResponseID.CLOSE,
                 close_response = Define.ErrorDialogResponseID.CLOSE,
             };
