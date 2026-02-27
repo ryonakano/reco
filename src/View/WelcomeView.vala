@@ -256,7 +256,7 @@ public class View.WelcomeView : AbstractView {
     private async void toggle_autosave () {
         if (autosave_switch.active) {
             // Prevent the filechooser shown twice when enabling the autosave
-            var autosave_dest = Application.settings.get_string ("autosave-destination");
+            string autosave_dest = Application.settings.get_string ("autosave-destination");
             if (autosave_dest.length != 0) {
                 return;
             }
