@@ -60,8 +60,13 @@ public class Widget.FolderChooserButton : Gtk.Button {
         File file;
         try {
             file = yield chooser.select_folder (((Gtk.Application) GLib.Application.get_default ()).active_window, null);
-        } catch (Error e) {
-            warning ("Failed to select folder: %s", e.message);
+        } catch (Error err) {
+            if (err.domain == Gtk.DialogError.quark () && err.code == Gtk.DialogError.DISMISSED) {
+                // Don't show the warning log when the dialog is just dismissed by the user
+                return false;
+            }
+
+            warning ("Failed to select folder: %s", err.message);
             return false;
         }
 
