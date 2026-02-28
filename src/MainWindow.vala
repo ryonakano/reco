@@ -12,6 +12,7 @@ public class MainWindow : Adw.ApplicationWindow {
     };
 
     private unowned Manager.RecordManager record_manager;
+    private uint inhibit_token = 0;
     private bool destroy_on_save;
 
     private View.WelcomeView welcome_view;
@@ -117,8 +118,12 @@ public class MainWindow : Adw.ApplicationWindow {
         });
         record_view.pause_recording.connect (() => {
             record_manager.pause ();
+
+            uninhibit_sleep ();
         });
         record_view.resume_recording.connect (() => {
+            inhibit_sleep ();
+
             record_manager.resume ();
         });
 
@@ -160,6 +165,8 @@ public class MainWindow : Adw.ApplicationWindow {
 
         processing_dialog.force_close ();
         processing_dialog = null;
+
+        uninhibit_sleep ();
 
         if (destroy_on_save) {
             destroy ();
@@ -303,6 +310,8 @@ public class MainWindow : Adw.ApplicationWindow {
             return;
         }
 
+        inhibit_sleep ();
+
         record_manager.start ();
 
         record_view.refresh_begin ();
@@ -350,6 +359,8 @@ public class MainWindow : Adw.ApplicationWindow {
                 processing_dialog = null;
             }
 
+            uninhibit_sleep ();
+
             show_welcome ();
         });
     }
@@ -373,6 +384,25 @@ public class MainWindow : Adw.ApplicationWindow {
         }
 
         toast_overlay.add_toast (cancel_toast);
+    }
+
+    private void inhibit_sleep () {
+        if (inhibit_token != 0) {
+            application.uninhibit (inhibit_token);
+        }
+
+        inhibit_token = application.inhibit (
+            this,
+            Gtk.ApplicationInhibitFlags.SUSPEND,
+            _("Recording is ongoing")
+        );
+    }
+
+    private void uninhibit_sleep () {
+        if (inhibit_token != 0) {
+            application.uninhibit (inhibit_token);
+            inhibit_token = 0;
+        }
     }
 
     private void on_open_folder_activate (SimpleAction action, Variant? parameter) requires (parameter != null) {

@@ -43,7 +43,6 @@ public class Manager.RecordManager : Object {
     private string tmp_path;
     private DateTime start_dt;
     private Gst.Pipeline pipeline;
-    private uint inhibit_token = 0;
     private const uint64 NSEC = 1000000000;
 
     private enum SourceID {
@@ -201,8 +200,6 @@ public class Manager.RecordManager : Object {
     }
 
     public void start () {
-        inhibit_sleep ();
-
         pipeline.set_state (Gst.State.PLAYING);
 
         if (Application.settings.get_boolean ("add-metadata")) {
@@ -222,16 +219,12 @@ public class Manager.RecordManager : Object {
     }
 
     public void cancel () {
-        uninhibit_sleep ();
-
         pipeline.set_state (Gst.State.NULL);
         pipeline.dispose ();
         is_recording_progress = false;
     }
 
     public void pause () {
-        uninhibit_sleep ();
-
         pipeline.set_state (Gst.State.PAUSED);
     }
 
@@ -333,26 +326,6 @@ public class Manager.RecordManager : Object {
 
     private async void delete_file (string path) throws Error {
         yield File.new_for_path (path).delete_async ();
-    }
-
-    private void inhibit_sleep () {
-        unowned Gtk.Application app = (Gtk.Application) GLib.Application.get_default ();
-        if (inhibit_token != 0) {
-            app.uninhibit (inhibit_token);
-        }
-
-        inhibit_token = app.inhibit (
-            app.get_active_window (),
-            Gtk.ApplicationInhibitFlags.SUSPEND,
-            _("Recording is ongoing")
-        );
-    }
-
-    private void uninhibit_sleep () {
-        if (inhibit_token != 0) {
-            ((Gtk.Application) GLib.Application.get_default ()).uninhibit (inhibit_token);
-            inhibit_token = 0;
-        }
     }
 
     // Get the name of the default monitor device from the default sink name
