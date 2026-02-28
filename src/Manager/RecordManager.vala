@@ -118,6 +118,10 @@ public class Manager.RecordManager : Object {
 
         pipeline.add_many (level, mixer, sink);
 
+        // Dual-channelization
+        var caps_channels = new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT,
+                                        (ChannelID) Application.settings.get_enum ("channel"));
+
         SourceID source = (SourceID) Application.settings.get_enum ("source");
 
         Gst.Element? sys_sound = null;
@@ -175,6 +179,8 @@ public class Manager.RecordManager : Object {
             mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
         }
 
+        mixer.link_filtered (level, caps_channels);
+
         FormatID file_format = (FormatID) Application.settings.get_enum ("format");
         var recorder = recorder_table[file_format];
         if (recorder == null) {
@@ -183,25 +189,13 @@ public class Manager.RecordManager : Object {
             );
         }
 
-        recorder.prepare (pipeline, mixer, sink);
+        recorder.prepare (pipeline, level, sink);
 
         start_dt = new DateTime.now_local ();
         string tmp_filename = "reco_%s%s".printf (start_dt.to_unix ().to_string (), recorder.get_suffix ());
         tmp_path = Path.build_filename (Environment.get_user_cache_dir (), tmp_filename);
         sink.set ("location", tmp_path);
         debug ("temporary saving path: %s", tmp_path);
-
-        // Dual-channelization
-        var caps_filter = Gst.ElementFactory.make ("capsfilter", "filter");
-        if (caps_filter == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create capsfilter element");
-        }
-
-        caps_filter.set ("caps", new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT,
-                                                      (ChannelID) Application.settings.get_enum ("channel")));
-
-        pipeline.add (caps_filter);
-        mixer.link_many (caps_filter, level);
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
     }
