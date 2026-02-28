@@ -245,50 +245,68 @@ public class Manager.RecordManager : Object {
         start ();
     }
 
-    private bool bus_message_cb (Gst.Bus bus, Gst.Message msg) {
-        switch (msg.type) {
+    private bool bus_message_cb (Gst.Bus bus, Gst.Message message) {
+        switch (message.type) {
             case Gst.MessageType.ERROR:
-                cancel ();
-
-                Error err;
-                string debug_info;
-                msg.parse_error (out err, out debug_info);
-
-                warning ("Error received from element \"%s\": err=\"%s\" debug_info=\"%s\"",
-                            msg.src.name, err.message, debug_info);
-
-                record_err (err, debug_info);
-                break;
+                return bus_message_cb_error (bus, message);
             case Gst.MessageType.EOS:
-                pipeline.set_state (Gst.State.NULL);
-                pipeline.dispose ();
-                is_recording_progress = false;
-
-                var end_dt = new DateTime.now_local ();
-                string suffix = Util.get_suffix (tmp_path);
-                string default_filename = build_filename_from_datetime (start_dt, end_dt, suffix);
-
-                record_ok (tmp_path, default_filename);
-                break;
+                return bus_message_cb_eos (bus, message);
             case Gst.MessageType.ELEMENT:
-                unowned Gst.Structure? structure = msg.get_structure ();
-                if (!structure.has_name ("level")) {
-                    break;
-                }
-
-                // FIXME: ValueArray is deprecated but used as an I/F structure in the GStreamer side:
-                // https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.5/subprojects/gst-plugins-good/gst/level/gstlevel.c#L579
-                // We would need a patch for GStreamer to replace ValueArray with Array
-                // when it's removed before GStreamer resolves
-                unowned var peak_arr = (ValueArray) structure.get_value ("peak").get_boxed ();
-                if (peak_arr != null) {
-                    current_peak = peak_arr.get_nth (0).get_double ();
-                }
-
-                break;
+                return bus_message_cb_element (bus, message);
             default:
                 break;
         }
+
+        // Returning false means unwatching the bus as per https://valadoc.org/gstreamer-1.0/Gst.Bus.add_watch.html,
+        // so return true even if we don't handle the message
+        return true;
+    }
+
+    private bool bus_message_cb_error (Gst.Bus bus, Gst.Message message) {
+        cancel ();
+
+        Error err;
+        string debug_info;
+        message.parse_error (out err, out debug_info);
+
+        warning ("Error received from element \"%s\": err=\"%s\" debug_info=\"%s\"",
+                    message.src.name, err.message, debug_info);
+
+        record_err (err, debug_info);
+
+        return true;
+    }
+
+    private bool bus_message_cb_eos (Gst.Bus bus, Gst.Message message) {
+        pipeline.set_state (Gst.State.NULL);
+        pipeline.dispose ();
+        is_recording_progress = false;
+
+        var end_dt = new DateTime.now_local ();
+        string suffix = Util.get_suffix (tmp_path);
+        string default_filename = build_filename_from_datetime (start_dt, end_dt, suffix);
+
+        record_ok (tmp_path, default_filename);
+
+        return true;
+    }
+
+    private bool bus_message_cb_element (Gst.Bus bus, Gst.Message message) {
+        unowned Gst.Structure? structure = message.get_structure ();
+        if (!structure.has_name ("level")) {
+            return true;
+        }
+
+        // FIXME: ValueArray is deprecated but used as an I/F structure in the GStreamer side:
+        // https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.5/subprojects/gst-plugins-good/gst/level/gstlevel.c#L579
+        // We would need a patch for GStreamer to replace ValueArray with Array
+        // when it's removed before GStreamer resolves
+        unowned var peak_arr = (ValueArray) structure.get_value ("peak").get_boxed ();
+        if (peak_arr == null) {
+            return true;
+        }
+
+        current_peak = peak_arr.get_nth (0).get_double ();
 
         return true;
     }
