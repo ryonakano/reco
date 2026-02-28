@@ -12,6 +12,8 @@ public class MainWindow : Adw.ApplicationWindow {
     };
 
     private unowned Manager.RecordManager record_manager;
+    private DateTime start_dt;
+    private string recording_tmp_path;
     private uint inhibit_token = 0;
     private bool destroy_on_save;
 
@@ -147,12 +149,17 @@ public class MainWindow : Adw.ApplicationWindow {
         record_manager.record_ok.connect (save_file_wrapper);
     }
 
-    private async void save_file_wrapper (string tmp_path, string default_filename) {
+    private async void save_file_wrapper () {
         // Prevent cancel option from being revealed in case users don't notice the file dialog appears
         // and tries to use the cancel option, which is no longer clickable because a transient dialog presents.
         processing_dialog.conceal_cancel_revealer ();
 
-        string? final_path = yield save_file (tmp_path, default_filename);
+        var end_dt = new DateTime.now_local ();
+        var format = (Define.FormatID) Application.settings.get_enum ("format");
+        string suffix = format.get_suffix ();
+        string default_filename = build_filename_from_datetime (start_dt, end_dt, suffix);
+
+        string? final_path = yield save_file (recording_tmp_path, default_filename);
         if (final_path != null) {
             var saved_toast = new Adw.Toast (_("Recording Saved")) {
                 button_label = _("Open Folder"),
@@ -290,13 +297,25 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     private void show_record () {
+        start_dt = new DateTime.now_local ();
+
+        string tmp_filename = "reco_%s.tmp".printf (start_dt.to_unix ().to_string ());
+        recording_tmp_path = Path.build_filename (Environment.get_user_cache_dir (), tmp_filename);
+
         var source = (Define.SourceID) Application.settings.get_enum ("source");
         var channel = (Define.ChannelID) Application.settings.get_enum ("channel");
         var format = (Define.FormatID) Application.settings.get_enum ("format");
+        unowned string? meta_author = null;
+        DateTime? meta_record_dt = null;
+
         var is_add_metadata = Application.settings.get_boolean ("add-metadata");
+        if (is_add_metadata) {
+            meta_author = Environment.get_real_name ();
+            meta_record_dt = start_dt;
+        }
 
         try {
-            record_manager.prepare (source, channel, format, is_add_metadata);
+            record_manager.prepare (recording_tmp_path, source, channel, format, meta_author, meta_record_dt);
         } catch (Error err) {
             warning ("Failed to record_manager.prepare: %s", err.message);
 
@@ -374,14 +393,14 @@ public class MainWindow : Adw.ApplicationWindow {
         var cancel_toast = new Adw.Toast (_("Recording Canceled"));
 
         try {
-            yield record_manager.trash_tmp_recording ();
+            yield trash_file (recording_tmp_path);
 
             cancel_toast.title = _("Recording Moved to Trash");
         } catch (Error err) {
             warning ("Failed to trash tmp recording, deleting permanently instead: %s", err.message);
 
             try {
-                yield record_manager.delete_tmp_recording ();
+                yield delete_file (recording_tmp_path);
             } catch (Error err) {
                 // Just failed to remove tmp recording so letting user know through error dialog is not necessary
                 warning ("Failed to delete tmp recording: %s", err.message);
@@ -408,6 +427,47 @@ public class MainWindow : Adw.ApplicationWindow {
             application.uninhibit (inhibit_token);
             inhibit_token = 0;
         }
+    }
+
+    private async void trash_file (string path) throws Error {
+        if (!FileUtils.test (path, FileTest.EXISTS)) {
+            return;
+        }
+
+        yield File.new_for_path (path).trash_async ();
+    }
+
+    private async void delete_file (string path) throws Error {
+        if (!FileUtils.test (path, FileTest.EXISTS)) {
+            return;
+        }
+
+        yield File.new_for_path (path).delete_async ();
+    }
+
+    /**
+     * Build filename using the given arguments.
+     *
+     * The filename includes start datetime and end time. It also includes end date if the date is different between
+     * start and end.
+     *
+     * e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
+     *      "2018-11-10_23:42:36 to 23:49:52.wav"
+     */
+    private string build_filename_from_datetime (DateTime start, DateTime end, string suffix) {
+        string start_format = "%Y-%m-%d_%H:%M:%S";
+        string end_format = "%Y-%m-%d_%H:%M:%S";
+
+        bool is_same_day = Util.is_same_day (start, end);
+        if (is_same_day) {
+            // Avoid redundant date
+            end_format = "%H:%M:%S";
+        }
+
+        string start_str = start.format (start_format);
+        string end_str = end.format (end_format);
+
+        return "%s to %s".printf (start_str, end_str) + suffix;
     }
 
     private void on_open_folder_activate (SimpleAction action, Variant? parameter) requires (parameter != null) {

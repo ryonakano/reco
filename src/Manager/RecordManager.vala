@@ -10,7 +10,7 @@
 
 public class Manager.RecordManager : Object {
     public signal void record_err (Error err, string debug_info);
-    public signal void record_ok (string tmp_path, string default_filename);
+    public signal void record_ok ();
 
     public bool is_recording { get; private set; default = false; }
 
@@ -41,8 +41,6 @@ public class Manager.RecordManager : Object {
         "name", "parent", "direction", "template", "caps"
     };
 
-    private string tmp_path;
-    private DateTime start_dt;
     private Gst.Pipeline pipeline;
 
     private static Gee.HashMap<Define.FormatID, Model.Recorder.AbstractRecorder> recorder_table;
@@ -69,7 +67,7 @@ public class Manager.RecordManager : Object {
         recorder_table[Define.FormatID.WAV] = new Model.Recorder.WAVRecorder ();
     }
 
-    public void prepare (Define.SourceID source, Define.ChannelID channel, Define.FormatID format, bool is_add_metadata) throws Error {
+    public void prepare (string dst_path, Define.SourceID source, Define.ChannelID channel, Define.FormatID format, string? meta_author, DateTime? meta_record_dt) throws Error {
         pipeline = new Gst.Pipeline ("pipeline");
         if (pipeline == null) {
             throw new Gst.LibraryError.INIT ("Failed to create pipeline");
@@ -95,6 +93,7 @@ public class Manager.RecordManager : Object {
             throw new Gst.LibraryError.INIT ("Failed to create filesink element");
         }
 
+        sink.set ("location", dst_path);
         pipeline.add_many (level, mixer, sink);
 
         Gst.Element? sys_sound = null;
@@ -164,16 +163,9 @@ public class Manager.RecordManager : Object {
 
         recorder.prepare (pipeline, level, sink);
 
-        start_dt = new DateTime.now_local ();
-        string tmp_filename = "reco_%s%s".printf (start_dt.to_unix ().to_string (), recorder.get_suffix ());
-        tmp_path = Path.build_filename (Environment.get_user_cache_dir (), tmp_filename);
-        sink.set ("location", tmp_path);
-        debug ("temporary saving path: %s", tmp_path);
-
-        if (is_add_metadata) {
-            unowned string real_name = Environment.get_real_name ();
+        if (meta_author != null && meta_record_dt != null) {
             // Ignore return value because failure to add metadata does not affect recording itself
-            add_metadata (pipeline, real_name, start_dt);
+            add_metadata (pipeline, meta_author, meta_record_dt);
         }
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
@@ -243,11 +235,7 @@ public class Manager.RecordManager : Object {
         pipeline.dispose ();
         is_recording = false;
 
-        var end_dt = new DateTime.now_local ();
-        string suffix = Util.get_suffix (tmp_path);
-        string default_filename = build_filename_from_datetime (start_dt, end_dt, suffix);
-
-        record_ok (tmp_path, default_filename);
+        record_ok ();
 
         return true;
     }
@@ -270,36 +258,6 @@ public class Manager.RecordManager : Object {
         current_peak = peak_arr.get_nth (0).get_double ();
 
         return true;
-    }
-
-    public async void trash_tmp_recording () throws Error {
-        // It's a bug of the caller if it tries to cleanup the tmp recording while it's still writing to it
-        assert (!is_recording);
-
-        if (!FileUtils.test (tmp_path, FileTest.EXISTS)) {
-            return;
-        }
-
-        yield trash_file (tmp_path);
-    }
-
-    public async void delete_tmp_recording () throws Error {
-        // It's a bug of the caller if it tries to cleanup the tmp recording while it's still writing to it
-        assert (!is_recording);
-
-        if (!FileUtils.test (tmp_path, FileTest.EXISTS)) {
-            return;
-        }
-
-        yield delete_file (tmp_path);
-    }
-
-    private async void trash_file (string path) throws Error {
-        yield File.new_for_path (path).trash_async ();
-    }
-
-    private async void delete_file (string path) throws Error {
-        yield File.new_for_path (path).delete_async ();
     }
 
     // Get the name of the default monitor device from the default sink name
@@ -395,30 +353,5 @@ public class Manager.RecordManager : Object {
                              Gst.Tags.DATE, date);
 
         return true;
-    }
-
-    /**
-     * Build filename using the given arguments.
-     *
-     * The filename includes start datetime and end time. It also includes end date if the date is different between
-     * start and end.
-     *
-     * e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
-     *      "2018-11-10_23:42:36 to 23:49:52.wav"
-     */
-    private string build_filename_from_datetime (DateTime start, DateTime end, string suffix) {
-        string start_format = "%Y-%m-%d_%H:%M:%S";
-        string end_format = "%Y-%m-%d_%H:%M:%S";
-
-        bool is_same_day = Util.is_same_day (start, end);
-        if (is_same_day) {
-            // Avoid redundant date
-            end_format = "%H:%M:%S";
-        }
-
-        string start_str = start.format (start_format);
-        string end_str = end.format (end_format);
-
-        return "%s to %s".printf (start_str, end_str) + suffix;
     }
 }
