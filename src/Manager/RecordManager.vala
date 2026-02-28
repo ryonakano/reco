@@ -67,7 +67,14 @@ public class Manager.RecordManager : Object {
         recorder_table[Define.FormatID.WAV] = new Model.Recorder.WAVRecorder ();
     }
 
-    public void prepare (string dst_path, Define.SourceID source, Define.ChannelID channel, Define.FormatID format, string? meta_author, DateTime? meta_record_dt) throws Error {
+    public void prepare (
+        string dst_path,
+        Define.SourceID source,
+        Define.ChannelID channel,
+        Define.FormatID format,
+        string? meta_author,
+        DateTime? meta_record_dt
+    ) throws Error {
         pipeline = new Gst.Pipeline ("pipeline");
         if (pipeline == null) {
             throw new Gst.LibraryError.INIT ("Failed to create pipeline");
@@ -107,7 +114,7 @@ public class Manager.RecordManager : Object {
             string? monitor_name = get_default_monitor_name (default_sink);
             if (monitor_name == null) {
                 throw new Gst.LibraryError.SETTINGS (
-                    "Failed to set \"device\" property of pulsesrc element \"sys_sound\": get_default_monitor_name () failed"
+                    "Failed to set \"device\" property of pulsesrc element \"sys_sound\""
                 );
             }
 
