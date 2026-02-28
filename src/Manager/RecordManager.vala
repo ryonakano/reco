@@ -152,7 +152,7 @@ public class Manager.RecordManager : Object {
             sys_sound.set ("stream-properties", pa_props);
 
             pipeline.add (sys_sound);
-            sys_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
+            sys_sound.link_pads ("src", mixer, "sink_%u");
         }
 
         Gst.Element? mic_sound = null;
@@ -176,7 +176,7 @@ public class Manager.RecordManager : Object {
             mic_sound.set ("stream-properties", pa_props);
 
             pipeline.add (mic_sound);
-            mic_sound.get_static_pad ("src").link (mixer.request_pad_simple ("sink_%u"));
+            mic_sound.link_pads ("src", mixer, "sink_%u");
         }
 
         mixer.link_filtered (level, caps_channels);
