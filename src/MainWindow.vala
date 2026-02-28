@@ -393,14 +393,14 @@ public class MainWindow : Adw.ApplicationWindow {
         var cancel_toast = new Adw.Toast (_("Recording Canceled"));
 
         try {
-            yield trash_file (recording_tmp_path);
+            yield Util.trash_file (recording_tmp_path);
 
             cancel_toast.title = _("Recording Moved to Trash");
         } catch (Error err) {
             warning ("Failed to trash tmp recording, deleting permanently instead: %s", err.message);
 
             try {
-                yield delete_file (recording_tmp_path);
+                yield Util.delete_file (recording_tmp_path);
             } catch (Error err) {
                 // Just failed to remove tmp recording so letting user know through error dialog is not necessary
                 warning ("Failed to delete tmp recording: %s", err.message);
@@ -427,22 +427,6 @@ public class MainWindow : Adw.ApplicationWindow {
             application.uninhibit (inhibit_token);
             inhibit_token = 0;
         }
-    }
-
-    private async void trash_file (string path) throws Error {
-        if (!FileUtils.test (path, FileTest.EXISTS)) {
-            return;
-        }
-
-        yield File.new_for_path (path).trash_async ();
-    }
-
-    private async void delete_file (string path) throws Error {
-        if (!FileUtils.test (path, FileTest.EXISTS)) {
-            return;
-        }
-
-        yield File.new_for_path (path).delete_async ();
     }
 
     /**

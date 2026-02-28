@@ -8,6 +8,22 @@ namespace Util {
         return Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon";
     }
 
+    public static async void trash_file (string path) throws Error {
+        if (!FileUtils.test (path, FileTest.EXISTS)) {
+            return;
+        }
+
+        yield File.new_for_path (path).trash_async ();
+    }
+
+    public static async void delete_file (string path) throws Error {
+        if (!FileUtils.test (path, FileTest.EXISTS)) {
+            return;
+        }
+
+        yield File.new_for_path (path).delete_async ();
+    }
+
     /**
      * Query path on host.
      * Note: This method requires xdg-desktop-portal >= 1.19.0 to work.
