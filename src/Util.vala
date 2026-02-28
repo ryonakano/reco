@@ -8,14 +8,20 @@ namespace Util {
         return Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon";
     }
 
-    public static string get_suffix (string path) {
-        int suffix_index = path.last_index_of_char ('.');
-        // No suffix
-        if (suffix_index == -1) {
-            return "";
+    public static async void trash_file (string path) throws Error {
+        if (!FileUtils.test (path, FileTest.EXISTS)) {
+            return;
         }
 
-        return path.substring (suffix_index);
+        yield File.new_for_path (path).trash_async ();
+    }
+
+    public static async void delete_file (string path) throws Error {
+        if (!FileUtils.test (path, FileTest.EXISTS)) {
+            return;
+        }
+
+        yield File.new_for_path (path).delete_async ();
     }
 
     /**

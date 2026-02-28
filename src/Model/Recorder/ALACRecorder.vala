@@ -5,17 +5,12 @@
 
 public class Model.Recorder.ALACRecorder : Model.Recorder.AbstractRecorder {
     private const string NAME = "ALAC";
-    private const string SUFFIX = ".m4a";
 
     public ALACRecorder () {
     }
 
     public override unowned string get_name () {
         return NAME;
-    }
-
-    public override unowned string get_suffix () {
-        return SUFFIX;
     }
 
     public override void prepare (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {

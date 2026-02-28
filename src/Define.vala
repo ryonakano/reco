@@ -48,7 +48,26 @@ namespace Define {
         MP3,
         OGG,
         OPUS,
-        WAV,
+        WAV;
+
+        public string get_suffix () {
+            switch (this) {
+                case Define.FormatID.ALAC:
+                    return ".m4a";
+                case Define.FormatID.FLAC:
+                    return ".flac";
+                case Define.FormatID.MP3:
+                    return ".mp3";
+                case Define.FormatID.OGG:
+                    return ".ogg";
+                case Define.FormatID.OPUS:
+                    return ".opus";
+                case Define.FormatID.WAV:
+                    return ".wav";
+                default:
+                    assert_not_reached ();
+            }
+        }
     }
 
     public enum ChannelID {

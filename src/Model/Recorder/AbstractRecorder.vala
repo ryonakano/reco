@@ -18,13 +18,6 @@ public abstract class Model.Recorder.AbstractRecorder : Object {
     public abstract unowned string get_name ();
 
     /**
-     * Get suffix of the file format #this handles.
-     *
-     * @return  suffix of the file format #this handles.
-     */
-    public abstract unowned string get_suffix ();
-
-    /**
      * Prepare for recording.<<BR>>
      * All elements created in this method should be added to #pipeline using {@link Gst.Bin.add}
      * and linked to #src or #dst elements appropriately using {@link Gst.Pad.link}.

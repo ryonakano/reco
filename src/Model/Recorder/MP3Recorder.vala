@@ -5,17 +5,12 @@
 
 public class Model.Recorder.MP3Recorder : Model.Recorder.AbstractRecorder {
     private const string NAME = "MP3";
-    private const string SUFFIX = ".mp3";
 
     public MP3Recorder () {
     }
 
     public override unowned string get_name () {
         return NAME;
-    }
-
-    public override unowned string get_suffix () {
-        return SUFFIX;
     }
 
     public override void prepare (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {

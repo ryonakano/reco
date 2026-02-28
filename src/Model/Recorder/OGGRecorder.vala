@@ -5,17 +5,12 @@
 
 public class Model.Recorder.OGGRecorder : Model.Recorder.AbstractRecorder {
     private const string NAME = "OGG";
-    private const string SUFFIX = ".ogg";
 
     public OGGRecorder () {
     }
 
     public override unowned string get_name () {
         return NAME;
-    }
-
-    public override unowned string get_suffix () {
-        return SUFFIX;
     }
 
     public override void prepare (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {

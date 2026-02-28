@@ -5,17 +5,12 @@
 
 public class Model.Recorder.OPUSRecorder : Model.Recorder.AbstractRecorder {
     private const string NAME = "OPUS";
-    private const string SUFFIX = ".opus";
 
     public OPUSRecorder () {
     }
 
     public override unowned string get_name () {
         return NAME;
-    }
-
-    public override unowned string get_suffix () {
-        return SUFFIX;
     }
 
     public override void prepare (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
