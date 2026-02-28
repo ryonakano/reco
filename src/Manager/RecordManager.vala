@@ -32,38 +32,38 @@ public class Manager.RecordManager : Object {
         /**
          * Initial state; not recording.
          *
-         * Use {@link prepare} to change to {@link READY} state.
+         * Use {@link Manager.RecordManager.prepare} to change to {@link READY} state.
          */
         IDLE,
 
         /**
          * Ready to start recording.
          *
-         * Use {@link start} to change to {@link RECORDING} state.
+         * Use {@link Manager.RecordManager.start} to change to {@link RECORDING} state.
          */
         READY,
 
         /**
          * Recording is ongoing.
          *
-         * Use {@link stop} to change to {@link FINALIZING} state.<<BR>>
-         * Use {@link pause} to change to {@link PAUSED} state.
+         * Use {@link Manager.RecordManager.stop} to change to {@link FINALIZING} state.<<BR>>
+         * Use {@link Manager.RecordManager.pause} to change to {@link PAUSED} state.
          */
         RECORDING,
 
         /**
          * Recording is temporary paused.
          *
-         * Use {@link stop} to change to {@link FINALIZING} state.<<BR>>
-         * Use {@link resume} to change to {@link RECORDING} state.
+         * Use {@link Manager.RecordManager.stop} to change to {@link FINALIZING} state.<<BR>>
+         * Use {@link Manager.RecordManager.resume} to change to {@link RECORDING} state.
          */
         PAUSED,
 
         /**
          * Completing recording.
          *
-         * There is no method to change from this state; {@link Manager.RecordManager} automatically change to {@link IDLE}
-         * state when recording completed.
+         * There is no method to change from this state;
+         * {@link Manager.RecordManager} automatically change to {@link IDLE} state when recording completed.
          */
         FINALIZING,
     }
