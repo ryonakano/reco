@@ -16,7 +16,7 @@ public class Manager.RecordManager : Object {
         "name", "parent", "direction", "template", "caps"
     };
 
-    public bool is_recording_progress { get; private set; default = false; }
+    public bool is_recording { get; private set; default = false; }
 
     // current sound level, taking value from 0 to 1
     public double current_peak {
@@ -208,7 +208,7 @@ public class Manager.RecordManager : Object {
             add_metadata (pipeline, real_name, start_dt);
         }
 
-        is_recording_progress = true;
+        is_recording = true;
     }
 
     public void stop () {
@@ -221,7 +221,7 @@ public class Manager.RecordManager : Object {
     public void cancel () {
         pipeline.set_state (Gst.State.NULL);
         pipeline.dispose ();
-        is_recording_progress = false;
+        is_recording = false;
     }
 
     public void pause () {
@@ -267,7 +267,7 @@ public class Manager.RecordManager : Object {
     private bool bus_message_cb_eos (Gst.Bus bus, Gst.Message message) {
         pipeline.set_state (Gst.State.NULL);
         pipeline.dispose ();
-        is_recording_progress = false;
+        is_recording = false;
 
         var end_dt = new DateTime.now_local ();
         string suffix = Util.get_suffix (tmp_path);
@@ -300,7 +300,7 @@ public class Manager.RecordManager : Object {
 
     public async void trash_tmp_recording () throws Error {
         // It's a bug of the caller if it tries to cleanup the tmp recording while it's still writing to it
-        assert (!is_recording_progress);
+        assert (!is_recording);
 
         if (!FileUtils.test (tmp_path, FileTest.EXISTS)) {
             return;
@@ -311,7 +311,7 @@ public class Manager.RecordManager : Object {
 
     public async void delete_tmp_recording () throws Error {
         // It's a bug of the caller if it tries to cleanup the tmp recording while it's still writing to it
-        assert (!is_recording_progress);
+        assert (!is_recording);
 
         if (!FileUtils.test (tmp_path, FileTest.EXISTS)) {
             return;

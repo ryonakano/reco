@@ -319,9 +319,9 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     public bool check_destroy () {
-        // Stop the recording if recording is in progress
+        // Stop ongoing recording
         // The window is destroyed in the save callback
-        if (record_manager.is_recording_progress) {
+        if (record_manager.is_recording) {
             stop_wrapper (true);
             return false;
         }
