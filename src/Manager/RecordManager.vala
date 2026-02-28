@@ -328,7 +328,7 @@ public class Manager.RecordManager : Object {
         pipeline.set_state (Gst.State.NULL);
         pipeline.dispose ();
 
-        state = RecordState.READY;
+        state = RecordState.IDLE;
 
         return true;
     }
