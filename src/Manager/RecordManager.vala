@@ -26,9 +26,61 @@ public class Manager.RecordManager : Object {
     public signal void record_ok ();
 
     /**
+     * States that {@link Manager.RecordManager} can take.
+     */
+    private enum RecordState {
+        /**
+         * Initial state; not recording.
+         *
+         * Use {@link prepare} to change to {@link READY} state.
+         */
+        IDLE,
+
+        /**
+         * Ready to start recording.
+         *
+         * Use {@link start} to change to {@link RECORDING} state.
+         */
+        READY,
+
+        /**
+         * Recording is ongoing.
+         *
+         * Use {@link stop} to change to {@link FINALIZING} state.<<BR>>
+         * Use {@link pause} to change to {@link PAUSED} state.
+         */
+        RECORDING,
+
+        /**
+         * Recording is temporary paused.
+         *
+         * Use {@link stop} to change to {@link FINALIZING} state.<<BR>>
+         * Use {@link resume} to change to {@link RECORDING} state.
+         */
+        PAUSED,
+
+        /**
+         * Completing recording.
+         *
+         * There is no method to change from this state; {@link Manager.RecordManager} automatically change to {@link IDLE}
+         * state when recording completed.
+         */
+        FINALIZING,
+    }
+
+    /**
+     * State of {@link Manager.RecordManager}.
+     */
+    private RecordState state = RecordState.IDLE;
+
+    /**
      * Whether recording is ongoing.
      */
-    public bool is_recording { get; private set; default = false; }
+    public bool is_recording {
+        get {
+            return state != RecordState.IDLE;
+        }
+    }
 
     /**
      * Current sound level, taking value from 0 to 1.
@@ -218,11 +270,20 @@ public class Manager.RecordManager : Object {
      *
      * NOTE: {@link record_err} is thrown if an error occurred while recording. Connect to that signal before calling
      * this method.
+     *
+     * @return true if succeeded, false otherwise.
      */
-    public void start () {
+    public bool start () {
+        if (state != RecordState.READY) {
+            critical ("[BUG] RecordManager.start() error: invalid state %d", state);
+            return false;
+        }
+
+        state = RecordState.RECORDING;
+
         pipeline.set_state (Gst.State.PLAYING);
 
-        is_recording = true;
+        return true;
     }
 
     /**
@@ -230,35 +291,78 @@ public class Manager.RecordManager : Object {
      *
      * NOTE: {@link record_err} is thrown if recording completed successfully. Connect to that signal before calling
      * this method.
+     *
+     * @return true if succeeded, false otherwise.
      */
-    public void stop () {
+    public bool stop () {
+        if (state != RecordState.RECORDING || state != RecordState.PAUSED) {
+            critical ("[BUG] RecordManager.stop() error: invalid state %d", state);
+            return false;
+        }
+
+        state = RecordState.FINALIZING;
+
         // Pipelines don't seem to catch events when it's in the PAUSED state
         pipeline.set_state (Gst.State.PLAYING);
 
         pipeline.send_event (new Gst.Event.eos ());
+
+        return true;
     }
 
     /**
      * Cancel recording.
+     *
+     * @return true if succeeded, false otherwise.
      */
-    public void cancel () {
+    public bool cancel () {
+        if (state != RecordState.RECORDING || state != RecordState.PAUSED) {
+            critical ("[BUG] RecordManager.cancel() error: invalid state %d", state);
+            return false;
+        }
+
         pipeline.set_state (Gst.State.NULL);
         pipeline.dispose ();
-        is_recording = false;
+
+        state = RecordState.READY;
+
+        return true;
     }
 
     /**
      * Pause recording.
+     *
+     * @return true if succeeded, false otherwise.
      */
-    public void pause () {
+    public bool pause () {
+        if (state != RecordState.RECORDING) {
+            critical ("[BUG] RecordManager.pause() error: invalid state %d", state);
+            return false;
+        }
+
         pipeline.set_state (Gst.State.PAUSED);
+
+        state = RecordState.PAUSED;
+
+        return true;
     }
 
     /**
      * Resume recording.
+     *
+     * @return true if succeeded, false otherwise.
      */
-    public void resume () {
-        start ();
+    public bool resume () {
+        if (state != RecordState.PAUSED) {
+            critical ("[BUG] RecordManager.resume() error: invalid state %d", state);
+            return false;
+        }
+
+        state = RecordState.RECORDING;
+
+        pipeline.set_state (Gst.State.PLAYING);
+
+        return true;
     }
 
     private bool bus_message_cb (Gst.Bus bus, Gst.Message message) {
@@ -279,7 +383,8 @@ public class Manager.RecordManager : Object {
     }
 
     private bool bus_message_cb_error (Gst.Bus bus, Gst.Message message) {
-        cancel ();
+        pipeline.set_state (Gst.State.NULL);
+        pipeline.dispose ();
 
         Error err;
         string debug_info;
@@ -287,6 +392,8 @@ public class Manager.RecordManager : Object {
 
         warning ("Error received from element \"%s\": err=\"%s\" debug_info=\"%s\"",
                     message.src.name, err.message, debug_info);
+
+        state = RecordState.IDLE;
 
         record_err (err, debug_info);
 
@@ -296,7 +403,8 @@ public class Manager.RecordManager : Object {
     private bool bus_message_cb_eos (Gst.Bus bus, Gst.Message message) {
         pipeline.set_state (Gst.State.NULL);
         pipeline.dispose ();
-        is_recording = false;
+
+        state = RecordState.IDLE;
 
         record_ok ();
 
