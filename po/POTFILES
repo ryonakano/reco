@@ -3,7 +3,6 @@ data/reco.metainfo.xml.in.in
 data/ui/help-overlay.blp
 src/Application.vala
 src/MainWindow.vala
-src/Manager/RecordManager.vala
 src/View/CountDownView.vala
 src/View/RecordView.vala
 src/View/WelcomeView.vala
