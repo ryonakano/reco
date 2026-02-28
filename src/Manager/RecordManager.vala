@@ -27,6 +27,8 @@ public class Manager.RecordManager : Object {
 
     /**
      * States that {@link Manager.RecordManager} can take.
+     *
+     * {{../docs/images/record_manager_state.drawio.png|machine state}}
      */
     private enum RecordState {
         /**
@@ -78,7 +80,7 @@ public class Manager.RecordManager : Object {
      */
     public bool is_recording {
         get {
-            return state != RecordState.IDLE;
+            return (state != RecordState.IDLE && state != RecordState.READY);
         }
     }
 
@@ -263,6 +265,8 @@ public class Manager.RecordManager : Object {
         }
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
+
+        state = RecordState.READY;
     }
 
     /**
@@ -275,7 +279,7 @@ public class Manager.RecordManager : Object {
      */
     public bool start () {
         if (state != RecordState.READY) {
-            critical ("[BUG] RecordManager.start() error: invalid state %d", state);
+            critical ("[BUG] invalid state %d", state);
             return false;
         }
 
@@ -296,7 +300,7 @@ public class Manager.RecordManager : Object {
      */
     public bool stop () {
         if (state != RecordState.RECORDING || state != RecordState.PAUSED) {
-            critical ("[BUG] RecordManager.stop() error: invalid state %d", state);
+            critical ("[BUG] invalid state %d", state);
             return false;
         }
 
@@ -316,8 +320,8 @@ public class Manager.RecordManager : Object {
      * @return true if succeeded, false otherwise.
      */
     public bool cancel () {
-        if (state != RecordState.RECORDING || state != RecordState.PAUSED) {
-            critical ("[BUG] RecordManager.cancel() error: invalid state %d", state);
+        if (state != RecordState.RECORDING || state != RecordState.PAUSED || state != RecordState.FINALIZING) {
+            critical ("[BUG] invalid state %d", state);
             return false;
         }
 
@@ -336,7 +340,7 @@ public class Manager.RecordManager : Object {
      */
     public bool pause () {
         if (state != RecordState.RECORDING) {
-            critical ("[BUG] RecordManager.pause() error: invalid state %d", state);
+            critical ("[BUG] invalid state %d", state);
             return false;
         }
 
@@ -354,7 +358,7 @@ public class Manager.RecordManager : Object {
      */
     public bool resume () {
         if (state != RecordState.PAUSED) {
-            critical ("[BUG] RecordManager.resume() error: invalid state %d", state);
+            critical ("[BUG] invalid state %d", state);
             return false;
         }
 
