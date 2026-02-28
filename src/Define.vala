@@ -53,17 +53,17 @@ namespace Define {
         public string get_suffix () {
             switch (this) {
                 case Define.FormatID.ALAC:
-                    return ".m4a";
+                    return "m4a";
                 case Define.FormatID.FLAC:
-                    return ".flac";
+                    return "flac";
                 case Define.FormatID.MP3:
-                    return ".mp3";
+                    return "mp3";
                 case Define.FormatID.OGG:
-                    return ".ogg";
+                    return "ogg";
                 case Define.FormatID.OPUS:
-                    return ".opus";
+                    return "opus";
                 case Define.FormatID.WAV:
-                    return ".wav";
+                    return "wav";
                 default:
                     assert_not_reached ();
             }

@@ -451,7 +451,7 @@ public class MainWindow : Adw.ApplicationWindow {
         string start_str = start.format (start_format);
         string end_str = end.format (end_format);
 
-        return "%s to %s".printf (start_str, end_str) + suffix;
+        return "%s to %s.%s".printf (start_str, end_str, suffix);
     }
 
     private void on_open_folder_activate (SimpleAction action, Variant? parameter) requires (parameter != null) {
