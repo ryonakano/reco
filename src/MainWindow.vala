@@ -22,7 +22,7 @@ public class MainWindow : Adw.ApplicationWindow {
     private Adw.ToastOverlay toast_overlay;
     private Widget.ProcessingDialog processing_dialog = null;
 
-    private static Gee.HashMap<int, string> starterr_message_table;
+    private static Gee.HashMap<int, string> prepare_errmsg_table;
 
     public MainWindow (Application app) {
         Object (
@@ -31,10 +31,10 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     static construct {
-        starterr_message_table = new Gee.HashMap<int, string> ();
-        starterr_message_table[Gst.LibraryError.INIT] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists");
-        starterr_message_table[Gst.LibraryError.SETTINGS] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one if this issue persists");
-        starterr_message_table[Gst.ResourceError.NOT_FOUND] = N_("This is possibly due to invalid or broken preferences of the app. Make sure you've set valid values and try reinstalling the app if this issue persists");
+        prepare_errmsg_table = new Gee.HashMap<int, string> ();
+        prepare_errmsg_table[Gst.LibraryError.INIT] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists");
+        prepare_errmsg_table[Gst.LibraryError.SETTINGS] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one if this issue persists");
+        prepare_errmsg_table[Gst.ResourceError.NOT_FOUND] = N_("This is possibly due to invalid or broken preferences of the app. Make sure you've set valid values and try reinstalling the app if this issue persists");
     }
 
     construct {
@@ -300,14 +300,14 @@ public class MainWindow : Adw.ApplicationWindow {
         } catch (Error err) {
             warning ("Failed to record_manager.prepare: %s", err.message);
 
-            string? secondary_text = starterr_message_table[err.code];
+            string? secondary_text = prepare_errmsg_table[err.code];
             // Errors without dedicated message
             if (secondary_text == null) {
-                secondary_text = N_("There was an unknown error while starting recording");
+                secondary_text = N_("There was an unknown error while preparing recording");
             }
 
             show_error_dialog (
-                _("Failed to Start Recording"),
+                _("Failed to Prepare Recording"),
                 _(secondary_text),
                 err.message
             );
