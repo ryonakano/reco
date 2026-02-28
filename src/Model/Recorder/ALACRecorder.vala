@@ -18,14 +18,14 @@ public class Model.Recorder.ALACRecorder : Model.Recorder.AbstractRecorder {
         return SUFFIX;
     }
 
-    public override void prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) throws Error {
+    public override void prepare (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
         var encoder = Gst.ElementFactory.make ("avenc_alac", "encoder");
         if (encoder == null) {
             throw new Gst.LibraryError.INIT ("Failed to create avenc_alac element");
         }
 
         pipeline.add (encoder);
-        mixer.link (encoder);
+        src.link (encoder);
 
         var muxer = Gst.ElementFactory.make ("mp4mux", "muxer");
         if (muxer == null) {
@@ -34,6 +34,6 @@ public class Model.Recorder.ALACRecorder : Model.Recorder.AbstractRecorder {
 
         pipeline.add (muxer);
         encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
-        muxer.link (sink);
+        muxer.link (dst);
     }
 }

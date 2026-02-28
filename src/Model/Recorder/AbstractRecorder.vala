@@ -27,12 +27,12 @@ public abstract class Model.Recorder.AbstractRecorder : Object {
     /**
      * Prepare for recording.<<BR>>
      * All elements created in this method should be added to #pipeline using {@link Gst.Bin.add}
-     * and linked to #mixer or #sink appropriately using {@link Gst.Pad.link}.
+     * and linked to #src or #dst elements appropriately using {@link Gst.Pad.link}.
      *
      * {{{
      * |-- #pipeline --------------------------------------------------------------------|
      * |           |------------|  |-----------------|                    |------------| |
-     * |  (snip) --|   #mixer   |--| format-specific |-- (snip, if any) --|   #sink    | |
+     * |  (snip) --|    #src    |--| format-specific |-- (snip, if any) --|    #dst    | |
      * |         --|            |--|     element     |--                --|            | |
      * |           |------------|  |-----------------|                    |------------| |
      * |---------------------------------------------------------------------------------|
@@ -44,10 +44,10 @@ public abstract class Model.Recorder.AbstractRecorder : Object {
      * See {@link Manager.RecordManager.add_metadata} for details.
      *
      * @param pipeline  pipeline that holds all elements necessary for recording.
-     * @param mixer     audiomixer that precedes all elements created in this method.
-     * @param sink      filesink that succeeds to all elements created in this method.
+     * @param src       an element that precedes all elements created in this method.
+     * @param dst       an element that succeeds to all elements created in this method.
      *
      * @throws Error    error while preparation
      */
-    public abstract void prepare (Gst.Pipeline pipeline, Gst.Element mixer, Gst.Element sink) throws Error;
+    public abstract void prepare (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error;
 }
