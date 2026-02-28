@@ -12,10 +12,6 @@ public class Manager.RecordManager : Object {
     public signal void record_err (Error err, string debug_info);
     public signal void record_ok (string tmp_path, string default_filename);
 
-    private const string IGNORED_PROPNAMES[] = {
-        "name", "parent", "direction", "template", "caps"
-    };
-
     public bool is_recording { get; private set; default = false; }
 
     // current sound level, taking value from 0 to 1
@@ -40,10 +36,14 @@ public class Manager.RecordManager : Object {
     }
     private double _current_peak = 0;
 
+    private const uint64 NSEC = 1000000000;
+    private const string IGNORED_PROPNAMES[] = {
+        "name", "parent", "direction", "template", "caps"
+    };
+
     private string tmp_path;
     private DateTime start_dt;
     private Gst.Pipeline pipeline;
-    private const uint64 NSEC = 1000000000;
 
     private static Gee.HashMap<Define.FormatID, Model.Recorder.AbstractRecorder> recorder_table;
 
