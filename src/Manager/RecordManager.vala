@@ -196,17 +196,17 @@ public class Manager.RecordManager : Object {
         sink.set ("location", tmp_path);
         debug ("temporary saving path: %s", tmp_path);
 
-        pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
-    }
-
-    public void start () {
-        pipeline.set_state (Gst.State.PLAYING);
-
         if (Application.settings.get_boolean ("add-metadata")) {
             unowned string real_name = Environment.get_real_name ();
             // Ignore return value because failure to add metadata does not affect recording itself
             add_metadata (pipeline, real_name, start_dt);
         }
+
+        pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
+    }
+
+    public void start () {
+        pipeline.set_state (Gst.State.PLAYING);
 
         is_recording = true;
     }
