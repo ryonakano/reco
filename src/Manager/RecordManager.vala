@@ -8,13 +8,31 @@
  * * https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.6/subprojects/gst-plugins-base/tools/gst-device-monitor.c
  */
 
+/**
+ * Manages recording.
+ */
 public class Manager.RecordManager : Object {
+    /**
+     * Emitted when a fatal internal error occurred.
+     *
+     * @param err           information about the error
+     * @param debug_info    debug message for the error
+     */
     public signal void record_err (Error err, string debug_info);
+
+    /**
+     * Emitted when recording succeeded.
+     */
     public signal void record_ok ();
 
+    /**
+     * Whether recording is ongoing.
+     */
     public bool is_recording { get; private set; default = false; }
 
-    // current sound level, taking value from 0 to 1
+    /**
+     * Current sound level, taking value from 0 to 1.
+     */
     public double current_peak {
         get {
             return _current_peak;
@@ -45,7 +63,11 @@ public class Manager.RecordManager : Object {
 
     private static Gee.HashMap<Define.FormatID, Model.Recorder.AbstractRecorder> recorder_table;
 
-    private static RecordManager _instance;
+    /**
+     * Gets a unique instance of {@link RecordManager}.
+     *
+     * @return A unique {@link RecordManager}. Do not ref or unref it
+     */
     public static unowned RecordManager get_default () {
         if (_instance == null) {
             _instance = new RecordManager ();
@@ -53,6 +75,7 @@ public class Manager.RecordManager : Object {
 
         return _instance;
     }
+    private static RecordManager _instance;
 
     private RecordManager () {
     }
@@ -67,6 +90,18 @@ public class Manager.RecordManager : Object {
         recorder_table[Define.FormatID.WAV] = new Model.Recorder.WAVRecorder ();
     }
 
+    /**
+     * Create a pipeline and add elements to it.
+     *
+     * @param dst_path          destination path where to save recording
+     * @param source            information of which type of a device records from
+     * @param channel           number of channels
+     * @param format            file format that is encoded to
+     * @param meta_author       artist name that will be set to metadata as value of "Artist". Set null for no metadata
+     * @param meta_record_dt    date & time that will be set to metadata as value of "Year". Set null for no metadata
+     *
+     * @throws Error            information about an error occurred while setup
+     */
     public void prepare (
         string dst_path,
         Define.SourceID source,
@@ -178,12 +213,24 @@ public class Manager.RecordManager : Object {
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
     }
 
+    /**
+     * Start recording.
+     *
+     * NOTE: {@link record_err} is thrown if an error occurred while recording. Connect to that signal before calling
+     * this method.
+     */
     public void start () {
         pipeline.set_state (Gst.State.PLAYING);
 
         is_recording = true;
     }
 
+    /**
+     * Stop recording.
+     *
+     * NOTE: {@link record_err} is thrown if recording completed successfully. Connect to that signal before calling
+     * this method.
+     */
     public void stop () {
         // Pipelines don't seem to catch events when it's in the PAUSED state
         pipeline.set_state (Gst.State.PLAYING);
@@ -191,16 +238,25 @@ public class Manager.RecordManager : Object {
         pipeline.send_event (new Gst.Event.eos ());
     }
 
+    /**
+     * Cancel recording.
+     */
     public void cancel () {
         pipeline.set_state (Gst.State.NULL);
         pipeline.dispose ();
         is_recording = false;
     }
 
+    /**
+     * Pause recording.
+     */
     public void pause () {
         pipeline.set_state (Gst.State.PAUSED);
     }
 
+    /**
+     * Resume recording.
+     */
     public void resume () {
         start ();
     }
