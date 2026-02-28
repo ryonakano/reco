@@ -290,8 +290,13 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     private void show_record () {
+        var source = (Define.SourceID) Application.settings.get_enum ("source");
+        var channel = (Define.ChannelID) Application.settings.get_enum ("channel");
+        var format = (Define.FormatID) Application.settings.get_enum ("format");
+        var is_add_metadata = Application.settings.get_boolean ("add-metadata");
+
         try {
-            record_manager.prepare ();
+            record_manager.prepare (source, channel, format, is_add_metadata);
         } catch (Error err) {
             warning ("Failed to record_manager.prepare: %s", err.message);
 

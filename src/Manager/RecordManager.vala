@@ -45,27 +45,7 @@ public class Manager.RecordManager : Object {
     private Gst.Pipeline pipeline;
     private const uint64 NSEC = 1000000000;
 
-    private enum SourceID {
-        MIC,
-        SYSTEM,
-        BOTH
-    }
-
-    private enum FormatID {
-        ALAC,
-        FLAC,
-        MP3,
-        OGG,
-        OPUS,
-        WAV
-    }
-
-    private static Gee.HashMap<FormatID, Model.Recorder.AbstractRecorder> recorder_table;
-
-    private enum ChannelID {
-        MONO = 1,
-        STEREO = 2
-    }
+    private static Gee.HashMap<Define.FormatID, Model.Recorder.AbstractRecorder> recorder_table;
 
     private static RecordManager _instance;
     public static unowned RecordManager get_default () {
@@ -80,16 +60,16 @@ public class Manager.RecordManager : Object {
     }
 
     static construct {
-        recorder_table = new Gee.HashMap<FormatID, Model.Recorder.AbstractRecorder> ();
-        recorder_table[FormatID.ALAC] = new Model.Recorder.ALACRecorder ();
-        recorder_table[FormatID.FLAC] = new Model.Recorder.FLACRecorder ();
-        recorder_table[FormatID.MP3] = new Model.Recorder.MP3Recorder ();
-        recorder_table[FormatID.OGG] = new Model.Recorder.OGGRecorder ();
-        recorder_table[FormatID.OPUS] = new Model.Recorder.OPUSRecorder ();
-        recorder_table[FormatID.WAV] = new Model.Recorder.WAVRecorder ();
+        recorder_table = new Gee.HashMap<Define.FormatID, Model.Recorder.AbstractRecorder> ();
+        recorder_table[Define.FormatID.ALAC] = new Model.Recorder.ALACRecorder ();
+        recorder_table[Define.FormatID.FLAC] = new Model.Recorder.FLACRecorder ();
+        recorder_table[Define.FormatID.MP3] = new Model.Recorder.MP3Recorder ();
+        recorder_table[Define.FormatID.OGG] = new Model.Recorder.OGGRecorder ();
+        recorder_table[Define.FormatID.OPUS] = new Model.Recorder.OPUSRecorder ();
+        recorder_table[Define.FormatID.WAV] = new Model.Recorder.WAVRecorder ();
     }
 
-    public void prepare () throws Error {
+    public void prepare (Define.SourceID source, Define.ChannelID channel, Define.FormatID format, bool is_add_metadata) throws Error {
         pipeline = new Gst.Pipeline ("pipeline");
         if (pipeline == null) {
             throw new Gst.LibraryError.INIT ("Failed to create pipeline");
@@ -117,10 +97,8 @@ public class Manager.RecordManager : Object {
 
         pipeline.add_many (level, mixer, sink);
 
-        SourceID source = (SourceID) Application.settings.get_enum ("source");
-
         Gst.Element? sys_sound = null;
-        if (source != SourceID.MIC) {
+        if (source != Define.SourceID.MIC) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
                 throw new Gst.LibraryError.INIT ("Failed to create pulsesrc element \"sys_sound\"");
@@ -151,7 +129,7 @@ public class Manager.RecordManager : Object {
         }
 
         Gst.Element? mic_sound = null;
-        if (source != SourceID.SYSTEM) {
+        if (source != Define.SourceID.SYSTEM) {
             var index = (int) Manager.DeviceManager.get_default ().selected_source_index;
             Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
             mic_sound = microphone.create_element ("mic_sound");
@@ -175,17 +153,13 @@ public class Manager.RecordManager : Object {
         }
 
         // Dual-channelization
-        var caps_channels = new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT,
-                                        (ChannelID) Application.settings.get_enum ("channel"));
+        var caps_channels = new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT, channel);
 
         mixer.link_filtered (level, caps_channels);
 
-        FormatID file_format = (FormatID) Application.settings.get_enum ("format");
-        var recorder = recorder_table[file_format];
+        var recorder = recorder_table[format];
         if (recorder == null) {
-            throw new Gst.ResourceError.NOT_FOUND (
-                "No handler for the given file format. file_format=%d".printf (file_format)
-            );
+            throw new Gst.ResourceError.NOT_FOUND ("No handler for the given file format. format=%d".printf (format));
         }
 
         recorder.prepare (pipeline, level, sink);
@@ -196,7 +170,7 @@ public class Manager.RecordManager : Object {
         sink.set ("location", tmp_path);
         debug ("temporary saving path: %s", tmp_path);
 
-        if (Application.settings.get_boolean ("add-metadata")) {
+        if (is_add_metadata) {
             unowned string real_name = Environment.get_real_name ();
             // Ignore return value because failure to add metadata does not affect recording itself
             add_metadata (pipeline, real_name, start_dt);

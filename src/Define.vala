@@ -35,4 +35,24 @@ namespace Define {
     namespace FileAttribute {
         public const string HOST_PATH = "xattr::document-portal.host-path";
     }
+
+    public enum SourceID {
+        MIC,
+        SYSTEM,
+        BOTH,
+    }
+
+    public enum FormatID {
+        ALAC,
+        FLAC,
+        MP3,
+        OGG,
+        OPUS,
+        WAV,
+    }
+
+    public enum ChannelID {
+        MONO = 1,
+        STEREO = 2,
+    }
 }
