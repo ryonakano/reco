@@ -8,16 +8,6 @@ namespace Util {
         return Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon";
     }
 
-    public static string get_suffix (string path) {
-        int suffix_index = path.last_index_of_char ('.');
-        // No suffix
-        if (suffix_index == -1) {
-            return "";
-        }
-
-        return path.substring (suffix_index);
-    }
-
     /**
      * Query path on host.
      * Note: This method requires xdg-desktop-portal >= 1.19.0 to work.
