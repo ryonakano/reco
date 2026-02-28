@@ -118,10 +118,6 @@ public class Manager.RecordManager : Object {
 
         pipeline.add_many (level, mixer, sink);
 
-        // Dual-channelization
-        var caps_channels = new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT,
-                                        (ChannelID) Application.settings.get_enum ("channel"));
-
         SourceID source = (SourceID) Application.settings.get_enum ("source");
 
         Gst.Element? sys_sound = null;
@@ -178,6 +174,10 @@ public class Manager.RecordManager : Object {
             pipeline.add (mic_sound);
             mic_sound.link_pads ("src", mixer, "sink_%u");
         }
+
+        // Dual-channelization
+        var caps_channels = new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT,
+                                        (ChannelID) Application.settings.get_enum ("channel"));
 
         mixer.link_filtered (level, caps_channels);
 
