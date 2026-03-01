@@ -189,29 +189,32 @@ public class Manager.RecordManager : Object {
      * @param meta_author       artist name that will be set to metadata as value of "Artist". Set null for no metadata
      * @param meta_record_dt    date & time that will be set to metadata as value of "Year". Set null for no metadata
      *
-     * @throws Error            information about an error occurred while setup
+     * @return                  true if succeeds, false otherwise.
      */
-    public void prepare (
+    public bool prepare (
         string dst_path,
         Define.SourceID source,
         Define.ChannelID channel,
         Define.FormatID format,
         string? meta_author,
         DateTime? meta_record_dt
-    ) throws Error {
+    ) {
         pipeline = new Gst.Pipeline ("pipeline");
         if (pipeline == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create pipeline");
+            critical ("Failed to create pipeline");
+            return false;
         }
 
         var level = Gst.ElementFactory.make ("level", "level");
         if (level == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create level element");
+            critical ("Failed to create level element");
+            return false;
         }
 
         var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
         if (mixer == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create audiomixer element");
+            critical ("Failed to create audiomixer element");
+            return false;
         }
 
         // Prevent audio from stuttering after some time, by setting the latency to other than 0.
@@ -221,7 +224,8 @@ public class Manager.RecordManager : Object {
 
         var sink = Gst.ElementFactory.make ("filesink", "sink");
         if (sink == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create filesink element");
+            critical ("Failed to create filesink element");
+            return false;
         }
 
         sink.set ("location", dst_path);
@@ -231,15 +235,15 @@ public class Manager.RecordManager : Object {
         if (source != Define.SourceID.MIC) {
             sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
-                throw new Gst.LibraryError.INIT ("Failed to create pulsesrc element \"sys_sound\"");
+                critical ("Failed to create pulsesrc element \"sys_sound\"");
+                return false;
             }
 
             Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
             string? monitor_name = get_default_monitor_name (default_sink);
             if (monitor_name == null) {
-                throw new Gst.LibraryError.SETTINGS (
-                    "Failed to set \"device\" property of pulsesrc element \"sys_sound\""
-                );
+                critical ("Failed to set \"device\" property of pulsesrc element \"sys_sound\"");
+                return false;
             }
 
             sys_sound.set ("device", monitor_name);
@@ -264,7 +268,8 @@ public class Manager.RecordManager : Object {
             Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
             mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
-                throw new Gst.LibraryError.INIT ("Failed to create pulsesrc element \"mic_sound\"");
+                critical ("Failed to create pulsesrc element \"mic_sound\"");
+                return false;
             }
 
             debug ("sound source (microphone): \"%s\"", microphone.display_name);
@@ -289,12 +294,14 @@ public class Manager.RecordManager : Object {
 
         unowned var prepare_fmt = prepare_fmt_table[format];
         if (prepare_fmt == null) {
-            throw new Gst.ResourceError.NOT_FOUND ("No handler for the given file format. format=%d".printf (format));
+            critical ("No handler for the given file format. format=%d".printf (format));
+            return false;
         }
 
         bool ret = prepare_fmt (pipeline, level, sink);
         if (!ret) {
-            throw new Gst.LibraryError.INIT ("Failed to prepare for the given file format. format=%d".printf (format));
+            critical ("Failed to prepare for the given file format. format=%d".printf (format));
+            return false;
         }
 
         if (meta_author != null && meta_record_dt != null) {
@@ -305,6 +312,8 @@ public class Manager.RecordManager : Object {
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
 
         state = RecordState.READY;
+
+        return true;
     }
 
     private static bool prepare_alac (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {

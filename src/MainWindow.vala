@@ -24,19 +24,10 @@ public class MainWindow : Adw.ApplicationWindow {
     private Adw.ToastOverlay toast_overlay;
     private Widget.ProcessingDialog processing_dialog = null;
 
-    private static Gee.HashMap<int, string> prepare_errmsg_table;
-
     public MainWindow (Application app) {
         Object (
             application: app
         );
-    }
-
-    static construct {
-        prepare_errmsg_table = new Gee.HashMap<int, string> ();
-        prepare_errmsg_table[Gst.LibraryError.INIT] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists");
-        prepare_errmsg_table[Gst.LibraryError.SETTINGS] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one if this issue persists");
-        prepare_errmsg_table[Gst.ResourceError.NOT_FOUND] = N_("This is possibly due to invalid or broken preferences of the app. Make sure you've set valid values and try reinstalling the app if this issue persists");
     }
 
     construct {
@@ -314,21 +305,11 @@ public class MainWindow : Adw.ApplicationWindow {
             meta_record_dt = start_dt;
         }
 
-        try {
-            record_manager.prepare (recording_tmp_path, source, channel, format, meta_author, meta_record_dt);
-        } catch (Error err) {
-            warning ("Failed to record_manager.prepare: %s", err.message);
-
-            string? secondary_text = prepare_errmsg_table[err.code];
-            // Errors without dedicated message
-            if (secondary_text == null) {
-                secondary_text = N_("There was an unknown error while preparing recording");
-            }
-
+        bool ret = record_manager.prepare (recording_tmp_path, source, channel, format, meta_author, meta_record_dt);
+        if (!ret) {
             show_error_dialog (
                 _("Failed to Prepare Recording"),
-                _(secondary_text),
-                err.message
+                _("This is possibly due to missing codecs, incomplete installation of the app, or missing sound input/output devices. Make sure you've installed necessary components correctlly and connected sound devices")
             );
 
             return;
@@ -473,7 +454,7 @@ public class MainWindow : Adw.ApplicationWindow {
         });
     }
 
-    private void show_error_dialog (string primary_text, string secondary_text, string detailed_text) {
+    private void show_error_dialog (string primary_text, string secondary_text, string? detailed_text = null) {
         if (Util.is_on_pantheon ()) {
 #if USE_GRANITE
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
@@ -484,14 +465,21 @@ public class MainWindow : Adw.ApplicationWindow {
                 transient_for = this,
                 modal = true,
             };
-            error_dialog.show_error_details (detailed_text);
+
+            if (detailed_text != null) {
+                error_dialog.show_error_details (detailed_text);
+            }
+
             error_dialog.response.connect (() => {
                 error_dialog.destroy ();
             });
             error_dialog.present ();
 #endif
         } else {
-            string body_text = "%s\n\n%s".printf (secondary_text, detailed_text);
+            string body_text = secondary_text;
+            if (detailed_text != null) {
+                body_text = "%s\n\n%s".printf (secondary_text, detailed_text);
+            }
 
             var error_dialog = new Adw.AlertDialog (primary_text, body_text) {
                 default_response = Define.ErrorDialogResponseID.CLOSE,
