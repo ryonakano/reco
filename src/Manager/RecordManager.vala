@@ -278,8 +278,8 @@ public class Manager.RecordManager : Object {
      *
      * This changes state of ``this`` from Ready to Recording if succeeds.
      *
-     * Note: {@link record_err} is thrown if an error occurred while recording.
-     * Connect to it before calling this method.
+     * Note: {@link record_err} is thrown if an error occurred while recording. Connect to it before calling
+     * this method.
      *
      * @return true if succeeds, false otherwise.
      */
@@ -303,8 +303,8 @@ public class Manager.RecordManager : Object {
      *
      * Note: This method just send an end-of-stream event to an internal pipeline; the return value does not indicate
      * whether the pipeline handles the event successfully.<<BR>>
-     * Instead, {@link record_err} is thrown if recording completed successfully.
-     * Connect to it before calling this method.
+     * Instead, {@link record_err} is thrown if recording completed successfully. Connect to it before calling
+     * this method.
      *
      * @return true if succeeds, false otherwise.
      */
