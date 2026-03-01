@@ -231,9 +231,8 @@ public class Manager.RecordManager : Object {
         sink.set ("location", dst_path);
         pipeline.add_many (level, mixer, sink);
 
-        Gst.Element? sys_sound = null;
         if (source != Define.SourceID.MIC) {
-            sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
+            var sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
                 critical ("Failed to create pulsesrc element \"sys_sound\"");
                 return false;
@@ -262,11 +261,10 @@ public class Manager.RecordManager : Object {
             sys_sound.link_pads ("src", mixer, "sink_%u");
         }
 
-        Gst.Element? mic_sound = null;
         if (source != Define.SourceID.SYSTEM) {
             var index = (int) Manager.DeviceManager.get_default ().selected_source_index;
             Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
-            mic_sound = microphone.create_element ("mic_sound");
+            Gst.Element mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
                 critical ("Failed to create pulsesrc element \"mic_sound\"");
                 return false;
