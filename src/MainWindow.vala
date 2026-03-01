@@ -133,11 +133,15 @@ public class MainWindow : Adw.ApplicationWindow {
         });
 
         record_manager.record_err.connect ((err, debug_info) => {
+            record_view.refresh_end ();
+
             show_error_dialog (
                 _("Unable to Continue Recording"),
                 _("There was an internal error while recording"),
                 "%s\n%s".printf (err.message, debug_info)
             );
+
+            show_welcome ();
         });
 
         record_manager.record_ok.connect (save_file_wrapper);
@@ -471,6 +475,16 @@ public class MainWindow : Adw.ApplicationWindow {
         });
     }
 
+    /**
+     * Present an error dialog
+     *
+     * This uses {@link Granite.MessageDialog} on Pantheon if the app build with Granite,
+     * otherwise it uses {@link Adw.AlertDialog}
+     *
+     * @param primary_text      the title of the dialog
+     * @param secondary_text    the body of the dialog
+     * @param detailed_text     the detailed error message to display if any
+     */
     private void show_error_dialog (string primary_text, string secondary_text, string? detailed_text = null) {
         if (Util.is_on_pantheon ()) {
 #if USE_GRANITE
@@ -508,8 +522,5 @@ public class MainWindow : Adw.ApplicationWindow {
             });
             error_dialog.present (this);
         }
-
-        record_view.refresh_end ();
-        show_welcome ();
     }
 }
