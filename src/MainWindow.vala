@@ -342,6 +342,7 @@ public class MainWindow : Adw.ApplicationWindow {
         if (!can_destroy) {
             // RecordManager is shutting down so we can't destroy MainWindow now
 
+            record_view.refresh_end ();
             present_processing_dialog ();
 
             // Let MainWindow destroyed in the save callback
