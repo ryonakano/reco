@@ -197,26 +197,26 @@ public class View.RecordView : AbstractView {
 
     private string uptimer_strfunc (TimeSpan time_usec) {
         TimeSpan remain = time_usec;
-        var time = TimerTime ();
 
-        time.hours = remain / TimeSpan.HOUR;
+        TimeSpan hours = remain / TimeSpan.HOUR;
         remain %= TimeSpan.HOUR;
-        time.minutes = remain / TimeSpan.MINUTE;
-        remain %= TimeSpan.MINUTE;
-        time.seconds = remain / TimeSpan.SECOND;
 
-        return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT + ":%02" + int64.FORMAT)
-            .printf (time.hours, time.minutes, time.seconds);
+        TimeSpan minutes = remain / TimeSpan.MINUTE;
+        remain %= TimeSpan.MINUTE;
+
+        TimeSpan seconds = remain / TimeSpan.SECOND;
+
+        return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT + ":%02" + int64.FORMAT).printf (hours, minutes, seconds);
     }
 
     private string downtimer_strfunc (TimeSpan time_usec) {
         TimeSpan remain = time_usec;
-        var time = TimerTime ();
 
-        time.minutes = remain / TimeSpan.MINUTE;
+        TimeSpan minutes = remain / TimeSpan.MINUTE;
         remain %= TimeSpan.MINUTE;
-        time.seconds = remain / TimeSpan.SECOND;
 
-        return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT).printf (time.minutes, time.seconds);
+        TimeSpan seconds = remain / TimeSpan.SECOND;
+
+        return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT).printf (minutes, seconds);
     }
 }

@@ -101,12 +101,9 @@ public class View.CountDownView : AbstractView {
     }
 
     private string delaytimer_strfunc (TimeSpan time_usec) {
-        TimeSpan remain = time_usec;
-        var time = TimerTime ();
+        TimeSpan seconds = time_usec / TimeSpan.SECOND;
 
-        time.seconds = remain / TimeSpan.SECOND;
-
-        return ("%" + int64.FORMAT).printf (time.seconds);
+        return ("%" + int64.FORMAT).printf (seconds);
     }
 
     private void pause_button_set_pause () {
