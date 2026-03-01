@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2025 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 namespace Util {
@@ -8,14 +8,42 @@ namespace Util {
         return Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon";
     }
 
-    public static string get_suffix (string path) {
-        int suffix_index = path.last_index_of_char ('.');
-        // No suffix
-        if (suffix_index == -1) {
-            return "";
+    public static async void trash_file (string path) throws Error {
+        if (!FileUtils.test (path, FileTest.EXISTS)) {
+            return;
         }
 
-        return path.substring (suffix_index);
+        yield File.new_for_path (path).trash_async ();
+    }
+
+    public static async void delete_file (string path) throws Error {
+        if (!FileUtils.test (path, FileTest.EXISTS)) {
+            return;
+        }
+
+        yield File.new_for_path (path).delete_async ();
+    }
+
+    /**
+     * Query path on host.
+     * Note: This method requires xdg-desktop-portal >= 1.19.0 to work.
+     *
+     * @param sandbox_path  Path inside sandbox
+     *
+     * @return              Path inside sandbox if succeed, null otherwise
+     */
+    public static string? query_host_path (string sandbox_path) {
+        File file = File.new_for_path (sandbox_path);
+
+        FileInfo info;
+        try {
+            info = file.query_info (Define.FileAttribute.HOST_PATH, FileQueryInfoFlags.NONE);
+        } catch (Error err) {
+            warning ("Failed to query host path of \"%s\": %s", sandbox_path, err.message);
+            return null;
+        }
+
+        return info.get_attribute_as_string (Define.FileAttribute.HOST_PATH);
     }
 
     public static bool is_same_day (DateTime a, DateTime b) {
@@ -42,6 +70,23 @@ namespace Util {
         }
 
         return true;
+    }
+
+    public static Date dt2date (DateTime dt) {
+        int year;
+        int month;
+        int day;
+
+        dt.get_ymd (out year, out month, out day);
+
+        // Declare a new Date struct and then use set_*() methods because binding for g_date_new_dmy() is not available.
+        // See also: https://gitlab.gnome.org/GNOME/vala/-/issues/1327
+        var date = Date ();
+        date.set_day ((DateDay) day);
+        date.set_month ((DateMonth) month);
+        date.set_year ((DateYear) year);
+
+        return date;
     }
 
     public static Adw.ColorScheme to_adw_scheme (string str_scheme) {

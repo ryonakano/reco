@@ -1,5 +1,5 @@
 # Lithuanian translations for com.github.ryonakano.reco.
-# Copyright (C) 2018-2025 Ryo Nakano
+# Copyright (C) 2018-2026 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
 # Moo, 2019.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-01 12:24+0900\n"
+"POT-Creation-Date: 2026-02-23 11:24+0000\n"
 "PO-Revision-Date: 2024-05-03 10:45+0000\n"
 "Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/rosp/reco/lt/"
@@ -20,43 +20,15 @@ msgstr ""
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.5.3\n"
 
-#: data/ui/help-overlay.blp:10
-msgctxt "shortcut window"
-msgid "General"
-msgstr ""
-
-#: data/ui/help-overlay.blp:13
-msgctxt "shortcut window"
-msgid "Keyboard Shortcuts"
-msgstr ""
-
-#: data/ui/help-overlay.blp:18
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr ""
-
-#: data/ui/help-overlay.blp:24
-#, fuzzy
-msgctxt "shortcut window"
-msgid "Recording"
-msgstr "Garso rašytuvo programa"
-
-#: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgid "Start recording"
-msgctxt "shortcut window"
-msgid "Start/Stop recording"
-msgstr "Pradėti įrašinėjimą"
-
-#: data/reco.desktop.in.in:2
+#: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
 msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in.in:3
+#: data/reco.desktop.in.in:4
 msgid "Audio Recording App"
 msgstr "Garso rašytuvo programa"
 
-#: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
+#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
 #, fuzzy
 msgid "Focus on recording"
 msgstr "Nustatytos trukmės įrašinėjimas"
@@ -120,6 +92,34 @@ msgstr ""
 msgid "Recording view"
 msgstr "Garso rašytuvo programa"
 
+#: data/ui/help-overlay.blp:10
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/ui/help-overlay.blp:13
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: data/ui/help-overlay.blp:18
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/ui/help-overlay.blp:24
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Recording"
+msgstr "Garso rašytuvo programa"
+
+#: data/ui/help-overlay.blp:27
+#, fuzzy
+#| msgid "Start recording"
+msgctxt "shortcut window"
+msgid "Start/Stop Recording"
+msgstr "Pradėti įrašinėjimą"
+
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
 #. e.g.:
@@ -130,246 +130,292 @@ msgstr "Garso rašytuvo programa"
 msgid "translator-credits"
 msgstr ""
 
-#: src/MainWindow.vala:25
+#: src/MainWindow.vala:27
 msgid ""
 "This is possibly due to missing codecs or incomplete installation of the "
 "app. Make sure you've installed them and try reinstalling them if this issue "
-"persists."
+"persists"
 msgstr ""
 
-#: src/MainWindow.vala:26
+#: src/MainWindow.vala:28
 msgid ""
 "This is possibly due to missing sound input or output devices. Make sure "
-"you've connected one and try using another one if this issue persists."
-msgstr ""
-
-#: src/MainWindow.vala:38
-msgid "S_ystem"
-msgstr ""
-
-#: src/MainWindow.vala:39
-msgid "_Light"
+"you've connected one and try using another one if this issue persists"
 msgstr ""
 
 #: src/MainWindow.vala:40
+msgid "S_ystem"
+msgstr ""
+
+#: src/MainWindow.vala:41
+msgid "_Light"
+msgstr ""
+
+#: src/MainWindow.vala:42
 msgid "_Dark"
 msgstr ""
 
-#: src/MainWindow.vala:43
+#: src/MainWindow.vala:45
 msgid "_Style"
 msgstr ""
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:46
 msgid "_Keyboard Shortcuts"
 msgstr ""
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:48
+#: src/MainWindow.vala:50
 #, c-format
 msgid "_About %s"
 msgstr ""
 
-#: src/MainWindow.vala:52
+#: src/MainWindow.vala:54
 msgid "Main Menu"
 msgstr ""
 
-#: src/MainWindow.vala:121
+#: src/MainWindow.vala:128
 #, fuzzy
-msgid "Error while recording"
+msgid "Failed to Complete Recording"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/MainWindow.vala:122
-msgid "There was an error while recording."
-msgstr ""
-
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:129
 #, fuzzy
-msgid "Failed to save recording"
+msgid "There was an error while recording"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/MainWindow.vala:149
-msgid "There was an error while moving file to the designated location."
+#: src/MainWindow.vala:144
+#, fuzzy
+msgid "Recording Saved"
+msgstr "Garso rašytuvo programa"
+
+#: src/MainWindow.vala:145
+msgid "Open Folder"
 msgstr ""
 
-#: src/MainWindow.vala:158
+#: src/MainWindow.vala:186 src/MainWindow.vala:206
 #, fuzzy
-msgid "Saved recording"
+msgid "Failed to Save Recording"
+msgstr "Pradėti įrašinėjimą"
+
+#: src/MainWindow.vala:187
+#, c-format
+msgid ""
+"There was an error while asking for final path where to move the temporary "
+"recording file \"%s\""
+msgstr ""
+
+#: src/MainWindow.vala:207
+#, c-format
+msgid ""
+"There was an error while moving the temporary recording file \"%s\" to \"%s\""
+msgstr ""
+
+#: src/MainWindow.vala:230
+#, fuzzy
+msgid "Save Recording"
 msgstr "Išsaugokite savo įrašinėjimą"
 
-#: src/MainWindow.vala:162
-msgid "Recording saved successfully."
+#: src/MainWindow.vala:280
+msgid "There was an unknown error while starting recording"
 msgstr ""
 
-#: src/MainWindow.vala:164
-msgid "Click here to play."
-msgstr ""
-
-#: src/MainWindow.vala:167
-msgid "Open folder"
-msgstr ""
-
-#: src/MainWindow.vala:221
-msgid "Save your recording"
-msgstr "Išsaugokite savo įrašinėjimą"
-
-#: src/MainWindow.vala:222
-msgid "Save"
-msgstr "Išsaugoti"
-
-#: src/MainWindow.vala:262
-msgid "There was an unknown error while starting recording."
-msgstr ""
-
-#: src/MainWindow.vala:266
+#: src/MainWindow.vala:284
 #, fuzzy
-msgid "Failed to start recording"
+msgid "Failed to Start Recording"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/MainWindow.vala:323
+#: src/MainWindow.vala:343
+#, fuzzy
+msgid "Recording Canceled"
+msgstr "Garso rašytuvo programa"
+
+#: src/MainWindow.vala:348
+#, fuzzy
+msgid "Recording Moved to Trash"
+msgstr "Garso rašytuvo programa"
+
+#: src/MainWindow.vala:383
 msgid "Details:"
 msgstr ""
 
-#: src/Model/Recorder.vala:321
+#: src/Manager/RecordManager.vala:337
 #, fuzzy
 msgid "Recording is ongoing"
 msgstr "Įrašinėjimai"
 
 #: src/View/CountDownView.vala:37
 #, fuzzy
-msgid "Cancel the countdown"
+msgid "Cancel Countdown"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/View/CountDownView.vala:113
+#: src/View/CountDownView.vala:121
 #, fuzzy
-msgid "Pause the countdown"
+msgid "Pause Countdown"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/View/CountDownView.vala:118
+#: src/View/CountDownView.vala:126
 #, fuzzy
-msgid "Resume the countdown"
+msgid "Resume Countdown"
 msgstr "Įrašinėjimas"
 
-#: src/View/RecordView.vala:51
+#: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
 #, fuzzy
-msgid "Cancel recording"
+msgid "Cancel Recording"
 msgstr "Pradėti įrašinėjimą"
 
 #: src/View/RecordView.vala:58
 #, fuzzy
-msgid "Finish recording"
+msgid "Finish Recording"
 msgstr "Stabdyti įrašinėjimą"
 
-#: src/View/RecordView.vala:181
+#: src/View/RecordView.vala:188
 #, fuzzy
-msgid "Resume recording"
+msgid "Resume Recording"
 msgstr "Įrašinėjimas"
 
-#: src/View/RecordView.vala:193
+#: src/View/RecordView.vala:200
 #, fuzzy
-msgid "Pause recording"
+msgid "Pause Recording"
 msgstr "Pradėti įrašinėjimą"
 
-#: src/View/WelcomeView.vala:27
+#. TRANSLATORS: This is the label of a button that shows a file dialog to select a folder
+#. where the app saves recodings automatically
+#: src/View/WelcomeView.vala:11
+#, fuzzy
+msgid "Destination…"
+msgstr "Pasirinkite numatytąją vietą"
+
+#: src/View/WelcomeView.vala:28
 msgid "Source"
 msgstr ""
 
-#: src/View/WelcomeView.vala:32
+#: src/View/WelcomeView.vala:33
 #, fuzzy
 msgid "Record from:"
 msgstr "Įrašinėjimas iš %s"
 
-#: src/View/WelcomeView.vala:38
+#: src/View/WelcomeView.vala:39
 msgid "Microphone"
 msgstr ""
 
-#: src/View/WelcomeView.vala:39
+#: src/View/WelcomeView.vala:40
 msgid "System"
 msgstr ""
 
-#: src/View/WelcomeView.vala:40
+#: src/View/WelcomeView.vala:41
 msgid "Both"
 msgstr ""
 
-#: src/View/WelcomeView.vala:42
+#: src/View/WelcomeView.vala:43
 msgid "Microphone:"
 msgstr ""
 
-#: src/View/WelcomeView.vala:52
+#: src/View/WelcomeView.vala:53
 msgid "Channels:"
 msgstr ""
 
-#: src/View/WelcomeView.vala:58
+#: src/View/WelcomeView.vala:59
 msgid "Mono"
 msgstr ""
 
-#: src/View/WelcomeView.vala:59
+#: src/View/WelcomeView.vala:60
 msgid "Stereo"
 msgstr ""
 
-#: src/View/WelcomeView.vala:61
+#: src/View/WelcomeView.vala:62
 msgid "Timer"
 msgstr ""
 
-#: src/View/WelcomeView.vala:66
+#: src/View/WelcomeView.vala:67
 msgid "Delay in seconds:"
 msgstr "Delsa sekundėmis:"
 
-#: src/View/WelcomeView.vala:73
+#: src/View/WelcomeView.vala:74
 msgid "Length in seconds:"
 msgstr "Trukmė sekundėmis:"
 
-#: src/View/WelcomeView.vala:84
+#: src/View/WelcomeView.vala:85
 msgid "Saving"
 msgstr "Išsaugojimas"
 
-#: src/View/WelcomeView.vala:89
+#: src/View/WelcomeView.vala:90
 msgid "Format:"
 msgstr "Formatas:"
 
-#: src/View/WelcomeView.vala:96
+#: src/View/WelcomeView.vala:97
 msgid "ALAC"
 msgstr ""
 
-#: src/View/WelcomeView.vala:97
+#: src/View/WelcomeView.vala:98
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:98
+#: src/View/WelcomeView.vala:99
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:99
+#: src/View/WelcomeView.vala:100
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:100
+#: src/View/WelcomeView.vala:101
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:101
+#: src/View/WelcomeView.vala:102
 msgid "WAV"
 msgstr ""
 
-#: src/View/WelcomeView.vala:103
+#: src/View/WelcomeView.vala:104
+msgid "Add metadata:"
+msgstr ""
+
+#: src/View/WelcomeView.vala:112
+msgid "Add record year and your real name in recording files"
+msgstr ""
+
+#: src/View/WelcomeView.vala:119
 msgid "Automatically save files:"
 msgstr "Automatiškai išsaugoti failus:"
 
-#: src/View/WelcomeView.vala:113 src/View/WelcomeView.vala:242
+#: src/View/WelcomeView.vala:130 src/View/WelcomeView.vala:133
 #, fuzzy
-msgid "Select destination…"
+msgid "Select AutoSave Destination"
 msgstr "Pasirinkite numatytąją vietą"
 
-#: src/View/WelcomeView.vala:114 src/View/WelcomeView.vala:118
-msgid "Choose a default destination"
-msgstr "Pasirinkite numatytąją vietą"
+#: src/View/WelcomeView.vala:171
+#, fuzzy
+#| msgid "Start recording"
+msgid "Start Recording"
+msgstr "Pradėti įrašinėjimą"
 
-#: src/View/WelcomeView.vala:115
-msgid "Select"
+#: src/Widget/ProcessingDialog.vala:35
+#, fuzzy
+#| msgid "Saving"
+msgid "Saving…"
+msgstr "Išsaugojimas"
+
+#: src/Widget/ProcessingDialog.vala:40
+msgid "Problems?"
 msgstr ""
 
-#: src/View/WelcomeView.vala:153
-msgid "Start recording"
+#: src/Widget/ProcessingDialog.vala:40
+msgid "Just hang on until the file dialog appears"
+msgstr ""
+
+#: src/Widget/ProcessingDialog.vala:78
+#, fuzzy
+msgid "Canceling…"
 msgstr "Pradėti įrašinėjimą"
+
+#~ msgid "Save your recording"
+#~ msgstr "Išsaugokite savo įrašinėjimą"
+
+#~ msgid "Choose a default destination"
+#~ msgstr "Pasirinkite numatytąją vietą"
+
+#~ msgid "Save"
+#~ msgstr "Išsaugoti"
 
 #, c-format
 #~ msgid "Recording from %s"

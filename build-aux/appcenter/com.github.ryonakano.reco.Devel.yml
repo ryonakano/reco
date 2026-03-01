@@ -7,21 +7,54 @@ finish-args:
   - --share=ipc
   - --socket=wayland
   - --socket=fallback-x11
+  - --device=dri
   - --socket=pulseaudio
   - --env=GST_PLUGIN_PATH_1_0=/app/lib/gstreamer-1.0
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /share/vala
 build-options:
   libdir: /app/lib
 modules:
   - name: live-chart
     buildsystem: meson
     sources:
-      - type: git
-        url: https://github.com/lcallarec/live-chart.git
-        tag: 1.10.0
-        commit: 41e5803e61162d80a06974eebc67a511cc22e83d
+      - type: archive
+        url: https://github.com/lcallarec/live-chart/archive/1.10.0.tar.gz
+        sha256: 3f54c7569cc2a4711b5689038055aefc4321636f3e6dd4945e4be204bc9d4843
         x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
+          type: json
+          url: https://api.github.com/repos/lcallarec/live-chart/releases/latest
+          version-query: .tag_name
+          url-query: '"https://github.com/lcallarec/live-chart/archive/" + .tag_name + ".tar.gz"'
+          timestamp-query: .published_at
+
+  - name: gst-plugins-good
+    buildsystem: meson
+    config-opts:
+      # Enable id3v2mux support
+      - -Dtaglib=enabled
+    sources:
+      - type: archive
+        # we need to use the same version with gstreamer included in the sdk
+        url: https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.24.12.tar.xz
+        sha256: d0e66e2f935d1575f6adbef7d0a2b3faba7360344383c51bf0233b39e0489a64
+    modules:
+      - name: taglib
+        buildsystem: cmake-ninja
+        config-opts:
+          - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+        sources:
+          - type: archive
+            url: https://github.com/taglib/taglib/releases/download/v2.2/taglib-2.2.tar.gz
+            sha256: c89e7ebd450535e77c9230fac3985fcdce7bee05e06c9cd0bc36d50184e9c9dd
+            x-checker-data:
+              type: json
+              url: https://api.github.com/repos/taglib/taglib/releases/latest
+              version-query: .tag_name | sub("v"; "")
+              url-query: .assets[] | select(.name=="taglib-" + $version + ".tar.gz") | .browser_download_url
+              timestamp-query: .published_at
 
   - name: gst-libav
     buildsystem: meson
@@ -36,13 +69,15 @@ modules:
   - name: ryokucha
     buildsystem: meson
     sources:
-      - type: git
-        url: https://github.com/ryonakano/ryokucha.git
-        tag: 0.3.1
-        commit: 781f43d5c539bfe77c72fbaa32fc589a02b03c40
+      - type: archive
+        url: https://github.com/ryonakano/ryokucha/archive/0.4.0.tar.gz
+        sha256: b7bebd8caba5b33714958f6014f3bfedfbb3b5d92b0f046c0b0ab1a8fde0bcc2
         x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
+          type: json
+          url: https://api.github.com/repos/ryonakano/ryokucha/releases/latest
+          version-query: .tag_name
+          url-query: '"https://github.com/ryonakano/ryokucha/archive/" + .tag_name + ".tar.gz"'
+          timestamp-query: .published_at
 
   - name: blueprint-compiler
     buildsystem: meson
@@ -51,8 +86,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/blueprint-compiler.git
-        tag: 0.18.0
-        commit: 07c9c9df9cd1b6b4454ecba21ee58211e9144a4b
+        tag: 0.19.0
+        commit: de8e15f7791bd6243279cef1efc27edf4cb93674
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018-2025 Ryo Nakano -->
+<!-- Copyright 2018-2026 Ryo Nakano -->
 <component type="desktop-application">
   <id>@APP_ID@</id>
   <launchable type="desktop-id">@APP_ID@.desktop</launchable>
@@ -27,12 +27,12 @@
   <screenshots>
     <screenshot type="default">
       <caption>Welcome view; perform recording configuration</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/@VERSION@/data/screenshots/@DE@/welcome-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/@APP_REVISION@/data/screenshots/@DE@/welcome-light.png</image>
     </screenshot>
 
     <screenshot>
       <caption>Recording view</caption>
-      <image>https://raw.githubusercontent.com/ryonakano/reco/@VERSION@/data/screenshots/@DE@/recording-light.png</image>
+      <image>https://raw.githubusercontent.com/ryonakano/reco/@APP_REVISION@/data/screenshots/@DE@/recording-light.png</image>
     </screenshot>
   </screenshots>
 
@@ -47,7 +47,15 @@
   <supports>
     <control>pointing</control>
     <control>keyboard</control>
+    <control>touch</control>
   </supports>
+
+  <recommends>
+    <!-- taken from MainWindow.default_width -->
+    <display_length side="shortest" compare="ge">360</display_length>
+    <!-- taken from MainWindow.default_height -->
+    <display_length side="longest" compare="ge">680</display_length>
+  </recommends>
 
   <url type="homepage">https://github.com/ryonakano/reco</url>
   <url type="bugtracker">https://github.com/ryonakano/reco/issues</url>
@@ -62,6 +70,19 @@
   </developer>
 
   <releases>
+    <release version="5.1.1" date="2025-10-12" urgency="low">
+      <description translate="no">
+        <ul>
+          <li>Focus to pause button by default to avoid unintentional cancel</li>
+          <li>Show a toast, generic design, instead of changing appearance of the record button when recording succeeded</li>
+          <li>App name and icon are now displayed correctly in monitoring apps e.g. pavucontrol or gnome-system-monitor</li>
+          <li>Flatpak: Update to GNOME platform 49</li>
+          <li>Flatpak: Update blueprint-compiler to 0.18.0</li>
+          <li>Update translations</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="5.1.0" date="2025-05-01" urgency="medium">
       <description translate="no">
         <p>

@@ -1,3 +1,4 @@
+option('doc', type: 'boolean', value: false, description: 'Whether to generate valadoc')
 option('use_submodule', type: 'boolean', value: true, description: 'Whether to build using git submodule')
 option('granite', type: 'feature', value: 'disabled', description: 'Enable elementary OS integration. Requires Granite')
 option('development', type: 'boolean', value: false, description: 'If this is a development build')

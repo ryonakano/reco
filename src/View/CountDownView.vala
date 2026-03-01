@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2025 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 public class View.CountDownView : AbstractView {
@@ -24,17 +24,15 @@ public class View.CountDownView : AbstractView {
         delay_remaining_label = new Gtk.Label (null);
         delay_remaining_label.add_css_class ("title-2");
 
-        var label_grid = new Gtk.Grid () {
-            column_spacing = 6,
-            row_spacing = 6,
+        var content_area = new Gtk.Box (Gtk.Orientation.VERTICAL, 6) {
             halign = Gtk.Align.CENTER,
-            vexpand = true
+            vexpand = true,
         };
-        label_grid.attach (delay_remaining_label, 0, 1, 1, 1);
+        content_area.append (delay_remaining_label);
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
-            tooltip_text = _("Cancel the countdown"),
+            tooltip_text = _("Cancel Countdown"),
             halign = Gtk.Align.START
         };
         cancel_button.add_css_class ("borderless-button");
@@ -44,17 +42,12 @@ public class View.CountDownView : AbstractView {
         };
         pause_button.add_css_class ("borderless-button");
 
-        var buttons_grid = new Gtk.Grid () {
-            column_spacing = 30,
-            row_spacing = 6,
-            margin_top = 12,
-            halign = Gtk.Align.CENTER
-        };
-        buttons_grid.attach (cancel_button, 0, 0, 1, 1);
-        buttons_grid.attach (pause_button, 1, 0, 1, 1);
+        var control_bar = new Widget.ControlBar ();
+        control_bar.append (cancel_button);
+        control_bar.append (pause_button);
 
-        append (label_grid);
-        append (buttons_grid);
+        append (content_area);
+        append (control_bar);
 
         delaytimer.ticked.connect (() => {
             delay_remaining_label.label = delaytimer.to_string ();
@@ -118,11 +111,11 @@ public class View.CountDownView : AbstractView {
 
     private void pause_button_set_pause () {
         pause_button.icon_name = "media-playback-pause-symbolic";
-        pause_button.tooltip_text = _("Pause the countdown");
+        pause_button.tooltip_text = _("Pause Countdown");
     }
 
     private void pause_button_set_resume () {
         pause_button.icon_name = "media-playback-start-symbolic";
-        pause_button.tooltip_text = _("Resume the countdown");
+        pause_button.tooltip_text = _("Resume Countdown");
     }
 }

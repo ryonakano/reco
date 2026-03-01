@@ -39,21 +39,22 @@
       <default>'stereo'</default>
       <summary>Audio channel</summary>
     </key>
-    <key name="auto-save" type="b">
-      <default>true</default>
-      <summary>Automatically save files</summary>
-      <description>This key is deprecated and ignored; use 'autosave-destination' key instead</description>
-    </key>
-    <key name="destination" type="s">
-      <default>''</default>
-      <summary>Default destination</summary>
-      <description>This key is deprecated and ignored; use 'autosave-destination' key instead</description>
-    </key>
     <key name="autosave-destination" type="s">
       <!-- The app doesn't require any access to the storage by default -->
       <default>''</default>
-      <summary>Default destination for autosaving</summary>
-      <description>Specify the path to save recordings automatically. Setting this key blank disables autosaving</description>
+      <summary>Default destination for autosave</summary>
+      <description>Specify the path to save recordings automatically. Setting this key blank disables autosave</description>
+    </key>
+    <key name="add-metadata" type="b">
+      <!-- Opt-in because enabling this results recording files include personal info like real name -->
+      <default>false</default>
+      <summary>Add metadata</summary>
+      <description>Add metadata like artist and year to recording files automatically</description>
+    </key>
+    <key name="last-folder-path" type="s">
+      <default>''</default>
+      <summary>Last folder path</summary>
+      <description>Folder path where opened, saved, or selected files or itself last time</description>
     </key>
     <key name="color-scheme" type="s">
       <choices>

@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2025 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 public class Application : Adw.Application {
@@ -10,7 +10,6 @@ public class Application : Adw.Application {
      * Action names and their callbacks.
      */
     private const ActionEntry[] ACTION_ENTRIES = {
-        { "open-folder", on_open_folder_activate, "s" },
         { "quit", on_quit_activate },
         { "about", on_about_activate },
     };
@@ -70,19 +69,6 @@ public class Application : Adw.Application {
         add_action (style_action);
     }
 
-    private void on_open_folder_activate (SimpleAction action, Variant? parameter) requires (parameter != null) {
-        unowned string path = parameter.get_string ();
-        var launcher = new Gtk.FileLauncher (File.new_for_path (path));
-
-        launcher.launch.begin (window, null, (obj, res) => {
-            try {
-                launcher.launch.end (res);
-            } catch (Error err) {
-                warning ("Failed to Gtk.FileLauncher.launch: %s", err.message);
-            }
-        });
-    }
-
     private void on_quit_activate () {
         if (window == null) {
             quit ();
@@ -112,7 +98,7 @@ public class Application : Adw.Application {
             null
         ) {
             version = Config.APP_VERSION,
-            copyright = "© 2018-2025 Ryo Nakano",
+            copyright = "© 2018-2026 Ryo Nakano",
             developers = DEVELOPERS,
             artists = ARTISTS,
             ///TRANSLATORS: A newline-separated list of translators. Don't translate literally.
@@ -144,6 +130,10 @@ public class Application : Adw.Application {
         Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.LOCALEDIR);
         Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (Config.GETTEXT_PACKAGE);
+
+        // Set human-readable string to the application name that can be used in monitor apps
+        // e.g. pavucontrol or gnome-system-monitor
+        Environment.set_application_name (Config.APP_NAME);
 
         // Load and setup styles
         unowned var display = Gdk.Display.get_default ();

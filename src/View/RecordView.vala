@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2025 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 public class View.RecordView : AbstractView {
@@ -36,26 +36,24 @@ public class View.RecordView : AbstractView {
         remaining_time_label = new Gtk.Label (null);
         remaining_time_label.add_css_class ("title-3");
 
-        var label_grid = new Gtk.Grid () {
-            column_spacing = 6,
-            row_spacing = 6,
-            halign = Gtk.Align.CENTER
+        var content_area = new Gtk.Box (Gtk.Orientation.VERTICAL, 6) {
+            halign = Gtk.Align.CENTER,
         };
-        label_grid.attach (time_label, 0, 1, 1, 1);
-        label_grid.attach (remaining_time_label, 0, 2, 1, 1);
+        content_area.append (time_label);
+        content_area.append (remaining_time_label);
 
         levelbar = new Widget.LevelBar ();
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
-            tooltip_text = _("Cancel recording"),
+            tooltip_text = _("Cancel Recording"),
             halign = Gtk.Align.START
         };
         cancel_button.add_css_class ("borderless-button");
 
         var stop_button = new Gtk.Button () {
             icon_name = "media-playback-stop-symbolic",
-            tooltip_text = _("Finish recording"),
+            tooltip_text = _("Finish Recording"),
             halign = Gtk.Align.CENTER,
             width_request = 48,
             height_request = 48
@@ -68,19 +66,14 @@ public class View.RecordView : AbstractView {
         };
         pause_button.add_css_class ("borderless-button");
 
-        var buttons_grid = new Gtk.Grid () {
-            column_spacing = 30,
-            row_spacing = 6,
-            margin_top = 12,
-            halign = Gtk.Align.CENTER
-        };
-        buttons_grid.attach (cancel_button, 0, 0, 1, 1);
-        buttons_grid.attach (stop_button, 1, 0, 1, 1);
-        buttons_grid.attach (pause_button, 2, 0, 1, 1);
+        var control_bar = new Widget.ControlBar ();
+        control_bar.append (cancel_button);
+        control_bar.append (stop_button);
+        control_bar.append (pause_button);
 
-        append (label_grid);
+        append (content_area);
         append (levelbar);
-        append (buttons_grid);
+        append (control_bar);
 
         var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {
@@ -139,8 +132,8 @@ public class View.RecordView : AbstractView {
     }
 
     private double get_current_peak () {
-        unowned var recorder = Model.Recorder.get_default ();
-        return recorder.current_peak;
+        unowned var record_manager = Manager.RecordManager.get_default ();
+        return record_manager.current_peak;
     }
 
     public void refresh_begin () {
@@ -185,7 +178,7 @@ public class View.RecordView : AbstractView {
         downtimer.stop ();
 
         pause_button.icon_name = "media-playback-start-symbolic";
-        pause_button.tooltip_text = _("Resume recording");
+        pause_button.tooltip_text = _("Resume Recording");
 
         levelbar.refresh_pause ();
     }
@@ -197,7 +190,7 @@ public class View.RecordView : AbstractView {
         }
 
         pause_button.icon_name = "media-playback-pause-symbolic";
-        pause_button.tooltip_text = _("Pause recording");
+        pause_button.tooltip_text = _("Pause Recording");
 
         levelbar.refresh_resume ();
     }

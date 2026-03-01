@@ -19,7 +19,7 @@ Features include:
 ### From Flathub or AppCenter (Recommended)
 You can install Reco from Flathub:
 
-[<img src="https://flathub.org/assets/badges/flathub-badge-en.svg" width="160" alt="Download on Flathub">](https://flathub.org/apps/com.github.ryonakano.reco)
+[![Get it on Flathub](https://flathub.org/api/badge?locale=en)](https://flathub.org/apps/com.github.ryonakano.reco)
 
 You should install Reco from AppCenter if you're on elementary OS. This build is optimized for elementary OS:
 
@@ -56,14 +56,16 @@ You'll need the following dependencies to build:
 * libgranite-7-dev (>= 7.2.0, required only when you build with `granite` feature enabled)
 * libgstreamer1.0-dev (>= 1.20)
 * libgtk-4-dev (>= 4.10)
-* [libryokucha](https://github.com/ryonakano/ryokucha)
+* [libryokucha](https://github.com/ryonakano/ryokucha) (>= 0.4.0)
 * [livechart](https://github.com/lcallarec/live-chart) (>= 1.10.0)
+    * alternatively, [livechart-2 (the elementary fork)](https://github.com/elementary/live-chart) (>= 2.0.0)
 * meson (>= 0.58.0)
 * valac
 
 You'll need the following dependencies to run:
 
 * gstreamer1.0-libav (use the same version with libgstreamer1.0-dev)
+* libgstreamer-plugins-good1.0-0 (use the same version with libgstreamer1.0-dev, compiled with `-Dtaglib=enabled`)
 
 Run `meson setup` to configure the build environment and run `meson compile` to build:
 

@@ -1,10 +1,14 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2025 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 public class View.WelcomeView : AbstractView {
     public signal void start_recording (uint delay_sec);
+
+    ///TRANSLATORS: This is the label of a button that shows a file dialog to select a folder
+    // where the app saves recodings automatically
+    private const string DESTINATION_CHOOSER_DEFAULT_LABEL = N_("Destination…");
 
     private unowned Manager.DeviceManager device_manager;
 
@@ -42,7 +46,6 @@ public class View.WelcomeView : AbstractView {
         mic_combobox = new Ryokucha.DropDownText () {
             halign = Gtk.Align.START,
             // Ellipsize if device name is long; otherwise the app window get stretched
-            max_width_chars = 20,
             ellipsize = Pango.EllipsizeMode.END
         };
 
@@ -97,7 +100,21 @@ public class View.WelcomeView : AbstractView {
         format_combobox.append ("opus", _("Opus"));
         format_combobox.append ("wav", _("WAV"));
 
-        var autosave_label = new Gtk.Label (_("Automatically save files:")) {
+        var metadata_label = new Gtk.Label (_("Add metadata:")) {
+            halign = Gtk.Align.END,
+        };
+
+        var metadata_switch = new Gtk.Switch () {
+            halign = Gtk.Align.START,
+        };
+
+        var metadata_desc_label = new Gtk.Label (_("Add record year and your real name in recording files")) {
+            hexpand = true,
+            wrap = true,
+            xalign = 0,
+        };
+
+        var autosave_label = new Gtk.Label (_("Autosave:")) {
             halign = Gtk.Align.END
         };
 
@@ -107,47 +124,56 @@ public class View.WelcomeView : AbstractView {
         };
 
         destination_chooser_button = new Widget.FolderChooserButton (
-            _("Select destination…"),
-            _("Choose a default destination"),
-            _("Select")
+            _(DESTINATION_CHOOSER_DEFAULT_LABEL),
+            _("Select Autosave Destination")
         ) {
             halign = Gtk.Align.START,
-            tooltip_text = _("Choose a default destination")
+            tooltip_text = _("Select Autosave Destination")
         };
 
         string autosave_path = Application.settings.get_string ("autosave-destination");
-        if (check_path_is_dir (autosave_path)) {
+        if (!FileUtils.test (autosave_path, FileTest.IS_DIR)) {
+            // Clear no longer exists or invalid path and disable autosave
+            Application.settings.reset ("autosave-destination");
+        } else {
             autosave_switch.active = true;
             destination_chooser_button.label = Path.get_basename (autosave_path);
         }
 
-        var settings_grid = new Gtk.Grid () {
+        var content_area = new Gtk.Grid () {
             column_spacing = 6,
             row_spacing = 6,
-            halign = Gtk.Align.CENTER
+            vexpand = true,
         };
-        settings_grid.attach (source_header_label, 0, 0, 1, 1);
-        settings_grid.attach (source_label, 0, 1, 1, 1);
-        settings_grid.attach (source_combobox, 1, 1, 1, 1);
-        settings_grid.attach (mic_label, 0, 2, 1, 1);
-        settings_grid.attach (mic_combobox, 1, 2, 1, 1);
-        settings_grid.attach (channels_label, 0, 3, 1, 1);
-        settings_grid.attach (channels_combobox, 1, 3, 1, 1);
-        settings_grid.attach (timer_header_label, 0, 4, 1, 1);
-        settings_grid.attach (delay_label, 0, 5, 1, 1);
-        settings_grid.attach (delay_spin, 1, 5, 1, 1);
-        settings_grid.attach (length_label, 0, 6, 1, 1);
-        settings_grid.attach (length_spin, 1, 6, 1, 1);
-        settings_grid.attach (saving_header_label, 0, 7, 1, 1);
-        settings_grid.attach (format_label, 0, 8, 1, 1);
-        settings_grid.attach (format_combobox, 1, 8, 1, 1);
-        settings_grid.attach (autosave_label, 0, 9, 1, 1);
-        settings_grid.attach (autosave_switch, 1, 9, 1, 1);
-        settings_grid.attach (destination_chooser_button, 1, 10, 1, 1);
+        content_area.attach (source_header_label, 0, 0, 1, 1);
+        content_area.attach (source_label, 0, 1, 1, 1);
+        content_area.attach (source_combobox, 1, 1, 1, 1);
+        content_area.attach (mic_label, 0, 2, 1, 1);
+        content_area.attach (mic_combobox, 1, 2, 1, 1);
+        content_area.attach (channels_label, 0, 3, 1, 1);
+        content_area.attach (channels_combobox, 1, 3, 1, 1);
+        content_area.attach (timer_header_label, 0, 4, 1, 1);
+        content_area.attach (delay_label, 0, 5, 1, 1);
+        content_area.attach (delay_spin, 1, 5, 1, 1);
+        content_area.attach (length_label, 0, 6, 1, 1);
+        content_area.attach (length_spin, 1, 6, 1, 1);
+        content_area.attach (saving_header_label, 0, 7, 1, 1);
+        content_area.attach (format_label, 0, 8, 1, 1);
+        content_area.attach (format_combobox, 1, 8, 1, 1);
+        content_area.attach (metadata_label, 0, 9, 1, 1);
+        content_area.attach (metadata_switch, 1, 9, 1, 1);
+        content_area.attach (metadata_desc_label, 1, 10, 1, 1);
+        content_area.attach (autosave_label, 0, 11, 1, 1);
+        content_area.attach (autosave_switch, 1, 11, 1, 1);
+        content_area.attach (destination_chooser_button, 1, 12, 1, 1);
+
+        var content_scrolled = new Gtk.ScrolledWindow () {
+            child = content_area,
+        };
 
         record_button = new Gtk.Button () {
             icon_name = "audio-input-microphone-symbolic",
-            tooltip_text = _("Start recording"),
+            tooltip_text = _("Start Recording"),
             halign = Gtk.Align.CENTER,
             margin_top = 12,
             width_request = 48,
@@ -156,13 +182,20 @@ public class View.WelcomeView : AbstractView {
         record_button.add_css_class ("record-button");
         ((Gtk.Image) record_button.child).icon_size = Gtk.IconSize.LARGE;
 
-        append (settings_grid);
-        append (record_button);
+        var control_bar = new Widget.ControlBar ();
+        control_bar.append (record_button);
+
+        var toolbar_view = new Adw.ToolbarView ();
+        toolbar_view.set_content (content_scrolled);
+        toolbar_view.add_bottom_bar (control_bar);
+
+        append (toolbar_view);
 
         Application.settings.bind ("delay", delay_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("length", length_spin, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("source", source_combobox, "active-id", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("format", format_combobox, "active-id", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("add-metadata", metadata_switch, "active", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("channel", channels_combobox, "active-id", SettingsBindFlags.DEFAULT);
         // Make mic_combobox insensitive if selected source is "system" and sensitive otherwise
         source_combobox.bind_property ("active-id", mic_combobox, "sensitive",
@@ -222,21 +255,21 @@ public class View.WelcomeView : AbstractView {
 
     private async void toggle_autosave () {
         if (autosave_switch.active) {
-            // Prevent the filechooser shown twice when enabling the autosaving
-            var autosave_dest = Application.settings.get_string ("autosave-destination");
+            // Prevent the filechooser shown twice when enabling the autosave
+            string autosave_dest = Application.settings.get_string ("autosave-destination");
             if (autosave_dest.length != 0) {
                 return;
             }
 
-            // Let the user select the autosaving destination
+            // Let the user select the autosave destination
             bool ret = yield destination_chooser_button.present_chooser ();
             if (!ret) {
                 autosave_switch.active = false;
             }
         } else {
-            // Clear the current destination and disable autosaving
+            // Clear the current destination and disable autosave
             Application.settings.reset ("autosave-destination");
-            destination_chooser_button.label = _("Select destination…");
+            destination_chooser_button.label = _(DESTINATION_CHOOSER_DEFAULT_LABEL);
         }
     }
 
@@ -245,19 +278,6 @@ public class View.WelcomeView : AbstractView {
         Application.settings.set_string ("autosave-destination", path);
         destination_chooser_button.label = Path.get_basename (path);
         autosave_switch.active = true;
-    }
-
-    private bool check_path_is_dir (string path) {
-        if (path.length == 0) {
-            return false;
-        }
-
-        var file = File.new_for_path (path);
-        if (!file.query_exists ()) {
-            DirUtils.create_with_parents (path, 0775);
-        }
-
-        return true;
     }
 
     private bool get_is_source_connected () {

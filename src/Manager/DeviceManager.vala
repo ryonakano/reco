@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2025 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 public class Manager.DeviceManager : Object {
@@ -60,7 +60,7 @@ public class Manager.DeviceManager : Object {
     private void update_devices () {
         bool is_default;
 
-        debug ("update_devices start.");
+        debug ("update_devices start");
 
         sources.clear ();
         sinks.clear ();
@@ -123,6 +123,6 @@ public class Manager.DeviceManager : Object {
 
         device_updated ();
 
-        debug ("update_devices end.");
+        debug ("update_devices end");
     }
 }

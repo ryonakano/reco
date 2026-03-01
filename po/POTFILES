@@ -1,9 +1,9 @@
-data/ui/shortcuts-dialog.blp
 data/reco.desktop.in.in
 data/reco.metainfo.xml.in.in
+data/ui/shortcuts-dialog.blp
 src/Application.vala
 src/MainWindow.vala
-src/Model/Recorder.vala
 src/View/CountDownView.vala
 src/View/RecordView.vala
 src/View/WelcomeView.vala
+src/Widget/ProcessingDialog.vala

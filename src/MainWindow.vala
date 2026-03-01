@@ -1,10 +1,20 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2025 Ryo Nakano <ryonakaknock3@gmail.com>
+ * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
 public class MainWindow : Adw.ApplicationWindow {
-    private unowned Model.Recorder recorder;
+    /**
+     * Action names and their callbacks.
+     */
+    private const ActionEntry[] ACTION_ENTRIES = {
+        { "open-folder", on_open_folder_activate, "s" },
+    };
+
+    private unowned Manager.RecordManager record_manager;
+    private DateTime start_dt;
+    private string recording_tmp_path;
+    private uint inhibit_token = 0;
     private bool destroy_on_save;
 
     private View.WelcomeView welcome_view;
@@ -12,8 +22,7 @@ public class MainWindow : Adw.ApplicationWindow {
     private View.RecordView record_view;
     private Gtk.Stack stack;
     private Adw.ToastOverlay toast_overlay;
-
-    private static Gee.HashMap<int, string> starterr_message_table;
+    private Widget.ProcessingDialog processing_dialog = null;
 
     public MainWindow (Application app) {
         Object (
@@ -21,19 +30,15 @@ public class MainWindow : Adw.ApplicationWindow {
         );
     }
 
-    static construct {
-        starterr_message_table = new Gee.HashMap<int, string> ();
-        starterr_message_table[Model.RecorderError.CREATE_ERROR] = N_("This is possibly due to missing codecs or incomplete installation of the app. Make sure you've installed them and try reinstalling them if this issue persists.");
-        starterr_message_table[Model.RecorderError.CONFIGURE_ERROR] = N_("This is possibly due to missing sound input or output devices. Make sure you've connected one and try using another one if this issue persists.");
-    }
-
     construct {
-        recorder = Model.Recorder.get_default ();
+        record_manager = Manager.RecordManager.get_default ();
 
         // Distinct development build visually
         if (".Devel" in Config.APP_ID) {
             add_css_class ("devel");
         }
+
+        add_action_entries (ACTION_ENTRIES, this);
 
         var style_submenu = new Menu ();
         style_submenu.append (_("S_ystem"), "app.color-scheme('%s')".printf (Define.ColorScheme.DEFAULT));
@@ -75,7 +80,7 @@ public class MainWindow : Adw.ApplicationWindow {
         stack.add_child (record_view);
 
         toast_overlay = new Adw.ToastOverlay () {
-            child = stack
+            child = stack,
         };
 
         var toolbar_view = new Adw.ToolbarView ();
@@ -83,9 +88,8 @@ public class MainWindow : Adw.ApplicationWindow {
         toolbar_view.set_content (toast_overlay);
 
         content = toolbar_view;
-        width_request = 350;
-        height_request = 480;
-        resizable = false;
+        default_width = 360;
+        default_height = 680;
         title = Define.APP_NAME;
 
         show_welcome ();
@@ -106,10 +110,14 @@ public class MainWindow : Adw.ApplicationWindow {
             stop_wrapper (false);
         });
         record_view.pause_recording.connect (() => {
-            recorder.pause_recording ();
+            record_manager.pause ();
+
+            uninhibit_sleep ();
         });
         record_view.resume_recording.connect (() => {
-            recorder.resume_recording ();
+            inhibit_sleep ();
+
+            record_manager.resume ();
         });
 
         close_request.connect ((event) => {
@@ -121,57 +129,285 @@ public class MainWindow : Adw.ApplicationWindow {
             return Gdk.EVENT_PROPAGATE;
         });
 
-        recorder.throw_error.connect ((err, debug) => {
+        record_manager.record_err.connect ((err, debug_info) => {
             show_error_dialog (
-                _("Error while recording"),
-                _("There was an error while recording."),
-                "%s\n%s".printf (err.message, debug)
+                _("Unable to Continue Recording"),
+                _("There was an internal error while recording"),
+                "%s\n%s".printf (err.message, debug_info)
             );
         });
 
-        recorder.save_file.connect ((tmp_path) => {
-            debug ("recorder.save_file: tmp_path(%s)", tmp_path);
+        record_manager.record_ok.connect (save_file_wrapper);
+    }
 
-            string suffix = Util.get_suffix (tmp_path);
-            var tmp_file = File.new_for_path (tmp_path);
+    private async void save_file_wrapper () {
+        // Prevent cancel option from being revealed in case users don't notice the file dialog appears
+        // and tries to use the cancel option, which is no longer clickable because a transient dialog presents.
+        processing_dialog.conceal_cancel_revealer ();
 
-            string default_filename = build_filename_from_datetime (recorder.start_dt, recorder.end_dt, suffix);
+        var end_dt = new DateTime.now_local ();
+        var format = (Define.FormatID) Application.settings.get_enum ("format");
+        string suffix = format.get_suffix ();
+        string default_filename = build_filename_from_datetime (start_dt, end_dt, suffix);
 
-            ask_save_path.begin (default_filename, (obj, res) => {
-                File? save_path = ask_save_path.end (res);
+        string? final_path = yield save_file (recording_tmp_path, default_filename);
+        if (final_path != null) {
+            var saved_toast = new Adw.Toast (_("Recording Saved")) {
+                button_label = _("Open Folder"),
+                action_name = "win.open-folder",
+                action_target = new Variant.string (final_path)
+            };
 
-                if (save_path == null) {
-                    // Log message is already outputted in ask_save_path method
-                    return;
-                }
+            toast_overlay.add_toast (saved_toast);
+        }
 
-                bool is_success = false;
-                try {
-                    is_success = tmp_file.move (save_path, FileCopyFlags.OVERWRITE);
-                } catch (Error e) {
-                    show_error_dialog (
-                        _("Failed to save recording"),
-                        _("There was an error while moving file to the designated location."),
-                        e.message
-                    );
-                    recorder.remove_tmp_recording ();
-                }
+        processing_dialog.force_close ();
+        processing_dialog = null;
 
-                if (is_success) {
-                    var saved_toast = new Adw.Toast (_("Recording Saved")) {
-                        button_label = _("Open Folder"),
-                        action_name = "app.open-folder",
-                        action_target = new Variant.string (save_path.get_parent ().get_path ())
-                    };
+        uninhibit_sleep ();
 
-                    toast_overlay.add_toast (saved_toast);
-                }
+        if (destroy_on_save) {
+            destroy ();
 
-                if (destroy_on_save) {
-                    destroy ();
-                }
-            });
+            // Don't go back to welcome view after we decided to quit
+            // to prevent users from starting recording again accidentally.
+            return;
+        }
+
+        show_welcome ();
+    }
+
+    private async string? save_file (string tmp_path, string default_filename) {
+        File? final_file = yield ask_final_file (default_filename);
+        if (final_file == null) {
+            return null;
+        }
+
+        var tmp_file = File.new_for_path (tmp_path);
+        string final_path = final_file.get_path ();
+        try {
+            tmp_file.move (final_file, FileCopyFlags.OVERWRITE);
+        } catch (Error err) {
+            warning ("Failed to File.move: src=\"%s\" dst=\"%s\": %s", tmp_path, final_path, err.message);
+
+            show_error_dialog (
+                _("Failed to Save Recording"),
+                _("Unable to move a temporary recording file to the final path. Make sure the destination exists and you have write access to it"),
+                err.message
+            );
+
+            return null;
+        }
+
+        return final_path;
+    }
+
+    /**
+     * Query location where to save recordings.
+     *
+     * This method shows Gtk.FileDialog if the autosave is disabled and waits for the user input.
+     * Otherwise, it returns the location depending on the autosave location.
+     *
+     * @param default_filename default filename of recoridngs
+     *
+     * @return location where to save recordings
+     */
+    private async File? ask_final_file (string default_filename) {
+        string autosave_dest = Application.settings.get_string ("autosave-destination");
+        if (FileUtils.test (autosave_dest, FileTest.IS_DIR)) {
+            return File.new_for_path (autosave_dest).get_child (default_filename);
+        }
+
+        var save_dialog = new Gtk.FileDialog () {
+            title = _("Save Recording"),
+            modal = true,
+            initial_name = default_filename,
+        };
+
+        string last_path = Application.settings.get_string ("last-folder-path");
+        if (FileUtils.test (last_path, FileTest.IS_DIR)) {
+            // Gtk.FileDialog.initial_folder seems to must be a host path to work as expected inside sandbox
+            string? last_path_host = Util.query_host_path (last_path);
+            if (last_path_host != null) {
+                save_dialog.initial_folder = File.new_for_path (last_path_host);
+            }
+        }
+
+        File? final_file;
+        try {
+            final_file = yield save_dialog.save (this, null);
+        } catch (Error err) {
+            if (err.domain == Gtk.DialogError.quark () && err.code == Gtk.DialogError.DISMISSED) {
+                yield cleanup_tmp_recording ();
+
+                // Don't show the warning log when the dialog is just dismissed by the user
+                return null;
+            }
+
+            warning ("Failed to Gtk.FileDialog.save: %s", err.message);
+
+            show_error_dialog (
+                _("Failed to Save Recording"),
+                _("Unable to determine where to save recording finally. Try again using autosave instead"),
+                err.message
+            );
+
+            return null;
+        }
+
+        // Ignore return value because failure does not affect saving recording itself
+        remember_last_folder_path (final_file);
+
+        return final_file;
+    }
+
+    private bool remember_last_folder_path (File file) {
+        File? parent_dir = file.get_parent ();
+        // BUG: ``file`` is supposed to be a recording file which should have a parent
+        assert (parent_dir != null);
+
+        string? path = parent_dir.get_path ();
+        if (path == null) {
+            warning ("Failed to remember last folder path: Failed to get parent dir path");
+            return false;
+        }
+
+        Application.settings.set_string ("last-folder-path", path);
+
+        return true;
+    }
+
+    private void show_welcome () {
+        stack.visible_child = welcome_view;
+    }
+
+    private void show_countdown (uint sec) {
+        countdown_view.init_countdown (sec);
+        countdown_view.start_countdown ();
+        stack.visible_child = countdown_view;
+    }
+
+    private void show_record () {
+        start_dt = new DateTime.now_local ();
+
+        string tmp_filename = "reco_%s.tmp".printf (start_dt.to_unix ().to_string ());
+        recording_tmp_path = Path.build_filename (Environment.get_user_cache_dir (), tmp_filename);
+
+        var source = (Define.SourceID) Application.settings.get_enum ("source");
+        var channel = (Define.ChannelID) Application.settings.get_enum ("channel");
+        var format = (Define.FormatID) Application.settings.get_enum ("format");
+        unowned string? meta_author = null;
+        DateTime? meta_record_dt = null;
+
+        var is_add_metadata = Application.settings.get_boolean ("add-metadata");
+        if (is_add_metadata) {
+            meta_author = Environment.get_real_name ();
+            meta_record_dt = start_dt;
+        }
+
+        bool ret = record_manager.prepare (recording_tmp_path, source, channel, format, meta_author, meta_record_dt);
+        if (!ret) {
+            show_error_dialog (
+                _("Failed to Prepare Recording"),
+                _("This is possibly due to missing codecs, incomplete installation of the app, or missing sound input/output devices. Make sure you've installed necessary components correctlly and connected sound devices")
+            );
+
+            return;
+        }
+
+        inhibit_sleep ();
+
+        record_manager.start ();
+
+        record_view.refresh_begin ();
+        stack.visible_child = record_view;
+    }
+
+    public bool check_destroy () {
+        // Stop ongoing recording
+        // The window is destroyed in the save callback
+        if (record_manager.is_recording) {
+            stop_wrapper (true);
+            return false;
+        }
+
+        // Otherwise we don't block the window destroyed
+        return true;
+    }
+
+    private void stop_wrapper (bool destroy_flag = false) {
+        destroy_on_save = destroy_flag;
+
+        // Ideally, we should initialize processing dialog not here but in the constructor of ``this``
+        // and keep the same instance during the lifetime of the app.
+        // When you record more than twice, however, that results it being not shown
+        // and the following critical log shown instead:
+        //   Gtk-CRITICAL **: 20:12:33.353: gtk_window_present: assertion 'GTK_IS_WINDOW (window)' failed
+        processing_dialog = new Widget.ProcessingDialog () {
+            // Prevent users from closing the dialog manually and access to the main content behind it accidentally
+            can_close = false,
+        };
+        processing_dialog.cancel.connect (cancel_warpper);
+        processing_dialog.present (this);
+
+        record_manager.stop ();
+    }
+
+    private void cancel_warpper () {
+        record_manager.cancel ();
+
+        cleanup_tmp_recording.begin ((obj, res) => {
+            cleanup_tmp_recording.end (res);
+
+            if (processing_dialog != null) {
+                processing_dialog.force_close ();
+                processing_dialog = null;
+            }
+
+            uninhibit_sleep ();
+
+            show_welcome ();
         });
+    }
+
+    private async void cleanup_tmp_recording () {
+        var cancel_toast = new Adw.Toast (_("Recording Canceled"));
+
+        try {
+            yield Util.trash_file (recording_tmp_path);
+
+            cancel_toast.title = _("Recording Moved to Trash");
+        } catch (Error err) {
+            warning ("Failed to trash tmp recording, deleting permanently instead: %s", err.message);
+
+            try {
+                yield Util.delete_file (recording_tmp_path);
+            } catch (Error err) {
+                // Just failed to remove tmp recording so letting user know through error dialog is not necessary
+                warning ("Failed to delete tmp recording: %s", err.message);
+            }
+        }
+
+        toast_overlay.add_toast (cancel_toast);
+    }
+
+    private void inhibit_sleep () {
+        if (inhibit_token != 0) {
+            application.uninhibit (inhibit_token);
+        }
+
+        inhibit_token = application.inhibit (
+            this,
+            Gtk.ApplicationInhibitFlags.SUSPEND,
+            _("Recording is ongoing")
+        );
+    }
+
+    private void uninhibit_sleep () {
+        if (inhibit_token != 0) {
+            application.uninhibit (inhibit_token);
+            inhibit_token = 0;
+        }
     }
 
     /**
@@ -180,8 +416,10 @@ public class MainWindow : Adw.ApplicationWindow {
      * The filename includes start datetime and end time. It also includes end date if the date is different between
      * start and end.
      *
-     * e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
-     *      "2018-11-10_23:42:36 to 23:49:52.wav"
+     * examples of result:
+     *
+     *  * "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
+     *  * "2018-11-10_23:42:36 to 23:49:52.wav"
      */
     private string build_filename_from_datetime (DateTime start, DateTime end, string suffix) {
         string start_format = "%Y-%m-%d_%H:%M:%S";
@@ -196,105 +434,29 @@ public class MainWindow : Adw.ApplicationWindow {
         string start_str = start.format (start_format);
         string end_str = end.format (end_format);
 
-        return "%s to %s".printf (start_str, end_str) + suffix;
+        return "%s to %s.%s".printf (start_str, end_str, suffix);
     }
 
-    /**
-     * Query location where to save recordings.
-     *
-     * This method shows Gtk.FileDialog if the autosave is disabled and waits for the user input.
-     * Otherwise, it returns the location depending on the autosave location.
-     *
-     * @param default_filename default filename of recoridngs
-     *
-     * @return location where to save recordings
-     */
-    private async File? ask_save_path (string default_filename) {
-        File? dest = null;
+    private void on_open_folder_activate (SimpleAction action, Variant? parameter) requires (parameter != null) {
+        unowned string path = parameter.get_string ();
+        var launcher = new Gtk.FileLauncher (File.new_for_path (path));
 
-        var autosave_dest = Application.settings.get_string ("autosave-destination");
-        if (autosave_dest.length == 0) {
-            var save_dialog = new Gtk.FileDialog () {
-                title = _("Save your recording"),
-                accept_label = _("Save"),
-                modal = true,
-                initial_name = default_filename
-            };
-
+        launcher.open_containing_folder.begin (this, null, (obj, res) => {
             try {
-                dest = yield save_dialog.save (this, null);
-            } catch (Error e) {
-                warning ("Failed to Gtk.FileDialog.save: %s", e.message);
+                launcher.open_containing_folder.end (res);
+            } catch (Error err) {
+                warning ("Failed to Gtk.FileLauncher.open_containing_folder: %s", err.message);
 
-                // May be cancelled by user, so delete the tmp recording
-                recorder.remove_tmp_recording ();
+                show_error_dialog (
+                    _("Failed to Open Folder"),
+                    _("Unable to open folder containing \"%s\"").printf (path),
+                    err.message
+                );
             }
-        } else {
-            dest = File.new_for_path (autosave_dest).get_child (default_filename);
-        }
-
-        return dest;
+        });
     }
 
-    private void show_welcome () {
-        stack.visible_child = welcome_view;
-    }
-
-    private void show_countdown (uint sec) {
-        countdown_view.init_countdown (sec);
-        countdown_view.start_countdown ();
-        stack.visible_child = countdown_view;
-    }
-
-    private void show_record () {
-        try {
-            recorder.prepare_recording ();
-        } catch (Model.RecorderError err) {
-            string? secondary_text = starterr_message_table[err.code];
-            // Errors without dedicated message
-            if (secondary_text == null) {
-                secondary_text = N_("There was an unknown error while starting recording.");
-            }
-
-            show_error_dialog (
-                _("Failed to start recording"),
-                _(secondary_text),
-                err.message
-            );
-            return;
-        }
-
-        recorder.start_recording ();
-
-        record_view.refresh_begin ();
-        stack.visible_child = record_view;
-    }
-
-    public bool check_destroy () {
-        // Stop the recording if recording is in progress
-        // The window is destroyed in the save callback
-        if (recorder.is_recording_progress) {
-            stop_wrapper (true);
-            return false;
-        }
-
-        // Otherwise we don't block the window destroyed
-        return true;
-    }
-
-    private void stop_wrapper (bool destroy_flag = false) {
-        destroy_on_save = destroy_flag;
-
-        recorder.stop_recording ();
-        show_welcome ();
-    }
-
-    private void cancel_warpper () {
-        recorder.cancel_recording ();
-        show_welcome ();
-    }
-
-    private void show_error_dialog (string primary_text, string secondary_text, string error_message) {
+    private void show_error_dialog (string primary_text, string secondary_text, string? detailed_text = null) {
         if (Util.is_on_pantheon ()) {
 #if USE_GRANITE
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
@@ -303,26 +465,33 @@ public class MainWindow : Adw.ApplicationWindow {
                 "dialog-error", Gtk.ButtonsType.CLOSE
             ) {
                 transient_for = this,
-                modal = true
+                modal = true,
             };
-            error_dialog.show_error_details (error_message);
-            error_dialog.response.connect ((response_id) => {
-                if (response_id == Gtk.ResponseType.CLOSE) {
-                    error_dialog.destroy ();
-                }
+
+            if (detailed_text != null) {
+                error_dialog.show_error_details (detailed_text);
+            }
+
+            error_dialog.response.connect (() => {
+                error_dialog.destroy ();
             });
             error_dialog.present ();
 #endif
         } else {
-            string detail_text = secondary_text + "\n\n" + _("Details:") + "\n\n" + error_message;
+            string body_text = secondary_text;
+            if (detailed_text != null) {
+                body_text = "%s\n\n%s".printf (secondary_text, detailed_text);
+            }
 
-            var error_dialog = new Gtk.AlertDialog (
-                primary_text
-            ) {
-                detail = detail_text,
-                modal = true
+            var error_dialog = new Adw.AlertDialog (primary_text, body_text) {
+                default_response = Define.ErrorDialogResponseID.CLOSE,
+                close_response = Define.ErrorDialogResponseID.CLOSE,
             };
-            error_dialog.show (this);
+            error_dialog.add_response (Define.ErrorDialogResponseID.CLOSE, _("_Close"));
+            error_dialog.response.connect ((response) => {
+                error_dialog.destroy ();
+            });
+            error_dialog.present (this);
         }
 
         record_view.refresh_end ();
