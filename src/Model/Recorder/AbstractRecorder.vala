@@ -11,29 +11,30 @@ public abstract class Model.Recorder.AbstractRecorder : Object {
     }
 
     /**
-     * Get name of the file format #this handles.
+     * Get name of the file format ``this`` handles.
      *
-     * @return  name of the file format #this handles.
+     * @return  name of the file format ``this`` handles.
      */
     public abstract unowned string get_name ();
 
     /**
-     * Prepare for recording.<<BR>>
-     * All elements created in this method should be added to #pipeline using {@link Gst.Bin.add}
-     * and linked to #src or #dst elements appropriately using {@link Gst.Pad.link}.
+     * Prepare for recording.
+     *
+     * All elements created in this method should be added to ``pipeline`` using {@link Gst.Bin.add}
+     * and linked to ``src`` or ``dst`` elements appropriately using {@link Gst.Pad.link}.
      *
      * {{{
-     * |-- #pipeline --------------------------------------------------------------------|
+     * |--- pipeline --------------------------------------------------------------------|
      * |           |------------|  |-----------------|                    |------------| |
-     * |  (snip) --|    #src    |--| format-specific |-- (snip, if any) --|    #dst    | |
+     * |  (snip) --|     src    |--| format-specific |-- (snip, if any) --|     dst    | |
      * |         --|            |--|     element     |--                --|            | |
      * |           |------------|  |-----------------|                    |------------| |
      * |---------------------------------------------------------------------------------|
      *                          <--------- scope of this method ---------->
      * }}}
      *
-     * NOTE:<<BR>>
-     * Overridden methods should add at least one element that inherits {@link Gst.TagSetter} to #pipeline for metadata.<<BR>>
+     * Note: Overridden methods should add at least one element that inherits {@link Gst.TagSetter} to ``pipeline``
+     * for metadata.<<BR>>
      * See {@link Manager.RecordManager.add_metadata} for details.
      *
      * @param pipeline  pipeline that holds all elements necessary for recording.

@@ -511,10 +511,9 @@ public class Manager.RecordManager : Object {
     }
 
     /**
-     * Add metadata to the stream using a {@link Gst.TagSetter} element found from #pipeline.
+     * Add metadata to the stream using a {@link Gst.TagSetter} element found from ``pipeline``.
      *
-     * NOTE:
-     *  * You should call this method before #pipeline goes to {@link Gst.State.PAUSED}
+     * Note: You should call this method before ``pipeline`` goes to {@link Gst.State.PAUSED}
      *
      * See also:
      *  * https://gstreamer.freedesktop.org/documentation/application-development/advanced/metadata.html?gi-language=c#tag-writing

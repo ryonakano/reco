@@ -272,7 +272,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
     private bool remember_last_folder_path (File file) {
         File? parent_dir = file.get_parent ();
-        // BUG: #file is supposed to be a recording file which should have a parent
+        // BUG: ``file`` is supposed to be a recording file which should have a parent
         assert (parent_dir != null);
 
         string? path = parent_dir.get_path ();
@@ -357,7 +357,7 @@ public class MainWindow : Adw.ApplicationWindow {
     private void stop_wrapper (bool destroy_flag = false) {
         destroy_on_save = destroy_flag;
 
-        // Ideally, we should initialize processing dialog not here but in the constructor of #this
+        // Ideally, we should initialize processing dialog not here but in the constructor of ``this``
         // and keep the same instance during the lifetime of the app.
         // When you record more than twice, however, that results it being not shown
         // and the following critical log shown instead:
