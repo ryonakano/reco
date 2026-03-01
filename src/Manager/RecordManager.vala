@@ -309,7 +309,7 @@ public class Manager.RecordManager : Object {
      * @return true if succeeds, false otherwise.
      */
     public bool stop () {
-        if (state != RecordState.RECORDING || state != RecordState.PAUSED) {
+        if (state != RecordState.RECORDING && state != RecordState.PAUSED) {
             critical ("[BUG] invalid state %d", state);
             return false;
         }
@@ -332,7 +332,7 @@ public class Manager.RecordManager : Object {
      * @return true if succeeds, false otherwise.
      */
     public bool cancel () {
-        if (state != RecordState.RECORDING || state != RecordState.PAUSED || state != RecordState.FINALIZING) {
+        if (state != RecordState.RECORDING && state != RecordState.PAUSED && state != RecordState.FINALIZING) {
             critical ("[BUG] invalid state %d", state);
             return false;
         }
