@@ -486,6 +486,9 @@ public class MainWindow : Adw.ApplicationWindow {
      * @param detailed_text     the detailed error message to display if any
      */
     private void show_error_dialog (string primary_text, string secondary_text, string? detailed_text = null) {
+        // A MainLoop to wait for user confirmation and interaction with the dialog
+        var response_loop = new MainLoop ();
+
         if (Util.is_on_pantheon ()) {
 #if USE_GRANITE
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
@@ -503,8 +506,10 @@ public class MainWindow : Adw.ApplicationWindow {
 
             error_dialog.response.connect (() => {
                 error_dialog.destroy ();
+                response_loop.quit ();
             });
             error_dialog.present ();
+            response_loop.run ();
 #endif
         } else {
             string body_text = secondary_text;
@@ -519,8 +524,10 @@ public class MainWindow : Adw.ApplicationWindow {
             error_dialog.add_response (Define.ErrorDialogResponseID.CLOSE, _("_Close"));
             error_dialog.response.connect ((response) => {
                 error_dialog.destroy ();
+                response_loop.quit ();
             });
             error_dialog.present (this);
+            response_loop.run ();
         }
     }
 }
