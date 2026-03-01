@@ -200,14 +200,14 @@ public class Manager.RecordManager : Object {
     ) {
         pipeline = new Gst.Pipeline ("pipeline");
         if (pipeline == null) {
-            critical ("Failed to create pipeline");
+            warning ("Failed to create pipeline");
             return false;
         }
 
         // Use to mix sounds from a microphone and system
         var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
         if (mixer == null) {
-            critical ("Failed to create audiomixer element");
+            warning ("Failed to create audiomixer element");
             return false;
         }
 
@@ -220,7 +220,7 @@ public class Manager.RecordManager : Object {
 
         var sink = Gst.ElementFactory.make ("filesink", "sink");
         if (sink == null) {
-            critical ("Failed to create filesink element");
+            warning ("Failed to create filesink element");
             return false;
         }
 
@@ -232,14 +232,14 @@ public class Manager.RecordManager : Object {
             // Use to record sound from system
             var sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
-                critical ("Failed to create pulsesrc element \"sys_sound\"");
+                warning ("Failed to create pulsesrc element \"sys_sound\"");
                 return false;
             }
 
             Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
             string? monitor_name = get_default_monitor_name (default_sink);
             if (monitor_name == null) {
-                critical ("Failed to set \"device\" property of pulsesrc element \"sys_sound\"");
+                warning ("Failed to set \"device\" property of pulsesrc element \"sys_sound\"");
                 return false;
             }
 
@@ -265,7 +265,7 @@ public class Manager.RecordManager : Object {
             // Use to record sound from a microphone
             Gst.Element mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
-                critical ("Failed to create pulsesrc element \"mic_sound\"");
+                warning ("Failed to create pulsesrc element \"mic_sound\"");
                 return false;
             }
 
@@ -290,7 +290,7 @@ public class Manager.RecordManager : Object {
         // Use to retrive peak value
         var level = Gst.ElementFactory.make ("level", "level");
         if (level == null) {
-            critical ("Failed to create level element");
+            warning ("Failed to create level element");
             return false;
         }
 
@@ -306,7 +306,7 @@ public class Manager.RecordManager : Object {
 
         bool ret = prepare_fmt (pipeline, level, sink);
         if (!ret) {
-            critical ("Failed to prepare for the given file format. format=%d".printf (format));
+            warning ("Failed to prepare for the given file format. format=%d".printf (format));
             return false;
         }
 
@@ -337,7 +337,7 @@ public class Manager.RecordManager : Object {
     private static bool prepare_alac (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("avenc_alac", "encoder");
         if (encoder == null) {
-            critical ("Failed to create avenc_alac element");
+            warning ("Failed to create avenc_alac element");
             return false;
         }
 
@@ -346,7 +346,7 @@ public class Manager.RecordManager : Object {
 
         var muxer = Gst.ElementFactory.make ("mp4mux", "muxer");
         if (muxer == null) {
-            critical ("Failed to create mp4mux element");
+            warning ("Failed to create mp4mux element");
             return false;
         }
 
@@ -371,7 +371,7 @@ public class Manager.RecordManager : Object {
     private static bool prepare_flac (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("flacenc", "encoder");
         if (encoder == null) {
-            critical ("Failed to create flacenc element");
+            warning ("Failed to create flacenc element");
             return false;
         }
 
@@ -396,7 +396,7 @@ public class Manager.RecordManager : Object {
     private static bool prepare_mp3 (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("lamemp3enc", "encoder");
         if (encoder == null) {
-            critical ("Failed to create lamemp3enc element");
+            warning ("Failed to create lamemp3enc element");
             return false;
         }
 
@@ -405,7 +405,7 @@ public class Manager.RecordManager : Object {
 
         var muxer = Gst.ElementFactory.make ("id3v2mux", "muxer");
         if (muxer == null) {
-            critical ("Failed to create id3v2mux element");
+            warning ("Failed to create id3v2mux element");
             return false;
         }
 
@@ -430,7 +430,7 @@ public class Manager.RecordManager : Object {
     private static bool prepare_ogg (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("vorbisenc", "encoder");
         if (encoder == null) {
-            critical ("Failed to create vorbisenc element");
+            warning ("Failed to create vorbisenc element");
             return false;
         }
 
@@ -439,7 +439,7 @@ public class Manager.RecordManager : Object {
 
         var muxer = Gst.ElementFactory.make ("oggmux", "muxer");
         if (muxer == null) {
-            critical ("Failed to create oggmux element");
+            warning ("Failed to create oggmux element");
             return false;
         }
 
@@ -464,7 +464,7 @@ public class Manager.RecordManager : Object {
     private static bool prepare_opus (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("opusenc", "encoder");
         if (encoder == null) {
-            critical ("Failed to create opusenc element");
+            warning ("Failed to create opusenc element");
             return false;
         }
 
@@ -473,7 +473,7 @@ public class Manager.RecordManager : Object {
 
         var muxer = Gst.ElementFactory.make ("oggmux", "muxer");
         if (muxer == null) {
-            critical ("Failed to create oggmux element");
+            warning ("Failed to create oggmux element");
             return false;
         }
 
@@ -498,7 +498,7 @@ public class Manager.RecordManager : Object {
     private static bool prepare_wav (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("wavenc", "encoder");
         if (encoder == null) {
-            critical ("Failed to create wavenc element");
+            warning ("Failed to create wavenc element");
             return false;
         }
 
@@ -820,7 +820,7 @@ public class Manager.RecordManager : Object {
     private bool add_metadata (Gst.Pipeline pipeline, string artist, DateTime date_time) {
         Gst.TagSetter? tag_setter = pipeline.get_by_interface (typeof (Gst.TagSetter)) as Gst.TagSetter;
         if (tag_setter == null) {
-            warning ("Element that implements GstTagSetter not found");
+            critical ("Element that implements GstTagSetter not found");
             return false;
         }
 
