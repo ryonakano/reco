@@ -324,7 +324,7 @@ public class Manager.RecordManager : Object {
         }
 
         pipeline.add (muxer);
-        encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
+        encoder.link_pads ("src", muxer, "audio_%u");
         muxer.link (dst);
 
         return true;
@@ -384,7 +384,7 @@ public class Manager.RecordManager : Object {
         }
 
         pipeline.add (muxer);
-        encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
+        encoder.link_pads ("src", muxer, "audio_%u");
         muxer.link (dst);
 
         return true;
@@ -407,7 +407,7 @@ public class Manager.RecordManager : Object {
         }
 
         pipeline.add (muxer);
-        encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
+        encoder.link_pads ("src", muxer, "audio_%u");
         muxer.link (dst);
 
         return true;
