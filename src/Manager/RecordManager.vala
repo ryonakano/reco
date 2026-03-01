@@ -204,19 +204,14 @@ public class Manager.RecordManager : Object {
             return false;
         }
 
-        // Use to retrive peak value
-        var level = Gst.ElementFactory.make ("level", "level");
-        if (level == null) {
-            critical ("Failed to create level element");
-            return false;
-        }
-
         // Use to mix sounds from a microphone and system
         var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
         if (mixer == null) {
             critical ("Failed to create audiomixer element");
             return false;
         }
+
+        pipeline.add (mixer);
 
         // Prevent audio from stuttering after some time, by setting the latency to other than 0
         // This issue happens once audiomixer begins to be late and drop buffers
@@ -230,7 +225,8 @@ public class Manager.RecordManager : Object {
         }
 
         sink.set ("location", dst_path);
-        pipeline.add_many (level, mixer, sink);
+
+        pipeline.add (sink);
 
         if (source != Define.SourceID.MIC) {
             // Use to record sound from system
@@ -291,6 +287,14 @@ public class Manager.RecordManager : Object {
         // Dual-channelization
         var caps_channels = new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT, channel);
 
+        // Use to retrive peak value
+        var level = Gst.ElementFactory.make ("level", "level");
+        if (level == null) {
+            critical ("Failed to create level element");
+            return false;
+        }
+
+        pipeline.add (level);
         mixer.link_filtered (level, caps_channels);
 
         // Format-specific prepare
