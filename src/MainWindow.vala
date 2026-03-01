@@ -15,7 +15,7 @@ public class MainWindow : Adw.ApplicationWindow {
     private DateTime start_dt;
     private string recording_tmp_path;
     private uint inhibit_token = 0;
-    private bool destroy_on_save;
+    private bool destroy_on_save = false;
 
     private View.WelcomeView welcome_view;
     private View.CountDownView countdown_view;
@@ -107,7 +107,8 @@ public class MainWindow : Adw.ApplicationWindow {
 
         record_view.cancel_recording.connect (cancel_warpper);
         record_view.stop_recording.connect (() => {
-            stop_wrapper (false);
+            present_processing_dialog ();
+            record_manager.stop ();
         });
         record_view.pause_recording.connect (() => {
             record_manager.pause ();
@@ -121,11 +122,13 @@ public class MainWindow : Adw.ApplicationWindow {
         });
 
         close_request.connect ((event) => {
-            bool can_destroy = check_destroy ();
+            bool can_destroy = prepare_destory ();
             if (!can_destroy) {
+                // Prevent MainWindow from being destroyed right now
                 return Gdk.EVENT_STOP;
             }
 
+            // Otherwise we don't prevent MainWindow from being destroyed
             return Gdk.EVENT_PROPAGATE;
         });
 
@@ -323,20 +326,34 @@ public class MainWindow : Adw.ApplicationWindow {
         stack.visible_child = record_view;
     }
 
-    public bool check_destroy () {
-        // Stop ongoing recording
-        // The window is destroyed in the save callback
-        if (record_manager.is_recording) {
-            stop_wrapper (true);
+    /**
+     * Prepare to destroy ``this``
+     *
+     * @return ``true`` if the caller can destroy ``this`` safely right now.<<BR>>
+     * ``false`` otherwise; ``this`` will be destroyed after ongoing recording is saved, which may require interaction
+     * with a user.
+     */
+    public bool prepare_destory () {
+        bool can_destroy = record_manager.request_shutdown ();
+        if (!can_destroy) {
+            // RecordManager is shutting down so we can't destroy MainWindow now
+
+            present_processing_dialog ();
+
+            // Let MainWindow destroyed in the save callback
+            destroy_on_save = true;
+
             return false;
         }
 
-        // Otherwise we don't block the window destroyed
         return true;
     }
 
-    private void stop_wrapper (bool destroy_flag = false) {
-        destroy_on_save = destroy_flag;
+    private void present_processing_dialog () {
+        if (processing_dialog != null) {
+            // Already present
+            return;
+        }
 
         // Ideally, we should initialize processing dialog not here but in the constructor of ``this``
         // and keep the same instance during the lifetime of the app.
@@ -349,8 +366,6 @@ public class MainWindow : Adw.ApplicationWindow {
         };
         processing_dialog.cancel.connect (cancel_warpper);
         processing_dialog.present (this);
-
-        record_manager.stop ();
     }
 
     private void cancel_warpper () {

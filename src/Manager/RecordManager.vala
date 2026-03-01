@@ -82,15 +82,6 @@ public class Manager.RecordManager : Object {
     private RecordState state = RecordState.IDLE;
 
     /**
-     * Whether recording is ongoing
-     */
-    public bool is_recording {
-        get {
-            return (state != RecordState.IDLE && state != RecordState.READY);
-        }
-    }
-
-    /**
      * Current sound level, taking value from 0 to 1
      */
     // Inspired from GNOME Sound Recorder:
@@ -619,6 +610,36 @@ public class Manager.RecordManager : Object {
         pipeline.set_state (Gst.State.PLAYING);
 
         return true;
+    }
+
+    /**
+     * Request to stop ongoing recording safely if such exists
+     *
+     * @return ``true`` if shutdown completed; {@link state} is set to {@link RecordState.IDLE}.<<BR>>
+     * ``false`` otherwise; the caller must wait until either one of {@link record_ok} or {@link record_err}
+     * signals being emitted. {@link state} is set to {@link RecordState.IDLE} after either signal is emitted
+     */
+    public bool request_shutdown () {
+        switch (state) {
+            case RecordState.IDLE:
+                // NOP
+                return true;
+            case RecordState.READY:
+                // Recording not yet started so just chaing state is enough
+                state = RecordState.IDLE;
+                return true;
+            case RecordState.RECORDING:
+            case RecordState.PAUSED:
+                // Start finalizing
+                stop ();
+                return false;
+            case RecordState.FINALIZING:
+                // NOP; already working for finalizing
+                return false;
+            default:
+                critical ("[BUG] invalid state %d", state);
+                assert_not_reached ();
+        }
     }
 
     /**
