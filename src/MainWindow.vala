@@ -416,8 +416,10 @@ public class MainWindow : Adw.ApplicationWindow {
      * The filename includes start datetime and end time. It also includes end date if the date is different between
      * start and end.
      *
-     * e.g. "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
-     *      "2018-11-10_23:42:36 to 23:49:52.wav"
+     * examples of result:
+     *
+     *  * "2018-11-10_23:42:36 to 2018-11-11_07:13:50.wav"
+     *  * "2018-11-10_23:42:36 to 23:49:52.wav"
      */
     private string build_filename_from_datetime (DateTime start, DateTime end, string suffix) {
         string start_format = "%Y-%m-%d_%H:%M:%S";
