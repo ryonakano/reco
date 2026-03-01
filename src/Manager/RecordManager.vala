@@ -10,6 +10,10 @@
 
 /**
  * Manages recording.
+ *
+ * State machine:
+ *
+ * {{../docs/images/record_manager_state.drawio.svg|figure of state machine}}
  */
 public class Manager.RecordManager : Object {
     /**
@@ -26,9 +30,63 @@ public class Manager.RecordManager : Object {
     public signal void record_ok ();
 
     /**
+     * States that {@link Manager.RecordManager} can take.
+     */
+    private enum RecordState {
+        /**
+         * Initial state; not recording.
+         *
+         * Use {@link Manager.RecordManager.prepare} to change to {@link READY} state.
+         */
+        IDLE,
+
+        /**
+         * Ready to start recording.
+         *
+         * Use {@link Manager.RecordManager.start} to change to {@link RECORDING} state.
+         */
+        READY,
+
+        /**
+         * Recording is ongoing.
+         *
+         * Use {@link Manager.RecordManager.stop} to change to {@link FINALIZING} state.<<BR>>
+         * Use {@link Manager.RecordManager.pause} to change to {@link PAUSED} state.<<BR>>
+         * Use {@link Manager.RecordManager.cancel} to discard recording and change to {@link IDLE} state.
+         */
+        RECORDING,
+
+        /**
+         * Recording is temporary paused.
+         *
+         * Use {@link Manager.RecordManager.resume} to change to {@link RECORDING} state.<<BR>>
+         * Use {@link Manager.RecordManager.stop} to change to {@link FINALIZING} state.<<BR>>
+         * Use {@link Manager.RecordManager.cancel} to discard recording and change to {@link IDLE} state.
+         */
+        PAUSED,
+
+        /**
+         * Completing recording.
+         *
+         * {@link Manager.RecordManager} automatically changes to {@link IDLE} state when recording completed.<<BR>>
+         * Use {@link Manager.RecordManager.cancel} to discard recording and change to {@link IDLE} state.
+         */
+        FINALIZING,
+    }
+
+    /**
+     * State of ``this``.
+     */
+    private RecordState state = RecordState.IDLE;
+
+    /**
      * Whether recording is ongoing.
      */
-    public bool is_recording { get; private set; default = false; }
+    public bool is_recording {
+        get {
+            return (state != RecordState.IDLE && state != RecordState.READY);
+        }
+    }
 
     /**
      * Current sound level, taking value from 0 to 1.
@@ -64,9 +122,9 @@ public class Manager.RecordManager : Object {
     private static Gee.HashMap<Define.FormatID, Model.Recorder.AbstractRecorder> recorder_table;
 
     /**
-     * Gets a unique instance of {@link RecordManager}.
+     * Gets a unique instance of {@link Manager.RecordManager}.
      *
-     * @return A unique {@link RecordManager}. Do not ref or unref it
+     * @return A unique {@link Manager.RecordManager}. Do not ref or unref it
      */
     public static unowned RecordManager get_default () {
         if (_instance == null) {
@@ -92,6 +150,8 @@ public class Manager.RecordManager : Object {
 
     /**
      * Create a pipeline and add elements to it.
+     *
+     * This changes state of ``this`` from Idle to Ready if succeeds.
      *
      * @param dst_path          destination path where to save recording
      * @param source            information of which type of a device records from
@@ -211,54 +271,120 @@ public class Manager.RecordManager : Object {
         }
 
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
+
+        state = RecordState.READY;
     }
 
     /**
      * Start recording.
      *
-     * NOTE: {@link record_err} is thrown if an error occurred while recording. Connect to that signal before calling
+     * This changes state of ``this`` from Ready to Recording if succeeds.
+     *
+     * Note: {@link record_err} is thrown if an error occurred while recording. Connect to it before calling
      * this method.
+     *
+     * @return true if succeeds, false otherwise.
      */
-    public void start () {
+    public bool start () {
+        if (state != RecordState.READY) {
+            critical ("[BUG] invalid state %d", state);
+            return false;
+        }
+
+        state = RecordState.RECORDING;
+
         pipeline.set_state (Gst.State.PLAYING);
 
-        is_recording = true;
+        return true;
     }
 
     /**
      * Stop recording.
      *
-     * NOTE: {@link record_err} is thrown if recording completed successfully. Connect to that signal before calling
+     * This changes state of ``this`` from Recording or Paused to Finalizing if succeeds.
+     *
+     * Note: This method just send an end-of-stream event to an internal pipeline; the return value does not indicate
+     * whether the pipeline handles the event successfully.<<BR>>
+     * Instead, {@link record_err} is thrown if recording completed successfully. Connect to it before calling
      * this method.
+     *
+     * @return true if succeeds, false otherwise.
      */
-    public void stop () {
+    public bool stop () {
+        if (state != RecordState.RECORDING && state != RecordState.PAUSED) {
+            critical ("[BUG] invalid state %d", state);
+            return false;
+        }
+
+        state = RecordState.FINALIZING;
+
         // Pipelines don't seem to catch events when it's in the PAUSED state
         pipeline.set_state (Gst.State.PLAYING);
 
         pipeline.send_event (new Gst.Event.eos ());
+
+        return true;
     }
 
     /**
      * Cancel recording.
+     *
+     * This changes state of ``this`` from Recording, Paused, or Finalizing to Idle if succeeds.
+     *
+     * @return true if succeeds, false otherwise.
      */
-    public void cancel () {
+    public bool cancel () {
+        if (state != RecordState.RECORDING && state != RecordState.PAUSED && state != RecordState.FINALIZING) {
+            critical ("[BUG] invalid state %d", state);
+            return false;
+        }
+
         pipeline.set_state (Gst.State.NULL);
         pipeline.dispose ();
-        is_recording = false;
+
+        state = RecordState.IDLE;
+
+        return true;
     }
 
     /**
      * Pause recording.
+     *
+     * This changes state of ``this`` from Recording to Paused if succeeds.
+     *
+     * @return true if succeeds, false otherwise.
      */
-    public void pause () {
+    public bool pause () {
+        if (state != RecordState.RECORDING) {
+            critical ("[BUG] invalid state %d", state);
+            return false;
+        }
+
         pipeline.set_state (Gst.State.PAUSED);
+
+        state = RecordState.PAUSED;
+
+        return true;
     }
 
     /**
      * Resume recording.
+     *
+     * This changes state of ``this`` from Paused to Recording if succeeds.
+     *
+     * @return true if succeeds, false otherwise.
      */
-    public void resume () {
-        start ();
+    public bool resume () {
+        if (state != RecordState.PAUSED) {
+            critical ("[BUG] invalid state %d", state);
+            return false;
+        }
+
+        state = RecordState.RECORDING;
+
+        pipeline.set_state (Gst.State.PLAYING);
+
+        return true;
     }
 
     private bool bus_message_cb (Gst.Bus bus, Gst.Message message) {
@@ -279,7 +405,8 @@ public class Manager.RecordManager : Object {
     }
 
     private bool bus_message_cb_error (Gst.Bus bus, Gst.Message message) {
-        cancel ();
+        pipeline.set_state (Gst.State.NULL);
+        pipeline.dispose ();
 
         Error err;
         string debug_info;
@@ -287,6 +414,8 @@ public class Manager.RecordManager : Object {
 
         warning ("Error received from element \"%s\": err=\"%s\" debug_info=\"%s\"",
                     message.src.name, err.message, debug_info);
+
+        state = RecordState.IDLE;
 
         record_err (err, debug_info);
 
@@ -296,7 +425,8 @@ public class Manager.RecordManager : Object {
     private bool bus_message_cb_eos (Gst.Bus bus, Gst.Message message) {
         pipeline.set_state (Gst.State.NULL);
         pipeline.dispose ();
-        is_recording = false;
+
+        state = RecordState.IDLE;
 
         record_ok ();
 
