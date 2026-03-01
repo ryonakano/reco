@@ -129,15 +129,7 @@ public class Manager.RecordManager : Object {
      * All elements created in this method should be added to ``pipeline`` using {@link Gst.Bin.add}
      * and linked to ``src`` or ``dst`` elements appropriately using {@link Gst.Pad.link}
      *
-     * {{{
-     * |--- pipeline --------------------------------------------------------------------|
-     * |           |------------|  |-----------------|                    |------------| |
-     * |  (snip) --|     src    |--| format-specific |-- (snip, if any) --|     dst    | |
-     * |         --|            |--|     element     |--                --|            | |
-     * |           |------------|  |-----------------|                    |------------| |
-     * |---------------------------------------------------------------------------------|
-     *                          <--------- scope of this method ---------->
-     * }}}
+     * {{../docs/images/Manager/RecordManager/format_specific_elements.drawio.svg|figure of format-specific elements}}
      *
      * Note: This method should add at least one element that inherits {@link Gst.TagSetter} to ``pipeline``
      * for metadata<<BR>>
