@@ -75,8 +75,9 @@ public class Application : Adw.Application {
             return;
         }
 
-        bool can_destroy = window.check_destroy ();
+        bool can_destroy = window.prepare_destory ();
         if (!can_destroy) {
+            // Prevent MainWindow from being destroyed right now
             return;
         }
 
