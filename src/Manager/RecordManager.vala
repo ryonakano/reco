@@ -143,10 +143,10 @@ public class Manager.RecordManager : Object {
      * @param src       an element that precedes all elements created in this method.
      * @param dst       an element that succeeds to all elements created in this method.
      *
-     * @throws Error    error while preparation
+     * @return          true if succeeds, false otherwise.
      */
     [ CCode ( has_target = false ) ]
-    private delegate void FormatSpecificPrepareFunc (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error;
+    private delegate bool FormatSpecificPrepareFunc (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst);
 
     private static Gee.HashMap<Define.FormatID, FormatSpecificPrepareFunc> prepare_fmt_table;
 
@@ -292,7 +292,10 @@ public class Manager.RecordManager : Object {
             throw new Gst.ResourceError.NOT_FOUND ("No handler for the given file format. format=%d".printf (format));
         }
 
-        prepare_fmt (pipeline, level, sink);
+        bool ret = prepare_fmt (pipeline, level, sink);
+        if (!ret) {
+            throw new Gst.LibraryError.INIT ("Failed to prepare for the given file format. format=%d".printf (format));
+        }
 
         if (meta_author != null && meta_record_dt != null) {
             // Ignore return value because failure to add metadata does not affect recording itself
@@ -304,10 +307,11 @@ public class Manager.RecordManager : Object {
         state = RecordState.READY;
     }
 
-    private static void prepare_alac (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
+    private static bool prepare_alac (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("avenc_alac", "encoder");
         if (encoder == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create avenc_alac element");
+            critical ("Failed to create avenc_alac element");
+            return false;
         }
 
         pipeline.add (encoder);
@@ -315,29 +319,36 @@ public class Manager.RecordManager : Object {
 
         var muxer = Gst.ElementFactory.make ("mp4mux", "muxer");
         if (muxer == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create mp4mux element");
+            critical ("Failed to create mp4mux element");
+            return false;
         }
 
         pipeline.add (muxer);
         encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
         muxer.link (dst);
+
+        return true;
     }
 
-    private static void prepare_flac (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
+    private static bool prepare_flac (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("flacenc", "encoder");
         if (encoder == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create flacenc element");
+            critical ("Failed to create flacenc element");
+            return false;
         }
 
         pipeline.add (encoder);
         src.link (encoder);
         encoder.link (dst);
+
+        return true;
     }
 
-    private static void prepare_mp3 (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
+    private static bool prepare_mp3 (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("lamemp3enc", "encoder");
         if (encoder == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create lamemp3enc element");
+            critical ("Failed to create lamemp3enc element");
+            return false;
         }
 
         pipeline.add (encoder);
@@ -345,18 +356,22 @@ public class Manager.RecordManager : Object {
 
         var muxer = Gst.ElementFactory.make ("id3v2mux", "muxer");
         if (muxer == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create id3v2mux element");
+            critical ("Failed to create id3v2mux element");
+            return false;
         }
 
         pipeline.add (muxer);
         encoder.link_many (muxer, dst);
         muxer.link (dst);
+
+        return false;
     }
 
-    private static void prepare_ogg (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
+    private static bool prepare_ogg (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("vorbisenc", "encoder");
         if (encoder == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create vorbisenc element");
+            critical ("Failed to create vorbisenc element");
+            return false;
         }
 
         pipeline.add (encoder);
@@ -364,18 +379,22 @@ public class Manager.RecordManager : Object {
 
         var muxer = Gst.ElementFactory.make ("oggmux", "muxer");
         if (muxer == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create oggmux element");
+            critical ("Failed to create oggmux element");
+            return false;
         }
 
         pipeline.add (muxer);
         encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
         muxer.link (dst);
+
+        return true;
     }
 
-    private static void prepare_opus (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
+    private static bool prepare_opus (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("opusenc", "encoder");
         if (encoder == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create opusenc element");
+            critical ("Failed to create opusenc element");
+            return false;
         }
 
         pipeline.add (encoder);
@@ -383,23 +402,29 @@ public class Manager.RecordManager : Object {
 
         var muxer = Gst.ElementFactory.make ("oggmux", "muxer");
         if (muxer == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create oggmux element");
+            critical ("Failed to create oggmux element");
+            return false;
         }
 
         pipeline.add (muxer);
         encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
         muxer.link (dst);
+
+        return true;
     }
 
-    private static void prepare_wav (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
+    private static bool prepare_wav (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("wavenc", "encoder");
         if (encoder == null) {
-            throw new Gst.LibraryError.INIT ("Failed to create wavenc element");
+            critical ("Failed to create wavenc element");
+            return false;
         }
 
         pipeline.add (encoder);
         src.link (encoder);
         encoder.link (dst);
+
+        return true;
     }
 
     /**
