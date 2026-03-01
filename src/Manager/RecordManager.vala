@@ -10,6 +10,10 @@
 
 /**
  * Manages recording.
+ *
+ * State machine:
+ *
+ * {{../docs/images/record_manager_state.drawio.svg|figure of state machine}}
  */
 public class Manager.RecordManager : Object {
     /**
@@ -27,8 +31,6 @@ public class Manager.RecordManager : Object {
 
     /**
      * States that {@link Manager.RecordManager} can take.
-     *
-     * {{../docs/images/record_manager_state.drawio.png|machine state}}
      */
     private enum RecordState {
         /**
@@ -71,7 +73,7 @@ public class Manager.RecordManager : Object {
     }
 
     /**
-     * State of {@link Manager.RecordManager}.
+     * State of ``this``.
      */
     private RecordState state = RecordState.IDLE;
 
@@ -118,9 +120,9 @@ public class Manager.RecordManager : Object {
     private static Gee.HashMap<Define.FormatID, Model.Recorder.AbstractRecorder> recorder_table;
 
     /**
-     * Gets a unique instance of {@link RecordManager}.
+     * Gets a unique instance of {@link Manager.RecordManager}.
      *
-     * @return A unique {@link RecordManager}. Do not ref or unref it
+     * @return A unique {@link Manager.RecordManager}. Do not ref or unref it
      */
     public static unowned RecordManager get_default () {
         if (_instance == null) {
@@ -146,6 +148,8 @@ public class Manager.RecordManager : Object {
 
     /**
      * Create a pipeline and add elements to it.
+     *
+     * This changes state of ``this`` from Idle to Ready if succeeds.
      *
      * @param dst_path          destination path where to save recording
      * @param source            information of which type of a device records from
@@ -272,10 +276,12 @@ public class Manager.RecordManager : Object {
     /**
      * Start recording.
      *
+     * This changes state of ``this`` from Ready to Recording if succeeds.
+     *
      * NOTE: {@link record_err} is thrown if an error occurred while recording. Connect to that signal before calling
      * this method.
      *
-     * @return true if succeeded, false otherwise.
+     * @return true if succeeds, false otherwise.
      */
     public bool start () {
         if (state != RecordState.READY) {
@@ -293,10 +299,12 @@ public class Manager.RecordManager : Object {
     /**
      * Stop recording.
      *
+     * This changes state of ``this`` from Recording or Paused to Finalizing if succeeds.
+     *
      * NOTE: {@link record_err} is thrown if recording completed successfully. Connect to that signal before calling
      * this method.
      *
-     * @return true if succeeded, false otherwise.
+     * @return true if succeeds, false otherwise.
      */
     public bool stop () {
         if (state != RecordState.RECORDING || state != RecordState.PAUSED) {
@@ -317,7 +325,9 @@ public class Manager.RecordManager : Object {
     /**
      * Cancel recording.
      *
-     * @return true if succeeded, false otherwise.
+     * This changes state of ``this`` from Recording, Paused, or Finalizing to Idle if succeeds.
+     *
+     * @return true if succeeds, false otherwise.
      */
     public bool cancel () {
         if (state != RecordState.RECORDING || state != RecordState.PAUSED || state != RecordState.FINALIZING) {
@@ -336,7 +346,9 @@ public class Manager.RecordManager : Object {
     /**
      * Pause recording.
      *
-     * @return true if succeeded, false otherwise.
+     * This changes state of ``this`` from Recording to Paused if succeeds.
+     *
+     * @return true if succeeds, false otherwise.
      */
     public bool pause () {
         if (state != RecordState.RECORDING) {
@@ -354,7 +366,9 @@ public class Manager.RecordManager : Object {
     /**
      * Resume recording.
      *
-     * @return true if succeeded, false otherwise.
+     * This changes state of ``this`` from Paused to Recording if succeeds.
+     *
+     * @return true if succeeds, false otherwise.
      */
     public bool resume () {
         if (state != RecordState.PAUSED) {
