@@ -119,7 +119,36 @@ public class Manager.RecordManager : Object {
 
     private Gst.Pipeline pipeline;
 
-    private static Gee.HashMap<Define.FormatID, Model.Recorder.AbstractRecorder> recorder_table;
+    /**
+     * Prepare for recording.
+     *
+     * All elements created in this method should be added to ``pipeline`` using {@link Gst.Bin.add}
+     * and linked to ``src`` or ``dst`` elements appropriately using {@link Gst.Pad.link}.
+     *
+     * {{{
+     * |--- pipeline --------------------------------------------------------------------|
+     * |           |------------|  |-----------------|                    |------------| |
+     * |  (snip) --|     src    |--| format-specific |-- (snip, if any) --|     dst    | |
+     * |         --|            |--|     element     |--                --|            | |
+     * |           |------------|  |-----------------|                    |------------| |
+     * |---------------------------------------------------------------------------------|
+     *                          <--------- scope of this method ---------->
+     * }}}
+     *
+     * Note: This method should add at least one element that inherits {@link Gst.TagSetter} to ``pipeline``
+     * for metadata.<<BR>>
+     * See {@link Manager.RecordManager.add_metadata} for details.
+     *
+     * @param pipeline  pipeline that holds all elements necessary for recording.
+     * @param src       an element that precedes all elements created in this method.
+     * @param dst       an element that succeeds to all elements created in this method.
+     *
+     * @throws Error    error while preparation
+     */
+    [ CCode ( has_target = false ) ]
+    private delegate void FormatSpecificPrepareFunc (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error;
+
+    private static Gee.HashMap<Define.FormatID, FormatSpecificPrepareFunc> prepare_fmt_table;
 
     /**
      * Gets a unique instance of {@link Manager.RecordManager}.
@@ -139,13 +168,13 @@ public class Manager.RecordManager : Object {
     }
 
     static construct {
-        recorder_table = new Gee.HashMap<Define.FormatID, Model.Recorder.AbstractRecorder> ();
-        recorder_table[Define.FormatID.ALAC] = new Model.Recorder.ALACRecorder ();
-        recorder_table[Define.FormatID.FLAC] = new Model.Recorder.FLACRecorder ();
-        recorder_table[Define.FormatID.MP3] = new Model.Recorder.MP3Recorder ();
-        recorder_table[Define.FormatID.OGG] = new Model.Recorder.OGGRecorder ();
-        recorder_table[Define.FormatID.OPUS] = new Model.Recorder.OPUSRecorder ();
-        recorder_table[Define.FormatID.WAV] = new Model.Recorder.WAVRecorder ();
+        prepare_fmt_table = new Gee.HashMap<Define.FormatID, FormatSpecificPrepareFunc> ();
+        prepare_fmt_table[Define.FormatID.ALAC] = prepare_alac;
+        prepare_fmt_table[Define.FormatID.FLAC] = prepare_flac;
+        prepare_fmt_table[Define.FormatID.MP3] = prepare_mp3;
+        prepare_fmt_table[Define.FormatID.OGG] = prepare_ogg;
+        prepare_fmt_table[Define.FormatID.OPUS] = prepare_opus;
+        prepare_fmt_table[Define.FormatID.WAV] = prepare_wav;
     }
 
     /**
@@ -258,12 +287,12 @@ public class Manager.RecordManager : Object {
 
         mixer.link_filtered (level, caps_channels);
 
-        var recorder = recorder_table[format];
-        if (recorder == null) {
+        unowned var prepare_fmt = prepare_fmt_table[format];
+        if (prepare_fmt == null) {
             throw new Gst.ResourceError.NOT_FOUND ("No handler for the given file format. format=%d".printf (format));
         }
 
-        recorder.prepare (pipeline, level, sink);
+        prepare_fmt (pipeline, level, sink);
 
         if (meta_author != null && meta_record_dt != null) {
             // Ignore return value because failure to add metadata does not affect recording itself
@@ -273,6 +302,104 @@ public class Manager.RecordManager : Object {
         pipeline.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
 
         state = RecordState.READY;
+    }
+
+    private static void prepare_alac (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
+        var encoder = Gst.ElementFactory.make ("avenc_alac", "encoder");
+        if (encoder == null) {
+            throw new Gst.LibraryError.INIT ("Failed to create avenc_alac element");
+        }
+
+        pipeline.add (encoder);
+        src.link (encoder);
+
+        var muxer = Gst.ElementFactory.make ("mp4mux", "muxer");
+        if (muxer == null) {
+            throw new Gst.LibraryError.INIT ("Failed to create mp4mux element");
+        }
+
+        pipeline.add (muxer);
+        encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
+        muxer.link (dst);
+    }
+
+    private static void prepare_flac (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
+        var encoder = Gst.ElementFactory.make ("flacenc", "encoder");
+        if (encoder == null) {
+            throw new Gst.LibraryError.INIT ("Failed to create flacenc element");
+        }
+
+        pipeline.add (encoder);
+        src.link (encoder);
+        encoder.link (dst);
+    }
+
+    private static void prepare_mp3 (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
+        var encoder = Gst.ElementFactory.make ("lamemp3enc", "encoder");
+        if (encoder == null) {
+            throw new Gst.LibraryError.INIT ("Failed to create lamemp3enc element");
+        }
+
+        pipeline.add (encoder);
+        src.link (encoder);
+
+        var muxer = Gst.ElementFactory.make ("id3v2mux", "muxer");
+        if (muxer == null) {
+            throw new Gst.LibraryError.INIT ("Failed to create id3v2mux element");
+        }
+
+        pipeline.add (muxer);
+        encoder.link_many (muxer, dst);
+        muxer.link (dst);
+    }
+
+    private static void prepare_ogg (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
+        var encoder = Gst.ElementFactory.make ("vorbisenc", "encoder");
+        if (encoder == null) {
+            throw new Gst.LibraryError.INIT ("Failed to create vorbisenc element");
+        }
+
+        pipeline.add (encoder);
+        src.link (encoder);
+
+        var muxer = Gst.ElementFactory.make ("oggmux", "muxer");
+        if (muxer == null) {
+            throw new Gst.LibraryError.INIT ("Failed to create oggmux element");
+        }
+
+        pipeline.add (muxer);
+        encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
+        muxer.link (dst);
+    }
+
+    private static void prepare_opus (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
+        var encoder = Gst.ElementFactory.make ("opusenc", "encoder");
+        if (encoder == null) {
+            throw new Gst.LibraryError.INIT ("Failed to create opusenc element");
+        }
+
+        pipeline.add (encoder);
+        src.link (encoder);
+
+        var muxer = Gst.ElementFactory.make ("oggmux", "muxer");
+        if (muxer == null) {
+            throw new Gst.LibraryError.INIT ("Failed to create oggmux element");
+        }
+
+        pipeline.add (muxer);
+        encoder.get_static_pad ("src").link (muxer.request_pad_simple ("audio_%u"));
+        muxer.link (dst);
+    }
+
+    private static void prepare_wav (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) throws Error {
+        var encoder = Gst.ElementFactory.make ("wavenc", "encoder");
+        if (encoder == null) {
+            throw new Gst.LibraryError.INIT ("Failed to create wavenc element");
+        }
+
+        pipeline.add (encoder);
+        src.link (encoder);
+        encoder.link (dst);
     }
 
     /**
