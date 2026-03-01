@@ -99,7 +99,7 @@ public class Manager.RecordManager : Object {
         get {
             return _current_peak;
         }
-        set {
+        private set {
             double decibel = value;
             if (decibel > 0) {
                 decibel = 0;
