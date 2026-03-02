@@ -141,20 +141,11 @@ public class Model.Recorder : Object {
     private static Gee.HashMap<Define.FormatID, FormatSpecificPrepareFunc> prepare_fmt_table;
 
     /**
-     * Gets a unique instance of {@link Model.Recorder}
+     * Creates a new {@link Model.Recorder}
      *
-     * @return A unique {@link Model.Recorder}. Do not ref or unref it
+     * @return a new {@link Model.Recorder}
      */
-    public static unowned Recorder get_default () {
-        if (_instance == null) {
-            _instance = new Recorder ();
-        }
-
-        return _instance;
-    }
-    private static Recorder _instance;
-
-    private Recorder () {
+    public Recorder () {
     }
 
     static construct {

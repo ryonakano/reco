@@ -9,6 +9,8 @@ public class View.RecordView : AbstractView {
     public signal void pause_recording ();
     public signal void resume_recording ();
 
+    public Model.Recorder recorder { get; construct; }
+
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
     private Widget.LevelBar levelbar;
@@ -18,7 +20,10 @@ public class View.RecordView : AbstractView {
     private Model.Timer.CountUpTimer uptimer;
     private Model.Timer.CountDownTimer downtimer;
 
-    public RecordView () {
+    public RecordView (Model.Recorder recorder) {
+        Object (
+            recorder: recorder
+        );
     }
 
     construct {
@@ -132,7 +137,6 @@ public class View.RecordView : AbstractView {
     }
 
     private double get_current_peak () {
-        unowned var recorder = Model.Recorder.get_default ();
         return recorder.current_peak;
     }
 

@@ -11,7 +11,7 @@ public class MainWindow : Adw.ApplicationWindow {
         { "open-folder", on_open_folder_activate, "s" },
     };
 
-    private unowned Model.Recorder recorder;
+    private Model.Recorder recorder;
     private DateTime start_dt;
     private string recording_tmp_path;
     private uint inhibit_token = 0;
@@ -31,7 +31,7 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     construct {
-        recorder = Model.Recorder.get_default ();
+        recorder = new Model.Recorder ();
 
         // Distinct development build visually
         if (".Devel" in Config.APP_ID) {
@@ -68,7 +68,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
         welcome_view = new View.WelcomeView ();
         countdown_view = new View.CountDownView ();
-        record_view = new View.RecordView ();
+        record_view = new View.RecordView (recorder);
 
         stack = new Gtk.Stack () {
             margin_bottom = 24,
