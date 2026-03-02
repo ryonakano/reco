@@ -11,7 +11,7 @@ public class MainWindow : Adw.ApplicationWindow {
         { "open-folder", on_open_folder_activate, "s" },
     };
 
-    private unowned Manager.RecordManager record_manager;
+    private unowned Model.Recorder recorder;
     private DateTime start_dt;
     private string recording_tmp_path;
     private uint inhibit_token = 0;
@@ -31,7 +31,7 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     construct {
-        record_manager = Manager.RecordManager.get_default ();
+        recorder = Model.Recorder.get_default ();
 
         // Distinct development build visually
         if (".Devel" in Config.APP_ID) {
@@ -108,17 +108,17 @@ public class MainWindow : Adw.ApplicationWindow {
         record_view.cancel_recording.connect (cancel_warpper);
         record_view.stop_recording.connect (() => {
             present_processing_dialog ();
-            record_manager.stop ();
+            recorder.stop ();
         });
         record_view.pause_recording.connect (() => {
-            record_manager.pause ();
+            recorder.pause ();
 
             uninhibit_sleep ();
         });
         record_view.resume_recording.connect (() => {
             inhibit_sleep ();
 
-            record_manager.resume ();
+            recorder.resume ();
         });
 
         close_request.connect ((event) => {
@@ -132,7 +132,7 @@ public class MainWindow : Adw.ApplicationWindow {
             return Gdk.EVENT_PROPAGATE;
         });
 
-        record_manager.record_err.connect ((err, debug_info) => {
+        recorder.record_err.connect ((err, debug_info) => {
             record_view.refresh_end ();
 
             show_error_dialog (
@@ -144,7 +144,7 @@ public class MainWindow : Adw.ApplicationWindow {
             show_welcome ();
         });
 
-        record_manager.record_ok.connect (save_file_wrapper);
+        recorder.record_ok.connect (save_file_wrapper);
     }
 
     private async void save_file_wrapper () {
@@ -312,7 +312,7 @@ public class MainWindow : Adw.ApplicationWindow {
             meta_record_dt = start_dt;
         }
 
-        bool ret = record_manager.prepare (recording_tmp_path, source, channel, format, meta_author, meta_record_dt);
+        bool ret = recorder.prepare (recording_tmp_path, source, channel, format, meta_author, meta_record_dt);
         if (!ret) {
             show_error_dialog (
                 _("Failed to Prepare Recording"),
@@ -324,7 +324,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
         inhibit_sleep ();
 
-        record_manager.start ();
+        recorder.start ();
 
         record_view.refresh_begin ();
         stack.visible_child = record_view;
@@ -338,9 +338,9 @@ public class MainWindow : Adw.ApplicationWindow {
      * with a user.
      */
     public bool prepare_destory () {
-        bool can_destroy = record_manager.request_shutdown ();
+        bool can_destroy = recorder.request_shutdown ();
         if (!can_destroy) {
-            // RecordManager is shutting down so we can't destroy MainWindow now
+            // Recorder is shutting down so we can't destroy MainWindow now
 
             record_view.refresh_end ();
             present_processing_dialog ();
@@ -374,7 +374,7 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     private void cancel_warpper () {
-        record_manager.cancel ();
+        recorder.cancel ();
 
         cleanup_tmp_recording.begin ((obj, res) => {
             cleanup_tmp_recording.end (res);

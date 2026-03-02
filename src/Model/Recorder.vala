@@ -7,17 +7,17 @@
  */
 
 /**
- * Manages recording
+ * Handles recording
  *
  * State machine:
  *
- * {{../docs/images/Manager/RecordManager/state.drawio.svg|figure of state machine}}
+ * {{../docs/images/Model/Recorder/state.drawio.svg|figure of state machine}}
  *
  * Pipeline configuration, example when MP3 is selected as a format:
  *
- * {{../docs/images/Manager/RecordManager/pipeline.drawio.svg|figure of pipeline configuration}}
+ * {{../docs/images/Model/Recorder/pipeline.drawio.svg|figure of pipeline configuration}}
  */
-public class Manager.RecordManager : Object {
+public class Model.Recorder : Object {
     /**
      * Emitted when a fatal internal error occurred
      *
@@ -32,46 +32,46 @@ public class Manager.RecordManager : Object {
     public signal void record_ok ();
 
     /**
-     * States that {@link Manager.RecordManager} can take
+     * States that {@link Model.Recorder} can take
      */
     private enum RecordState {
         /**
          * Initial state; not recording
          *
-         * Use {@link Manager.RecordManager.prepare} to change to {@link READY} state
+         * Use {@link Model.Recorder.prepare} to change to {@link READY} state
          */
         IDLE,
 
         /**
          * Ready to start recording
          *
-         * Use {@link Manager.RecordManager.start} to change to {@link RECORDING} state
+         * Use {@link Model.Recorder.start} to change to {@link RECORDING} state
          */
         READY,
 
         /**
          * Recording is ongoing
          *
-         * Use {@link Manager.RecordManager.stop} to change to {@link FINALIZING} state<<BR>>
-         * Use {@link Manager.RecordManager.pause} to change to {@link PAUSED} state<<BR>>
-         * Use {@link Manager.RecordManager.cancel} to discard recording and change to {@link IDLE} state
+         * Use {@link Model.Recorder.stop} to change to {@link FINALIZING} state<<BR>>
+         * Use {@link Model.Recorder.pause} to change to {@link PAUSED} state<<BR>>
+         * Use {@link Model.Recorder.cancel} to discard recording and change to {@link IDLE} state
          */
         RECORDING,
 
         /**
          * Recording is temporary paused
          *
-         * Use {@link Manager.RecordManager.resume} to change to {@link RECORDING} state<<BR>>
-         * Use {@link Manager.RecordManager.stop} to change to {@link FINALIZING} state<<BR>>
-         * Use {@link Manager.RecordManager.cancel} to discard recording and change to {@link IDLE} state
+         * Use {@link Model.Recorder.resume} to change to {@link RECORDING} state<<BR>>
+         * Use {@link Model.Recorder.stop} to change to {@link FINALIZING} state<<BR>>
+         * Use {@link Model.Recorder.cancel} to discard recording and change to {@link IDLE} state
          */
         PAUSED,
 
         /**
          * Completing recording
          *
-         * {@link Manager.RecordManager} automatically changes to {@link IDLE} state when recording completed<<BR>>
-         * Use {@link Manager.RecordManager.cancel} to discard recording and change to {@link IDLE} state
+         * {@link Model.Recorder} automatically changes to {@link IDLE} state when recording completed<<BR>>
+         * Use {@link Model.Recorder.cancel} to discard recording and change to {@link IDLE} state
          */
         FINALIZING,
     }
@@ -120,7 +120,7 @@ public class Manager.RecordManager : Object {
      * All elements created in this method should be added to ``pipeline`` using {@link Gst.Bin.add}
      * and linked to ``src`` or ``dst`` elements appropriately using {@link Gst.Pad.link}
      *
-     * {{../docs/images/Manager/RecordManager/format_specific_elements.drawio.svg|figure of format-specific elements}}
+     * {{../docs/images/Model/Recorder/format_specific_elements.drawio.svg|figure of format-specific elements}}
      *
      * Note: This method should add at least one element that inherits {@link Gst.TagSetter} to ``pipeline``
      * for metadata<<BR>>
@@ -141,20 +141,20 @@ public class Manager.RecordManager : Object {
     private static Gee.HashMap<Define.FormatID, FormatSpecificPrepareFunc> prepare_fmt_table;
 
     /**
-     * Gets a unique instance of {@link Manager.RecordManager}
+     * Gets a unique instance of {@link Model.Recorder}
      *
-     * @return A unique {@link Manager.RecordManager}. Do not ref or unref it
+     * @return A unique {@link Model.Recorder}. Do not ref or unref it
      */
-    public static unowned RecordManager get_default () {
+    public static unowned Recorder get_default () {
         if (_instance == null) {
-            _instance = new RecordManager ();
+            _instance = new Recorder ();
         }
 
         return _instance;
     }
-    private static RecordManager _instance;
+    private static Recorder _instance;
 
-    private RecordManager () {
+    private Recorder () {
     }
 
     static construct {

@@ -17,7 +17,7 @@ sources = files(
   'MainWindow.vala',
   'Util.vala',
   'Manager/DeviceManager.vala',
-  'Manager/RecordManager.vala',
+  'Model/Recorder.vala',
   'Model/Timer/AbstractTimer.vala',
   'Model/Timer/CountDownTimer.vala',
   'Model/Timer/CountUpTimer.vala',
