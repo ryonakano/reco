@@ -189,12 +189,11 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            debug ("[source] add: added device \"%s\"", device.display_name);
-
             if (is_default) {
                 default_source = device;
-                debug ("[source] add: found default device \"%s\"", default_source.display_name);
             }
+
+            debug ("[source] add: added device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
 
             return true;
         }
@@ -219,12 +218,11 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            debug ("[sink] add: added device \"%s\"", device.display_name);
-
             if (is_default) {
                 default_sink = device;
-                debug ("[sink] add: found default device \"%s\"", default_sink.display_name);
             }
+
+            debug ("[sink] add: added device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
 
             return true;
         }
@@ -266,20 +264,21 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            debug ("[source] remove: removed device \"%s\"", device.display_name);
-
             if (is_default) {
+                // Clear the default device only when it's surely the removed device
+                // to prevent the new default device from being cleared if it's already detected
                 if (default_source.name == device.name) {
                     default_source = null;
-                    debug ("[source] remove: cleared default device");
                 }
             }
+
+            debug ("[source] remove: removed device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
 
             return true;
         }
 
         if (device.has_classes (CLASS_NAME_SINK)) {
-            if (sinks.contains (device)) {
+            if (!sinks.contains (device)) {
                 warning ("[sink] remove: already removed, skipping. device=\"%s\"", device.display_name);
                 return true;
             }
@@ -298,14 +297,15 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            debug ("[sink] remove: removed device \"%s\"", device.display_name);
-
             if (is_default) {
+                // Clear the default device only when it's surely the removed device
+                // to prevent the new default device from being cleared if it's already detected
                 if (default_sink.name == device.name) {
                     default_sink = null;
-                    debug ("[sink] remove: cleared default device");
                 }
             }
+
+            debug ("[source] remove: removed device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
 
             return true;
         }
