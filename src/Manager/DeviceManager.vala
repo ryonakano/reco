@@ -29,19 +29,7 @@ public class Manager.DeviceManager : Object {
 
     private DeviceManager () {
         monitor = new Gst.DeviceMonitor ();
-        monitor.get_bus ().add_watch (Priority.DEFAULT, (bus, msg) => {
-            switch (msg.type) {
-                case Gst.MessageType.DEVICE_ADDED:
-                case Gst.MessageType.DEVICE_CHANGED:
-                case Gst.MessageType.DEVICE_REMOVED:
-                    update_devices ();
-                    break;
-                default:
-                    break;
-            }
-
-            return Source.CONTINUE;
-        });
+        monitor.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
 
         var caps = new Gst.Caps.empty_simple ("audio/x-raw");
         monitor.add_filter (CLASS_NAME_SOURCE, caps);
@@ -55,6 +43,32 @@ public class Manager.DeviceManager : Object {
 
     ~DeviceManager () {
         monitor.stop ();
+    }
+
+    /**
+     * Handles {@link Gst.Message}
+     *
+     * @see             Gst.BusFunc
+     *
+     * @param bus       the {@link Gst.Bus} that sent the message
+     * @param message   the {@link Gst.Message}
+     *
+     * @return          ``false`` if the event source should be removed
+     */
+    private bool bus_message_cb (Gst.Bus bus, Gst.Message message) {
+        switch (message.type) {
+            case Gst.MessageType.DEVICE_ADDED:
+            case Gst.MessageType.DEVICE_CHANGED:
+            case Gst.MessageType.DEVICE_REMOVED:
+                update_devices ();
+                break;
+            default:
+                break;
+        }
+
+        // Returning false means unwatching the bus as per https://valadoc.org/gstreamer-1.0/Gst.Bus.add_watch.html,
+        // so return true even if we don't handle the message
+        return true;
     }
 
     private void update_devices () {
