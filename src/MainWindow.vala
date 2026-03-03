@@ -306,6 +306,18 @@ public class MainWindow : Adw.ApplicationWindow {
         recording_tmp_path = Path.build_filename (Environment.get_user_cache_dir (), tmp_filename);
 
         var source = (Define.SourceID) Application.settings.get_enum ("source");
+
+        Gst.Device? dev_sink = null;
+        if (source != Define.SourceID.MIC) {
+            dev_sink = Manager.DeviceManager.get_default ().default_sink;
+        }
+
+        Gst.Device? dev_mic = null;
+        if (source != Define.SourceID.SYSTEM) {
+            var index = (int) Manager.DeviceManager.get_default ().selected_source_index;
+            dev_mic = Manager.DeviceManager.get_default ().sources[index];
+        }
+
         var channel = (Define.ChannelID) Application.settings.get_enum ("channel");
         var format = (Define.FormatID) Application.settings.get_enum ("format");
         unowned string? meta_author = null;
@@ -317,7 +329,7 @@ public class MainWindow : Adw.ApplicationWindow {
             meta_record_dt = start_dt;
         }
 
-        bool ret = recorder.prepare (recording_tmp_path, source, channel, format, meta_author, meta_record_dt);
+        bool ret = recorder.prepare (recording_tmp_path, dev_mic, dev_sink, channel, format, meta_author, meta_record_dt);
         if (!ret) {
             show_error_dialog (
                 _("Failed to Prepare Recording"),

@@ -163,23 +163,33 @@ public class Model.Recorder : Object {
      *
      * This changes state of ``this`` from Idle to Ready if succeeds
      *
+     * Note: Either ``dev_mic`` or ``dev_sink`` must be valid at least
+     *
      * @param dst_path          destination path where to save recording
-     * @param source            information of which type of a device records from
+     * @param dev_mic           device object of a microphone that will be used as a record source.
+     *                          Set ``null`` if not needed
+     * @param dev_sink          device object of a sink whose "monitor" device will be used as a record source.
+     *                          Set ``null`` if not needed
      * @param channel           number of channels
      * @param format            file format that is encoded to
-     * @param meta_author       artist name that will be set to metadata as value of "Artist". Set null for no metadata
-     * @param meta_record_dt    date & time that will be set to metadata as value of "Year". Set null for no metadata
+     * @param meta_author       artist name that will be set to metadata as value of "Artist".
+     *                          Set ``null`` for no metadata
+     * @param meta_record_dt    date & time that will be set to metadata as value of "Year".
+     *                          Set ``null`` for no metadata
      *
      * @return                  ``true`` if succeeds, ``false`` otherwise
      */
     public bool prepare (
         string dst_path,
-        Define.SourceID source,
+        Gst.Device? dev_mic,
+        Gst.Device? dev_sink,
         Define.ChannelID channel,
         Define.FormatID format,
         string? meta_author,
         DateTime? meta_record_dt
     ) {
+        return_val_if_fail (dev_mic != null || dev_sink != null, false);
+
         pipeline = new Gst.Pipeline ("pipeline");
         if (pipeline == null) {
             warning ("Failed to create pipeline");
@@ -210,7 +220,7 @@ public class Model.Recorder : Object {
 
         pipeline.add (sink);
 
-        if (source != Define.SourceID.MIC) {
+        if (dev_sink != null) {
             // Use to record sound from system
             var sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
@@ -218,15 +228,14 @@ public class Model.Recorder : Object {
                 return false;
             }
 
-            Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
-            string? monitor_name = get_default_monitor_name (default_sink);
+            string? monitor_name = get_default_monitor_name (dev_sink);
             if (monitor_name == null) {
                 warning ("Failed to set \"device\" property of pulsesrc element \"sys_sound\"");
                 return false;
             }
 
             sys_sound.set ("device", monitor_name);
-            debug ("sound source (system): \"Monitor of %s\"", default_sink.display_name);
+            debug ("sound source (system): \"Monitor of %s\"", dev_sink.display_name);
 
             // Set properties that can be used in monitor apps e.g. pavucontrol or gnome-system-monitor
             var pa_props = new Gst.Structure.from_string (
@@ -241,17 +250,15 @@ public class Model.Recorder : Object {
             sys_sound.link_pads ("src", mixer, "sink_%u");
         }
 
-        if (source != Define.SourceID.SYSTEM) {
-            var index = (int) Manager.DeviceManager.get_default ().selected_source_index;
-            Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
+        if (dev_mic != null) {
             // Use to record sound from a microphone
-            Gst.Element mic_sound = microphone.create_element ("mic_sound");
+            Gst.Element mic_sound = dev_mic.create_element ("mic_sound");
             if (mic_sound == null) {
                 warning ("Failed to create pulsesrc element \"mic_sound\"");
                 return false;
             }
 
-            debug ("sound source (microphone): \"%s\"", microphone.display_name);
+            debug ("sound source (microphone): \"%s\"", dev_mic.display_name);
 
             // Set properties that can be used in monitor apps e.g. pavucontrol or gnome-system-monitor
             var pa_props = new Gst.Structure.from_string (
