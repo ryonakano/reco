@@ -299,7 +299,8 @@ public class Manager.DeviceManager : Object {
 
             if (is_default) {
                 // Clear the default device only when it's surely the removed device
-                // to prevent the new default device from being cleared if it's already detected
+                // to prevent the new default device from being cleared if it's already set to
+                // default_sink through add_device()
                 if (default_sink.name == device.name) {
                     default_sink = null;
                 }
