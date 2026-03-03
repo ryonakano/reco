@@ -305,7 +305,7 @@ public class Manager.DeviceManager : Object {
                 }
             }
 
-            debug ("[source] remove: removed device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
+            debug ("[sink] remove: removed device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
 
             return true;
         }
