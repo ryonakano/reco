@@ -223,7 +223,7 @@ public class Manager.DeviceManager : Object {
 
             if (is_default) {
                 default_sink = device;
-                debug ("add: [sink] found default device \"%s\"", default_source.display_name);
+                debug ("add: [sink] found default device \"%s\"", default_sink.display_name);
             }
 
             return true;
