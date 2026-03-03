@@ -58,9 +58,13 @@ public class Manager.DeviceManager : Object {
     private bool bus_message_cb (Gst.Bus bus, Gst.Message message) {
         switch (message.type) {
             case Gst.MessageType.DEVICE_ADDED:
+                bus_message_cb_device_added (bus, message);
+                break;
             case Gst.MessageType.DEVICE_CHANGED:
+                bus_message_cb_device_changed (bus, message);
+                break;
             case Gst.MessageType.DEVICE_REMOVED:
-                update_devices ();
+                bus_message_cb_device_removed (bus, message);
                 break;
             default:
                 break;
@@ -71,72 +75,217 @@ public class Manager.DeviceManager : Object {
         return true;
     }
 
-    private void update_devices () {
-        bool is_default;
+    /**
+     * Handles {@link Gst.MessageType.DEVICE_ADDED}
+     *
+     * This adds the device to a private list of devices
+     *
+     * @see             Gst.BusFunc
+     *
+     * @param bus       the {@link Gst.Bus} that sent the message
+     * @param message   the {@link Gst.Message}
+     *
+     * @return          ``false`` if the event source should be removed
+     */
+    private bool bus_message_cb_device_added (Gst.Bus bus, Gst.Message message) {
+        Gst.Device device;
 
-        debug ("update_devices start");
+        message.parse_device_added (out device);
 
-        sources.clear ();
-        sinks.clear ();
-
-        default_source = null;
-        default_sink = null;
-
-        foreach (var device in monitor.get_devices ()) {
-            Gst.Structure properties = device.properties;
-
-            if (device.has_classes (CLASS_NAME_SOURCE)) {
-                if (sources.contains (device)) {
-                    continue;
-                }
-
-                // We manually build device names of monitors so don't add them as a source here
-                if (properties.get_string ("device.class") == "monitor") {
-                    continue;
-                }
-
-                sources.add (device);
-                debug ("[Source] device detected: \"%s\"", device.display_name);
-
-                bool ret = properties.get_boolean ("is-default", out is_default);
-                if (!ret) {
-                    continue;
-                }
-
-                if (!is_default) {
-                    // not a default device
-                    continue;
-                }
-
-                default_source = device;
-                debug ("[Source] default device: \"%s\"", default_source.display_name);
-            }
-
-            if (device.has_classes (CLASS_NAME_SINK)) {
-                if (sinks.contains (device)) {
-                    continue;
-                }
-
-                sinks.add (device);
-                debug ("[Sink] device detected: \"%s\"", device.display_name);
-
-                bool ret = properties.get_boolean ("is-default", out is_default);
-                if (!ret) {
-                    continue;
-                }
-
-                if (!is_default) {
-                    // not a default device
-                    continue;
-                }
-
-                default_sink = device;
-                debug ("[Sink] default device: \"%s\"", default_sink.display_name);
-            }
-        }
+        // Ignore return value because failure to add a device just results it's not shown in the UI
+        add_device (device);
 
         device_updated ();
 
-        debug ("update_devices end");
+        return true;
+    }
+
+    /**
+     * Handles {@link Gst.MessageType.DEVICE_CHANGED}
+     *
+     * This removes the old device from a private list of devices and adds the new device to it
+     *
+     * @see             Gst.BusFunc
+     *
+     * @param bus       the {@link Gst.Bus} that sent the message
+     * @param message   the {@link Gst.Message}
+     *
+     * @return          ``false`` if the event source should be removed
+     */
+    private bool bus_message_cb_device_changed (Gst.Bus bus, Gst.Message message) {
+        Gst.Device new_device;
+        Gst.Device old_device;
+
+        message.parse_device_changed (out new_device, out old_device);
+
+        // Ignore return value because failure to remove a device just results it's remain in the UI,
+        // which can be reported as an error when staring recording
+        remove_device (old_device);
+        // Ignore return value because failure to add a device just results it's not shown in the UI
+        add_device (new_device);
+
+        device_updated ();
+
+        return true;
+    }
+
+    /**
+     * Handles {@link Gst.MessageType.DEVICE_REMOVED}
+     *
+     * This removes the device from a private list of devices
+     *
+     * @see             Gst.BusFunc
+     *
+     * @param bus       the {@link Gst.Bus} that sent the message
+     * @param message   the {@link Gst.Message}
+     *
+     * @return          ``false`` if the event source should be removed
+     */
+    private bool bus_message_cb_device_removed (Gst.Bus bus, Gst.Message message) {
+        Gst.Device device;
+
+        message.parse_device_removed (out device);
+
+        // Ignore return value because failure to remove a device just results it's remain in the UI,
+        // which can be reported as an error when staring recording
+        remove_device (device);
+
+        device_updated ();
+
+        return true;
+    }
+
+    /**
+     * Add a device to a private list of devices
+     *
+     * @param device        a device to add
+     *
+     * @return              ``true`` if ``device`` is added to a list, ``false`` otherwise
+     */
+    private bool add_device (Gst.Device device) {
+        if (device.has_classes (CLASS_NAME_SOURCE)) {
+            if (sources.contains (device)) {
+                warning ("add: [source] already added, skipping. device=\"%s\"", device.display_name);
+                return true;
+            }
+
+            Gst.Structure properties = device.properties;
+            if (properties.get_string ("device.class") == "monitor") {
+                // We manually build device names of monitors so don't add them as a source here
+                // TODO: I can't remember why. Needs to review if this is intended
+                return false;
+            }
+
+            bool is_default;
+            bool ret = properties.get_boolean ("is-default", out is_default);
+            if (!ret) {
+                warning ("add: [source] failed to get property \"is-default\". device=\"%s\"", device.display_name);
+                return false;
+            }
+
+            sources.add (device);
+            debug ("add: [source] added device \"%s\"", device.display_name);
+
+            if (is_default) {
+                default_source = device;
+                debug ("add: [source] found default device \"%s\"", default_source.display_name);
+            }
+
+            return true;
+        }
+
+        if (device.has_classes (CLASS_NAME_SINK)) {
+            if (sinks.contains (device)) {
+                warning ("add: [sink] already added, skipping. device=\"%s\"", device.display_name);
+                return true;
+            }
+
+            Gst.Structure properties = device.properties;
+            bool is_default;
+            bool ret = properties.get_boolean ("is-default", out is_default);
+            if (!ret) {
+                warning ("add: [sink] failed to get property \"is-default\". device=\"%s\"", device.display_name);
+                return false;
+            }
+
+            sinks.add (device);
+            debug ("add: [sink] added device \"%s\"", device.display_name);
+
+            if (is_default) {
+                default_sink = device;
+                debug ("add: [sink] found default device \"%s\"", default_source.display_name);
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Remove a device from a private list of devices
+     *
+     * @param device        a device to remove
+     *
+     * @return              ``true`` if ``device`` is removed from a list, ``false`` otherwise
+     */
+    private bool remove_device (Gst.Device device) {
+        if (device.has_classes (CLASS_NAME_SOURCE)) {
+            if (!sources.contains (device)) {
+                warning ("remove: [source] already removed, skipping. device=\"%s\"", device.display_name);
+                return true;
+            }
+
+            Gst.Structure properties = device.properties;
+            if (properties.get_string ("device.class") == "monitor") {
+                // We manually build device names of monitors so don't add them as a source here
+                // TODO: I can't remember why. Needs to review if this is intended
+                return false;
+            }
+
+            bool is_default;
+            bool ret = properties.get_boolean ("is-default", out is_default);
+            if (!ret) {
+                warning ("remove: [source] failed to get property \"is-default\". device=\"%s\"", device.display_name);
+                return false;
+            }
+
+            sources.remove (device);
+            debug ("remove: [source] removed device \"%s\"", device.display_name);
+
+            if (is_default) {
+                default_source = null;
+                debug ("remove: [source] cleared default device");
+            }
+
+            return true;
+        }
+
+        if (device.has_classes (CLASS_NAME_SINK)) {
+            if (sinks.contains (device)) {
+                warning ("remove: [sink] already removed, skipping. device=\"%s\"", device.display_name);
+                return true;
+            }
+
+            Gst.Structure properties = device.properties;
+            bool is_default;
+            bool ret = properties.get_boolean ("is-default", out is_default);
+            if (!ret) {
+                warning ("remove: [sink] failed to get property \"is-default\". device=\"%s\"", device.display_name);
+                return false;
+            }
+
+            sinks.remove (device);
+            debug ("remove: [sink] removed device \"%s\"", device.display_name);
+
+            if (!is_default) {
+                default_sink = null;
+                debug ("remove: [sink] cleared default device");
+            }
+
+            return true;
+        }
+
+        return false;
     }
 }
