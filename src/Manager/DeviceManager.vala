@@ -165,7 +165,7 @@ public class Manager.DeviceManager : Object {
     private bool add_device (Gst.Device device) {
         if (device.has_classes (CLASS_NAME_SOURCE)) {
             if (sources.contains (device)) {
-                warning ("add: [source] already added, skipping. device=\"%s\"", device.display_name);
+                warning ("[source] add: already added, skipping. device=\"%s\"", device.display_name);
                 return true;
             }
 
@@ -179,21 +179,21 @@ public class Manager.DeviceManager : Object {
             bool is_default;
             bool ret = properties.get_boolean ("is-default", out is_default);
             if (!ret) {
-                warning ("add: [source] failed to get property \"is-default\". device=\"%s\"", device.display_name);
+                warning ("[source] add: failed to get property \"is-default\". device=\"%s\"", device.display_name);
                 return false;
             }
 
             ret = sources.add (device);
             if (!ret) {
-                warning ("add: [source] failed to add. device=\"%s\"", device.display_name);
+                warning ("[source] add: failed to add. device=\"%s\"", device.display_name);
                 return false;
             }
 
-            debug ("add: [source] added device \"%s\"", device.display_name);
+            debug ("[source] add: added device \"%s\"", device.display_name);
 
             if (is_default) {
                 default_source = device;
-                debug ("add: [source] found default device \"%s\"", default_source.display_name);
+                debug ("[source] add: found default device \"%s\"", default_source.display_name);
             }
 
             return true;
@@ -201,7 +201,7 @@ public class Manager.DeviceManager : Object {
 
         if (device.has_classes (CLASS_NAME_SINK)) {
             if (sinks.contains (device)) {
-                warning ("add: [sink] already added, skipping. device=\"%s\"", device.display_name);
+                warning ("[sink] add: already added, skipping. device=\"%s\"", device.display_name);
                 return true;
             }
 
@@ -209,21 +209,21 @@ public class Manager.DeviceManager : Object {
             bool is_default;
             bool ret = properties.get_boolean ("is-default", out is_default);
             if (!ret) {
-                warning ("add: [sink] failed to get property \"is-default\". device=\"%s\"", device.display_name);
+                warning ("[sink] add: failed to get property \"is-default\". device=\"%s\"", device.display_name);
                 return false;
             }
 
             ret = sinks.add (device);
             if (!ret) {
-                warning ("add: [sink] failed to add. device=\"%s\"", device.display_name);
+                warning ("[sink] add: failed to add. device=\"%s\"", device.display_name);
                 return false;
             }
 
-            debug ("add: [sink] added device \"%s\"", device.display_name);
+            debug ("[sink] add: added device \"%s\"", device.display_name);
 
             if (is_default) {
                 default_sink = device;
-                debug ("add: [sink] found default device \"%s\"", default_sink.display_name);
+                debug ("[sink] add: found default device \"%s\"", default_sink.display_name);
             }
 
             return true;
@@ -242,7 +242,7 @@ public class Manager.DeviceManager : Object {
     private bool remove_device (Gst.Device device) {
         if (device.has_classes (CLASS_NAME_SOURCE)) {
             if (!sources.contains (device)) {
-                warning ("remove: [source] already removed, skipping. device=\"%s\"", device.display_name);
+                warning ("[source] remove: already removed, skipping. device=\"%s\"", device.display_name);
                 return true;
             }
 
@@ -256,21 +256,23 @@ public class Manager.DeviceManager : Object {
             bool is_default;
             bool ret = properties.get_boolean ("is-default", out is_default);
             if (!ret) {
-                warning ("remove: [source] failed to get property \"is-default\". device=\"%s\"", device.display_name);
+                warning ("[source] remove: failed to get property \"is-default\". device=\"%s\"", device.display_name);
                 return false;
             }
 
             ret = sources.remove (device);
             if (!ret) {
-                warning ("remove: [source] failed to remove device \"%s\"", device.display_name);
+                warning ("[source] remove: failed to remove device \"%s\"", device.display_name);
                 return false;
             }
 
-            debug ("remove: [source] removed device \"%s\"", device.display_name);
+            debug ("[source] remove: removed device \"%s\"", device.display_name);
 
             if (is_default) {
-                default_source = null;
-                debug ("remove: [source] cleared default device");
+                if (default_source.name == device.name) {
+                    default_source = null;
+                    debug ("[source] remove: cleared default device");
+                }
             }
 
             return true;
@@ -278,7 +280,7 @@ public class Manager.DeviceManager : Object {
 
         if (device.has_classes (CLASS_NAME_SINK)) {
             if (sinks.contains (device)) {
-                warning ("remove: [sink] already removed, skipping. device=\"%s\"", device.display_name);
+                warning ("[sink] remove: already removed, skipping. device=\"%s\"", device.display_name);
                 return true;
             }
 
@@ -286,21 +288,23 @@ public class Manager.DeviceManager : Object {
             bool is_default;
             bool ret = properties.get_boolean ("is-default", out is_default);
             if (!ret) {
-                warning ("remove: [sink] failed to get property \"is-default\". device=\"%s\"", device.display_name);
+                warning ("[sink] remove: failed to get property \"is-default\". device=\"%s\"", device.display_name);
                 return false;
             }
 
             ret = sinks.remove (device);
             if (!ret) {
-                warning ("remove: [sink] failed to remove device \"%s\"", device.display_name);
+                warning ("[sink] remove: failed to remove device \"%s\"", device.display_name);
                 return false;
             }
 
-            debug ("remove: [sink] removed device \"%s\"", device.display_name);
+            debug ("[sink] remove: removed device \"%s\"", device.display_name);
 
-            if (!is_default) {
-                default_sink = null;
-                debug ("remove: [sink] cleared default device");
+            if (is_default) {
+                if (default_sink.name == device.name) {
+                    default_sink = null;
+                    debug ("[sink] remove: cleared default device");
+                }
             }
 
             return true;
