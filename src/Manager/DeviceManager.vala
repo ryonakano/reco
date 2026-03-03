@@ -183,7 +183,12 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            sources.add (device);
+            ret = sources.add (device);
+            if (!ret) {
+                warning ("add: [source] failed to add. device=\"%s\"", device.display_name);
+                return false;
+            }
+
             debug ("add: [source] added device \"%s\"", device.display_name);
 
             if (is_default) {
@@ -208,7 +213,12 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            sinks.add (device);
+            ret = sinks.add (device);
+            if (!ret) {
+                warning ("add: [sink] failed to add. device=\"%s\"", device.display_name);
+                return false;
+            }
+
             debug ("add: [sink] added device \"%s\"", device.display_name);
 
             if (is_default) {
@@ -250,7 +260,12 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            sources.remove (device);
+            ret = sources.remove (device);
+            if (!ret) {
+                warning ("remove: [source] failed to remove device \"%s\"", device.display_name);
+                return false;
+            }
+
             debug ("remove: [source] removed device \"%s\"", device.display_name);
 
             if (is_default) {
@@ -275,7 +290,12 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            sinks.remove (device);
+            ret = sinks.remove (device);
+            if (!ret) {
+                warning ("remove: [sink] failed to remove device \"%s\"", device.display_name);
+                return false;
+            }
+
             debug ("remove: [sink] removed device \"%s\"", device.display_name);
 
             if (!is_default) {
