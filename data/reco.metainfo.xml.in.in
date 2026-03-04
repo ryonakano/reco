@@ -50,12 +50,12 @@
     <control>touch</control>
   </supports>
 
-  <recommends>
-    <!-- taken from MainWindow.default_width -->
+  <requires>
+    <!-- taken from MainWindow.width_request -->
     <display_length side="shortest" compare="ge">360</display_length>
-    <!-- taken from MainWindow.default_height -->
+    <!-- taken from MainWindow.height_request -->
     <display_length side="longest" compare="ge">680</display_length>
-  </recommends>
+  </requires>
 
   <url type="homepage">https://github.com/ryonakano/reco</url>
   <url type="bugtracker">https://github.com/ryonakano/reco/issues</url>

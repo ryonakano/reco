@@ -88,8 +88,8 @@ public class MainWindow : Adw.ApplicationWindow {
         toolbar_view.set_content (toast_overlay);
 
         content = toolbar_view;
-        default_width = 360;
-        default_height = 680;
+        width_request = 360;
+        height_request = 680;
         title = Define.APP_NAME;
 
         show_welcome ();
