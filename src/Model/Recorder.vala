@@ -604,9 +604,9 @@ public class Model.Recorder : Object {
     }
 
     /**
-     * Request graceful shutdown
+     * Requests for graceful shutdown
      *
-     * Request to stop ongoing recording safely if such exists
+     * Requests to stop ongoing recording safely if such exists
      *
      * @return ``true`` if shutdown completed; {@link state} is set to {@link RecordState.IDLE}.<<BR>>
      * ``false`` otherwise; the caller must wait until either one of {@link record_ok} or {@link record_err}
