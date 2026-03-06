@@ -89,7 +89,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
         content = toolbar_view;
         width_request = 360;
-        height_request = 680;
+        height_request = 340;
         title = Define.APP_NAME;
 
         show_welcome ();
