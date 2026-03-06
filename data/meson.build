@@ -8,6 +8,13 @@ foreach i : icon_sizes
   )
 endforeach
 
+# Install svg icon as scalable to avoid blurry icons on HiDPI displays
+install_data(
+  'icons' / '128' / meson.project_name() + '.svg',
+  rename: app_id + '.svg',
+  install_dir: get_option('datadir') / 'icons' / 'hicolor' / 'scalable' / 'apps',
+)
+
 desktop_conf = configuration_data()
 desktop_conf.set('APP_NAME', app_name)
 desktop_conf.set('APP_ID', app_id)
