@@ -79,8 +79,13 @@ public class MainWindow : Adw.ApplicationWindow {
         stack.add_child (countdown_view);
         stack.add_child (record_view);
 
-        toast_overlay = new Adw.ToastOverlay () {
+        var clamp = new Adw.Clamp () {
             child = stack,
+            maximum_size = 500,
+        };
+
+        toast_overlay = new Adw.ToastOverlay () {
+            child = clamp,
         };
 
         var toolbar_view = new Adw.ToolbarView ();
