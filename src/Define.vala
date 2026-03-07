@@ -5,13 +5,6 @@
 
 namespace Define {
     /**
-     * The name of the application.
-     *
-     * Use this constant to prevent the app name from being translated.
-     */
-    public const string APP_NAME = "Reco";
-
-    /**
      * Response IDs used in the error dialog.
      */
     namespace ErrorDialogResponseID {

@@ -51,7 +51,7 @@ public class MainWindow : Adw.ApplicationWindow {
         // Pantheon prefers AppCenter instead of an about dialog for app details, so prevent it from being shown on Pantheon
         if (!Util.is_on_pantheon ()) {
             ///TRANSLATORS: %s will be replaced by the app name
-            main_menu.append (_("_About %s").printf (Define.APP_NAME), "app.about");
+            main_menu.append (_("_About %s").printf (Config.APP_NAME), "app.about");
         }
 
         var menu_button = new Gtk.MenuButton () {
@@ -95,7 +95,7 @@ public class MainWindow : Adw.ApplicationWindow {
         content = toolbar_view;
         width_request = 360;
         height_request = 340;
-        title = Define.APP_NAME;
+        title = Config.APP_NAME;
 
         show_welcome ();
 

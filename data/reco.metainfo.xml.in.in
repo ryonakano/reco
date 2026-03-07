@@ -7,11 +7,11 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
 
-  <name translate="no">Reco</name>
+  <name translate="no">@APP_NAME@</name>
   <summary>Focus on recording</summary>
   <description>
     <p>
-      Reco is an audio recorder focused on being concise and simple to use.
+      An audio recorder focused on being concise and simple to use.
     </p>
     <p>You can use it to record and remember spoken words, system audio, improvized melodies, and anything else you can do with a microphone, speaker, or both.</p>
     <p>Features include:</p>
