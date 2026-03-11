@@ -395,7 +395,7 @@ public class Model.Recorder : Object {
         encoder.link_many (muxer, dst);
         muxer.link (dst);
 
-        return false;
+        return true;
     }
 
     /**
