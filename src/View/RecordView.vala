@@ -199,7 +199,7 @@ public class View.RecordView : AbstractView {
         levelbar.refresh_resume ();
     }
 
-    private string uptimer_strfunc (TimeSpan time_usec) {
+    private static string uptimer_strfunc (TimeSpan time_usec) {
         TimeSpan remain = time_usec;
 
         TimeSpan hours = remain / TimeSpan.HOUR;
@@ -213,7 +213,7 @@ public class View.RecordView : AbstractView {
         return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT + ":%02" + int64.FORMAT).printf (hours, minutes, seconds);
     }
 
-    private string downtimer_strfunc (TimeSpan time_usec) {
+    private static string downtimer_strfunc (TimeSpan time_usec) {
         TimeSpan remain = time_usec;
 
         TimeSpan minutes = remain / TimeSpan.MINUTE;
