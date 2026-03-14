@@ -67,5 +67,20 @@
       <summary>Color scheme</summary>
       <description>Whether to show the window in a dark style or not</description>
     </key>
+    <key name="window-width" type="i">
+      <default>360</default>
+      <summary>Most recent window width</summary>
+      <description>The saved width of the window last open</description>
+    </key>
+    <key name="window-height" type="i">
+      <default>680</default>
+      <summary>Most recent window height</summary>
+      <description>The saved height of the window last open</description>
+    </key>
+    <key name="window-maximized" type="b">
+      <default>false</default>
+      <summary>Window maximized</summary>
+      <description>The saved value for whether the window is maximized or not</description>
+    </key>
   </schema>
 </schemalist>

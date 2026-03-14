@@ -152,9 +152,16 @@ public class Application : Adw.Application {
     }
 
     protected override void activate () {
-        if (window == null) {
-            window = new MainWindow (this);
+        if (window != null) {
+            window.present ();
+            return;
         }
+
+        window = new MainWindow (this);
+
+        settings.bind ("window-height", window, "default-height", SettingsBindFlags.DEFAULT);
+        settings.bind ("window-width", window, "default-width", SettingsBindFlags.DEFAULT);
+        settings.bind ("window-maximized", window, "maximized", SettingsBindFlags.DEFAULT);
 
         window.present ();
     }
