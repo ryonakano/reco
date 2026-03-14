@@ -16,7 +16,7 @@ public class Widget.LevelBar : Gtk.Box {
     private LiveChart.Serie serie;
     private LiveChart.Config config;
     private LiveChart.Chart chart;
-    private uint refresh_timeout_id;
+    private uint refresh_timeout_id = 0;
     private int64 timestamp;
     private unowned GetBarValueFunc bar_value_func;
 
