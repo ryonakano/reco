@@ -842,7 +842,7 @@ public class Model.Recorder : Object {
         // and a Gst.Tags.DATE tag (takes Date value); Setting only the former results missing "Year" tag
         // in WAV and MP3 files and setting the latter too works as expected
         var gst_date_time = new Gst.DateTime.from_g_date_time (date_time);
-        Date date = Util.dt2date (date_time);
+        Date date = Util.dt_to_date (date_time);
 
         tag_setter.add_tags (Gst.TagMergeMode.REPLACE_ALL,
                              Gst.Tags.ARTIST, artist,

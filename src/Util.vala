@@ -72,7 +72,7 @@ namespace Util {
         return true;
     }
 
-    public static Date dt2date (DateTime dt) {
+    public static Date dt_to_date (DateTime dt) {
         int year;
         int month;
         int day;
@@ -89,7 +89,7 @@ namespace Util {
         return date;
     }
 
-    public static Gdk.RGBA str2rgba (string str) {
+    public static Gdk.RGBA str_to_rgba (string str) {
         var rgba = Gdk.RGBA ();
         rgba.parse (str);
 
