@@ -83,7 +83,7 @@ public class Widget.LevelBar : Gtk.Box {
         // Stop refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 0.0);
 
-        apply_bar_color (BANANA_500);
+        serie.line.color = str2rgba (BANANA_500);
     }
 
     public void refresh_resume () {
@@ -106,13 +106,14 @@ public class Widget.LevelBar : Gtk.Box {
         // Start refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 1.0);
 
-        apply_bar_color (STRAWBERRY_500);
+        serie.line.color = str2rgba (STRAWBERRY_500);
     }
 
-    private void apply_bar_color (string color) {
+    private static Gdk.RGBA str2rgba (string str) {
         var rgba = Gdk.RGBA ();
-        rgba.parse (color);
-        serie.line.color = rgba;
+        rgba.parse (str);
+
+        return rgba;
     }
 
     private int64 usec_to_msec (int64 usec) {
