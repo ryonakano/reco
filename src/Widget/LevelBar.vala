@@ -57,7 +57,7 @@ public class Widget.LevelBar : Gtk.Box {
 
     public void refresh_begin (GetBarValueFunc func) {
         // Seek to the current timestamp
-        int64 now_msec = usec_to_msec (GLib.get_monotonic_time ());
+        int64 now_msec = Util.usec_to_msec (GLib.get_monotonic_time ());
         timestamp = now_msec;
         config.time.current = timestamp;
 
@@ -83,7 +83,7 @@ public class Widget.LevelBar : Gtk.Box {
         // Stop refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 0.0);
 
-        serie.line.color = str2rgba (BANANA_500);
+        serie.line.color = Util.str2rgba (BANANA_500);
     }
 
     public void refresh_resume () {
@@ -106,17 +106,6 @@ public class Widget.LevelBar : Gtk.Box {
         // Start refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 1.0);
 
-        serie.line.color = str2rgba (STRAWBERRY_500);
-    }
-
-    private static Gdk.RGBA str2rgba (string str) {
-        var rgba = Gdk.RGBA ();
-        rgba.parse (str);
-
-        return rgba;
-    }
-
-    private int64 usec_to_msec (int64 usec) {
-        return usec / 1000;
+        serie.line.color = Util.str2rgba (STRAWBERRY_500);
     }
 }

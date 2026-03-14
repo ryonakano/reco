@@ -89,6 +89,17 @@ namespace Util {
         return date;
     }
 
+    public static Gdk.RGBA str2rgba (string str) {
+        var rgba = Gdk.RGBA ();
+        rgba.parse (str);
+
+        return rgba;
+    }
+
+    public static int64 usec_to_msec (int64 usec) {
+        return usec / 1000;
+    }
+
     public static Adw.ColorScheme to_adw_scheme (string str_scheme) {
         switch (str_scheme) {
             case Define.ColorScheme.DEFAULT:
