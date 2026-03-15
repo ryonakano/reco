@@ -140,7 +140,7 @@ public class View.RecordView : AbstractView {
         return recorder.current_peak;
     }
 
-    public void start () {
+    public void start (uint record_length) {
         is_recording = true;
 
         uptimer.init ();
@@ -148,7 +148,6 @@ public class View.RecordView : AbstractView {
 
         time_label.label = uptimer.to_string ();
 
-        uint record_length = Application.settings.get_uint ("length");
         if (record_length > 0) {
             downtimer.seek (record_length);
             remaining_time_label.label = downtimer.to_string ();

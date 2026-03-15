@@ -333,7 +333,9 @@ public class MainWindow : Adw.ApplicationWindow {
 
         recorder.start ();
 
-        record_view.start ();
+        uint record_length = Application.settings.get_uint ("length");
+        record_view.start (record_length);
+
         stack.visible_child = record_view;
     }
 
