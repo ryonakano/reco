@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class Widget.LevelBar : Gtk.Box {
+public class Widget.Waveform : Gtk.Box {
     public delegate double GetBarValueFunc ();
 
     public enum LineColor {
@@ -25,7 +25,7 @@ public class Widget.LevelBar : Gtk.Box {
     private int64 timestamp;
     private unowned GetBarValueFunc bar_value_func;
 
-    public LevelBar () {
+    public Waveform () {
     }
 
     construct {

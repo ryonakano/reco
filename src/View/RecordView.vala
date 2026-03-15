@@ -13,7 +13,7 @@ public class View.RecordView : AbstractView {
 
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
-    private Widget.LevelBar levelbar;
+    private Widget.Waveform waveform;
     private Gtk.Button pause_button;
 
     private bool is_recording;
@@ -47,7 +47,7 @@ public class View.RecordView : AbstractView {
         content_area.append (time_label);
         content_area.append (remaining_time_label);
 
-        levelbar = new Widget.LevelBar ();
+        waveform = new Widget.Waveform ();
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
@@ -77,7 +77,7 @@ public class View.RecordView : AbstractView {
         control_bar.append (pause_button);
 
         append (content_area);
-        append (levelbar);
+        append (waveform);
         append (control_bar);
 
         var event_controller = new Gtk.EventControllerKey ();
@@ -157,7 +157,7 @@ public class View.RecordView : AbstractView {
             remaining_time_label.label = null;
         }
 
-        levelbar.refresh_begin (get_current_peak);
+        waveform.refresh_begin (get_current_peak);
 
         /*
          * cancel_button is focused implicitly by default when RecordView is shown,
@@ -174,7 +174,7 @@ public class View.RecordView : AbstractView {
 
         refresh_pause ();
 
-        levelbar.refresh_end ();
+        waveform.refresh_end ();
     }
 
     private void refresh_pause () {
@@ -184,8 +184,8 @@ public class View.RecordView : AbstractView {
         pause_button.icon_name = "media-playback-start-symbolic";
         pause_button.tooltip_text = _("Resume Recording");
 
-        levelbar.add_value_pause ();
-        levelbar.set_line_color (Widget.LevelBar.LineColor.YELLOW);
+        waveform.add_value_pause ();
+        waveform.set_line_color (Widget.Waveform.LineColor.YELLOW);
     }
 
     private void refresh_resume () {
@@ -197,8 +197,8 @@ public class View.RecordView : AbstractView {
         pause_button.icon_name = "media-playback-pause-symbolic";
         pause_button.tooltip_text = _("Pause Recording");
 
-        levelbar.add_value_resume ();
-        levelbar.set_line_color (Widget.LevelBar.LineColor.RED);
+        waveform.add_value_resume ();
+        waveform.set_line_color (Widget.Waveform.LineColor.RED);
     }
 
     public void levelbar_refresh_pause () {
@@ -207,7 +207,7 @@ public class View.RecordView : AbstractView {
             return;
         }
 
-        levelbar.refresh_pause ();
+        waveform.refresh_pause ();
     }
 
     public void levelbar_refresh_resume () {
@@ -216,7 +216,7 @@ public class View.RecordView : AbstractView {
             return;
         }
 
-        levelbar.refresh_resume ();
+        waveform.refresh_resume ();
     }
 
     private static string uptimer_strfunc (TimeSpan time_usec) {

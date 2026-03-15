@@ -27,7 +27,7 @@ sources = files(
   'View/RecordView.vala',
   'Widget/ControlBar.vala',
   'Widget/FolderChooserButton.vala',
-  'Widget/LevelBar.vala',
+  'Widget/Waveform.vala',
   'Widget/ProcessingDialog.vala',
 )
 
