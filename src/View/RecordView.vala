@@ -199,15 +199,6 @@ public class View.RecordView : AbstractView {
         waveform.set_color (Widget.Waveform.Color.RED);
     }
 
-    public void draw_stop () {
-        if (!is_recording) {
-            // Should be already paused if recording has been paused
-            return;
-        }
-
-        waveform.draw_stop ();
-    }
-
     public void draw_start () {
         if (!is_recording) {
             // Should not resume if recording has been paused
@@ -215,6 +206,15 @@ public class View.RecordView : AbstractView {
         }
 
         waveform.draw_start ();
+    }
+
+    public void draw_stop () {
+        if (!is_recording) {
+            // Should be already paused if recording has been paused
+            return;
+        }
+
+        waveform.draw_stop ();
     }
 
     private static string uptimer_strfunc (TimeSpan time_usec) {
