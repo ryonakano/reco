@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-15 09:16+0000\n"
-"PO-Revision-Date: 2026-02-25 19:09+0000\n"
+"PO-Revision-Date: 2026-03-16 21:09+0000\n"
 "Last-Translator: Priit Jõerüüt <jrthwlate@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/rosp/reco/et/>\n"
 "Language: et\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -36,11 +36,8 @@ msgid "Record;Audio;Sound;Voice;"
 msgstr "Record;Audio;Sound;Voice;hääl;heli;salvestus;salvestis;salvestama;helisalvestus;salvestaja;diktofon;"
 
 #: data/reco.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid ""
-#| "Reco is an audio recorder focused on being concise and simple to use."
 msgid "An audio recorder focused on being concise and simple to use."
-msgstr "Reco on lihtne ja lakooniline helisalvestaja."
+msgstr "Lihtne, mugav ja lakooniline helisalvestaja."
 
 #: data/reco.metainfo.xml.in.in:16
 msgid ""
@@ -171,16 +168,12 @@ msgid "Main Menu"
 msgstr "Põhimenüü"
 
 #: src/MainWindow.vala:144
-#, fuzzy
-#| msgid "Failed to Complete Recording"
 msgid "Unable to Continue Recording"
-msgstr "Salvestuse lõpetamine ei õnnestunud"
+msgstr "Salvestuse jätkamine polnud võimalik"
 
 #: src/MainWindow.vala:145
-#, fuzzy
-#| msgid "There was an error while recording"
 msgid "There was an internal error while recording"
-msgstr "Salvestamisel tekkis viga"
+msgstr "Salvestamisel tekkis sisemine viga"
 
 #: src/MainWindow.vala:169
 msgid "Recording Saved"
@@ -199,6 +192,8 @@ msgid ""
 "Unable to move a temporary recording file to the final path. Make sure the "
 "destination exists and you have write access to it"
 msgstr ""
+"Ajutise salvestuse tõstmine lõplikku asukohta polnud võimalik. Palun "
+"kontrolli, et see sihtkaust on olemas ja sul on sellele ligipääs"
 
 #: src/MainWindow.vala:236
 msgid "Save Recording"
@@ -209,27 +204,23 @@ msgid ""
 "Unable to determine where to save recording finally. Try again using "
 "autosave instead"
 msgstr ""
+"Ei õnnestunud tuvastada, kuhu peaks salvestise lõpuks tõstma. Proovin selle "
+"asemel kasutada automaatset salvestust"
 
 #: src/MainWindow.vala:325
-#, fuzzy
-#| msgid "Failed to Save Recording"
 msgid "Failed to Prepare Recording"
-msgstr "Salvestuse talletamine ei õnnestunud"
+msgstr "Salvestamise ettevalmistamine ei õnnestunud"
 
 #: src/MainWindow.vala:326
-#, fuzzy
-#| msgid ""
-#| "This is possibly due to missing codecs or incomplete installation of the "
-#| "app. Make sure you've installed them and try reinstalling them if this "
-#| "issue persists"
 msgid ""
 "This is possibly due to missing codecs, incomplete installation of the app, "
 "or missing sound input/output devices. Make sure you've installed necessary "
 "components correctlly and connected sound devices"
 msgstr ""
-"Selline olukord võib tekkida, kuna kas koodekid on puudu või on rakenduse "
-"paigaldamine jäänud pooleli. Palun kontrolli, et kõik vajalik oleks "
-"paigaldatud ja kui viga ei kao, siis paigalda rakendus uuesti"
+"Selline olukord võib tekkida, kuna kas koodekid on puudu, rakenduse "
+"paigaldamine on jäänud pooleli või vajalikud heli sisend/väljundseadmed on "
+"puudu. Palun kontrolli, et kõik vajalikud komponendid oleks paigaldatud "
+"korrektselt ja oleksid ühendanud heliseadmed"
 
 #: src/MainWindow.vala:401
 msgid "Recording Canceled"
@@ -244,19 +235,17 @@ msgid "Recording is ongoing"
 msgstr "Helisalvestamine on pooleli"
 
 #: src/MainWindow.vala:490
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Failed to Open Folder"
-msgstr "Ava kaust"
+msgstr "Kausta avamine ei õnnestunud"
 
 #: src/MainWindow.vala:491
 #, c-format
 msgid "Unable to open folder containing \"%s\""
-msgstr ""
+msgstr "Ei õnnestunud avada kausta, kus leidub „%s“"
 
 #: src/MainWindow.vala:544
 msgid "_Close"
-msgstr ""
+msgstr "_Sulge"
 
 #: src/View/CountDownView.vala:35
 msgid "Cancel Countdown"
@@ -382,11 +371,9 @@ msgstr "Lisa salvestiste failidesse salvestuse aasta ja oma tegelik nimi"
 
 #: src/View/WelcomeView.vala:117
 msgid "Autosave:"
-msgstr ""
+msgstr "Automaatne salvestus:"
 
 #: src/View/WelcomeView.vala:128 src/View/WelcomeView.vala:131
-#, fuzzy
-#| msgid "Select AutoSave Destination"
 msgid "Select Autosave Destination"
 msgstr "Vali automaatse salvestamise kaust"
 
