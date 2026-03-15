@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-23 11:24+0000\n"
+"POT-Creation-Date: 2026-03-15 09:16+0000\n"
 "PO-Revision-Date: 2024-05-16 15:01+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/rosp/reco/hi/>\n"
@@ -35,7 +35,10 @@ msgid "Record;Audio;Sound;Voice;"
 msgstr "रिकॉर्ड;ऑडियो;ध्वनि;आवाज़;"
 
 #: data/reco.metainfo.xml.in.in:13
-msgid "Reco is an audio recorder focused on being concise and simple to use."
+#, fuzzy
+#| msgid ""
+#| "Reco is an audio recorder focused on being concise and simple to use."
+msgid "An audio recorder focused on being concise and simple to use."
 msgstr "Reco एक ऑडियो रिकॉर्डर है जो संक्षिप्त और उपयोग में सरल होने पर केंद्रित है।"
 
 #: data/reco.metainfo.xml.in.in:16
@@ -135,181 +138,177 @@ msgstr "रिकॉर्डिंग प्रारंभ करें"
 #. John Doe
 #. John Doe <john-doe@example.com>
 #. John Doe https://example.com
-#: src/Application.vala:124
+#: src/Application.vala:111
 msgid "translator-credits"
 msgstr ""
 
-#: src/MainWindow.vala:27
-msgid ""
-"This is possibly due to missing codecs or incomplete installation of the "
-"app. Make sure you've installed them and try reinstalling them if this issue "
-"persists"
-msgstr ""
-
-#: src/MainWindow.vala:28
-msgid ""
-"This is possibly due to missing sound input or output devices. Make sure "
-"you've connected one and try using another one if this issue persists"
-msgstr ""
-
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:44
 #, fuzzy
 #| msgid "System"
 msgid "S_ystem"
 msgstr "सिस्टम"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:45
 #, fuzzy
 #| msgid "Light"
 msgid "_Light"
 msgstr "हल्की"
 
-#: src/MainWindow.vala:42
+#: src/MainWindow.vala:46
 #, fuzzy
 #| msgid "Dark"
 msgid "_Dark"
 msgstr "गहरी"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:49
 #, fuzzy
 #| msgid "Style"
 msgid "_Style"
 msgstr "शैली"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:50
 msgid "_Keyboard Shortcuts"
 msgstr ""
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:54
 #, c-format
 msgid "_About %s"
 msgstr ""
 
-#: src/MainWindow.vala:54
+#: src/MainWindow.vala:58
 msgid "Main Menu"
 msgstr "मुख्य मेनू"
 
-#: src/MainWindow.vala:128
+#: src/MainWindow.vala:144
 #, fuzzy
 #| msgid "Failed to save recording"
-msgid "Failed to Complete Recording"
+msgid "Unable to Continue Recording"
 msgstr "रिकॉर्डिंग सहेजने में विफल"
 
-#: src/MainWindow.vala:129
+#: src/MainWindow.vala:145
 #, fuzzy
 #| msgid "There was an error while recording."
-msgid "There was an error while recording"
+msgid "There was an internal error while recording"
 msgstr "रिकॉर्डिंग करते समय एक त्रुटि हुई।"
 
-#: src/MainWindow.vala:144
+#: src/MainWindow.vala:169
 #, fuzzy
 #| msgid "Recording view"
 msgid "Recording Saved"
 msgstr "रिकॉर्डिंग दृश्य"
 
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:170
 #, fuzzy
 #| msgid "Open folder"
 msgid "Open Folder"
 msgstr "फोल्डर खोलें"
 
-#: src/MainWindow.vala:186 src/MainWindow.vala:206
+#: src/MainWindow.vala:208 src/MainWindow.vala:264
 #, fuzzy
 #| msgid "Failed to save recording"
 msgid "Failed to Save Recording"
 msgstr "रिकॉर्डिंग सहेजने में विफल"
 
-#: src/MainWindow.vala:187
-#, fuzzy, c-format
-#| msgid "There was an error while moving file to the designated location."
+#: src/MainWindow.vala:209
 msgid ""
-"There was an error while asking for final path where to move the temporary "
-"recording file \"%s\""
-msgstr "फाइल को निर्दिष्ट स्थान पर ले जाते समय एक त्रुटि हुई।"
+"Unable to move a temporary recording file to the final path. Make sure the "
+"destination exists and you have write access to it"
+msgstr ""
 
-#: src/MainWindow.vala:207
-#, fuzzy, c-format
-#| msgid "There was an error while moving file to the designated location."
-msgid ""
-"There was an error while moving the temporary recording file \"%s\" to \"%s\""
-msgstr "फाइल को निर्दिष्ट स्थान पर ले जाते समय एक त्रुटि हुई।"
-
-#: src/MainWindow.vala:230
+#: src/MainWindow.vala:236
 #, fuzzy
 #| msgid "Saved recording"
 msgid "Save Recording"
 msgstr "रिकॉर्डिंग सहेजी गई"
 
-#: src/MainWindow.vala:280
-#, fuzzy
-#| msgid "There was an error while starting recording."
-msgid "There was an unknown error while starting recording"
-msgstr "रिकॉर्डिंग प्रारंभ करते समय एक त्रुटि हुई।"
+#: src/MainWindow.vala:265
+msgid ""
+"Unable to determine where to save recording finally. Try again using "
+"autosave instead"
+msgstr ""
 
-#: src/MainWindow.vala:284
+#: src/MainWindow.vala:325
 #, fuzzy
-#| msgid "Failed to start recording"
-msgid "Failed to Start Recording"
-msgstr "रिकॉर्डिंग प्रारंभ करने में विफल"
+#| msgid "Failed to save recording"
+msgid "Failed to Prepare Recording"
+msgstr "रिकॉर्डिंग सहेजने में विफल"
 
-#: src/MainWindow.vala:343
+#: src/MainWindow.vala:326
+msgid ""
+"This is possibly due to missing codecs, incomplete installation of the app, "
+"or missing sound input/output devices. Make sure you've installed necessary "
+"components correctlly and connected sound devices"
+msgstr ""
+
+#: src/MainWindow.vala:401
 #, fuzzy
 #| msgid "Recording view"
 msgid "Recording Canceled"
 msgstr "रिकॉर्डिंग दृश्य"
 
-#: src/MainWindow.vala:348
+#: src/MainWindow.vala:406
 #, fuzzy
 #| msgid "Recording view"
 msgid "Recording Moved to Trash"
 msgstr "रिकॉर्डिंग दृश्य"
 
-#: src/MainWindow.vala:383
-msgid "Details:"
-msgstr ""
-
-#: src/Manager/RecordManager.vala:337
+#: src/MainWindow.vala:429
 msgid "Recording is ongoing"
 msgstr "रिकॉर्डिंग जारी है"
 
-#: src/View/CountDownView.vala:37
+#: src/MainWindow.vala:490
+#, fuzzy
+#| msgid "Open folder"
+msgid "Failed to Open Folder"
+msgstr "फोल्डर खोलें"
+
+#: src/MainWindow.vala:491
+#, c-format
+msgid "Unable to open folder containing \"%s\""
+msgstr ""
+
+#: src/MainWindow.vala:544
+msgid "_Close"
+msgstr ""
+
+#: src/View/CountDownView.vala:35
 #, fuzzy
 #| msgid "Cancel the countdown"
 msgid "Cancel Countdown"
 msgstr "उल्टी गिनती रद्द करें"
 
-#: src/View/CountDownView.vala:121
+#: src/View/CountDownView.vala:111
 #, fuzzy
 #| msgid "Pause the countdown"
 msgid "Pause Countdown"
 msgstr "उल्टी गिनती रोकें"
 
-#: src/View/CountDownView.vala:126
+#: src/View/CountDownView.vala:116
 #, fuzzy
 #| msgid "Resume the countdown"
 msgid "Resume Countdown"
 msgstr "उल्टी गिनती फिर से शुरू करें"
 
-#: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
+#: src/View/RecordView.vala:54 src/Widget/ProcessingDialog.vala:48
 #, fuzzy
 #| msgid "Cancel recording"
 msgid "Cancel Recording"
 msgstr "रिकॉर्डिंग रद्द करें"
 
-#: src/View/RecordView.vala:58
+#: src/View/RecordView.vala:61
 #, fuzzy
 #| msgid "Finish recording"
 msgid "Finish Recording"
 msgstr "रिकॉर्डिंग समाप्त करें"
 
-#: src/View/RecordView.vala:188
+#: src/View/RecordView.vala:183
 #, fuzzy
 #| msgid "Resume recording"
 msgid "Resume Recording"
 msgstr "रिकॉर्डिंग पुनः प्रारंभ करें"
 
-#: src/View/RecordView.vala:200
+#: src/View/RecordView.vala:196
 #, fuzzy
 #| msgid "Pause recording"
 msgid "Pause Recording"
@@ -347,81 +346,81 @@ msgstr "दोनों"
 msgid "Microphone:"
 msgstr "माइक्रोफोन:"
 
-#: src/View/WelcomeView.vala:53
+#: src/View/WelcomeView.vala:52
 msgid "Channels:"
 msgstr "चैनल:"
 
-#: src/View/WelcomeView.vala:59
+#: src/View/WelcomeView.vala:58
 msgid "Mono"
 msgstr "मोनो"
 
-#: src/View/WelcomeView.vala:60
+#: src/View/WelcomeView.vala:59
 msgid "Stereo"
 msgstr "स्टीरियो"
 
-#: src/View/WelcomeView.vala:62
+#: src/View/WelcomeView.vala:61
 msgid "Timer"
 msgstr "टाइमर"
 
-#: src/View/WelcomeView.vala:67
+#: src/View/WelcomeView.vala:66
 msgid "Delay in seconds:"
 msgstr "सेकंड में विलंब:"
 
-#: src/View/WelcomeView.vala:74
+#: src/View/WelcomeView.vala:73
 msgid "Length in seconds:"
 msgstr "सेकंड में लंबाई:"
 
-#: src/View/WelcomeView.vala:85
+#: src/View/WelcomeView.vala:84
 msgid "Saving"
 msgstr "सहेज रहे हैं"
 
-#: src/View/WelcomeView.vala:90
+#: src/View/WelcomeView.vala:89
 msgid "Format:"
 msgstr "प्रारूप:"
 
-#: src/View/WelcomeView.vala:97
+#: src/View/WelcomeView.vala:96
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:98
+#: src/View/WelcomeView.vala:97
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:99
+#: src/View/WelcomeView.vala:98
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:100
+#: src/View/WelcomeView.vala:99
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:101
+#: src/View/WelcomeView.vala:100
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:102
+#: src/View/WelcomeView.vala:101
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:104
+#: src/View/WelcomeView.vala:103
 msgid "Add metadata:"
 msgstr ""
 
-#: src/View/WelcomeView.vala:112
+#: src/View/WelcomeView.vala:111
 msgid "Add record year and your real name in recording files"
 msgstr ""
 
-#: src/View/WelcomeView.vala:119
-msgid "Automatically save files:"
-msgstr "फाइलें स्वचालित रूप से सहेजें:"
+#: src/View/WelcomeView.vala:117
+msgid "Autosave:"
+msgstr ""
 
-#: src/View/WelcomeView.vala:130 src/View/WelcomeView.vala:133
+#: src/View/WelcomeView.vala:128 src/View/WelcomeView.vala:131
 #, fuzzy
 #| msgid "Select destination…"
-msgid "Select AutoSave Destination"
+msgid "Select Autosave Destination"
 msgstr "गंतव्य चुनें…"
 
-#: src/View/WelcomeView.vala:171
+#: src/View/WelcomeView.vala:176
 #, fuzzy
 #| msgid "Start recording"
 msgid "Start Recording"
@@ -433,19 +432,46 @@ msgstr "रिकॉर्डिंग प्रारंभ करें"
 msgid "Saving…"
 msgstr "सहेज रहे हैं"
 
-#: src/Widget/ProcessingDialog.vala:40
+#: src/Widget/ProcessingDialog.vala:41
 msgid "Problems?"
 msgstr ""
 
-#: src/Widget/ProcessingDialog.vala:40
+#: src/Widget/ProcessingDialog.vala:41
 msgid "Just hang on until the file dialog appears"
 msgstr ""
 
-#: src/Widget/ProcessingDialog.vala:78
+#: src/Widget/ProcessingDialog.vala:80
 #, fuzzy
 #| msgid "Cancel recording"
 msgid "Canceling…"
 msgstr "रिकॉर्डिंग रद्द करें"
+
+#, fuzzy, c-format
+#~| msgid "There was an error while moving file to the designated location."
+#~ msgid ""
+#~ "There was an error while asking for final path where to move the "
+#~ "temporary recording file \"%s\""
+#~ msgstr "फाइल को निर्दिष्ट स्थान पर ले जाते समय एक त्रुटि हुई।"
+
+#, fuzzy, c-format
+#~| msgid "There was an error while moving file to the designated location."
+#~ msgid ""
+#~ "There was an error while moving the temporary recording file \"%s\" to "
+#~ "\"%s\""
+#~ msgstr "फाइल को निर्दिष्ट स्थान पर ले जाते समय एक त्रुटि हुई।"
+
+#, fuzzy
+#~| msgid "There was an error while starting recording."
+#~ msgid "There was an unknown error while starting recording"
+#~ msgstr "रिकॉर्डिंग प्रारंभ करते समय एक त्रुटि हुई।"
+
+#, fuzzy
+#~| msgid "Failed to start recording"
+#~ msgid "Failed to Start Recording"
+#~ msgstr "रिकॉर्डिंग प्रारंभ करने में विफल"
+
+#~ msgid "Automatically save files:"
+#~ msgstr "फाइलें स्वचालित रूप से सहेजें:"
 
 #~ msgid "Error while recording"
 #~ msgstr "रिकॉर्डिंग करते समय त्रुटि"

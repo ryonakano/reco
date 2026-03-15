@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-23 11:24+0000\n"
+"POT-Creation-Date: 2026-03-15 09:16+0000\n"
 "PO-Revision-Date: 2025-08-03 00:02+0000\n"
 "Last-Translator: Sergio Filho <filho.sf14@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/rosp/reco/pt/"
@@ -37,7 +37,10 @@ msgid "Record;Audio;Sound;Voice;"
 msgstr "Gravar;Áudio;Som;Voz;"
 
 #: data/reco.metainfo.xml.in.in:13
-msgid "Reco is an audio recorder focused on being concise and simple to use."
+#, fuzzy
+#| msgid ""
+#| "Reco is an audio recorder focused on being concise and simple to use."
+msgid "An audio recorder focused on being concise and simple to use."
 msgstr "Reco é um gravador de audio focado em ser conciso e simples de usar."
 
 #: data/reco.metainfo.xml.in.in:16
@@ -141,169 +144,168 @@ msgstr "Iniciar/Parar gravação"
 #. John Doe
 #. John Doe <john-doe@example.com>
 #. John Doe https://example.com
-#: src/Application.vala:124
+#: src/Application.vala:111
 msgid "translator-credits"
 msgstr ""
 
-#: src/MainWindow.vala:27
-msgid ""
-"This is possibly due to missing codecs or incomplete installation of the "
-"app. Make sure you've installed them and try reinstalling them if this issue "
-"persists"
-msgstr ""
-
-#: src/MainWindow.vala:28
-msgid ""
-"This is possibly due to missing sound input or output devices. Make sure "
-"you've connected one and try using another one if this issue persists"
-msgstr ""
-
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:44
 #, fuzzy
 #| msgid "System"
 msgid "S_ystem"
 msgstr "Sistema"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:45
 #, fuzzy
 #| msgid "Light"
 msgid "_Light"
 msgstr "Claro"
 
-#: src/MainWindow.vala:42
+#: src/MainWindow.vala:46
 #, fuzzy
 #| msgid "Dark"
 msgid "_Dark"
 msgstr "Escuro"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:49
 #, fuzzy
 msgid "_Style"
 msgstr "Estilo:"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:50
 msgid "_Keyboard Shortcuts"
 msgstr ""
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:54
 #, c-format
 msgid "_About %s"
 msgstr ""
 
-#: src/MainWindow.vala:54
+#: src/MainWindow.vala:58
 msgid "Main Menu"
 msgstr ""
 
-#: src/MainWindow.vala:128
-#, fuzzy
-msgid "Failed to Complete Recording"
-msgstr "Pausar a gravação"
-
-#: src/MainWindow.vala:129
-#, fuzzy
-msgid "There was an error while recording"
-msgstr "Pausar a gravação"
-
 #: src/MainWindow.vala:144
+#, fuzzy
+msgid "Unable to Continue Recording"
+msgstr "Pausar a gravação"
+
+#: src/MainWindow.vala:145
+#, fuzzy
+msgid "There was an internal error while recording"
+msgstr "Pausar a gravação"
+
+#: src/MainWindow.vala:169
 #, fuzzy
 #| msgid "Recording view"
 msgid "Recording Saved"
 msgstr "Visualização de gravação"
 
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:170
 msgid "Open Folder"
 msgstr ""
 
-#: src/MainWindow.vala:186 src/MainWindow.vala:206
+#: src/MainWindow.vala:208 src/MainWindow.vala:264
 #, fuzzy
 msgid "Failed to Save Recording"
 msgstr "Pausar a gravação"
 
-#: src/MainWindow.vala:187
-#, c-format
+#: src/MainWindow.vala:209
 msgid ""
-"There was an error while asking for final path where to move the temporary "
-"recording file \"%s\""
+"Unable to move a temporary recording file to the final path. Make sure the "
+"destination exists and you have write access to it"
 msgstr ""
 
-#: src/MainWindow.vala:207
-#, c-format
-msgid ""
-"There was an error while moving the temporary recording file \"%s\" to \"%s\""
-msgstr ""
-
-#: src/MainWindow.vala:230
+#: src/MainWindow.vala:236
 #, fuzzy
 msgid "Save Recording"
 msgstr "Guardar a gravação"
 
-#: src/MainWindow.vala:280
-msgid "There was an unknown error while starting recording"
+#: src/MainWindow.vala:265
+msgid ""
+"Unable to determine where to save recording finally. Try again using "
+"autosave instead"
 msgstr ""
 
-#: src/MainWindow.vala:284
+#: src/MainWindow.vala:325
 #, fuzzy
-msgid "Failed to Start Recording"
-msgstr "Iniciar gravação"
+msgid "Failed to Prepare Recording"
+msgstr "Pausar a gravação"
 
-#: src/MainWindow.vala:343
+#: src/MainWindow.vala:326
+msgid ""
+"This is possibly due to missing codecs, incomplete installation of the app, "
+"or missing sound input/output devices. Make sure you've installed necessary "
+"components correctlly and connected sound devices"
+msgstr ""
+
+#: src/MainWindow.vala:401
 #, fuzzy
 #| msgid "Recording view"
 msgid "Recording Canceled"
 msgstr "Visualização de gravação"
 
-#: src/MainWindow.vala:348
+#: src/MainWindow.vala:406
 #, fuzzy
 #| msgid "Recording view"
 msgid "Recording Moved to Trash"
 msgstr "Visualização de gravação"
 
-#: src/MainWindow.vala:383
-msgid "Details:"
-msgstr ""
-
-#: src/Manager/RecordManager.vala:337
+#: src/MainWindow.vala:429
 msgid "Recording is ongoing"
 msgstr "A gravação está em curso"
 
-#: src/View/CountDownView.vala:37
+#: src/MainWindow.vala:490
+#, fuzzy
+msgid "Failed to Open Folder"
+msgstr "Pausar a gravação"
+
+#: src/MainWindow.vala:491
+#, c-format
+msgid "Unable to open folder containing \"%s\""
+msgstr ""
+
+#: src/MainWindow.vala:544
+msgid "_Close"
+msgstr ""
+
+#: src/View/CountDownView.vala:35
 #, fuzzy
 #| msgid "Cancel the countdown"
 msgid "Cancel Countdown"
 msgstr "Cancelar a contagem decrescente"
 
-#: src/View/CountDownView.vala:121
+#: src/View/CountDownView.vala:111
 #, fuzzy
 #| msgid "Pause the countdown"
 msgid "Pause Countdown"
 msgstr "Colocar contagem decrescente em pausa"
 
-#: src/View/CountDownView.vala:126
+#: src/View/CountDownView.vala:116
 #, fuzzy
 #| msgid "Resume the countdown"
 msgid "Resume Countdown"
 msgstr "Retomar a contagem decrescente"
 
-#: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
+#: src/View/RecordView.vala:54 src/Widget/ProcessingDialog.vala:48
 #, fuzzy
 #| msgid "Cancel recording"
 msgid "Cancel Recording"
 msgstr "Cancelar gravação"
 
-#: src/View/RecordView.vala:58
+#: src/View/RecordView.vala:61
 #, fuzzy
 #| msgid "Finish recording"
 msgid "Finish Recording"
 msgstr "Terminar gravação"
 
-#: src/View/RecordView.vala:188
+#: src/View/RecordView.vala:183
 #, fuzzy
 #| msgid "Resume recording"
 msgid "Resume Recording"
 msgstr "Retomar gravação"
 
-#: src/View/RecordView.vala:200
+#: src/View/RecordView.vala:196
 #, fuzzy
 #| msgid "Pause recording"
 msgid "Pause Recording"
@@ -342,81 +344,81 @@ msgstr "Ambos"
 msgid "Microphone:"
 msgstr "Microfone"
 
-#: src/View/WelcomeView.vala:53
+#: src/View/WelcomeView.vala:52
 msgid "Channels:"
 msgstr "Canais:"
 
-#: src/View/WelcomeView.vala:59
+#: src/View/WelcomeView.vala:58
 msgid "Mono"
 msgstr "Mono"
 
-#: src/View/WelcomeView.vala:60
+#: src/View/WelcomeView.vala:59
 msgid "Stereo"
 msgstr "Estéreo"
 
-#: src/View/WelcomeView.vala:62
+#: src/View/WelcomeView.vala:61
 msgid "Timer"
 msgstr "Temporizador"
 
-#: src/View/WelcomeView.vala:67
+#: src/View/WelcomeView.vala:66
 msgid "Delay in seconds:"
 msgstr "Atraso em segundos:"
 
-#: src/View/WelcomeView.vala:74
+#: src/View/WelcomeView.vala:73
 msgid "Length in seconds:"
 msgstr "Duração em segundos:"
 
-#: src/View/WelcomeView.vala:85
+#: src/View/WelcomeView.vala:84
 msgid "Saving"
 msgstr "A guardar"
 
-#: src/View/WelcomeView.vala:90
+#: src/View/WelcomeView.vala:89
 msgid "Format:"
 msgstr "Formato:"
 
-#: src/View/WelcomeView.vala:97
+#: src/View/WelcomeView.vala:96
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:98
+#: src/View/WelcomeView.vala:97
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:99
+#: src/View/WelcomeView.vala:98
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:100
+#: src/View/WelcomeView.vala:99
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:101
+#: src/View/WelcomeView.vala:100
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:102
+#: src/View/WelcomeView.vala:101
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:104
+#: src/View/WelcomeView.vala:103
 msgid "Add metadata:"
 msgstr ""
 
-#: src/View/WelcomeView.vala:112
+#: src/View/WelcomeView.vala:111
 msgid "Add record year and your real name in recording files"
 msgstr ""
 
-#: src/View/WelcomeView.vala:119
-msgid "Automatically save files:"
-msgstr "Guardar ficheiros automaticamente:"
+#: src/View/WelcomeView.vala:117
+msgid "Autosave:"
+msgstr ""
 
-#: src/View/WelcomeView.vala:130 src/View/WelcomeView.vala:133
+#: src/View/WelcomeView.vala:128 src/View/WelcomeView.vala:131
 #, fuzzy
 #| msgid "Select destination…"
-msgid "Select AutoSave Destination"
+msgid "Select Autosave Destination"
 msgstr "Selecionar destino…"
 
-#: src/View/WelcomeView.vala:171
+#: src/View/WelcomeView.vala:176
 #, fuzzy
 #| msgid "Start recording"
 msgid "Start Recording"
@@ -428,19 +430,26 @@ msgstr "Iniciar gravação"
 msgid "Saving…"
 msgstr "A guardar"
 
-#: src/Widget/ProcessingDialog.vala:40
+#: src/Widget/ProcessingDialog.vala:41
 msgid "Problems?"
 msgstr ""
 
-#: src/Widget/ProcessingDialog.vala:40
+#: src/Widget/ProcessingDialog.vala:41
 msgid "Just hang on until the file dialog appears"
 msgstr ""
 
-#: src/Widget/ProcessingDialog.vala:78
+#: src/Widget/ProcessingDialog.vala:80
 #, fuzzy
 #| msgid "Cancel recording"
 msgid "Canceling…"
 msgstr "Cancelar gravação"
+
+#, fuzzy
+#~ msgid "Failed to Start Recording"
+#~ msgstr "Iniciar gravação"
+
+#~ msgid "Automatically save files:"
+#~ msgstr "Guardar ficheiros automaticamente:"
 
 #~ msgid "Save your recording"
 #~ msgstr "Guardar a gravação"
