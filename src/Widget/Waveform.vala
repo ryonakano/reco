@@ -4,7 +4,7 @@
  */
 
 public class Widget.Waveform : Adw.Bin {
-    public delegate double GetBarValueFunc ();
+    public delegate double GetVolumeFunc ();
 
     public enum LineColor {
         RED,
@@ -23,7 +23,7 @@ public class Widget.Waveform : Adw.Bin {
     private LiveChart.Chart chart;
     private uint refresh_timeout_id = 0;
     private int64 timestamp;
-    private unowned GetBarValueFunc bar_value_func;
+    private unowned GetVolumeFunc volume_func;
 
     public Waveform () {
     }
@@ -57,13 +57,13 @@ public class Widget.Waveform : Adw.Bin {
         child = chart;
     }
 
-    public void refresh_begin (GetBarValueFunc func) {
+    public void refresh_begin (GetVolumeFunc func) {
         // Seek to the current timestamp
         int64 now_msec = Util.usec_to_msec (GLib.get_monotonic_time ());
         timestamp = now_msec;
         config.time.current = timestamp;
 
-        bar_value_func = func;
+        volume_func = func;
     }
 
     public void refresh_end () {
@@ -94,7 +94,7 @@ public class Widget.Waveform : Adw.Bin {
         }
 
         refresh_timeout_id = Timeout.add (REFRESH_MSEC, () => {
-            double value = bar_value_func () * LEVEL_MAX_PERCENT;
+            double value = volume_func () * LEVEL_MAX_PERCENT;
             serie.add_with_timestamp (value, timestamp);
 
             // Keep last bar on the right of the graph area
