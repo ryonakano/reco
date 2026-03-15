@@ -184,7 +184,7 @@ public class View.RecordView : AbstractView {
         pause_button.icon_name = "media-playback-start-symbolic";
         pause_button.tooltip_text = _("Resume Recording");
 
-        levelbar.refresh_pause ();
+        levelbar.add_value_pause ();
         levelbar.set_line_color (Widget.LevelBar.LineColor.YELLOW);
     }
 
@@ -197,8 +197,26 @@ public class View.RecordView : AbstractView {
         pause_button.icon_name = "media-playback-pause-symbolic";
         pause_button.tooltip_text = _("Pause Recording");
 
-        levelbar.refresh_resume ();
+        levelbar.add_value_resume ();
         levelbar.set_line_color (Widget.LevelBar.LineColor.RED);
+    }
+
+    public void levelbar_refresh_pause () {
+        if (!is_recording) {
+            // Should be already paused if recording has been paused
+            return;
+        }
+
+        levelbar.refresh_pause ();
+    }
+
+    public void levelbar_refresh_resume () {
+        if (!is_recording) {
+            // Should not resume if recording has been paused
+            return;
+        }
+
+        levelbar.refresh_resume ();
     }
 
     private static string uptimer_strfunc (TimeSpan time_usec) {

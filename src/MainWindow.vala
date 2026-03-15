@@ -150,6 +150,8 @@ public class MainWindow : Adw.ApplicationWindow {
         });
 
         recorder.record_ok.connect (save_file_wrapper);
+
+        notify["suspended"].connect (suspended_notify_cb);
     }
 
     private async void save_file_wrapper () {
@@ -432,6 +434,18 @@ public class MainWindow : Adw.ApplicationWindow {
         if (inhibit_token != 0) {
             application.uninhibit (inhibit_token);
             inhibit_token = 0;
+        }
+    }
+
+    private void suspended_notify_cb () {
+        if (stack.visible_child != record_view) {
+            return;
+        }
+
+        if (suspended) {
+            record_view.levelbar_refresh_pause ();
+        } else {
+            record_view.levelbar_refresh_resume ();
         }
     }
 
