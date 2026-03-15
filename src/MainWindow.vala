@@ -443,9 +443,9 @@ public class MainWindow : Adw.ApplicationWindow {
         }
 
         if (suspended) {
-            record_view.levelbar_refresh_pause ();
+            record_view.draw_stop ();
         } else {
-            record_view.levelbar_refresh_resume ();
+            record_view.draw_start ();
         }
     }
 

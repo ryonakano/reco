@@ -201,7 +201,7 @@ public class View.RecordView : AbstractView {
         waveform.set_color (Widget.Waveform.Color.RED);
     }
 
-    public void levelbar_refresh_pause () {
+    public void draw_stop () {
         if (!is_recording) {
             // Should be already paused if recording has been paused
             return;
@@ -210,7 +210,7 @@ public class View.RecordView : AbstractView {
         waveform.draw_stop ();
     }
 
-    public void levelbar_refresh_resume () {
+    public void draw_start () {
         if (!is_recording) {
             // Should not resume if recording has been paused
             return;
