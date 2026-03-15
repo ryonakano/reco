@@ -6,7 +6,7 @@
 public class Widget.Waveform : Adw.Bin {
     public delegate double GetVolumeFunc ();
 
-    public enum LineColor {
+    public enum Color {
         RED,
         YELLOW,
     }
@@ -112,14 +112,14 @@ public class Widget.Waveform : Adw.Bin {
         chart.refresh_every (REFRESH_MSEC, 0.0);
     }
 
-    public void set_line_color (LineColor color) {
+    public void set_color (Color color) {
         unowned string str;
 
         switch (color) {
-            case LineColor.RED:
+            case Color.RED:
                 str = STRAWBERRY_500;
                 break;
-            case LineColor.YELLOW:
+            case Color.YELLOW:
                 str = BANANA_500;
                 break;
             default:

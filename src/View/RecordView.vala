@@ -185,7 +185,7 @@ public class View.RecordView : AbstractView {
         pause_button.tooltip_text = _("Resume Recording");
 
         waveform.volume_update_end ();
-        waveform.set_line_color (Widget.Waveform.LineColor.YELLOW);
+        waveform.set_color (Widget.Waveform.Color.YELLOW);
     }
 
     private void refresh_resume () {
@@ -198,7 +198,7 @@ public class View.RecordView : AbstractView {
         pause_button.tooltip_text = _("Pause Recording");
 
         waveform.volume_update_begin ();
-        waveform.set_line_color (Widget.Waveform.LineColor.RED);
+        waveform.set_color (Widget.Waveform.Color.RED);
     }
 
     public void levelbar_refresh_pause () {
