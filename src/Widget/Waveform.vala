@@ -70,23 +70,6 @@ public class Widget.Waveform : Adw.Bin {
         serie.clear ();
     }
 
-    public void volume_update_end () {
-        // Already paused
-        if (volume_update_timeout_id == 0) {
-            return;
-        }
-
-        Source.remove (volume_update_timeout_id);
-        volume_update_timeout_id = 0;
-
-        draw_end ();
-    }
-
-    public void draw_end () {
-        // Stop refreshing the graph
-        chart.refresh_every (REFRESH_MSEC, 0.0);
-    }
-
     public void volume_update_begin () {
         // Already resumed
         if (volume_update_timeout_id != 0) {
@@ -107,9 +90,26 @@ public class Widget.Waveform : Adw.Bin {
         draw_begin ();
     }
 
+    public void volume_update_end () {
+        // Already paused
+        if (volume_update_timeout_id == 0) {
+            return;
+        }
+
+        Source.remove (volume_update_timeout_id);
+        volume_update_timeout_id = 0;
+
+        draw_end ();
+    }
+
     public void draw_begin () {
         // Start refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 1.0);
+    }
+
+    public void draw_end () {
+        // Stop refreshing the graph
+        chart.refresh_every (REFRESH_MSEC, 0.0);
     }
 
     public void set_line_color (LineColor color) {
