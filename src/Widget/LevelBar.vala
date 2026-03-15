@@ -65,7 +65,6 @@ public class Widget.LevelBar : Gtk.Box {
     }
 
     public void refresh_end () {
-        refresh_pause ();
         serie.clear ();
     }
 
