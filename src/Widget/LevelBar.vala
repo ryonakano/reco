@@ -62,8 +62,6 @@ public class Widget.LevelBar : Gtk.Box {
         config.time.current = timestamp;
 
         bar_value_func = func;
-
-        refresh_resume ();
     }
 
     public void refresh_end () {
