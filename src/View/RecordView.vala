@@ -184,7 +184,7 @@ public class View.RecordView : AbstractView {
         pause_button.icon_name = "media-playback-start-symbolic";
         pause_button.tooltip_text = _("Resume Recording");
 
-        waveform.volume_update_end ();
+        waveform.volume_update_stop ();
         waveform.set_color (Widget.Waveform.Color.YELLOW);
     }
 
@@ -197,7 +197,7 @@ public class View.RecordView : AbstractView {
         pause_button.icon_name = "media-playback-pause-symbolic";
         pause_button.tooltip_text = _("Pause Recording");
 
-        waveform.volume_update_begin ();
+        waveform.volume_update_start ();
         waveform.set_color (Widget.Waveform.Color.RED);
     }
 
@@ -207,7 +207,7 @@ public class View.RecordView : AbstractView {
             return;
         }
 
-        waveform.draw_end ();
+        waveform.draw_stop ();
     }
 
     public void levelbar_refresh_resume () {
@@ -216,7 +216,7 @@ public class View.RecordView : AbstractView {
             return;
         }
 
-        waveform.draw_begin ();
+        waveform.draw_start ();
     }
 
     private static string uptimer_strfunc (TimeSpan time_usec) {

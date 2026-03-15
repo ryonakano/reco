@@ -70,7 +70,7 @@ public class Widget.Waveform : Adw.Bin {
         serie.clear ();
     }
 
-    public void volume_update_begin () {
+    public void volume_update_start () {
         // Already resumed
         if (volume_update_timeout_id != 0) {
             return;
@@ -87,10 +87,10 @@ public class Widget.Waveform : Adw.Bin {
             return Source.CONTINUE;
         });
 
-        draw_begin ();
+        draw_start ();
     }
 
-    public void volume_update_end () {
+    public void volume_update_stop () {
         // Already paused
         if (volume_update_timeout_id == 0) {
             return;
@@ -99,15 +99,15 @@ public class Widget.Waveform : Adw.Bin {
         Source.remove (volume_update_timeout_id);
         volume_update_timeout_id = 0;
 
-        draw_end ();
+        draw_stop ();
     }
 
-    public void draw_begin () {
+    public void draw_start () {
         // Start refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 1.0);
     }
 
-    public void draw_end () {
+    public void draw_stop () {
         // Stop refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 0.0);
     }
