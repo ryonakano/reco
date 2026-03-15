@@ -86,8 +86,8 @@ public class Widget.Waveform : Adw.Bin {
         }
 
         volume_update_timeout_id = Timeout.add (REFRESH_MSEC, () => {
-            double value = volume_func () * LEVEL_MAX_PERCENT;
-            serie.add_with_timestamp (value, timestamp);
+            double volume = volume_func () * LEVEL_MAX_PERCENT;
+            serie.add_with_timestamp (volume, timestamp);
 
             // Keep last bar on the right of the graph area
             config.time.current = timestamp;
