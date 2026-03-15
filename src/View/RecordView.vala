@@ -151,9 +151,9 @@ public class View.RecordView : AbstractView {
         if (record_length > 0) {
             downtimer.seek (record_length);
             remaining_time_label.label = downtimer.to_string ();
+            remaining_time_label.visible = true;
         } else {
-            // Hide the label
-            remaining_time_label.label = null;
+            remaining_time_label.visible = false;
         }
 
         waveform.init ();
