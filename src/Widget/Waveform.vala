@@ -35,11 +35,11 @@ public class Widget.Waveform : Adw.Bin {
     /**
      * The red color of the waveform, in hex.
      */
-    private const string STRAWBERRY_500 = "#c6262e";
+    private const string STRAWBERRY_500_HEX = "#c6262e";
     /**
      * The yellow color of the waveform, in hex.
      */
-    private const string BANANA_500 = "#f9c440";
+    private const string BANANA_500_HEX = "#f9c440";
 
     // Refer to the README of Live Chart at https://github.com/lcallarec/live-chart for summary of LiveChart classes
     private LiveChart.Serie serie;
@@ -194,19 +194,19 @@ public class Widget.Waveform : Adw.Bin {
      * @param color     color of the waveform
      */
     public void set_color (Color color) {
-        unowned string str;
+        unowned string hex;
 
         switch (color) {
             case Color.RED:
-                str = STRAWBERRY_500;
+                hex = STRAWBERRY_500_HEX;
                 break;
             case Color.YELLOW:
-                str = BANANA_500;
+                hex = BANANA_500_HEX;
                 break;
             default:
                 error ("Invalid color: %d", color);
         }
 
-        serie.line.color = Util.str_to_rgba (str);
+        serie.line.color = Util.hex_to_rgba (hex);
     }
 }

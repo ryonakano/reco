@@ -89,9 +89,9 @@ namespace Util {
         return date;
     }
 
-    public static Gdk.RGBA str_to_rgba (string str) {
+    public static Gdk.RGBA hex_to_rgba (string hex) {
         var rgba = Gdk.RGBA ();
-        rgba.parse (str);
+        rgba.parse (hex);
 
         return rgba;
     }
