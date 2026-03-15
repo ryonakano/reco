@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
-public class Widget.Waveform : Gtk.Box {
+public class Widget.Waveform : Adw.Bin {
     public delegate double GetBarValueFunc ();
 
     public enum LineColor {
@@ -29,9 +29,6 @@ public class Widget.Waveform : Gtk.Box {
     }
 
     construct {
-        orientation = Gtk.Orientation.VERTICAL;
-        spacing = 0;
-
         serie = new LiveChart.Serie ("level", new LiveChart.Bar ());
         serie.line.width = 1.0;
 
@@ -57,7 +54,7 @@ public class Widget.Waveform : Gtk.Box {
 
         chart.add_serie (serie);
 
-        append (chart);
+        child = chart;
     }
 
     public void refresh_begin (GetBarValueFunc func) {
