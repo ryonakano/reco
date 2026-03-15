@@ -86,7 +86,7 @@ public class View.RecordView : AbstractView {
                 switch (keyval) {
                     case Gdk.Key.R:
                         if (Gdk.ModifierType.SHIFT_MASK in state) {
-                            refresh_end ();
+                            stop ();
                             stop_recording ();
                             return Gdk.EVENT_STOP;
                         }
@@ -109,28 +109,28 @@ public class View.RecordView : AbstractView {
             remaining_time_label.label = downtimer.to_string ();
         });
         downtimer.ended.connect (() => {
-            refresh_end ();
+            stop ();
             stop_recording ();
         });
 
         cancel_button.clicked.connect (() => {
-            refresh_end ();
+            stop ();
             cancel_recording ();
         });
 
         stop_button.clicked.connect (() => {
-            refresh_end ();
+            stop ();
             stop_recording ();
         });
 
         pause_button.clicked.connect (() => {
             if (is_recording) {
                 is_recording = false;
-                refresh_pause ();
+                pause ();
                 pause_recording ();
             } else {
                 is_recording = true;
-                refresh_resume ();
+                resume ();
                 resume_recording ();
             }
         });
@@ -140,7 +140,7 @@ public class View.RecordView : AbstractView {
         return recorder.current_peak;
     }
 
-    public void refresh_begin () {
+    public void start () {
         is_recording = true;
 
         uptimer.init ();
@@ -166,16 +166,16 @@ public class View.RecordView : AbstractView {
          */
         pause_button.grab_focus ();
 
-        refresh_resume ();
+        resume ();
     }
 
-    public void refresh_end () {
+    public void stop () {
         is_recording = false;
 
-        refresh_pause ();
+        pause ();
     }
 
-    private void refresh_pause () {
+    private void pause () {
         uptimer.stop ();
         downtimer.stop ();
 
@@ -186,7 +186,7 @@ public class View.RecordView : AbstractView {
         waveform.set_color (Widget.Waveform.Color.YELLOW);
     }
 
-    private void refresh_resume () {
+    private void resume () {
         uptimer.start ();
         if (downtimer.is_seeked) {
             downtimer.start ();

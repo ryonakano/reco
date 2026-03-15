@@ -138,7 +138,7 @@ public class MainWindow : Adw.ApplicationWindow {
         });
 
         recorder.record_err.connect ((err, debug_info) => {
-            record_view.refresh_end ();
+            record_view.stop ();
 
             show_error_dialog (
                 _("Unable to Continue Recording"),
@@ -333,7 +333,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
         recorder.start ();
 
-        record_view.refresh_begin ();
+        record_view.start ();
         stack.visible_child = record_view;
     }
 
@@ -349,7 +349,7 @@ public class MainWindow : Adw.ApplicationWindow {
         if (!can_destroy) {
             // Recorder is shutting down so we can't destroy MainWindow now
 
-            record_view.refresh_end ();
+            record_view.stop ();
             present_processing_dialog ();
 
             // Let MainWindow destroyed in the save callback
