@@ -6,6 +6,11 @@
 public class Widget.LevelBar : Gtk.Box {
     public delegate double GetBarValueFunc ();
 
+    public enum LineColor {
+        RED,
+        YELLOW,
+    }
+
     private const double LEVEL_MAX_PERCENT = 100.0;
     private const int REFRESH_MSEC = 100;
 
@@ -79,8 +84,6 @@ public class Widget.LevelBar : Gtk.Box {
 
         // Stop refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 0.0);
-
-        serie.line.color = Util.str_to_rgba (BANANA_500);
     }
 
     public void refresh_resume () {
@@ -102,7 +105,22 @@ public class Widget.LevelBar : Gtk.Box {
 
         // Start refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 1.0);
+    }
 
-        serie.line.color = Util.str_to_rgba (STRAWBERRY_500);
+    public void set_line_color (LineColor color) {
+        unowned string str;
+
+        switch (color) {
+            case LineColor.RED:
+                str = STRAWBERRY_500;
+                break;
+            case LineColor.YELLOW:
+                str = BANANA_500;
+                break;
+            default:
+                error ("Invalid color: %d", color);
+        }
+
+        serie.line.color = Util.str_to_rgba (str);
     }
 }

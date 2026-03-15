@@ -185,6 +185,7 @@ public class View.RecordView : AbstractView {
         pause_button.tooltip_text = _("Resume Recording");
 
         levelbar.refresh_pause ();
+        levelbar.set_line_color (Widget.LevelBar.LineColor.YELLOW);
     }
 
     private void refresh_resume () {
@@ -197,6 +198,7 @@ public class View.RecordView : AbstractView {
         pause_button.tooltip_text = _("Pause Recording");
 
         levelbar.refresh_resume ();
+        levelbar.set_line_color (Widget.LevelBar.LineColor.RED);
     }
 
     private static string uptimer_strfunc (TimeSpan time_usec) {
