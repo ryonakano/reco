@@ -21,7 +21,7 @@ public class Widget.Waveform : Adw.Bin {
     private LiveChart.Serie serie;
     private LiveChart.Config config;
     private LiveChart.Chart chart;
-    private uint refresh_timeout_id = 0;
+    private uint volume_update_timeout_id = 0;
     private int64 timestamp;
     private unowned GetVolumeFunc volume_func;
 
@@ -57,7 +57,7 @@ public class Widget.Waveform : Adw.Bin {
         child = chart;
     }
 
-    public void refresh_begin (GetVolumeFunc func) {
+    public void init (GetVolumeFunc func) {
         // Seek to the current timestamp
         int64 now_msec = Util.usec_to_msec (GLib.get_monotonic_time ());
         timestamp = now_msec;
@@ -66,34 +66,34 @@ public class Widget.Waveform : Adw.Bin {
         volume_func = func;
     }
 
-    public void refresh_end () {
+    public void clear () {
         serie.clear ();
     }
 
-    public void add_value_pause () {
+    public void volume_update_end () {
         // Already paused
-        if (refresh_timeout_id == 0) {
+        if (volume_update_timeout_id == 0) {
             return;
         }
 
-        Source.remove (refresh_timeout_id);
-        refresh_timeout_id = 0;
+        Source.remove (volume_update_timeout_id);
+        volume_update_timeout_id = 0;
 
-        refresh_pause ();
+        draw_end ();
     }
 
-    public void refresh_pause () {
+    public void draw_end () {
         // Stop refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 0.0);
     }
 
-    public void add_value_resume () {
+    public void volume_update_begin () {
         // Already resumed
-        if (refresh_timeout_id != 0) {
+        if (volume_update_timeout_id != 0) {
             return;
         }
 
-        refresh_timeout_id = Timeout.add (REFRESH_MSEC, () => {
+        volume_update_timeout_id = Timeout.add (REFRESH_MSEC, () => {
             double value = volume_func () * LEVEL_MAX_PERCENT;
             serie.add_with_timestamp (value, timestamp);
 
@@ -104,10 +104,10 @@ public class Widget.Waveform : Adw.Bin {
             return Source.CONTINUE;
         });
 
-        refresh_resume ();
+        draw_begin ();
     }
 
-    public void refresh_resume () {
+    public void draw_begin () {
         // Start refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 1.0);
     }
