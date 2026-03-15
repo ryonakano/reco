@@ -47,7 +47,7 @@ public class View.RecordView : AbstractView {
         content_area.append (time_label);
         content_area.append (remaining_time_label);
 
-        waveform = new Widget.Waveform ();
+        waveform = new Widget.Waveform (get_current_peak);
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
@@ -157,7 +157,7 @@ public class View.RecordView : AbstractView {
             remaining_time_label.label = null;
         }
 
-        waveform.init (get_current_peak);
+        waveform.init ();
 
         /*
          * cancel_button is focused implicitly by default when RecordView is shown,

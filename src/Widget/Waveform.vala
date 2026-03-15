@@ -25,7 +25,8 @@ public class Widget.Waveform : Adw.Bin {
     private int64 timestamp;
     private unowned GetVolumeFunc volume_func;
 
-    public Waveform () {
+    public Waveform (GetVolumeFunc func) {
+        volume_func = func;
     }
 
     construct {
@@ -57,13 +58,11 @@ public class Widget.Waveform : Adw.Bin {
         child = chart;
     }
 
-    public void init (GetVolumeFunc func) {
+    public void init () {
         // Seek to the current timestamp
         int64 now_msec = Util.usec_to_msec (GLib.get_monotonic_time ());
         timestamp = now_msec;
         config.time.current = timestamp;
-
-        volume_func = func;
     }
 
     public void clear () {
