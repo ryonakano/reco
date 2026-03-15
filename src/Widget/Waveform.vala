@@ -3,28 +3,71 @@
  * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
  */
 
+/**
+ * Draws an audio waveform.
+ */
 public class Widget.Waveform : Adw.Bin {
+    /**
+     * Gets volume value to draw the waveform.
+     *
+     * @return volume value in the range of 0.0 to 1.0
+     */
     public delegate double GetVolumeFunc ();
 
+    /**
+     * Available colors of the waveform.
+     */
     public enum Color {
         RED,
         YELLOW,
     }
 
+    /**
+     * Maximum volume, in percentage.
+     */
     private const double LEVEL_MAX_PERCENT = 100.0;
+    /**
+     * Interval to draw the waveform, in msec.
+     */
     private const int REFRESH_MSEC = 100;
 
-    // Colors from the elementary color palette: https://elementary.io/brand#color
+    // Hex colors of the waveform; respects the elementary color palette: https://elementary.io/brand#color
+    /**
+     * The red color of the waveform, in hex.
+     */
     private const string STRAWBERRY_500 = "#c6262e";
+    /**
+     * The yellow color of the waveform, in hex.
+     */
     private const string BANANA_500 = "#f9c440";
 
+    // Refer to the README of Live Chart at https://github.com/lcallarec/live-chart for summary of LiveChart classes
     private LiveChart.Serie serie;
     private LiveChart.Config config;
     private LiveChart.Chart chart;
+
+    /**
+     * ID of the interval handler that updates volume value in the waveform.
+     */
     private uint volume_update_timeout_id = 0;
+    /**
+     * Current timestamp in the waveform chart.
+     */
     private int64 timestamp;
+    /**
+     * Delegate to get volume value to draw the waveform.
+     */
+    // Declare as an instance variable instead of a property
+    // because Vala does not support "construct" annotation for delegates
     private unowned GetVolumeFunc volume_func;
 
+    /**
+     * Creates a new {@link Widget.Waveform}.
+     *
+     * @param func  a {@link Widget.Waveform.GetVolumeFunc} to get volume value to draw ``this``
+     *
+     * @return      a new {@link Widget.Waveform}
+     */
     public Waveform (GetVolumeFunc func) {
         volume_func = func;
     }
@@ -58,6 +101,9 @@ public class Widget.Waveform : Adw.Bin {
         child = chart;
     }
 
+    /**
+     * Initializes the waveform.
+     */
     public void init () {
         // Seek to the current timestamp
         int64 now_msec = Util.usec_to_msec (GLib.get_monotonic_time ());
@@ -65,20 +111,32 @@ public class Widget.Waveform : Adw.Bin {
         config.time.current = timestamp;
     }
 
+    /**
+     * Clears the waveform.
+     */
     public void clear () {
         serie.clear ();
     }
 
+    /**
+     * Starts to update the volume value and draw the waveform.
+     */
     public void start () {
         volume_update_start ();
         draw_start ();
     }
 
+    /**
+     * Stops updating the volume value and drawing the waveform.
+     */
     public void stop () {
         volume_update_stop ();
         draw_stop ();
     }
 
+    /**
+     * Starts to update the volume value
+     */
     private void volume_update_start () {
         // Already resumed
         if (volume_update_timeout_id != 0) {
@@ -97,6 +155,9 @@ public class Widget.Waveform : Adw.Bin {
         });
     }
 
+    /**
+     * Stops updating the volume value.
+     */
     private void volume_update_stop () {
         // Already paused
         if (volume_update_timeout_id == 0) {
@@ -107,16 +168,31 @@ public class Widget.Waveform : Adw.Bin {
         volume_update_timeout_id = 0;
     }
 
+    /**
+     * Starts to draw the waveform.
+     *
+     * Being different from {@link Widget.Waveform.start}, this method keeps the underlying interval that updates volume
+     * value.
+     */
     public void draw_start () {
-        // Start refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 1.0);
     }
 
+    /**
+     * Stops drawing the waveform.
+     *
+     * Being different from {@link Widget.Waveform.stop}, this method keeps the underlying interval that updates volume
+     * value.
+     */
     public void draw_stop () {
-        // Stop refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 0.0);
     }
 
+    /**
+     * Sets color of the waveform.
+     *
+     * @param color     color of the waveform
+     */
     public void set_color (Color color) {
         unowned string str;
 
