@@ -184,7 +184,7 @@ public class View.RecordView : AbstractView {
         pause_button.icon_name = "media-playback-start-symbolic";
         pause_button.tooltip_text = _("Resume Recording");
 
-        waveform.volume_update_stop ();
+        waveform.stop ();
         waveform.set_color (Widget.Waveform.Color.YELLOW);
     }
 
@@ -197,7 +197,7 @@ public class View.RecordView : AbstractView {
         pause_button.icon_name = "media-playback-pause-symbolic";
         pause_button.tooltip_text = _("Pause Recording");
 
-        waveform.volume_update_start ();
+        waveform.start ();
         waveform.set_color (Widget.Waveform.Color.RED);
     }
 

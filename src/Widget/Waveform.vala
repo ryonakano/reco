@@ -70,7 +70,17 @@ public class Widget.Waveform : Adw.Bin {
         serie.clear ();
     }
 
-    public void volume_update_start () {
+    public void start () {
+        volume_update_start ();
+        draw_start ();
+    }
+
+    public void stop () {
+        volume_update_stop ();
+        draw_stop ();
+    }
+
+    private void volume_update_start () {
         // Already resumed
         if (volume_update_timeout_id != 0) {
             return;
@@ -86,11 +96,9 @@ public class Widget.Waveform : Adw.Bin {
 
             return Source.CONTINUE;
         });
-
-        draw_start ();
     }
 
-    public void volume_update_stop () {
+    private void volume_update_stop () {
         // Already paused
         if (volume_update_timeout_id == 0) {
             return;
@@ -98,8 +106,6 @@ public class Widget.Waveform : Adw.Bin {
 
         Source.remove (volume_update_timeout_id);
         volume_update_timeout_id = 0;
-
-        draw_stop ();
     }
 
     public void draw_start () {
