@@ -173,8 +173,6 @@ public class View.RecordView : AbstractView {
         is_recording = false;
 
         refresh_pause ();
-
-        waveform.clear ();
     }
 
     private void refresh_pause () {

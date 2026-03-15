@@ -105,17 +105,12 @@ public class Widget.Waveform : Adw.Bin {
      * Initializes the waveform.
      */
     public void init () {
+        serie.clear ();
+
         // Seek to the current timestamp
         int64 now_msec = Util.usec_to_msec (GLib.get_monotonic_time ());
         timestamp = now_msec;
         config.time.current = timestamp;
-    }
-
-    /**
-     * Clears the waveform.
-     */
-    public void clear () {
-        serie.clear ();
     }
 
     /**
