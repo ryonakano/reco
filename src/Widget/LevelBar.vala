@@ -73,7 +73,7 @@ public class Widget.LevelBar : Gtk.Box {
         serie.clear ();
     }
 
-    public void refresh_pause () {
+    public void add_value_pause () {
         // Already paused
         if (refresh_timeout_id == 0) {
             return;
@@ -82,11 +82,15 @@ public class Widget.LevelBar : Gtk.Box {
         Source.remove (refresh_timeout_id);
         refresh_timeout_id = 0;
 
+        refresh_pause ();
+    }
+
+    public void refresh_pause () {
         // Stop refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 0.0);
     }
 
-    public void refresh_resume () {
+    public void add_value_resume () {
         // Already resumed
         if (refresh_timeout_id != 0) {
             return;
@@ -103,6 +107,10 @@ public class Widget.LevelBar : Gtk.Box {
             return Source.CONTINUE;
         });
 
+        refresh_resume ();
+    }
+
+    public void refresh_resume () {
         // Start refreshing the graph
         chart.refresh_every (REFRESH_MSEC, 1.0);
     }
