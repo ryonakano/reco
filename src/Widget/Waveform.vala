@@ -61,6 +61,10 @@ public class Widget.Waveform : Adw.Bin {
     // because Vala does not support "construct" annotation for delegates
     private unowned GetVolumeFunc volume_func;
 
+#if DEBUG_DRAW_STOP
+    private uint draw_stop_timeout_id = 0;
+#endif /* DEBUG_DRAW_STOP */
+
     /**
      * Creates a new {@link Widget.Waveform}.
      *
@@ -117,6 +121,26 @@ public class Widget.Waveform : Adw.Bin {
      * Starts to update the volume value and draw the waveform.
      */
     public void start () {
+#if DEBUG_DRAW_STOP
+        bool is_draw_running = true;
+
+        draw_stop_timeout_id = Timeout.add (5000, () => {
+            if (is_draw_running) {
+                debug ("[DEBUG_DRAW_STOP] timeout reached, calling draw_stop()");
+
+                is_draw_running = false;
+                draw_stop ();
+            } else {
+                debug ("[DEBUG_DRAW_STOP] timeout reached, calling draw_start()");
+
+                is_draw_running = true;
+                draw_start ();
+            }
+
+            return Source.CONTINUE;
+        });
+#endif /* DEBUG_DRAW_STOP */
+
         volume_update_start ();
         draw_start ();
     }
@@ -125,6 +149,13 @@ public class Widget.Waveform : Adw.Bin {
      * Stops updating the volume value and drawing the waveform.
      */
     public void stop () {
+#if DEBUG_DRAW_STOP
+        if (draw_stop_timeout_id != 0) {
+            Source.remove (draw_stop_timeout_id);
+            draw_stop_timeout_id = 0;
+        }
+#endif /* DEBUG_DRAW_STOP */
+
         volume_update_stop ();
         draw_stop ();
     }
