@@ -30,6 +30,10 @@ public class Widget.Waveform : Adw.Bin {
      * Interval to draw the waveform, in msec.
      */
     private const int REFRESH_MSEC = 100;
+    /**
+     * Disables interval to draw the waveform.
+     */
+    private const int REFRESH_DISABLED = -1;
 
     // Hex colors of the waveform; respects the elementary color palette: https://elementary.io/brand#color
     /**
@@ -60,6 +64,10 @@ public class Widget.Waveform : Adw.Bin {
     // Declare as an instance variable instead of a property
     // because Vala does not support "construct" annotation for delegates
     private unowned GetVolumeFunc volume_func;
+
+#if DEBUG_DRAW_STOP
+    private uint draw_stop_timeout_id = 0;
+#endif /* DEBUG_DRAW_STOP */
 
     /**
      * Creates a new {@link Widget.Waveform}.
@@ -117,6 +125,26 @@ public class Widget.Waveform : Adw.Bin {
      * Starts to update the volume value and draw the waveform.
      */
     public void start () {
+#if DEBUG_DRAW_STOP
+        bool is_draw_running = true;
+
+        draw_stop_timeout_id = Timeout.add (5000, () => {
+            if (is_draw_running) {
+                debug ("[DEBUG_DRAW_STOP] timeout reached, calling draw_stop()");
+
+                is_draw_running = false;
+                draw_stop ();
+            } else {
+                debug ("[DEBUG_DRAW_STOP] timeout reached, calling draw_start()");
+
+                is_draw_running = true;
+                draw_start ();
+            }
+
+            return Source.CONTINUE;
+        });
+#endif /* DEBUG_DRAW_STOP */
+
         volume_update_start ();
         draw_start ();
     }
@@ -125,6 +153,13 @@ public class Widget.Waveform : Adw.Bin {
      * Stops updating the volume value and drawing the waveform.
      */
     public void stop () {
+#if DEBUG_DRAW_STOP
+        if (draw_stop_timeout_id != 0) {
+            Source.remove (draw_stop_timeout_id);
+            draw_stop_timeout_id = 0;
+        }
+#endif /* DEBUG_DRAW_STOP */
+
         volume_update_stop ();
         draw_stop ();
     }
@@ -180,7 +215,7 @@ public class Widget.Waveform : Adw.Bin {
      * value.
      */
     public void draw_stop () {
-        chart.refresh_every (REFRESH_MSEC, 0.0);
+        chart.refresh_every (REFRESH_DISABLED, 0.0);
     }
 
     /**
@@ -203,5 +238,34 @@ public class Widget.Waveform : Adw.Bin {
         }
 
         serie.line.color = Util.hex_to_rgba (hex);
+
+        /**
+         * Chart is refreshed every REFRESH_MSEC, which means change of color is not reflected to the UI
+         * until when reaching the next timeout:
+         *
+         *               0          20         40         60         80        100        120 (ms)
+         *               |          |          |          |          |          |          |
+         *               ↑                     ↑                                ↑
+         *               chart                 set_color(RED)                   chart
+         *               refreshed             called                           refreshed
+         *
+         * result color  ----------------------- YELLOW -----------------------><------ RED ------
+         * of the chart
+         *
+         * This causes a problem if draw_stop() is called after set_color(); the result color of the chart
+         * will never turn to RED until draw_start() called because the chart is requested to stop refreshing:
+         *
+         *               0          20         40         60         80        100        120 (ms)
+         *               |          |          |          |          |          |          |
+         *               ↑                     ↑                     ↑
+         *               chart                 set_color(RED)        draw_stop()
+         *               refreshed             called                called
+         *
+         * result color  -------------------------------- YELLOW ---------------------------------
+         * of the chart
+         *
+         * Request to reflect change of color immediatelly to avoid this problem.
+         */
+        chart.queue_draw ();
     }
 }
