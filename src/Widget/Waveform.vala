@@ -30,6 +30,10 @@ public class Widget.Waveform : Adw.Bin {
      * Interval to draw the waveform, in msec.
      */
     private const int REFRESH_MSEC = 100;
+    /**
+     * Disables interval to draw the waveform.
+     */
+    private const int REFRESH_DISABLED = -1;
 
     // Hex colors of the waveform; respects the elementary color palette: https://elementary.io/brand#color
     /**
@@ -211,7 +215,7 @@ public class Widget.Waveform : Adw.Bin {
      * value.
      */
     public void draw_stop () {
-        chart.refresh_every (REFRESH_MSEC, 0.0);
+        chart.refresh_every (REFRESH_DISABLED, 0.0);
     }
 
     /**
@@ -234,5 +238,34 @@ public class Widget.Waveform : Adw.Bin {
         }
 
         serie.line.color = Util.hex_to_rgba (hex);
+
+        /**
+         * Chart is refreshed every REFRESH_MSEC, which means change of color is not reflected to the UI
+         * until when reaching the next timeout:
+         *
+         *               0          20         40         60         80        100        120 (ms)
+         *               |          |          |          |          |          |          |
+         *               ↑                     ↑                                ↑
+         *               chart                 set_color(RED)                   chart
+         *               refreshed             called                           refreshed
+         *
+         * result color  ----------------------- YELLOW -----------------------><------ RED ------
+         * of the chart
+         *
+         * This causes a problem if draw_stop() is called after set_color(); the result color of the chart
+         * will never turn to RED until draw_start() called because the chart is requested to stop refreshing:
+         *
+         *               0          20         40         60         80        100        120 (ms)
+         *               |          |          |          |          |          |          |
+         *               ↑                     ↑                     ↑
+         *               chart                 set_color(RED)        draw_stop()
+         *               refreshed             called                called
+         *
+         * result color  -------------------------------- YELLOW ---------------------------------
+         * of the chart
+         *
+         * Request to reflect change of color immediatelly to avoid this problem.
+         */
+        chart.queue_draw ();
     }
 }
