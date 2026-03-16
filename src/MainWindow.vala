@@ -107,7 +107,7 @@ public class MainWindow : Adw.ApplicationWindow {
             }
         });
 
-        countdown_view.countdown_cancelled.connect (show_welcome);
+        countdown_view.countdown_canceled.connect (show_welcome);
         countdown_view.countdown_ended.connect (show_record);
 
         record_view.cancel_recording.connect (cancel_warpper);
