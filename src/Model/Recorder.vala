@@ -626,8 +626,7 @@ public class Model.Recorder : Object {
                 // NOP; already working for finalizing
                 return false;
             default:
-                critical ("[BUG] invalid state %d", state);
-                assert_not_reached ();
+                error ("[BUG] unknown state %d", state);
         }
     }
 
