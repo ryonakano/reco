@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-15 09:16+0000\n"
-"PO-Revision-Date: 2026-02-23 11:35+0000\n"
+"PO-Revision-Date: 2026-03-17 12:15+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -35,13 +35,8 @@ msgid "Record;Audio;Sound;Voice;"
 msgstr "Record;Audio;Sound;Voice;録音;オーディオ;サウンド;ボイス;"
 
 #: data/reco.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid ""
-#| "Reco is an audio recorder focused on being concise and simple to use."
 msgid "An audio recorder focused on being concise and simple to use."
-msgstr ""
-"Reco は、簡潔かつシンプルに使えることに重きを置いた、オーディオレコーダーで"
-"す。"
+msgstr "簡潔かつシンプルに使えることに重きを置いた、オーディオレコーダーです。"
 
 #: data/reco.metainfo.xml.in.in:16
 msgid ""
@@ -170,16 +165,12 @@ msgid "Main Menu"
 msgstr "メインメニュー"
 
 #: src/MainWindow.vala:144
-#, fuzzy
-#| msgid "Failed to Complete Recording"
 msgid "Unable to Continue Recording"
-msgstr "録音を完了できませんでした"
+msgstr "録音を続行できません"
 
 #: src/MainWindow.vala:145
-#, fuzzy
-#| msgid "There was an error while recording"
 msgid "There was an internal error while recording"
-msgstr "録音中にエラーが発生しました"
+msgstr "録音中に内部エラーが発生しました"
 
 #: src/MainWindow.vala:169
 msgid "Recording Saved"
@@ -198,6 +189,8 @@ msgid ""
 "Unable to move a temporary recording file to the final path. Make sure the "
 "destination exists and you have write access to it"
 msgstr ""
+"一時録音ファイルを最終保存パスに移動できません。保存先が存在し書き込み権限が"
+"あることを確認してください"
 
 #: src/MainWindow.vala:236
 msgid "Save Recording"
@@ -208,27 +201,22 @@ msgid ""
 "Unable to determine where to save recording finally. Try again using "
 "autosave instead"
 msgstr ""
+"最終的な録音の保存先を確定できません。代わりに自動保存を使用して再度お試しく"
+"ださい"
 
 #: src/MainWindow.vala:325
-#, fuzzy
-#| msgid "Failed to Save Recording"
 msgid "Failed to Prepare Recording"
-msgstr "録音を保存できませんでした"
+msgstr "録音の準備に失敗しました"
 
 #: src/MainWindow.vala:326
-#, fuzzy
-#| msgid ""
-#| "This is possibly due to missing codecs or incomplete installation of the "
-#| "app. Make sure you've installed them and try reinstalling them if this "
-#| "issue persists"
 msgid ""
 "This is possibly due to missing codecs, incomplete installation of the app, "
 "or missing sound input/output devices. Make sure you've installed necessary "
 "components correctlly and connected sound devices"
 msgstr ""
-"コーデックが不足しているか、アプリが不完全にインストールされている可能性があ"
-"ります。インストール状態を確認してください。再発する場合は、コーデックやアプ"
-"リを再インストールしてみてください"
+"コーデックが不足しているか、アプリのインストールが不完全か、音声入出力"
+"デバイスがない可能性があります。必要なコンポーネントを正しくインストール済み"
+"で、音声デバイスを接続済みか確認してください"
 
 #: src/MainWindow.vala:401
 msgid "Recording Canceled"
@@ -243,10 +231,8 @@ msgid "Recording is ongoing"
 msgstr "録音中です"
 
 #: src/MainWindow.vala:490
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Failed to Open Folder"
-msgstr "フォルダーを開く"
+msgstr "フォルダーを開けませんでした"
 
 #: src/MainWindow.vala:491
 #, c-format
