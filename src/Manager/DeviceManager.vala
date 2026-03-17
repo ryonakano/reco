@@ -7,10 +7,9 @@ public class Manager.DeviceManager : Object {
     public signal void device_updated ();
 
     public Gee.ArrayList<Gst.Device> sources { get; private set; }
-    public Gee.ArrayList<Gst.Device> sinks { get; private set; }
+    public string? default_monitor { get; private set; }
 
     public Gst.Device? default_source { get; private set; }
-    public Gst.Device? default_sink { get; private set; }
 
     public uint selected_source_index { get; set; }
 
@@ -25,6 +24,10 @@ public class Manager.DeviceManager : Object {
 
     private const string CLASS_NAME_SOURCE = "Source/Audio";
     private const string CLASS_NAME_SINK = "Sink/Audio";
+    private const string IGNORED_PROPNAMES[] = {
+        "name", "parent", "direction", "template", "caps"
+    };
+
     private Gst.DeviceMonitor monitor;
 
     private DeviceManager () {
@@ -36,7 +39,7 @@ public class Manager.DeviceManager : Object {
         monitor.add_filter (CLASS_NAME_SINK, caps);
 
         sources = new Gee.ArrayList<Gst.Device> ();
-        sinks = new Gee.ArrayList<Gst.Device> ();
+        default_monitor = null;
 
         monitor.start ();
     }
@@ -174,7 +177,7 @@ public class Manager.DeviceManager : Object {
                 /*
                  * We want to know just only the default monitor device and don't need non-default ones
                  * but monitor devices does not seem to have is-default property unfortunately.
-                 * So ignore all of them here and construct its name from corresponding sink device instead.
+                 * So ignore all of them here and build its name from corresponding sink device instead.
                  */
                 return false;
             }
@@ -202,11 +205,6 @@ public class Manager.DeviceManager : Object {
         }
 
         if (device.has_classes (CLASS_NAME_SINK)) {
-            if (sinks.contains (device)) {
-                warning ("[sink] add: already added, skipping. device=\"%s\"", device.display_name);
-                return true;
-            }
-
             Gst.Structure properties = device.properties;
             bool is_default;
             bool ret = properties.get_boolean ("is-default", out is_default);
@@ -215,17 +213,21 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            ret = sinks.add (device);
-            if (!ret) {
-                warning ("[sink] add: failed to add. device=\"%s\"", device.display_name);
+            if (!is_default) {
+                // We don't need non-default sinks
                 return false;
             }
 
-            if (is_default) {
-                default_sink = device;
+            // Build monitor name of the default sink
+            string? monitor_name = build_monitor_name (device);
+            if (monitor_name == null) {
+                warning ("[sink] add: failed to build monitor name of the device. device=\"%s\"", device.display_name);
+                return false;
             }
 
-            debug ("[sink] add: added device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
+            default_monitor = monitor_name;
+
+            debug ("[sink] add: added device \"%s\"", default_monitor);
 
             return true;
         }
@@ -280,11 +282,6 @@ public class Manager.DeviceManager : Object {
         }
 
         if (device.has_classes (CLASS_NAME_SINK)) {
-            if (!sinks.contains (device)) {
-                warning ("[sink] remove: already removed, skipping. device=\"%s\"", device.display_name);
-                return true;
-            }
-
             Gst.Structure properties = device.properties;
             bool is_default;
             bool ret = properties.get_boolean ("is-default", out is_default);
@@ -293,26 +290,80 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            ret = sinks.remove (device);
-            if (!ret) {
-                warning ("[sink] remove: failed to remove device \"%s\"", device.display_name);
-                return false;
-            }
-
             if (is_default) {
                 // Clear the default device only when it's surely the removed device
                 // to prevent the new default device from being cleared if it's already set to
-                // default_sink through add_device()
-                if (default_sink.name == device.name) {
-                    default_sink = null;
+                // default_monitor through add_device()
+                if (default_monitor == device.name) {
+                    default_monitor = null;
                 }
             }
 
-            debug ("[sink] remove: removed device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
+            debug ("[sink] remove: removed device \"%s\"", device.display_name);
 
             return true;
         }
 
         return false;
+    }
+
+    /**
+     * Build name of the monitor device from a sink device
+     *
+     * @param sink      a sink device
+     *
+     * @return          name of the monitor device of ``sink`` if succeeds, ``null`` otherwise
+     */
+    // Inspired from ``get_launch_line()`` in GStreamer:
+    // https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.6/subprojects/gst-plugins-base/tools/gst-device-monitor.c#L45-135
+    private static string? build_monitor_name (Gst.Device sink) {
+        Gst.Element? element = sink.create_element (null);
+        if (element == null) {
+            warning ("failed to Gst.Device.create_element()");
+            return null;
+        }
+
+        Gst.ElementFactory? factory = element.get_factory ();
+        if (factory == null) {
+            warning ("failed to Gst.Element.get_factory()");
+            return null;
+        }
+
+        Gst.Element? pureelement = factory.create (null);
+        if (pureelement == null) {
+            warning ("failed to Gst.ElementFactory.create()");
+            return null;
+        }
+
+        // Get paramspecs and show non-default properties
+        (unowned ParamSpec)[] properties = element.get_class ().list_properties ();
+        foreach (var property in properties) {
+            // Skip some properties
+            if ((property.flags & ParamFlags.READWRITE) != ParamFlags.READWRITE) {
+                continue;
+            }
+
+            if (property.name in IGNORED_PROPNAMES) {
+                continue;
+            }
+
+            var value = Value (property.value_type);
+            element.get_property (property.name, ref value);
+
+            var pvalue = Value (property.value_type);
+            pureelement.get_property (property.name, ref pvalue);
+
+            if (Gst.Value.compare (value, pvalue) != Gst.VALUE_EQUAL) {
+                string? valuestr = Gst.Value.serialize (value);
+                if (valuestr == null) {
+                    warning ("failed to Gst.Value.serialize(). element=%s property=%s", element.name, property.name);
+                    continue;
+                }
+
+                return valuestr + ".monitor";
+            }
+        }
+
+        return null;
     }
 }

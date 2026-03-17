@@ -108,9 +108,6 @@ public class Model.Recorder : Object {
     private double _current_peak = 0;
 
     private const uint64 NSEC = 1000000000;
-    private const string IGNORED_PROPNAMES[] = {
-        "name", "parent", "direction", "template", "caps"
-    };
 
     private Gst.Pipeline pipeline;
 
@@ -218,15 +215,14 @@ public class Model.Recorder : Object {
                 return false;
             }
 
-            Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
-            string? monitor_name = get_default_monitor_name (default_sink);
+            unowned string? monitor_name = Manager.DeviceManager.get_default ().default_monitor;
             if (monitor_name == null) {
-                warning ("Failed to set \"device\" property of pulsesrc element \"sys_sound\"");
+                warning ("default monitor device not found");
                 return false;
             }
 
             sys_sound.set ("device", monitor_name);
-            debug ("sound source (system): \"Monitor of %s\"", default_sink.display_name);
+            debug ("sound source (system): \"%s\"", monitor_name);
 
             // Set properties that can be used in monitor apps e.g. pavucontrol or gnome-system-monitor
             var pa_props = new Gst.Structure.from_string (
@@ -747,71 +743,6 @@ public class Model.Recorder : Object {
         current_peak = peak_arr.get_nth (0).get_double ();
 
         return true;
-    }
-
-    /**
-     * Get name of a default monitor device from name of a default sink device
-     *
-     * @param default_sink      a default sink device
-     *
-     * @return                  name of a default monitor device if succeeds, ``null`` otherwise
-     */
-    // Inspired from ``get_launch_line()`` in GStreamer:
-    // https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.6/subprojects/gst-plugins-base/tools/gst-device-monitor.c#L45-135
-    private string? get_default_monitor_name (Gst.Device? default_sink) {
-        if (default_sink == null) {
-            warning ("default_sink is null");
-            return null;
-        }
-
-        Gst.Element? element = default_sink.create_element (null);
-        if (element == null) {
-            warning ("element is null");
-            return null;
-        }
-
-        Gst.ElementFactory? factory = element.get_factory ();
-        if (factory == null) {
-            warning ("factory is null");
-            return null;
-        }
-
-        Gst.Element? pureelement = factory.create (null);
-        if (pureelement == null) {
-            warning ("pureelement is null");
-            return null;
-        }
-
-        // Get paramspecs and show non-default properties
-        (unowned ParamSpec)[] properties = element.get_class ().list_properties ();
-        foreach (var property in properties) {
-            // Skip some properties
-            if ((property.flags & ParamFlags.READWRITE) != ParamFlags.READWRITE) {
-                continue;
-            }
-
-            if (property.name in IGNORED_PROPNAMES) {
-                continue;
-            }
-
-            var value = Value (property.value_type);
-            element.get_property (property.name, ref value);
-
-            var pvalue = Value (property.value_type);
-            pureelement.get_property (property.name, ref pvalue);
-
-            if (Gst.Value.compare (value, pvalue) != Gst.VALUE_EQUAL) {
-                string? valuestr = Gst.Value.serialize (value);
-                if (valuestr == null) {
-                    warning ("Could not serialize property %s: %s", element.name, property.name);
-                    continue;
-                }
-
-                return valuestr + ".monitor";
-            }
-        }
-
-        return null;
     }
 
     /**
