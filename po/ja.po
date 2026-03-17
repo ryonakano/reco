@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-15 09:16+0000\n"
-"PO-Revision-Date: 2026-03-17 12:15+0000\n"
+"PO-Revision-Date: 2026-03-17 12:17+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
@@ -237,11 +237,11 @@ msgstr "フォルダーを開けませんでした"
 #: src/MainWindow.vala:491
 #, c-format
 msgid "Unable to open folder containing \"%s\""
-msgstr ""
+msgstr "\"%s\" の親フォルダーを開けません"
 
 #: src/MainWindow.vala:544
 msgid "_Close"
-msgstr ""
+msgstr "閉じる(_C)"
 
 #: src/View/CountDownView.vala:35
 msgid "Cancel Countdown"
@@ -367,11 +367,9 @@ msgstr "西暦とあなたの名前を録音ファイルに追加します"
 
 #: src/View/WelcomeView.vala:117
 msgid "Autosave:"
-msgstr ""
+msgstr "自動保存:"
 
 #: src/View/WelcomeView.vala:128 src/View/WelcomeView.vala:131
-#, fuzzy
-#| msgid "Select AutoSave Destination"
 msgid "Select Autosave Destination"
 msgstr "自動保存先を選択"
 
