@@ -290,6 +290,7 @@ public class View.WelcomeView : AbstractView {
                 return (device_manager.sources.size > 0) && (device_manager.default_monitor != null);
             default:
                 assert_not_reached ();
+                // no break, dies if reached
         }
     }
 

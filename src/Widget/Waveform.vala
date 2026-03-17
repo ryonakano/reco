@@ -235,6 +235,7 @@ public class Widget.Waveform : Adw.Bin {
                 break;
             default:
                 error ("Invalid color: %d", color);
+                // no break, dies if reached
         }
 
         serie.line.color = Util.hex_to_rgba (hex);

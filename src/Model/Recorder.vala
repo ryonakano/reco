@@ -627,6 +627,7 @@ public class Model.Recorder : Object {
                 return false;
             default:
                 error ("[BUG] unknown state %d", state);
+                // no break, dies if reached
         }
     }
 

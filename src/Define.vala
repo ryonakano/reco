@@ -59,6 +59,7 @@ namespace Define {
                     return "wav";
                 default:
                     assert_not_reached ();
+                    // no break, dies if reached
             }
         }
     }
