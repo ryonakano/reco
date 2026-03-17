@@ -171,8 +171,11 @@ public class Manager.DeviceManager : Object {
 
             Gst.Structure properties = device.properties;
             if (properties.get_string ("device.class") == "monitor") {
-                // We manually build device names of monitors so don't add them as a source here
-                // TODO: I can't remember why. Needs to review if this is intended
+                /*
+                 * We want to know just only the default monitor device and don't need non-default ones
+                 * but monitor devices does not seem to have is-default property unfortunately.
+                 * So ignore all of them here and construct its name from corresponding sink device instead.
+                 */
                 return false;
             }
 
@@ -246,8 +249,7 @@ public class Manager.DeviceManager : Object {
 
             Gst.Structure properties = device.properties;
             if (properties.get_string ("device.class") == "monitor") {
-                // We manually build device names of monitors so don't add them as a source here
-                // TODO: I can't remember why. Needs to review if this is intended
+                // We ignore monitor devices so they will never be added to the list
                 return false;
             }
 
