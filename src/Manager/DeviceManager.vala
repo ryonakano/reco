@@ -7,9 +7,9 @@ public class Manager.DeviceManager : Object {
     public signal void device_updated ();
 
     public Gee.ArrayList<Gst.Device> sources { get; private set; }
-    public string? default_monitor { get; private set; }
 
-    public Gst.Device? default_source { get; private set; }
+    public string? default_source { get; private set; }
+    public string? default_monitor { get; private set; }
 
     public uint selected_source_index { get; set; }
 
@@ -196,7 +196,7 @@ public class Manager.DeviceManager : Object {
             }
 
             if (is_default) {
-                default_source = device;
+                default_source = device.name;
             }
 
             debug ("[source] add: added device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
@@ -271,7 +271,7 @@ public class Manager.DeviceManager : Object {
             if (is_default) {
                 // Clear the default device only when it's surely the removed device
                 // to prevent the new default device from being cleared if it's already detected
-                if (default_source.name == device.name) {
+                if (default_source == device.name) {
                     default_source = null;
                 }
             }
