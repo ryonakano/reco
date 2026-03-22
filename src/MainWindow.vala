@@ -200,9 +200,9 @@ public class MainWindow : Adw.ApplicationWindow {
         var tmp_file = File.new_for_path (tmp_path);
         string final_path = final_file.get_path ();
         try {
-            tmp_file.move (final_file, FileCopyFlags.OVERWRITE);
+            yield tmp_file.move_async (final_file, FileCopyFlags.OVERWRITE, Priority.DEFAULT, null, null);
         } catch (Error err) {
-            warning ("Failed to File.move: src=\"%s\" dst=\"%s\": %s", tmp_path, final_path, err.message);
+            warning ("Failed to File.move_async: src=\"%s\" dst=\"%s\": %s", tmp_path, final_path, err.message);
 
             show_error_dialog (
                 _("Failed to Save Recording"),
