@@ -6,4 +6,4 @@ src/MainWindow.vala
 src/View/CountDownView.vala
 src/View/RecordView.vala
 src/View/WelcomeView.vala
-src/Widget/ProcessingDialog.vala
+src/Widget/SavingDialog.vala

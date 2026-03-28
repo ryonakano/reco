@@ -22,7 +22,7 @@ public class MainWindow : Adw.ApplicationWindow {
     private View.RecordView record_view;
     private Gtk.Stack stack;
     private Adw.ToastOverlay toast_overlay;
-    private Widget.ProcessingDialog processing_dialog = null;
+    private Widget.SavingDialog saving_dialog = null;
 
     public MainWindow (Application app) {
         Object (
@@ -112,7 +112,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
         record_view.cancel_recording.connect (cancel_warpper);
         record_view.stop_recording.connect (() => {
-            present_processing_dialog ();
+            present_saving_dialog ();
             recorder.stop ();
         });
         record_view.pause_recording.connect (() => {
@@ -157,7 +157,7 @@ public class MainWindow : Adw.ApplicationWindow {
     private async void save_file_wrapper () {
         // Prevent cancel option from being revealed in case users don't notice the file dialog appears
         // and tries to use the cancel option, which is no longer clickable because a transient dialog presents.
-        processing_dialog.conceal_cancel_revealer ();
+        saving_dialog.conceal_cancel_revealer ();
 
         var end_dt = new DateTime.now_local ();
         var format = (Define.FormatID) Application.settings.get_enum ("format");
@@ -175,8 +175,8 @@ public class MainWindow : Adw.ApplicationWindow {
             toast_overlay.add_toast (saved_toast);
         }
 
-        processing_dialog.force_close ();
-        processing_dialog = null;
+        saving_dialog.force_close ();
+        saving_dialog = null;
 
         uninhibit_sleep ();
 
@@ -352,7 +352,7 @@ public class MainWindow : Adw.ApplicationWindow {
             // Recorder is shutting down so we can't destroy MainWindow now
 
             record_view.stop ();
-            present_processing_dialog ();
+            present_saving_dialog ();
 
             // Let MainWindow destroyed in the save callback
             destroy_on_save = true;
@@ -363,23 +363,23 @@ public class MainWindow : Adw.ApplicationWindow {
         return true;
     }
 
-    private void present_processing_dialog () {
-        if (processing_dialog != null) {
+    private void present_saving_dialog () {
+        if (saving_dialog != null) {
             // Already present
             return;
         }
 
-        // Ideally, we should initialize processing dialog not here but in the constructor of ``this``
+        // Ideally, we should initialize saving dialog not here but in the constructor of ``this``
         // and keep the same instance during the lifetime of the app.
         // When you record more than twice, however, that results it being not shown
         // and the following critical log shown instead:
         //   Gtk-CRITICAL **: 20:12:33.353: gtk_window_present: assertion 'GTK_IS_WINDOW (window)' failed
-        processing_dialog = new Widget.ProcessingDialog () {
+        saving_dialog = new Widget.SavingDialog () {
             // Prevent users from closing the dialog manually and access to the main content behind it accidentally
             can_close = false,
         };
-        processing_dialog.cancel.connect (cancel_warpper);
-        processing_dialog.present (this);
+        saving_dialog.cancel.connect (cancel_warpper);
+        saving_dialog.present (this);
     }
 
     private void cancel_warpper () {
@@ -388,9 +388,9 @@ public class MainWindow : Adw.ApplicationWindow {
         cleanup_tmp_recording.begin ((obj, res) => {
             cleanup_tmp_recording.end (res);
 
-            if (processing_dialog != null) {
-                processing_dialog.force_close ();
-                processing_dialog = null;
+            if (saving_dialog != null) {
+                saving_dialog.force_close ();
+                saving_dialog = null;
             }
 
             uninhibit_sleep ();

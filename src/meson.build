@@ -28,7 +28,7 @@ sources = files(
   'Widget/ControlBar.vala',
   'Widget/FolderChooserButton.vala',
   'Widget/Waveform.vala',
-  'Widget/ProcessingDialog.vala',
+  'Widget/SavingDialog.vala',
 )
 
 # Enables debug code to check if the waveform is not refreshed when the window is suspended.

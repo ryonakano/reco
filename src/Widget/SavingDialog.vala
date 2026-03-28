@@ -6,7 +6,7 @@
 /**
  * A transitional dialog to be shown while saving and we don't want users to access to the main content of the app.
  */
-public class Widget.ProcessingDialog : Adw.Dialog {
+public class Widget.SavingDialog : Adw.Dialog {
     public signal void cancel ();
 
     private const uint CANCEL_REVEAL_TIMEOUT_MSEC = 5000;
@@ -18,11 +18,11 @@ public class Widget.ProcessingDialog : Adw.Dialog {
     private uint cancel_reveal_timeout = 0;
 
     /**
-     * Creates a new ProcessingDialog.
+     * Creates a new SavingDialog.
      *
-     * @return the newly created ProcessingDialog.
+     * @return the newly created SavingDialog.
      */
-    public ProcessingDialog () {
+    public SavingDialog () {
     }
 
     construct {
