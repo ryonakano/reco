@@ -32,13 +32,13 @@ public class Widget.SavingDialog : Adw.Dialog {
             valign = Gtk.Align.CENTER,
         };
 
-        var desc_label = new Gtk.Label (_("Saving…")) {
+        var title_label = new Gtk.Label (_("Saving…")) {
             wrap = true,
             hexpand = true,
         };
-        desc_label.add_css_class ("title-3");
+        title_label.add_css_class ("title-3");
 
-        var cancel_label = new Gtk.Label (_("Problems?") + "\n" + _("Just hang on until the file dialog appears")) {
+        var detail_label = new Gtk.Label (_("Problems?") + "\n" + _("Just hang on until the file dialog appears")) {
             wrap = true,
             hexpand = true,
         };
@@ -55,7 +55,7 @@ public class Widget.SavingDialog : Adw.Dialog {
             margin_start = 24,
             margin_end = 24,
         };
-        cancel_box.append (cancel_label);
+        cancel_box.append (detail_label);
         cancel_box.append (cancel_button);
 
         cancel_revealer = new Gtk.Revealer () {
@@ -70,14 +70,14 @@ public class Widget.SavingDialog : Adw.Dialog {
             margin_end = 24,
         };
         content_box.append (spinner);
-        content_box.append (desc_label);
+        content_box.append (title_label);
         content_box.append (cancel_revealer);
 
         child = content_box;
 
         cancel_button.clicked.connect (() => {
             cancel_button.sensitive = false;
-            cancel_label.label = _("Canceling…");
+            detail_label.label = _("Canceling…");
             cancel ();
         });
 
