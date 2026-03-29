@@ -7,10 +7,9 @@ public class Manager.DeviceManager : Object {
     public signal void device_updated ();
 
     public Gee.ArrayList<Gst.Device> sources { get; private set; }
-    public Gee.ArrayList<Gst.Device> sinks { get; private set; }
 
-    public Gst.Device? default_source { get; private set; }
-    public Gst.Device? default_sink { get; private set; }
+    public string? default_source { get; private set; }
+    public string? default_monitor { get; private set; }
 
     public uint selected_source_index { get; set; }
 
@@ -25,30 +24,22 @@ public class Manager.DeviceManager : Object {
 
     private const string CLASS_NAME_SOURCE = "Source/Audio";
     private const string CLASS_NAME_SINK = "Sink/Audio";
+    private const string IGNORED_PROPNAMES[] = {
+        "name", "parent", "direction", "template", "caps"
+    };
+
     private Gst.DeviceMonitor monitor;
 
     private DeviceManager () {
         monitor = new Gst.DeviceMonitor ();
-        monitor.get_bus ().add_watch (Priority.DEFAULT, (bus, msg) => {
-            switch (msg.type) {
-                case Gst.MessageType.DEVICE_ADDED:
-                case Gst.MessageType.DEVICE_CHANGED:
-                case Gst.MessageType.DEVICE_REMOVED:
-                    update_devices ();
-                    break;
-                default:
-                    break;
-            }
-
-            return Source.CONTINUE;
-        });
+        monitor.get_bus ().add_watch (Priority.DEFAULT, bus_message_cb);
 
         var caps = new Gst.Caps.empty_simple ("audio/x-raw");
         monitor.add_filter (CLASS_NAME_SOURCE, caps);
         monitor.add_filter (CLASS_NAME_SINK, caps);
 
         sources = new Gee.ArrayList<Gst.Device> ();
-        sinks = new Gee.ArrayList<Gst.Device> ();
+        default_monitor = null;
 
         monitor.start ();
     }
@@ -57,72 +48,322 @@ public class Manager.DeviceManager : Object {
         monitor.stop ();
     }
 
-    private void update_devices () {
-        bool is_default;
-
-        debug ("update_devices start");
-
-        sources.clear ();
-        sinks.clear ();
-
-        default_source = null;
-        default_sink = null;
-
-        foreach (var device in monitor.get_devices ()) {
-            Gst.Structure properties = device.properties;
-
-            if (device.has_classes (CLASS_NAME_SOURCE)) {
-                if (sources.contains (device)) {
-                    continue;
-                }
-
-                // We manually build device names of monitors so don't add them as a source here
-                if (properties.get_string ("device.class") == "monitor") {
-                    continue;
-                }
-
-                sources.add (device);
-                debug ("[Source] device detected: \"%s\"", device.display_name);
-
-                bool ret = properties.get_boolean ("is-default", out is_default);
-                if (!ret) {
-                    continue;
-                }
-
-                if (!is_default) {
-                    // not a default device
-                    continue;
-                }
-
-                default_source = device;
-                debug ("[Source] default device: \"%s\"", default_source.display_name);
-            }
-
-            if (device.has_classes (CLASS_NAME_SINK)) {
-                if (sinks.contains (device)) {
-                    continue;
-                }
-
-                sinks.add (device);
-                debug ("[Sink] device detected: \"%s\"", device.display_name);
-
-                bool ret = properties.get_boolean ("is-default", out is_default);
-                if (!ret) {
-                    continue;
-                }
-
-                if (!is_default) {
-                    // not a default device
-                    continue;
-                }
-
-                default_sink = device;
-                debug ("[Sink] default device: \"%s\"", default_sink.display_name);
-            }
+    /**
+     * Handles {@link Gst.Message}
+     *
+     * @see             Gst.BusFunc
+     *
+     * @param bus       the {@link Gst.Bus} that sent the message
+     * @param message   the {@link Gst.Message}
+     *
+     * @return          ``false`` if the event source should be removed
+     */
+    private bool bus_message_cb (Gst.Bus bus, Gst.Message message) {
+        switch (message.type) {
+            case Gst.MessageType.DEVICE_ADDED:
+                bus_message_cb_device_added (bus, message);
+                break;
+            case Gst.MessageType.DEVICE_CHANGED:
+                bus_message_cb_device_changed (bus, message);
+                break;
+            case Gst.MessageType.DEVICE_REMOVED:
+                bus_message_cb_device_removed (bus, message);
+                break;
+            default:
+                break;
         }
+
+        // Returning false means unwatching the bus as per https://valadoc.org/gstreamer-1.0/Gst.Bus.add_watch.html,
+        // so return true even if we don't handle the message
+        return true;
+    }
+
+    /**
+     * Handles {@link Gst.MessageType.DEVICE_ADDED}
+     *
+     * This adds the device to a private list of devices
+     *
+     * @see             Gst.BusFunc
+     *
+     * @param bus       the {@link Gst.Bus} that sent the message
+     * @param message   the {@link Gst.Message}
+     *
+     * @return          ``false`` if the event source should be removed
+     */
+    private bool bus_message_cb_device_added (Gst.Bus bus, Gst.Message message) {
+        Gst.Device device;
+
+        message.parse_device_added (out device);
+
+        // Ignore return value because failure to add a device just results it's not shown in the UI
+        add_device (device);
 
         device_updated ();
 
-        debug ("update_devices end");
+        return true;
+    }
+
+    /**
+     * Handles {@link Gst.MessageType.DEVICE_CHANGED}
+     *
+     * This removes the old device from a private list of devices and adds the new device to it
+     *
+     * @see             Gst.BusFunc
+     *
+     * @param bus       the {@link Gst.Bus} that sent the message
+     * @param message   the {@link Gst.Message}
+     *
+     * @return          ``false`` if the event source should be removed
+     */
+    private bool bus_message_cb_device_changed (Gst.Bus bus, Gst.Message message) {
+        Gst.Device new_device;
+        Gst.Device old_device;
+
+        message.parse_device_changed (out new_device, out old_device);
+
+        // Ignore return value because failure to remove a device just results it's remain in the UI,
+        // which can be reported as an error when staring recording
+        remove_device (old_device);
+        // Ignore return value because failure to add a device just results it's not shown in the UI
+        add_device (new_device);
+
+        device_updated ();
+
+        return true;
+    }
+
+    /**
+     * Handles {@link Gst.MessageType.DEVICE_REMOVED}
+     *
+     * This removes the device from a private list of devices
+     *
+     * @see             Gst.BusFunc
+     *
+     * @param bus       the {@link Gst.Bus} that sent the message
+     * @param message   the {@link Gst.Message}
+     *
+     * @return          ``false`` if the event source should be removed
+     */
+    private bool bus_message_cb_device_removed (Gst.Bus bus, Gst.Message message) {
+        Gst.Device device;
+
+        message.parse_device_removed (out device);
+
+        // Ignore return value because failure to remove a device just results it's remain in the UI,
+        // which can be reported as an error when staring recording
+        remove_device (device);
+
+        device_updated ();
+
+        return true;
+    }
+
+    /**
+     * Add a device to a private list of devices
+     *
+     * @param device        a device to add
+     *
+     * @return              ``true`` if ``device`` is added to a list, ``false`` otherwise
+     */
+    private bool add_device (Gst.Device device) {
+        if (device.has_classes (CLASS_NAME_SOURCE)) {
+            if (sources.contains (device)) {
+                warning ("[source] add: already added, skipping. device=\"%s\"", device.display_name);
+                return true;
+            }
+
+            Gst.Structure properties = device.properties;
+            if (properties.get_string ("device.class") == "monitor") {
+                /*
+                 * We want to know just only the default monitor device and don't need non-default ones
+                 * but monitor devices does not seem to have is-default property unfortunately.
+                 * So ignore all of them here and build its name from corresponding sink device instead.
+                 */
+                return false;
+            }
+
+            bool is_default;
+            bool ret = properties.get_boolean ("is-default", out is_default);
+            if (!ret) {
+                warning ("[source] add: failed to get property \"is-default\". device=\"%s\"", device.display_name);
+                return false;
+            }
+
+            ret = sources.add (device);
+            if (!ret) {
+                warning ("[source] add: failed to add. device=\"%s\"", device.display_name);
+                return false;
+            }
+
+            if (is_default) {
+                default_source = device.name;
+            }
+
+            debug ("[source] add: added device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
+
+            return true;
+        }
+
+        if (device.has_classes (CLASS_NAME_SINK)) {
+            Gst.Structure properties = device.properties;
+            bool is_default;
+            bool ret = properties.get_boolean ("is-default", out is_default);
+            if (!ret) {
+                warning ("[sink] add: failed to get property \"is-default\". device=\"%s\"", device.display_name);
+                return false;
+            }
+
+            if (!is_default) {
+                // We don't need non-default sinks
+                return false;
+            }
+
+            // Build monitor name of the default sink
+            string? monitor_name = build_monitor_name (device);
+            if (monitor_name == null) {
+                warning ("[sink] add: failed to build monitor name of the device. device=\"%s\"", device.display_name);
+                return false;
+            }
+
+            default_monitor = monitor_name;
+
+            debug ("[sink] add: added device \"%s\"", default_monitor);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Remove a device from a private list of devices
+     *
+     * @param device        a device to remove
+     *
+     * @return              ``true`` if ``device`` is removed from a list, ``false`` otherwise
+     */
+    private bool remove_device (Gst.Device device) {
+        if (device.has_classes (CLASS_NAME_SOURCE)) {
+            if (!sources.contains (device)) {
+                warning ("[source] remove: already removed, skipping. device=\"%s\"", device.display_name);
+                return true;
+            }
+
+            Gst.Structure properties = device.properties;
+            if (properties.get_string ("device.class") == "monitor") {
+                // We ignore monitor devices so they will never be added to the list
+                return false;
+            }
+
+            bool is_default;
+            bool ret = properties.get_boolean ("is-default", out is_default);
+            if (!ret) {
+                warning ("[source] remove: failed to get property \"is-default\". device=\"%s\"", device.display_name);
+                return false;
+            }
+
+            ret = sources.remove (device);
+            if (!ret) {
+                warning ("[source] remove: failed to remove device \"%s\"", device.display_name);
+                return false;
+            }
+
+            if (is_default) {
+                // Clear the default device only when it's surely the removed device
+                // to prevent the new default device from being cleared if it's already detected
+                if (default_source == device.name) {
+                    default_source = null;
+                }
+            }
+
+            debug ("[source] remove: removed device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
+
+            return true;
+        }
+
+        if (device.has_classes (CLASS_NAME_SINK)) {
+            Gst.Structure properties = device.properties;
+            bool is_default;
+            bool ret = properties.get_boolean ("is-default", out is_default);
+            if (!ret) {
+                warning ("[sink] remove: failed to get property \"is-default\". device=\"%s\"", device.display_name);
+                return false;
+            }
+
+            if (is_default) {
+                // Clear the default device only when it's surely the removed device
+                // to prevent the new default device from being cleared if it's already set to
+                // default_monitor through add_device()
+                if (default_monitor == device.name) {
+                    default_monitor = null;
+                }
+            }
+
+            debug ("[sink] remove: removed device \"%s\"", device.display_name);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Build name of the monitor device from a sink device
+     *
+     * @param sink      a sink device
+     *
+     * @return          name of the monitor device of ``sink`` if succeeds, ``null`` otherwise
+     */
+    // Inspired from ``get_launch_line()`` in GStreamer:
+    // https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.6/subprojects/gst-plugins-base/tools/gst-device-monitor.c#L45-135
+    private static string? build_monitor_name (Gst.Device sink) {
+        Gst.Element? element = sink.create_element (null);
+        if (element == null) {
+            warning ("failed to Gst.Device.create_element()");
+            return null;
+        }
+
+        Gst.ElementFactory? factory = element.get_factory ();
+        if (factory == null) {
+            warning ("failed to Gst.Element.get_factory()");
+            return null;
+        }
+
+        Gst.Element? pureelement = factory.create (null);
+        if (pureelement == null) {
+            warning ("failed to Gst.ElementFactory.create()");
+            return null;
+        }
+
+        // Get paramspecs and show non-default properties
+        (unowned ParamSpec)[] properties = element.get_class ().list_properties ();
+        foreach (var property in properties) {
+            // Skip some properties
+            if ((property.flags & ParamFlags.READWRITE) != ParamFlags.READWRITE) {
+                continue;
+            }
+
+            if (property.name in IGNORED_PROPNAMES) {
+                continue;
+            }
+
+            var value = Value (property.value_type);
+            element.get_property (property.name, ref value);
+
+            var pvalue = Value (property.value_type);
+            pureelement.get_property (property.name, ref pvalue);
+
+            if (Gst.Value.compare (value, pvalue) != Gst.VALUE_EQUAL) {
+                string? valuestr = Gst.Value.serialize (value);
+                if (valuestr == null) {
+                    warning ("failed to Gst.Value.serialize(). element=%s property=%s", element.name, property.name);
+                    continue;
+                }
+
+                return valuestr + ".monitor";
+            }
+        }
+
+        return null;
     }
 }

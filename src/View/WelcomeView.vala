@@ -285,11 +285,12 @@ public class View.WelcomeView : AbstractView {
             case "mic":
                 return (device_manager.sources.size > 0);
             case "system":
-                return (device_manager.sinks.size > 0);
+                return (device_manager.default_monitor != null);
             case "both":
-                return (device_manager.sources.size > 0) && (device_manager.sinks.size > 0);
+                return (device_manager.sources.size > 0) && (device_manager.default_monitor != null);
             default:
                 assert_not_reached ();
+                // no break, dies if reached
         }
     }
 

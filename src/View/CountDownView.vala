@@ -4,7 +4,7 @@
  */
 
 public class View.CountDownView : AbstractView {
-    public signal void countdown_cancelled ();
+    public signal void countdown_canceled ();
     public signal void countdown_ended ();
 
     private Gtk.Label delay_remaining_label;
@@ -59,7 +59,7 @@ public class View.CountDownView : AbstractView {
 
         cancel_button.clicked.connect (() => {
             stop_countdown ();
-            countdown_cancelled ();
+            countdown_canceled ();
         });
 
         pause_button.clicked.connect (() => {
@@ -82,7 +82,7 @@ public class View.CountDownView : AbstractView {
         /*
          * cancel_button is focused implicitly by default when RecordView is shown,
          * which has a possibility to press Space/Enter key accidentally
-         * and result that recording is cancelled unexpectedly.
+         * and result that recording is canceled unexpectedly.
          * So, focus to pause_button explicitly.
          */
         pause_button.grab_focus ();
@@ -101,12 +101,9 @@ public class View.CountDownView : AbstractView {
     }
 
     private string delaytimer_strfunc (TimeSpan time_usec) {
-        TimeSpan remain = time_usec;
-        var time = TimerTime ();
+        TimeSpan seconds = time_usec / TimeSpan.SECOND;
 
-        time.seconds = remain / TimeSpan.SECOND;
-
-        return ("%" + int64.FORMAT).printf (time.seconds);
+        return ("%" + int64.FORMAT).printf (seconds);
     }
 
     private void pause_button_set_pause () {

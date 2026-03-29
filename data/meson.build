@@ -8,6 +8,13 @@ foreach i : icon_sizes
   )
 endforeach
 
+# Install svg icon as scalable to avoid blurry icons on HiDPI displays
+install_data(
+  'icons' / '128' / meson.project_name() + '.svg',
+  rename: app_id + '.svg',
+  install_dir: get_option('datadir') / 'icons' / 'hicolor' / 'scalable' / 'apps',
+)
+
 desktop_conf = configuration_data()
 desktop_conf.set('APP_NAME', app_name)
 desktop_conf.set('APP_ID', app_id)
@@ -27,6 +34,7 @@ desktop_file = i18n.merge_file(
 )
 
 appstream_conf = configuration_data()
+appstream_conf.set('APP_NAME', app_name)
 appstream_conf.set('APP_ID', app_id)
 appstream_conf.set('GETTEXT_PACKAGE', meson.project_name())
 # Use screenshots taken on Pantheon, which is a publishing requirement for AppCenter, if build with granite.

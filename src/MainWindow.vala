@@ -11,18 +11,18 @@ public class MainWindow : Adw.ApplicationWindow {
         { "open-folder", on_open_folder_activate, "s" },
     };
 
-    private unowned Manager.RecordManager record_manager;
+    private Model.Recorder recorder;
     private DateTime start_dt;
     private string recording_tmp_path;
     private uint inhibit_token = 0;
-    private bool destroy_on_save;
+    private bool destroy_on_save = false;
 
     private View.WelcomeView welcome_view;
     private View.CountDownView countdown_view;
     private View.RecordView record_view;
     private Gtk.Stack stack;
     private Adw.ToastOverlay toast_overlay;
-    private Widget.ProcessingDialog processing_dialog = null;
+    private Widget.SavingDialog saving_dialog = null;
 
     public MainWindow (Application app) {
         Object (
@@ -31,7 +31,7 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     construct {
-        record_manager = Manager.RecordManager.get_default ();
+        recorder = new Model.Recorder ();
 
         // Distinct development build visually
         if (".Devel" in Config.APP_ID) {
@@ -51,7 +51,7 @@ public class MainWindow : Adw.ApplicationWindow {
         // Pantheon prefers AppCenter instead of an about dialog for app details, so prevent it from being shown on Pantheon
         if (!Util.is_on_pantheon ()) {
             ///TRANSLATORS: %s will be replaced by the app name
-            main_menu.append (_("_About %s").printf (Define.APP_NAME), "app.about");
+            main_menu.append (_("_About %s").printf (Config.APP_NAME), "app.about");
         }
 
         var menu_button = new Gtk.MenuButton () {
@@ -68,7 +68,7 @@ public class MainWindow : Adw.ApplicationWindow {
 
         welcome_view = new View.WelcomeView ();
         countdown_view = new View.CountDownView ();
-        record_view = new View.RecordView ();
+        record_view = new View.RecordView (recorder);
 
         stack = new Gtk.Stack () {
             margin_bottom = 24,
@@ -79,8 +79,13 @@ public class MainWindow : Adw.ApplicationWindow {
         stack.add_child (countdown_view);
         stack.add_child (record_view);
 
-        toast_overlay = new Adw.ToastOverlay () {
+        var clamp = new Adw.Clamp () {
             child = stack,
+            maximum_size = 500,
+        };
+
+        toast_overlay = new Adw.ToastOverlay () {
+            child = clamp,
         };
 
         var toolbar_view = new Adw.ToolbarView ();
@@ -88,9 +93,9 @@ public class MainWindow : Adw.ApplicationWindow {
         toolbar_view.set_content (toast_overlay);
 
         content = toolbar_view;
-        default_width = 360;
-        default_height = 680;
-        title = Define.APP_NAME;
+        width_request = 360;
+        height_request = 340;
+        title = Config.APP_NAME;
 
         show_welcome ();
 
@@ -102,48 +107,57 @@ public class MainWindow : Adw.ApplicationWindow {
             }
         });
 
-        countdown_view.countdown_cancelled.connect (show_welcome);
+        countdown_view.countdown_canceled.connect (show_welcome);
         countdown_view.countdown_ended.connect (show_record);
 
         record_view.cancel_recording.connect (cancel_warpper);
         record_view.stop_recording.connect (() => {
-            stop_wrapper (false);
+            present_saving_dialog ();
+            recorder.stop ();
         });
         record_view.pause_recording.connect (() => {
-            record_manager.pause ();
+            recorder.pause ();
 
             uninhibit_sleep ();
         });
         record_view.resume_recording.connect (() => {
             inhibit_sleep ();
 
-            record_manager.resume ();
+            recorder.resume ();
         });
 
         close_request.connect ((event) => {
-            bool can_destroy = check_destroy ();
+            bool can_destroy = prepare_destory ();
             if (!can_destroy) {
+                // Prevent MainWindow from being destroyed right now
                 return Gdk.EVENT_STOP;
             }
 
+            // Otherwise we don't prevent MainWindow from being destroyed
             return Gdk.EVENT_PROPAGATE;
         });
 
-        record_manager.record_err.connect ((err, debug_info) => {
+        recorder.record_err.connect ((err, debug_info) => {
+            record_view.stop ();
+
             show_error_dialog (
                 _("Unable to Continue Recording"),
                 _("There was an internal error while recording"),
                 "%s\n%s".printf (err.message, debug_info)
             );
+
+            show_welcome ();
         });
 
-        record_manager.record_ok.connect (save_file_wrapper);
+        recorder.record_ok.connect (save_file_wrapper);
+
+        notify["suspended"].connect (suspended_notify_cb);
     }
 
     private async void save_file_wrapper () {
         // Prevent cancel option from being revealed in case users don't notice the file dialog appears
         // and tries to use the cancel option, which is no longer clickable because a transient dialog presents.
-        processing_dialog.conceal_cancel_revealer ();
+        saving_dialog.conceal_cancel_revealer ();
 
         var end_dt = new DateTime.now_local ();
         var format = (Define.FormatID) Application.settings.get_enum ("format");
@@ -161,8 +175,8 @@ public class MainWindow : Adw.ApplicationWindow {
             toast_overlay.add_toast (saved_toast);
         }
 
-        processing_dialog.force_close ();
-        processing_dialog = null;
+        saving_dialog.force_close ();
+        saving_dialog = null;
 
         uninhibit_sleep ();
 
@@ -186,9 +200,9 @@ public class MainWindow : Adw.ApplicationWindow {
         var tmp_file = File.new_for_path (tmp_path);
         string final_path = final_file.get_path ();
         try {
-            tmp_file.move (final_file, FileCopyFlags.OVERWRITE);
+            yield tmp_file.move_async (final_file, FileCopyFlags.OVERWRITE, Priority.DEFAULT, null, null);
         } catch (Error err) {
-            warning ("Failed to File.move: src=\"%s\" dst=\"%s\": %s", tmp_path, final_path, err.message);
+            warning ("Failed to File.move_async: src=\"%s\" dst=\"%s\": %s", tmp_path, final_path, err.message);
 
             show_error_dialog (
                 _("Failed to Save Recording"),
@@ -305,7 +319,7 @@ public class MainWindow : Adw.ApplicationWindow {
             meta_record_dt = start_dt;
         }
 
-        bool ret = record_manager.prepare (recording_tmp_path, source, channel, format, meta_author, meta_record_dt);
+        bool ret = recorder.prepare (recording_tmp_path, source, channel, format, meta_author, meta_record_dt);
         if (!ret) {
             show_error_dialog (
                 _("Failed to Prepare Recording"),
@@ -317,51 +331,66 @@ public class MainWindow : Adw.ApplicationWindow {
 
         inhibit_sleep ();
 
-        record_manager.start ();
+        recorder.start ();
 
-        record_view.refresh_begin ();
+        uint record_length = Application.settings.get_uint ("length");
+        record_view.start (record_length);
+
         stack.visible_child = record_view;
     }
 
-    public bool check_destroy () {
-        // Stop ongoing recording
-        // The window is destroyed in the save callback
-        if (record_manager.is_recording) {
-            stop_wrapper (true);
+    /**
+     * Prepare to destroy ``this``
+     *
+     * @return ``true`` if the caller can destroy ``this`` safely right now.<<BR>>
+     * ``false`` otherwise; ``this`` will be destroyed after ongoing recording is saved, which may require interaction
+     * with a user.
+     */
+    public bool prepare_destory () {
+        bool can_destroy = recorder.request_shutdown ();
+        if (!can_destroy) {
+            // Recorder is shutting down so we can't destroy MainWindow now
+
+            record_view.stop ();
+            present_saving_dialog ();
+
+            // Let MainWindow destroyed in the save callback
+            destroy_on_save = true;
+
             return false;
         }
 
-        // Otherwise we don't block the window destroyed
         return true;
     }
 
-    private void stop_wrapper (bool destroy_flag = false) {
-        destroy_on_save = destroy_flag;
+    private void present_saving_dialog () {
+        if (saving_dialog != null) {
+            // Already present
+            return;
+        }
 
-        // Ideally, we should initialize processing dialog not here but in the constructor of ``this``
+        // Ideally, we should initialize saving dialog not here but in the constructor of ``this``
         // and keep the same instance during the lifetime of the app.
         // When you record more than twice, however, that results it being not shown
         // and the following critical log shown instead:
         //   Gtk-CRITICAL **: 20:12:33.353: gtk_window_present: assertion 'GTK_IS_WINDOW (window)' failed
-        processing_dialog = new Widget.ProcessingDialog () {
+        saving_dialog = new Widget.SavingDialog () {
             // Prevent users from closing the dialog manually and access to the main content behind it accidentally
             can_close = false,
         };
-        processing_dialog.cancel.connect (cancel_warpper);
-        processing_dialog.present (this);
-
-        record_manager.stop ();
+        saving_dialog.cancel.connect (cancel_warpper);
+        saving_dialog.present (this);
     }
 
     private void cancel_warpper () {
-        record_manager.cancel ();
+        recorder.cancel ();
 
         cleanup_tmp_recording.begin ((obj, res) => {
             cleanup_tmp_recording.end (res);
 
-            if (processing_dialog != null) {
-                processing_dialog.force_close ();
-                processing_dialog = null;
+            if (saving_dialog != null) {
+                saving_dialog.force_close ();
+                saving_dialog = null;
             }
 
             uninhibit_sleep ();
@@ -407,6 +436,18 @@ public class MainWindow : Adw.ApplicationWindow {
         if (inhibit_token != 0) {
             application.uninhibit (inhibit_token);
             inhibit_token = 0;
+        }
+    }
+
+    private void suspended_notify_cb () {
+        if (stack.visible_child != record_view) {
+            return;
+        }
+
+        if (suspended) {
+            record_view.draw_stop ();
+        } else {
+            record_view.draw_start ();
         }
     }
 
@@ -456,7 +497,20 @@ public class MainWindow : Adw.ApplicationWindow {
         });
     }
 
+    /**
+     * Present an error dialog
+     *
+     * This uses {@link Granite.MessageDialog} on Pantheon if the app build with Granite,
+     * otherwise it uses {@link Adw.AlertDialog}
+     *
+     * @param primary_text      the title of the dialog
+     * @param secondary_text    the body of the dialog
+     * @param detailed_text     the detailed error message to display if any
+     */
     private void show_error_dialog (string primary_text, string secondary_text, string? detailed_text = null) {
+        // A MainLoop to wait for user confirmation and interaction with the dialog
+        var response_loop = new MainLoop ();
+
         if (Util.is_on_pantheon ()) {
 #if USE_GRANITE
             var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
@@ -474,8 +528,10 @@ public class MainWindow : Adw.ApplicationWindow {
 
             error_dialog.response.connect (() => {
                 error_dialog.destroy ();
+                response_loop.quit ();
             });
             error_dialog.present ();
+            response_loop.run ();
 #endif
         } else {
             string body_text = secondary_text;
@@ -490,11 +546,10 @@ public class MainWindow : Adw.ApplicationWindow {
             error_dialog.add_response (Define.ErrorDialogResponseID.CLOSE, _("_Close"));
             error_dialog.response.connect ((response) => {
                 error_dialog.destroy ();
+                response_loop.quit ();
             });
             error_dialog.present (this);
+            response_loop.run ();
         }
-
-        record_view.refresh_end ();
-        show_welcome ();
     }
 }

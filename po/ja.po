@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-23 11:24+0000\n"
-"PO-Revision-Date: 2026-02-23 11:35+0000\n"
+"POT-Creation-Date: 2026-03-15 09:16+0000\n"
+"PO-Revision-Date: 2026-03-22 14:09+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -35,10 +35,8 @@ msgid "Record;Audio;Sound;Voice;"
 msgstr "Record;Audio;Sound;Voice;録音;オーディオ;サウンド;ボイス;"
 
 #: data/reco.metainfo.xml.in.in:13
-msgid "Reco is an audio recorder focused on being concise and simple to use."
-msgstr ""
-"Reco は、簡潔かつシンプルに使えることに重きを置いた、オーディオレコーダーで"
-"す。"
+msgid "An audio recorder focused on being concise and simple to use."
+msgstr "簡潔かつシンプルに使えることに重きを置いた、オーディオレコーダーです。"
 
 #: data/reco.metainfo.xml.in.in:16
 msgid ""
@@ -132,144 +130,144 @@ msgstr "録音を開始/終了する"
 #. John Doe
 #. John Doe <john-doe@example.com>
 #. John Doe https://example.com
-#: src/Application.vala:124
+#: src/Application.vala:111
 msgid "translator-credits"
-msgstr "Ryo Nakano"
+msgstr "Ryo Nakano <ryonakaknock3@gmail.com>"
 
-#: src/MainWindow.vala:27
-msgid ""
-"This is possibly due to missing codecs or incomplete installation of the "
-"app. Make sure you've installed them and try reinstalling them if this issue "
-"persists"
-msgstr ""
-"コーデックが不足しているか、アプリが不完全にインストールされている可能性があ"
-"ります。インストール状態を確認してください。再発する場合は、コーデックや"
-"アプリを再インストールしてみてください"
-
-#: src/MainWindow.vala:28
-msgid ""
-"This is possibly due to missing sound input or output devices. Make sure "
-"you've connected one and try using another one if this issue persists"
-msgstr ""
-"音声入出力デバイスがない可能性があります。接続状態を確認してください。再発す"
-"る場合は、他のデバイスを使用してみてください"
-
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:44
 msgid "S_ystem"
 msgstr "システム(_Y)"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:45
 msgid "_Light"
 msgstr "ライト(_L)"
 
-#: src/MainWindow.vala:42
+#: src/MainWindow.vala:46
 msgid "_Dark"
 msgstr "ダーク(_D)"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:49
 msgid "_Style"
 msgstr "スタイル(_S)"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:50
 msgid "_Keyboard Shortcuts"
 msgstr "キーボードショートカット(_K)"
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:54
 #, c-format
 msgid "_About %s"
 msgstr "%s について(_A)"
 
-#: src/MainWindow.vala:54
+#: src/MainWindow.vala:58
 msgid "Main Menu"
 msgstr "メインメニュー"
 
-#: src/MainWindow.vala:128
-msgid "Failed to Complete Recording"
-msgstr "録音を完了できませんでした"
-
-#: src/MainWindow.vala:129
-msgid "There was an error while recording"
-msgstr "録音中にエラーが発生しました"
-
 #: src/MainWindow.vala:144
+msgid "Unable to Continue Recording"
+msgstr "録音を続行できません"
+
+#: src/MainWindow.vala:145
+msgid "There was an internal error while recording"
+msgstr "録音中に内部エラーが発生しました"
+
+#: src/MainWindow.vala:169
 msgid "Recording Saved"
 msgstr "録音を保存しました"
 
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:170
 msgid "Open Folder"
 msgstr "フォルダーを開く"
 
-#: src/MainWindow.vala:186 src/MainWindow.vala:206
+#: src/MainWindow.vala:208 src/MainWindow.vala:264
 msgid "Failed to Save Recording"
 msgstr "録音を保存できませんでした"
 
-#: src/MainWindow.vala:187
-#, c-format
+#: src/MainWindow.vala:209
 msgid ""
-"There was an error while asking for final path where to move the temporary "
-"recording file \"%s\""
-msgstr "一時録音ファイル \"%s\" の最終的な移動先を確認中にエラーが発生しました"
+"Unable to move a temporary recording file to the final path. Make sure the "
+"destination exists and you have write access to it"
+msgstr ""
+"一時録音ファイルを最終保存パスに移動できません。保存先が存在し書き込み権限が"
+"あることを確認してください"
 
-#: src/MainWindow.vala:207
-#, c-format
-msgid ""
-"There was an error while moving the temporary recording file \"%s\" to \"%s\""
-msgstr "一時録音ファイル \"%s\" を \"%s\" へ移動中にエラーが発生しました"
-
-#: src/MainWindow.vala:230
+#: src/MainWindow.vala:236
 msgid "Save Recording"
 msgstr "録音を保存"
 
-#: src/MainWindow.vala:280
-msgid "There was an unknown error while starting recording"
-msgstr "録音開始中に不明なエラーが発生しました"
+#: src/MainWindow.vala:265
+msgid ""
+"Unable to determine where to save recording finally. Try again using "
+"autosave instead"
+msgstr ""
+"最終的な録音の保存先を確定できません。代わりに自動保存を使用して再度お試しく"
+"ださい"
 
-#: src/MainWindow.vala:284
-msgid "Failed to Start Recording"
-msgstr "録音を開始できませんでした"
+#: src/MainWindow.vala:325
+msgid "Failed to Prepare Recording"
+msgstr "録音の準備に失敗しました"
 
-#: src/MainWindow.vala:343
+#: src/MainWindow.vala:326
+msgid ""
+"This is possibly due to missing codecs, incomplete installation of the app, "
+"or missing sound input/output devices. Make sure you've installed necessary "
+"components correctlly and connected sound devices"
+msgstr ""
+"コーデックが不足しているか、アプリのインストールが不完全か、音声入出力"
+"デバイスがない可能性があります。必要なコンポーネントを正しくインストール済み"
+"で、音声デバイスを接続済みか確認してください"
+
+#: src/MainWindow.vala:401
 msgid "Recording Canceled"
 msgstr "録音をキャンセルしました"
 
-#: src/MainWindow.vala:348
+#: src/MainWindow.vala:406
 msgid "Recording Moved to Trash"
 msgstr "録音をゴミ箱に移動しました"
 
-#: src/MainWindow.vala:383
-msgid "Details:"
-msgstr "詳細:"
-
-#: src/Manager/RecordManager.vala:337
+#: src/MainWindow.vala:429
 msgid "Recording is ongoing"
 msgstr "録音中です"
 
-#: src/View/CountDownView.vala:37
+#: src/MainWindow.vala:490
+msgid "Failed to Open Folder"
+msgstr "フォルダーを開けませんでした"
+
+#: src/MainWindow.vala:491
+#, c-format
+msgid "Unable to open folder containing \"%s\""
+msgstr "\"%s\" の親フォルダーを開けません"
+
+#: src/MainWindow.vala:544
+msgid "_Close"
+msgstr "閉じる(_C)"
+
+#: src/View/CountDownView.vala:35
 msgid "Cancel Countdown"
 msgstr "カウントダウンをキャンセル"
 
-#: src/View/CountDownView.vala:121
+#: src/View/CountDownView.vala:111
 msgid "Pause Countdown"
 msgstr "カウントダウンを一時停止"
 
-#: src/View/CountDownView.vala:126
+#: src/View/CountDownView.vala:116
 msgid "Resume Countdown"
 msgstr "カウントダウンを再開"
 
-#: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
+#: src/View/RecordView.vala:54 src/Widget/ProcessingDialog.vala:48
 msgid "Cancel Recording"
 msgstr "録音をキャンセル"
 
-#: src/View/RecordView.vala:58
+#: src/View/RecordView.vala:61
 msgid "Finish Recording"
 msgstr "録音を終了"
 
-#: src/View/RecordView.vala:188
+#: src/View/RecordView.vala:183
 msgid "Resume Recording"
 msgstr "録音を再開"
 
-#: src/View/RecordView.vala:200
+#: src/View/RecordView.vala:196
 msgid "Pause Recording"
 msgstr "録音を一時停止"
 
@@ -303,79 +301,79 @@ msgstr "両方"
 msgid "Microphone:"
 msgstr "マイク:"
 
-#: src/View/WelcomeView.vala:53
+#: src/View/WelcomeView.vala:52
 msgid "Channels:"
 msgstr "チャンネル:"
 
-#: src/View/WelcomeView.vala:59
+#: src/View/WelcomeView.vala:58
 msgid "Mono"
 msgstr "モノラル"
 
-#: src/View/WelcomeView.vala:60
+#: src/View/WelcomeView.vala:59
 msgid "Stereo"
 msgstr "ステレオ"
 
-#: src/View/WelcomeView.vala:62
+#: src/View/WelcomeView.vala:61
 msgid "Timer"
 msgstr "タイマー"
 
-#: src/View/WelcomeView.vala:67
+#: src/View/WelcomeView.vala:66
 msgid "Delay in seconds:"
 msgstr "遅延する秒数:"
 
-#: src/View/WelcomeView.vala:74
+#: src/View/WelcomeView.vala:73
 msgid "Length in seconds:"
 msgstr "録音する秒数:"
 
-#: src/View/WelcomeView.vala:85
+#: src/View/WelcomeView.vala:84
 msgid "Saving"
 msgstr "保存"
 
-#: src/View/WelcomeView.vala:90
+#: src/View/WelcomeView.vala:89
 msgid "Format:"
 msgstr "形式:"
 
-#: src/View/WelcomeView.vala:97
+#: src/View/WelcomeView.vala:96
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:98
+#: src/View/WelcomeView.vala:97
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:99
+#: src/View/WelcomeView.vala:98
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:100
+#: src/View/WelcomeView.vala:99
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:101
+#: src/View/WelcomeView.vala:100
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:102
+#: src/View/WelcomeView.vala:101
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:104
+#: src/View/WelcomeView.vala:103
 msgid "Add metadata:"
 msgstr "メタデータを追加:"
 
-#: src/View/WelcomeView.vala:112
+#: src/View/WelcomeView.vala:111
 msgid "Add record year and your real name in recording files"
 msgstr "西暦とあなたの名前を録音ファイルに追加します"
 
-#: src/View/WelcomeView.vala:119
-msgid "Automatically save files:"
-msgstr "ファイルを自動的に保存:"
+#: src/View/WelcomeView.vala:117
+msgid "Autosave:"
+msgstr "自動保存:"
 
-#: src/View/WelcomeView.vala:130 src/View/WelcomeView.vala:133
-msgid "Select AutoSave Destination"
+#: src/View/WelcomeView.vala:128 src/View/WelcomeView.vala:131
+msgid "Select Autosave Destination"
 msgstr "自動保存先を選択"
 
-#: src/View/WelcomeView.vala:171
+#: src/View/WelcomeView.vala:176
 msgid "Start Recording"
 msgstr "録音を開始"
 
@@ -383,17 +381,49 @@ msgstr "録音を開始"
 msgid "Saving…"
 msgstr "保存しています…"
 
-#: src/Widget/ProcessingDialog.vala:40
+#: src/Widget/ProcessingDialog.vala:41
 msgid "Problems?"
 msgstr "お困りですか?"
 
-#: src/Widget/ProcessingDialog.vala:40
+#: src/Widget/ProcessingDialog.vala:41
 msgid "Just hang on until the file dialog appears"
 msgstr "ファイルダイアログの表示までお待ちください"
 
-#: src/Widget/ProcessingDialog.vala:78
+#: src/Widget/ProcessingDialog.vala:80
 msgid "Canceling…"
 msgstr "キャンセルしています…"
+
+#~ msgid ""
+#~ "This is possibly due to missing sound input or output devices. Make sure "
+#~ "you've connected one and try using another one if this issue persists"
+#~ msgstr ""
+#~ "音声入出力デバイスがない可能性があります。接続状態を確認してください。再発"
+#~ "する場合は、他のデバイスを使用してみてください"
+
+#, c-format
+#~ msgid ""
+#~ "There was an error while asking for final path where to move the "
+#~ "temporary recording file \"%s\""
+#~ msgstr ""
+#~ "一時録音ファイル \"%s\" の最終的な移動先を確認中にエラーが発生しました"
+
+#, c-format
+#~ msgid ""
+#~ "There was an error while moving the temporary recording file \"%s\" to "
+#~ "\"%s\""
+#~ msgstr "一時録音ファイル \"%s\" を \"%s\" へ移動中にエラーが発生しました"
+
+#~ msgid "There was an unknown error while starting recording"
+#~ msgstr "録音開始中に不明なエラーが発生しました"
+
+#~ msgid "Failed to Start Recording"
+#~ msgstr "録音を開始できませんでした"
+
+#~ msgid "Details:"
+#~ msgstr "詳細:"
+
+#~ msgid "Automatically save files:"
+#~ msgstr "ファイルを自動的に保存:"
 
 #~ msgid "Error while recording"
 #~ msgstr "録音中エラー"

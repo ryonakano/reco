@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-23 11:24+0000\n"
-"PO-Revision-Date: 2026-02-25 19:09+0000\n"
+"POT-Creation-Date: 2026-03-15 09:16+0000\n"
+"PO-Revision-Date: 2026-03-16 21:09+0000\n"
 "Last-Translator: Priit Jõerüüt <jrthwlate@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/rosp/reco/et/>\n"
 "Language: et\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -36,8 +36,8 @@ msgid "Record;Audio;Sound;Voice;"
 msgstr "Record;Audio;Sound;Voice;hääl;heli;salvestus;salvestis;salvestama;helisalvestus;salvestaja;diktofon;"
 
 #: data/reco.metainfo.xml.in.in:13
-msgid "Reco is an audio recorder focused on being concise and simple to use."
-msgstr "Reco on lihtne ja lakooniline helisalvestaja."
+msgid "An audio recorder focused on being concise and simple to use."
+msgstr "Lihtne, mugav ja lakooniline helisalvestaja."
 
 #: data/reco.metainfo.xml.in.in:16
 msgid ""
@@ -133,145 +133,145 @@ msgstr "Alusta salvestamist või lõpeta salvestamine"
 #. John Doe
 #. John Doe <john-doe@example.com>
 #. John Doe https://example.com
-#: src/Application.vala:124
+#: src/Application.vala:111
 msgid "translator-credits"
 msgstr "Priit Jõerüüt 2024-2026"
 
-#: src/MainWindow.vala:27
-msgid ""
-"This is possibly due to missing codecs or incomplete installation of the "
-"app. Make sure you've installed them and try reinstalling them if this issue "
-"persists"
-msgstr ""
-"Selline olukord võib tekkida, kuna kas koodekid on puudu või on rakenduse "
-"paigaldamine jäänud pooleli. Palun kontrolli, et kõik vajalik oleks "
-"paigaldatud ja kui viga ei kao, siis paigalda rakendus uuesti"
-
-#: src/MainWindow.vala:28
-msgid ""
-"This is possibly due to missing sound input or output devices. Make sure "
-"you've connected one and try using another one if this issue persists"
-msgstr ""
-"Selline olukord võib tekkida, kui heli sisend- või väljundseadmed on puudu. "
-"Palun kontrolli, et sa oled vajaliku seadme ühendanud või kui viga ei "
-"lahene, siis kasuta mõnda teist seadet"
-
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:44
 msgid "S_ystem"
 msgstr "S_üsteemi kujundus"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:45
 msgid "_Light"
 msgstr "_Hele kujundus"
 
-#: src/MainWindow.vala:42
+#: src/MainWindow.vala:46
 msgid "_Dark"
 msgstr "_Tume kujundus"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:49
 msgid "_Style"
 msgstr "_Kujundus"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:50
 msgid "_Keyboard Shortcuts"
 msgstr "_Klaviatuuri kiirklahvid"
 
 #. TRANSLATORS: %s will be replaced by the app name
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:54
 #, c-format
 msgid "_About %s"
 msgstr "R_akenduse teave: %s"
 
-#: src/MainWindow.vala:54
+#: src/MainWindow.vala:58
 msgid "Main Menu"
 msgstr "Põhimenüü"
 
-#: src/MainWindow.vala:128
-msgid "Failed to Complete Recording"
-msgstr "Salvestuse lõpetamine ei õnnestunud"
-
-#: src/MainWindow.vala:129
-msgid "There was an error while recording"
-msgstr "Salvestamisel tekkis viga"
-
 #: src/MainWindow.vala:144
+msgid "Unable to Continue Recording"
+msgstr "Salvestuse jätkamine polnud võimalik"
+
+#: src/MainWindow.vala:145
+msgid "There was an internal error while recording"
+msgstr "Salvestamisel tekkis sisemine viga"
+
+#: src/MainWindow.vala:169
 msgid "Recording Saved"
 msgstr "Salvestus on talletatud"
 
-#: src/MainWindow.vala:145
+#: src/MainWindow.vala:170
 msgid "Open Folder"
 msgstr "Ava kaust"
 
-#: src/MainWindow.vala:186 src/MainWindow.vala:206
+#: src/MainWindow.vala:208 src/MainWindow.vala:264
 msgid "Failed to Save Recording"
 msgstr "Salvestuse talletamine ei õnnestunud"
 
-#: src/MainWindow.vala:187
-#, c-format
+#: src/MainWindow.vala:209
 msgid ""
-"There was an error while asking for final path where to move the temporary "
-"recording file \"%s\""
-msgstr "Ajutise salvestusfaili „%s“ lõpliku sihtkoha küsimisel tekkis viga"
+"Unable to move a temporary recording file to the final path. Make sure the "
+"destination exists and you have write access to it"
+msgstr ""
+"Ajutise salvestuse tõstmine lõplikku asukohta polnud võimalik. Palun "
+"kontrolli, et see sihtkaust on olemas ja sul on sellele ligipääs"
 
-#: src/MainWindow.vala:207
-#, c-format
-msgid ""
-"There was an error while moving the temporary recording file \"%s\" to \"%s\""
-msgstr "Ajutise salvestusfaili teisaldamisel tekkis viga: „%s“ → „%s“"
-
-#: src/MainWindow.vala:230
+#: src/MainWindow.vala:236
 msgid "Save Recording"
 msgstr "Salvesta helisalvestis"
 
-#: src/MainWindow.vala:280
-msgid "There was an unknown error while starting recording"
-msgstr "Helisalvestamise alustamisel tekkis tundmatu viga"
+#: src/MainWindow.vala:265
+msgid ""
+"Unable to determine where to save recording finally. Try again using "
+"autosave instead"
+msgstr ""
+"Ei õnnestunud tuvastada, kuhu peaks salvestise lõpuks tõstma. Proovin selle "
+"asemel kasutada automaatset salvestust"
 
-#: src/MainWindow.vala:284
-msgid "Failed to Start Recording"
-msgstr "Ei õnnestunud alustada salvestamist"
+#: src/MainWindow.vala:325
+msgid "Failed to Prepare Recording"
+msgstr "Salvestamise ettevalmistamine ei õnnestunud"
 
-#: src/MainWindow.vala:343
+#: src/MainWindow.vala:326
+msgid ""
+"This is possibly due to missing codecs, incomplete installation of the app, "
+"or missing sound input/output devices. Make sure you've installed necessary "
+"components correctlly and connected sound devices"
+msgstr ""
+"Selline olukord võib tekkida, kuna kas koodekid on puudu, rakenduse "
+"paigaldamine on jäänud pooleli või vajalikud heli sisend/väljundseadmed on "
+"puudu. Palun kontrolli, et kõik vajalikud komponendid oleks paigaldatud "
+"korrektselt ja oleksid ühendanud heliseadmed"
+
+#: src/MainWindow.vala:401
 msgid "Recording Canceled"
 msgstr "Salvestamine on katkestatud"
 
-#: src/MainWindow.vala:348
+#: src/MainWindow.vala:406
 msgid "Recording Moved to Trash"
 msgstr "Salvestus on visatud prügikasti"
 
-#: src/MainWindow.vala:383
-msgid "Details:"
-msgstr "Üksikasjad:"
-
-#: src/Manager/RecordManager.vala:337
+#: src/MainWindow.vala:429
 msgid "Recording is ongoing"
 msgstr "Helisalvestamine on pooleli"
 
-#: src/View/CountDownView.vala:37
+#: src/MainWindow.vala:490
+msgid "Failed to Open Folder"
+msgstr "Kausta avamine ei õnnestunud"
+
+#: src/MainWindow.vala:491
+#, c-format
+msgid "Unable to open folder containing \"%s\""
+msgstr "Ei õnnestunud avada kausta, kus leidub „%s“"
+
+#: src/MainWindow.vala:544
+msgid "_Close"
+msgstr "_Sulge"
+
+#: src/View/CountDownView.vala:35
 msgid "Cancel Countdown"
 msgstr "Katkesta pöördloendus"
 
-#: src/View/CountDownView.vala:121
+#: src/View/CountDownView.vala:111
 msgid "Pause Countdown"
 msgstr "Peata pöördloendus"
 
-#: src/View/CountDownView.vala:126
+#: src/View/CountDownView.vala:116
 msgid "Resume Countdown"
 msgstr "Jätka pöördloendust"
 
-#: src/View/RecordView.vala:51 src/Widget/ProcessingDialog.vala:46
+#: src/View/RecordView.vala:54 src/Widget/ProcessingDialog.vala:48
 msgid "Cancel Recording"
 msgstr "Katkesta salvestamine"
 
-#: src/View/RecordView.vala:58
+#: src/View/RecordView.vala:61
 msgid "Finish Recording"
 msgstr "Lõpeta salvestamine"
 
-#: src/View/RecordView.vala:188
+#: src/View/RecordView.vala:183
 msgid "Resume Recording"
 msgstr "Jätka salvestamist"
 
-#: src/View/RecordView.vala:200
+#: src/View/RecordView.vala:196
 msgid "Pause Recording"
 msgstr "Peata salvestamine"
 
@@ -305,79 +305,79 @@ msgstr "Mõlemad"
 msgid "Microphone:"
 msgstr "Mikrofon:"
 
-#: src/View/WelcomeView.vala:53
+#: src/View/WelcomeView.vala:52
 msgid "Channels:"
 msgstr "Kanalid:"
 
-#: src/View/WelcomeView.vala:59
+#: src/View/WelcomeView.vala:58
 msgid "Mono"
 msgstr "Mono"
 
-#: src/View/WelcomeView.vala:60
+#: src/View/WelcomeView.vala:59
 msgid "Stereo"
 msgstr "Stereo"
 
-#: src/View/WelcomeView.vala:62
+#: src/View/WelcomeView.vala:61
 msgid "Timer"
 msgstr "Taimer"
 
-#: src/View/WelcomeView.vala:67
+#: src/View/WelcomeView.vala:66
 msgid "Delay in seconds:"
 msgstr "Eelnev viivitus sekundites:"
 
-#: src/View/WelcomeView.vala:74
+#: src/View/WelcomeView.vala:73
 msgid "Length in seconds:"
 msgstr "Salvestuse kestus sekundites:"
 
-#: src/View/WelcomeView.vala:85
+#: src/View/WelcomeView.vala:84
 msgid "Saving"
 msgstr "Talletamine"
 
-#: src/View/WelcomeView.vala:90
+#: src/View/WelcomeView.vala:89
 msgid "Format:"
 msgstr "Vorming:"
 
-#: src/View/WelcomeView.vala:97
+#: src/View/WelcomeView.vala:96
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:98
+#: src/View/WelcomeView.vala:97
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:99
+#: src/View/WelcomeView.vala:98
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:100
+#: src/View/WelcomeView.vala:99
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:101
+#: src/View/WelcomeView.vala:100
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:102
+#: src/View/WelcomeView.vala:101
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:104
+#: src/View/WelcomeView.vala:103
 msgid "Add metadata:"
 msgstr "Lisa metateave:"
 
-#: src/View/WelcomeView.vala:112
+#: src/View/WelcomeView.vala:111
 msgid "Add record year and your real name in recording files"
 msgstr "Lisa salvestiste failidesse salvestuse aasta ja oma tegelik nimi"
 
-#: src/View/WelcomeView.vala:119
-msgid "Automatically save files:"
-msgstr "Loo failid automaatselt:"
+#: src/View/WelcomeView.vala:117
+msgid "Autosave:"
+msgstr "Automaatne salvestus:"
 
-#: src/View/WelcomeView.vala:130 src/View/WelcomeView.vala:133
-msgid "Select AutoSave Destination"
+#: src/View/WelcomeView.vala:128 src/View/WelcomeView.vala:131
+msgid "Select Autosave Destination"
 msgstr "Vali automaatse salvestamise kaust"
 
-#: src/View/WelcomeView.vala:171
+#: src/View/WelcomeView.vala:176
 msgid "Start Recording"
 msgstr "Alusta salvestamisega"
 
@@ -385,17 +385,49 @@ msgstr "Alusta salvestamisega"
 msgid "Saving…"
 msgstr "Talletan…"
 
-#: src/Widget/ProcessingDialog.vala:40
+#: src/Widget/ProcessingDialog.vala:41
 msgid "Problems?"
 msgstr "Kas tekkis probleeme?"
 
-#: src/Widget/ProcessingDialog.vala:40
+#: src/Widget/ProcessingDialog.vala:41
 msgid "Just hang on until the file dialog appears"
 msgstr "Lihtsalt oota, kuni avaneb failivaade"
 
-#: src/Widget/ProcessingDialog.vala:78
+#: src/Widget/ProcessingDialog.vala:80
 msgid "Canceling…"
 msgstr "Katkestan…"
+
+#~ msgid ""
+#~ "This is possibly due to missing sound input or output devices. Make sure "
+#~ "you've connected one and try using another one if this issue persists"
+#~ msgstr ""
+#~ "Selline olukord võib tekkida, kui heli sisend- või väljundseadmed on "
+#~ "puudu. Palun kontrolli, et sa oled vajaliku seadme ühendanud või kui viga "
+#~ "ei lahene, siis kasuta mõnda teist seadet"
+
+#, c-format
+#~ msgid ""
+#~ "There was an error while asking for final path where to move the "
+#~ "temporary recording file \"%s\""
+#~ msgstr "Ajutise salvestusfaili „%s“ lõpliku sihtkoha küsimisel tekkis viga"
+
+#, c-format
+#~ msgid ""
+#~ "There was an error while moving the temporary recording file \"%s\" to "
+#~ "\"%s\""
+#~ msgstr "Ajutise salvestusfaili teisaldamisel tekkis viga: „%s“ → „%s“"
+
+#~ msgid "There was an unknown error while starting recording"
+#~ msgstr "Helisalvestamise alustamisel tekkis tundmatu viga"
+
+#~ msgid "Failed to Start Recording"
+#~ msgstr "Ei õnnestunud alustada salvestamist"
+
+#~ msgid "Details:"
+#~ msgstr "Üksikasjad:"
+
+#~ msgid "Automatically save files:"
+#~ msgstr "Loo failid automaatselt:"
 
 #~ msgid "Error while recording"
 #~ msgstr "Viga salvestamisel"

@@ -17,7 +17,7 @@ sources = files(
   'MainWindow.vala',
   'Util.vala',
   'Manager/DeviceManager.vala',
-  'Manager/RecordManager.vala',
+  'Model/Recorder.vala',
   'Model/Timer/AbstractTimer.vala',
   'Model/Timer/CountDownTimer.vala',
   'Model/Timer/CountUpTimer.vala',
@@ -27,9 +27,16 @@ sources = files(
   'View/RecordView.vala',
   'Widget/ControlBar.vala',
   'Widget/FolderChooserButton.vala',
-  'Widget/LevelBar.vala',
-  'Widget/ProcessingDialog.vala',
+  'Widget/Waveform.vala',
+  'Widget/SavingDialog.vala',
 )
+
+# Enables debug code to check if the waveform is not refreshed when the window is suspended.
+# The waveform is not refreshed when the window goes suspended, i.e. it's not a foreground window,
+# which is difficult to confirm visually if it works as expected.
+# Uncommenting the line below adds debug code that stops or resumes refreshing the waveform every 5 sec
+# after recording started or resumed.
+#add_project_arguments('--define=DEBUG_DRAW_STOP', language: 'vala')
 
 executable(
   app_id,

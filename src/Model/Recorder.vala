@@ -7,17 +7,17 @@
  */
 
 /**
- * Manages recording
+ * Handles recording
  *
  * State machine:
  *
- * {{../docs/images/Manager/RecordManager/state.drawio.svg|figure of state machine}}
+ * {{../docs/images/Model/Recorder/state.drawio.svg|figure of state machine}}
  *
  * Pipeline configuration, example when MP3 is selected as a format:
  *
- * {{../docs/images/Manager/RecordManager/pipeline.drawio.svg|figure of pipeline configuration}}
+ * {{../docs/images/Model/Recorder/pipeline.drawio.svg|figure of pipeline configuration}}
  */
-public class Manager.RecordManager : Object {
+public class Model.Recorder : Object {
     /**
      * Emitted when a fatal internal error occurred
      *
@@ -32,46 +32,46 @@ public class Manager.RecordManager : Object {
     public signal void record_ok ();
 
     /**
-     * States that {@link Manager.RecordManager} can take
+     * States that {@link Model.Recorder} can take
      */
     private enum RecordState {
         /**
          * Initial state; not recording
          *
-         * Use {@link Manager.RecordManager.prepare} to change to {@link READY} state
+         * Use {@link Model.Recorder.prepare} to change to {@link READY} state
          */
         IDLE,
 
         /**
          * Ready to start recording
          *
-         * Use {@link Manager.RecordManager.start} to change to {@link RECORDING} state
+         * Use {@link Model.Recorder.start} to change to {@link RECORDING} state
          */
         READY,
 
         /**
          * Recording is ongoing
          *
-         * Use {@link Manager.RecordManager.stop} to change to {@link FINALIZING} state<<BR>>
-         * Use {@link Manager.RecordManager.pause} to change to {@link PAUSED} state<<BR>>
-         * Use {@link Manager.RecordManager.cancel} to discard recording and change to {@link IDLE} state
+         * Use {@link Model.Recorder.stop} to change to {@link FINALIZING} state<<BR>>
+         * Use {@link Model.Recorder.pause} to change to {@link PAUSED} state<<BR>>
+         * Use {@link Model.Recorder.cancel} to discard recording and change to {@link IDLE} state
          */
         RECORDING,
 
         /**
          * Recording is temporary paused
          *
-         * Use {@link Manager.RecordManager.resume} to change to {@link RECORDING} state<<BR>>
-         * Use {@link Manager.RecordManager.stop} to change to {@link FINALIZING} state<<BR>>
-         * Use {@link Manager.RecordManager.cancel} to discard recording and change to {@link IDLE} state
+         * Use {@link Model.Recorder.resume} to change to {@link RECORDING} state<<BR>>
+         * Use {@link Model.Recorder.stop} to change to {@link FINALIZING} state<<BR>>
+         * Use {@link Model.Recorder.cancel} to discard recording and change to {@link IDLE} state
          */
         PAUSED,
 
         /**
          * Completing recording
          *
-         * {@link Manager.RecordManager} automatically changes to {@link IDLE} state when recording completed<<BR>>
-         * Use {@link Manager.RecordManager.cancel} to discard recording and change to {@link IDLE} state
+         * {@link Model.Recorder} automatically changes to {@link IDLE} state when recording completed<<BR>>
+         * Use {@link Model.Recorder.cancel} to discard recording and change to {@link IDLE} state
          */
         FINALIZING,
     }
@@ -82,15 +82,6 @@ public class Manager.RecordManager : Object {
     private RecordState state = RecordState.IDLE;
 
     /**
-     * Whether recording is ongoing
-     */
-    public bool is_recording {
-        get {
-            return (state != RecordState.IDLE && state != RecordState.READY);
-        }
-    }
-
-    /**
      * Current sound level, taking value from 0 to 1
      */
     // Inspired from GNOME Sound Recorder:
@@ -99,7 +90,7 @@ public class Manager.RecordManager : Object {
         get {
             return _current_peak;
         }
-        set {
+        private set {
             double decibel = value;
             if (decibel > 0) {
                 decibel = 0;
@@ -117,9 +108,6 @@ public class Manager.RecordManager : Object {
     private double _current_peak = 0;
 
     private const uint64 NSEC = 1000000000;
-    private const string IGNORED_PROPNAMES[] = {
-        "name", "parent", "direction", "template", "caps"
-    };
 
     private Gst.Pipeline pipeline;
 
@@ -129,7 +117,7 @@ public class Manager.RecordManager : Object {
      * All elements created in this method should be added to ``pipeline`` using {@link Gst.Bin.add}
      * and linked to ``src`` or ``dst`` elements appropriately using {@link Gst.Pad.link}
      *
-     * {{../docs/images/Manager/RecordManager/format_specific_elements.drawio.svg|figure of format-specific elements}}
+     * {{../docs/images/Model/Recorder/format_specific_elements.drawio.svg|figure of format-specific elements}}
      *
      * Note: This method should add at least one element that inherits {@link Gst.TagSetter} to ``pipeline``
      * for metadata<<BR>>
@@ -150,20 +138,11 @@ public class Manager.RecordManager : Object {
     private static Gee.HashMap<Define.FormatID, FormatSpecificPrepareFunc> prepare_fmt_table;
 
     /**
-     * Gets a unique instance of {@link Manager.RecordManager}
+     * Creates a new {@link Model.Recorder}
      *
-     * @return A unique {@link Manager.RecordManager}. Do not ref or unref it
+     * @return a new {@link Model.Recorder}
      */
-    public static unowned RecordManager get_default () {
-        if (_instance == null) {
-            _instance = new RecordManager ();
-        }
-
-        return _instance;
-    }
-    private static RecordManager _instance;
-
-    private RecordManager () {
+    public Recorder () {
     }
 
     static construct {
@@ -200,23 +179,18 @@ public class Manager.RecordManager : Object {
     ) {
         pipeline = new Gst.Pipeline ("pipeline");
         if (pipeline == null) {
-            critical ("Failed to create pipeline");
-            return false;
-        }
-
-        // Use to retrive peak value
-        var level = Gst.ElementFactory.make ("level", "level");
-        if (level == null) {
-            critical ("Failed to create level element");
+            warning ("Failed to create pipeline");
             return false;
         }
 
         // Use to mix sounds from a microphone and system
         var mixer = Gst.ElementFactory.make ("audiomixer", "mixer");
         if (mixer == null) {
-            critical ("Failed to create audiomixer element");
+            warning ("Failed to create audiomixer element");
             return false;
         }
+
+        pipeline.add (mixer);
 
         // Prevent audio from stuttering after some time, by setting the latency to other than 0
         // This issue happens once audiomixer begins to be late and drop buffers
@@ -225,30 +199,30 @@ public class Manager.RecordManager : Object {
 
         var sink = Gst.ElementFactory.make ("filesink", "sink");
         if (sink == null) {
-            critical ("Failed to create filesink element");
+            warning ("Failed to create filesink element");
             return false;
         }
 
         sink.set ("location", dst_path);
-        pipeline.add_many (level, mixer, sink);
+
+        pipeline.add (sink);
 
         if (source != Define.SourceID.MIC) {
             // Use to record sound from system
             var sys_sound = Gst.ElementFactory.make ("pulsesrc", "sys_sound");
             if (sys_sound == null) {
-                critical ("Failed to create pulsesrc element \"sys_sound\"");
+                warning ("Failed to create pulsesrc element \"sys_sound\"");
                 return false;
             }
 
-            Gst.Device? default_sink = Manager.DeviceManager.get_default ().default_sink;
-            string? monitor_name = get_default_monitor_name (default_sink);
+            unowned string? monitor_name = Manager.DeviceManager.get_default ().default_monitor;
             if (monitor_name == null) {
-                critical ("Failed to set \"device\" property of pulsesrc element \"sys_sound\"");
+                warning ("default monitor device not found");
                 return false;
             }
 
             sys_sound.set ("device", monitor_name);
-            debug ("sound source (system): \"Monitor of %s\"", default_sink.display_name);
+            debug ("sound source (system): \"%s\"", monitor_name);
 
             // Set properties that can be used in monitor apps e.g. pavucontrol or gnome-system-monitor
             var pa_props = new Gst.Structure.from_string (
@@ -269,7 +243,7 @@ public class Manager.RecordManager : Object {
             // Use to record sound from a microphone
             Gst.Element mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
-                critical ("Failed to create pulsesrc element \"mic_sound\"");
+                warning ("Failed to create pulsesrc element \"mic_sound\"");
                 return false;
             }
 
@@ -291,6 +265,14 @@ public class Manager.RecordManager : Object {
         // Dual-channelization
         var caps_channels = new Gst.Caps.simple ("audio/x-raw", "channels", Type.INT, channel);
 
+        // Use to retrive peak value
+        var level = Gst.ElementFactory.make ("level", "level");
+        if (level == null) {
+            warning ("Failed to create level element");
+            return false;
+        }
+
+        pipeline.add (level);
         mixer.link_filtered (level, caps_channels);
 
         // Format-specific prepare
@@ -302,7 +284,7 @@ public class Manager.RecordManager : Object {
 
         bool ret = prepare_fmt (pipeline, level, sink);
         if (!ret) {
-            critical ("Failed to prepare for the given file format. format=%d".printf (format));
+            warning ("Failed to prepare for the given file format. format=%d".printf (format));
             return false;
         }
 
@@ -333,7 +315,7 @@ public class Manager.RecordManager : Object {
     private static bool prepare_alac (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("avenc_alac", "encoder");
         if (encoder == null) {
-            critical ("Failed to create avenc_alac element");
+            warning ("Failed to create avenc_alac element");
             return false;
         }
 
@@ -342,7 +324,7 @@ public class Manager.RecordManager : Object {
 
         var muxer = Gst.ElementFactory.make ("mp4mux", "muxer");
         if (muxer == null) {
-            critical ("Failed to create mp4mux element");
+            warning ("Failed to create mp4mux element");
             return false;
         }
 
@@ -367,7 +349,7 @@ public class Manager.RecordManager : Object {
     private static bool prepare_flac (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("flacenc", "encoder");
         if (encoder == null) {
-            critical ("Failed to create flacenc element");
+            warning ("Failed to create flacenc element");
             return false;
         }
 
@@ -392,7 +374,7 @@ public class Manager.RecordManager : Object {
     private static bool prepare_mp3 (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("lamemp3enc", "encoder");
         if (encoder == null) {
-            critical ("Failed to create lamemp3enc element");
+            warning ("Failed to create lamemp3enc element");
             return false;
         }
 
@@ -401,7 +383,7 @@ public class Manager.RecordManager : Object {
 
         var muxer = Gst.ElementFactory.make ("id3v2mux", "muxer");
         if (muxer == null) {
-            critical ("Failed to create id3v2mux element");
+            warning ("Failed to create id3v2mux element");
             return false;
         }
 
@@ -409,7 +391,7 @@ public class Manager.RecordManager : Object {
         encoder.link_many (muxer, dst);
         muxer.link (dst);
 
-        return false;
+        return true;
     }
 
     /**
@@ -426,7 +408,7 @@ public class Manager.RecordManager : Object {
     private static bool prepare_ogg (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("vorbisenc", "encoder");
         if (encoder == null) {
-            critical ("Failed to create vorbisenc element");
+            warning ("Failed to create vorbisenc element");
             return false;
         }
 
@@ -435,7 +417,7 @@ public class Manager.RecordManager : Object {
 
         var muxer = Gst.ElementFactory.make ("oggmux", "muxer");
         if (muxer == null) {
-            critical ("Failed to create oggmux element");
+            warning ("Failed to create oggmux element");
             return false;
         }
 
@@ -460,7 +442,7 @@ public class Manager.RecordManager : Object {
     private static bool prepare_opus (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("opusenc", "encoder");
         if (encoder == null) {
-            critical ("Failed to create opusenc element");
+            warning ("Failed to create opusenc element");
             return false;
         }
 
@@ -469,7 +451,7 @@ public class Manager.RecordManager : Object {
 
         var muxer = Gst.ElementFactory.make ("oggmux", "muxer");
         if (muxer == null) {
-            critical ("Failed to create oggmux element");
+            warning ("Failed to create oggmux element");
             return false;
         }
 
@@ -494,7 +476,7 @@ public class Manager.RecordManager : Object {
     private static bool prepare_wav (Gst.Pipeline pipeline, Gst.Element src, Gst.Element dst) {
         var encoder = Gst.ElementFactory.make ("wavenc", "encoder");
         if (encoder == null) {
-            critical ("Failed to create wavenc element");
+            warning ("Failed to create wavenc element");
             return false;
         }
 
@@ -618,6 +600,38 @@ public class Manager.RecordManager : Object {
     }
 
     /**
+     * Requests for graceful shutdown
+     *
+     * Requests to stop ongoing recording safely if such exists
+     *
+     * @return ``true`` if shutdown completed; {@link state} is set to {@link RecordState.IDLE}.<<BR>>
+     * ``false`` otherwise; the caller must wait until either one of {@link record_ok} or {@link record_err}
+     * signals being emitted. {@link state} is set to {@link RecordState.IDLE} after either signal is emitted
+     */
+    public bool request_shutdown () {
+        switch (state) {
+            case RecordState.IDLE:
+                // NOP
+                return true;
+            case RecordState.READY:
+                // Recording not yet started so just chaing state is enough
+                state = RecordState.IDLE;
+                return true;
+            case RecordState.RECORDING:
+            case RecordState.PAUSED:
+                // Start finalizing
+                stop ();
+                return false;
+            case RecordState.FINALIZING:
+                // NOP; already working for finalizing
+                return false;
+            default:
+                error ("[BUG] unknown state %d", state);
+                // no break, dies if reached
+        }
+    }
+
+    /**
      * Handles {@link Gst.Message}
      *
      * @see             Gst.BusFunc
@@ -732,71 +746,6 @@ public class Manager.RecordManager : Object {
     }
 
     /**
-     * Get name of a default monitor device from name of a default sink device
-     *
-     * @param default_sink      a default sink device
-     *
-     * @return                  name of a default monitor device if succeeds, ``null`` otherwise
-     */
-    // Inspired from ``get_launch_line()`` in GStreamer:
-    // https://gitlab.freedesktop.org/gstreamer/gstreamer/-/blob/1.20.6/subprojects/gst-plugins-base/tools/gst-device-monitor.c#L45-135
-    private string? get_default_monitor_name (Gst.Device? default_sink) {
-        if (default_sink == null) {
-            warning ("default_sink is null");
-            return null;
-        }
-
-        Gst.Element? element = default_sink.create_element (null);
-        if (element == null) {
-            warning ("element is null");
-            return null;
-        }
-
-        Gst.ElementFactory? factory = element.get_factory ();
-        if (factory == null) {
-            warning ("factory is null");
-            return null;
-        }
-
-        Gst.Element? pureelement = factory.create (null);
-        if (pureelement == null) {
-            warning ("pureelement is null");
-            return null;
-        }
-
-        // Get paramspecs and show non-default properties
-        (unowned ParamSpec)[] properties = element.get_class ().list_properties ();
-        foreach (var property in properties) {
-            // Skip some properties
-            if ((property.flags & ParamFlags.READWRITE) != ParamFlags.READWRITE) {
-                continue;
-            }
-
-            if (property.name in IGNORED_PROPNAMES) {
-                continue;
-            }
-
-            var value = Value (property.value_type);
-            element.get_property (property.name, ref value);
-
-            var pvalue = Value (property.value_type);
-            pureelement.get_property (property.name, ref pvalue);
-
-            if (Gst.Value.compare (value, pvalue) != Gst.VALUE_EQUAL) {
-                string? valuestr = Gst.Value.serialize (value);
-                if (valuestr == null) {
-                    warning ("Could not serialize property %s: %s", element.name, property.name);
-                    continue;
-                }
-
-                return valuestr + ".monitor";
-            }
-        }
-
-        return null;
-    }
-
-    /**
      * Add metadata to the stream using a {@link Gst.TagSetter} element found from ``pipeline``
      *
      * Note: You should call this method before ``pipeline`` goes to {@link Gst.State.PAUSED}
@@ -816,7 +765,7 @@ public class Manager.RecordManager : Object {
     private bool add_metadata (Gst.Pipeline pipeline, string artist, DateTime date_time) {
         Gst.TagSetter? tag_setter = pipeline.get_by_interface (typeof (Gst.TagSetter)) as Gst.TagSetter;
         if (tag_setter == null) {
-            warning ("Element that implements GstTagSetter not found");
+            critical ("Element that implements GstTagSetter not found");
             return false;
         }
 
@@ -824,7 +773,7 @@ public class Manager.RecordManager : Object {
         // and a Gst.Tags.DATE tag (takes Date value); Setting only the former results missing "Year" tag
         // in WAV and MP3 files and setting the latter too works as expected
         var gst_date_time = new Gst.DateTime.from_g_date_time (date_time);
-        Date date = Util.dt2date (date_time);
+        Date date = Util.dt_to_date (date_time);
 
         tag_setter.add_tags (Gst.TagMergeMode.REPLACE_ALL,
                              Gst.Tags.ARTIST, artist,

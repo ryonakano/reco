@@ -4,12 +4,6 @@
  */
 
 public abstract class View.AbstractView : Gtk.Box {
-    protected struct TimerTime {
-        TimeSpan hours;
-        TimeSpan minutes;
-        TimeSpan seconds;
-    }
-
     protected AbstractView () {
     }
 

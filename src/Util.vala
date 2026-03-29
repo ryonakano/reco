@@ -72,7 +72,7 @@ namespace Util {
         return true;
     }
 
-    public static Date dt2date (DateTime dt) {
+    public static Date dt_to_date (DateTime dt) {
         int year;
         int month;
         int day;
@@ -87,6 +87,17 @@ namespace Util {
         date.set_year ((DateYear) year);
 
         return date;
+    }
+
+    public static Gdk.RGBA hex_to_rgba (string hex) {
+        var rgba = Gdk.RGBA ();
+        rgba.parse (hex);
+
+        return rgba;
+    }
+
+    public static int64 usec_to_msec (int64 usec) {
+        return usec / 1000;
     }
 
     public static Adw.ColorScheme to_adw_scheme (string str_scheme) {

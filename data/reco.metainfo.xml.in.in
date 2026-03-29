@@ -7,11 +7,11 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
 
-  <name translate="no">Reco</name>
+  <name translate="no">@APP_NAME@</name>
   <summary>Focus on recording</summary>
   <description>
     <p>
-      Reco is an audio recorder focused on being concise and simple to use.
+      An audio recorder focused on being concise and simple to use.
     </p>
     <p>You can use it to record and remember spoken words, system audio, improvized melodies, and anything else you can do with a microphone, speaker, or both.</p>
     <p>Features include:</p>
@@ -50,12 +50,12 @@
     <control>touch</control>
   </supports>
 
-  <recommends>
-    <!-- taken from MainWindow.default_width -->
+  <requires>
+    <!-- taken from MainWindow.width_request -->
     <display_length side="shortest" compare="ge">360</display_length>
-    <!-- taken from MainWindow.default_height -->
-    <display_length side="longest" compare="ge">680</display_length>
-  </recommends>
+    <!-- taken from MainWindow.height_request -->
+    <display_length side="longest" compare="ge">340</display_length>
+  </requires>
 
   <url type="homepage">https://github.com/ryonakano/reco</url>
   <url type="bugtracker">https://github.com/ryonakano/reco/issues</url>
@@ -69,6 +69,11 @@
     <name translate="no">Ryo Nakano</name>
   </developer>
 
+  <!--
+    We intentionally don't support translation for the descriptions in release notes
+    because only a few past release notes would be often shown in the app store
+    even if translators translated all of them, which is not worthy.
+  -->
   <releases>
     <release version="5.1.1" date="2025-10-12" urgency="low">
       <description translate="no">

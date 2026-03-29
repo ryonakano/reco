@@ -9,16 +9,21 @@ public class View.RecordView : AbstractView {
     public signal void pause_recording ();
     public signal void resume_recording ();
 
+    public Model.Recorder recorder { get; construct; }
+
     private Gtk.Label time_label;
     private Gtk.Label remaining_time_label;
-    private Widget.LevelBar levelbar;
+    private Widget.Waveform waveform;
     private Gtk.Button pause_button;
 
     private bool is_recording;
     private Model.Timer.CountUpTimer uptimer;
     private Model.Timer.CountDownTimer downtimer;
 
-    public RecordView () {
+    public RecordView (Model.Recorder recorder) {
+        Object (
+            recorder: recorder
+        );
     }
 
     construct {
@@ -42,7 +47,7 @@ public class View.RecordView : AbstractView {
         content_area.append (time_label);
         content_area.append (remaining_time_label);
 
-        levelbar = new Widget.LevelBar ();
+        waveform = new Widget.Waveform (get_current_peak);
 
         var cancel_button = new Gtk.Button () {
             icon_name = "user-trash-symbolic",
@@ -72,7 +77,7 @@ public class View.RecordView : AbstractView {
         control_bar.append (pause_button);
 
         append (content_area);
-        append (levelbar);
+        append (waveform);
         append (control_bar);
 
         var event_controller = new Gtk.EventControllerKey ();
@@ -81,7 +86,7 @@ public class View.RecordView : AbstractView {
                 switch (keyval) {
                     case Gdk.Key.R:
                         if (Gdk.ModifierType.SHIFT_MASK in state) {
-                            refresh_end ();
+                            stop ();
                             stop_recording ();
                             return Gdk.EVENT_STOP;
                         }
@@ -104,39 +109,38 @@ public class View.RecordView : AbstractView {
             remaining_time_label.label = downtimer.to_string ();
         });
         downtimer.ended.connect (() => {
-            refresh_end ();
+            stop ();
             stop_recording ();
         });
 
         cancel_button.clicked.connect (() => {
-            refresh_end ();
+            stop ();
             cancel_recording ();
         });
 
         stop_button.clicked.connect (() => {
-            refresh_end ();
+            stop ();
             stop_recording ();
         });
 
         pause_button.clicked.connect (() => {
             if (is_recording) {
                 is_recording = false;
-                refresh_pause ();
+                pause ();
                 pause_recording ();
             } else {
                 is_recording = true;
-                refresh_resume ();
+                resume ();
                 resume_recording ();
             }
         });
     }
 
     private double get_current_peak () {
-        unowned var record_manager = Manager.RecordManager.get_default ();
-        return record_manager.current_peak;
+        return recorder.current_peak;
     }
 
-    public void refresh_begin () {
+    public void start (uint record_length) {
         is_recording = true;
 
         uptimer.init ();
@@ -144,16 +148,15 @@ public class View.RecordView : AbstractView {
 
         time_label.label = uptimer.to_string ();
 
-        uint record_length = Application.settings.get_uint ("length");
         if (record_length > 0) {
             downtimer.seek (record_length);
             remaining_time_label.label = downtimer.to_string ();
+            remaining_time_label.visible = true;
         } else {
-            // Hide the label
-            remaining_time_label.label = null;
+            remaining_time_label.visible = false;
         }
 
-        levelbar.refresh_begin (get_current_peak);
+        waveform.init ();
 
         /*
          * cancel_button is focused implicitly by default when RecordView is shown,
@@ -162,28 +165,27 @@ public class View.RecordView : AbstractView {
          */
         pause_button.grab_focus ();
 
-        refresh_resume ();
+        resume ();
     }
 
-    public void refresh_end () {
+    public void stop () {
         is_recording = false;
 
-        refresh_pause ();
-
-        levelbar.refresh_end ();
+        pause ();
     }
 
-    private void refresh_pause () {
+    private void pause () {
         uptimer.stop ();
         downtimer.stop ();
 
         pause_button.icon_name = "media-playback-start-symbolic";
         pause_button.tooltip_text = _("Resume Recording");
 
-        levelbar.refresh_pause ();
+        waveform.stop ();
+        waveform.set_color (Widget.Waveform.Color.YELLOW);
     }
 
-    private void refresh_resume () {
+    private void resume () {
         uptimer.start ();
         if (downtimer.is_seeked) {
             downtimer.start ();
@@ -192,31 +194,50 @@ public class View.RecordView : AbstractView {
         pause_button.icon_name = "media-playback-pause-symbolic";
         pause_button.tooltip_text = _("Pause Recording");
 
-        levelbar.refresh_resume ();
+        waveform.start ();
+        waveform.set_color (Widget.Waveform.Color.RED);
     }
 
-    private string uptimer_strfunc (TimeSpan time_usec) {
-        TimeSpan remain = time_usec;
-        var time = TimerTime ();
+    public void draw_start () {
+        if (!is_recording) {
+            // Should not resume if recording has been paused
+            return;
+        }
 
-        time.hours = remain / TimeSpan.HOUR;
+        waveform.draw_start ();
+    }
+
+    public void draw_stop () {
+        if (!is_recording) {
+            // Should be already paused if recording has been paused
+            return;
+        }
+
+        waveform.draw_stop ();
+    }
+
+    private static string uptimer_strfunc (TimeSpan time_usec) {
+        TimeSpan remain = time_usec;
+
+        TimeSpan hours = remain / TimeSpan.HOUR;
         remain %= TimeSpan.HOUR;
-        time.minutes = remain / TimeSpan.MINUTE;
-        remain %= TimeSpan.MINUTE;
-        time.seconds = remain / TimeSpan.SECOND;
 
-        return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT + ":%02" + int64.FORMAT)
-            .printf (time.hours, time.minutes, time.seconds);
+        TimeSpan minutes = remain / TimeSpan.MINUTE;
+        remain %= TimeSpan.MINUTE;
+
+        TimeSpan seconds = remain / TimeSpan.SECOND;
+
+        return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT + ":%02" + int64.FORMAT).printf (hours, minutes, seconds);
     }
 
-    private string downtimer_strfunc (TimeSpan time_usec) {
+    private static string downtimer_strfunc (TimeSpan time_usec) {
         TimeSpan remain = time_usec;
-        var time = TimerTime ();
 
-        time.minutes = remain / TimeSpan.MINUTE;
+        TimeSpan minutes = remain / TimeSpan.MINUTE;
         remain %= TimeSpan.MINUTE;
-        time.seconds = remain / TimeSpan.SECOND;
 
-        return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT).printf (time.minutes, time.seconds);
+        TimeSpan seconds = remain / TimeSpan.SECOND;
+
+        return ("%02" + int64.FORMAT + ":%02" + int64.FORMAT).printf (minutes, seconds);
     }
 }
