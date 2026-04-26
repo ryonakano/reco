@@ -6,7 +6,7 @@
 public class Manager.DeviceManager : Object {
     public signal void device_updated ();
 
-    public Gee.ArrayList<Gst.Device> sources { get; private set; }
+    public ListStore sources_list { get; private set; }
 
     public string? default_source { get; private set; }
     public string? default_monitor { get; private set; }
@@ -38,7 +38,7 @@ public class Manager.DeviceManager : Object {
         monitor.add_filter (CLASS_NAME_SOURCE, caps);
         monitor.add_filter (CLASS_NAME_SINK, caps);
 
-        sources = new Gee.ArrayList<Gst.Device> ();
+        sources_list = new ListStore (typeof (Gst.Device));
         default_monitor = null;
 
         monitor.start ();
@@ -167,7 +167,13 @@ public class Manager.DeviceManager : Object {
      */
     private bool add_device (Gst.Device device) {
         if (device.has_classes (CLASS_NAME_SOURCE)) {
-            if (sources.contains (device)) {
+            bool is_found = sources_list.find_with_equal_func (device,
+                (a, b) => {
+                    return ((Gst.Device) a).name == ((Gst.Device) b).name;
+                },
+                null // pass null for position parameter because we don't use it later
+            );
+            if (is_found) {
                 warning ("[source] add: already added, skipping. device=\"%s\"", device.display_name);
                 return true;
             }
@@ -189,14 +195,16 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            ret = sources.add (device);
-            if (!ret) {
-                warning ("[source] add: failed to add. device=\"%s\"", device.display_name);
-                return false;
-            }
+            uint pos = sources_list.insert_sorted (
+                            device,
+                            (a, b) => {
+                                return ((Gst.Device) a).name.collate (((Gst.Device) b).name);
+                            }
+            );
 
             if (is_default) {
                 default_source = device.name;
+                selected_source_index = pos;
             }
 
             debug ("[source] add: added device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
@@ -244,7 +252,14 @@ public class Manager.DeviceManager : Object {
      */
     private bool remove_device (Gst.Device device) {
         if (device.has_classes (CLASS_NAME_SOURCE)) {
-            if (!sources.contains (device)) {
+            uint position;
+            bool is_found = sources_list.find_with_equal_func (device,
+                (a, b) => {
+                    return ((Gst.Device) a).name == ((Gst.Device) b).name;
+                },
+                out position
+            );
+            if (!is_found) {
                 warning ("[source] remove: already removed, skipping. device=\"%s\"", device.display_name);
                 return true;
             }
@@ -262,17 +277,14 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            ret = sources.remove (device);
-            if (!ret) {
-                warning ("[source] remove: failed to remove device \"%s\"", device.display_name);
-                return false;
-            }
+            sources_list.remove (position);
 
             if (is_default) {
                 // Clear the default device only when it's surely the removed device
                 // to prevent the new default device from being cleared if it's already detected
                 if (default_source == device.name) {
                     default_source = null;
+                    selected_source_index = 0;
                 }
             }
 

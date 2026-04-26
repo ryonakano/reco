@@ -13,7 +13,7 @@ public class View.WelcomeView : AbstractView {
     private unowned Manager.DeviceManager device_manager;
 
     private Ryokucha.DropDownText source_combobox;
-    private Ryokucha.DropDownText mic_combobox;
+    private Gtk.DropDown mic_combobox;
     private Gtk.SpinButton delay_spin;
     private Gtk.Switch autosave_switch;
     private Widget.FolderChooserButton destination_chooser_button;
@@ -43,10 +43,13 @@ public class View.WelcomeView : AbstractView {
         var mic_label = new Gtk.Label (_("Microphone:")) {
             halign = Gtk.Align.END
         };
-        mic_combobox = new Ryokucha.DropDownText () {
+        var device_name_expr = new Gtk.PropertyExpression (
+            typeof (Gst.Device), null, "display_name"
+        );
+        mic_combobox = new Gtk.DropDown (device_manager.sources_list, device_name_expr) {
             halign = Gtk.Align.START,
             // Ellipsize if device name is long; otherwise the app window get stretched
-            ellipsize = Pango.EllipsizeMode.END
+            //ellipsize = Pango.EllipsizeMode.END
         };
 
         var channels_label = new Gtk.Label (_("Channels:")) {
@@ -206,9 +209,6 @@ public class View.WelcomeView : AbstractView {
                 return true;
             }
         );
-        mic_combobox.dropdown.bind_property ("selected", device_manager, "selected-source-index",
-            BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
-        );
 
         var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {
@@ -249,7 +249,6 @@ public class View.WelcomeView : AbstractView {
 
         device_manager.device_updated.connect (() => {
             record_button.sensitive = get_is_source_connected ();
-            update_mic_combobox ();
         });
     }
 
@@ -283,22 +282,14 @@ public class View.WelcomeView : AbstractView {
     private bool get_is_source_connected () {
         switch (source_combobox.active_id) {
             case "mic":
-                return (device_manager.sources.size > 0);
+                return (device_manager.sources_list.n_items > 0);
             case "system":
                 return (device_manager.default_monitor != null);
             case "both":
-                return (device_manager.sources.size > 0) && (device_manager.default_monitor != null);
+                return (device_manager.sources_list.n_items > 0) && (device_manager.default_monitor != null);
             default:
                 assert_not_reached ();
                 // no break, dies if reached
-        }
-    }
-
-    private void update_mic_combobox () {
-        mic_combobox.remove_all ();
-
-        foreach (Gst.Device device in device_manager.sources) {
-            mic_combobox.append (null, device.display_name);
         }
     }
 }
