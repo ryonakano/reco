@@ -306,6 +306,7 @@ public class View.WelcomeView : AbstractView {
         var item = object as Gtk.ListItem;
 
         var content = new Gtk.Label (null) {
+            halign = Gtk.Align.START,
             // Ellipsize if device name is long; otherwise the app window get stretched
             ellipsize = Pango.EllipsizeMode.END,
         };
