@@ -11,7 +11,8 @@ public class Manager.DeviceManager : Object {
     public string? default_source { get; private set; }
     public string? default_monitor { get; private set; }
 
-    public uint selected_source_pos { get; private set; }
+    public uint default_source_pos { get; private set; }
+    public uint selected_source_pos { get; set; }
 
     private static DeviceManager? _instance = null;
     public static unowned DeviceManager get_default () {
@@ -42,6 +43,8 @@ public class Manager.DeviceManager : Object {
 
         default_source = null;
         default_monitor = null;
+
+        default_source_pos = 0;
         selected_source_pos = 0;
 
         monitor.start ();
@@ -197,7 +200,7 @@ public class Manager.DeviceManager : Object {
 
             if (is_default) {
                 default_source = device.name;
-                selected_source_pos = pos;
+                default_source_pos = pos;
             }
 
             debug ("[source] add: added device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
@@ -246,12 +249,7 @@ public class Manager.DeviceManager : Object {
     private bool remove_device (Gst.Device device) {
         if (device.has_classes (CLASS_NAME_SOURCE)) {
             uint position;
-            bool is_found = sources_list.find_with_equal_func (device,
-                (a, b) => {
-                    return ((Gst.Device) a).name == ((Gst.Device) b).name;
-                },
-                out position
-            );
+            bool is_found = sources_list.find_with_equal_func (device, sources_list_equal_func, out position);
             if (!is_found) {
                 warning ("[source] remove: already removed, skipping. device=\"%s\"", device.display_name);
                 return true;
@@ -277,7 +275,7 @@ public class Manager.DeviceManager : Object {
                 // to prevent the new default device from being cleared if it's already detected
                 if (default_source == device.name) {
                     default_source = null;
-                    selected_source_pos = 0;
+                    default_source_pos = 0;
                 }
             }
 

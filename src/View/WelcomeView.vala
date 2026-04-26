@@ -210,7 +210,9 @@ public class View.WelcomeView : AbstractView {
                 return true;
             }
         );
-        device_manager.bind_property ("selected_source_pos", mic_combobox, "selected", BindingFlags.SYNC_CREATE);
+        device_manager.bind_property ("default_source_pos", mic_combobox, "selected", BindingFlags.SYNC_CREATE);
+        // TODO: Specify selected microphone not via DeviceManager which shouldn't know anything about UI
+        mic_combobox.bind_property ("selected", device_manager, "selected_source_pos", BindingFlags.SYNC_CREATE);
 
         var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {
