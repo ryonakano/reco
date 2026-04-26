@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-15 09:16+0000\n"
-"PO-Revision-Date: 2026-04-04 15:09+0000\n"
+"PO-Revision-Date: 2026-04-27 13:09+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -132,7 +132,7 @@ msgstr "録音を開始/終了する"
 #. John Doe https://example.com
 #: src/Application.vala:111
 msgid "translator-credits"
-msgstr "Ryo Nakano <ryonakaknock3@gmail.com>"
+msgstr "Ryo Nakano https://github.com/ryonakano"
 
 #: src/MainWindow.vala:44
 msgid "S_ystem"
