@@ -58,7 +58,7 @@ dependencies = [
   dependency('libadwaita-1', version: '>= 1.6.0'),
   livechart_dep,
   dependency('pango'),
-  dependency('ryokucha', version: '>= 0.4.0', allow_fallback: get_option('use_submodule')),
+  dependency('ryokucha', allow_fallback: get_option('use_submodule')),
 ]
 
 subdir('data')
