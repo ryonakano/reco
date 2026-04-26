@@ -296,10 +296,10 @@ public class Manager.DeviceManager : Object {
                 // default_monitor through add_device()
                 if (default_monitor == device.name) {
                     default_monitor = null;
+
+                    debug ("[sink] remove: removed device \"%s\"", device.name);
                 }
             }
-
-            debug ("[sink] remove: removed device \"%s\"", device.display_name);
 
             return true;
         }
