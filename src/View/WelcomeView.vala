@@ -44,13 +44,13 @@ public class View.WelcomeView : AbstractView {
             halign = Gtk.Align.END
         };
 
-        var device_name_factory = new Gtk.SignalListItemFactory ();
-        device_name_factory.bind.connect (device_name_factory_bind);
-        device_name_factory.setup.connect (device_name_factory_setup);
+        var mic_combobox_factory = new Gtk.SignalListItemFactory ();
+        mic_combobox_factory.bind.connect (mic_combobox_factory_bind);
+        mic_combobox_factory.setup.connect (mic_combobox_factory_setup);
 
         mic_combobox = new Gtk.DropDown (device_manager.sources_list, null) {
             halign = Gtk.Align.START,
-            factory = device_name_factory,
+            factory = mic_combobox_factory,
         };
 
         var channels_label = new Gtk.Label (_("Channels:")) {
@@ -210,7 +210,7 @@ public class View.WelcomeView : AbstractView {
                 return true;
             }
         );
-        device_manager.bind_property ("selected_source_index", mic_combobox, "selected", BindingFlags.SYNC_CREATE);
+        device_manager.bind_property ("selected_source_pos", mic_combobox, "selected", BindingFlags.SYNC_CREATE);
 
         var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {
@@ -302,7 +302,7 @@ public class View.WelcomeView : AbstractView {
      *
      * @see Gtk.SignalListItemFactory.bind
      */
-    private void device_name_factory_setup (Object object) {
+    private void mic_combobox_factory_setup (Object object) {
         var item = object as Gtk.ListItem;
 
         var content = new Gtk.Label (null) {
@@ -319,7 +319,7 @@ public class View.WelcomeView : AbstractView {
      *
      * @see Gtk.SignalListItemFactory.bind
      */
-    private void device_name_factory_bind (Object object) {
+    private void mic_combobox_factory_bind (Object object) {
         var item = object as Gtk.ListItem;
         var model = item.item as Gst.Device;
         var content = item.child as Gtk.Label;

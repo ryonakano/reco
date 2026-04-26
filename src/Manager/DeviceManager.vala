@@ -11,7 +11,7 @@ public class Manager.DeviceManager : Object {
     public string? default_source { get; private set; }
     public string? default_monitor { get; private set; }
 
-    public uint selected_source_index { get; private set; }
+    public uint selected_source_pos { get; private set; }
 
     private static DeviceManager? _instance = null;
     public static unowned DeviceManager get_default () {
@@ -39,7 +39,10 @@ public class Manager.DeviceManager : Object {
         monitor.add_filter (CLASS_NAME_SINK, caps);
 
         sources_list = new ListStore (typeof (Gst.Device));
+
+        default_source = null;
         default_monitor = null;
+        selected_source_pos = 0;
 
         monitor.start ();
     }
@@ -167,12 +170,7 @@ public class Manager.DeviceManager : Object {
      */
     private bool add_device (Gst.Device device) {
         if (device.has_classes (CLASS_NAME_SOURCE)) {
-            bool is_found = sources_list.find_with_equal_func (device,
-                (a, b) => {
-                    return ((Gst.Device) a).name == ((Gst.Device) b).name;
-                },
-                null // pass null for position parameter because we don't use it later
-            );
+            bool is_found = sources_list.find_with_equal_func (device, sources_list_equal_func, null);
             if (is_found) {
                 warning ("[source] add: already added, skipping. device=\"%s\"", device.display_name);
                 return true;
@@ -195,16 +193,11 @@ public class Manager.DeviceManager : Object {
                 return false;
             }
 
-            uint pos = sources_list.insert_sorted (
-                            device,
-                            (a, b) => {
-                                return ((Gst.Device) a).name.collate (((Gst.Device) b).name);
-                            }
-            );
+            uint pos = sources_list.insert_sorted (device, sources_list_compare_data_func);
 
             if (is_default) {
                 default_source = device.name;
-                selected_source_index = pos;
+                selected_source_pos = pos;
             }
 
             debug ("[source] add: added device \"%s\". is_default=%s", device.display_name, is_default.to_string ());
@@ -284,7 +277,7 @@ public class Manager.DeviceManager : Object {
                 // to prevent the new default device from being cleared if it's already detected
                 if (default_source == device.name) {
                     default_source = null;
-                    selected_source_index = 0;
+                    selected_source_pos = 0;
                 }
             }
 
@@ -377,5 +370,33 @@ public class Manager.DeviceManager : Object {
         }
 
         return null;
+    }
+
+    /**
+     * Custom equality check function for {@link sources_list}
+     *
+     * See also: GLib.ListStore.find_with_equal_func
+     *
+     * @param a     a value, must be type of Gst.Device
+     * @param a     a value to compare with, must be type of Gst.Device
+     *
+     * @return      ``true`` if ``a = b``; ``false`` otherwise
+     */
+    private static bool sources_list_equal_func (Object a, Object b) {
+        return ((Gst.Device) a).name == ((Gst.Device) b).name;
+    }
+
+    /**
+     * Custom pairwise comparison function for sorting {@link sources_list}
+     *
+     * See also: GLib.CompareDataFunc
+     *
+     * @param a     a value, must be type of Gst.Device
+     * @param a     a value to compare with, must be type of Gst.Device
+     *
+     * @return      negative value if ``a < b``; zero if ``a = b``; positive value if ``a > b``
+     */
+    private static int sources_list_compare_data_func (Object a, Object b) {
+        return ((Gst.Device) a).name.collate (((Gst.Device) b).name);
     }
 }
