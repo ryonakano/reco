@@ -238,8 +238,8 @@ public class Model.Recorder : Object {
         }
 
         if (source != Define.SourceID.SYSTEM) {
-            var index = (int) Manager.DeviceManager.get_default ().selected_source_index;
-            Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
+            uint pos = Manager.DeviceManager.get_default ().selected_source_pos;
+            var microphone = ((Gst.Device) Manager.DeviceManager.get_default ().sources_list.get_object (pos));
             // Use to record sound from a microphone
             Gst.Element mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
