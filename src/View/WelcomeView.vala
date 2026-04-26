@@ -43,13 +43,14 @@ public class View.WelcomeView : AbstractView {
         var mic_label = new Gtk.Label (_("Microphone:")) {
             halign = Gtk.Align.END
         };
-        var device_name_expr = new Gtk.PropertyExpression (
-            typeof (Gst.Device), null, "display_name"
-        );
-        mic_combobox = new Gtk.DropDown (device_manager.sources_list, device_name_expr) {
+
+        var device_name_factory = new Gtk.SignalListItemFactory ();
+        device_name_factory.bind.connect (device_name_factory_bind);
+        device_name_factory.setup.connect (device_name_factory_setup);
+
+        mic_combobox = new Gtk.DropDown (device_manager.sources_list, null) {
             halign = Gtk.Align.START,
-            // Ellipsize if device name is long; otherwise the app window get stretched
-            //ellipsize = Pango.EllipsizeMode.END
+            factory = device_name_factory,
         };
 
         var channels_label = new Gtk.Label (_("Channels:")) {
@@ -209,6 +210,7 @@ public class View.WelcomeView : AbstractView {
                 return true;
             }
         );
+        device_manager.bind_property ("selected_source_index", mic_combobox, "selected", BindingFlags.SYNC_CREATE);
 
         var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {
@@ -291,5 +293,37 @@ public class View.WelcomeView : AbstractView {
                 assert_not_reached ();
                 // no break, dies if reached
         }
+    }
+
+    /**
+     * Sets to populate the listitem with widgets.
+     *
+     * @param object    the listitem to populate
+     *
+     * @see Gtk.SignalListItemFactory.bind
+     */
+    private void device_name_factory_setup (Object object) {
+        var item = object as Gtk.ListItem;
+
+        var content = new Gtk.Label (null) {
+            // Ellipsize if device name is long; otherwise the app window get stretched
+            ellipsize = Pango.EllipsizeMode.END,
+        };
+        item.child = content;
+    }
+
+    /**
+     * Sets to populate the listitem with widgets.
+     *
+     * @param object    the listitem to populate
+     *
+     * @see Gtk.SignalListItemFactory.bind
+     */
+    private void device_name_factory_bind (Object object) {
+        var item = object as Gtk.ListItem;
+        var model = item.item as Gst.Device;
+        var content = item.child as Gtk.Label;
+
+        content.label = model.display_name;
     }
 }

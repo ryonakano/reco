@@ -11,7 +11,7 @@ public class Manager.DeviceManager : Object {
     public string? default_source { get; private set; }
     public string? default_monitor { get; private set; }
 
-    public uint selected_source_index { get; set; }
+    public uint selected_source_index { get; private set; }
 
     private static DeviceManager? _instance = null;
     public static unowned DeviceManager get_default () {
