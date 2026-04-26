@@ -419,26 +419,3 @@ msgstr ""
 #| msgid "Cancel recording"
 msgid "Canceling…"
 msgstr "ضبط را لغو کنید"
-
-#, fuzzy
-#~ msgid "Failed to Start Recording"
-#~ msgstr "شروع به ضبط کنید"
-
-#~ msgid "Automatically save files:"
-#~ msgstr "ذخیره خودکار فایل ها:"
-
-#~ msgid "Save your recording"
-#~ msgstr "ضبط خود را ذخیره کنید"
-
-#~ msgid "Choose a default destination"
-#~ msgstr "یک مقصد پیش فرض را انتخاب کنید"
-
-#~ msgid "Select"
-#~ msgstr "انتخاب کنید"
-
-#, c-format
-#~ msgid "Recording from %s"
-#~ msgstr "ضبط از%s"
-
-#~ msgid "Reco"
-#~ msgstr "Reco"

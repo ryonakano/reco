@@ -406,26 +406,3 @@ msgstr ""
 #, fuzzy
 msgid "Canceling…"
 msgstr "Pradėti įrašinėjimą"
-
-#, fuzzy
-#~ msgid "Failed to Start Recording"
-#~ msgstr "Pradėti įrašinėjimą"
-
-#~ msgid "Automatically save files:"
-#~ msgstr "Automatiškai išsaugoti failus:"
-
-#~ msgid "Save your recording"
-#~ msgstr "Išsaugokite savo įrašinėjimą"
-
-#~ msgid "Choose a default destination"
-#~ msgstr "Pasirinkite numatytąją vietą"
-
-#~ msgid "Save"
-#~ msgstr "Išsaugoti"
-
-#, c-format
-#~ msgid "Recording from %s"
-#~ msgstr "Įrašinėjimas iš %s"
-
-#~ msgid "Reco"
-#~ msgstr "Reco"
