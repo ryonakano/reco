@@ -421,29 +421,3 @@ msgstr ""
 #| msgid "Cancel recording"
 msgid "Canceling…"
 msgstr "Cancel·la l’enregistrament"
-
-#, fuzzy
-#~ msgid "Failed to Start Recording"
-#~ msgstr "Comença a enregistrar"
-
-#~ msgid "Automatically save files:"
-#~ msgstr "Desa els fitxers automàticament:"
-
-#~ msgid "Save your recording"
-#~ msgstr "Deseu el vostre enregistrament"
-
-#~ msgid "Choose a default destination"
-#~ msgstr "Trieu una destinació per defecte"
-
-#~ msgid "Save"
-#~ msgstr "Desar"
-
-#~ msgid "Select"
-#~ msgstr "Seleccionar"
-
-#, c-format
-#~ msgid "Recording from %s"
-#~ msgstr "Enregistrament de %s"
-
-#~ msgid "Reco"
-#~ msgstr "Reco"

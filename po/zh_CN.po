@@ -418,26 +418,3 @@ msgstr ""
 #| msgid "Cancel recording"
 msgid "Canceling…"
 msgstr "取消录音"
-
-#, fuzzy
-#~ msgid "Failed to Start Recording"
-#~ msgstr "开始录音"
-
-#~ msgid "Automatically save files:"
-#~ msgstr "自动保存文件："
-
-#~ msgid "Save your recording"
-#~ msgstr "保存录音"
-
-#~ msgid "Choose a default destination"
-#~ msgstr "选择默认目录"
-
-#~ msgid "Save"
-#~ msgstr "保存"
-
-#, c-format
-#~ msgid "Recording from %s"
-#~ msgstr "录音 %s"
-
-#~ msgid "Reco"
-#~ msgstr "Reco"

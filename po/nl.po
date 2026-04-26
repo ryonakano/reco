@@ -438,33 +438,3 @@ msgstr ""
 #| msgid "Cancel recording"
 msgid "Canceling…"
 msgstr "Opname afbreken"
-
-#, fuzzy
-#~ msgid "Failed to Start Recording"
-#~ msgstr "Opname starten"
-
-#~ msgid "Automatically save files:"
-#~ msgstr "Bestanden automatisch opslaan:"
-
-#~ msgid "Save your recording"
-#~ msgstr "Sla je opname op"
-
-#~ msgid "Choose a default destination"
-#~ msgstr "Kies de standaard opslaglocatie"
-
-#~ msgid "Save"
-#~ msgstr "Opslaan"
-
-#~ msgid "Select"
-#~ msgstr "Kiezen"
-
-#, fuzzy
-#~ msgid "An indication that recording is successfully finished"
-#~ msgstr "Opname is afgerond"
-
-#, c-format
-#~ msgid "Recording from %s"
-#~ msgstr "Bezig met opnemen van %s"
-
-#~ msgid "Reco"
-#~ msgstr "Reco"

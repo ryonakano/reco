@@ -443,32 +443,3 @@ msgstr ""
 #| msgid "Cancel recording"
 msgid "Canceling…"
 msgstr "Cancelar gravação"
-
-#, fuzzy
-#~ msgid "Failed to Start Recording"
-#~ msgstr "Iniciar gravação"
-
-#~ msgid "Automatically save files:"
-#~ msgstr "Guardar ficheiros automaticamente:"
-
-#~ msgid "Save your recording"
-#~ msgstr "Guardar a gravação"
-
-#~ msgid "Choose a default destination"
-#~ msgstr "Escolher um destino predefinido"
-
-#~ msgid "Save"
-#~ msgstr "Guardar"
-
-#~ msgid "Select"
-#~ msgstr "Selecionar"
-
-#~ msgid "An indication that recording is successfully finished"
-#~ msgstr "Uma indicação de que a gravação foi concluída com sucesso"
-
-#, c-format
-#~ msgid "Recording from %s"
-#~ msgstr "A gravar de %s"
-
-#~ msgid "Reco"
-#~ msgstr "Reco"
