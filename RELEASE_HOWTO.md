@@ -1,12 +1,15 @@
 # Release Flow
+
+TODO: Indicate relation between the flow and the following steps
+
 ![release flow](./docs/images/release_flow.drawio.svg)
 
-## 1. Decide Version number of Release
+## 1. Decide Version Number of Release
 Versioning should follow [Semantic Versioning](https://semver.org/).
 
 We represents the version number as `x.y.z` in this document.
 
-## 1. Update Screenshots
+## 2. Update Screenshots
 Update screenshots under `data/screenshots` of the project.
 
 | Subdir     | Description                      | Environment to Capture               |
@@ -16,7 +19,7 @@ Update screenshots under `data/screenshots` of the project.
 
 Example: https://github.com/ryonakano/reco/pull/450
 
-## 2. Bump Project Version to `x.y.z-rc.1`
+## 3. Bump Project Version to `x.y.z-rc.1`
 - Create a new branch named `release-x.y.z-rc.1` from latest `origin/main`
 - Bump `version` in `meson.build`  
 ```meson
@@ -31,17 +34,17 @@ project(
 
 Example: https://github.com/ryonakano/reco/pull/449
 
-## 3. Publish New release `x.y.z-rc.1`
+## 4. Publish New Release `x.y.z-rc.1`
 [Create a new release](https://github.com/ryonakano/reco/releases/new) on the project repository.
 
 - Create a new tag named `x.y.z-rc.1`
-- Release title: `<Project Name> x.y.z-rc.1 Released`
+- Release title: `Reco x.y.z-rc.1 Released`
 - Release notes may be blank because this is a pre-release
 - Publish it when completed
 
 Example: https://github.com/ryonakano/reco/releases/tag/5.2.0-rc.1
 
-## 4. Update `tag` & `commit` in Manifest File on Flathub
+## 5. Update `tag` & `commit` in Manifest File on Flathub
 - Clone https://github.com/flathub/com.github.ryonakano.reco
 - Create a new branch named `release-x.y.z`—**not `release-x.y.z-rc.1`**—from latest `origin/master`
   - Remember that this is the production repository, which means any changes pushed to `origin/master` are pulled on end users as updates
@@ -57,7 +60,7 @@ Example: https://github.com/ryonakano/reco/releases/tag/5.2.0-rc.1
 
 Example: https://github.com/flathub/com.github.ryonakano.reco/pull/17/changes/6739c20044d42cff7b7238f76391940e699b41d8
 
-## 5. (Optional) Engage Translators to Work on Translations
+## 6. (Optional) Engage Translators to Work on Translations
 Requirement: needs to be a member of the project maintainers on Weblate
 
 Go to [Operation → Post announcement](https://hosted.weblate.org/projects/rosp/reco/#announcement) and post an
@@ -70,7 +73,7 @@ announcement with the following content:
 - Set `Expiry date` to the day before the target day
 - Check `Notify users` on
 
-## 6. Update AppStream Release Note
+## 7. Update AppStream Release Note
 - Create a new branch named `update-release-note-x.y.z` from latest `origin/main`
 - Write a release note in `data/reco.metainfo.xml.in.in`
   - Refer to [the Metainfo guidelines by Flathub](https://docs.flathub.org/docs/for-app-authors/metainfo-guidelines)
@@ -78,22 +81,22 @@ announcement with the following content:
 
 Example: TODO
 
-## 7. Merge Translations
+## 8. Merge Translations
 Translation updates from Hosted Weblate is configured to be submitted through a PR, e.g. https://github.com/ryonakano/reco/pull/443. Merge one before final release if any is open.
 
-## 8. Bump Project Version to `x.y.z`
+## 9. Bump Project Version to `x.y.z`
 Refer to "2. Bump Project Version to `x.y.z-rc.1`" for details.
 
 Example: TODO
 
-## 9. Publish New release `x.y.z`
+## 10. Publish New Release `x.y.z`
 Refer to "3. Publish New release `x.y.z-rc.1`" for details.
 
 - Release notes MUST be filled because this is a final release
 
 Example: https://github.com/ryonakano/reco/releases/tag/5.2.0
 
-## 10. Update `tag` & `commit` in Manifest File on Flathub
+## 11. Update `tag` & `commit` in Manifest File on Flathub
 Refer to "4. Update `tag` & `commit` in Manifest File on Flathub" for details.
 
 - Use the existing `release-x.y.z` branch created in 4.
@@ -102,7 +105,7 @@ Refer to "4. Update `tag` & `commit` in Manifest File on Flathub" for details.
 
 Example: TODO
 
-## 11. Update `commit` & `version` in JSON File on appcenter-reviews
+## 12. Update `commit` & `version` in JSON File on appcenter-reviews
 - Clone https://github.com/elementary/appcenter-reviews
   - Fork the repository if you don't have write access to it
 - Create a new branch named `com.github.ryonakano.reco-X.Y.Z` from latest `origin/main`
