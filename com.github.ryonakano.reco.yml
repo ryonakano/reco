@@ -31,32 +31,6 @@ modules:
           url-query: '"https://github.com/lcallarec/live-chart/archive/" + .tag_name + ".tar.gz"'
           timestamp-query: .published_at
 
-  - name: gst-plugins-good
-    buildsystem: meson
-    config-opts:
-      # Enable id3v2mux support
-      - -Dtaglib=enabled
-    sources:
-      - type: archive
-        # we need to use the same version with gstreamer included in the sdk
-        url: https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.24.12.tar.xz
-        sha256: d0e66e2f935d1575f6adbef7d0a2b3faba7360344383c51bf0233b39e0489a64
-    modules:
-      - name: taglib
-        buildsystem: cmake-ninja
-        config-opts:
-          - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
-        sources:
-          - type: archive
-            url: https://github.com/taglib/taglib/releases/download/v2.2.1/taglib-2.2.1.tar.gz
-            sha256: 7e76b5299dcef427c486bffe455098470c8da91cf3ccb9ea804893df57389b5e
-            x-checker-data:
-              type: json
-              url: https://api.github.com/repos/taglib/taglib/releases/latest
-              version-query: .tag_name | sub("v"; "")
-              url-query: .assets[] | select(.name=="taglib-" + $version + ".tar.gz") | .browser_download_url
-              timestamp-query: .published_at
-
   - name: gst-libav
     buildsystem: meson
     config-opts:
