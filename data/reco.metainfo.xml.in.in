@@ -76,6 +76,53 @@
     even if translators translated all of them, which is not worthy.
   -->
   <releases>
+    <release version="5.2.0" date="2026-05-03" urgency="medium">
+      <description translate="no">
+        <p>
+          This release introduces support for mobile devices, support for metainfo, bugfixes for edge cases, and more.
+        </p>
+        <p>
+          Big improvements:
+        </p>
+        <ul>
+          <li>Support mobile devices</li>
+          <li>Add an opt-in switch to include artist and datetime metainfo to recordings</li>
+          <li>Ongoing recordings are trashed instead of being deleted when canceled. Plus a toast is shown when canceled</li>
+          <li>Present processing dialog while saving to show progress and prevent users from interacting with UI</li>
+          <li>Refresh the waveform only when the window is not "suspended"</li>
+          <li>Use system default input device as the selected microphone</li>
+        </ul>
+        <p>
+          Other improvements:
+        </p>
+        <ul>
+          <li>Recording file is now preselected in the containing folder when clicking "Open Folder"</li>
+          <li>Recording file will no longer lose from the temporary folder even if there is an error while saving</li>
+          <li>The app now keeps open to allow investigation even if the app was going to quit after saving and there is an error while that</li>
+          <li>The saved toast is no longer shown unnecessarily when going to quit</li>
+          <li>Recording file is now cleaned up from the temporary folder when recording canceled</li>
+          <li>Remember last folder path manually</li>
+          <li>Disable AutoSave instead of trying to create directory if the specified path does not exist or is not a directory</li>
+          <li>Show error dialog when failed to open folder after saving recording</li>
+          <li>Set StartupNotify to true in the .desktop file to allow showing startup loading screen in supported desktop environments like Phosh</li>
+          <li>Remove raw log messages from error dialog in favor of log messages on terminal</li>
+          <li>Make sure dual-channelization and waveform works</li>
+          <li>Update translations</li>
+        </ul>
+        <p>
+          Bugfixes:
+        </p>
+        <ul>
+          <li>Flatpak version of the app should launch successfully now on devices with dGPU</li>
+          <li>Fix holding Ctrl+Shift+R can cause the app crash</li>
+          <li>Fix potential issue that error dialog may not disappear when receiving unexpected response</li>
+          <li>Fix app quits immediatelly when users try to quit while recording and an error occurred while saving</li>
+          <li>Fix countup timer doesn't stop when trying to quit the app while recording</li>
+          <li>Fix UI events are blocked and the app is shown as not respond while saving huge size of recording</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="5.1.1" date="2025-10-12" urgency="low">
       <description translate="no">
         <ul>
