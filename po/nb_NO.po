@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-15 09:16+0000\n"
+"POT-Creation-Date: 2026-04-29 16:58+0900\n"
 "PO-Revision-Date: 2024-05-03 10:45+0000\n"
 "Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/rosp/"
@@ -19,19 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.5.3\n"
 
-#: data/reco.desktop.in.in:3
+#: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
 msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in.in:4
+#: data/reco.desktop.in.in:3
 msgid "Audio Recording App"
 msgstr "Lydopptaksprogram"
 
-#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
+#: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "Fokuser på opptak"
 
-#: data/reco.desktop.in.in:11
+#: data/reco.desktop.in.in:10
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Opptak;lyd;musikk;innspilling;stemme;"
 
@@ -78,6 +78,12 @@ msgstr ""
 "sekunder, og sette lengden av opptaket opptil 600 sekunder."
 
 #: data/reco.metainfo.xml.in.in:22
+msgid ""
+"Adding metadata automatically. Reco can add artist and year metadata to "
+"recording files."
+msgstr ""
+
+#: data/reco.metainfo.xml.in.in:23
 #, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
@@ -86,7 +92,7 @@ msgstr ""
 "Velg hvor du vil lagre opptak. Du kan velge hvorvidt programmet lagrer "
 "opptak i en mappe du velger automatisk, eller hver gang."
 
-#: data/reco.metainfo.xml.in.in:23
+#: data/reco.metainfo.xml.in.in:24
 #, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
@@ -97,12 +103,12 @@ msgstr ""
 "programmet under opptak lagres opptaket automatisk, eller hvis "
 "filvelgerdialogen vises — avhengig av innstillingene dine."
 
-#: data/reco.metainfo.xml.in.in:29
+#: data/reco.metainfo.xml.in.in:30
 #, fuzzy
 msgid "Welcome view; perform recording configuration"
 msgstr "Velkomstvisning; utfør opptaksoppsett"
 
-#: data/reco.metainfo.xml.in.in:34
+#: data/reco.metainfo.xml.in.in:35
 msgid "Recording view"
 msgstr "Opptaksvisning"
 
@@ -237,33 +243,33 @@ msgid ""
 "components correctlly and connected sound devices"
 msgstr ""
 
-#: src/MainWindow.vala:401
+#: src/MainWindow.vala:403
 #, fuzzy
 #| msgid "Recording view"
 msgid "Recording Canceled"
 msgstr "Opptaksvisning"
 
-#: src/MainWindow.vala:406
+#: src/MainWindow.vala:408
 #, fuzzy
 #| msgid "Recording view"
 msgid "Recording Moved to Trash"
 msgstr "Opptaksvisning"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:431
 msgid "Recording is ongoing"
 msgstr "Opptak pågår"
 
-#: src/MainWindow.vala:490
+#: src/MainWindow.vala:492
 #, fuzzy
 msgid "Failed to Open Folder"
 msgstr "Kunne ikke lagre opptak"
 
-#: src/MainWindow.vala:491
+#: src/MainWindow.vala:493
 #, c-format
 msgid "Unable to open folder containing \"%s\""
 msgstr ""
 
-#: src/MainWindow.vala:544
+#: src/MainWindow.vala:546
 msgid "_Close"
 msgstr ""
 
@@ -285,7 +291,7 @@ msgstr "Sett nedtellingen på pause"
 msgid "Resume Countdown"
 msgstr "Fortsett nedtellingen"
 
-#: src/View/RecordView.vala:54 src/Widget/ProcessingDialog.vala:48
+#: src/View/RecordView.vala:54 src/Widget/SavingDialog.vala:48
 #, fuzzy
 #| msgid "Cancel recording"
 msgid "Cancel Recording"
@@ -297,13 +303,13 @@ msgstr "Avbryt opptak"
 msgid "Finish Recording"
 msgstr "Fullfør opptak"
 
-#: src/View/RecordView.vala:183
+#: src/View/RecordView.vala:182
 #, fuzzy
 #| msgid "Resume recording"
 msgid "Resume Recording"
 msgstr "Fortsett opptak"
 
-#: src/View/RecordView.vala:196
+#: src/View/RecordView.vala:195
 #, fuzzy
 #| msgid "Pause recording"
 msgid "Pause Recording"
@@ -342,101 +348,101 @@ msgstr "Begge"
 msgid "Microphone:"
 msgstr "Mikrofon"
 
-#: src/View/WelcomeView.vala:52
+#: src/View/WelcomeView.vala:56
 msgid "Channels:"
 msgstr "Kanaler:"
 
-#: src/View/WelcomeView.vala:58
+#: src/View/WelcomeView.vala:62
 msgid "Mono"
 msgstr "Mono"
 
-#: src/View/WelcomeView.vala:59
+#: src/View/WelcomeView.vala:63
 msgid "Stereo"
 msgstr "Stereo"
 
-#: src/View/WelcomeView.vala:61
+#: src/View/WelcomeView.vala:65
 msgid "Timer"
 msgstr "Tidsur"
 
-#: src/View/WelcomeView.vala:66
+#: src/View/WelcomeView.vala:70
 msgid "Delay in seconds:"
 msgstr "Forsinkelse i sekunder:"
 
-#: src/View/WelcomeView.vala:73
+#: src/View/WelcomeView.vala:77
 msgid "Length in seconds:"
 msgstr "Lengde i sekunder:"
 
-#: src/View/WelcomeView.vala:84
+#: src/View/WelcomeView.vala:88
 #, fuzzy
 msgid "Saving"
 msgstr "Lagring"
 
-#: src/View/WelcomeView.vala:89
+#: src/View/WelcomeView.vala:93
 msgid "Format:"
 msgstr "Format:"
 
-#: src/View/WelcomeView.vala:96
+#: src/View/WelcomeView.vala:100
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:97
+#: src/View/WelcomeView.vala:101
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:98
+#: src/View/WelcomeView.vala:102
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:99
+#: src/View/WelcomeView.vala:103
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:100
+#: src/View/WelcomeView.vala:104
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:101
+#: src/View/WelcomeView.vala:105
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:103
+#: src/View/WelcomeView.vala:107
 msgid "Add metadata:"
 msgstr ""
 
-#: src/View/WelcomeView.vala:111
+#: src/View/WelcomeView.vala:115
 msgid "Add record year and your real name in recording files"
 msgstr ""
 
-#: src/View/WelcomeView.vala:117
+#: src/View/WelcomeView.vala:121
 msgid "Autosave:"
 msgstr ""
 
-#: src/View/WelcomeView.vala:128 src/View/WelcomeView.vala:131
+#: src/View/WelcomeView.vala:132 src/View/WelcomeView.vala:135
 #, fuzzy
 #| msgid "Select destination…"
 msgid "Select Autosave Destination"
 msgstr "Velg mål …"
 
-#: src/View/WelcomeView.vala:176
+#: src/View/WelcomeView.vala:180
 #, fuzzy
 #| msgid "Start recording"
 msgid "Start Recording"
 msgstr "Start opptak"
 
-#: src/Widget/ProcessingDialog.vala:35
+#: src/Widget/SavingDialog.vala:35
 #, fuzzy
 msgid "Saving…"
 msgstr "Lagring"
 
-#: src/Widget/ProcessingDialog.vala:41
+#: src/Widget/SavingDialog.vala:41
 msgid "Problems?"
 msgstr ""
 
-#: src/Widget/ProcessingDialog.vala:41
+#: src/Widget/SavingDialog.vala:41
 msgid "Just hang on until the file dialog appears"
 msgstr ""
 
-#: src/Widget/ProcessingDialog.vala:80
+#: src/Widget/SavingDialog.vala:80
 #, fuzzy
 #| msgid "Cancel recording"
 msgid "Canceling…"

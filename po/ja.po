@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-15 09:16+0000\n"
-"PO-Revision-Date: 2026-04-27 13:09+0000\n"
+"POT-Creation-Date: 2026-04-29 16:58+0900\n"
+"PO-Revision-Date: 2026-04-29 22:28+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/rosp/reco/ja/>\n"
 "Language: ja\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.17.1-dev\n"
 
-#: data/reco.desktop.in.in:3
+#: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
 msgstr "@APP_NAME@"
 
-#: data/reco.desktop.in.in:4
+#: data/reco.desktop.in.in:3
 msgid "Audio Recording App"
 msgstr "オーディオ録音アプリ"
 
-#: data/reco.desktop.in.in:5 data/reco.metainfo.xml.in.in:11
+#: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
 msgstr "録音に集中します"
 
-#: data/reco.desktop.in.in:11
+#: data/reco.desktop.in.in:10
 msgid "Record;Audio;Sound;Voice;"
 msgstr "Record;Audio;Sound;Voice;録音;オーディオ;サウンド;ボイス;"
 
@@ -75,13 +75,21 @@ msgstr ""
 
 #: data/reco.metainfo.xml.in.in:22
 msgid ""
+"Adding metadata automatically. Reco can add artist and year metadata to "
+"recording files."
+msgstr ""
+"メタデータを自動的に追加。Reco はアーティストと収録年を録音ファイルに追加でき"
+"ます。"
+
+#: data/reco.metainfo.xml.in.in:23
+msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
 "保存先の選択。選択したディレクトリに自動的に録音を保存するか、毎回録音後に保"
 "存先を選択するかを選択できます。"
 
-#: data/reco.metainfo.xml.in.in:23
+#: data/reco.metainfo.xml.in.in:24
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
@@ -91,11 +99,11 @@ msgstr ""
 "音声は自動的に保存されるかファイル選択ダイアログが表示されます (設定に応じた"
 "挙動になります)。"
 
-#: data/reco.metainfo.xml.in.in:29
+#: data/reco.metainfo.xml.in.in:30
 msgid "Welcome view; perform recording configuration"
 msgstr "ようこそ画面では録音の設定をします"
 
-#: data/reco.metainfo.xml.in.in:34
+#: data/reco.metainfo.xml.in.in:35
 msgid "Recording view"
 msgstr "録音中の画面"
 
@@ -214,32 +222,32 @@ msgid ""
 "or missing sound input/output devices. Make sure you've installed necessary "
 "components correctlly and connected sound devices"
 msgstr ""
-"コーデックが不足しているか、アプリのインストールが不完全か、音声入出力"
-"デバイスがない可能性があります。必要なコンポーネントを正しくインストール済み"
-"で、音声デバイスを接続済みか確認してください"
+"コーデックが不足しているか、アプリのインストールが不完全か、音声入出力デバイ"
+"スがない可能性があります。必要なコンポーネントを正しくインストール済みで、音"
+"声デバイスを接続済みか確認してください"
 
-#: src/MainWindow.vala:401
+#: src/MainWindow.vala:403
 msgid "Recording Canceled"
 msgstr "録音をキャンセルしました"
 
-#: src/MainWindow.vala:406
+#: src/MainWindow.vala:408
 msgid "Recording Moved to Trash"
 msgstr "録音をゴミ箱に移動しました"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:431
 msgid "Recording is ongoing"
 msgstr "録音中です"
 
-#: src/MainWindow.vala:490
+#: src/MainWindow.vala:492
 msgid "Failed to Open Folder"
 msgstr "フォルダーを開けませんでした"
 
-#: src/MainWindow.vala:491
+#: src/MainWindow.vala:493
 #, c-format
 msgid "Unable to open folder containing \"%s\""
 msgstr "\"%s\" の親フォルダーを開けません"
 
-#: src/MainWindow.vala:544
+#: src/MainWindow.vala:546
 msgid "_Close"
 msgstr "閉じる(_C)"
 
@@ -255,7 +263,7 @@ msgstr "カウントダウンを一時停止"
 msgid "Resume Countdown"
 msgstr "カウントダウンを再開"
 
-#: src/View/RecordView.vala:54 src/Widget/ProcessingDialog.vala:48
+#: src/View/RecordView.vala:54 src/Widget/SavingDialog.vala:48
 msgid "Cancel Recording"
 msgstr "録音をキャンセル"
 
@@ -263,11 +271,11 @@ msgstr "録音をキャンセル"
 msgid "Finish Recording"
 msgstr "録音を終了"
 
-#: src/View/RecordView.vala:183
+#: src/View/RecordView.vala:182
 msgid "Resume Recording"
 msgstr "録音を再開"
 
-#: src/View/RecordView.vala:196
+#: src/View/RecordView.vala:195
 msgid "Pause Recording"
 msgstr "録音を一時停止"
 
@@ -301,94 +309,94 @@ msgstr "両方"
 msgid "Microphone:"
 msgstr "マイク:"
 
-#: src/View/WelcomeView.vala:52
+#: src/View/WelcomeView.vala:56
 msgid "Channels:"
 msgstr "チャンネル:"
 
-#: src/View/WelcomeView.vala:58
+#: src/View/WelcomeView.vala:62
 msgid "Mono"
 msgstr "モノラル"
 
-#: src/View/WelcomeView.vala:59
+#: src/View/WelcomeView.vala:63
 msgid "Stereo"
 msgstr "ステレオ"
 
-#: src/View/WelcomeView.vala:61
+#: src/View/WelcomeView.vala:65
 msgid "Timer"
 msgstr "タイマー"
 
-#: src/View/WelcomeView.vala:66
+#: src/View/WelcomeView.vala:70
 msgid "Delay in seconds:"
 msgstr "遅延する秒数:"
 
-#: src/View/WelcomeView.vala:73
+#: src/View/WelcomeView.vala:77
 msgid "Length in seconds:"
 msgstr "録音する秒数:"
 
-#: src/View/WelcomeView.vala:84
+#: src/View/WelcomeView.vala:88
 msgid "Saving"
 msgstr "保存"
 
-#: src/View/WelcomeView.vala:89
+#: src/View/WelcomeView.vala:93
 msgid "Format:"
 msgstr "形式:"
 
-#: src/View/WelcomeView.vala:96
+#: src/View/WelcomeView.vala:100
 msgid "ALAC"
 msgstr "ALAC"
 
-#: src/View/WelcomeView.vala:97
+#: src/View/WelcomeView.vala:101
 msgid "FLAC"
 msgstr "FLAC"
 
-#: src/View/WelcomeView.vala:98
+#: src/View/WelcomeView.vala:102
 msgid "MP3"
 msgstr "MP3"
 
-#: src/View/WelcomeView.vala:99
+#: src/View/WelcomeView.vala:103
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: src/View/WelcomeView.vala:100
+#: src/View/WelcomeView.vala:104
 msgid "Opus"
 msgstr "Opus"
 
-#: src/View/WelcomeView.vala:101
+#: src/View/WelcomeView.vala:105
 msgid "WAV"
 msgstr "WAV"
 
-#: src/View/WelcomeView.vala:103
+#: src/View/WelcomeView.vala:107
 msgid "Add metadata:"
 msgstr "メタデータを追加:"
 
-#: src/View/WelcomeView.vala:111
+#: src/View/WelcomeView.vala:115
 msgid "Add record year and your real name in recording files"
 msgstr "西暦とあなたの名前を録音ファイルに追加します"
 
-#: src/View/WelcomeView.vala:117
+#: src/View/WelcomeView.vala:121
 msgid "Autosave:"
 msgstr "自動保存:"
 
-#: src/View/WelcomeView.vala:128 src/View/WelcomeView.vala:131
+#: src/View/WelcomeView.vala:132 src/View/WelcomeView.vala:135
 msgid "Select Autosave Destination"
 msgstr "自動保存先を選択"
 
-#: src/View/WelcomeView.vala:176
+#: src/View/WelcomeView.vala:180
 msgid "Start Recording"
 msgstr "録音を開始"
 
-#: src/Widget/ProcessingDialog.vala:35
+#: src/Widget/SavingDialog.vala:35
 msgid "Saving…"
 msgstr "保存しています…"
 
-#: src/Widget/ProcessingDialog.vala:41
+#: src/Widget/SavingDialog.vala:41
 msgid "Problems?"
 msgstr "お困りですか?"
 
-#: src/Widget/ProcessingDialog.vala:41
+#: src/Widget/SavingDialog.vala:41
 msgid "Just hang on until the file dialog appears"
 msgstr "ファイルダイアログの表示までお待ちください"
 
-#: src/Widget/ProcessingDialog.vala:80
+#: src/Widget/SavingDialog.vala:80
 msgid "Canceling…"
 msgstr "キャンセルしています…"
