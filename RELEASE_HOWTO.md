@@ -1,7 +1,12 @@
 # Release Flow
 ![release flow](./docs/images/release_flow.drawio.svg)
 
-## 1. Update screenshots
+## 1. Decide Version number of Release
+Versioning should follow [Semantic Versioning](https://semver.org/).
+
+We represents the version number as `x.y.z` in this document.
+
+## 1. Update Screenshots
 Update screenshots under `data/screenshots` of the project.
 
 | Subdir     | Description                      | Environment to Capture               |
@@ -11,24 +16,22 @@ Update screenshots under `data/screenshots` of the project.
 
 Example: https://github.com/ryonakano/reco/pull/450
 
-## 2. Bump project version to `x.y.z-rc.1`
-- Decide the version number of the release
-    - Versioning should follow [Semantic Versioning](https://semver.org/)
-- Create a new branch named `release-x.y.z-rc.1` from latest `origin/main` (`x.y.z` is the version number)
-    - Bump `version` in `meson.build`  
-    ```meson
-    project(
-      'com.github.ryonakano.reco',
-      'vala', 'c',
-      version: 'x.y.z-rc.1',
-      meson_version: '>= 0.58.0',
-    )
-    ```
-- Create a PR, wait for CI succeeds, then merge it
+## 2. Bump Project Version to `x.y.z-rc.1`
+- Create a new branch named `release-x.y.z-rc.1` from latest `origin/main`
+- Bump `version` in `meson.build`  
+```meson
+project(
+  'com.github.ryonakano.reco',
+  'vala', 'c',
+  version: 'x.y.z-rc.1',
+  meson_version: '>= 0.58.0',
+)
+```
+- Commit changes, create a PR, wait for CI succeeds, then merge it
 
 Example: https://github.com/ryonakano/reco/pull/449
 
-## 3. Publish a new release `x.y.z-rc.1`
+## 3. Publish New release `x.y.z-rc.1`
 [Create a new release](https://github.com/ryonakano/reco/releases/new) on the project repository.
 
 - Create a new tag named `x.y.z-rc.1`
@@ -38,7 +41,7 @@ Example: https://github.com/ryonakano/reco/pull/449
 
 Example: https://github.com/ryonakano/reco/releases/tag/5.2.0-rc.1
 
-## 4. Update `tag` and `commit` in the manifest file on Flathub
+## 4. Update `tag` & `commit` in Manifest File on Flathub
 - Clone https://github.com/flathub/com.github.ryonakano.reco
 - Create a new branch named `release-x.y.z`—**not `release-x.y.z-rc.1`**—from latest `origin/master`
   - Remember that this is the production repository, which means any changes pushed to `origin/master` are pulled on end users as updates
@@ -50,48 +53,63 @@ Example: https://github.com/ryonakano/reco/releases/tag/5.2.0-rc.1
     - `-Ddevelopment=true` flag of the project module
   - Update `tag` and `commit` of the project module
     - These two parameters should point to the tag/revision that we published on the project repository
+- Commit changes, create a PR, and check if CI succeeds
 
 Example: https://github.com/flathub/com.github.ryonakano.reco/pull/17/changes/6739c20044d42cff7b7238f76391940e699b41d8
 
-## Work in Project Repository
-- See changes since the previous release  
-    ```
-    $ git diff $(git describe --tags --abbrev=0)..release-X.Y.Z
-    ```
-- Update screenshots if there are visual changes between releases
-- Create a pull request with the following changes and merge it once the build succeeds
-    - Write a release note in `data/reco.metainfo.xml.in.in`
-        - Refer to [the Metainfo guidelines by Flathub](https://docs.flathub.org/docs/for-app-authors/metainfo-guidelines)
-        - Credits contributors with their GitHub username
-    - Bump `version` in `meson.build`  
-    ```meson
-    project(
-        'com.github.ryonakano.reco',
-        'vala', 'c',
-        version: '5.0.2',
-        meson_version: '>=0.58.0'
-    )
-    ```
-- [Create a new release on GitHub](https://github.com/ryonakano/reco/releases/new)
-    - Create a new tag named `X.Y.Z`
-    - Release title: `<Project Name> X.Y.Z Released`
-    - Publish it when completed
+## 5. (Optional) Engage Translators to Work on Translations
+Requirement: needs to be a member of the project maintainers on Weblate
 
-## Work in AppCenter Review Repository
-- Repository URL: https://github.com/elementary/appcenter-reviews
-- Fork the repository if you don't have write access to it
+Go to [Operation → Post announcement](https://hosted.weblate.org/projects/rosp/reco/#announcement) and post an
+announcement with the following content:
+
+- Write a `Message` that
+  - tells target date & time of release date in UTC
+  - asks translators to work on translations
+- Set `Severity` to `Info (light blue)`
+- Set `Expiry date` to the day before the target day
+- Check `Notify users` on
+
+## 6. Update AppStream Release Note
+- Create a new branch named `update-release-note-x.y.z` from latest `origin/main`
+- Write a release note in `data/reco.metainfo.xml.in.in`
+  - Refer to [the Metainfo guidelines by Flathub](https://docs.flathub.org/docs/for-app-authors/metainfo-guidelines)
+- Commit changes, create a PR, wait for CI succeeds, then merge it
+
+Example: TODO
+
+## 7. Merge Translations
+Translation updates from Hosted Weblate is configured to be submitted through a PR, e.g. https://github.com/ryonakano/reco/pull/443. Merge one before final release if any is open.
+
+## 8. Bump Project Version to `x.y.z`
+Refer to "2. Bump Project Version to `x.y.z-rc.1`" for details.
+
+Example: TODO
+
+## 9. Publish New release `x.y.z`
+Refer to "3. Publish New release `x.y.z-rc.1`" for details.
+
+- Release notes MUST be filled because this is a final release
+
+Example: https://github.com/ryonakano/reco/releases/tag/5.2.0
+
+## 10. Update `tag` & `commit` in Manifest File on Flathub
+Refer to "4. Update `tag` & `commit` in Manifest File on Flathub" for details.
+
+- Use the existing `release-x.y.z` branch created in 4.
+- Once CI succeeds, merge it
+- The new release should be available on Flathub after some time
+
+Example: TODO
+
+## 11. Update `commit` & `version` in JSON File on appcenter-reviews
+- Clone https://github.com/elementary/appcenter-reviews
+  - Fork the repository if you don't have write access to it
 - Create a new branch named `com.github.ryonakano.reco-X.Y.Z` from latest `origin/main`
-- Create a pull request with the following changes and await for review approval and merge
-    - Change `commit` and `version` in the `applications/com.github.ryonakano.reco.json`
-        - `commit` should be the release commit just we published on the project repository
-        - `version` for the relase version
+- Perform the following changes to `applications/com.github.ryonakano.reco.json`
+  - Update `commit` and `version`
+    - These two parameters should point to the tag/revision that we published on the project repository
+- Commit changes, create a PR, check if CI succeeds, and wait for review, approval, and merge by the AppCenter Reviewers
 - The new release should be available on AppCenter after some time
 
-## Work in Flathub Repository
-- Repository URL: https://github.com/flathub/com.github.ryonakano.reco
-- Create a new branch named `release-X.Y.Z` from latest `origin/master`
-- Create a pull request with the following changes and merge it once the build succeeds
-    - Sync the content of the manifest file with the upstream except for the project module
-    - Change `tag` and `commit` of the project module in the manifest file
-        - These two parameters should point to the tag/revision that we published on the project repository
-- The new release should be available on Flathub after some time
+Example: TODO
