@@ -1,10 +1,8 @@
 name: Gettext
 
 on:
-  # This workflow does't run every push because it takes some time to build
-  # the app and not always translatable strings are modified on every push
-  schedule:
-    - cron: "0 9 15 * *"
+  # This workflow isn't scheduled because strings may be changed during development
+  # so updating translation files may cause unnecessary translation work
   workflow_dispatch: {}
 
 jobs:
