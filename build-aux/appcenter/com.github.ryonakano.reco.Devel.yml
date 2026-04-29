@@ -30,6 +30,8 @@ modules:
           url-query: '"https://github.com/lcallarec/live-chart/archive/" + .tag_name + ".tar.gz"'
           timestamp-query: .published_at
 
+  # TODO: Remove when new version of platform that ships this by default is available
+  # See https://github.com/flathub/com.github.ryonakano.reco/pull/17#issuecomment-4343225449
   - name: gst-plugins-good
     buildsystem: meson
     config-opts:
