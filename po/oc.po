@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-15 09:16+0000\n"
-"PO-Revision-Date: 2026-02-23 11:18+0000\n"
+"PO-Revision-Date: 2026-04-29 11:50+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/reco/oc/>\n"
 "Language: oc\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: data/reco.desktop.in.in:3
 msgid "@APP_NAME@"
@@ -35,11 +35,8 @@ msgid "Record;Audio;Sound;Voice;"
 msgstr "enregistrar;enregistrament;àudio;son;votz;"
 
 #: data/reco.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid ""
-#| "Reco is an audio recorder focused on being concise and simple to use."
 msgid "An audio recorder focused on being concise and simple to use."
-msgstr "Reco es un enregistrador àudio que se vòl concís e simple d’utilizar."
+msgstr "Un enregistrador àudio que se vòl concís e simple d’utilizar."
 
 #: data/reco.metainfo.xml.in.in:16
 msgid ""
@@ -127,9 +124,6 @@ msgid "Recording"
 msgstr "Enregistrament"
 
 #: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Start/Stop recording"
 msgctxt "shortcut window"
 msgid "Start/Stop Recording"
 msgstr "Començar/Arrestar l'enregistrament"
@@ -181,10 +175,8 @@ msgid "Unable to Continue Recording"
 msgstr "Fracàs de l'enregistrament del fichièr"
 
 #: src/MainWindow.vala:145
-#, fuzzy
-#| msgid "There was an error while recording."
 msgid "There was an internal error while recording"
-msgstr "Una error se's producha pendent l'enregistrament."
+msgstr "Una error intèrna se's producha pendent l'enregistrament."
 
 #: src/MainWindow.vala:169
 msgid "Recording Saved"
@@ -195,8 +187,6 @@ msgid "Open Folder"
 msgstr "Dobrir lo dossièr"
 
 #: src/MainWindow.vala:208 src/MainWindow.vala:264
-#, fuzzy
-#| msgid "Failed to save recording"
 msgid "Failed to Save Recording"
 msgstr "Fracàs de l'enregistrament del fichièr"
 
