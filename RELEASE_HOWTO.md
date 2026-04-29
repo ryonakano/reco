@@ -1,4 +1,6 @@
 # Release Flow
+![release flow](./docs/images/release_flow.drawio.svg)
+
 ## Work in Project Repository
 - Repository URL: https://github.com/ryonakano/reco
 - Decide the version number of the release
