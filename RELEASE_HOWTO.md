@@ -1,7 +1,4 @@
 # Release Flow
-
-TODO: Indicate relation between the flow and the following steps
-
 ![release flow](./docs/images/release_flow.png)
 
 ## 1. Decide Version Number of Release
