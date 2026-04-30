@@ -60,7 +60,7 @@ Example: https://github.com/ryonakano/reco/releases/tag/5.2.0-rc.1
     * These two parameters should point to the tag/revision that we published on the project repository
 * Commit changes, create a PR, and check if CI succeeds
 
-Example: https://github.com/flathub/com.github.ryonakano.reco/pull/17/changes/6739c20044d42cff7b7238f76391940e699b41d8
+Example: https://github.com/flathub/com.github.ryonakano.reco/pull/17
 
 ## 4. Update Translation Template
 Run [Gettext workflow](https://github.com/ryonakano/reco/actions/workflows/gettext.yml) on the project repository
