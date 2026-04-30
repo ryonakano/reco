@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="04vBHNA-X5Ud6QrOq0fo">
-    <mxGraphModel dx="1011" dy="1094" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="662" dy="717" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -55,7 +55,7 @@
         <mxCell id="vjxJf3HwTeM3Un4-aYMm-3" edge="1" parent="1" source="vjxJf3HwTeM3Un4-aYMm-67" style="endArrow=classic;html=1;rounded=0;endFill=1;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="160" y="280" as="sourcePoint" />
-            <mxPoint x="1360" y="280" as="targetPoint" />
+            <mxPoint x="1320" y="280" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vjxJf3HwTeM3Un4-aYMm-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;Weblate&lt;/div&gt;&lt;div&gt;Repository&lt;/div&gt;" vertex="1">
@@ -64,7 +64,7 @@
         <mxCell id="vjxJf3HwTeM3Un4-aYMm-5" edge="1" parent="1" source="vjxJf3HwTeM3Un4-aYMm-104" style="endArrow=classic;html=1;rounded=0;endFill=1;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="360" y="400" as="sourcePoint" />
-            <mxPoint x="1360" y="400" as="targetPoint" />
+            <mxPoint x="1320" y="400" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vjxJf3HwTeM3Un4-aYMm-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;Flathub&lt;/div&gt;&lt;div&gt;Repository&lt;/div&gt;" vertex="1">
@@ -245,7 +245,7 @@
         </mxCell>
         <mxCell id="vjxJf3HwTeM3Un4-aYMm-92" edge="1" parent="1" source="vjxJf3HwTeM3Un4-aYMm-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1360" y="160" as="targetPoint" />
+            <mxPoint x="1320" y="160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vjxJf3HwTeM3Un4-aYMm-83" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
@@ -304,7 +304,7 @@
         </mxCell>
         <mxCell id="vjxJf3HwTeM3Un4-aYMm-110" edge="1" parent="1" source="vjxJf3HwTeM3Un4-aYMm-113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1360" y="520" as="targetPoint" />
+            <mxPoint x="1320" y="520" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vjxJf3HwTeM3Un4-aYMm-115" edge="1" parent="1" source="vjxJf3HwTeM3Un4-aYMm-108" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="vjxJf3HwTeM3Un4-aYMm-111">
