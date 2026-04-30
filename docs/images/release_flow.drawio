@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="04vBHNA-X5Ud6QrOq0fo">
-    <mxGraphModel dx="427" dy="462" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="246" dy="266" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -17,7 +17,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="vjxJf3HwTeM3Un4-aYMm-117" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;rounded=0;" value="8-4. Update commit &amp;amp; version in JSON File in appcenter-reviews" vertex="1">
-          <mxGeometry height="60" width="140" x="1130" y="570" as="geometry" />
+          <mxGeometry height="60" width="160" x="1120" y="570" as="geometry" />
         </mxCell>
         <mxCell id="vjxJf3HwTeM3Un4-aYMm-103" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;rounded=0;" value="8-3. Update tag &amp;amp; commit in Manifest File on Flathub" vertex="1">
           <mxGeometry height="60" width="140" x="1050" y="450" as="geometry" />
