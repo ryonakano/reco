@@ -125,7 +125,7 @@ Refer to "3-3. Update `tag` & `commit` in Manifest File on Flathub" for details.
 
 Example: TODO
 
-### 8-4. Update `commit` & `version` in JSON File on appcenter-reviews
+### 8-4. Update `commit` & `version` in JSON File in appcenter-reviews
 * Clone https://github.com/elementary/appcenter-reviews
   * Fork the repository if you don't have write access to it
 * Create a new branch from latest `origin/main`

@@ -16,7 +16,7 @@
             <mxPoint x="440" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="vjxJf3HwTeM3Un4-aYMm-117" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;rounded=0;" value="8-4. Update commit &amp;amp; version in JSON File on appcenter-reviews" vertex="1">
+        <mxCell id="vjxJf3HwTeM3Un4-aYMm-117" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;rounded=0;" value="8-4. Update commit &amp;amp; version in JSON File in appcenter-reviews" vertex="1">
           <mxGeometry height="60" width="140" x="1130" y="570" as="geometry" />
         </mxCell>
         <mxCell id="vjxJf3HwTeM3Un4-aYMm-103" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;rounded=0;" value="8-3. Update tag &amp;amp; commit in Manifest File on Flathub" vertex="1">
@@ -370,11 +370,11 @@
         <mxCell id="EoSg2LK0_OXeU0J7L412-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;rounded=0;" value="8. Publish Final Version x.y.z" vertex="1">
           <mxGeometry height="40" width="220" x="1010" y="10" as="geometry" />
         </mxCell>
-        <mxCell id="EoSg2LK0_OXeU0J7L412-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;strokeColor=#CCCCCC;" value="" vertex="1">
-          <mxGeometry height="570" width="320" x="960" y="60" as="geometry" />
-        </mxCell>
         <mxCell id="EoSg2LK0_OXeU0J7L412-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;strokeColor=#CCCCCC;" value="" vertex="1">
           <mxGeometry height="450" width="240" x="320" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EoSg2LK0_OXeU0J7L412-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;strokeColor=#CCCCCC;" value="" vertex="1">
+          <mxGeometry height="570" width="320" x="960" y="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
