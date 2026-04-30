@@ -10,9 +10,9 @@ Version numbers should follow [Semantic Versioning](https://semver.org/).
 We represents the version number as `x.y.z` in this document.
 
 ## 2. Update Screenshots
-Update screenshots under `data/screenshots` of the project.
+Update screenshots under the `data/screenshots` directory of the project.
 
-| Subdir     | Description                                  | Environment to Capture               |
+| Subdir     | Description                                  | Environment to Capture on            |
 | :---       | :---                                         | :---                                 |
 | `pantheon` | Screenshots for Pantheon                     | Latest version of elementary OS      |
 | `gnome`    | Screenshots for other desktop environments   | Latest version of Fedora Workstation |
