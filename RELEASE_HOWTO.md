@@ -2,7 +2,7 @@
 
 TODO: Indicate relation between the flow and the following steps
 
-![release flow](./docs/images/release_flow.drawio.svg)
+![release flow](./docs/images/release_flow.png)
 
 ## 1. Decide Version Number of Release
 Version numbers should follow [Semantic Versioning](https://semver.org/).
