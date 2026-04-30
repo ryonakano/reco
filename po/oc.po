@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-29 16:58+0900\n"
-"PO-Revision-Date: 2026-04-29 11:50+0000\n"
+"PO-Revision-Date: 2026-05-01 19:09+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/rosp/reco/oc/>\n"
 "Language: oc\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 5.17.1\n"
 
 #: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
@@ -80,6 +80,8 @@ msgid ""
 "Adding metadata automatically. Reco can add artist and year metadata to "
 "recording files."
 msgstr ""
+"Apondon automatic de metadonadas. Reco pòt apondre de metadonadas d'artista "
+"e d'annada als fichièrs d'enregistrament."
 
 #: data/reco.metainfo.xml.in.in:23
 msgid ""
@@ -162,7 +164,7 @@ msgstr "_Estile"
 
 #: src/MainWindow.vala:50
 msgid "_Keyboard Shortcuts"
-msgstr "_Acorchis de clavièr"
+msgstr "_Acorchis clavièr"
 
 #. TRANSLATORS: %s will be replaced by the app name
 #: src/MainWindow.vala:54
@@ -175,14 +177,12 @@ msgid "Main Menu"
 msgstr "Menú principal"
 
 #: src/MainWindow.vala:144
-#, fuzzy
-#| msgid "Failed to save recording"
 msgid "Unable to Continue Recording"
-msgstr "Fracàs de l'enregistrament del fichièr"
+msgstr "Impossible de contunhar l'enregistrament"
 
 #: src/MainWindow.vala:145
 msgid "There was an internal error while recording"
-msgstr "Una error intèrna se's producha pendent l'enregistrament."
+msgstr "Una error intèrna se's producha pendent l'enregistrament"
 
 #: src/MainWindow.vala:169
 msgid "Recording Saved"
@@ -201,39 +201,36 @@ msgid ""
 "Unable to move a temporary recording file to the final path. Make sure the "
 "destination exists and you have write access to it"
 msgstr ""
+"Impossible de desplaçar un fichièr d'enregistrament temporari cap a "
+"l'emplaçament final. Asseguratz-vos que la destinacion existís e que i avètz "
+"accès en escritura"
 
 #: src/MainWindow.vala:236
-#, fuzzy
-#| msgid "Saved recording"
 msgid "Save Recording"
-msgstr "Enregistrament salvat"
+msgstr "Salvar enregistrament"
 
 #: src/MainWindow.vala:265
 msgid ""
 "Unable to determine where to save recording finally. Try again using "
 "autosave instead"
 msgstr ""
+"Impossible de determinar ont enregistrar finalament. Tornatz ensajar en "
+"utilizant l'enregistrament automatic a la plaça"
 
 #: src/MainWindow.vala:325
-#, fuzzy
-#| msgid "Failed to save recording"
 msgid "Failed to Prepare Recording"
-msgstr "Fracàs de l'enregistrament del fichièr"
+msgstr "Fracàs de la preparacion de l'enregistrament"
 
 #: src/MainWindow.vala:326
-#, fuzzy
-#| msgid ""
-#| "This is possibly due to missing codecs or incomplete installation of the "
-#| "app. Make sure you've installed them and try reinstalling them if this "
-#| "issue persists."
 msgid ""
 "This is possibly due to missing codecs, incomplete installation of the app, "
 "or missing sound input/output devices. Make sure you've installed necessary "
 "components correctlly and connected sound devices"
 msgstr ""
-"Aquò se deu benlèu a de còdecs que mancan o a una installacion incomplèta de "
-"l'aplicacion. Asseguratz-vos que los avètz installats e ensajatz de los "
-"tornar installar se lo problèma persistís."
+"Aquò ven benlèu de còdecs mancants, a una installacion incomplèta de "
+"l'aplicacion, o a l'abséncia de periferics d'entrada/sortida de son. "
+"Asseguratz-vos d'aver installat corrèctament los compausants necessaris e de "
+"connectar los dispositius de son"
 
 #: src/MainWindow.vala:403
 msgid "Recording Canceled"
@@ -248,69 +245,51 @@ msgid "Recording is ongoing"
 msgstr "L'enregistrament es en cors"
 
 #: src/MainWindow.vala:492
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Failed to Open Folder"
-msgstr "Dobrir lo dossièr"
+msgstr "Impossible de dobrir lo fichièr"
 
 #: src/MainWindow.vala:493
 #, c-format
 msgid "Unable to open folder containing \"%s\""
-msgstr ""
+msgstr "Impossible de dobrir lo dossièr que conten « %s »"
 
 #: src/MainWindow.vala:546
 msgid "_Close"
-msgstr ""
+msgstr "_Tampar"
 
 #: src/View/CountDownView.vala:35
-#, fuzzy
-#| msgid "Cancel the countdown"
 msgid "Cancel Countdown"
 msgstr "Anullar lo descompte"
 
 #: src/View/CountDownView.vala:111
-#, fuzzy
-#| msgid "Pause the countdown"
 msgid "Pause Countdown"
 msgstr "Pausar lo descompte"
 
 #: src/View/CountDownView.vala:116
-#, fuzzy
-#| msgid "Resume the countdown"
 msgid "Resume Countdown"
 msgstr "Reprendre lo descompte"
 
 #: src/View/RecordView.vala:54 src/Widget/SavingDialog.vala:48
-#, fuzzy
-#| msgid "Cancel recording"
 msgid "Cancel Recording"
 msgstr "Anullar l'enregistrament"
 
 #: src/View/RecordView.vala:61
-#, fuzzy
-#| msgid "Finish recording"
 msgid "Finish Recording"
 msgstr "Terminar l'enregistrament"
 
 #: src/View/RecordView.vala:182
-#, fuzzy
-#| msgid "Resume recording"
 msgid "Resume Recording"
 msgstr "Reprendre l'enregistrament"
 
 #: src/View/RecordView.vala:195
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Pause Recording"
 msgstr "Pausar l'enregistrament"
 
 #. TRANSLATORS: This is the label of a button that shows a file dialog to select a folder
 #. where the app saves recodings automatically
 #: src/View/WelcomeView.vala:11
-#, fuzzy
-#| msgid "Select destination…"
 msgid "Destination…"
-msgstr "Seleccionar una destinacion…"
+msgstr "Destinacion…"
 
 #: src/View/WelcomeView.vala:28
 msgid "Source"
@@ -397,26 +376,20 @@ msgid "Add metadata:"
 msgstr "Apondre metadonadas :"
 
 #: src/View/WelcomeView.vala:115
-#, fuzzy
-#| msgid "Add record year and your real name in recording files."
 msgid "Add record year and your real name in recording files"
 msgstr ""
 "Apondre l’annada de l’enregistrament e vòstre nom real dins los fichièrs "
-"d’enregistrament."
+"d’enregistrament"
 
 #: src/View/WelcomeView.vala:121
 msgid "Autosave:"
-msgstr ""
+msgstr "Enregistrement auto :"
 
 #: src/View/WelcomeView.vala:132 src/View/WelcomeView.vala:135
-#, fuzzy
-#| msgid "Select destination…"
 msgid "Select Autosave Destination"
-msgstr "Seleccionar una destinacion…"
+msgstr "Seleccionar una destinacion d'enreg. auto"
 
 #: src/View/WelcomeView.vala:180
-#, fuzzy
-#| msgid "Start recording"
 msgid "Start Recording"
 msgstr "Començar l'enregistrament"
 
@@ -429,10 +402,8 @@ msgid "Problems?"
 msgstr "De problèmas ?"
 
 #: src/Widget/SavingDialog.vala:41
-#, fuzzy
-#| msgid "Just hang on until the file dialog appears."
 msgid "Just hang on until the file dialog appears"
-msgstr "Pacientatz fins que la fenèstra de dialòg del fichièr aparesca."
+msgstr "Pacientatz fins que la fenèstra de dialòg del fichièr aparesca"
 
 #: src/Widget/SavingDialog.vala:80
 msgid "Canceling…"
