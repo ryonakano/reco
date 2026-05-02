@@ -77,11 +77,11 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/blueprint-compiler.git
-        tag: 0.19.0
-        commit: de8e15f7791bd6243279cef1efc27edf4cb93674
+        tag: v0.20.4
+        commit: 31b62c24a72c1670d2d93dcdf2d130f1ae12778e
         x-checker-data:
           type: git
-          tag-pattern: ^([\d.]+)$
+          tag-pattern: ^v([\d.]+)$
 
   - name: reco
     buildsystem: meson
