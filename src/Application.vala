@@ -87,11 +87,11 @@ public class Application : Adw.Application {
     private void on_about_activate () {
         // List of maintainers
         const string[] DEVELOPERS = {
-            "Ryo Nakano https://github.com/ryonakano",
+            "Ryo Nakano <ryonakaknock3@gmail.com>",
         };
         // List of icon authors
         const string[] ARTISTS = {
-            "Ryo Nakano https://github.com/ryonakano",
+            "Ryo Nakano <ryonakaknock3@gmail.com>",
         };
 
         var about_dialog = new Adw.AboutDialog.from_appdata (
