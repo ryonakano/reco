@@ -1,14 +1,14 @@
 # Italian translations for com.github.ryonakano.reco.
 # Copyright (C) 2018-2026 Ryo Nakano
 # This file is distributed under the same license as the com.github.ryonakano.reco package.
-# albanobattistella <albano_battistella@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
+# albanobattistella <albano_battistella@hotmail.com>, 2021, 2022, 2023, 2024, 2025, 2026.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-29 16:58+0900\n"
-"PO-Revision-Date: 2025-08-11 12:02+0000\n"
+"PO-Revision-Date: 2026-05-04 09:09+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/rosp/reco/it/>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17.1\n"
 
 #: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
@@ -35,13 +35,9 @@ msgid "Record;Audio;Sound;Voice;"
 msgstr "Registra;Audio;Suono;Voce;"
 
 #: data/reco.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid ""
-#| "Reco is an audio recorder focused on being concise and simple to use."
 msgid "An audio recorder focused on being concise and simple to use."
 msgstr ""
-"Reco è un registratore audio focalizzato sull'essere conciso e semplice da "
-"usare."
+"Un registratore audio progettato per essere conciso e semplice da usare."
 
 #: data/reco.metainfo.xml.in.in:16
 msgid ""
@@ -86,6 +82,8 @@ msgid ""
 "Adding metadata automatically. Reco can add artist and year metadata to "
 "recording files."
 msgstr ""
+"Aggiunta automatica dei metadati. Reco può aggiungere metadati relativi ad "
+"artista e anno ai file di registrazione."
 
 #: data/reco.metainfo.xml.in.in:23
 msgid ""
@@ -135,12 +133,9 @@ msgid "Recording"
 msgstr "Registrazione"
 
 #: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Start/Stop recording"
 msgctxt "shortcut window"
 msgid "Start/Stop Recording"
-msgstr "Avvia/Interrompi registrazione"
+msgstr "Avvia/Interrompi la registrazione"
 
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
@@ -183,32 +178,22 @@ msgid "Main Menu"
 msgstr "Menu principale"
 
 #: src/MainWindow.vala:144
-#, fuzzy
-#| msgid "Failed to save recording"
 msgid "Unable to Continue Recording"
-msgstr "Impossibile salvare la registrazione"
+msgstr "Impossibile continuare la registrazione"
 
 #: src/MainWindow.vala:145
-#, fuzzy
-#| msgid "There was an error while recording."
 msgid "There was an internal error while recording"
-msgstr "Si è verificato un errore durante la registrazione."
+msgstr "Si è verificato un errore interno durante la registrazione"
 
 #: src/MainWindow.vala:169
-#, fuzzy
-#| msgid "Recording view"
 msgid "Recording Saved"
-msgstr "Vista di registrazione"
+msgstr "Registrazione salvata"
 
 #: src/MainWindow.vala:170
-#, fuzzy
-#| msgid "Open folder"
 msgid "Open Folder"
 msgstr "Apri cartella"
 
 #: src/MainWindow.vala:208 src/MainWindow.vala:264
-#, fuzzy
-#| msgid "Failed to save recording"
 msgid "Failed to Save Recording"
 msgstr "Impossibile salvare la registrazione"
 
@@ -217,120 +202,95 @@ msgid ""
 "Unable to move a temporary recording file to the final path. Make sure the "
 "destination exists and you have write access to it"
 msgstr ""
+"Impossibile spostare un file di registrazione temporaneo nel percorso "
+"finale. Assicurarsi che la destinazione esista e che si disponga dei "
+"permessi di scrittura"
 
 #: src/MainWindow.vala:236
-#, fuzzy
-#| msgid "Saved recording"
 msgid "Save Recording"
-msgstr "Registrazione salvata"
+msgstr "Salva la registrazione"
 
 #: src/MainWindow.vala:265
 msgid ""
 "Unable to determine where to save recording finally. Try again using "
 "autosave instead"
 msgstr ""
+"Impossibile determinare la posizione in cui salvare la registrazione. "
+"Riprovare utilizzando il salvataggio automatico"
 
 #: src/MainWindow.vala:325
-#, fuzzy
-#| msgid "Failed to save recording"
 msgid "Failed to Prepare Recording"
-msgstr "Impossibile salvare la registrazione"
+msgstr "Impossibile preparare la registrazione"
 
 #: src/MainWindow.vala:326
-#, fuzzy
-#| msgid ""
-#| "This is possibly due to missing codecs or incomplete installation of the "
-#| "app. Make sure you've installed them and try reinstalling them if this "
-#| "issue persists."
 msgid ""
 "This is possibly due to missing codecs, incomplete installation of the app, "
 "or missing sound input/output devices. Make sure you've installed necessary "
 "components correctlly and connected sound devices"
 msgstr ""
-"Ciò è probabilmente dovuto alla mancanza di codec o all'installazione "
-"incompleta dell'app. Assicurati di averli installati e prova a reinstallarli "
-"se il problema persiste."
+"Ciò potrebbe essere dovuto a codec mancanti, installazione incompleta "
+"dell'app o dispositivi di input/output audio mancanti. Assicurati di aver "
+"installato correttamente i componenti necessari e di aver collegato i "
+"dispositivi audio"
 
 #: src/MainWindow.vala:403
-#, fuzzy
-#| msgid "Recording view"
 msgid "Recording Canceled"
-msgstr "Vista di registrazione"
+msgstr "Registrazione annullata"
 
 #: src/MainWindow.vala:408
-#, fuzzy
-#| msgid "Recording view"
 msgid "Recording Moved to Trash"
-msgstr "Vista di registrazione"
+msgstr "Registrazione spostata nel Cestino"
 
 #: src/MainWindow.vala:431
 msgid "Recording is ongoing"
 msgstr "La registrazione è in corso"
 
 #: src/MainWindow.vala:492
-#, fuzzy
-#| msgid "Open folder"
 msgid "Failed to Open Folder"
-msgstr "Apri cartella"
+msgstr "Impossibile aprire la cartella"
 
 #: src/MainWindow.vala:493
 #, c-format
 msgid "Unable to open folder containing \"%s\""
-msgstr ""
+msgstr "Impossibile aprire la cartella contenente \"%s\""
 
 #: src/MainWindow.vala:546
 msgid "_Close"
-msgstr ""
+msgstr "_Chiudi"
 
 #: src/View/CountDownView.vala:35
-#, fuzzy
-#| msgid "Cancel the countdown"
 msgid "Cancel Countdown"
 msgstr "Annulla il conto alla rovescia"
 
 #: src/View/CountDownView.vala:111
-#, fuzzy
-#| msgid "Pause the countdown"
 msgid "Pause Countdown"
 msgstr "Metti in pausa il conto alla rovescia"
 
 #: src/View/CountDownView.vala:116
-#, fuzzy
-#| msgid "Resume the countdown"
 msgid "Resume Countdown"
 msgstr "Riprendi il conto alla rovescia"
 
 #: src/View/RecordView.vala:54 src/Widget/SavingDialog.vala:48
-#, fuzzy
-#| msgid "Cancel recording"
 msgid "Cancel Recording"
 msgstr "Annulla la registrazione"
 
 #: src/View/RecordView.vala:61
-#, fuzzy
-#| msgid "Finish recording"
 msgid "Finish Recording"
 msgstr "Termina registrazione"
 
 #: src/View/RecordView.vala:182
-#, fuzzy
-#| msgid "Resume recording"
 msgid "Resume Recording"
 msgstr "Riprendi la registrazione"
 
 #: src/View/RecordView.vala:195
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Pause Recording"
 msgstr "Metti in pausa la registrazione"
 
 #. TRANSLATORS: This is the label of a button that shows a file dialog to select a folder
 #. where the app saves recodings automatically
 #: src/View/WelcomeView.vala:11
-#, fuzzy
-#| msgid "Select destination…"
 msgid "Destination…"
-msgstr "Seleziona destinazione…"
+msgstr "Destinazione…"
 
 #: src/View/WelcomeView.vala:28
 msgid "Source"
@@ -414,44 +374,37 @@ msgstr "WAV"
 
 #: src/View/WelcomeView.vala:107
 msgid "Add metadata:"
-msgstr ""
+msgstr "Aggiungi i metadati:"
 
 #: src/View/WelcomeView.vala:115
 msgid "Add record year and your real name in recording files"
 msgstr ""
+"Aggiungi l'anno di registrazione e il tuo vero nome nei file di registrazione"
 
 #: src/View/WelcomeView.vala:121
 msgid "Autosave:"
-msgstr ""
+msgstr "Salvataggio automatico:"
 
 #: src/View/WelcomeView.vala:132 src/View/WelcomeView.vala:135
-#, fuzzy
-#| msgid "Select destination…"
 msgid "Select Autosave Destination"
-msgstr "Seleziona destinazione…"
+msgstr "Seleziona la destinazione del salvataggio automatico"
 
 #: src/View/WelcomeView.vala:180
-#, fuzzy
-#| msgid "Start recording"
 msgid "Start Recording"
 msgstr "Avvia registrazione"
 
 #: src/Widget/SavingDialog.vala:35
-#, fuzzy
-#| msgid "Saving"
 msgid "Saving…"
-msgstr "Salvataggio"
+msgstr "Salvataggio…"
 
 #: src/Widget/SavingDialog.vala:41
 msgid "Problems?"
-msgstr ""
+msgstr "Problemi?"
 
 #: src/Widget/SavingDialog.vala:41
 msgid "Just hang on until the file dialog appears"
-msgstr ""
+msgstr "Aspetta solo finché non appare la finestra di dialogo del file"
 
 #: src/Widget/SavingDialog.vala:80
-#, fuzzy
-#| msgid "Cancel recording"
 msgid "Canceling…"
-msgstr "Annulla la registrazione"
+msgstr "Annullamento in corso…"
