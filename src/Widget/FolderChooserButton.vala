@@ -51,7 +51,7 @@ public class Widget.FolderChooserButton : Gtk.Button {
         string last_path = Application.settings.get_string ("last-folder-path");
         if (FileUtils.test (last_path, FileTest.IS_DIR)) {
             // Gtk.FileDialog.initial_folder seems to must be a host path to work as expected inside sandbox
-            string? last_path_host = Util.query_host_path (last_path);
+            string? last_path_host = Util.FileUtil.query_host_path (last_path);
             if (last_path_host != null) {
                 chooser.initial_folder = File.new_for_path (last_path_host);
             }

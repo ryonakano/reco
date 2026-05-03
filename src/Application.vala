@@ -43,11 +43,11 @@ public class Application : Adw.Application {
                     return false;
                 }
 
-                adw_scheme = Util.to_adw_scheme ((string) state_scheme_dup);
+                adw_scheme = Util.Convert.to_adw_scheme ((string) state_scheme_dup);
                 return true;
             },
             (binding, adw_scheme, ref state_scheme) => {
-                string str_scheme = Util.to_str_scheme ((Adw.ColorScheme) adw_scheme);
+                string str_scheme = Util.Convert.to_str_scheme ((Adw.ColorScheme) adw_scheme);
                 state_scheme = new Variant.string (str_scheme);
                 return true;
             }
@@ -56,11 +56,11 @@ public class Application : Adw.Application {
             "color-scheme",
             style_manager, "color-scheme", SettingsBindFlags.DEFAULT,
             (adw_scheme, gschema_scheme, user_data) => {
-                adw_scheme = Util.to_adw_scheme ((string) gschema_scheme);
+                adw_scheme = Util.Convert.to_adw_scheme ((string) gschema_scheme);
                 return true;
             },
             (adw_scheme, expected_type, user_data) => {
-                string str_scheme = Util.to_str_scheme ((Adw.ColorScheme) adw_scheme);
+                string str_scheme = Util.Convert.to_str_scheme ((Adw.ColorScheme) adw_scheme);
                 Variant gschema_scheme = new Variant.string (str_scheme);
                 return gschema_scheme;
             },
