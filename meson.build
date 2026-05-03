@@ -22,12 +22,6 @@ if get_option('development')
   app_version += version_suffix
 endif
 
-app_revision = 'main'
-ret = run_command('git', 'rev-parse', 'HEAD', check: false)
-if ret.returncode() == 0
-  app_revision = ret.stdout().strip()
-endif
-
 gnome = import('gnome')
 i18n = import('i18n')
 
