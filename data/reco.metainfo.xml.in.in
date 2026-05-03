@@ -79,14 +79,14 @@
     <release version="5.2.0" date="2026-05-03" urgency="medium">
       <description translate="no">
         <p>
-          This release introduces support for mobile devices, support for metainfo, bugfixes for edge cases, and more.
+          This release introduces support for mobile devices, support for metadata, bugfixes for edge cases, and more.
         </p>
         <p>
           Big improvements:
         </p>
         <ul>
           <li>Support mobile devices</li>
-          <li>Add an opt-in switch to include artist and datetime metainfo to recordings</li>
+          <li>Add an opt-in switch to include artist and datetime metadata to recordings</li>
           <li>Ongoing recordings are trashed instead of being deleted when canceled. Plus a toast is shown when canceled</li>
           <li>Present processing dialog while saving to show progress and prevent users from interacting with UI</li>
           <li>Refresh the waveform only when the window is not "suspended"</li>
