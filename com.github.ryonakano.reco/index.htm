@@ -22,11 +22,15 @@
           <li class="namespace"><a href="Config.html">Config</a></li>
           <li class="namespace"><a href="Define.html">Define</a></li>
           <li class="namespace"><a href="Define.ColorScheme.html">Define.ColorScheme</a></li>
+          <li class="namespace"><a href="Define.ErrorDialogResponseID.html">Define.ErrorDialogResponseID</a></li>
+          <li class="namespace"><a href="Define.FileAttribute.html">Define.FileAttribute</a></li>
           <li class="namespace"><a href="Manager.html">Manager</a></li>
           <li class="namespace"><a href="Model.html">Model</a></li>
-          <li class="namespace"><a href="Model.Recorder.html">Model.Recorder</a></li>
           <li class="namespace"><a href="Model.Timer.html">Model.Timer</a></li>
           <li class="namespace"><a href="Util.html">Util</a></li>
+          <li class="namespace"><a href="Util.Convert.html">Util.Convert</a></li>
+          <li class="namespace"><a href="Util.DateTimeUtil.html">Util.DateTimeUtil</a></li>
+          <li class="namespace"><a href="Util.FileUtil.html">Util.FileUtil</a></li>
           <li class="namespace"><a href="View.html">View</a></li>
           <li class="namespace"><a href="Widget.html">Widget</a></li>
           <li class="class"><a href="Application.html">Application</a></li>
@@ -69,17 +73,11 @@
               </div></li>
           </ul>
           <li class="namespace"><a href="Define.html">Define</a></li>
-          <h3 class="main_title">Error domains:</h3>
+          <h3 class="main_title">Enums:</h3>
           <ul class="navi_inline">
-            <li class="errordomain"><a href="Define.RecordError.html">RecordError</a> - <span class="brief_description">Error definitions for 
-                recording.</span></li>
-          </ul>
-          <h3 class="main_title">Constants:</h3>
-          <ul class="navi_inline">
-            <li class="constant"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">const</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="Define.APP_NAME.html" class="constant">APP_NAME</a></b>
-              </span>
-              <div class="leaf_brief_description"><span class="brief_description">The name of the application.</span>
-              </div></li>
+            <li class="enum"><a href="Define.ChannelID.html">ChannelID</a></li>
+            <li class="enum"><a href="Define.FormatID.html">FormatID</a></li>
+            <li class="enum"><a href="Define.SourceID.html">SourceID</a></li>
           </ul>
           <li class="namespace"><a href="Define.ColorScheme.html">ColorScheme</a> - <span class="brief_description">String representation of 
               Adw.ColorScheme.</span></li>
@@ -98,24 +96,32 @@
               <div class="leaf_brief_description"><span class="brief_description">Always use light appearance.</span>
               </div></li>
           </ul>
+          <li class="namespace"><a href="Define.ErrorDialogResponseID.html">ErrorDialogResponseID</a> - <span class="brief_description">Response IDs 
+              used in the error dialog.</span></li>
+          <h3 class="main_title">Constants:</h3>
+          <ul class="navi_inline">
+            <li class="constant"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">const</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="Define.ErrorDialogResponseID.CLOSE.html" class="constant">CLOSE</a></b>
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+          </ul>
+          <li class="namespace"><a href="Define.FileAttribute.html">FileAttribute</a></li>
+          <h3 class="main_title">Constants:</h3>
+          <ul class="navi_inline">
+            <li class="constant"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">const</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="Define.FileAttribute.HOST_PATH.html" class="constant">HOST_PATH</a></b>
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+          </ul>
           <li class="namespace"><a href="Manager.html">Manager</a></li>
           <h3 class="main_title">Classes:</h3>
           <ul class="navi_inline">
             <li class="class"><a href="Manager.DeviceManager.html">DeviceManager</a></li>
-            <li class="class"><a href="Manager.RecordManager.html">RecordManager</a></li>
           </ul>
           <li class="namespace"><a href="Model.html">Model</a></li>
-          <li class="namespace"><a href="Model.Recorder.html">Recorder</a></li>
           <h3 class="main_title">Classes:</h3>
           <ul class="navi_inline">
-            <li class="class"><a href="Model.Recorder.ALACRecorder.html">ALACRecorder</a></li>
-            <li class="abstract_class"><a href="Model.Recorder.AbstractRecorder.html">AbstractRecorder</a> - <span class="brief_description">An 
-                abstract class that handles unique procedues for a specific file format like WAV or MP3.</span></li>
-            <li class="class"><a href="Model.Recorder.FLACRecorder.html">FLACRecorder</a></li>
-            <li class="class"><a href="Model.Recorder.MP3Recorder.html">MP3Recorder</a></li>
-            <li class="class"><a href="Model.Recorder.OGGRecorder.html">OGGRecorder</a></li>
-            <li class="class"><a href="Model.Recorder.OPUSRecorder.html">OPUSRecorder</a></li>
-            <li class="class"><a href="Model.Recorder.WAVRecorder.html">WAVRecorder</a></li>
+            <li class="class"><a href="Model.Recorder.html">Recorder</a> - <span class="brief_description">Handles recording</span></li>
           </ul>
           <li class="namespace"><a href="Model.Timer.html">Timer</a></li>
           <h3 class="main_title">Classes:</h3>
@@ -127,27 +133,62 @@
           <li class="namespace"><a href="Util.html">Util</a></li>
           <h3 class="main_title">Methods:</h3>
           <ul class="navi_inline">
-            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><span class="struct">Date</span></span> <b><a href="Util.dt2date.html" class="method">dt2date</a></b> (<span class="main_type"><span class="class">DateTime</span></span> dt)
-              </span>
-              <div class="leaf_brief_description">
-              </div></li>
-            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="Util.get_suffix.html" class="method">get_suffix</a></b> (<span class="main_basic_type"><span class="class">string</span></span> path)
-              </span>
-              <div class="leaf_brief_description">
-              </div></li>
             <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">bool</span></span> <b><a href="Util.is_on_pantheon.html" class="method">is_on_pantheon</a></b> ()
               </span>
               <div class="leaf_brief_description">
               </div></li>
-            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">bool</span></span> <b><a href="Util.is_same_day.html" class="method">is_same_day</a></b> (<span class="main_type"><span class="class">DateTime</span></span> a, <span class="main_type"><span class="class">DateTime</span></span> b)
+          </ul>
+          <li class="namespace"><a href="Util.Convert.html">Convert</a> - <span class="brief_description">Converts data types.</span></li>
+          <h3 class="main_title">Methods:</h3>
+          <ul class="navi_inline">
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><span class="struct">RGBA</span></span> <b><a href="Util.Convert.hex_to_rgba.html" class="method">hex_to_rgba</a></b> (<span class="main_basic_type"><span class="class">string</span></span> hex)
+              </span>
+              <div class="leaf_brief_description"><span class="brief_description">Converts hex representation of a color to <span class="struct">
+                    Gdk.RGBA</span>.</span>
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><span class="enum">ColorScheme</span></span> <b><a href="Util.Convert.to_adw_scheme.html" class="method">to_adw_scheme</a></b> (<span class="main_basic_type"><span class="class">string</span></span> str_scheme)
+              </span>
+              <div class="leaf_brief_description"><span class="brief_description">Converts string representation of a color scheme to 
+                  <span class="enum">Adw.ColorScheme</span>.</span>
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="Util.Convert.to_str_scheme.html" class="method">to_str_scheme</a></b> (<span class="main_type"><span class="enum">ColorScheme</span></span> adw_scheme)
+              </span>
+              <div class="leaf_brief_description"><span class="brief_description">Converts <span class="enum">Adw.ColorScheme</span> to string 
+                  representation of a color scheme.</span>
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">int64</span></span> <b><a href="Util.Convert.usec_to_msec.html" class="method">usec_to_msec</a></b> (<span class="main_basic_type"><span class="struct">int64</span></span> usec)
+              </span>
+              <div class="leaf_brief_description"><span class="brief_description">Converts μs to ms.</span>
+              </div></li>
+          </ul>
+          <li class="namespace"><a href="Util.DateTimeUtil.html">DateTimeUtil</a> - <span class="brief_description">Date &amp; Time utilities.</span>
+          </li>
+          <h3 class="main_title">Methods:</h3>
+          <ul class="navi_inline">
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><span class="struct">Date</span></span> <b><a href="Util.DateTimeUtil.dt_to_date.html" class="method">dt_to_date</a></b> (<span class="main_type"><span class="class">DateTime</span></span> dt)
+              </span>
+              <div class="leaf_brief_description"><span class="brief_description">Converts <span class="class">GLib.DateTime</span> to 
+                  <span class="struct">GLib.Date</span>.</span>
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">bool</span></span> <b><a href="Util.DateTimeUtil.is_same_day.html" class="method">is_same_day</a></b> (<span class="main_type"><span class="class">DateTime</span></span> a, <span class="main_type"><span class="class">DateTime</span></span> b)
+              </span>
+              <div class="leaf_brief_description"><span class="brief_description">Check if the two <span class="class">GLib.DateTime</span> is 
+                  completely the same day.</span>
+              </div></li>
+          </ul>
+          <li class="namespace"><a href="Util.FileUtil.html">FileUtil</a> - <span class="brief_description">File utilities.</span></li>
+          <h3 class="main_title">Methods:</h3>
+          <ul class="navi_inline">
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">async</span> <span class="main_keyword">void</span> <b><a href="Util.FileUtil.delete_file.html" class="method">delete_file</a></b> (<span class="main_basic_type"><span class="class">string</span></span> path) <span class="main_keyword">throws</span> <span class="main_type"><span class="class">Error</span></span>
               </span>
               <div class="leaf_brief_description">
               </div></li>
-            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><span class="enum">ColorScheme</span></span> <b><a href="Util.to_adw_scheme.html" class="method">to_adw_scheme</a></b> (<span class="main_basic_type"><span class="class">string</span></span> str_scheme)
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="class">string</span></span>? <b><a href="Util.FileUtil.query_host_path.html" class="method">query_host_path</a></b> (<span class="main_basic_type"><span class="class">string</span></span> sandbox_path)
               </span>
-              <div class="leaf_brief_description">
+              <div class="leaf_brief_description"><span class="brief_description">Query path on host. Note: This method requires xdg-desktop-portal 
+                  &gt;= 1.19.0 to work.</span>
               </div></li>
-            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="Util.to_str_scheme.html" class="method">to_str_scheme</a></b> (<span class="main_type"><span class="enum">ColorScheme</span></span> adw_scheme)
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">async</span> <span class="main_keyword">void</span> <b><a href="Util.FileUtil.trash_file.html" class="method">trash_file</a></b> (<span class="main_basic_type"><span class="class">string</span></span> path) <span class="main_keyword">throws</span> <span class="main_type"><span class="class">Error</span></span>
               </span>
               <div class="leaf_brief_description">
               </div></li>
@@ -163,10 +204,12 @@
           <li class="namespace"><a href="Widget.html">Widget</a></li>
           <h3 class="main_title">Classes:</h3>
           <ul class="navi_inline">
+            <li class="class"><a href="Widget.ControlBar.html">ControlBar</a> - <span class="brief_description">Displays recording control buttons.
+              </span></li>
             <li class="class"><a href="Widget.FolderChooserButton.html">FolderChooserButton</a></li>
-            <li class="class"><a href="Widget.LevelBar.html">LevelBar</a></li>
-            <li class="class"><a href="Widget.ProcessingDialog.html">ProcessingDialog</a> - <span class="brief_description">A transitional dialog to 
-                be shown while saving and we don't want users to access to the main content of the app.</span></li>
+            <li class="class"><a href="Widget.SavingDialog.html">SavingDialog</a> - <span class="brief_description">A transitional dialog to be shown 
+                while saving and we don't want users to access to the main content of the app.</span></li>
+            <li class="class"><a href="Widget.Waveform.html">Waveform</a> - <span class="brief_description">Draws an audio waveform.</span></li>
           </ul>
         </ul>
         <h3 class="main_title">Classes:</h3>

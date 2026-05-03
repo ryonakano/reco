@@ -24,7 +24,7 @@
         <hr class="navi_hr"/>
         <ul class="navi_main">
           <li class="creation_method"><a href="MainWindow.MainWindow.html">MainWindow</a></li>
-          <li class="method"><a href="MainWindow.check_destroy.html">check_destroy</a></li>
+          <li class="method"><a href="MainWindow.prepare_destory.html">prepare_destory</a></li>
         </ul>
       </div>
       <div class="site_content">
@@ -47,9 +47,9 @@
         </ul>
         <h3 class="main_title">Methods:</h3>
         <ul class="navi_inline">
-          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">bool</span></span> <b><a href="MainWindow.check_destroy.html" class="method">check_destroy</a></b> ()
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">bool</span></span> <b><a href="MainWindow.prepare_destory.html" class="method">prepare_destory</a></b> ()
             </span>
-            <div class="leaf_brief_description">
+            <div class="leaf_brief_description"><span class="brief_description">Prepare to destroy <code>this</code></span>
             </div></li>
         </ul>
         <h3 class="main_title">Inherited Members:</h3>
@@ -141,6 +141,7 @@
                 <li class="method">get_destroy_with_parent</li>
                 <li class="method">get_focus</li>
                 <li class="method">get_focus_visible</li>
+                <li class="method">get_gravity</li>
                 <li class="method">get_group</li>
               </ul>
             </div>
@@ -156,6 +157,7 @@
                 <li class="method">get_titlebar</li>
                 <li class="static_method">get_toplevels</li>
                 <li class="method">get_transient_for</li>
+                <li class="property">gravity</li>
                 <li class="property">handle_menubar_accel</li>
                 <li class="method">has_group</li>
                 <li class="property">hide_on_close</li>
@@ -190,6 +192,7 @@
                 <li class="method">set_display</li>
                 <li class="method">set_focus</li>
                 <li class="method">set_focus_visible</li>
+                <li class="method">set_gravity</li>
                 <li class="method">set_handle_menubar_accel</li>
                 <li class="method">set_hide_on_close</li>
                 <li class="method">set_icon_name</li>
@@ -292,6 +295,7 @@
                 <li class="method">get_last_child</li>
                 <li class="method">get_layout_manager</li>
                 <li class="method">get_layout_manager_type</li>
+                <li class="method">get_limit_events</li>
                 <li class="method">get_mapped</li>
                 <li class="method">get_margin_bottom</li>
                 <li class="method">get_margin_end</li>
@@ -355,6 +359,7 @@
                 <li class="method">is_visible</li>
                 <li class="signal">keynav_failed</li>
                 <li class="property">layout_manager</li>
+                <li class="property">limit_events</li>
                 <li class="method">list_mnemonic_labels</li>
                 <li class="signal">map</li>
                 <li class="property">margin_bottom</li>
@@ -412,6 +417,7 @@
                 <li class="method">set_hexpand_set</li>
                 <li class="method">set_layout_manager</li>
                 <li class="method">set_layout_manager_type</li>
+                <li class="method">set_limit_events</li>
                 <li class="method">set_margin_bottom</li>
                 <li class="method">set_margin_end</li>
                 <li class="method">set_margin_start</li>
@@ -585,6 +591,7 @@
               <ul class="navi_inline">
                 <li class="abstract_property">accessible_role</li>
                 <li class="method">announce</li>
+                <li class="abstract_method">get_accessible_id</li>
                 <li class="abstract_method">get_accessible_parent</li>
                 <li class="method">get_accessible_role</li>
                 <li class="abstract_method">get_at_context</li>
@@ -605,6 +612,7 @@
             </div>
             <div class="column">
               <ul class="navi_inline">
+                <li class="method">update_platform_state</li>
                 <li class="method">update_property</li>
                 <li class="method">update_property_value</li>
                 <li class="method">update_relation</li>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Model.Recorder.prepare &ndash; com.github.ryonakano.reco &ndash; Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">Model.Recorder.prepare &ndash; com.github.ryonakano.reco Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">com.github.ryonakano.reco</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="Model.html">Model</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="class"><a href="Model.Recorder.html">Recorder</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="property"><a href="Model.Recorder.current_peak.html">current_peak</a></li>
+          <li class="creation_method"><a href="Model.Recorder.Recorder.html">Recorder</a></li>
+          <li class="method"><a href="Model.Recorder.cancel.html">cancel</a></li>
+          <li class="method"><a href="Model.Recorder.pause.html">pause</a></li>
+          <li class="method">prepare</li>
+          <li class="method"><a href="Model.Recorder.request_shutdown.html">request_shutdown</a></li>
+          <li class="method"><a href="Model.Recorder.resume.html">resume</a></li>
+          <li class="method"><a href="Model.Recorder.start.html">start</a></li>
+          <li class="method"><a href="Model.Recorder.stop.html">stop</a></li>
+          <li class="signal"><a href="Model.Recorder.record_err.html">record_err</a></li>
+          <li class="signal"><a href="Model.Recorder.record_ok.html">record_ok</a></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">prepare</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Description:</h2>
+        <div class="main_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">bool</span></span> <b><span class="method">prepare</span></b> (<span class="main_basic_type"><span class="class">string</span></span> dst_path, <span class="main_type"><a href="Define.SourceID.html" class="enum">SourceID</a></span> source, <span class="main_type"><a href="Define.ChannelID.html" class="enum">ChannelID</a></span> channel, <span class="main_type"><a href="Define.FormatID.html" class="enum">FormatID</a></span> format, <span class="main_basic_type"><span class="class">string</span></span>? meta_author, <span class="main_type"><span class="class">DateTime</span></span>? meta_record_dt)
+        </div>
+        <div class="description">
+          <p>Create a pipeline and add elements to it</p>
+          <p>This changes state of <code>this</code> from Idle to Ready if succeeds</p>
+          <h2 class="main_title">Parameters:</h2>
+          <table class="main_parameter_table">
+            <tr>
+              <td class="main_parameter_table_name">dst_path</td>
+              <td>
+                <p>destination path where to save recording </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="main_parameter_table_name">source</td>
+              <td>
+                <p>information of which type of a device records from </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="main_parameter_table_name">channel</td>
+              <td>
+                <p>number of channels </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="main_parameter_table_name">format</td>
+              <td>
+                <p>file format that is encoded to </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="main_parameter_table_name">meta_author</td>
+              <td>
+                <p>artist name that will be set to metadata as value of "Artist". Set null for no metadata </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="main_parameter_table_name">meta_record_dt</td>
+              <td>
+                <p>date &amp; time that will be set to metadata as value of "Year". Set null for no metadata </p>
+              </td>
+            </tr>
+          </table>
+          <h2 class="main_title">Returns:</h2>
+          <table class="main_parameter_table">
+            <tr>
+              <td>
+                <p><code>true</code> if succeeds, <code>false</code> otherwise </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div><br/>
+    <div class="site_footer">Generated by <a href="https://docs.vala.dev"><kbd>valadoc</kbd></a>
+    </div>
+  </body>
+</html>

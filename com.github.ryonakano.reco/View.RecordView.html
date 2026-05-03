@@ -27,9 +27,12 @@
         </ul>
         <hr class="navi_hr"/>
         <ul class="navi_main">
+          <li class="property"><a href="View.RecordView.recorder.html">recorder</a></li>
           <li class="creation_method"><a href="View.RecordView.RecordView.html">RecordView</a></li>
-          <li class="method"><a href="View.RecordView.refresh_begin.html">refresh_begin</a></li>
-          <li class="method"><a href="View.RecordView.refresh_end.html">refresh_end</a></li>
+          <li class="method"><a href="View.RecordView.draw_start.html">draw_start</a></li>
+          <li class="method"><a href="View.RecordView.draw_stop.html">draw_stop</a></li>
+          <li class="method"><a href="View.RecordView.start.html">start</a></li>
+          <li class="method"><a href="View.RecordView.stop.html">stop</a></li>
           <li class="signal"><a href="View.RecordView.cancel_recording.html">cancel_recording</a></li>
           <li class="signal"><a href="View.RecordView.pause_recording.html">pause_recording</a></li>
           <li class="signal"><a href="View.RecordView.resume_recording.html">resume_recording</a></li>
@@ -49,20 +52,35 @@
         <div class="package_note"><b>Package:</b> <a href="index.htm">com.github.ryonakano.reco</a>
         </div>
         <h2 class="main_title">Content:</h2>
+        <h3 class="main_title">Properties:</h3>
+        <ul class="navi_inline">
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="Model.Recorder.html" class="class">Recorder</a></span> <b><a href="View.RecordView.recorder.html" class="property">recorder</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+        </ul>
         <h3 class="main_title">Creation methods:</h3>
         <ul class="navi_inline">
-          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="View.RecordView.RecordView.html" class="creation_method">RecordView</a></b> ()
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="View.RecordView.RecordView.html" class="creation_method">RecordView</a></b> (<span class="main_type"><a href="Model.Recorder.html" class="class">Recorder</a></span> recorder)
             </span>
             <div class="leaf_brief_description">
             </div></li>
         </ul>
         <h3 class="main_title">Methods:</h3>
         <ul class="navi_inline">
-          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="View.RecordView.refresh_begin.html" class="method">refresh_begin</a></b> ()
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="View.RecordView.draw_start.html" class="method">draw_start</a></b> ()
             </span>
             <div class="leaf_brief_description">
             </div></li>
-          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="View.RecordView.refresh_end.html" class="method">refresh_end</a></b> ()
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="View.RecordView.draw_stop.html" class="method">draw_stop</a></b> ()
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="View.RecordView.start.html" class="method">start</a></b> (<span class="main_basic_type"><span class="struct">uint</span></span> record_length)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="View.RecordView.stop.html" class="method">stop</a></b> ()
             </span>
             <div class="leaf_brief_description">
             </div></li>
@@ -88,8 +106,8 @@
         </ul>
         <h3 class="main_title">Inherited Members:</h3>
         <div class="box">
-          <div class="headline" onclick="toggle_box (this, 'box-content-59')">All known members inherited from class Gtk.Box</div>
-          <div class="content" id="box-content-59">
+          <div class="headline" onclick="toggle_box (this, 'box-content-45')">All known members inherited from class Gtk.Box</div>
+          <div class="content" id="box-content-45">
             <div class="column">
               <ul class="navi_inline">
                 <li class="method">append</li>
@@ -122,8 +140,8 @@
           </div>
         </div>
         <div class="box">
-          <div class="headline" onclick="toggle_box (this, 'box-content-60')">All known members inherited from class Gtk.Widget</div>
-          <div class="content" id="box-content-60">
+          <div class="headline" onclick="toggle_box (this, 'box-content-46')">All known members inherited from class Gtk.Widget</div>
+          <div class="content" id="box-content-46">
             <div class="column">
               <ul class="navi_inline">
                 <li class="method">action_set_enabled</li>
@@ -199,6 +217,7 @@
                 <li class="method">get_last_child</li>
                 <li class="method">get_layout_manager</li>
                 <li class="method">get_layout_manager_type</li>
+                <li class="method">get_limit_events</li>
                 <li class="method">get_mapped</li>
                 <li class="method">get_margin_bottom</li>
                 <li class="method">get_margin_end</li>
@@ -262,6 +281,7 @@
                 <li class="method">is_visible</li>
                 <li class="signal">keynav_failed</li>
                 <li class="property">layout_manager</li>
+                <li class="property">limit_events</li>
                 <li class="method">list_mnemonic_labels</li>
                 <li class="signal">map</li>
                 <li class="property">margin_bottom</li>
@@ -319,6 +339,7 @@
                 <li class="method">set_hexpand_set</li>
                 <li class="method">set_layout_manager</li>
                 <li class="method">set_layout_manager_type</li>
+                <li class="method">set_limit_events</li>
                 <li class="method">set_margin_bottom</li>
                 <li class="method">set_margin_end</li>
                 <li class="method">set_margin_start</li>
@@ -366,8 +387,8 @@
           </div>
         </div>
         <div class="box">
-          <div class="headline" onclick="toggle_box (this, 'box-content-61')">All known members inherited from class GLib.Object</div>
-          <div class="content" id="box-content-61">
+          <div class="headline" onclick="toggle_box (this, 'box-content-47')">All known members inherited from class GLib.Object</div>
+          <div class="content" id="box-content-47">
             <div class="column">
               <ul class="navi_inline">
                 <li class="method">@get</li>
@@ -433,12 +454,13 @@
           </div>
         </div>
         <div class="box">
-          <div class="headline" onclick="toggle_box (this, 'box-content-62')">All known members inherited from interface Gtk.Accessible</div>
-          <div class="content" id="box-content-62">
+          <div class="headline" onclick="toggle_box (this, 'box-content-48')">All known members inherited from interface Gtk.Accessible</div>
+          <div class="content" id="box-content-48">
             <div class="column">
               <ul class="navi_inline">
                 <li class="abstract_property">accessible_role</li>
                 <li class="method">announce</li>
+                <li class="abstract_method">get_accessible_id</li>
                 <li class="abstract_method">get_accessible_parent</li>
                 <li class="method">get_accessible_role</li>
                 <li class="abstract_method">get_at_context</li>
@@ -459,6 +481,7 @@
             </div>
             <div class="column">
               <ul class="navi_inline">
+                <li class="method">update_platform_state</li>
                 <li class="method">update_property</li>
                 <li class="method">update_property_value</li>
                 <li class="method">update_relation</li>
@@ -470,8 +493,8 @@
           </div>
         </div>
         <div class="box">
-          <div class="headline" onclick="toggle_box (this, 'box-content-63')">All known members inherited from interface Gtk.Buildable</div>
-          <div class="content" id="box-content-63">
+          <div class="headline" onclick="toggle_box (this, 'box-content-49')">All known members inherited from interface Gtk.Buildable</div>
+          <div class="content" id="box-content-49">
             <div class="column">
               <ul class="navi_inline">
                 <li class="abstract_method">add_child</li>
@@ -497,8 +520,8 @@
           </div>
         </div>
         <div class="box">
-          <div class="headline" onclick="toggle_box (this, 'box-content-64')">All known members inherited from interface Gtk.Orientable</div>
-          <div class="content" id="box-content-64">
+          <div class="headline" onclick="toggle_box (this, 'box-content-50')">All known members inherited from interface Gtk.Orientable</div>
+          <div class="content" id="box-content-50">
             <div class="column">
               <ul class="navi_inline">
                 <li class="method">get_orientation</li>
