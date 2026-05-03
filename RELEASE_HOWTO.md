@@ -102,8 +102,6 @@ commit makes it harder to revisit them later.
 ### 8-1. Bump Project Version to `x.y.z`
 Refer to "3-1. Bump Project Version to `x.y.z-rc.1`" for details.
 
-Example: TODO
-
 ### 8-2. Publish New Release `x.y.z`
 Refer to "3-2. Publish New Release `x.y.z-rc.1`" for details.
 
@@ -111,16 +109,12 @@ Refer to "3-2. Publish New Release `x.y.z-rc.1`" for details.
 * Check `Set as a pre-release` off (default)
 * Check `Set as the latest release` on (default)
 
-Example: https://github.com/ryonakano/reco/releases/tag/5.2.0
-
 ### 8-3. Update `tag` & `commit` in Manifest File on Flathub
 Refer to "3-3. Update `tag` & `commit` in Manifest File on Flathub" for details.
 
 * Use the existing `release-x.y.z` branch created in the step 3-3.
 * Once CI succeeds, merge it
 * The new release should be available on Flathub after some time
-
-Example: TODO
 
 ### 8-4. Update `commit` & `version` in JSON File in appcenter-reviews
 * Clone https://github.com/elementary/appcenter-reviews
@@ -133,4 +127,4 @@ Example: TODO
 * Wait for review, approval, and merge from the AppCenter Reviewers
 * The new release should be available on AppCenter after some time
 
-Example: TODO
+Example: https://github.com/elementary/appcenter-reviews/pull/573
