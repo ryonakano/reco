@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-29 16:58+0900\n"
-"PO-Revision-Date: 2026-05-10 20:10+0000\n"
-"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
+"PO-Revision-Date: 2026-05-12 11:11+0000\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/rosp/reco/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -25,59 +25,72 @@ msgstr "@APP_NAME@"
 
 #: data/reco.desktop.in.in:3
 msgid "Audio Recording App"
-msgstr ""
+msgstr "Aplikacija za snimanje audio snimki"
 
 #: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
-msgstr ""
+msgstr "Fokusiraj na snimanje"
 
 #: data/reco.desktop.in.in:10
 msgid "Record;Audio;Sound;Voice;"
-msgstr ""
+msgstr "Snimaj;Snimka;Audio;Zvuk;Glas;"
 
 #: data/reco.metainfo.xml.in.in:13
 msgid "An audio recorder focused on being concise and simple to use."
-msgstr ""
+msgstr "Audio snimač usmjeren na sažetost i jednostavnost korištenja."
 
 #: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
+"Možeš ga koristiti za snimanje i pamćenje izgovorenih riječi, zvukova "
+"sustava, improviziranih melodija i svega ostalog što možeš raditi s "
+"mikrofonom, zvučnikom ili objima."
 
 #: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
-msgstr ""
+msgstr "Funkcije ukljućuju:"
 
 #: data/reco.metainfo.xml.in.in:19
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
+"Snimanje zvukova s mikrofona i sustava istovremeno. Ovo je korisno za "
+"snimanje poziva ili za streaming videa na internetu."
 
 #: data/reco.metainfo.xml.in.in:20
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
+"Spremanje u mnogim uobičajenim formatima. Podržava ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus i WAV."
 
 #: data/reco.metainfo.xml.in.in:21
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
+"Vremenski ograničeno snimanje. Možeš postaviti odgodu prije snimanja do 15 "
+"sekundi, a duljinu snimanja do 600 sekundi."
 
 #: data/reco.metainfo.xml.in.in:22
 msgid ""
 "Adding metadata automatically. Reco can add artist and year metadata to "
 "recording files."
 msgstr ""
+"Automatsko dodavanje metapodataka. Reco može dodati metapodatke izvođača i "
+"godine u datoteke snimanja."
 
 #: data/reco.metainfo.xml.in.in:23
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
+"Odabir mjesta za spremanje snimki. Možeš odabrati automatsko ili ručno "
+"spremanje snimki u mapu po tvom izboru."
 
 #: data/reco.metainfo.xml.in.in:24
 msgid ""
@@ -85,39 +98,42 @@ msgid ""
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
+"Spremanje snimki kad se aplikacija zatvori. Čak i ako slučajno zatvoriš "
+"aplikaciju tijekom snimanja, snimka se ili automatski sprema ili se "
+"prikazuje dijalog za odabir datoteke – ovisno o tome što želiš."
 
 #: data/reco.metainfo.xml.in.in:30
 msgid "Welcome view; perform recording configuration"
-msgstr ""
+msgstr "Prikaz dobrodošlice; konfiguriraj snimanja"
 
 #: data/reco.metainfo.xml.in.in:35
 msgid "Recording view"
-msgstr ""
+msgstr "Prikaz snimanja"
 
 #: data/ui/help-overlay.blp:10
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "Opće"
 
 #: data/ui/help-overlay.blp:13
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Tipkovni prečaci"
 
 #: data/ui/help-overlay.blp:18
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Zatvori aplikaciju"
 
 #: data/ui/help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Recording"
-msgstr ""
+msgstr "Snima se"
 
 #: data/ui/help-overlay.blp:27
 msgctxt "shortcut window"
 msgid "Start/Stop Recording"
-msgstr ""
+msgstr "Pokreni/Prekini snimanje"
 
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
@@ -127,77 +143,81 @@ msgstr ""
 #. John Doe https://example.com
 #: src/Application.vala:111
 msgid "translator-credits"
-msgstr ""
+msgstr "Milo Ivir <mail@milotype.de>"
 
 #: src/MainWindow.vala:44
 msgid "S_ystem"
-msgstr ""
+msgstr "S_ustav"
 
 #: src/MainWindow.vala:45
 msgid "_Light"
-msgstr ""
+msgstr "S_vijetla"
 
 #: src/MainWindow.vala:46
 msgid "_Dark"
-msgstr ""
+msgstr "_Tamna"
 
 #: src/MainWindow.vala:49
 msgid "_Style"
-msgstr ""
+msgstr "_Stil"
 
 #: src/MainWindow.vala:50
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Tipkovni prečaci"
 
 #. TRANSLATORS: %s will be replaced by the app name
 #: src/MainWindow.vala:54
 #, c-format
 msgid "_About %s"
-msgstr ""
+msgstr "_O aplikaciji %s"
 
 #: src/MainWindow.vala:58
 msgid "Main Menu"
-msgstr ""
+msgstr "Glavni izbornik"
 
 #: src/MainWindow.vala:144
 msgid "Unable to Continue Recording"
-msgstr ""
+msgstr "Nije moguće nastaviti snimanje"
 
 #: src/MainWindow.vala:145
 msgid "There was an internal error while recording"
-msgstr ""
+msgstr "Došlo je do interne greške tijekom snimanja"
 
 #: src/MainWindow.vala:169
 msgid "Recording Saved"
-msgstr ""
+msgstr "Snimka je spremljena"
 
 #: src/MainWindow.vala:170
 msgid "Open Folder"
-msgstr ""
+msgstr "Otvori mapu"
 
 #: src/MainWindow.vala:208 src/MainWindow.vala:264
 msgid "Failed to Save Recording"
-msgstr ""
+msgstr "Spremanje snimke nije uspjelo"
 
 #: src/MainWindow.vala:209
 msgid ""
 "Unable to move a temporary recording file to the final path. Make sure the "
 "destination exists and you have write access to it"
 msgstr ""
+"Nije moguće premjestiti privremenu datoteku snimanja na završnu stazu. "
+"Provjeri postoji li odredište i imaš li prava pisanja"
 
 #: src/MainWindow.vala:236
 msgid "Save Recording"
-msgstr ""
+msgstr "Spremi snimku"
 
 #: src/MainWindow.vala:265
 msgid ""
 "Unable to determine where to save recording finally. Try again using "
 "autosave instead"
 msgstr ""
+"Nije moguće odrediti mjesto za spremanje snimke. Pokušaj ponovo pomoću "
+"automatskog spremanja umjesto toga"
 
 #: src/MainWindow.vala:325
 msgid "Failed to Prepare Recording"
-msgstr ""
+msgstr "Neuspjela priprema snimanja"
 
 #: src/MainWindow.vala:326
 msgid ""
@@ -205,178 +225,181 @@ msgid ""
 "or missing sound input/output devices. Make sure you've installed necessary "
 "components correctlly and connected sound devices"
 msgstr ""
+"Razlog tome može biti nedostatka kodeka, nepotpune instalacije aplikacije "
+"ili nedostatak uređaja za unos/ispis zvuka. Provjeri da su potrebne "
+"komponente pravilno instalirae i da su zvučni uređaji spojeni"
 
 #: src/MainWindow.vala:403
 msgid "Recording Canceled"
-msgstr ""
+msgstr "Snimanje je prekinuto"
 
 #: src/MainWindow.vala:408
 msgid "Recording Moved to Trash"
-msgstr ""
+msgstr "Snimka je premještena u smeće"
 
 #: src/MainWindow.vala:431
 msgid "Recording is ongoing"
-msgstr ""
+msgstr "Snimanje je u tijeku"
 
 #: src/MainWindow.vala:492
 msgid "Failed to Open Folder"
-msgstr ""
+msgstr "Otvaranje mape nije uspjelo"
 
 #: src/MainWindow.vala:493
 #, c-format
 msgid "Unable to open folder containing \"%s\""
-msgstr ""
+msgstr "Nije moguće otvoriti mapu koja sadrži „%s”"
 
 #: src/MainWindow.vala:546
 msgid "_Close"
-msgstr ""
+msgstr "_Zatvori"
 
 #: src/View/CountDownView.vala:35
 msgid "Cancel Countdown"
-msgstr ""
+msgstr "Prekini odbrojavanje"
 
 #: src/View/CountDownView.vala:111
 msgid "Pause Countdown"
-msgstr ""
+msgstr "Zaustavi odbrojavanje"
 
 #: src/View/CountDownView.vala:116
 msgid "Resume Countdown"
-msgstr ""
+msgstr "Nastavi odbrojavanje"
 
 #: src/View/RecordView.vala:54 src/Widget/SavingDialog.vala:48
 msgid "Cancel Recording"
-msgstr ""
+msgstr "Prekini snimanje"
 
 #: src/View/RecordView.vala:61
 msgid "Finish Recording"
-msgstr ""
+msgstr "Završi snimanje"
 
 #: src/View/RecordView.vala:182
 msgid "Resume Recording"
-msgstr ""
+msgstr "Nastavi snimati"
 
 #: src/View/RecordView.vala:195
 msgid "Pause Recording"
-msgstr ""
+msgstr "Zaustavi snimanje"
 
 #. TRANSLATORS: This is the label of a button that shows a file dialog to select a folder
 #. where the app saves recodings automatically
 #: src/View/WelcomeView.vala:11
 msgid "Destination…"
-msgstr ""
+msgstr "Odredište …"
 
 #: src/View/WelcomeView.vala:28
 msgid "Source"
-msgstr ""
+msgstr "Izvor"
 
 #: src/View/WelcomeView.vala:33
 msgid "Record from:"
-msgstr ""
+msgstr "Snimka od:"
 
 #: src/View/WelcomeView.vala:39
 msgid "Microphone"
-msgstr ""
+msgstr "Mikrofon"
 
 #: src/View/WelcomeView.vala:40
 msgid "System"
-msgstr ""
+msgstr "Sustav"
 
 #: src/View/WelcomeView.vala:41
 msgid "Both"
-msgstr ""
+msgstr "Oba"
 
 #: src/View/WelcomeView.vala:43
 msgid "Microphone:"
-msgstr ""
+msgstr "Mikrofon:"
 
 #: src/View/WelcomeView.vala:56
 msgid "Channels:"
-msgstr ""
+msgstr "Kanali:"
 
 #: src/View/WelcomeView.vala:62
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: src/View/WelcomeView.vala:63
 msgid "Stereo"
-msgstr ""
+msgstr "Stereo"
 
 #: src/View/WelcomeView.vala:65
 msgid "Timer"
-msgstr ""
+msgstr "Timer"
 
 #: src/View/WelcomeView.vala:70
 msgid "Delay in seconds:"
-msgstr ""
+msgstr "Zadrška u sekundama:"
 
 #: src/View/WelcomeView.vala:77
 msgid "Length in seconds:"
-msgstr ""
+msgstr "Trajanje u sekundama:"
 
 #: src/View/WelcomeView.vala:88
 msgid "Saving"
-msgstr ""
+msgstr "Spremanje"
 
 #: src/View/WelcomeView.vala:93
 msgid "Format:"
-msgstr ""
+msgstr "Format:"
 
 #: src/View/WelcomeView.vala:100
 msgid "ALAC"
-msgstr ""
+msgstr "ALAC"
 
 #: src/View/WelcomeView.vala:101
 msgid "FLAC"
-msgstr ""
+msgstr "FLAC"
 
 #: src/View/WelcomeView.vala:102
 msgid "MP3"
-msgstr ""
+msgstr "MP3"
 
 #: src/View/WelcomeView.vala:103
 msgid "Ogg Vorbis"
-msgstr ""
+msgstr "Ogg Vorbis"
 
 #: src/View/WelcomeView.vala:104
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: src/View/WelcomeView.vala:105
 msgid "WAV"
-msgstr ""
+msgstr "WAV"
 
 #: src/View/WelcomeView.vala:107
 msgid "Add metadata:"
-msgstr ""
+msgstr "Dodaj metapodatke:"
 
 #: src/View/WelcomeView.vala:115
 msgid "Add record year and your real name in recording files"
-msgstr ""
+msgstr "Dodaj godinu snimke i svoje pravo ime u datoteke snimaka"
 
 #: src/View/WelcomeView.vala:121
 msgid "Autosave:"
-msgstr ""
+msgstr "Automatsko spremanje:"
 
 #: src/View/WelcomeView.vala:132 src/View/WelcomeView.vala:135
 msgid "Select Autosave Destination"
-msgstr ""
+msgstr "Odaberi odredište za automatsko spremanje"
 
 #: src/View/WelcomeView.vala:180
 msgid "Start Recording"
-msgstr ""
+msgstr "Počni snimati"
 
 #: src/Widget/SavingDialog.vala:35
 msgid "Saving…"
-msgstr ""
+msgstr "Spremanje …"
 
 #: src/Widget/SavingDialog.vala:41
 msgid "Problems?"
-msgstr ""
+msgstr "Problemi?"
 
 #: src/Widget/SavingDialog.vala:41
 msgid "Just hang on until the file dialog appears"
-msgstr ""
+msgstr "Samo pričekaj dok se pojavi dijalog za datoteku"
 
 #: src/Widget/SavingDialog.vala:80
 msgid "Canceling…"
-msgstr ""
+msgstr "Prekidanje …"
