@@ -14,4 +14,5 @@ like issues or email so that your vulnerability report is not missed.
 * Describe the vulnerability as much as possible in addition to the placeholder provided by GitHub. For example,
 steps to reproduce, screenshots, or screencasts are appreciated.
 * Create a private PR if you have a fix. Refer to [GitHub Docs](https://docs.github.com/en/code-security/tutorials/fix-reported-vulnerabilities/collaborate-in-a-fork) for details of how to do it.
+* We'll evaluate the vulnerability and perform the first response at wrose 2 weeks.
 * Do NOT disclose the vulnerability publicly until we release a fix, publish mitigating steps, or decline to address it.
