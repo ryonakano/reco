@@ -1,6 +1,6 @@
 data/reco.desktop.in.in
 data/reco.metainfo.xml.in.in
-data/ui/help-overlay.blp
+data/ui/shortcuts-dialog.blp
 src/Application.vala
 src/MainWindow.vala
 src/View/CountDownView.vala
