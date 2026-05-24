@@ -76,6 +76,14 @@
     even if translators translated all of them, which is not worthy.
   -->
   <releases>
+    <release version="5.2.1" date="2026-05-25" urgency="low">
+      <description translate="no">
+        <ul>
+          <li>Update translations</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="5.2.0" date="2026-05-03" urgency="medium">
       <description translate="no">
         <p>
