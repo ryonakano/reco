@@ -4,21 +4,22 @@
 # Hugo Carvalho <hugokarvalho@hotmail.com>, 2021, 2022, 2025.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
 # Sergio Filho <filho.sf14@gmail.com>, 2025.
+# ssantos <ssantos@web.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-29 16:58+0900\n"
-"PO-Revision-Date: 2025-08-03 00:02+0000\n"
-"Last-Translator: Sergio Filho <filho.sf14@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/rosp/reco/pt/"
-">\n"
+"PO-Revision-Date: 2026-06-11 20:01+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/rosp/reco/pt/>"
+"\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
@@ -48,38 +49,37 @@ msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
+"Pode usá-lo para gravar e memorizar palavras faladas, áudio do sistema, "
+"melodias improvisadas e qualquer outra coisa que possa fazer com um "
+"microfone, alto-falante ou ambos."
 
 #: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
 msgstr "As funcionalidades incluem:"
 
 #: data/reco.metainfo.xml.in.in:19
-#, fuzzy
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
-"Gravação de sons tanto do seu microfone como do sistema ao mesmo tempo. Isto "
-"será útil quando se grava conversas com aplicações de chat ou transmissões "
-"de vídeos na Internet"
+"Gravar sons do seu microfone e do sistema ao mesmo tempo. Isto é útil para "
+"gravar chamadas ou transmitir vídeos na Internet."
 
 #: data/reco.metainfo.xml.in.in:20
-#, fuzzy
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
-"A gravar em alguns formatos normalmente utilizados. Suporta ALAC, FLAC, MP3, "
-"Ogg Vorbis, Opus e WAV"
+"A gravar em muitos formatos comumente usados. Suporta ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus e WAV."
 
 #: data/reco.metainfo.xml.in.in:21
-#, fuzzy
 msgid ""
 "Timed recording. You can set a delay before recording up to 15 seconds, and "
 "set the length of recording up to 600 seconds."
 msgstr ""
-"Gravação cronometrada. Pode definir um atraso antes da gravação até 15 "
-"segundos e a duração da gravação até 600 segundos"
+"Gravação cronometrada. Pode definir um atraso antes da gravação de até 15 "
+"segundos e definir a duração da gravação de até 600 segundos."
 
 #: data/reco.metainfo.xml.in.in:22
 msgid ""
@@ -88,25 +88,22 @@ msgid ""
 msgstr ""
 
 #: data/reco.metainfo.xml.in.in:23
-#, fuzzy
 msgid ""
 "Choosing where to save recordings. You can select whether the app saves "
 "recordings into a directory of your choosing automatically or manually."
 msgstr ""
-"Guardar automaticamente ou perguntar sempre onde guardar o fluxo de "
-"trabalho. Pode selecionar se a aplicação guarda as gravações automaticamente "
-"ou se escolhe um destino cada vez que as guarda"
+"Escolher onde gravar as gravações. Pode selecionar se a app grava as "
+"gravações num diretório da sua escolha, automaticamente ou manualmente."
 
 #: data/reco.metainfo.xml.in.in:24
-#, fuzzy
 msgid ""
 "Saving recordings when the app quits. Even if you happen to quit the app "
 "while recording, the recording is either saved automatically, or the file "
 "chooser dialog is shown - depending on your preferences."
 msgstr ""
-"Guardar a gravação quando a aplicação termina. Mesmo que saia da aplicação "
-"durante a gravação, a gravação é guardada automaticamente ou é mostrada uma "
-"Janela de escolha de ficheiros dependendo da sua definição de gravação"
+"Gravar gravações quando a app é encerrada. Mesmo se fechar a app durante a "
+"gravação, a gravação será gravada automaticamente ou o diálogo do seletor de "
+"ficheiros será exibido - dependendo das suas preferências. se"
 
 #: data/reco.metainfo.xml.in.in:30
 msgid "Welcome view; perform recording configuration"
@@ -137,12 +134,9 @@ msgid "Recording"
 msgstr "Gravação"
 
 #: data/ui/help-overlay.blp:27
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Start/Stop recording"
 msgctxt "shortcut window"
 msgid "Start/Stop Recording"
-msgstr "Iniciar/Parar gravação"
+msgstr "Iniciar/pausar gravação"
 
 #. TRANSLATORS: A newline-separated list of translators. Don't translate literally.
 #. You can optionally add your name if you want, plus you may add your email address or website.
@@ -155,41 +149,34 @@ msgid "translator-credits"
 msgstr ""
 
 #: src/MainWindow.vala:44
-#, fuzzy
-#| msgid "System"
 msgid "S_ystem"
-msgstr "Sistema"
+msgstr "S_istema"
 
 #: src/MainWindow.vala:45
-#, fuzzy
-#| msgid "Light"
 msgid "_Light"
-msgstr "Claro"
+msgstr "_Claro"
 
 #: src/MainWindow.vala:46
-#, fuzzy
-#| msgid "Dark"
 msgid "_Dark"
-msgstr "Escuro"
+msgstr "_Escuro"
 
 #: src/MainWindow.vala:49
-#, fuzzy
 msgid "_Style"
-msgstr "Estilo:"
+msgstr "_Estilo"
 
 #: src/MainWindow.vala:50
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Atalhos de teclado"
 
 #. TRANSLATORS: %s will be replaced by the app name
 #: src/MainWindow.vala:54
 #, c-format
 msgid "_About %s"
-msgstr ""
+msgstr "_Sobre %s"
 
 #: src/MainWindow.vala:58
 msgid "Main Menu"
-msgstr ""
+msgstr "Menu principal"
 
 #: src/MainWindow.vala:144
 #, fuzzy
@@ -202,19 +189,16 @@ msgid "There was an internal error while recording"
 msgstr "Pausar a gravação"
 
 #: src/MainWindow.vala:169
-#, fuzzy
-#| msgid "Recording view"
 msgid "Recording Saved"
-msgstr "Visualização de gravação"
+msgstr "Gravação gravada"
 
 #: src/MainWindow.vala:170
 msgid "Open Folder"
-msgstr ""
+msgstr "Abrir pasta"
 
 #: src/MainWindow.vala:208 src/MainWindow.vala:264
-#, fuzzy
 msgid "Failed to Save Recording"
-msgstr "Pausar a gravação"
+msgstr "Falha ao gravar a gravação"
 
 #: src/MainWindow.vala:209
 msgid ""
@@ -223,9 +207,8 @@ msgid ""
 msgstr ""
 
 #: src/MainWindow.vala:236
-#, fuzzy
 msgid "Save Recording"
-msgstr "Guardar a gravação"
+msgstr "Gravar a gravação"
 
 #: src/MainWindow.vala:265
 msgid ""
@@ -246,16 +229,12 @@ msgid ""
 msgstr ""
 
 #: src/MainWindow.vala:403
-#, fuzzy
-#| msgid "Recording view"
 msgid "Recording Canceled"
-msgstr "Visualização de gravação"
+msgstr "Gravação cancelada"
 
 #: src/MainWindow.vala:408
-#, fuzzy
-#| msgid "Recording view"
 msgid "Recording Moved to Trash"
-msgstr "Visualização de gravação"
+msgstr "Gravação movida para o lixo"
 
 #: src/MainWindow.vala:431
 msgid "Recording is ongoing"
@@ -276,54 +255,38 @@ msgid "_Close"
 msgstr ""
 
 #: src/View/CountDownView.vala:35
-#, fuzzy
-#| msgid "Cancel the countdown"
 msgid "Cancel Countdown"
-msgstr "Cancelar a contagem decrescente"
+msgstr "Cancelar contagem regressiva"
 
 #: src/View/CountDownView.vala:111
-#, fuzzy
-#| msgid "Pause the countdown"
 msgid "Pause Countdown"
-msgstr "Colocar contagem decrescente em pausa"
+msgstr "Pausar contagem regressiva"
 
 #: src/View/CountDownView.vala:116
-#, fuzzy
-#| msgid "Resume the countdown"
 msgid "Resume Countdown"
-msgstr "Retomar a contagem decrescente"
+msgstr "Retomar contagem regressiva"
 
 #: src/View/RecordView.vala:54 src/Widget/SavingDialog.vala:48
-#, fuzzy
-#| msgid "Cancel recording"
 msgid "Cancel Recording"
 msgstr "Cancelar gravação"
 
 #: src/View/RecordView.vala:61
-#, fuzzy
-#| msgid "Finish recording"
 msgid "Finish Recording"
 msgstr "Terminar gravação"
 
 #: src/View/RecordView.vala:182
-#, fuzzy
-#| msgid "Resume recording"
 msgid "Resume Recording"
 msgstr "Retomar gravação"
 
 #: src/View/RecordView.vala:195
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Pause Recording"
-msgstr "Pausar a gravação"
+msgstr "Pausar gravação"
 
 #. TRANSLATORS: This is the label of a button that shows a file dialog to select a folder
 #. where the app saves recodings automatically
 #: src/View/WelcomeView.vala:11
-#, fuzzy
-#| msgid "Select destination…"
 msgid "Destination…"
-msgstr "Selecionar destino…"
+msgstr "Destino…"
 
 #: src/View/WelcomeView.vala:28
 msgid "Source"
@@ -346,9 +309,8 @@ msgid "Both"
 msgstr "Ambos"
 
 #: src/View/WelcomeView.vala:43
-#, fuzzy
 msgid "Microphone:"
-msgstr "Microfone"
+msgstr "Microfone:"
 
 #: src/View/WelcomeView.vala:56
 msgid "Channels:"
@@ -408,11 +370,11 @@ msgstr "WAV"
 
 #: src/View/WelcomeView.vala:107
 msgid "Add metadata:"
-msgstr ""
+msgstr "Incluir metadados:"
 
 #: src/View/WelcomeView.vala:115
 msgid "Add record year and your real name in recording files"
-msgstr ""
+msgstr "Adicionar ano de gravação e o seu nome real na gravação de ficheiros"
 
 #: src/View/WelcomeView.vala:121
 msgid "Autosave:"
@@ -425,27 +387,21 @@ msgid "Select Autosave Destination"
 msgstr "Selecionar destino…"
 
 #: src/View/WelcomeView.vala:180
-#, fuzzy
-#| msgid "Start recording"
 msgid "Start Recording"
 msgstr "Iniciar gravação"
 
 #: src/Widget/SavingDialog.vala:35
-#, fuzzy
-#| msgid "Saving"
 msgid "Saving…"
-msgstr "A guardar"
+msgstr "A gravar…"
 
 #: src/Widget/SavingDialog.vala:41
 msgid "Problems?"
-msgstr ""
+msgstr "Problemas?"
 
 #: src/Widget/SavingDialog.vala:41
 msgid "Just hang on until the file dialog appears"
-msgstr ""
+msgstr "Apenas aguarde até que o diálogo do ficheiro apareça"
 
 #: src/Widget/SavingDialog.vala:80
-#, fuzzy
-#| msgid "Cancel recording"
 msgid "Canceling…"
-msgstr "Cancelar gravação"
+msgstr "A cancelar…"
