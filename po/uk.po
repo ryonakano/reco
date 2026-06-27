@@ -5,22 +5,23 @@
 # Dan <denqwerta@gmail.com>, 2022.
 # Artem <artem@molotov.work>, 2022.
 # Fill read-only add-on <noreply-addon-fill@weblate.org>, 2024.
+# Димко <Dymkovych@proton.me>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-29 16:58+0900\n"
-"PO-Revision-Date: 2025-04-22 04:04+0000\n"
-"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/rosp/reco/uk/"
-">\n"
+"PO-Revision-Date: 2026-06-25 18:01+0000\n"
+"Last-Translator: Димко <Dymkovych@proton.me>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/rosp/reco/uk/>"
+"\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: data/reco.desktop.in.in:2
 msgid "@APP_NAME@"
@@ -39,13 +40,8 @@ msgid "Record;Audio;Sound;Voice;"
 msgstr "Запис;Аудіо;Звук;Голос;Record;Audio;Sound;Voice;"
 
 #: data/reco.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid ""
-#| "Reco is an audio recorder focused on being concise and simple to use."
 msgid "An audio recorder focused on being concise and simple to use."
-msgstr ""
-"Reco — це звукозаписувач, зосереджений на лаконічності та простоті "
-"користування."
+msgstr "Звукозаписувач, зосереджений на лаконічності та простоті користування."
 
 #: data/reco.metainfo.xml.in.in:16
 msgid ""
@@ -197,20 +193,14 @@ msgid "There was an internal error while recording"
 msgstr "Сталася помилка під час запису."
 
 #: src/MainWindow.vala:169
-#, fuzzy
-#| msgid "Recording view"
 msgid "Recording Saved"
-msgstr "Перегляд запису"
+msgstr "Запис збережено"
 
 #: src/MainWindow.vala:170
-#, fuzzy
-#| msgid "Open folder"
 msgid "Open Folder"
 msgstr "Відкрити теку"
 
 #: src/MainWindow.vala:208 src/MainWindow.vala:264
-#, fuzzy
-#| msgid "Failed to save recording"
 msgid "Failed to Save Recording"
 msgstr "Не вдалося зберегти запис"
 
@@ -221,10 +211,8 @@ msgid ""
 msgstr ""
 
 #: src/MainWindow.vala:236
-#, fuzzy
-#| msgid "Saved recording"
 msgid "Save Recording"
-msgstr "Збережений запис"
+msgstr "Зберегти запис"
 
 #: src/MainWindow.vala:265
 msgid ""
@@ -233,10 +221,8 @@ msgid ""
 msgstr ""
 
 #: src/MainWindow.vala:325
-#, fuzzy
-#| msgid "Failed to save recording"
 msgid "Failed to Prepare Recording"
-msgstr "Не вдалося зберегти запис"
+msgstr "Не вдалося підготувати запис"
 
 #: src/MainWindow.vala:326
 #, fuzzy
@@ -254,26 +240,20 @@ msgstr ""
 "якщо проблема не зникне."
 
 #: src/MainWindow.vala:403
-#, fuzzy
-#| msgid "Recording view"
 msgid "Recording Canceled"
-msgstr "Перегляд запису"
+msgstr "Запис скасовано"
 
 #: src/MainWindow.vala:408
-#, fuzzy
-#| msgid "Recording view"
 msgid "Recording Moved to Trash"
-msgstr "Перегляд запису"
+msgstr "Запис переміщено до смітника"
 
 #: src/MainWindow.vala:431
 msgid "Recording is ongoing"
 msgstr "Триває запис"
 
 #: src/MainWindow.vala:492
-#, fuzzy
-#| msgid "Open folder"
 msgid "Failed to Open Folder"
-msgstr "Відкрити теку"
+msgstr "Не вдалося відкрити теку"
 
 #: src/MainWindow.vala:493
 #, c-format
@@ -282,57 +262,41 @@ msgstr ""
 
 #: src/MainWindow.vala:546
 msgid "_Close"
-msgstr ""
+msgstr "_Закрити"
 
 #: src/View/CountDownView.vala:35
-#, fuzzy
-#| msgid "Cancel the countdown"
 msgid "Cancel Countdown"
 msgstr "Скасувати зворотний відлік"
 
 #: src/View/CountDownView.vala:111
-#, fuzzy
-#| msgid "Pause the countdown"
 msgid "Pause Countdown"
 msgstr "Призупинити зворотний відлік"
 
 #: src/View/CountDownView.vala:116
-#, fuzzy
-#| msgid "Resume the countdown"
 msgid "Resume Countdown"
 msgstr "Продовжити зворотний відлік"
 
 #: src/View/RecordView.vala:54 src/Widget/SavingDialog.vala:48
-#, fuzzy
-#| msgid "Cancel recording"
 msgid "Cancel Recording"
 msgstr "Скасувати запис"
 
 #: src/View/RecordView.vala:61
-#, fuzzy
-#| msgid "Finish recording"
 msgid "Finish Recording"
 msgstr "Завершити запис"
 
 #: src/View/RecordView.vala:182
-#, fuzzy
-#| msgid "Resume recording"
 msgid "Resume Recording"
 msgstr "Продовжити запис"
 
 #: src/View/RecordView.vala:195
-#, fuzzy
-#| msgid "Pause recording"
 msgid "Pause Recording"
 msgstr "Призупинити запис"
 
 #. TRANSLATORS: This is the label of a button that shows a file dialog to select a folder
 #. where the app saves recodings automatically
 #: src/View/WelcomeView.vala:11
-#, fuzzy
-#| msgid "Select destination…"
 msgid "Destination…"
-msgstr "Вибрати місце призначення…"
+msgstr "Місце призначення…"
 
 #: src/View/WelcomeView.vala:28
 msgid "Source"
@@ -416,44 +380,37 @@ msgstr "WAV"
 
 #: src/View/WelcomeView.vala:107
 msgid "Add metadata:"
-msgstr ""
+msgstr "Додати метадані:"
 
 #: src/View/WelcomeView.vala:115
 msgid "Add record year and your real name in recording files"
-msgstr ""
+msgstr "Додайте рік запису та своє справжнє ім’я до файлів із записами"
 
 #: src/View/WelcomeView.vala:121
 msgid "Autosave:"
-msgstr ""
+msgstr "Автозбереження:"
 
 #: src/View/WelcomeView.vala:132 src/View/WelcomeView.vala:135
-#, fuzzy
-#| msgid "Select destination…"
 msgid "Select Autosave Destination"
-msgstr "Вибрати місце призначення…"
+msgstr "Вибрати місце для автозбереження"
 
 #: src/View/WelcomeView.vala:180
-#, fuzzy
-#| msgid "Start recording"
 msgid "Start Recording"
 msgstr "Почати запис"
 
 #: src/Widget/SavingDialog.vala:35
-#, fuzzy
-#| msgid "Saving"
 msgid "Saving…"
-msgstr "Збереження"
+msgstr "Збереження…"
 
 #: src/Widget/SavingDialog.vala:41
+#, fuzzy
 msgid "Problems?"
-msgstr ""
+msgstr "Проблеми?"
 
 #: src/Widget/SavingDialog.vala:41
 msgid "Just hang on until the file dialog appears"
-msgstr ""
+msgstr "Зачекайте на появу діалогового вікна"
 
 #: src/Widget/SavingDialog.vala:80
-#, fuzzy
-#| msgid "Cancel recording"
 msgid "Canceling…"
-msgstr "Скасувати запис"
+msgstr "Скасування…"
