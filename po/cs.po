@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-29 16:58+0900\n"
-"PO-Revision-Date: 2026-07-03 19:34+0000\n"
-"Last-Translator: Fill read-only add-on <noreply-addon-fill@weblate.org>\n"
+"PO-Revision-Date: 2026-07-04 20:01+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/rosp/reco/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -24,41 +24,48 @@ msgstr "@APP_NAME@"
 
 #: data/reco.desktop.in.in:3
 msgid "Audio Recording App"
-msgstr ""
+msgstr "Aplikace pro pořizování zvukových nahrávek"
 
 #: data/reco.desktop.in.in:4 data/reco.metainfo.xml.in.in:11
 msgid "Focus on recording"
-msgstr ""
+msgstr "Zaměřeno na nahrávání"
 
 #: data/reco.desktop.in.in:10
 msgid "Record;Audio;Sound;Voice;"
-msgstr ""
+msgstr "Nahrávka;Audio;Zvuk;Hlas;"
 
 #: data/reco.metainfo.xml.in.in:13
 msgid "An audio recorder focused on being concise and simple to use."
-msgstr ""
+msgstr "Nahrávač zvuku zaměřený na snadnou pochopitelnost a použitelnost."
 
 #: data/reco.metainfo.xml.in.in:16
 msgid ""
 "You can use it to record and remember spoken words, system audio, improvized "
 "melodies, and anything else you can do with a microphone, speaker, or both."
 msgstr ""
+"Je možné ho použít pro nahrávání a zapamatování mluveného slova, zvuků ze "
+"systému, improvizovaných melodií a čehokoli jiného, co je možné s "
+"mikrofonem, reproduktorem, nebo obojím."
 
 #: data/reco.metainfo.xml.in.in:17
 msgid "Features include:"
-msgstr ""
+msgstr "Mezi funkce patří:"
 
 #: data/reco.metainfo.xml.in.in:19
 msgid ""
 "Recording sounds from both your microphone and system at the same time. This "
 "is useful for recording calls or streaming videos on the Internet."
 msgstr ""
+"Nahrávání zvuků jak z mikrofonu, tak ze systému naráz. Užitečné pro "
+"nahrávání hovorů nebo proudově vysílaných videí na Internetu."
 
 #: data/reco.metainfo.xml.in.in:20
 msgid ""
 "Saving in many commonly used formats. It supports ALAC, FLAC, MP3, Ogg "
 "Vorbis, Opus, and WAV."
 msgstr ""
+"Ukládání do mnoha běžně používaných formátů. Podporuje ALAC, FLAC, MP3, Ogg "
+"Vorbis, Opus a WAV."
 
 #: data/reco.metainfo.xml.in.in:21
 msgid ""
@@ -96,17 +103,17 @@ msgstr ""
 #: data/ui/help-overlay.blp:10
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "Obecné"
 
 #: data/ui/help-overlay.blp:13
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Klávesové zkratky"
 
 #: data/ui/help-overlay.blp:18
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Ukončit"
 
 #: data/ui/help-overlay.blp:24
 msgctxt "shortcut window"
@@ -130,33 +137,33 @@ msgstr ""
 
 #: src/MainWindow.vala:44
 msgid "S_ystem"
-msgstr ""
+msgstr "S_ystém"
 
 #: src/MainWindow.vala:45
 msgid "_Light"
-msgstr ""
+msgstr "Svět_lý"
 
 #: src/MainWindow.vala:46
 msgid "_Dark"
-msgstr ""
+msgstr "_Tmavý"
 
 #: src/MainWindow.vala:49
 msgid "_Style"
-msgstr ""
+msgstr "_Motiv"
 
 #: src/MainWindow.vala:50
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Klávesové zkratky"
 
 #. TRANSLATORS: %s will be replaced by the app name
 #: src/MainWindow.vala:54
 #, c-format
 msgid "_About %s"
-msgstr ""
+msgstr "O _aplikaci %s"
 
 #: src/MainWindow.vala:58
 msgid "Main Menu"
-msgstr ""
+msgstr "Hlavní nabídka"
 
 #: src/MainWindow.vala:144
 msgid "Unable to Continue Recording"
