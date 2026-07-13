@@ -77,8 +77,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/blueprint-compiler.git
-        tag: v0.20.4
-        commit: 31b62c24a72c1670d2d93dcdf2d130f1ae12778e
+        tag: v0.22.2
+        commit: ed35ac74de0c1bb1f5e852410b97edd1f08904c9
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
