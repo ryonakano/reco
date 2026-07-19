@@ -1,15 +1,7 @@
 # build dirs and artifacts
 .flatpak-builder
 builddir*
-repo
-*.flatpak
-
-# vim
-*.swp
-*~
-*.un~
 
 # subprojects
-subprojects/live-chart
-subprojects/ryokucha
-subprojects/blueprint-compiler
+subprojects/*
+!subprojects/*.wrap
