@@ -52,9 +52,9 @@
   </supports>
 
   <requires>
-    <!-- taken from MainWindow.width_request -->
+    <!-- taken from width_request of MainWindow -->
     <display_length side="shortest" compare="ge">360</display_length>
-    <!-- taken from MainWindow.height_request -->
+    <!-- taken from height_request of MainWindow -->
     <display_length side="longest" compare="ge">340</display_length>
   </requires>
 
