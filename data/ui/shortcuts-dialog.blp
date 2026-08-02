@@ -1,0 +1,27 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.ShortcutsDialog shortcuts_dialog {
+    Adw.ShortcutsSection {
+        title: C_("shortcut window", "General");
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Keyboard Shortcuts");
+            action-name: "app.shortcuts";
+        }
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Quit");
+            action-name: "app.quit";
+        }
+    }
+
+    Adw.ShortcutsSection {
+        title: C_("shortcut window", "Recording");
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Start/Stop recording");
+            accelerator: "<Shift><Ctrl>R";
+        }
+    }
+}
