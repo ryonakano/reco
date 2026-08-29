@@ -1,6 +1,6 @@
 id: com.github.ryonakano.reco.Devel
 runtime: io.elementary.Platform
-runtime-version: '8.1'
+runtime-version: '9'
 sdk: io.elementary.Sdk
 command: com.github.ryonakano.reco.Devel
 finish-args:
