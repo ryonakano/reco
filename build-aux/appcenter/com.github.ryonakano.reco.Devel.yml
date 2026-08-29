@@ -41,7 +41,6 @@ modules:
           version-query: .tag_name
           url-query: '"https://github.com/ryonakano/ryokucha/archive/" + .tag_name + ".tar.gz"'
           timestamp-query: .published_at
-          tag-pattern: ^([\d.]+)$
 
   - name: reco
     buildsystem: meson
