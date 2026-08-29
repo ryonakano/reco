@@ -241,7 +241,7 @@ public class MainWindow : Adw.ApplicationWindow {
         string last_path = Application.settings.get_string ("last-folder-path");
         if (FileUtils.test (last_path, FileTest.IS_DIR)) {
             // Gtk.FileDialog.initial_folder seems to must be a host path to work as expected inside sandbox
-            string? last_path_host = Util.query_host_path (last_path);
+            string? last_path_host = Util.FileUtil.query_host_path (last_path);
             if (last_path_host != null) {
                 save_dialog.initial_folder = File.new_for_path (last_path_host);
             }
@@ -403,14 +403,14 @@ public class MainWindow : Adw.ApplicationWindow {
         var cancel_toast = new Adw.Toast (_("Recording Canceled"));
 
         try {
-            yield Util.trash_file (recording_tmp_path);
+            yield Util.FileUtil.trash_file (recording_tmp_path);
 
             cancel_toast.title = _("Recording Moved to Trash");
         } catch (Error err) {
             warning ("Failed to trash tmp recording, deleting permanently instead: %s", err.message);
 
             try {
-                yield Util.delete_file (recording_tmp_path);
+                yield Util.FileUtil.delete_file (recording_tmp_path);
             } catch (Error err) {
                 // Just failed to remove tmp recording so letting user know through error dialog is not necessary
                 warning ("Failed to delete tmp recording: %s", err.message);
@@ -466,7 +466,7 @@ public class MainWindow : Adw.ApplicationWindow {
         string start_format = "%Y-%m-%d_%H:%M:%S";
         string end_format = "%Y-%m-%d_%H:%M:%S";
 
-        bool is_same_day = Util.is_same_day (start, end);
+        bool is_same_day = Util.DateTimeUtil.is_same_day (start, end);
         if (is_same_day) {
             // Avoid redundant date
             end_format = "%H:%M:%S";

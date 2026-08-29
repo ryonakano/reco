@@ -116,7 +116,7 @@ public class Widget.Waveform : Adw.Bin {
         serie.clear ();
 
         // Seek to the current timestamp
-        int64 now_msec = Util.usec_to_msec (GLib.get_monotonic_time ());
+        int64 now_msec = Util.Convert.usec_to_msec (GLib.get_monotonic_time ());
         timestamp = now_msec;
         config.time.current = timestamp;
     }
@@ -238,7 +238,7 @@ public class Widget.Waveform : Adw.Bin {
                 // no break, dies if reached
         }
 
-        serie.line.color = Util.hex_to_rgba (hex);
+        serie.line.color = Util.Convert.hex_to_rgba (hex);
 
         /**
          * Chart is refreshed every REFRESH_MSEC, which means change of color is not reflected to the UI

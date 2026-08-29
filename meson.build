@@ -1,7 +1,7 @@
 project(
   'com.github.ryonakano.reco',
   'vala', 'c',
-  version: '5.1.1',
+  version: '5.2.1',
   meson_version: '>= 0.58.0',
 )
 
@@ -20,12 +20,6 @@ if get_option('development')
   endif
 
   app_version += version_suffix
-endif
-
-app_revision = 'main'
-ret = run_command('git', 'rev-parse', 'HEAD', check: false)
-if ret.returncode() == 0
-  app_revision = ret.stdout().strip()
 endif
 
 gnome = import('gnome')
@@ -58,7 +52,7 @@ dependencies = [
   dependency('libadwaita-1', version: '>= 1.8'),
   livechart_dep,
   dependency('pango'),
-  dependency('ryokucha', version: '>= 0.4.0', allow_fallback: get_option('use_submodule')),
+  dependency('ryokucha', allow_fallback: get_option('use_submodule')),
 ]
 
 subdir('data')

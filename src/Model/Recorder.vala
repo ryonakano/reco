@@ -238,8 +238,8 @@ public class Model.Recorder : Object {
         }
 
         if (source != Define.SourceID.SYSTEM) {
-            var index = (int) Manager.DeviceManager.get_default ().selected_source_index;
-            Gst.Device microphone = Manager.DeviceManager.get_default ().sources[index];
+            uint pos = Manager.DeviceManager.get_default ().selected_source_pos;
+            var microphone = ((Gst.Device) Manager.DeviceManager.get_default ().sources_list.get_object (pos));
             // Use to record sound from a microphone
             Gst.Element mic_sound = microphone.create_element ("mic_sound");
             if (mic_sound == null) {
@@ -773,7 +773,7 @@ public class Model.Recorder : Object {
         // and a Gst.Tags.DATE tag (takes Date value); Setting only the former results missing "Year" tag
         // in WAV and MP3 files and setting the latter too works as expected
         var gst_date_time = new Gst.DateTime.from_g_date_time (date_time);
-        Date date = Util.dt_to_date (date_time);
+        Date date = Util.DateTimeUtil.dt_to_date (date_time);
 
         tag_setter.add_tags (Gst.TagMergeMode.REPLACE_ALL,
                              Gst.Tags.ARTIST, artist,

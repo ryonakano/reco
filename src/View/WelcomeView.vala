@@ -13,7 +13,7 @@ public class View.WelcomeView : AbstractView {
     private unowned Manager.DeviceManager device_manager;
 
     private Ryokucha.DropDownText source_combobox;
-    private Ryokucha.DropDownText mic_combobox;
+    private Gtk.DropDown mic_combobox;
     private Gtk.SpinButton delay_spin;
     private Gtk.Switch autosave_switch;
     private Widget.FolderChooserButton destination_chooser_button;
@@ -43,10 +43,14 @@ public class View.WelcomeView : AbstractView {
         var mic_label = new Gtk.Label (_("Microphone:")) {
             halign = Gtk.Align.END
         };
-        mic_combobox = new Ryokucha.DropDownText () {
+
+        var mic_combobox_factory = new Gtk.SignalListItemFactory ();
+        mic_combobox_factory.bind.connect (mic_combobox_factory_bind);
+        mic_combobox_factory.setup.connect (mic_combobox_factory_setup);
+
+        mic_combobox = new Gtk.DropDown (device_manager.sources_list, null) {
             halign = Gtk.Align.START,
-            // Ellipsize if device name is long; otherwise the app window get stretched
-            ellipsize = Pango.EllipsizeMode.END
+            factory = mic_combobox_factory,
         };
 
         var channels_label = new Gtk.Label (_("Channels:")) {
@@ -206,9 +210,9 @@ public class View.WelcomeView : AbstractView {
                 return true;
             }
         );
-        mic_combobox.dropdown.bind_property ("selected", device_manager, "selected-source-index",
-            BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
-        );
+        device_manager.bind_property ("default_source_pos", mic_combobox, "selected", BindingFlags.SYNC_CREATE);
+        // TODO: Specify selected microphone not via DeviceManager which shouldn't know anything about UI
+        mic_combobox.bind_property ("selected", device_manager, "selected_source_pos", BindingFlags.SYNC_CREATE);
 
         var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {
@@ -249,7 +253,6 @@ public class View.WelcomeView : AbstractView {
 
         device_manager.device_updated.connect (() => {
             record_button.sensitive = get_is_source_connected ();
-            update_mic_combobox ();
         });
     }
 
@@ -283,22 +286,47 @@ public class View.WelcomeView : AbstractView {
     private bool get_is_source_connected () {
         switch (source_combobox.active_id) {
             case "mic":
-                return (device_manager.sources.size > 0);
+                return (device_manager.sources_list.n_items > 0);
             case "system":
                 return (device_manager.default_monitor != null);
             case "both":
-                return (device_manager.sources.size > 0) && (device_manager.default_monitor != null);
+                return (device_manager.sources_list.n_items > 0) && (device_manager.default_monitor != null);
             default:
                 assert_not_reached ();
                 // no break, dies if reached
         }
     }
 
-    private void update_mic_combobox () {
-        mic_combobox.remove_all ();
+    /**
+     * Sets to populate the listitem with widgets.
+     *
+     * @param object    the listitem to populate
+     *
+     * @see Gtk.SignalListItemFactory.bind
+     */
+    private void mic_combobox_factory_setup (Object object) {
+        var item = object as Gtk.ListItem;
 
-        foreach (Gst.Device device in device_manager.sources) {
-            mic_combobox.append (null, device.display_name);
-        }
+        var content = new Gtk.Label (null) {
+            halign = Gtk.Align.START,
+            // Ellipsize if device name is long; otherwise the app window get stretched
+            ellipsize = Pango.EllipsizeMode.END,
+        };
+        item.child = content;
+    }
+
+    /**
+     * Sets to populate the listitem with widgets.
+     *
+     * @param object    the listitem to populate
+     *
+     * @see Gtk.SignalListItemFactory.bind
+     */
+    private void mic_combobox_factory_bind (Object object) {
+        var item = object as Gtk.ListItem;
+        var model = item.item as Gst.Device;
+        var content = item.child as Gtk.Label;
+
+        content.label = model.display_name;
     }
 }

@@ -12,6 +12,7 @@ Features include:
 * **Recording sounds from both your microphone and system at the same time.** This is useful for recording calls or streaming videos on the Internet.
 * **Saving in many commonly used formats.** It supports ALAC, FLAC, MP3, Ogg Vorbis, Opus, and WAV.
 * **Timed recording.** You can set a delay before recording up to 15 seconds, and set the length of recording up to 600 seconds.
+* **Adding metadata automatically.** Reco can add artist and year metadata to recording files.
 * **Choosing where to save recordings.** You can select whether the app saves recordings into a directory of your choosing automatically or manually.
 * **Saving recordings when the app quits.** Even if you happen to quit the app while recording, the recording is either saved automatically, or the file chooser dialog is shown - depending on your preferences.
 
@@ -56,7 +57,7 @@ You'll need the following dependencies to build:
 * libgranite-7-dev (>= 7.2.0, required only when you build with `granite` feature enabled)
 * libgstreamer1.0-dev (>= 1.20)
 * libgtk-4-dev (>= 4.12)
-* [libryokucha](https://github.com/ryonakano/ryokucha) (>= 0.4.0)
+* [libryokucha](https://github.com/ryonakano/ryokucha)
 * [livechart](https://github.com/lcallarec/live-chart) (>= 1.10.0)
     * alternatively, [livechart-2 (the elementary fork)](https://github.com/elementary/live-chart) (>= 2.0.0)
 * meson (>= 0.58.0)
@@ -64,8 +65,8 @@ You'll need the following dependencies to build:
 
 You'll need the following dependencies to run:
 
-* gstreamer1.0-libav (use the same version with libgstreamer1.0-dev)
-* libgstreamer-plugins-good1.0-0 (use the same version with libgstreamer1.0-dev, compiled with `-Dtaglib=enabled`)
+* gstreamer1.0-libav (for ALAC support)
+* libgstreamer-plugins-good1.0-0 (for metadata support; compiled with `-Dtaglib=enabled`)
 
 Run `meson setup` to configure the build environment and run `meson compile` to build:
 
@@ -84,9 +85,9 @@ com.github.ryonakano.reco
 ## Contributing
 Please refer to [the contribution guideline](CONTRIBUTING.md) if you would like to:
 
-- submit bug reports / feature requests
-- propose coding changes
-- translate the project
+* submit bug reports / feature requests
+* propose coding changes
+* translate the project
 
 ## Get Support
 Need help in use of the app? Refer to [the discussions page](https://github.com/ryonakano/reco/discussions) to search for existing discussions or [start a new discussion](https://github.com/ryonakano/reco/discussions/new/choose) if none is relevant.
