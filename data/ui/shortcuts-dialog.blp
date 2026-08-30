@@ -1,0 +1,32 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2018-2026 Ryo Nakano <ryonakaknock3@gmail.com>
+ */
+
+using Gtk 4.0;
+using Adw 1;
+
+Adw.ShortcutsDialog shortcuts_dialog {
+    Adw.ShortcutsSection {
+        title: C_("shortcut window", "General");
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Keyboard Shortcuts");
+            action-name: "app.shortcuts";
+        }
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Quit");
+            action-name: "app.quit";
+        }
+    }
+
+    Adw.ShortcutsSection {
+        title: C_("shortcut window", "Recording");
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Start/Stop Recording");
+            accelerator: "<Shift><Ctrl>R";
+        }
+    }
+}

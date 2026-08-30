@@ -49,7 +49,7 @@ dependencies = [
   granite_dep,
   dependency('gstreamer-1.0', version: '>= 1.20'),
   dependency('gtk4', version: '>= 4.12'),
-  dependency('libadwaita-1', version: '>= 1.6.0'),
+  dependency('libadwaita-1', version: '>= 1.8'),
   livechart_dep,
   dependency('pango'),
   dependency('ryokucha', allow_fallback: get_option('use_submodule')),
