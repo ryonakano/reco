@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.ryonakano.reco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-29 16:58+0900\n"
+"POT-Creation-Date: 2026-09-23 12:12+0900\n"
 "PO-Revision-Date: 2025-10-20 04:54+0000\n"
 "Last-Translator: p-sage <p-sage@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/rosp/reco/fr/>\n"
@@ -122,27 +122,27 @@ msgstr ""
 msgid "Recording view"
 msgstr "Fenêtre d'enregistrement"
 
-#: data/ui/help-overlay.blp:10
+#: data/ui/shortcuts-dialog.blp:11
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Général"
 
-#: data/ui/help-overlay.blp:13
+#: data/ui/shortcuts-dialog.blp:14
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
 msgstr "Raccourcis clavier"
 
-#: data/ui/help-overlay.blp:18
+#: data/ui/shortcuts-dialog.blp:19
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Quitter"
 
-#: data/ui/help-overlay.blp:24
+#: data/ui/shortcuts-dialog.blp:25
 msgctxt "shortcut window"
 msgid "Recording"
 msgstr "Fenêtre d'enregistrement"
 
-#: data/ui/help-overlay.blp:27
+#: data/ui/shortcuts-dialog.blp:28
 #, fuzzy
 #| msgctxt "shortcut window"
 #| msgid "Start/Stop recording"
