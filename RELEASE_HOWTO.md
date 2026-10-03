@@ -6,8 +6,8 @@ Version numbers should follow [Semantic Versioning](https://semver.org/).
 
 We represents the version number as `x.y.z` in this document.
 
-## 2. Update Screenshots
-Update screenshots under the `data/screenshots` directory of the project.
+## 2. Update Screenshots if Necessary
+Update screenshots under the `data/screenshots` directory of the project if there are visual changes after the previous release.
 
 | Subdir     | Description                                  | Environment to Capture on            |
 | :---       | :---                                         | :---                                 |
