@@ -1,13 +1,20 @@
 # Release Flow
 ![release flow](./docs/images/release_flow.png)
 
+## Prerequisites
+You need to be:
+
+- a `Collaborator` on the project repository
+- a member of `Project maintainers` of the rosp/Reco project on Hosted Weblate
+  - You can check at [Overview page](https://hosted.weblate.org/projects/rosp/reco/#information)
+
 ## 1. Decide Version Number of Release
 Version numbers should follow [Semantic Versioning](https://semver.org/).
 
 We represents the version number as `x.y.z` in this document.
 
-## 2. Update Screenshots
-Update screenshots under the `data/screenshots` directory of the project.
+## 2. Update Screenshots if Necessary
+Update screenshots under the `data/screenshots` directory of the project if there are visual changes after the previous release.
 
 | Subdir     | Description                                  | Environment to Capture on            |
 | :---       | :---                                         | :---                                 |
@@ -39,9 +46,8 @@ Example: https://github.com/ryonakano/reco/pull/449
 
 * Create a new tag named `x.y.z-rc.1`
 * Release title: `Reco x.y.z-rc.1 Released`
-* Release notes may be blank because this is a pre-release
-* Check `Set as a pre-release` on
-* Check `Set as the latest release` off (default)
+* Release notes: may be blank because this is a pre-release
+* Release label: `Pre-release`
 * Publish it when completed
 
 Example: https://github.com/ryonakano/reco/releases/tag/5.2.0-rc.1
@@ -71,16 +77,13 @@ Committing this change triggers Weblate to update all translation files `po/*.po
 (msgmerge)" add-on](https://docs.weblate.org/en/latest/admin/addons.html#addon-weblate-gettext-msgmerge).
 
 ## 5. (Optional) Engage Translators to Work on Translations
-Requirement: needs to be a member of `Project maintainers` of the rosp/Reco project on Hosted Weblate; you can check at
-[Overview page](https://hosted.weblate.org/projects/rosp/reco/#information)
-
-Go to [Operation → Post announcement](https://hosted.weblate.org/projects/rosp/reco/#announcement) of the project page
+Go to [Operations → Post announcement](https://hosted.weblate.org/projects/rosp/reco/#announcement) of the project page
 and post an announcement with the following content:
 
 * Write a `Message` that
   * tells target date & time of the final release in UTC
   * asks translators to work on translations
-* Set `Severity` to `Info (light blue)`
+* Set `Severity` to `Info (light blue)` (default)
 * Set `Expiry date` to the day before the target day
 * Check `Notify users` on
 
@@ -92,11 +95,14 @@ and post an announcement with the following content:
 
 Example: https://github.com/ryonakano/reco/pull/460
 
-## 7. Merge Translations
-Translation updates from Hosted Weblate is configured to be submitted through a PR, e.g. https://github.com/ryonakano/reco/pull/443. Merge one before the final release if any is open.
+## 7. Commit Translations
+Translation updates from Hosted Weblate is configured to be committed and pushed to `origin/main` directly in every
+24 hour. Make sure all translation updates committed and pushed before release.
 
-Translation updates PRs should be merged with the "Create a merge commit" strategy. Squashing these changes into one
-commit makes it harder to revisit them later.
+Go to [Operations → Repository maintenance](https://hosted.weblate.org/projects/rosp/reco/#repository) of the project
+page and press `Commit` button:
+
+![commit translations](./docs/images/commit_translations.png)
 
 ## 8. Publish Final Version `x.y.z`
 ### 8-1. Bump Project Version to `x.y.z`
@@ -105,9 +111,8 @@ Refer to "3-1. Bump Project Version to `x.y.z-rc.1`" for details.
 ### 8-2. Publish New Release `x.y.z`
 Refer to "3-2. Publish New Release `x.y.z-rc.1`" for details.
 
-* Release notes MUST be filled because this is the final release
-* Check `Set as a pre-release` off (default)
-* Check `Set as the latest release` on (default)
+* Release notes: MUST be filled because this is the final release
+* Release label: `Latest` (default)
 
 ### 8-3. Update `tag` & `commit` in Manifest File on Flathub
 Refer to "3-3. Update `tag` & `commit` in Manifest File on Flathub" for details.
