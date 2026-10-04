@@ -97,7 +97,7 @@ Example: https://github.com/ryonakano/reco/pull/460
 
 ## 7. Commit Translations
 Translation updates from Hosted Weblate is configured to be committed and pushed to `origin/main` directly in every
-24 hour. Make sure all translation updates committed and pushed before release. 
+24 hour. Make sure all translation updates committed and pushed before release.
 
 Go to [Operations → Repository maintenance](https://hosted.weblate.org/projects/rosp/reco/#repository) of the project
 page and press `Commit` button:
