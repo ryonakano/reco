@@ -46,8 +46,8 @@ Example: https://github.com/ryonakano/reco/pull/449
 
 * Create a new tag named `x.y.z-rc.1`
 * Release title: `Reco x.y.z-rc.1 Released`
-* Release notes may be blank because this is a pre-release
-* Set `Release label` to `Pre-release`
+* Release notes: may be blank because this is a pre-release
+* Release label: `Pre-release`
 * Publish it when completed
 
 Example: https://github.com/ryonakano/reco/releases/tag/5.2.0-rc.1
@@ -111,8 +111,8 @@ Refer to "3-1. Bump Project Version to `x.y.z-rc.1`" for details.
 ### 8-2. Publish New Release `x.y.z`
 Refer to "3-2. Publish New Release `x.y.z-rc.1`" for details.
 
-* Release notes MUST be filled because this is the final release
-* Set `Release label` to `Latest` (default)
+* Release notes: MUST be filled because this is the final release
+* Release label: `Latest` (default)
 
 ### 8-3. Update `tag` & `commit` in Manifest File on Flathub
 Refer to "3-3. Update `tag` & `commit` in Manifest File on Flathub" for details.
