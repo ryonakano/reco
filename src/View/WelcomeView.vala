@@ -25,7 +25,7 @@ public class View.WelcomeView : AbstractView {
     construct {
         device_manager = Manager.DeviceManager.get_default ();
 
-        var source_header_label = new Gtk.Label (_("Source")) {
+        var source_header_label = new Gtk.Label (_("5.2.1")) {
             halign = Gtk.Align.START
         };
         source_header_label.add_css_class ("title-4");
